@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Hindu Calendar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Harmony -->
+    <!-- Application Structure Plan: The application is designed as an interactive dashboard. The central element is a dynamic, explorable calendar for a specific Hindu month, allowing users to see festival dates and lunar phases (Tithi) at a glance. Controls for changing the month and year promote exploration. This calendar is supported by two other sections: a "Major Festivals Explorer" using a tabbed interface for focused deep-dives on significant events, and a "Learn the Basics" section, also tabbed, to explain core calendar concepts. This multi-part structure was chosen to cater to different user intents: direct exploration (calendar), specific information seeking (festivals), and foundational learning (concepts), creating a holistic and user-friendly educational tool rather than a simple data list. -->
+    <!-- Visualization & Content Choices: 
+        1. Hindu Calendar: Info -> Organize/Inform -> Interactive HTML Grid -> Click day to see details, use dropdowns to change month -> Intuitive and universally understood calendar format for organizing time-based data -> HTML/JS.
+        2. Festival & Concept Details: Info -> Inform -> Tabbed Content Panels -> Click tab to show relevant text -> Manages information density and prevents cognitive overload by showing only one topic at a time -> HTML/JS.
+        3. Festival Distribution: Data (count of festivals per month) -> Compare -> Bar Chart -> Hover for details -> Provides a quick visual summary of the year's busiest festival periods, making data patterns easy to spot -> Chart.js/Canvas.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF8;
+            color: #4A4A4A;
+        }
+        .tab-active {
+            background-color: #D97706;
+            color: #FFFFFF;
+        }
+        .tab-inactive {
+            background-color: #FBBF24;
+            color: #92400E;
+        }
+        .calendar-day {
+            transition: all 0.2s ease-in-out;
+        }
+        .calendar-day:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .day-selected {
+            background-color: #D97706;
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .day-festival {
+            position: relative;
+        }
+        .day-festival::after {
+            content: '';
+            position: absolute;
+            bottom: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background-color: #D97706;
+            border-radius: 50%;
+        }
+        .day-selected.day-festival::after {
+             background-color: #FFFFFF;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-10">
+            <h1 class="text-4xl md:text-5xl font-bold text-amber-800 mb-2">The Hindu Calendar Explorer</h1>
+            <p class="text-lg text-amber-700">An interactive guide to the lunisolar months and festivals of Vikram Samvat 2082 (2025-26 CE).</p>
+        </header>
+
+        <main>
+            <!-- Calendar Section -->
+            <section id="calendar-explorer" class="bg-white p-6 rounded-2xl shadow-lg mb-12">
+                <div class="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
+                    <h2 class="text-2xl font-bold text-amber-900">Monthly Calendar</h2>
+                    <div class="flex items-center gap-4">
+                        <select id="month-select" class="p-2 border border-amber-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500"></select>
+                        <select id="year-select" class="p-2 border border-amber-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500"></select>
+                    </div>
+                </div>
+
+                <div class="flex flex-col lg:flex-row gap-6">
+                    <div class="flex-grow">
+                        <div id="calendar-grid-header" class="grid grid-cols-7 gap-2 text-center font-semibold text-amber-700 mb-2">
+                            <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+                        </div>
+                        <div id="calendar-grid" class="grid grid-cols-7 gap-2">
+                        </div>
+                    </div>
+                    <div id="info-panel" class="w-full lg:w-1/3 bg-amber-50 p-6 rounded-xl border border-amber-200 min-h-[200px]">
+                        <h3 class="font-bold text-xl text-amber-800 mb-3" id="info-panel-title">Select a Date</h3>
+                        <div id="info-panel-content" class="text-amber-900 space-y-2">
+                            <p>Click on any day in the calendar to see details about its Tithi (lunar day), Paksha (lunar fortnight), and any associated festivals.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Major Festivals Section -->
+            <section id="festivals" class="mb-12">
+                 <h2 class="text-3xl font-bold text-amber-900 text-center mb-8">Major Festivals</h2>
+                 <p class="text-center text-amber-800 max-w-3xl mx-auto mb-8">
+                    The Hindu calendar is marked by numerous festivals that celebrate spirituality, seasons, and cultural traditions. This section provides an overview of some of the most significant celebrations. Click on a festival name to learn more about its history, significance, and rituals.
+                </p>
+                <div id="festival-tabs" class="flex flex-wrap justify-center gap-2 mb-6"></div>
+                <div id="festival-content" class="bg-white p-6 md:p-8 rounded-2xl shadow-lg min-h-[200px]"></div>
+            </section>
+            
+            <!-- Festival Distribution Chart Section -->
+            <section id="chart-section" class="mb-12">
+                <h2 class="text-3xl font-bold text-amber-900 text-center mb-8">Festival Distribution by Month</h2>
+                <p class="text-center text-amber-800 max-w-3xl mx-auto mb-8">
+                    This chart visualizes the number of major festivals occurring in each Hindu month throughout the year. It provides a quick overview of which periods are most dense with celebrations, reflecting the cyclical nature of agricultural and spiritual life. Hover over the bars to see the exact count for each month.
+                </p>
+                <div class="bg-white p-6 rounded-2xl shadow-lg">
+                    <div class="chart-container">
+                        <canvas id="festivalsChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Learn the Basics Section -->
+            <section id="concepts">
+                <h2 class="text-3xl font-bold text-amber-900 text-center mb-8">Learn the Basics</h2>
+                <p class="text-center text-amber-800 max-w-3xl mx-auto mb-8">
+                    The Hindu calendar is a lunisolar system with unique concepts for tracking time. Understanding these fundamentals is key to appreciating its structure. This area explains the core components like lunar months (Mas), fortnights (Paksha), and lunar days (Tithi).
+                </p>
+                <div id="concept-tabs" class="flex flex-wrap justify-center gap-2 mb-6"></div>
+                <div id="concept-content" class="bg-white p-6 md:p-8 rounded-2xl shadow-lg min-h-[150px]"></div>
+            </section>
+        </main>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+    const HINDU_MONTHS = [
+        "Chaitra", "Vaishakha", "Jyeshtha", "Ashadha",
+        "Shravana", "Bhadrapada", "Ashvina", "Kartika",
+        "Margashirsha", "Pausha", "Magha", "Phalguna"
+    ];
+
+    const GREGORIAN_MONTH_NAMES = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    const FESTIVALS_2025_26 = [
+        { name: "Holi", date: "2025-03-14", month: "Phalguna", paksha: "Shukla", tithi: 15, description: "The festival of colors, celebrating the victory of good over evil and the arrival of spring." },
+        { name: "Chaitra Navaratri / Gudi Padwa", date: "2025-03-30", month: "Chaitra", paksha: "Shukla", tithi: 1, description: "The start of the Hindu New Year. Gudi Padwa in Maharashtra, and the beginning of the nine-night festival honoring Goddess Durga." },
+        { name: "Rama Navami", date: "2025-04-06", month: "Chaitra", paksha: "Shukla", tithi: 9, description: "Celebrates the birth of Lord Rama, the seventh avatar of Vishnu." },
+        { name: "Hanuman Jayanti", date: "2025-04-13", month: "Chaitra", paksha: "Shukla", tithi: 15, description: "Commemorates the birth of Lord Hanuman, the embodiment of devotion and strength." },
+        { name: "Akshaya Tritiya", date: "2025-05-01", month: "Vaishakha", paksha: "Shukla", tithi: 3, description: "An auspicious day for new beginnings, investments, and purchases, believed to bring eternal prosperity." },
+        { name: "Guru Purnima", date: "2025-07-11", month: "Ashadha", paksha: "Shukla", tithi: 15, description: "A day dedicated to honoring spiritual and academic gurus or teachers." },
+        { name: "Raksha Bandhan", date: "2025-08-19", month: "Shravana", paksha: "Shukla", tithi: 15, description: "Celebrates the bond between brothers and sisters, where sisters tie a protective thread (rakhi) on their brothers' wrists." },
+        { name: "Krishna Janmashtami", date: "2025-08-26", month: "Bhadrapada", paksha: "Krishna", tithi: 8, description: "Celebrates the birth of Lord Krishna, the eighth avatar of Vishnu." },
+        { name: "Ganesh Chaturthi", date: "2025-09-07", month: "Bhadrapada", paksha: "Shukla", tithi: 4, description: "A ten-day festival marking the birth of Lord Ganesha, the god of wisdom and new beginnings." },
+        { name: "Sharad Navaratri", date: "2025-09-22", month: "Ashvina", paksha: "Shukla", tithi: 1, description: "A nine-night festival dedicated to Goddess Durga, celebrating her victory over the demon Mahishasura." },
+        { name: "Dussehra (Vijayadashami)", date: "2025-10-01", month: "Ashvina", paksha: "Shukla", tithi: 10, description: "Marks the end of Navaratri and Ramlila, celebrating Lord Rama's victory over Ravana." },
+        { name: "Diwali (Lakshmi Puja)", date: "2025-10-21", month: "Kartika", paksha: "Krishna", tithi: 15, description: "The festival of lights, symbolizing the victory of light over darkness. Homes are decorated with lamps and prayers are offered to Goddess Lakshmi." },
+        { name: "Makar Sankranti", date: "2026-01-14", month: "Pausha", paksha: "Shukla", tithi: 10, description: "A solar event marking the sun's transit into Capricorn, celebrating the harvest season." },
+        { name: "Maha Shivaratri", date: "2026-02-17", month: "Magha", paksha: "Krishna", tithi: 14, description: "The 'Great Night of Shiva', a major festival marked by fasting and night-long prayers to Lord Shiva." },
+    ];
+
+    const CONCEPTS = {
+        "Mas (Month)": "The Hindu calendar is lunisolar. A lunar month, or 'Mas', is about 29.5 days, the time it takes for the moon to orbit the Earth. There are 12 lunar months in a year. To align with the solar year, an extra month (Adhik Mas) is added every 2-3 years.",
+        "Paksha (Fortnight)": "Each lunar month is divided into two fortnights, or 'Paksha', each lasting about 15 days. The period of the waxing moon (from new moon to full moon) is called 'Shukla Paksha' (the bright fortnight). The period of the waning moon (from full moon to new moon) is called 'Krishna Paksha' (the dark fortnight).",
+        "Tithi (Lunar Day)": "A 'Tithi' is a lunar day. It is defined as the time it takes for the longitudinal angle between the moon and the sun to increase by 12 degrees. Because the moon's orbit is elliptical, a tithi can vary in length from about 20 to 27 hours. There are 30 tithis in a lunar month, numbered 1 to 15 for each Paksha.",
+    };
+
+    const MONTH_START_DATES_2025 = {
+        "Chaitra": new Date("2025-03-30"),
+        "Vaishakha": new Date("2025-04-29"),
+        "Jyeshtha": new Date("2025-05-28"),
+        "Ashadha": new Date("2025-06-27"),
+        "Shravana": new Date("2025-07-26"),
+        "Bhadrapada": new Date("2025-08-25"),
+        "Ashvina": new Date("2025-09-23"),
+        "Kartika": new Date("2025-10-23"),
+        "Margashirsha": new Date("2025-11-21"),
+        "Pausha": new Date("2025-12-21"),
+        "Magha": new Date("2026-01-20"),
+        "Phalguna": new Date("2026-02-18"),
+    };
+
+    let selectedYear = 2025;
+    let selectedMonthIndex = 8; 
+
+    const calendarGrid = document.getElementById('calendar-grid');
+    const monthSelect = document.getElementById('month-select');
+    const yearSelect = document.getElementById('year-select');
+    const infoPanelTitle = document.getElementById('info-panel-title');
+    const infoPanelContent = document.getElementById('info-panel-content');
+
+    function renderCalendar(monthIndex, year) {
+        calendarGrid.innerHTML = '';
+        const monthName = HINDU_MONTHS[monthIndex];
+        const startDate = MONTH_START_DATES_2025[monthName];
+        if (!startDate || startDate.getFullYear() !== year && !(monthName === "Magha" || monthName === "Phalguna" || monthName === "Makar Sankranti")) {
+             calendarGrid.innerHTML = `<div class="col-span-7 text-center p-8 text-amber-700">Data for ${monthName} ${year} is not available in this demonstrative calendar.</div>`;
+            return;
+        }
+
+        const startDayOfWeek = startDate.getDay();
+        const daysInMonth = 30;
+
+        for (let i = 0; i < startDayOfWeek; i++) {
+            calendarGrid.insertAdjacentHTML('beforeend', '<div></div>');
+        }
+
+        for (let day = 1; day <= daysInMonth; day++) {
+            const currentDate = new Date(startDate);
+            currentDate.setDate(startDate.getDate() + day - 1);
+            const dateString = currentDate.toISOString().split('T')[0];
+            
+            let tithi, paksha;
+            if (day <= 15) {
+                paksha = "Shukla";
+                tithi = day;
+            } else {
+                paksha = "Krishna";
+                tithi = day - 15;
+            }
+
+            const festivalsOnDay = FESTIVALS_2025_26.filter(f => f.date === dateString);
+
+            const dayEl = document.createElement('div');
+            dayEl.className = 'calendar-day cursor-pointer p-2 text-center rounded-lg border border-amber-100';
+            dayEl.innerHTML = `<span class="font-semibold">${currentDate.getDate()}</span><br><span class="text-xs">${GREGORIAN_MONTH_NAMES[currentDate.getMonth()]}</span>`;
+            dayEl.dataset.date = dateString;
+            dayEl.dataset.gregorianDay = currentDate.getDate();
+            dayEl.dataset.gregorianMonth = GREGORIAN_MONTH_NAMES[currentDate.getMonth()];
+            dayEl.dataset.tithi = tithi;
+            dayEl.dataset.paksha = paksha;
+            if (festivalsOnDay.length > 0) {
+                dayEl.classList.add('day-festival', 'bg-amber-100');
+                dayEl.dataset.festival = festivalsOnDay.map(f => f.name).join(', ');
+            }
+            dayEl.addEventListener('click', handleDayClick);
+            calendarGrid.appendChild(dayEl);
+        }
+    }
+
+    function handleDayClick(event) {
+        document.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('day-selected'));
+        const dayEl = event.currentTarget;
+        dayEl.classList.add('day-selected');
+        
+        const { gregorianDay, gregorianMonth, tithi, paksha, festival } = dayEl.dataset;
+        infoPanelTitle.textContent = `${gregorianMonth} ${gregorianDay}`;
+        
+        let content = `<p><strong>Tithi:</strong> ${tithi}</p><p><strong>Paksha:</strong> ${paksha}</p>`;
+        if (festival) {
+            content += `<div class="mt-4 pt-2 border-t border-amber-200"><h4 class="font-bold">Festivals:</h4><p class="text-amber-800">${festival}</p></div>`;
+        }
+        infoPanelContent.innerHTML = content;
+    }
+
+    function populateSelectors() {
+        HINDU_MONTHS.forEach((month, index) => {
+            const option = new Option(month, index);
+            monthSelect.add(option);
+        });
+        
+        const currentYear = new Date().getFullYear();
+        yearSelect.add(new Option('2025-26 (VS 2082)', 2025));
+        
+        const now = new Date();
+        if (now.getFullYear() === 2025) {
+            const todayMonth = now.getMonth();
+            const todayDate = now.getDate();
+            let foundMonth = false;
+            for(let i=HINDU_MONTHS.length -1; i >=0; i--) {
+                const monthStartDate = MONTH_START_DATES_2025[HINDU_MONTHS[i]];
+                if (now >= monthStartDate) {
+                    selectedMonthIndex = i;
+                    foundMonth = true;
+                    break;
+                }
+            }
+            if(!foundMonth) selectedMonthIndex = 0;
+        } else if (now.getFullYear() === 2026) {
+             selectedMonthIndex = 10;
+        }
+
+        monthSelect.value = selectedMonthIndex;
+        yearSelect.value = selectedYear;
+    }
+
+    function setupTabs(tabContainerId, contentContainerId, data, isConcept=false) {
+        const tabContainer = document.getElementById(tabContainerId);
+        const contentContainer = document.getElementById(contentContainerId);
+        const keys = isConcept ? Object.keys(data) : data.map(item => item.name);
+        
+        keys.forEach((key, index) => {
+            const button = document.createElement('button');
+            button.textContent = key;
+            button.className = 'py-2 px-4 rounded-full text-sm font-semibold transition-colors duration-200 tab-inactive';
+            button.dataset.key = key;
+            button.addEventListener('click', () => {
+                tabContainer.querySelectorAll('button').forEach(btn => {
+                    btn.classList.remove('tab-active');
+                    btn.classList.add('tab-inactive');
+                });
+                button.classList.add('tab-active');
+                button.classList.remove('tab-inactive');
+                
+                let contentData = isConcept ? data[key] : data.find(item => item.name === key).description;
+                contentContainer.innerHTML = isConcept ? `<p>${contentData}</p>` : `<h3 class="text-xl font-bold text-amber-800 mb-2">${key}</h3><p>${contentData}</p>`;
+            });
+            tabContainer.appendChild(button);
+        });
+
+        tabContainer.querySelector('button').click();
+    }
+
+    function renderFestivalChart() {
+        const festivalCounts = HINDU_MONTHS.map(month => {
+            return FESTIVALS_2025_26.filter(f => f.month === month).length;
+        });
+        
+        const ctx = document.getElementById('festivalsChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: HINDU_MONTHS,
+                datasets: [{
+                    label: '# of Major Festivals',
+                    data: festivalCounts,
+                    backgroundColor: 'rgba(217, 119, 6, 0.7)',
+                    borderColor: 'rgba(146, 64, 14, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        backgroundColor: '#451a03',
+                        titleColor: '#fef3c7',
+                        bodyColor: '#fef3c7',
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                           stepSize: 1
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    monthSelect.addEventListener('change', (e) => {
+        selectedMonthIndex = parseInt(e.target.value);
+        renderCalendar(selectedMonthIndex, selectedYear);
+    });
+
+    yearSelect.addEventListener('change', (e) => {
+        selectedYear = parseInt(e.target.value);
+        renderCalendar(selectedMonthIndex, selectedYear);
+    });
+
+    function init() {
+        populateSelectors();
+        renderCalendar(selectedMonthIndex, selectedYear);
+        setupTabs('festival-tabs', 'festival-content', FESTIVALS_2025_26, false);
+        setupTabs('concept-tabs', 'concept-content', CONCEPTS, true);
+        renderFestivalChart();
+    }
+
+    init();
+});
+</script>
+
+</body>
+</html>

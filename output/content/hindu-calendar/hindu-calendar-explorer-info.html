@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infographic: The Hindu Calendar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Energetic & Playful -->
+    <!-- Narrative & Structure Plan: This infographic tells the story of the Hindu calendar in a top-down, scrollable narrative. It starts with a bold hook, then explains the fundamental 'building blocks' (Mas, Paksha, Tithi) for context. The core of the infographic is a visual timeline of the year, showing the flow of months and placement of key festivals. This is followed by a 'spotlight' on major festivals for deeper insight, and a concluding data visualization that summarizes the year's festive density by season. This structure guides the user from foundational knowledge to a detailed overview and finally to a summary analysis, creating a complete and digestible learning path. -->
+    <!-- Visualization & Content Choices: 
+        1. Core Concepts: Goal: Organize -> Method: Styled HTML Cards with Unicode Icons -> Justification: Visually separates and simplifies core concepts for easy understanding, using icons as quick identifiers. -> HTML/CSS.
+        2. Yearly Timeline: Goal: Change -> Method: Vertical Timeline using structured HTML/CSS -> Justification: Effectively shows the progression of months and the chronological placement of festivals throughout the year in a clear, narrative format. -> HTML/CSS.
+        3. Festival Spotlight: Goal: Inform -> Method: HTML Grid of Cards with Unicode pictographs -> Justification: Provides easily scannable, bite-sized information on key festivals, with icons adding visual appeal and quick recognition. -> HTML/CSS.
+        4. Festival Season Breakdown: Goal: Compare/Inform -> Method: Donut Chart -> Justification: Shows the composition of the festive year by season, offering a high-level proportional summary that is more engaging for an infographic than a simple bar chart. -> Chart.js/Canvas.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FFFBEF;
+            color: #2C3E50;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -31px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background-color: #FF8C42;
+            border: 4px solid #FFFBEF;
+        }
+        .timeline-line {
+            position: absolute;
+            left: -20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #FFD700;
+        }
+         .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 450px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-5xl">
+
+        <header class="text-center my-12">
+            <h1 class="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500 mb-4">A Journey Through Time</h1>
+            <p class="text-xl md:text-2xl text-gray-700">Exploring the Hindu Lunisolar Calendar of Vikram Samvat 2082 (2025-26 CE)</p>
+        </header>
+
+        <section id="concepts" class="my-16">
+            <h2 class="text-3xl font-bold text-center mb-10 text-[#2C3E50]">The Building Blocks of Time</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-2xl shadow-lg text-center border-t-4 border-[#48C9B0]">
+                    <div class="text-5xl mb-4">🕉️</div>
+                    <h3 class="text-2xl font-bold text-[#48C9B0] mb-2">MĀS</h3>
+                    <p class="text-gray-600">A lunar month (~29.5 days), marking the moon's orbit. An extra month, 'Adhik Mas', is added every few years to align with the solar cycle.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-lg text-center border-t-4 border-[#3498DB]">
+                    <div class="text-5xl mb-4">🌓</div>
+                    <h3 class="text-2xl font-bold text-[#3498DB] mb-2">PAKSHA</h3>
+                    <p class="text-gray-600">Each month has two fortnights: 'Shukla Paksha' (waxing moon) and 'Krishna Paksha' (waning moon), each lasting about 15 days.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-lg text-center border-t-4 border-[#FF8C42]">
+                    <div class="text-5xl mb-4">☀️</div>
+                    <h3 class="text-2xl font-bold text-[#FF8C42] mb-2">TITHI</h3>
+                    <p class="text-gray-600">A lunar day, defined by a 12-degree increase in the angle between the sun and moon. Its length can vary from 20 to 27 hours.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="timeline" class="my-16">
+             <h2 class="text-3xl font-bold text-center mb-12 text-[#2C3E50]">The Year at a Glance</h2>
+             <div class="relative pl-10">
+                <div class="timeline-line"></div>
+                
+                <div class="relative timeline-item mb-10">
+                    <h3 class="text-2xl font-bold text-[#FF8C42]">Chaitra <span class="text-lg font-normal text-gray-500">(Mar-Apr)</span></h3>
+                    <p class="text-gray-600">The first month, heralding spring and the new year.</p>
+                    <p class="mt-2 text-sm font-semibold text-gray-800">🎉 Gudi Padwa, Rama Navami</p>
+                </div>
+                
+                <div class="relative timeline-item mb-10">
+                    <h3 class="text-2xl font-bold text-[#FF8C42]">Vaishakha & Jyeshtha <span class="text-lg font-normal text-gray-500">(Apr-Jun)</span></h3>
+                    <p class="text-gray-600">The peak of summer, marked by auspicious days.</p>
+                    <p class="mt-2 text-sm font-semibold text-gray-800">🎉 Akshaya Tritiya</p>
+                </div>
+
+                <div class="relative timeline-item mb-10">
+                    <h3 class="text-2xl font-bold text-[#3498DB]">Ashadha & Shravana <span class="text-lg font-normal text-gray-500">(Jun-Aug)</span></h3>
+                    <p class="text-gray-600">The monsoon season begins, a time for devotion and honoring teachers.</p>
+                    <p class="mt-2 text-sm font-semibold text-gray-800">🎉 Guru Purnima, Raksha Bandhan</p>
+                </div>
+
+                <div class="relative timeline-item mb-10">
+                    <h3 class="text-2xl font-bold text-[#3498DB]">Bhadrapada <span class="text-lg font-normal text-gray-500">(Aug-Sep)</span></h3>
+                    <p class="text-gray-600">A month of major festivals celebrating divine births.</p>
+                    <p class="mt-2 text-sm font-semibold text-gray-800">🎉 Krishna Janmashtami, Ganesh Chaturthi</p>
+                </div>
+
+                <div class="relative timeline-item mb-10">
+                    <h3 class="text-2xl font-bold text-[#FFD700]">Ashvina & Kartika <span class="text-lg font-normal text-gray-500">(Sep-Nov)</span></h3>
+                    <p class="text-gray-600">The heart of the festival season, culminating in the festival of lights.</p>
+                    <p class="mt-2 text-sm font-semibold text-gray-800">🎉 Navaratri, Dussehra, Diwali</p>
+                </div>
+                
+                <div class="relative timeline-item mb-10">
+                    <h3 class="text-2xl font-bold text-[#48C9B0]">Margashirsha & Pausha <span class="text-lg font-normal text-gray-500">(Nov-Jan)</span></h3>
+                    <p class="text-gray-600">A quieter winter period, leading up to the harvest festival.</p>
+                    <p class="mt-2 text-sm font-semibold text-gray-800">🎉 Makar Sankranti</p>
+                </div>
+
+                <div class="relative timeline-item mb-10">
+                    <h3 class="text-2xl font-bold text-[#48C9B0]">Magha & Phalguna <span class="text-lg font-normal text-gray-500">(Jan-Mar)</span></h3>
+                    <p class="text-gray-600">Late winter, featuring a night of devotion to Shiva and the vibrant festival of colors.</p>
+                    <p class="mt-2 text-sm font-semibold text-gray-800">🎉 Maha Shivaratri, Holi</p>
+                </div>
+             </div>
+        </section>
+
+        <section id="spotlight" class="my-16">
+            <h2 class="text-3xl font-bold text-center mb-10 text-[#2C3E50]">Festival Spotlight</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                 <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                    <p class="text-4xl mb-3">🎨</p><h3 class="text-xl font-bold mb-2">Holi</h3>
+                    <p class="text-gray-600">The festival of colors celebrating spring's arrival and the triumph of good over evil.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                    <p class="text-4xl mb-3">🪔</p><h3 class="text-xl font-bold mb-2">Diwali</h3>
+                    <p class="text-gray-600">The five-day festival of lights, symbolizing light's victory over darkness.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                    <p class="text-4xl mb-3">💃</p><h3 class="text-xl font-bold mb-2">Navaratri</h3>
+                    <p class="text-gray-600">A nine-night festival honoring the Goddess Durga in her many forms.</p>
+                </div>
+                 <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                    <p class="text-4xl mb-3">🐘</p><h3 class="text-xl font-bold mb-2">Ganesh Chaturthi</h3>
+                    <p class="text-gray-600">Celebrates the birth of Lord Ganesha, the remover of obstacles.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                    <p class="text-4xl mb-3">🤝</p><h3 class="text-xl font-bold mb-2">Raksha Bandhan</h3>
+                    <p class="text-gray-600">Honors the bond between siblings, marked by the tying of the sacred rakhi thread.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                    <p class="text-4xl mb-3">🏹</p><h3 class="text-xl font-bold mb-2">Dussehra</h3>
+                    <p class="text-gray-600">Commemorates Lord Rama's victory over the demon king Ravana.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="breakdown" class="my-16">
+            <h2 class="text-3xl font-bold text-center mb-2 text-[#2C3E50]">Festival Seasons</h2>
+            <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">The year's festivals can be grouped into distinct seasons, each with its own cultural and spiritual flavor. The autumn period is particularly dense with major celebrations.</p>
+            <div class="bg-white p-6 rounded-2xl shadow-lg">
+                <div class="chart-container">
+                    <canvas id="seasonsChart"></canvas>
+                </div>
+            </div>
+        </section>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const ctx = document.getElementById('seasonsChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Spring Festivals', 'Monsoon Festivals', 'Autumn Festivals', 'Winter Festivals'],
+            datasets: [{
+                label: 'Festivals by Season',
+                data: [4, 4, 3, 3],
+                backgroundColor: [
+                    '#FF8C42', 
+                    '#3498DB', 
+                    '#FFD700', 
+                    '#48C9B0'  
+                ],
+                borderColor: '#FFFBEF',
+                borderWidth: 4,
+                hoverOffset: 10
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        font: {
+                            size: 14,
+                            family: "'Inter', sans-serif"
+                        }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                              return label.join(' ');
+                            } else {
+                              return label;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
+
+</body>
+</html>
+

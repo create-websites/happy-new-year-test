@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Grateful Gathering — Thanksgiving</title>
+  <meta name="description" content="A cozy single‑file Thanksgiving webpage with falling leaves, a countdown to Thanksgiving, colorful cornucopia, sample wishes, and a Generate Greeting composer." />
+  <style>
+    :root{
+      --amber:#f59e0b;
+      --gold:#facc15;
+      --pumpkin:#ea580c;
+      --rust:#b45309;
+      --cran:#9a3412;
+      --sage:#166534;
+      --cream:#fff8e7;
+      --ink:#1f2937;
+      --bg: linear-gradient(180deg, #fdf6e3, #fef3c7, #fde68a, #fbbf24, #d97706, #92400e);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"; color:var(--ink); background:var(--bg); line-height:1.5; overflow-x:hidden}
+    a{color:var(--cran)}
+
+    .garland{position:sticky; top:0; z-index:10; display:flex; gap:18px; justify-content:center; align-items:center; padding:12px 16px; background:linear-gradient(180deg, rgba(255,255,255,.25), rgba(255,255,255,0)); border-bottom:1px solid rgba(0,0,0,.08);}
+    .charm{width:18px;height:18px; border-radius:4px; background:conic-gradient(from 0deg, #ea580c, #a16207, #b45309, #ea580c); box-shadow:0 0 10px #ea580c66, 0 0 22px inset #a1620766; transform: rotate(45deg); animation: twinkle 2.6s ease-in-out infinite}
+    @keyframes twinkle{0%,100%{filter:brightness(1)}50%{filter:brightness(1.5)}}
+
+    header.hero{padding:clamp(2rem,6vw,5rem) 1rem 2rem; text-align:center; overflow:hidden}
+    .title{font-size:clamp(2.2rem,7vw,4rem); margin:0 0 .35rem; letter-spacing:.02em; text-shadow: 0 1px 0 rgba(255,255,255,.5), 0 2px 12px rgba(250,204,21,.35)}
+    .subtitle{max-width:68ch; margin:0 auto 1.25rem; opacity:.9}
+    .cta-row{display:flex; gap:.75rem; justify-content:center; flex-wrap:wrap}
+    .btn{appearance:none; border:none; cursor:pointer; padding:.7rem 1rem; border-radius:999px; font-weight:700; color:white;}
+    .btn{background:linear-gradient(180deg, var(--pumpkin), var(--rust)); box-shadow:0 6px 24px rgba(217,119,6,.35)}
+    .btn.alt{background:linear-gradient(180deg, var(--sage), #0b5130); box-shadow:0 6px 24px rgba(22,101,52,.3)}
+
+    .countdown{margin:2rem auto 0; padding:1rem; max-width:900px; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:.75rem}
+    .time{background: linear-gradient(180deg, rgba(255,255,255,.2), rgba(255,255,255,.1)); border:1px solid rgba(0,0,0,.12); border-radius:20px; padding:1rem .5rem; text-align:center; box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    .n{font-size:clamp(1.8rem,6vw,3rem); font-weight:800}
+
+    .carousel{margin:2rem auto 0; max-width:1000px; padding:0 1rem}
+    .carousel-box{border:1px solid rgba(0,0,0,.14); border-radius:22px; padding:1.25rem 1rem; background: rgba(255,255,255,.3); text-align:center; min-height:84px; display:grid; place-items:center}
+    .carousel .phrase{font-size:clamp(1.2rem,4vw,2rem); font-weight:700; color:var(--cran)}
+
+    section.grid{margin:2rem auto; padding:0 1rem; max-width:1100px; display:grid; gap:.9rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));}
+    .card{border-radius:18px; padding:1rem; background:linear-gradient(180deg, #fff3e0, #fde68a); border:1px solid rgba(0,0,0,.12); box-shadow:0 12px 30px rgba(0,0,0,.25)}
+    .card h3{margin:0 0 .35rem; font-size:1.05rem; color:var(--pumpkin)}
+    .card p{margin:0; color:var(--ink)}
+
+    .composer{margin:2.5rem auto; max-width:900px; padding:1rem; text-align:center; border-top:1px dashed rgba(0,0,0,.15)}
+    form{display:grid; gap:.75rem; grid-template-columns:1fr; max-width:680px; margin:0 auto}
+    input, textarea{width:100%; padding:.8rem 1rem; border-radius:14px; border:1px solid rgba(0,0,0,.16); background:rgba(255,255,255,.85); color:var(--ink); font-size:1rem}
+
+    footer{text-align:center; padding:2rem 1rem 3rem; opacity:.9}
+
+    .leaves{position:fixed; inset:0; pointer-events:none; z-index:0; overflow:hidden}
+    .leaf{--size:10px; position:absolute; top:-20px; width:var(--size); height:calc(var(--size)*.8); border-radius: 60% 10% 60% 10% / 60% 10% 60% 10%; opacity:.9; filter: blur(.4px); transform: rotate(45deg); animation: fall linear var(--dur) var(--delay) infinite}
+    .leaf.orange{background:#ea580c}
+    .leaf.red{background:#b91c1c}
+    .leaf.gold{background:#facc15}
+    .leaf.brown{background:#92400e}
+
+    .corn{width:clamp(160px,30vw,260px); display:block; margin:1rem auto; filter:drop-shadow(0 12px 24px rgba(0,0,0,.4))}
+
+    @media print{.garland,.cta-row,.composer,footer,.grid,.subtitle{display:none!important}.title{color:#92400e;text-shadow:none}}
+  </style>
+</head>
+<body>
+  <div class="garland"><div class="charm"></div><div class="charm"></div><div class="charm"></div></div>
+  <header class="hero">
+    <h1 class="title">Happy Thanksgiving 🦃</h1>
+    <p class="subtitle">A snug nook for thanks: autumn leaves, a timer, vibrant cornucopia, sample messages, and a “Create Greeting” tool.</p>
+
+    <!-- Cornucopia with fall colors -->
+    <svg class="corn" viewBox="0 0 220 160" role="img" aria-label="Cornucopia with harvest">
+      <path d="M20 110 C 40 70, 80 50, 150 60 C 190 70, 200 100, 180 120 C 160 140, 120 130, 80 120 C 50 112, 30 120, 20 110 Z" fill="#b45309" stroke="#7c2d12" stroke-width="3"/>
+      <circle cx="110" cy="110" r="12" fill="#ea580c"/>
+      <circle cx="125" cy="115" r="9" fill="#16a34a"/>
+      <circle cx="95" cy="112" r="10" fill="#facc15"/>
+      <circle cx="135" cy="108" r="8" fill="#b91c1c"/>
+      <circle cx="105" cy="95" r="7" fill="#78350f"/>
+    </svg>
+  </header>
+
+  <!-- Wishes -->
+  <section class="grid">
+    <article class="card"><h3>Family</h3><p>May our meals be hearty, our laughter endless, and our hearts overflowing.</p></article>
+    <article class="card"><h3>Parents</h3><p>Grateful for the traditions and lessons—wishing you a joyful, peaceful Thanksgiving.</p></article>
+    <article class="card"><h3>Children</h3><p>Hoping your Thanksgiving is filled with warm hugs, sweet treats, and endless laughter!</p></article>
+    <article class="card"><h3>Friends</h3><p>Thankful for friends who are like family—here’s to joy, good food, and cherished moments.</p></article>
+    <article class="card"><h3>Colleagues</h3><p>Grateful for your reliability—wishing you a relaxing long weekend and unforgettable leftovers.</p></article>
+    <article class="card"><h3>Hosts</h3><p>Your kindness is a treasure—may your kitchen stay peaceful and your table full of praise.</p></article>
+    <article class="card"><h3>Newlyweds</h3><p>First Thanksgiving as newlyweds—may it spark cherished traditions and heartfelt gratitude.</p></article>
+    <article class="card"><h3>Grandparents</h3><p>For the memories, meals, and care you give—thank you. Wishing you a warm, joyful Thanksgiving.</p></article>
+    <article class="card"><h3>Neighbors</h3><p>Thankful to cross paths and share a smile—may your days be filled with warmth, good meals, and kind greetings.</p></article>
+    <article class="card"><h3>Long‑Distance</h3><p>Though we're miles away, I'm grateful for you—saving you a seat in spirit.</p></article>
+    <article class="card"><h3>Healthcare Workers</h3><p>Grateful for your care—wishing you peace, comfort, and little pockets of joy.</p></article>
+    <article class="card"><h3>Those in Tough Times</h3><p>Wishing you peace this season—may gentle moments of care and warmth surround you.</p></article>
+  </section>
+
+  <!-- Composer -->
+  <section id="compose" class="composer">
+    <h2>Create & share your Thanksgiving wish</h2>
+    <form id="wishForm">
+      <input id="yourName" placeholder="Your name (optional)" />
+      <textarea id="yourMessage" placeholder="Write a warm Thanksgiving message…"></textarea>
+      <div class="cta-row">
+        <button class="btn" type="submit" id="generateBtn">🧡 Generate Greeting</button>
+        <button class="btn alt" type="button" id="copyBtn">📋 Copy</button>
+      </div>
+    </form>
+  </section>
+
+  <footer>Crafted with love and a sprinkle of spice. — Wishing you a joyful Thanksgiving!</footer>
+  <div class="leaves" id="leaves" aria-hidden="true"></div>
+
+  <script>
+    // Falling leaves with multiple colors
+    (function leaves(){
+      const container = document.getElementById('leaves');
+      const colors = ['orange','red','gold','brown'];
+      function makeLeaf(){
+        const f = document.createElement('span');
+        f.className = 'leaf ' + colors[Math.floor(Math.random()*colors.length)];
+        const size = Math.random() * 10 + 8;
+        const startX = Math.random() * 100;
+        const driftX = (Math.random() * 60 - 30) + 'vw';
+        const dur = (Math.random() * 10 + 10).toFixed(1) + 's';
+        const delay = (Math.random() * 10).toFixed(1) + 's';
+        f.style.setProperty('--size', size + 'px');
+        f.style.left = startX + 'vw';
+        f.style.setProperty('--x', driftX);
+        f.style.setProperty('--dur', dur);
+        f.style.setProperty('--delay', delay);
+        container.appendChild(f);
+        f.addEventListener('animationend', ()=> f.remove());
+      }
+      setInterval(()=> makeLeaf(), 220);
+    })();
+  </script>
+</body>
+</html>

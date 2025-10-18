@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Happy Makar Sankranti • Multilingual Wishes</title>
+  <style>
+    :root{
+      --bg-1:#fff6e9;     /* warm peach */
+      --bg-2:#fff;        /* white */
+      --ink:#1e293b;      /* slate-800 */
+      --muted:#475569;    /* slate-600 */
+      --accent:#f59e0b;   /* amber-500 */
+      --accent-2:#ef4444; /* red-500 */
+      --card:#ffffffcc;   /* translucent white */
+      --ring:#fbbf24;     /* amber-400 */
+    }
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, "Noto Sans Devanagari", "Noto Sans Bengali", "Noto Sans Gujarati", "Noto Sans Gurmukhi", "Noto Sans Tamil", "Noto Sans Telugu", "Noto Sans Kannada", "Noto Sans Malayalam", "Noto Sans Oriya", Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      background: linear-gradient(180deg,var(--bg-1),var(--bg-2));
+      color:var(--ink);
+      overflow-x:hidden;
+    }
+    header{
+      position:relative;
+      padding: clamp(2rem, 6vw, 4rem) 1rem 1rem;
+      text-align:center;
+      z-index:1;
+    }
+    .title{
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      letter-spacing:0.3px;
+      margin:0 0 0.4rem 0;
+      font-weight:800;
+    }
+    .subtitle{
+      margin:0;
+      color:var(--muted);
+      font-size:clamp(0.95rem, 2.4vw, 1.1rem);
+    }
+
+    /* Decorative sun */
+    .sun{
+      position:absolute; inset: 12px auto auto 12px; width:72px; height:72px;
+      background:radial-gradient(circle at 35% 35%, #fde68a 0 35%, #f59e0b 36% 70%, #f59e0b00 71%);
+      border-radius:50%; filter: drop-shadow(0 12px 18px #f59e0b66);
+      animation: pulse 6s ease-in-out infinite;
+    }
+    @keyframes pulse{ 0%,100%{ transform:scale(1)} 50%{ transform:scale(1.06)} }
+
+    main{ padding: 1rem clamp(0.75rem, 3vw, 1.5rem) 3rem; position:relative; }
+
+    /* Kite field (background) */
+    .kite-field{ position:fixed; inset:0; pointer-events:none; z-index:0; }
+    .kite{ position:absolute; width:24px; height:24px; transform: rotate(45deg);
+      background: conic-gradient(from 90deg, #ef4444 0 25%, #3b82f6 0 50%, #10b981 0 75%, #f59e0b 0);
+      border:2px solid #ffffffcc; box-shadow:0 6px 18px #0000001a; border-radius:2px;
+    }
+    .kite:after{ content:""; position:absolute; left:50%; top:100%; width:2px; height:46px; background: repeating-linear-gradient(180deg,#0000 0 6px,#ef444455 6px 12px); transform:translateX(-50%);
+    }
+    /* Generate a few kites with varied animations */
+    @keyframes floatX{ 0%{ transform:translateX(-10vw)} 100%{ transform:translateX(110vw)} }
+    @keyframes floatY{ 0%,100%{ margin-top:-6px } 50%{ margin-top:6px } }
+    .k0{ top:12vh; left:-10vw; animation: floatX 38s linear infinite, floatY 5s ease-in-out infinite; }
+    .k1{ top:28vh; left:-20vw; animation: floatX 46s linear infinite reverse, floatY 6s ease-in-out infinite; }
+    .k2{ top:64vh; left:-15vw; animation: floatX 52s linear infinite, floatY 7s ease-in-out infinite; }
+    .k3{ top:40vh; left:-25vw; animation: floatX 60s linear infinite reverse, floatY 8s ease-in-out infinite; }
+    .k4{ top:18vh; left:-30vw; animation: floatX 70s linear infinite, floatY 9s ease-in-out infinite; }
+
+    /* Controls row */
+    .controls{ display:flex; gap:10px; justify-content:center; align-items:center; flex-wrap:wrap; margin: 0.8rem 0 1.4rem; z-index:1; position:relative; }
+    .btn{ appearance:none; border:none; background:#111827; color:#fff; padding:10px 14px; border-radius:999px; cursor:pointer; font-weight:700; letter-spacing:.2px; box-shadow: 0 6px 18px #1118271a; }
+    .btn:hover{ transform: translateY(-1px); box-shadow:0 10px 22px #11182724; }
+    .btn.secondary{ background:#2563eb; }
+
+    /* Card grid */
+    .grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; position:relative; z-index:1; }
+    article.card{
+      background: var(--card);
+      border:1px solid #e2e8f0; border-radius:18px; padding:16px 14px 14px; backdrop-filter: blur(6px);
+      box-shadow: 0 12px 30px #11182714;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    article.card:hover{ transform: translateY(-2px); box-shadow: 0 16px 34px #1118271f; }
+
+    .lang{ display:flex; align-items:center; gap:8px; font-weight:800; text-transform:uppercase; letter-spacing: .8px; font-size:.9rem; color:#0f172a; }
+    .lang .tag{ font-size:.73rem; font-weight:700; color:#334155; background:#f1f5f9; border:1px solid #e2e8f0; padding:3px 8px; border-radius:999px; }
+
+    .wish{ margin:.55rem 0 0; font-size:1.05rem; line-height:1.65; }
+
+    .card .row{ display:flex; justify-content:space-between; align-items:center; gap:8px; margin-top:.6rem; }
+    .copy{ background:#0ea5e9; color:white; border:none; border-radius:10px; padding:8px 10px; font-weight:700; cursor:pointer; }
+    .copy:hover{ filter:brightness(1.05) }
+
+    .toast{ position:fixed; left:50%; bottom:20px; transform:translateX(-50%) translateY(20px); background:#111827; color:#fff; padding:10px 14px; border-radius:12px; opacity:0; transition: all .3s ease; box-shadow:0 10px 24px #1118273a; z-index:3; }
+    .toast.show{ opacity:1; transform:translateX(-50%) translateY(0) }
+
+    footer{ text-align:center; color:var(--muted); font-size:.9rem; margin:2.2rem 0 1.2rem }
+    .footer-small{ font-size:.8rem }
+
+    /* Small kite icon */
+    .icon{ width:18px; height:18px; display:inline-block; }
+  </style>
+</head>
+<body>
+  <div class="kite-field" aria-hidden="true">
+    <div class="kite k0"></div>
+    <div class="kite k1"></div>
+    <div class="kite k2"></div>
+    <div class="kite k3"></div>
+    <div class="kite k4"></div>
+  </div>
+
+  <header>
+    <div class="sun" aria-hidden="true"></div>
+    <h1 class="title">Joyful Makar Sankranti • இனிய பொங்கல் • শুভ মকর সংক্রান্তি • సంక్రాంతి శుభాకాంక్షలు</h1>
+    <p class="subtitle">Festive kite-themed warm wishes in Hindi, Gujarati, Telugu, Tamil, Bhojpuri, Bengali, Rajasthani, and Punjabi.</p>
+    <div class="controls">
+      <button class="btn" id="printBtn" title="Print or save as PDF">🖨️ Print</button>
+      <button class="btn secondary" id="toggleFontBtn" title="Switch font rendering">A⇆अ</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="grid" id="grid" aria-label="Sankranti wishes by language">
+      <!-- Hindi -->
+      <article class="card" data-text="मकर संक्रांति की शुभकामनाएँ! आपका जीवन तिल-गुड़ सा मीठा हो और पतंगों संग ऊँचाई छूता रहे।">
+        <div class="lang"><span class="icon" aria-hidden="true">🪁</span> Hindi <span class="tag">हिन्दी</span></div>
+        <p class="wish">मकर संक्रांति की शुभकामनाएँ! आपका जीवन तिल-गुड़ सा मीठा हो और पतंगों संग ऊँचाई छूता रहे।</p>
+        <div class="row"><span class="muted"></span><button class="copy">Copy</button></div>
+      </article>
+
+      <!-- Gujarati -->
+      <article class="card" data-text="મકરસંક્રાંતિની હાર્દિક શુભકામનાઓ! તમારું જીવન મીઠાશથી ભરપૂર રહે અને પતંગ જેવી ઊંચી સફળતા પ્રાપ્ત કરે.">
+        <div class="lang"><span class="icon" aria-hidden="true">🪁</span> Gujarati <span class="tag">ગુજરાતી</span></div>
+        <p class="wish">મકરસંક્રાંતિની હાર્દિક શુભકામનાઓ! તમારું જીવન મીઠાશથી ભરપૂર રહે અને પતંગ જેવી ઊંચી સફળતા પ્રાપ્ત કરે.</p>
+        <div class="row"><span></span><button class="copy">Copy</button></div>
+      </article>
+
+      <!-- Telugu -->
+      <article class="card" data-text="మకర సంక్రాంతి శుభాకాంక్షలు! మీ జీవితం మధురతతో నిండిపొంది, గాలి పటంలా పైకెగసాలి.">
+        <div class="lang"><span class="icon" aria-hidden="true">🪁</span> Telugu <span class="tag">తెలుగు</span></div>
+        <p class="wish">మకర సంక్రాంతి శుభాకాంక్షలు! మీ జీవితం మధురతతో నిండిపొంది, గాలి పటంలా పైకెగసాలి.</p>
+        <div class="row"><span></span><button class="copy">Copy</button></div>
+      </article>
+
+      <!-- Tamil -->
+      <article class="card" data-text="மகர சங்கராந்தி வாழ்த்துக்கள்! உங்கள் வாழ்க்கை எள்-வெல்லம் போல இனிமையுடன் மலர்ந்து, பட்டம் போல உயரங்களைத் தொட்டடையட்டும்.">
+        <div class="lang"><span class="icon" aria-hidden="true">🪁</span> Tamil <span class="tag">தமிழ்</span></div>
+        <p class="wish">மகர சங்கராந்தி வாழ்த்துக்கள்! உங்கள் வாழ்க்கை எள்-வெல்லம் போல இனிமையுடன் மலர்ந்து, பட்டம் போல உயரங்களைத் தொட்டடையட்டும்.</p>
+        <div class="row"><span></span><button class="copy">Copy</button></div>
+      </article>
+
+      <!-- Bihari (Bhojpuri) -->
+      <article class="card" data-text="मकर संक्रांति के हार्दिक शुभकामना! रउआ के जिनगी तिल-गुड़ जइसन मीठ होखे, आ पतंग जइसन ऊँच उड़े.">
+        <div class="lang"><span class="icon" aria-hidden="true">🪁</span> Bihari (Bhojpuri) <span class="tag">भोजपुरी</span></div>
+        <p class="wish">मकर संक्रांति के शुभकामना! रउआ जिनगी तिल-गुड़ जइसन मीठ होखे आ पतंग जइसन ऊँचाई छूवे।</p>
+        <div class="row"><span></span><button class="copy">Copy</button></div>
+      </article>
+
+      <!-- Bengali -->
+      <article class="card" data-text="শুভ মকর সংক্রান্তি! তিল-গুড়ের মতো মিষ্টি হোক আপনার জীবন, আর ঘুড়ির মতো উঁচুতে উড়ুক আপনার স্বপ্ন.">
+        <div class="lang"><span class="icon" aria-hidden="true">🪁</span> Bengali <span class="tag">বাংলা</span></div>
+        <p class="wish">শুভ মকর সংক্রান্তি! তিলের মিষ্টি আর গুড়ের স্বাদে ভরে উঠুক আপনার দিন, আর স্বপ্নগুলো উড়ুক আকাশের চূড়ায়।</p>
+        <div class="row"><span></span><button class="copy">Copy</button></div>
+      </article>
+
+      <!-- Rajasthani (Marwari) -->
+      <article class="card" data-text="मकर सांक्रांत री घणी-घणी बधाइयाँ! थारो जीवन तिल-गुड़ जेसो मिष्ट रहै, अर पतंग जेसै गगन में ऊँच उड़ै.">
+        <div class="lang"><span class="icon" aria-hidden="true">🪁</span> Rajasthani (Marwari) <span class="tag">राजस्थानी</span></div>
+        <p class="wish">मकर संक्रांति री घणी-घणी शुभकामनाएँ! थारो जीवन तिल-गुड़ जेसो मीठो रहै, अर पतंग जेसै आसमान में ऊँचो उड़ै।</p>
+        <div class="row"><span></span><button class="copy">Copy</button></div>
+      </article>
+
+      <!-- Punjabi -->
+      <article class="card" data-text="ਮਕਰ ਸੰਕ੍ਰਾਂਤੀ ਦੀਆਂ ਲੱਖ-ਲੱਖ ਵਧਾਈਆਂ! ਤੁਹਾਡੀ ਜ਼ਿੰਦਗੀ ਤਿਲ-ਗੁੜ ਵਰਗੀ ਮਿੱਠੀ ਰਹੇ ਤੇ ਪਤੰਗ ਵਾਂਗ ਉੱਚੀ ਉੱਡੇ.">
+        <div class="lang"><span class="icon" aria-hidden="true">🪁</span> Punjabi <span class="tag">ਪੰਜਾਬੀ</span></div>
+        <p class="wish">ਮਕਰ ਸੰਕ੍ਰਾਂਤੀ ਮੁਬਾਰਕ! ਤੁਹਾਡੀ ਜ਼ਿੰਦਗੀ ਤਿਲ-ਗੁੜ ਵਰਗੀ ਮਿੱਠੀ ਹੋਵੇ ਅਤੇ ਪਤੰਗ ਵਾਂਗ ਉੱਚਾਈ छुਹੇ।</p>
+        <div class="row"><span></span><button class="copy">Copy</button></div>
+      </article>
+    </section>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">Copied to clipboard!</div>
+  </main>
+
+  <footer>
+    Made with 🪁 & ☀️ for the harvest season. <span class="footer-small">Hint: Tap the Copy button to easily share wishes via WhatsApp, SMS, or social platforms.</span>
+  </footer>
+
+  <script>
+    // Copy to clipboard for each card
+    document.querySelectorAll('.card .copy').forEach(btn=>{
+      btn.addEventListener('click', e=>{
+        const card = e.currentTarget.closest('.card');
+        const text = card.getAttribute('data-text');
+        navigator.clipboard.writeText(text).then(()=>{
+          const toast = document.getElementById('toast');
+          toast.classList.add('show');
+          setTimeout(()=>toast.classList.remove('show'), 1400);
+        });
+      });
+    });
+
+    // Print / Save
+    document.getElementById('printBtn').addEventListener('click', ()=>window.print());
+
+    // Toggle font hinting for Indic scripts (helpful if system fonts vary)
+    let wide = false;
+    document.getElementById('toggleFontBtn').addEventListener('click', ()=>{
+      wide = !wide;
+      document.documentElement.style.setProperty('font-feature-settings', wide ? '"kern" 1, "liga" 1' : 'normal');
+      document.body.style.letterSpacing = wide ? '0.2px' : '0';
+    });
+  </script>
+</body>
+</html>

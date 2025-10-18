@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Navratri 9 Days – Wishes</title>
+  <meta name="description" content="Beautiful wishes for each of the nine days of Navratri, with copy & share buttons and a day filter." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Light festive palette inspired by HappyDeepawali-style sites */
+      --bg: #ffffff;
+      --surface: #ffffff;
+      --card: #ffffff;
+      --text: #1f2937; /* slate-800 */
+      --muted: #6b7280; /* slate-500 */
+      --ring: #e5e7eb; /* neutral ring */
+      --saffron: #DD4400; /* Sinopia */
+      --carrot: #EC6535; /* Deep carrot */
+      --gold: #F3DD43;   /* Sandstorm */
+      --indigo: #23345D; /* Deep indigo */
+      --sapgreen: #4F7934; /* Sap green */
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text); background: var(--bg);
+    }
+    .topbar{ width:100%; height:10px; background: linear-gradient(90deg,var(--saffron),var(--carrot),var(--gold),var(--sapgreen),var(--indigo)); }
+    .container{max-width:1100px; margin:0 auto; padding:28px 20px 64px}
+    header{position:relative; padding:28px 18px 8px; text-align:center}
+    .title{font-weight:800; letter-spacing:-0.01em; font-size:clamp(28px, 3.6vw, 44px); margin:0}
+    .title .gradient{background: linear-gradient(90deg,var(--saffron),var(--gold)); -webkit-background-clip:text; background-clip:text; color:transparent}
+    .subtitle{margin:10px auto 0; color:var(--muted); max-width:62ch; line-height:1.6}
+    .ribbon{ margin:18px auto 24px; display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius:999px; background:#fff; border:1px solid #f3f4f6; box-shadow:0 4px 16px #0000000f; font-weight:600; color:#374151 }
+    .ribbon .dot{width:8px; height:8px; border-radius:50%; background:var(--saffron)}
+    .toolbar{margin:30px 0 22px; display:flex; flex-wrap:wrap; gap:10px; justify-content:center}
+    .btn{ --bg: #ffffff; --fg: var(--text); border:1px solid #e5e7eb; background:var(--bg); color:var(--fg); padding:10px 14px; border-radius:999px; cursor:pointer; font-weight:700; transition:transform .05s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease; outline:none }
+    .btn:hover{border-color:#d1d5db; box-shadow:0 2px 10px #0000000a}
+    .btn:active{transform:translateY(1px)}
+    .btn.primary{background:linear-gradient(90deg,var(--saffron),var(--carrot)); border-color:transparent; color:#fff}
+    .btn.ghost{background:transparent}
+    .btn[aria-pressed="true"]{box-shadow:0 0 0 3px #f59e0b33}
+    .grid{display:grid; gap:16px; grid-template-columns: repeat(1, minmax(0,1fr))}
+    @media (min-width:740px){ .grid{grid-template-columns: repeat(2, minmax(0,1fr))} }
+    @media (min-width:1024px){ .grid{grid-template-columns: repeat(3, minmax(0,1fr))} }
+    .card{ position:relative; background:var(--card); border:1px solid #eef2f7; border-radius:18px; padding:18px 16px 16px; box-shadow: 0 8px 24px #0000000d; overflow:hidden }
+    .card::before{ content:""; position:absolute; inset:0; pointer-events:none; border-radius:inherit; background: radial-gradient(600px 200px at -5% -10%, color-mix(in oklab, var(--accent), #ffffff 30%) 0%, transparent 60%); opacity:.25 }
+    .tag{ display:inline-flex; align-items:center; gap:8px; font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:#ffffff; background:var(--accent); border-radius:999px; padding:6px 10px; box-shadow:0 6px 16px color-mix(in oklab, var(--accent), #000 25%) }
+    .goddess{margin:10px 0 8px; font-size:18px; font-weight:800; letter-spacing:.01em}
+    .wish{margin:0 0 12px; color:#374151; line-height:1.7}
+    .card-actions{display:flex; gap:8px; margin-top:8px; flex-wrap:wrap}
+    .chip{border:1px dashed #e5e7eb; padding:6px 10px; border-radius:999px; font-size:12px; color:#6b7280; background:#fafafa}
+    .toast{position:fixed; left:50%; bottom:24px; transform:translateX(-50%) translateY(20px); background:#111827; color:#f9fafb; border:1px solid #1f2937; padding:12px 16px; border-radius:12px; box-shadow:0 12px 28px #000a; opacity:0; pointer-events:none; transition:opacity .3s ease, transform .3s ease; font-weight:700; z-index:50}
+    .toast.show{opacity:1; transform:translateX(-50%) translateY(0)}
+    footer{margin-top:32px; text-align:center; color:#6b7280; font-size:13px}
+    footer a{color:#374151; text-decoration:none; border-bottom:1px dashed #d1d5db}
+    @media print{ .toolbar, .ribbon, .toast, .print-hide{display:none!important} }
+  </style>
+</head>
+<body>
+  <div class="topbar" aria-hidden="true"></div>
+  <div class="container">
+    <header>
+      <div class="ribbon"><span class="dot"></span> Navratri – 9 Days of Blessings</div>
+      <h1 class="title"><span class="gradient">Navratri Wishes</span> for Each Day</h1>
+      <p class="subtitle">Send warm blessings to honor every aspect of the Divine Mother. Sort by day, copy instantly, or print the entire collection.</p>
+      <div class="toolbar">
+        <button class="btn primary" id="showAll" aria-pressed="true">Show All</button>
+        <button class="btn" data-filter="1">Day 1</button>
+        <button class="btn" data-filter="2">Day 2</button>
+        <button class="btn" data-filter="3">Day 3</button>
+        <button class="btn" data-filter="4">Day 4</button>
+        <button class="btn" data-filter="5">Day 5</button>
+        <button class="btn" data-filter="6">Day 6</button>
+        <button class="btn" data-filter="7">Day 7</button>
+        <button class="btn" data-filter="8">Day 8</button>
+        <button class="btn" data-filter="9">Day 9</button>
+        <span class="spacer"></span>
+        <button class="btn ghost print-hide" id="printBtn" title="Print or save as PDF">Print</button>
+      </div>
+    </header>
+
+    <main class="grid" id="cards">
+      <article class="card" data-day="1" style="--accent:#ef4444">
+        <span class="tag">Day 1 • Shailaputri</span>
+        <h3 class="goddess">Goddess Shailaputri</h3>
+        <p class="wish">🌸 "On this first day of Navratri, may Goddess Shailaputri grant you strength, courage, and balance. Wishing you positivity and zeal for new beginnings in life."</p>
+        <div class="card-actions">
+          <button class="btn" data-copy>Copy</button>
+          <button class="btn" data-share>Share</button>
+          <span class="chip">Color: Red</span>
+        </div>
+      </article>
+      <article class="card" data-day="2" style="--accent:#4169e1">
+        <span class="tag">Day 2 • Brahmacharini</span>
+        <h3 class="goddess">Goddess Brahmacharini</h3>
+        <p class="wish">🕉️ “This second day of Navratri, may Goddess Brahmacharini bless you with wisdom, devotion, and serenity. May your journey be led by love and unwavering discipline.”</p>
+        <div class="card-actions">
+          <button class="btn" data-copy>Copy</button>
+          <button class="btn" data-share>Share</button>
+          <span class="chip">Color: Royal Blue</span>
+        </div>
+      </article>
+      <article class="card" data-day="3" style="--accent:#f59e0b">
+        <span class="tag">Day 3 • Chandraghanta</span>
+        <h3 class="goddess">Goddess Chandraghanta</h3>
+        <p class="wish">🪔 “May Goddess Chandraghanta bless you with courage and peace, banishing all fears. Wishing you joy and harmony this Navratri.”</p>
+        <div class="card-actions">
+          <button class="btn" data-copy>Copy</button>
+          <button class="btn" data-share>Share</button>
+          <span class="chip">Color: Yellow</span>
+        </div>
+      </article>
+      <article class="card" data-day="4" style="--accent:#22c55e">
+        <span class="tag">Day 4 • Kushmanda</span>
+        <h3 class="goddess">Goddess Kushmanda</h3>
+        <p class="wish">🌞 “On Day Four, may Goddess Kushmanda grace your home with joy, health, and abundance. May her radiant smile brighten your life always.”</p>
+        <div class="card-actions">
+          <button class="btn" data-copy>Copy</button>
+          <button class="btn" data-share>Share</button>
+          <span class="chip">Color: Green</span>
+        </div>
+      </article>
+      <article class="card" data-day="5" style="--accent:#9ca3af">
+        <span class="tag">Day 5 • Skandamata</span>
+        <h3 class="goddess">Goddess Skandamata</h3>
+        <p class="wish">👩‍👦 “May Goddess Skandamata bless you on Navratri’s fifth day with love, compassion, and care. Wishing you endless joy and serenity in life.”</p>
+        <div class="card-actions">
+          <button class="btn" data-copy>Copy</button>
+          <button class="btn" data-share>Share</button>
+          <span class="chip">Color: Grey</span>
+        </div>
+      </article>
+      <article class="card" data-day="6" style="--accent:#fb923c">
+        <span class="tag">Day 6 • Katyayani</span>
+        <h3 class="goddess">Goddess Katyayani</h3>
+        <p class="wish">⚔️ “May Goddess Katyayani empower you with bravery to tackle hurdles, resilience to conquer struggles, and triumph in all your pursuits. Wishing you a blessed sixth day of Navratri!”</p>
+        <div class="card-actions">
+          <button class="btn" data-copy>Copy</button>
+          <button class="btn" data-share>Share</button>
+          <span class="chip">Color: Orange</span>
+        </div>
+      </article>
+      <article class="card" data-day="7" style="--accent:#111827">
+        <span class="tag">Day 7 • Kalaratri</span>
+        <h3 class="goddess">Goddess Kalaratri</h3>
+        <p class="wish">🔥 "May Goddess Kalaratri dispel all darkness, filling your life with light, strength, and divine grace. Stay bold, blessed, and fearless."</p>
+        <div class="card-actions">
+          <button class="btn" data-copy>Copy</button>
+          <button class="btn" data-share>Share</button>
+          <span class="chip">Color: White</span>
+        </div>
+      </article>
+      <article class="card" data-day="8" style="--accent:#f472b6">
+        <span class="tag">Day 8 • Mahagauri</span>
+        <h3 class="goddess">Goddess Mahagauri</h3>
+        <p class="wish">🌼 “May Goddess Mahagauri cleanse your spirit, bringing you peace, harmony, and strength. May her divine blessings illuminate your life with grace.”</p>
+        <div class="card-actions">
+          <button class="btn" data-copy>Copy</button>
+          <button class="btn" data-share>Share</button>
+          <span class="chip">Color: Pink</span>
+        </div>
+      </article>
+      <article class="card" data-day="9" style="--accent:#a855f7">
+        <span class="tag">Day 9 • Siddhidatri</span>
+        <h3 class="goddess">Goddess Siddhidatri</h3>
+        <p class="wish">✨ "On Navratri's final day, may Goddess Siddhidatri shower you with wisdom, success, and inner peace. May all your dreams and goals come true." ✨</p>
+        <div class="card-actions">
+          <button class="btn" data-copy>Copy</button>
+          <button class="btn" data-share>Share</button>
+          <span class="chip">Color: Purple</span>
+        </div>
+      </article>
+    </main>
+
+    <footer class="print-hide">
+      Crafted with ❤️—wishing you a blessed Navratri. • <a href="#" id="scrollTop">Back to top</a>
+    </footer>
+  </div>
+
+  <div class="toast" role="status" aria-live="polite" id="toast">Copied to clipboard</div>
+
+  <script>
+    const cards = Array.from(document.querySelectorAll('[data-day]'));
+    const filterButtons = Array.from(document.querySelectorAll('[data-filter]'));
+    const showAllBtn = document.getElementById('showAll');
+    const toast = document.getElementById('toast');
+    function setPressed(btn){
+      [...document.querySelectorAll('.toolbar .btn')].forEach(b=>b.setAttribute('aria-pressed','false'));
+      btn.setAttribute('aria-pressed','true');
+    }
+    filterButtons.forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const day = btn.getAttribute('data-filter');
+        setPressed(btn);
+        cards.forEach(card=>{ card.style.display = (card.getAttribute('data-day') === day) ? 'block' : 'none'; });
+        window.scrollTo({top: document.querySelector('header').offsetHeight + 10, behavior:'smooth'});
+      })
+    });
+    showAllBtn.addEventListener('click',()=>{ setPressed(showAllBtn); cards.forEach(c=> c.style.display='block'); });
+    function showToast(msg){ toast.textContent = msg || 'Copied to clipboard'; toast.classList.add('show'); setTimeout(()=>toast.classList.remove('show'), 1400); }
+    document.getElementById('cards').addEventListener('click', async (e)=>{
+      const card = e.target.closest('.card'); if(!card) return;
+      const wish = card.querySelector('.wish').innerText.trim();
+      if(e.target.matches('[data-copy]')){
+        try{ await navigator.clipboard.writeText(wish); showToast('Copied!'); }
+        catch{ const ta=document.createElement('textarea'); ta.value=wish; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); showToast('Copied!'); }
+      }
+      if(e.target.matches('[data-share]')){
+        if(navigator.share){ try{ await navigator.share({text: wish}); }catch(err){} }
+        else{ try{ await navigator.clipboard.writeText(wish); showToast('Copied! Share it anywhere.'); }catch{ showToast('Copied!'); } }
+      }
+    });
+    document.getElementById('printBtn').addEventListener('click', ()=> window.print());
+    document.getElementById('scrollTop').addEventListener('click', (e)=>{ e.preventDefault(); window.scrollTo({top:0, behavior:'smooth'}); });
+  </script>
+</body>
+</html>

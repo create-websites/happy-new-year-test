@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halloween Garage Decor Planner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Spooky Neutrals -->
+    <!-- Application Structure Plan: The application is designed as an interactive theme browser. A top-level navigation bar with thematic buttons (Haunted House, Mad Scientist's Lab, etc.) acts as the primary control. Clicking a theme dynamically updates a single content area below. This structure was chosen over a long, scrollable list to make the experience more engaging and less overwhelming. It allows users to directly compare different ideas in a clean, organized, and task-oriented manner, focusing on one concept at a time. The flow is: User Selects Theme -> Content Area Instantly Updates with Details (Decor, Lighting, Sound, Budget) -> User Explores or Selects New Theme. This facilitates quick decision-making. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: Different Halloween themes. Goal: Organize/Navigate. Viz/Method: Interactive button-based navigation. Interaction: On-click updates the main content view. Justification: Provides a clear, user-driven way to explore distinct idea sets. Method: HTML/JS.
+        - Report Info: Relative cost of each theme. Goal: Compare. Viz/Method: A dynamic horizontal bar chart. Interaction: The chart updates when a theme is selected to show its budget level. Justification: Visualizes a key decision-making factor (cost) in a simple, data-driven format. Library: Chart.js (Canvas).
+        - Report Info: Specific decoration, lighting, and sound ideas. Goal: Inform. Viz/Method: Structured text blocks and lists with Unicode icons. Interaction: Content is dynamically displayed based on theme selection. Justification: Presents detailed information in a clean, readable format once a theme is chosen. Method: HTML/JS.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .font-creepster {
+            font-family: 'Creepster', cursive;
+        }
+        .nav-btn {
+            transition: all 0.3s ease;
+        }
+        .nav-btn.active {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(234, 88, 12, 0.6);
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .chart-container {
+            position: relative;
+            height: 100px;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body class="bg-stone-900 text-stone-200">
+
+    <div class="min-h-screen flex flex-col items-center p-4 sm:p-6 lg:p-8">
+        <header class="text-center mb-8">
+            <h1 class="font-creepster text-5xl sm:text-6xl md:text-7xl text-orange-500 tracking-wider">Garage of Horrors</h1>
+            <p class="text-stone-400 mt-2 text-lg">Your Interactive Guide to a Spooktacular Garage Transformation</p>
+        </header>
+
+        <section class="w-full max-w-6xl mx-auto bg-stone-800 rounded-2xl shadow-2xl shadow-black/50 p-6">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl font-bold text-stone-100 mb-2">Choose Your Fright</h2>
+                <p class="text-stone-400 max-w-2xl mx-auto">Step into your Halloween HQ! This planner is here to spark ideas and streamline your garage haunt setup. Pick a theme below to explore handpicked suggestions for decor, lighting, sound effects, and beyond. Each theme comes with a budget guide to craft your ultimate spooky experience.</p>
+            </div>
+
+            <nav id="theme-selector" class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+                <button data-theme="hauntedHouse" class="nav-btn active flex flex-col items-center p-4 bg-stone-700 hover:bg-orange-600 rounded-lg border-2 border-stone-600 hover:border-orange-500">
+                    <span class="text-4xl mb-2">👻</span>
+                    <span class="font-semibold text-center">Haunted House</span>
+                </button>
+                <button data-theme="madScientist" class="nav-btn flex flex-col items-center p-4 bg-stone-700 hover:bg-orange-600 rounded-lg border-2 border-stone-600 hover:border-orange-500">
+                    <span class="text-4xl mb-2">🧪</span>
+                    <span class="font-semibold text-center">Mad Scientist's Lab</span>
+                </button>
+                <button data-theme="zombieApocalypse" class="nav-btn flex flex-col items-center p-4 bg-stone-700 hover:bg-orange-600 rounded-lg border-2 border-stone-600 hover:border-orange-500">
+                    <span class="text-4xl mb-2">🧟</span>
+                    <span class="font-semibold text-center">Zombie Outbreak</span>
+                </button>
+                <button data-theme="pumpkinPatch" class="nav-btn flex flex-col items-center p-4 bg-stone-700 hover:bg-orange-600 rounded-lg border-2 border-stone-600 hover:border-orange-500">
+                    <span class="text-4xl mb-2">🎃</span>
+                    <span class="font-semibold text-center">Friendly Patch</span>
+                </button>
+            </nav>
+
+            <main id="content-display">
+                <div id="hauntedHouse-content" class="content-section active">
+                    <!-- Content will be injected by JS -->
+                </div>
+                <div id="madScientist-content" class="content-section">
+                    <!-- Content will be injected by JS -->
+                </div>
+                <div id="zombieApocalypse-content" class="content-section">
+                    <!-- Content will be injected by JS -->
+                </div>
+                <div id="pumpkinPatch-content" class="content-section">
+                    <!-- Content will be injected by JS -->
+                </div>
+            </main>
+        </section>
+    </div>
+
+    <script>
+        const themeData = {
+            hauntedHouse: {
+                title: "Classic Haunted House",
+                description: "Create a timeless haunted mansion experience. Focus on atmosphere with cobwebs, spectral figures, and eerie sounds that suggest a ghostly presence. This theme relies on suspense and classic horror tropes to build chills.",
+                decorations: [
+                    "🕸️ Stretchable cobwebs draped over everything",
+                    "👻 Cheesecloth ghosts hanging from the ceiling",
+                    "🖼️ Spooky portraits with follow-you eyes",
+                    "🕯️ Flameless LED candles for an eerie glow",
+                    "⛓️ Fake chains and rusty tools scattered around",
+                    "⚰️ A lightweight prop coffin in a corner",
+                ],
+                lighting: "Use dim, cool-toned lighting. Blue and green LEDs work well. A strobe light in one area can simulate lightning, and a fog machine will enhance light beams.",
+                soundscape: "A loop of creaking doors, distant whispers, ghostly moans, and a slow, melancholic music box tune. Occasional loud thumps add jump scares.",
+                diy: "Create 'floating' ghosts by draping cheesecloth over a balloon, spraying with starch, and removing the balloon once dry. Hang with fishing line.",
+                budget: 70
+            },
+            madScientist: {
+                title: "Mad Scientist's Lab",
+                description: "Transform your garage into a laboratory of horrors where strange experiments have gone wrong. This theme is all about glowing liquids, bizarre specimens, and the hum of mysterious machinery.",
+                decorations: [
+                    "⚗️ Beakers and flasks filled with water and food coloring",
+                    "🧠 Jars containing fake body parts and plastic critters",
+                    "⚡ A plasma ball or Van de Graaff generator for electrical effects",
+                    "📋 Chalkboards or whiteboards with frantic equations",
+                    "💀 A prop skeleton laid out on a table",
+                    "💡 Exposed wires and old electronic parts",
+                ],
+                lighting: "Green and purple uplighting creates a chemical glow. Use blacklights to make tonic water (containing quinine) or highlighter ink glow in your beakers.",
+                soundscape: "A mix of electrical buzzing, bubbling liquids, a constant low hum, and maniacal laughter. Add the sound of a crackling Jacob's ladder for effect.",
+                diy: "Put glow sticks inside beakers and flasks for a safe, eerie glowing effect. Drop in dry ice for a bubbling, foggy reaction (with proper ventilation).",
+                budget: 60
+            },
+            zombieApocalypse: {
+                title: "Zombie Apocalypse Outpost",
+                description: "Your garage is the last safe zone... or is it? This theme focuses on a survivalist, post-apocalyptic setting with barricades, warning signs, and the constant threat of the undead lurking outside.",
+                decorations: [
+                    "🚪 Cardboard 'planks' covering windows and doors",
+                    "☣️ Biohazard symbols and 'KEEP OUT' signs",
+                    "🩸 Fake blood splatters on walls and floors",
+                    "🥫 Stacks of empty cans and survival gear",
+                    "🧟 Prop zombie hands reaching through cracks",
+                    "📻 An old radio broadcasting a looped distress signal",
+                ],
+                lighting: "Harsh, functional lighting is key. Use a single, flickering fluorescent light or a few clamp lights with red bulbs to create a sense of emergency and danger.",
+                soundscape: "The distant sound of sirens, news reports about the outbreak, zombie moans and groans, and the static crackle of the radio.",
+                diy: "Create boarded-up windows by painting cardboard planks and taping them to the garage door from the inside. Splatter them with brown and red paint for a weathered, bloody look.",
+                budget: 45
+            },
+            pumpkinPatch: {
+                title: "Friendly Pumpkin Patch",
+                description: "A welcoming, family-friendly theme perfect for all ages. Instead of scares, this focuses on the cheerful, cozy, and fun side of Halloween and the autumn harvest season.",
+                decorations: [
+                    "🎃 Lots of pumpkins and jack-o'-lanterns of all sizes",
+                    "🍂 Hay bales for seating and decoration",
+                    "🍁 Fake autumn leaves scattered on the floor",
+                    "👻 Friendly-faced scarecrows and ghosts",
+                    "🌽 Bundles of corn stalks tied to support beams",
+                    "✨ Strings of orange fairy lights",
+                ],
+                lighting: "Warm, inviting light. Use orange and yellow string lights, or place flameless candles inside jack-o'-lanterns for a safe, classic glow.",
+                soundscape: "Upbeat, playful Halloween music, the sound of crickets chirping, or a gentle autumn wind soundscape. Avoid anything scary.",
+                diy: "Make your own scarecrow using old clothes, straw, and a pillowcase for the head. Let kids draw the face with markers for a personal touch.",
+                budget: 85
+            }
+        };
+
+        let budgetChart;
+
+        function createContentHTML(theme) {
+            return `
+                <div class="space-y-6">
+                    <div class="text-center">
+                        <h3 class="font-creepster text-4xl text-orange-400 tracking-wide">${theme.title}</h3>
+                        <p class="text-stone-400 mt-2 max-w-2xl mx-auto">${theme.description}</p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 pt-4">
+                        <div class="bg-stone-900/50 p-6 rounded-lg">
+                            <h4 class="font-bold text-xl mb-3 text-orange-400">Key Decorations</h4>
+                            <ul class="space-y-2 text-stone-300">
+                                ${theme.decorations.map(item => `<li>${item}</li>`).join('')}
+                            </ul>
+                        </div>
+
+                        <div class="space-y-6">
+                            <div class="bg-stone-900/50 p-6 rounded-lg">
+                                <h4 class="font-bold text-xl mb-3 text-orange-400">Lighting & Effects</h4>
+                                <p class="text-stone-300">${theme.lighting}</p>
+                            </div>
+                            <div class="bg-stone-900/50 p-6 rounded-lg">
+                                <h4 class="font-bold text-xl mb-3 text-orange-400">Soundscape</h4>
+                                <p class="text-stone-300">${theme.soundscape}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6 pt-4">
+                         <div class="bg-stone-900/50 p-6 rounded-lg">
+                            <h4 class="font-bold text-xl mb-3 text-orange-400">DIY Tip</h4>
+                            <p class="text-stone-300">${theme.diy}</p>
+                        </div>
+                        <div class="bg-stone-900/50 p-6 rounded-lg">
+                            <h4 class="font-bold text-xl mb-3 text-orange-400">Relative Budget</h4>
+                            <div class="chart-container">
+                                <canvas id="budgetChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function displayTheme(themeKey) {
+            const contentSections = document.querySelectorAll('.content-section');
+            contentSections.forEach(section => {
+                section.classList.remove('active');
+                section.innerHTML = '';
+            });
+
+            const targetSection = document.getElementById(`${themeKey}-content`);
+            if (targetSection) {
+                const theme = themeData[themeKey];
+                targetSection.innerHTML = createContentHTML(theme);
+                targetSection.classList.add('active');
+                updateChart(theme.budget, theme.title);
+            }
+
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(button => {
+                button.classList.remove('active', 'bg-orange-600', 'border-orange-500');
+                button.classList.add('bg-stone-700', 'border-stone-600');
+                if (button.dataset.theme === themeKey) {
+                    button.classList.add('active', 'bg-orange-600', 'border-orange-500');
+                    button.classList.remove('bg-stone-700', 'border-stone-600');
+                }
+            });
+        }
+        
+        function updateChart(budget, label) {
+            const ctx = document.getElementById('budgetChart').getContext('2d');
+            const budgetColors = {
+                low: 'rgba(74, 222, 128, 0.6)', // green
+                mid: 'rgba(250, 204, 21, 0.6)', // yellow
+                high: 'rgba(239, 68, 68, 0.6)', // red
+            };
+            const borderColors = {
+                low: 'rgba(74, 222, 128, 1)',
+                mid: 'rgba(250, 204, 21, 1)',
+                high: 'rgba(239, 68, 68, 1)',
+            }
+            
+            let budgetCategory = 'low';
+            if (budget > 50) budgetCategory = 'mid';
+            if (budget > 75) budgetCategory = 'high';
+
+            const budgetLabel = `Cost: ${budgetCategory.charAt(0).toUpperCase() + budgetCategory.slice(1)}`;
+
+            if (budgetChart) {
+                budgetChart.destroy();
+            }
+
+            budgetChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: [budgetLabel],
+                    datasets: [{
+                        label: 'Relative Budget',
+                        data: [budget],
+                        backgroundColor: [budgetColors[budgetCategory]],
+                        borderColor: [borderColors[budgetCategory]],
+                        borderWidth: 2,
+                        borderRadius: 5
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            enabled: false
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 100,
+                            display: false,
+                        },
+                        y: {
+                            grid: {
+                                display: false,
+                                drawBorder: false,
+                            },
+                            ticks: {
+                                color: '#d6d3d1',
+                                font: {
+                                    size: 16,
+                                    weight: 'bold'
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeSelector = document.getElementById('theme-selector');
+            themeSelector.addEventListener('click', (e) => {
+                const button = e.target.closest('.nav-btn');
+                if (button && button.dataset.theme) {
+                    displayTheme(button.dataset.theme);
+                }
+            });
+
+            displayTheme('hauntedHouse');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year! - Celebrations Around the World</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a1a;
+            color: #f0f0f0;
+            overflow-x: hidden;
+        }
+
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero-section {
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        #fireworks-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 2s ease-in-out;
+        }
+        
+        .card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes sparkle {
+            0%, 100% { text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700; }
+            50% { text-shadow: 0 0 20px #fff, 0 0 40px #ffd700; }
+        }
+
+        .sparkle-text {
+            animation: sparkle 2.5s infinite;
+        }
+        
+        .section-title {
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <canvas id="fireworks-canvas"></canvas>
+        <div class="hero-content p-8">
+            <h1 class="font-display font-black text-6xl md:text-8xl lg:text-9xl text-white sparkle-text">Happy New Year!</h1>
+            <p class="mt-4 text-lg md:text-2xl text-gray-300">Wishing you joy, peace, and prosperity in 2026!</p>
+        </div>
+    </header>
+
+    <main class="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+        <!-- International Wishes Section -->
+        <section id="wishes" class="mb-20">
+            <h2 class="font-display text-4xl md:text-5xl font-bold text-center mb-12 section-title">New Year Wishes</h2>
+            <div id="wishes-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+                <!-- Wish cards will be injected here by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Celebrations Around the World Section -->
+        <section id="celebrations">
+            <h2 class="font-display text-4xl md:text-5xl font-bold text-center mb-12 section-title">Celebrations Across the World</h2>
+            <div id="celebrations-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+                <!-- Celebration cards will be injected here by JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center p-8 mt-12 text-gray-500">
+        <p>Crafted with hope for a wonderful year ahead.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Fireworks Animation ---
+            const canvas = document.getElementById('fireworks-canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            let fireworks = [];
+            let particles = [];
+
+            function Firework(sx, sy, tx, ty) {
+                this.x = sx;
+                this.y = sy;
+                this.sx = sx;
+                this.sy = sy;
+                this.tx = tx;
+                this.ty = ty;
+                this.distanceToTarget = Math.sqrt(Math.pow(tx - sx, 2) + Math.pow(ty - sy, 2));
+                this.distanceTraveled = 0;
+                this.coordinates = [];
+                this.coordinateCount = 3;
+                while (this.coordinateCount--) {
+                    this.coordinates.push([this.x, this.y]);
+                }
+                this.angle = Math.atan2(ty - sy, tx - sx);
+                this.speed = 2;
+                this.acceleration = 1.05;
+                this.brightness = Math.random() * 50 + 50;
+                this.targetRadius = 1;
+            }
+
+            Firework.prototype.update = function(index) {
+                this.coordinates.pop();
+                this.coordinates.unshift([this.x, this.y]);
+
+                if (this.targetRadius < 8) {
+                    this.targetRadius += 0.3;
+                } else {
+                    this.targetRadius = 1;
+                }
+
+                this.speed *= this.acceleration;
+                const vx = Math.cos(this.angle) * this.speed;
+                const vy = Math.sin(this.angle) * this.speed;
+                this.distanceTraveled = Math.sqrt(Math.pow(this.x + vx - this.sx, 2) + Math.pow(this.y + vy - this.sy, 2));
+
+                if (this.distanceTraveled >= this.distanceToTarget) {
+                    createParticles(this.tx, this.ty);
+                    fireworks.splice(index, 1);
+                } else {
+                    this.x += vx;
+                    this.y += vy;
+                }
+            };
+
+            Firework.prototype.draw = function() {
+                ctx.beginPath();
+                ctx.moveTo(this.coordinates[this.coordinates.length - 1][0], this.coordinates[this.coordinates.length - 1][1]);
+                ctx.lineTo(this.x, this.y);
+                ctx.strokeStyle = `hsl(${Math.random() * 360}, 100%, ${this.brightness}%)`;
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.arc(this.tx, this.ty, this.targetRadius, 0, Math.PI * 2);
+                ctx.stroke();
+            };
+
+            function Particle(x, y) {
+                this.x = x;
+                this.y = y;
+                this.coordinates = [];
+                this.coordinateCount = 5;
+                while (this.coordinateCount--) {
+                    this.coordinates.push([this.x, this.y]);
+                }
+                this.angle = Math.random() * Math.PI * 2;
+                this.speed = Math.random() * 10 + 1;
+                this.friction = 0.95;
+                this.gravity = 1;
+                this.hue = Math.random() * 360;
+                this.brightness = Math.random() * 50 + 50;
+                this.alpha = 1;
+                this.decay = Math.random() * 0.015 + 0.015;
+            }
+
+            Particle.prototype.update = function(index) {
+                this.coordinates.pop();
+                this.coordinates.unshift([this.x, this.y]);
+                this.speed *= this.friction;
+                this.x += Math.cos(this.angle) * this.speed;
+                this.y += Math.sin(this.angle) * this.speed + this.gravity;
+                this.alpha -= this.decay;
+
+                if (this.alpha <= this.decay) {
+                    particles.splice(index, 1);
+                }
+            };
+
+            Particle.prototype.draw = function() {
+                ctx.beginPath();
+                ctx.moveTo(this.coordinates[this.coordinates.length - 1][0], this.coordinates[this.coordinates.length - 1][1]);
+                ctx.lineTo(this.x, this.y);
+                ctx.strokeStyle = `hsla(${this.hue}, 100%, ${this.brightness}%, ${this.alpha})`;
+                ctx.stroke();
+            };
+
+            function createParticles(x, y) {
+                let particleCount = 30;
+                while (particleCount--) {
+                    particles.push(new Particle(x, y));
+                }
+            }
+            
+            function loop() {
+                requestAnimationFrame(loop);
+                ctx.globalCompositeOperation = 'destination-out';
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.globalCompositeOperation = 'lighter';
+                
+                let i = fireworks.length;
+                while (i--) {
+                    fireworks[i].draw();
+                    fireworks[i].update(i);
+                }
+
+                let j = particles.length;
+                while (j--) {
+                    particles[j].draw();
+                    particles[j].update(j);
+                }
+
+                if (Math.random() < 0.05) {
+                    const sx = canvas.width / 2;
+                    const sy = canvas.height;
+                    const tx = Math.random() * canvas.width;
+                    const ty = Math.random() * canvas.height / 2;
+                    fireworks.push(new Firework(sx, sy, tx, ty));
+                }
+            }
+
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = document.querySelector('.hero-section').offsetHeight;
+            });
+            
+            loop();
+
+
+            // --- Dynamic Content Injection ---
+            
+            const wishesData = [
+                { lang: 'Spanish', wish: '¡Feliz Año Nuevo!', pronunciation: 'Fe-liz An-yo Nway-vo' },
+                { lang: 'French', wish: 'Bonne Année!', pronunciation: 'Bon a-nay' },
+                { lang: 'German', wish: 'Frohes neues Jahr!', pronunciation: 'Fro-hes no-yes Yar' },
+                { lang: 'Mandarin', wish: '新年快乐 / 新年快樂', pronunciation: 'Xin Nian Kuai Le' },
+                { lang: 'Japanese', wish: '明けましておめでとうございます', pronunciation: 'Akemashite Omedetou Gozaimasu' },
+                { lang: 'Russian', wish: 'С Новым Годом!', pronunciation: 'S Novym Godom' },
+                { lang: 'Italian', wish: 'Buon Anno!', pronunciation: 'Bwon An-no' },
+                { lang: 'Hindi', wish: 'नया साल मुबारक हो', pronunciation: 'Naya Saal Mubarak Ho' }
+            ];
+
+            const celebrationsData = [
+                {
+                    country: 'Spain',
+                    tradition: 'Eating 12 Grapes',
+                    description: 'At the stroke of midnight, Spaniards eat one grape for each of the 12 chimes of the clock to bring good luck for each month of the coming year.',
+                    img: 'https://placehold.co/600x400/7c3aed/ffffff?text=Spain'
+                },
+                {
+                    country: 'Denmark',
+                    tradition: 'Smashing Plates',
+                    description: 'Danes throw old plates and glasses against the doors of friends and family to banish bad spirits. They also jump off chairs at midnight to "leap" into the New Year.',
+                    img: 'https://placehold.co/600x400/be185d/ffffff?text=Denmark'
+                },
+                {
+                    country: 'Japan',
+                    tradition: 'Joya no Kane',
+                    description: 'Buddhist temples across Japan ring their bells 108 times on New Year\'s Eve, a tradition known as Joya no Kane. Each ring is believed to dispel one of the 108 worldly desires.',
+                    img: 'https://placehold.co/600x400/059669/ffffff?text=Japan'
+                },
+                 {
+                    country: 'Brazil',
+                    tradition: 'Wearing White & Jumping Waves',
+                    description: 'Many Brazilians wear all white to bring good luck and peace. Those near the coast will also jump over seven waves, making a wish for each wave.',
+                    img: 'https://placehold.co/600x400/d97706/ffffff?text=Brazil'
+                },
+                 {
+                    country: 'Philippines',
+                    tradition: 'Round Shapes',
+                    description: 'It\'s believed that round shapes, symbolizing coins, bring prosperity. People wear polka dots and display round fruits on the dining table.',
+                    img: 'https://placehold.co/600x400/1d4ed8/ffffff?text=Philippines'
+                },
+                 {
+                    country: 'Scotland',
+                    tradition: 'First-Footing',
+                    description: 'The "first-footer" is the first person to enter a home on New Year\'s Day. A tall, dark-haired visitor bearing gifts like coal, bread, and whiskey is believed to bring good fortune.',
+                    img: 'https://placehold.co/600x400/64748b/ffffff?text=Scotland'
+                }
+            ];
+
+            const wishesContainer = document.getElementById('wishes-container');
+            wishesData.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'card rounded-xl p-6 text-center';
+                card.innerHTML = `
+                    <h3 class="text-2xl font-bold font-display text-emerald-300">${item.wish}</h3>
+                    <p class="text-gray-400 mt-2">${item.lang}</p>
+                    <p class="text-gray-500 text-sm italic mt-1">(${item.pronunciation})</p>
+                `;
+                wishesContainer.appendChild(card);
+            });
+
+            const celebrationsContainer = document.getElementById('celebrations-container');
+            celebrationsData.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'card rounded-xl overflow-hidden flex flex-col';
+                card.innerHTML = `
+                    <img src="${item.img}" alt="Celebration in ${item.country}" class="w-full h-56 object-cover" onerror="this.src='https://placehold.co/600x400/334155/ffffff?text=Image+Error'">
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-2xl font-bold font-display text-amber-300">${item.tradition}</h3>
+                        <p class="text-lg text-gray-300 font-semibold mt-1">${item.country}</p>
+                        <p class="text-gray-400 mt-4 flex-grow">${item.description}</p>
+                    </div>
+                `;
+                celebrationsContainer.appendChild(card);
+            });
+        });
+    </script>
+</body>
+</html>

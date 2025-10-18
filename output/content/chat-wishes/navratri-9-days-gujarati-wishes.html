@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>નવરાત્રી – ૯ દિવસની શુભેચ્છાઓ</title>
+  <meta name="description" content="નવરાત્રીના દરેક ૯ દિવસ માટે સુંદર ગુજરાતી શુભેચ્છાઓ—ફિલ્ટર, કૉપી, શેર અને પ્રિન્ટ વિકલ્પો સાથે." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Gujarati:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #ffffff;
+      --surface: #ffffff;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --ring: #e5e7eb;
+      --saffron: #DD4400;
+      --carrot: #EC6535;
+      --gold: #F3DD43;
+      --indigo: #23345D;
+      --sapgreen: #4F7934;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: "Noto Sans Gujarati", system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text); background: var(--bg);
+    }
+    .topbar{ width:100%; height:10px; background: linear-gradient(90deg,var(--saffron),var(--carrot),var(--gold),var(--sapgreen),var(--indigo)); }
+    .container{max-width:1100px; margin:0 auto; padding:28px 20px 64px}
+    header{position:relative; padding:28px 18px 8px; text-align:center}
+    .title{font-weight:800; letter-spacing:-0.01em; font-size:clamp(26px, 3.2vw, 44px); margin:0}
+    .title .gradient{background: linear-gradient(90deg,var(--saffron),var(--gold)); -webkit-background-clip:text; background-clip:text; color:transparent}
+    .subtitle{margin:10px auto 0; color:var(--muted); max-width:62ch; line-height:1.65}
+
+    .ribbon{ margin:18px auto 24px; display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius:999px; background:#fff; border:1px solid #f3f4f6; box-shadow:0 4px 16px #0000000f; font-weight:600; color:#374151 }
+    .ribbon .dot{width:8px; height:8px; border-radius:50%; background:var(--saffron)}
+
+    .toolbar{margin:30px 0 22px; display:flex; flex-wrap:wrap; gap:10px; justify-content:center}
+    .btn{ --bg: #ffffff; --fg: var(--text); border:1px solid #e5e7eb; background:var(--bg); color:var(--fg); padding:10px 14px; border-radius:999px; cursor:pointer; font-weight:700; transition:transform .05s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease; outline:none }
+    .btn:hover{border-color:#d1d5db; box-shadow:0 2px 10px #0000000a}
+    .btn:active{transform:translateY(1px)}
+    .btn.primary{background:linear-gradient(90deg,var(--saffron),var(--carrot)); border-color:transparent; color:#fff}
+    .btn.ghost{background:transparent}
+    .btn[aria-pressed="true"]{box-shadow:0 0 0 3px #f59e0b33}
+
+    .grid{display:grid; gap:16px; grid-template-columns: repeat(1, minmax(0,1fr))}
+    @media (min-width:740px){ .grid{grid-template-columns: repeat(2, minmax(0,1fr))} }
+    @media (min-width:1024px){ .grid{grid-template-columns: repeat(3, minmax(0,1fr))} }
+
+    .card{ position:relative; background:var(--card); border:1px solid #eef2f7; border-radius:18px; padding:18px 16px 16px; box-shadow: 0 8px 24px #0000000d; overflow:hidden }
+    .card::before{ content:""; position:absolute; inset:0; pointer-events:none; border-radius:inherit; background: radial-gradient(600px 200px at -5% -10%, color-mix(in oklab, var(--accent), #ffffff 30%) 0%, transparent 60%); opacity:.25 }
+
+    .tag{ display:inline-flex; align-items:center; gap:8px; font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:#ffffff; background:var(--accent); border-radius:999px; padding:6px 10px; box-shadow:0 6px 16px color-mix(in oklab, var(--accent), #000 25%) }
+    .goddess{margin:10px 0 8px; font-size:18px; font-weight:800; letter-spacing:.01em}
+    .wish{margin:0 0 12px; color:#374151; line-height:1.8}
+
+    .card-actions{display:flex; gap:8px; margin-top:8px; flex-wrap:wrap}
+    .chip{border:1px dashed #e5e7eb; padding:6px 10px; border-radius:999px; font-size:12px; color:#6b7280; background:#fafafa}
+
+    .toast{position:fixed; left:50%; bottom:24px; transform:translateX(-50%) translateY(20px); background:#111827; color:#f9fafb; border:1px solid #1f2937; padding:12px 16px; border-radius:12px; box-shadow:0 12px 28px #000a; opacity:0; pointer-events:none; transition:opacity .3s ease, transform .3s ease; font-weight:700; z-index:50}
+    .toast.show{opacity:1; transform:translateX(-50%) translateY(0)}
+
+    footer{margin-top:32px; text-align:center; color:#6b7280; font-size:13px}
+    footer a{color:#374151; text-decoration:none; border-bottom:1px dashed #d1d5db}
+
+    @media print{ .toolbar, .ribbon, .toast, .print-hide{display:none!important} }
+  </style>
+</head>
+<body>
+  <div class="topbar" aria-hidden="true"></div>
+  <div class="container">
+    <header>
+      <div class="ribbon"><span class="dot"></span> નવરાત્રી – ૯ દિવસની શુભતા</div>
+      <h1 class="title"><span class="gradient">નવરાત્રી શુભેચ્છાઓ</span> – દરેક દિવસ માટે</h1>
+      <p class="subtitle">દરેક માતાજી માટે ભાવપૂર્ણ સંદેશો. દિવસવાર પસંદ કરો, એક ક્લિકથી કૉપી/શેર કરો કે પાનું પ્રિન્ટ કરો.</p>
+
+      <div class="toolbar">
+        <button class="btn primary" id="showAll" aria-pressed="true">બધું દર્શાવો</button>
+        <button class="btn" data-filter="1">દિવસ ૧</button>
+        <button class="btn" data-filter="2">દિવસ ૨</button>
+        <button class="btn" data-filter="3">દિવસ ૩</button>
+        <button class="btn" data-filter="4">દિવસ ૪</button>
+        <button class="btn" data-filter="5">દિવસ ૫</button>
+        <button class="btn" data-filter="6">દિવસ ૬</button>
+        <button class="btn" data-filter="7">દિવસ ૭</button>
+        <button class="btn" data-filter="8">દિવસ ૮</button>
+        <button class="btn" data-filter="9">દિવસ ૯</button>
+        <span class="spacer"></span>
+        <button class="btn ghost print-hide" id="printBtn" title="પ્રિન્ટ અથવા PDF સાચવો">પ્રિન્ટ</button>
+      </div>
+    </header>
+
+    <main class="grid" id="cards">
+      <!-- Day 1 -->
+      <article class="card" data-day="1" style="--accent:#ef4444">
+        <span class="tag">દિવસ ૧ • શૈલપુત્રી</span>
+        <h3 class="goddess">માતા શૈલપુત્રી</h3>
+        <p class="wish">🌸 "નવરાત્રિના પ્રથમ દિવસે માતા શૈલપુત્રી તમારા જીવનમાં શક્તિ, ધૈર્ય અને પ્રેરણા આપે, અને નવા આરંભ માટે ઉત્સાહ ભરે."</p>
+        <div class="card-actions">
+          <button class="btn" data-copy>કૉપી</button>
+          <button class="btn" data-share>શેર</button>
+          <span class="chip">રંગ: લાલ</span>
+        </div>
+      </article>
+
+      <!-- Day 2 -->
+      <article class="card" data-day="2" style="--accent:#4169e1">
+        <span class="tag">દિવસ ૨ • બ્રહ્મચારિણિ</span>
+        <h3 class="goddess">માતા બ્રહ્મચારિણિ</h3>
+        <p class="wish">🕉️ “બીજા દિવસે માતા બ્રહ્મચારિણિ તમારું જીવન જ્ઞાન, શાંતિ અને ભક્તિથી સમૃદ્ધ કરે. તમારું પથ પ્રેમ અને શિસ્તથી પ્રકાશિત રહે.”</p>
+        <div class="card-actions">
+          <button class="btn" data-copy>કૉપી</button>
+          <button class="btn" data-share>શેર</button>
+          <span class="chip">રંગ: શાહી વાદળી</span>
+        </div>
+      </article>
+
+      <!-- Day 3 -->
+      <article class="card" data-day="3" style="--accent:#f59e0b">
+        <span class="tag">દિવસ ૩ • ચંદ્રઘંટા</span>
+        <h3 class="goddess">માતા ચંદ્રઘંટા</h3>
+        <p class="wish">🪔 “માતા ચંદ્રઘંટા આશીર્વાદ આપે, ભયને દૂર કરી હિંમત અને શાંતિથી જીવન મહેકે. આ નવરાત્રી સુખ-શાંતિ અને સમૃદ્ધિ લાવે.”</p>
+        <div class="card-actions">
+          <button class="btn" data-copy>કૉપી</button>
+          <button class="btn" data-share>શેર</button>
+          <span class="chip">રંગ: પીળો</span>
+        </div>
+      </article>
+
+      <!-- Day 4 -->
+      <article class="card" data-day="4" style="--accent:#22c55e">
+        <span class="tag">દિવસ ૪ • કુષ્માંડા</span>
+        <h3 class="goddess">માતા કુષ્માંડા</h3>
+        <p class="wish">🌞 "ચોથી તિથીએ માતા કુષ્માંડા તમારી આસપાસ આરોગ્ય, સમૃદ્ધિ અને શાંતિ લાવે. તેમની કૃપાથી જીવન ખુશહાલ બને."</p>
+        <div class="card-actions">
+          <button class="btn" data-copy>કૉપી</button>
+          <button class="btn" data-share>શેર</button>
+          <span class="chip">રંગ: લીલો</span>
+        </div>
+      </article>
+
+      <!-- Day 5 -->
+      <article class="card" data-day="5" style="--accent:#9ca3af">
+        <span class="tag">દિવસ ૫ • સ્કંદમાતા</span>
+        <h3 class="goddess">માતા સ્કંદમાતા</h3>
+        <p class="wish">👩‍👦 "પાંચમે દિવસે માતા સ્કંદમાતા માતૃત્વનો પ્રેમ, દયા અને સુરક્ષા આપે. તમારું જીવન સુખ અને શાંતિથી ભરપૂર થાય."</p>
+        <div class="card-actions">
+          <button class="btn" data-copy>કૉપી</button>
+          <button class="btn" data-share>શેર</button>
+          <span class="chip">રંગ: રાખોડી</span>
+        </div>
+      </article>
+
+      <!-- Day 6 -->
+      <article class="card" data-day="6" style="--accent:#fb923c">
+        <span class="tag">દિવસ ૬ • કાત્યાયની</span>
+        <h3 class="goddess">માતા કાત્યાયની</h3>
+        <p class="wish">⚔️ “છઠ્ઠા દિવસે માતા કાત્યાયની તમારી હિંમત વધારશે, અવરોધો દૂર કરશે અને દરેક કાર્યમાં સિદ્ધિ આપશે.”</p>
+        <div class="card-actions">
+          <button class="btn" data-copy>કૉપી</button>
+          <button class="btn" data-share>શેર</button>
+          <span class="chip">રંગ: નારંગી</span>
+        </div>
+      </article>
+
+      <!-- Day 7 -->
+      <article class="card" data-day="7" style="--accent:#111827">
+        <span class="tag">દિવસ ૭ • કાલરાત્રિ</span>
+        <h3 class="goddess">માતા કાલરાત્રિ</h3>
+        <p class="wish">🔥 "માતા કાલરાત્રિએ નકારાત્મકતા દૂર કરી પ્રકાશ, સુરક્ષા અને આશીર્વાદોથી તમારું જીવન ઉજવાઈ જાય. હંમેશા નિર્ભય રહો."</p>
+        <div class="card-actions">
+          <button class="btn" data-copy>કૉપી</button>
+          <button class="btn" data-share>શેર</button>
+          <span class="chip">રંગ: સફેદ</span>
+        </div>
+      </article>
+
+      <!-- Day 8 -->
+      <article class="card" data-day="8" style="--accent:#f472b6">
+        <span class="tag">દિવસ ૮ • મહાગૌરી</span>
+        <h3 class="goddess">માતા મહાગૌરી</h3>
+        <p class="wish">🌸 "આઠમા દિવસે માતા મહાગૌરી તમારું મન શાંત કરે, જીવનમાં સુખ-શાંતિ આપે અને તાકાત સાથે માર્ગદર્શિત કરે. તેમની કૃપાથી જીવન પ્રકાશિત થાય." 🌟</p>
+        <div class="card-actions">
+          <button class="btn" data-copy>કૉપી</button>
+          <button class="btn" data-share>શેર</button>
+          <span class="chip">રંગ: ગુલાબી</span>
+        </div>
+      </article>
+
+      <!-- Day 9 -->
+      <article class="card" data-day="9" style="--accent:#a855f7">
+        <span class="tag">દિવસ ૯ • સિદ્ધિદાત્રી</span>
+        <h3 class="goddess">માતા સિદ્ધિદાત્રી</h3>
+        <p class="wish">✨ "અંતિમ દિવસે માતા સિદ્ધિદાત્રી જ્ઞાન, સમૃદ્ધિ અને શાંતિ આપે છે. તમારા બધા શુભ કાર્યો સફળ થાય."</p>
+        <div class="card-actions">
+          <button class="btn" data-copy>કૉપી</button>
+          <button class="btn" data-share>શેર</button>
+          <span class="chip">રંગ: જાંબલી</span>
+        </div>
+      </article>
+    </main>
+
+    <footer class="print-hide">
+      પ્રેમથી રચાયેલ — શુભ નવરાત્રી! • <a href="#" id="scrollTop">ઉપર જાઓ</a>
+    </footer>
+  </div>
+
+  <div class="toast" role="status" aria-live="polite" id="toast">કૉપિ થયું</div>
+
+  <script>
+    const cards = Array.from(document.querySelectorAll('[data-day]'));
+    const filterButtons = Array.from(document.querySelectorAll('[data-filter]'));
+    const showAllBtn = document.getElementById('showAll');
+    const toast = document.getElementById('toast');
+
+    function setPressed(btn){
+      [...document.querySelectorAll('.toolbar .btn')].forEach(b=>b.setAttribute('aria-pressed','false'));
+      btn.setAttribute('aria-pressed','true');
+    }
+
+    // Filtering
+    filterButtons.forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const day = btn.getAttribute('data-filter');
+        setPressed(btn);
+        cards.forEach(card=>{ card.style.display = (card.getAttribute('data-day') === day) ? 'block' : 'none'; });
+        window.scrollTo({top: document.querySelector('header').offsetHeight + 10, behavior:'smooth'});
+      })
+    });
+
+    showAllBtn.addEventListener('click',()=>{ setPressed(showAllBtn); cards.forEach(c=> c.style.display='block'); });
+
+    function showToast(msg){ toast.textContent = msg || 'કૉપિ થયું'; toast.classList.add('show'); setTimeout(()=>toast.classList.remove('show'), 1400); }
+
+    document.getElementById('cards').addEventListener('click', async (e)=>{
+      const card = e.target.closest('.card'); if(!card) return;
+      const wish = card.querySelector('.wish').innerText.trim();
+      if(e.target.matches('[data-copy]')){
+        try{ await navigator.clipboard.writeText(wish); showToast('કૉપિ થયું!'); }
+        catch{ const ta=document.createElement('textarea'); ta.value=wish; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); showToast('કૉપિ થયું!'); }
+      }
+      if(e.target.matches('[data-share]')){
+        if(navigator.share){ try{ await navigator.share({text: wish}); }catch(err){} }
+        else{ try{ await navigator.clipboard.writeText(wish); showToast('કૉપિ થયું! હવે ક્યાંય શેર કરો.'); }catch{ showToast('કૉપિ થયું!'); } }
+      }
+    });
+
+    document.getElementById('printBtn').addEventListener('click', ()=> window.print());
+    document.getElementById('scrollTop').addEventListener('click', (e)=>{ e.preventDefault(); window.scrollTo({top:0, behavior:'smooth'}); });
+  </script>
+</body>
+</html>

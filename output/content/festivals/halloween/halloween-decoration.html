@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ultimate Interactive Halloween Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Spooky Chic (Cream, Charcoal, Muted Orange, Deep Purple) -->
+    <!-- Application Structure Plan: A three-part SPA with main navigation for 'Decorations', 'Costumes', and 'Resources'. This task-oriented structure (Decorate, Create, Plan) is more intuitive for a user than the report's linear chapter format. It breaks down dense information into interactive modules like an 'Aesthetic Explorer' and 'DIY Project Hub', allowing users to directly access the content most relevant to them, enhancing usability and engagement. -->
+    <!-- Visualization & Content Choices: 1. Decoration Comparison: Report's table on DIY vs. Store-bought -> Goal: Compare -> Grouped Bar Chart -> Interaction: Hover for details -> Justification: Visually compares multiple items across multiple metrics (cost, time, durability) more effectively than a table. -> Library: Chart.js. 2. Costume Trends: Report's costume cheat sheet table -> Goal: Organize/Compare -> Horizontal Bar Chart -> Interaction: Filter by category -> Justification: Allows quick comparison of costume attributes like DIY difficulty. -> Library: Chart.js. All other content is presented in interactive cards, tabs, and modals to make the large volume of text digestible. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDF6E3; /* Warm Cream */
+            color: #333333;
+        }
+        .font-creepster {
+            font-family: 'Creepster', cursive;
+        }
+        .nav-btn {
+            transition: all 0.3s ease;
+            border-bottom: 4px solid transparent;
+        }
+        .nav-btn.active {
+            border-bottom-color: #D97706; /* Muted Orange */
+            color: #D97706;
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+        .card {
+            background-color: #FFFFFF;
+            border: 1px solid #E5E7EB;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.1);
+        }
+        .tab-btn {
+            transition: all 0.2s ease-in-out;
+        }
+        .tab-btn.active {
+            background-color: #5B21B6; /* Deep Purple */
+            color: #FFFFFF;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 50vh;
+        }
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 300px;
+                max-height: 60vh;
+            }
+        }
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.75);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 50;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-overlay.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            background: #FDF6E3;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+        .modal-overlay.visible .modal-content {
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-40 shadow-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <h1 class="font-creepster text-4xl text-gray-800 tracking-wider">HALLOWEEN HUB</h1>
+                <nav class="hidden md:flex space-x-6">
+                    <button class="nav-btn active text-lg font-semibold py-2" data-target="decorations">🎃 Decorate</button>
+                    <button class="nav-btn text-lg font-semibold py-2" data-target="costumes">👻 Create Costume</button>
+                    <button class="nav-btn text-lg font-semibold py-2" data-target="resources">📚 Plan & Stay Safe</button>
+                </nav>
+                <div class="md:hidden">
+                    <select id="mobile-nav" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                        <option value="decorations">🎃 Decorate</option>
+                        <option value="costumes">👻 Create Costume</option>
+                        <option value="resources">📚 Plan & Stay Safe</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 sm:p-6 lg:p-8">
+        
+        <section id="decorations" class="content-section active">
+            <div class="text-center mb-12">
+                <h2 class="text-5xl font-creepster text-gray-900 mb-2">The Art of the Haunt</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Turn your home into a Halloween masterpiece. Explore themes, discover creative DIY ideas, and design your space for ultimate spookiness.</p>
+            </div>
+
+            <div class="mb-12">
+                <h3 class="text-3xl font-bold text-center mb-6">Find Your Halloween Aesthetic</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="aesthetics-grid"></div>
+                <div id="aesthetic-details" class="mt-8 p-6 bg-white rounded-lg shadow-inner min-h-[200px]"></div>
+            </div>
+
+            <div class="mb-12">
+                <h3 class="text-3xl font-bold text-center mb-6">DIY vs. Store-Bought: The Great Debate</h3>
+                <p class="text-center text-gray-600 mb-6 max-w-2xl mx-auto">Deciding between making or buying is a trade-off. This chart breaks down popular decorations by key factors to guide your time and money choices.</p>
+                <div class="card p-4">
+                    <div class="chart-container">
+                        <canvas id="diyChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-12">
+                <h3 class="text-3xl font-bold text-center mb-6">The Creator's Workshop: DIY Projects</h3>
+                <div id="diy-projects-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+            </div>
+        </section>
+
+        <section id="costumes" class="content-section">
+            <div class="text-center mb-12">
+                <h2 class="text-5xl font-creepster text-gray-900 mb-2">The Art of Disguise</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">From classic frights to iconic characters, discover the ideal costume for you. Dive into this year's hottest styles and elevate your look with expert makeup tips.</p>
+            </div>
+
+            <div class="mb-12">
+                <h3 class="text-3xl font-bold text-center mb-6">2025 Costume Trend Forecast</h3>
+                <p class="text-center text-gray-600 mb-6 max-w-2xl mx-auto">Press releases heavily influence costume trends. Explore the characters and themes primed to rule Halloween this year.</p>
+                <div id="costume-trends-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+            </div>
+
+            <div class="mb-12">
+                <h3 class="text-3xl font-bold text-center mb-6">Trending Costume Cheat Sheet</h3>
+                 <p class="text-center text-gray-600 mb-6 max-w-2xl mx-auto">Use this chart to pick a strategic costume tailored to your group size, theme preference, and DIY enthusiasm. Tap the buttons to sort by category.</p>
+                <div class="flex justify-center space-x-2 mb-4" id="costume-chart-filters">
+                    <button class="px-4 py-2 text-sm font-medium rounded-md bg-gray-200 hover:bg-gray-300" data-filter="All">All</button>
+                    <button class="px-4 py-2 text-sm font-medium rounded-md bg-gray-200 hover:bg-gray-300" data-filter="Pop Culture">Pop Culture</button>
+                    <button class="px-4 py-2 text-sm font-medium rounded-md bg-gray-200 hover:bg-gray-300" data-filter="Horror">Horror</button>
+                    <button class="px-4 py-2 text-sm font-medium rounded-md bg-gray-200 hover:bg-gray-300" data-filter="Classic">Classic</button>
+                    <button class="px-4 py-2 text-sm font-medium rounded-md bg-gray-200 hover:bg-gray-300" data-filter="Funny/Punny">Funny</button>
+                </div>
+                <div class="card p-4">
+                    <div class="chart-container">
+                        <canvas id="costumeChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-12">
+                <h3 class="text-3xl font-bold text-center mb-6">Makeup Masterclass</h3>
+                <div class="max-w-4xl mx-auto">
+                    <div class="flex justify-center border-b border-gray-300 mb-6">
+                        <button class="tab-btn active px-6 py-3 font-semibold" data-makeup-tab="beginner">Beginner's Guide</button>
+                        <button class="tab-btn px-6 py-3 font-semibold" data-makeup-tab="advanced">Advanced SFX</button>
+                    </div>
+                    <div id="makeup-content"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="resources" class="content-section">
+            <div class="text-center mb-12">
+                <h2 class="text-5xl font-creepster text-gray-900 mb-2">Marketplace & Safety</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Discover all you need in our curated shopping guide and don't forget to check our safety tips for a fun, worry-free Halloween.</p>
+            </div>
+
+            <div class="mb-12">
+                <h3 class="text-3xl font-bold text-center mb-6">Ultimate Shopping Directory</h3>
+                <div id="shopping-directory" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
+            </div>
+
+            <div class="mb-12">
+                <h3 class="text-3xl font-bold text-center mb-6">A Safe & Spooky Celebration</h3>
+                <p class="text-center text-gray-600 mb-6 max-w-2xl mx-auto">Amid the fun, safety should come first. Use this guide to keep your costumes, decorations, and trick-or-treating plans safe for all.</p>
+                <div id="safety-checklist" class="space-y-8 max-w-4xl mx-auto"></div>
+            </div>
+        </section>
+    </main>
+<!--
+    <footer class="bg-gray-800 text-white mt-12 py-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Interactive Halloween Guide. Happy Haunting!</p>
+        </div>
+    </footer>
+-->
+
+    <div id="modal" class="modal-overlay">
+        <div id="modal-content" class="modal-content"></div>
+    </div>
+
+    <script>
+        const APP_DATA = {
+            aesthetics: [
+                { id: 'sinister', title: 'Sinister & Spooky', icon: '💀', description: 'The quintessential horror theme, designed to evoke dread and suspense. Think haunted houses, graveyards, and things that go bump in the night.', details: { elements: 'Life-size skeletons, tombstones, ghosts, witches, spiders.', techniques: 'Animatronics, fog machines, strobe lights, giant props.', palette: 'Deep blacks, blood reds, bone white. Rough, rotted textures.' } },
+                { id: 'gothic', title: 'Classic & Elegant Gothic', icon: '🥀', description: 'A moody, sophisticated theme inspired by Victorian traditions and classic monster films. More eerie than terrifying.', details: { elements: 'Gunmetal skeletons, candelabras, "poison" bottles, paper bats.', techniques: 'DIY gothic chandeliers, garlic wreaths, miniature haunted dollhouses.', palette: 'Matte black, gunmetal grey, tarnished gold. Velvets, lace, dark florals.' } },
+                { id: 'whimsical', title: 'Whimsical & Kid-Friendly', icon: '🎃', description: 'A cheerful and festive alternative for households with young children. All delight, no fright!', details: { elements: 'Friendly ghosts, charming witches, smiling pumpkins, inflatables.', techniques: 'DIY tomato cage ghosts, yarn monster wreaths, posing skeletons in funny situations.', palette: 'Bright oranges, purples, greens with pops of pink or turquoise.' } },
+                { id: 'rustic', title: 'Minimalist & Rustic Harvest', icon: '🍂', description: 'A subtle, nature-inspired approach that blends Halloween with a broader autumnal, farmhouse style.', details: { elements: 'Heirloom pumpkins, black-painted corn, gourds with feathers, twine patterns.', techniques: 'Decor that transitions to Thanksgiving, mossy wreaths, layered porch displays.', palette: 'Natural tones, muted oranges, deep reds, earthy browns.' } }
+            ],
+            diyProjects: [
+                { title: 'Wavy Ghost Candles', image: '🕯️', description: 'A simple indoor project to create an elegant and spooky accent for a mantelpiece or tabletop.', materials: ['Thin white taper candles', 'Casserole dish', 'Hot tap water', 'Dish towel', 'Black acrylic paint pen'], instructions: ['Submerge candles in hot water until pliable.', 'Gently bend them into wavy, ghost-like shapes.', 'Dry completely.', 'Use the paint pen to draw simple eyes and a mouth.'] },
+                { title: 'Durable Outdoor Tombstones', image: '🪦', description: 'Create realistic and durable tombstones that far surpass their store-bought counterparts.', materials: ['Housing insulating foam', 'Carving tool (hot knife)', 'DryLock waterproof paint/sealant'], instructions: ['Sketch and cut out tombstone shapes from foam.', 'Carve details like epitaphs and dates.', 'Apply a base coat of DryLock to waterproof.', 'Add paint for an aged, weathered look.'] },
+                { title: 'Floating Paper Lantern Ghosts', image: '👻', description: 'An easy and effective project for adding a ghostly presence to a porch or tree branches.', materials: ['White paper lanterns', 'Cheesecloth or white gauze', 'Black permanent marker', 'String or fishing line'], instructions: ['Assemble lanterns and draw ghoulish faces.', 'Drape gauze over each lantern to create a body.', 'Hang from branches or your porch roof.'] },
+                { title: 'Flying Bat Cloches', image: '🦇', description: 'A sophisticated, gothic-style indoor decoration, perfect for a mantel or entryway table.', materials: ['Black craft paper', 'Scissors', '18-gauge black wire', 'Black gaffers tape', 'Glass dome (cloche) with base'], instructions: ['Cut out bat shapes from black paper.', 'Attach bats to wires of different lengths.', 'Secure wires to the cloche base.', 'Place the glass dome over the arrangement.'] },
+                { title: 'Spider Web from a Bin Bag', image: '🕸️', description: 'Transform a common household item into a large, intricate spiderweb for walls or windows.', materials: ['Black plastic bin bag', 'Scissors', 'Tape', 'Sharpie pen'], instructions: ['Cut bag into a sheet and fold into a small triangle.', 'Draw cutting lines like a paper snowflake.', 'Cut along the lines, avoiding the main spokes.', 'Carefully unfold to reveal the web.'] }
+            ],
+            costumeTrends: [
+                { title: 'Barbie & Ken', category: 'Pop Culture', image: '💖', description: 'The top trending couples\' costume. Options include Rollerblading, Cowboy, or classic pink themes.' },
+                { title: 'Beetlejuice & Lydia', category: 'Pop Culture', image: '⚫⚪', description: 'A major resurgence thanks to the sequel. The striped suit and red wedding dress are iconic.' },
+                { title: 'Wolverine & Deadpool', category: 'Pop Culture', image: '⚔️', description: 'A key duo for couples and groups, driven by the latest superhero blockbuster.' },
+                { title: 'Elphaba & Glinda', category: 'Pop Culture', image: '💚✨', description: 'The Wicked film adaptation makes this a top choice for best friends.' },
+                { title: 'Art the Clown', category: 'Horror', image: '🤡', description: 'A trending option for serious horror fans from the Terrifier film series.' },
+                { title: 'Chucky & Bride', category: 'Horror', image: '🔪', description: 'An instantly recognizable and creepy couple from horror cinema.' },
+                { title: 'Velma & Shaggy', category: 'Classic', image: '👓', description: 'A beloved duo from Scooby-Doo, perfect for a nostalgic and easy-to-assemble costume.' },
+                { title: 'DIY Ghost', category: 'Classic', image: '👻', description: 'The ultimate classic. Easy, cheap, and always recognizable. Can be simple or elaborate.' },
+                { title: 'Wine & Cheese', category: 'Funny/Punny', image: '🍷🧀', description: 'A clever and humorous pairing for those who prefer laughs over scares.' }
+            ],
+            makeup: {
+                beginner: {
+                    title: 'Beginner\'s Guide to Halloween Makeup',
+                    content: [
+                        { heading: 'Focus on Simplicity', text: 'Start with achievable looks like a simple skull, a scarecrow, or a spiderweb witch. You don\'t need a full face of paint to make a big impact.' },
+                        { heading: 'Use Everyday Tools', text: 'A deep brown eyeshadow can create hollowed-out contours. A piece of fishnet stocking makes a great stencil for mermaid scales. A dry brush can create a scruffy fur effect.' },
+                        { heading: 'Smart Product Choices', text: 'A black gel eyeliner is a versatile tool for drawing lines and filling in shapes. Eyeshadow palettes offer a wide range of colors for shading and design.' },
+                        { heading: 'Set Your Look!', text: 'This is critical. Set cream or grease paints with a generous amount of translucent powder. Finish with a barrier spray (like Ben Nye\'s Final Seal) to lock everything in place and prevent smudging.' }
+                    ]
+                },
+                advanced: {
+                    title: 'Advanced Techniques & Introduction to SFX',
+                    content: [
+                        { heading: 'The Core SFX Toolkit', text: 'To level up, you\'ll need a few key items: <strong>Modeling Wax</strong> (to build up wounds/scars), <strong>Liquid Latex</strong> (for wrinkles, peeling skin, and texture), and <strong>Coagulated Blood Gel</strong> (for realistic, clotted blood).' },
+                        { heading: 'Step-by-Step Project: The Gruesome Cut', text: '1. Roll a small amount of modeling wax into a worm shape. <br>2. Press the wax firmly onto skin, blending the outer edges seamlessly. <br>3. Use a spatula to slice a deep line down the center of the wax. <br>4. Apply foundation to match your skin tone. <br>5. Use red/brown makeup inside the cut for depth. <br>6. Apply a small amount of Coagulated Blood Gel into the cut. Less is more!' },
+                        { heading: 'Create Dimension', text: 'The key to believable SFX is texture. Stipple different colors with a torn sponge to create a mottled bruise. Layer dark red lip gloss over makeup for a fresh, wet-looking wound if you don\'t have fake blood.' }
+                    ]
+                }
+            },
+            shopping: [
+                { category: 'Big Box & Specialty', stores: [
+                    { name: 'Spirit Halloween', description: 'The largest Halloween retailer. A one-stop-shop for costumes, licensed merch, and elaborate animatronics.' },
+                    { name: 'Party City', description: 'Wide range of costumes and accessories, excelling in themed tableware, balloons, and party favors.' },
+                    { name: 'The Home Depot', description: 'A major player in large-scale outdoor decor, home of the viral 12-foot skeleton.' }
+                ]},
+                { category: 'Online Superstores', stores: [
+                    { name: 'HalloweenCostumes.com', description: 'Massive online-only retailer with a huge range of costumes and exclusive designs.' },
+                    { name: 'Amazon', description: 'A go-to for nearly everything, especially viral, trendy, and budget-friendly decor items.' },
+                    { name: 'Disney Store', description: 'The ultimate source for authentic costumes and decor from Disney, Marvel, and Star Wars.' }
+                ]},
+                { category: 'Budget & DIY Sourcing', stores: [
+                    { name: 'Dollar Tree & Five Below', description: 'Essential stops for basic craft supplies, party favors, and simple decor for high-impact, low-cost projects.' },
+                    { name: 'Thrift & Vintage Stores', description: 'Treasure troves for unique clothing, retro fashion, and one-of-a-kind props.' }
+                ]}
+            ],
+            safety: [
+                { category: 'Decoration Safety', icon: '🔥', tips: [
+                    'Use battery-operated LED candles instead of real flames in jack-o\'-lanterns.',
+                    'Keep flammable materials (cornstalks, crepe paper) away from heat sources.',
+                    'Ensure all smoke alarms are working.',
+                    'Keep exits and escape routes clear of decorations.',
+                    'Clear walkways of tripping hazards like extension cords or wet leaves.'
+                ]},
+                { category: 'Costume Safety', icon: '👁️', tips: [
+                    'Choose bright-colored costumes and add reflective tape for visibility.',
+                    'Ensure masks do not obstruct vision; face paint is a safer alternative.',
+                    'Costumes should not be so long that they are a tripping hazard.',
+                    'Choose flame-resistant materials (polyester, nylon).',
+                    'NEVER use decorative contact lenses without a prescription from an eye doctor.'
+                ]},
+                { category: 'Trick-or-Treating Safety', icon: '🍬', tips: [
+                    'Young children should always be accompanied by a trusted adult.',
+                    'Plan a route in advance and stick to familiar, well-lit neighborhoods.',
+                    'Never enter a stranger\'s home or vehicle.',
+                    'An adult must inspect all candy before it is eaten.',
+                    'Throw away any unwrapped, homemade, or suspicious-looking treats.'
+                ]}
+            ]
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const navButtons = document.querySelectorAll('.nav-btn');
+            const mobileNav = document.getElementById('mobile-nav');
+            const contentSections = document.querySelectorAll('.content-section');
+            let diyChartInstance = null;
+            let costumeChartInstance = null;
+
+            function switchTab(targetId) {
+                navButtons.forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.target === targetId);
+                });
+                contentSections.forEach(section => {
+                    section.classList.toggle('active', section.id === targetId);
+                });
+                mobileNav.value = targetId;
+
+                if (targetId === 'decorations' && !diyChartInstance) {
+                    renderDiyChart();
+                }
+                if (targetId === 'costumes' && !costumeChartInstance) {
+                    renderCostumeChart('All');
+                }
+            }
+
+            navButtons.forEach(button => {
+                button.addEventListener('click', () => switchTab(button.dataset.target));
+            });
+            
+            mobileNav.addEventListener('change', (e) => switchTab(e.target.value));
+
+            function renderAesthetics() {
+                const grid = document.getElementById('aesthetics-grid');
+                const detailsContainer = document.getElementById('aesthetic-details');
+                grid.innerHTML = APP_DATA.aesthetics.map(a => `
+                    <div class="card p-4 text-center cursor-pointer" data-aesthetic-id="${a.id}">
+                        <div class="text-5xl mb-2">${a.icon}</div>
+                        <h4 class="text-xl font-bold mb-2">${a.title}</h4>
+                        <p class="text-gray-600">${a.description}</p>
+                    </div>
+                `).join('');
+
+                function showAestheticDetails(id) {
+                    const aesthetic = APP_DATA.aesthetics.find(a => a.id === id);
+                    detailsContainer.innerHTML = `
+                        <h4 class="text-2xl font-bold mb-3">${aesthetic.title}</h4>
+                        <div class="grid md:grid-cols-3 gap-4 text-left">
+                            <div><strong class="text-purple-800">Core Elements:</strong><p class="text-sm">${aesthetic.details.elements}</p></div>
+                            <div><strong class="text-purple-800">Advanced Techniques:</strong><p class="text-sm">${aesthetic.details.techniques}</p></div>
+                            <div><strong class="text-purple-800">Palette & Texture:</strong><p class="text-sm">${aesthetic.details.palette}</p></div>
+                        </div>
+                    `;
+                }
+
+                grid.addEventListener('click', (e) => {
+                    const card = e.target.closest('[data-aesthetic-id]');
+                    if (card) {
+                        showAestheticDetails(card.dataset.aestheticId);
+                        document.querySelectorAll('[data-aesthetic-id]').forEach(c => c.classList.remove('ring-2', 'ring-offset-2', 'ring-orange-500'));
+                        card.classList.add('ring-2', 'ring-offset-2', 'ring-orange-500');
+                    }
+                });
+
+                showAestheticDetails(APP_DATA.aesthetics[0].id);
+                grid.querySelector('[data-aesthetic-id]').classList.add('ring-2', 'ring-offset-2', 'ring-orange-500');
+            }
+
+            function renderDiyChart() {
+                const ctx = document.getElementById('diyChart').getContext('2d');
+                const data = {
+                    labels: ['Tombstones', 'Yard Ghosts', 'Giant Spiders', 'Wreaths'],
+                    datasets: [
+                        { label: 'Cost', data: [2, 1, 3, 2], backgroundColor: 'rgba(217, 119, 6, 0.7)' },
+                        { label: 'Time', data: [3, 2, 3, 2], backgroundColor: 'rgba(91, 33, 182, 0.7)' },
+                        { label: 'Customization', data: [3, 2, 3, 4], backgroundColor: 'rgba(29, 78, 216, 0.7)' },
+                        { label: 'Durability', data: [4, 2, 2, 3], backgroundColor: 'rgba(22, 163, 74, 0.7)' }
+                    ]
+                };
+                diyChartInstance = new Chart(ctx, {
+                    type: 'bar',
+                    data: data,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    callback: function(value) {
+                                        const labels = ['', 'Low', 'Medium', 'High', 'Very High'];
+                                        return labels[value];
+                                    }
+                                }
+                            }
+                        },
+                        plugins: {
+                            title: { display: true, text: 'DIY vs. Store-Bought Factor Comparison' },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        const labels = ['Low', 'Medium', 'High', 'Very High'];
+                                        let label = context.dataset.label || '';
+                                        if (label) { label += ': '; }
+                                        if (context.parsed.y !== null) {
+                                            label += labels[context.parsed.y - 1];
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+            
+            const modal = document.getElementById('modal');
+            const modalContent = document.getElementById('modal-content');
+            
+            function showModal(content) {
+                modalContent.innerHTML = content;
+                modal.classList.add('visible');
+            }
+
+            function hideModal() {
+                modal.classList.remove('visible');
+            }
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    hideModal();
+                }
+            });
+
+            function renderDiyProjects() {
+                const grid = document.getElementById('diy-projects-grid');
+                grid.innerHTML = APP_DATA.diyProjects.map((p, index) => `
+                    <div class="card p-4 flex flex-col items-center text-center cursor-pointer" data-project-index="${index}">
+                        <div class="text-6xl mb-3">${p.image}</div>
+                        <h4 class="text-xl font-bold mb-2">${p.title}</h4>
+                        <p class="text-gray-600 flex-grow">${p.description}</p>
+                        <button class="mt-4 bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 text-sm font-semibold">View Project</button>
+                    </div>
+                `).join('');
+
+                grid.addEventListener('click', (e) => {
+                    const card = e.target.closest('[data-project-index]');
+                    if (card) {
+                        const project = APP_DATA.diyProjects[card.dataset.projectIndex];
+                        const modalHTML = `
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-3xl font-bold mb-4">${project.title}</h3>
+                                <button id="close-modal" class="text-2xl font-bold">&times;</button>
+                            </div>
+                            <p class="mb-4">${project.description}</p>
+                            <h4 class="font-bold text-lg mb-2">Materials:</h4>
+                            <ul class="list-disc list-inside mb-4 space-y-1">
+                                ${project.materials.map(m => `<li>${m}</li>`).join('')}
+                            </ul>
+                            <h4 class="font-bold text-lg mb-2">Instructions:</h4>
+                            <ol class="list-decimal list-inside space-y-2">
+                                ${project.instructions.map(i => `<li>${i}</li>`).join('')}
+                            </ol>
+                        `;
+                        showModal(modalHTML);
+                        document.getElementById('close-modal').addEventListener('click', hideModal);
+                    }
+                });
+            }
+
+            function renderCostumeTrends() {
+                const grid = document.getElementById('costume-trends-grid');
+                grid.innerHTML = APP_DATA.costumeTrends.map(c => `
+                    <div class="card p-4 text-center">
+                        <div class="text-5xl mb-2">${c.image}</div>
+                        <h4 class="text-xl font-bold mb-2">${c.title}</h4>
+                        <span class="inline-block bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded-full mb-2">${c.category}</span>
+                        <p class="text-gray-600 text-sm">${c.description}</p>
+                    </div>
+                `).join('');
+            }
+
+            function renderCostumeChart(filter) {
+                const ctx = document.getElementById('costumeChart').getContext('2d');
+                if (costumeChartInstance) {
+                    costumeChartInstance.destroy();
+                }
+                
+                const allCostumes = [
+                    { name: 'Barbie & Ken', category: 'Pop Culture', difficulty: 2 },
+                    { name: 'Beetlejuice & Lydia', category: 'Pop Culture', difficulty: 3 },
+                    { name: 'Wolverine & Deadpool', category: 'Pop Culture', difficulty: 4 },
+                    { name: 'Elphaba & Glinda', category: 'Pop Culture', difficulty: 3 },
+                    { name: 'Art the Clown', category: 'Horror', difficulty: 5 },
+                    { name: 'Velma & Shaggy', category: 'Classic', difficulty: 1 },
+                    { name: 'DIY Ghost', category: 'Classic', difficulty: 1 },
+                    { name: 'Wine & Cheese', category: 'Funny/Punny', difficulty: 1 }
+                ];
+                
+                const filteredCostumes = filter === 'All' ? allCostumes : allCostumes.filter(c => c.category === filter);
+
+                const data = {
+                    labels: filteredCostumes.map(c => c.name),
+                    datasets: [{
+                        label: 'DIY Difficulty',
+                        data: filteredCostumes.map(c => c.difficulty),
+                        backgroundColor: ['#D97706', '#5B21B6', '#1D4ED8', '#16A34A', '#DC2626', '#CA8A04', '#6D28D9', '#DB2777'],
+                        borderColor: 'rgba(255, 255, 255, 0.8)',
+                        borderWidth: 1
+                    }]
+                };
+
+                costumeChartInstance = new Chart(ctx, {
+                    type: 'bar',
+                    data: data,
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                max: 5,
+                                ticks: {
+                                    callback: function(value) {
+                                        const labels = ['', 'Very Low', 'Low', 'Medium', 'High', 'Very High'];
+                                        return labels[value];
+                                    }
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: { display: false },
+                            title: { display: true, text: `DIY Difficulty for ${filter} Costumes` },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        const labels = ['Very Low', 'Low', 'Medium', 'High', 'Very High'];
+                                        return `Difficulty: ${labels[context.parsed.x - 1]}`;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+            
+            document.getElementById('costume-chart-filters').addEventListener('click', e => {
+                if (e.target.tagName === 'BUTTON') {
+                    renderCostumeChart(e.target.dataset.filter);
+                }
+            });
+
+            function renderMakeup() {
+                const contentContainer = document.getElementById('makeup-content');
+                const tabButtons = document.querySelectorAll('[data-makeup-tab]');
+
+                function showMakeupTab(tabId) {
+                    const data = APP_DATA.makeup[tabId];
+                    contentContainer.innerHTML = `
+                        <div class="bg-white p-6 rounded-lg shadow-inner">
+                            <h4 class="text-2xl font-bold mb-4">${data.title}</h4>
+                            <div class="space-y-4">
+                                ${data.content.map(item => `
+                                    <div>
+                                        <h5 class="font-semibold text-lg text-purple-800">${item.heading}</h5>
+                                        <p class="text-gray-700">${item.text}</p>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `;
+                }
+
+                tabButtons.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        tabButtons.forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        showMakeupTab(btn.dataset.makeupTab);
+                    });
+                });
+                
+                showMakeupTab('beginner');
+            }
+
+            function renderShopping() {
+                const container = document.getElementById('shopping-directory');
+                container.innerHTML = APP_DATA.shopping.map(cat => `
+                    <div class="card p-6">
+                        <h4 class="text-2xl font-bold mb-4 border-b pb-2">${cat.category}</h4>
+                        <div class="space-y-4">
+                            ${cat.stores.map(store => `
+                                <div>
+                                    <h5 class="font-semibold">${store.name}</h5>
+                                    <p class="text-sm text-gray-600">${store.description}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            function renderSafety() {
+                const container = document.getElementById('safety-checklist');
+                container.innerHTML = APP_DATA.safety.map(cat => `
+                    <div class="card p-6">
+                        <h4 class="text-2xl font-bold mb-4 flex items-center"><span class="text-4xl mr-3">${cat.icon}</span> ${cat.category}</h4>
+                        <div class="space-y-3">
+                            ${cat.tips.map(tip => `
+                                <label class="flex items-start">
+                                    <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-orange-600 focus:ring-orange-500 mt-1 mr-3">
+                                    <span class="text-gray-700">${tip}</span>
+                                </label>
+                            `).join('')}
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            renderAesthetics();
+            renderDiyProjects();
+            renderCostumeTrends();
+            renderMakeup();
+            renderShopping();
+            renderSafety();
+            switchTab('decorations');
+        });
+    </script>
+</body>
+</html>

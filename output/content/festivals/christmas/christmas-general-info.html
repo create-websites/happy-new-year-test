@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas: A Global Celebration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Energetic & Playful -->
+    <!-- Narrative Structure Plan: The infographic follows a logical, top-down narrative to guide the user through the story of Christmas. It starts with a bold, attention-grabbing header and a key statistic ("big number") to establish the festival's scale. The structure then flows from the core meaning and origin of Christmas to a visual exploration of its most beloved traditions. To add a data-driven perspective, a section with a bar chart visualizes holiday spending, making the abstract concept of holiday economics tangible. The infographic concludes by broadening the scope to global celebrations, providing a sense of worldwide unity. This progression from "what" to "how" to "how much" and "where" creates a comprehensive and easy-to-follow user journey. -->
+    <!-- Visualization Choices:
+        1. Data Point: "Over 2 Billion People Celebrate". Goal: Inform. Chosen Visualization: Single Big Number. Justification: This is the most effective method for conveying a single, powerful statistic, immediately establishing the festival's global importance. Method: Styled HTML & Tailwind CSS. (CONFIRM: NO SVG).
+        2. Data Point: Key Christmas Traditions (Tree, Santa, Gifts, etc.). Goal: Organize & Inform. Chosen Visualization: A responsive grid of illustrated cards. Justification: A grid allows for the clean, balanced presentation of multiple distinct but related concepts. Unicode characters serve as simple, universally understood icons. Method: HTML & Tailwind CSS Grid. (CONFIRM: NO SVG).
+        3. Data Point: Average Household Holiday Spending. Goal: Compare. Chosen Visualization: Vertical Bar Chart. Justification: A bar chart is the ideal tool for comparing the values of different categories (e.g., spending on gifts vs. travel), making it instantly clear where the largest expenditures lie. The label wrapping and custom tooltip requirements are implemented to handle longer category names effectively. Library: Chart.js on Canvas. (CONFIRM: NO SVG).
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0F172A; /* Dark Slate Blue */
+            color: #E2E8F0; /* Slate Gray */
+        }
+        .card {
+            background-color: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(51, 65, 85, 0.7);
+            backdrop-filter: blur(10px);
+        }
+        .highlight-text-gold {
+            color: #FFC300; /* Gold */
+        }
+        .highlight-text-red {
+             color: #C70039; /* Deep Red */
+        }
+        .accent-bg-red {
+            background-color: #C70039;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto px-6 py-12">
+
+        <header class="text-center mb-16">
+            <h1 class="text-5xl md:text-7xl font-extrabold highlight-text-gold mb-4 tracking-wider">CHRISTMAS</h1>
+            <p class="text-xl md:text-2xl font-semibold text-white">A Global Celebration of Joy, Peace, and Goodwill</p>
+        </header>
+
+        <section class="mb-20">
+            <div class="card rounded-2xl p-8 max-w-4xl mx-auto text-center">
+                 <p class="text-2xl text-slate-300 mb-2">Celebrated by over a quarter of the world's population</p>
+                <p class="text-6xl md:text-8xl font-bold highlight-text-gold">2 Billion+</p>
+                <p class="text-xl text-slate-300 mt-2">Individuals from both Christian and non-Christian traditions celebrate Christmas festivities globally.</p>
+            </div>
+        </section>
+
+        <section class="mb-20">
+            <div class="text-center max-w-3xl mx-auto">
+                <h2 class="text-4xl font-bold mb-4">The Heart of the Celebration</h2>
+                <p class="text-slate-300">
+                    Christmas celebrates the birth of Jesus Christ, a key figure in Christianity. Over time, it has grown into a worldwide cultural and commercial tradition, symbolizing generosity, family, and hope beyond religion. It’s a season of gratitude, joy, and togetherness.
+                </p>
+            </div>
+        </section>
+
+        <section class="mb-20">
+            <h2 class="text-4xl font-bold text-center mb-10">Beloved Traditions & Symbols</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="card rounded-xl p-6 text-center transform hover:scale-105 transition-transform duration-300">
+                    <div class="text-6xl mb-4">🎄</div>
+                    <h3 class="text-xl font-bold highlight-text-gold mb-2">The Christmas Tree</h3>
+                    <p class="text-slate-300 text-sm">A fir or pine tree, symbolizing eternal life, is adorned with lights and ornaments and brought indoors during winter.</p>
+                </div>
+                
+                <div class="card rounded-xl p-6 text-center transform hover:scale-105 transition-transform duration-300">
+                    <div class="text-6xl mb-4">🎅</div>
+                    <h3 class="text-xl font-bold highlight-text-gold mb-2">Santa Claus</h3>
+                    <p class="text-slate-300 text-sm">Rooted in the tales of Saint Nicholas, Santa Claus is a mythical figure who delivers gifts to good children on Christmas Eve, symbolizing generosity and joy.</p>
+                </div>
+
+                <div class="card rounded-xl p-6 text-center transform hover:scale-105 transition-transform duration-300">
+                    <div class="text-6xl mb-4">🎁</div>
+                    <h3 class="text-xl font-bold highlight-text-gold mb-2">Gift Giving</h3>
+                    <p class="text-slate-300 text-sm">Sharing gifts with loved ones reflects the Magi's offerings to baby Jesus and strengthens ties of love and connection.</p>
+                </div>
+                
+                <div class="card rounded-xl p-6 text-center transform hover:scale-105 transition-transform duration-300">
+                    <div class="text-6xl mb-4">🎶</div>
+                    <h3 class="text-xl font-bold highlight-text-gold mb-2">Christmas Carols</h3>
+                    <p class="text-slate-300 text-sm">Performing joyful tunes, from timeless carols to contemporary favorites, brings warmth and shares the spirit of the season. Groups often sing house-to-house in neighborhoods.</p>
+                </div>
+
+                <div class="card rounded-xl p-6 text-center transform hover:scale-105 transition-transform duration-300">
+                    <div class="text-6xl mb-4">🍗</div>
+                    <h3 class="text-xl font-bold highlight-text-gold mb-2">Festive Feasts</h3>
+                    <p class="text-slate-300 text-sm">A key tradition of the celebration is enjoying a big meal with loved ones, highlighting cultural dishes like turkey, ham, or tamales.</p>
+                </div>
+
+                <div class="card rounded-xl p-6 text-center transform hover:scale-105 transition-transform duration-300">
+                    <div class="text-6xl mb-4">🕯️</div>
+                    <h3 class="text-xl font-bold highlight-text-gold mb-2">Advent Wreath</h3>
+                    <p class="text-slate-300 text-sm">A wreath with four candles, lit weekly during Advent, marks time and reflects the anticipation of Jesus's birth.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-4xl font-bold text-center mb-4">Christmas by the Numbers</h2>
+            <p class="text-center text-slate-300 max-w-3xl mx-auto mb-10">The holiday season blends tradition with economics. This chart shows how a typical household may divide its holiday budget, emphasizing the financial side of festivities.</p>
+            <div class="card rounded-2xl p-6 md:p-8">
+                <div class="chart-container">
+                    <canvas id="spendingChart"></canvas>
+                </div>
+            </div>
+        </section>
+        
+    </div>
+    
+    <footer class="accent-bg-red mt-12 py-6">
+        <div class="container mx-auto px-6 text-center">
+            <p class="font-semibold text-white">Wishing you a Merry Christmas & a Happy New Year!</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            function wrapText(label) {
+                const maxLineLength = 16;
+                if (label.length <= maxLineLength) {
+                    return label;
+                }
+                const words = label.split(' ');
+                const lines = [];
+                let currentLine = '';
+                for (const word of words) {
+                    if ((currentLine + ' ' + word).trim().length > maxLineLength) {
+                        lines.push(currentLine.trim());
+                        currentLine = word;
+                    } else {
+                        currentLine = (currentLine + ' ' + word).trim();
+                    }
+                }
+                if (currentLine) {
+                    lines.push(currentLine.trim());
+                }
+                return lines;
+            }
+
+            const rawLabels = [
+                'Gifts for family and friends', 
+                'Holiday Food and Drinks', 
+                'Travel and Accommodations', 
+                'Festive Decorations for Home', 
+                'Charitable Donations & Other'
+            ];
+
+            const chartLabels = rawLabels.map(label => wrapText(label));
+
+            const ctx = document.getElementById('spendingChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: chartLabels,
+                    datasets: [{
+                        label: 'Average Household Spending ($)',
+                        data: [455, 250, 210, 110, 75],
+                        backgroundColor: [
+                            '#FFC300', 
+                            '#C70039', 
+                            'rgba(255, 195, 0, 0.7)',
+                            'rgba(199, 0, 57, 0.7)',
+                            'rgba(255, 195, 0, 0.5)',
+                        ],
+                        borderColor: '#0F172A',
+                        borderWidth: 2,
+                        borderRadius: 5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    scales: {
+                        y: {
+                            ticks: {
+                                color: '#E2E8F0',
+                                font: {
+                                    size: 12,
+                                    family: "'Inter', sans-serif"
+                                }
+                            },
+                             grid: {
+                                color: 'rgba(51, 65, 85, 0.5)'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: '#E2E8F0'
+                            },
+                             grid: {
+                                color: 'rgba(51, 65, 85, 0.5)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        title: {
+                            display: true,
+                            text: 'Average Holiday Spending Breakdown',
+                            color: '#FFFFFF',
+                            font: {
+                                size: 16,
+                                weight: 'bold'
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: '#0F172A',
+                            titleColor: '#FFC300',
+                            bodyColor: '#E2E8F0',
+                            borderColor: '#FFC300',
+                            borderWidth: 1,
+                            callbacks: {
+                                title: function(tooltipItems) {
+                                    const item = tooltipItems[0];
+                                    let label = item.chart.data.labels[item.dataIndex];
+                                    if (Array.isArray(label)) {
+                                      return label.join(' ');
+                                    } else {
+                                      return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

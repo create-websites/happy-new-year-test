@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanksgiving Feast Planner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals & Subtle Autumn Accents -->
+    <!-- Application Structure Plan: A task-oriented, single-page dashboard designed to mirror the user's meal planning journey. It starts with a hero section, moves to an interactive turkey roasting calculator, then to filterable galleries for sides and desserts, a dedicated section for dietary needs, and finally an interactive preparation timeline. This structure was chosen to transform the static report into a practical, engaging tool, breaking down dense information into manageable, interactive components and prioritizing user tasks (planning, selecting, scheduling) over the report's original linear format. -->
+    <!-- Visualization & Content Choices: The report's static turkey roasting table is converted into an interactive slider and a Chart.js bar chart (Goal: Inform/Compare, Method: JS/Canvas) for personalized calculation and easy visual comparison. The extensive text on side dishes is reorganized into a filterable card gallery (Goal: Organize/Compare, Method: HTML/JS) for quick browsing. The planning timeline is presented as an interactive accordion (Goal: Organize/Track, Method: HTML/JS) to reduce cognitive load. All interactions are designed to make the information more accessible and actionable. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF8; /* Warm off-white */
+            color: #4A4A4A;
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 50vh;
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #C05621; /* Burnt Orange */
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+        .modal-overlay {
+            transition: opacity 0.3s ease-in-out;
+        }
+        .modal-content {
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold text-stone-800">
+                    <span class="text-orange-700">🍂</span> The Feast Planner
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#main" class="nav-link text-stone-600 hover:text-orange-700">The Main Event</a>
+                    <a href="#sides" class="nav-link text-stone-600 hover:text-orange-700">Perfect Pairings</a>
+                    <a href="#desserts" class="nav-link text-stone-600 hover:text-orange-700">Sweet Finales</a>
+                    <a href="#timeline" class="nav-link text-stone-600 hover:text-orange-700">Game Plan</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <section id="hero" class="text-center py-16">
+            <h1 class="text-5xl md:text-7xl font-bold text-stone-800 mb-4">Craft Your Perfect Thanksgiving</h1>
+            <p class="text-lg text-stone-600 max-w-3xl mx-auto">
+                Discover your ultimate interactive companion for a stress-free and flavorful Thanksgiving. This guide simplifies classic recipes and hectic timelines into a smooth, user-friendly journey. Get ready to craft an unforgettable holiday feast!
+            </p>
+        </section>
+
+        <section id="main" class="py-16">
+            <h2 class="text-4xl font-bold text-center mb-2 text-stone-800">The Main Event: Mastering the Turkey</h2>
+            <p class="text-center text-stone-600 max-w-3xl mx-auto mb-12">
+                The roast turkey takes center stage at the meal. A juicy, tasty bird is crucial. Try our planner to determine cooking times and master techniques like brining and seasoning for flawless results.
+            </p>
+            <div class="bg-white rounded-xl shadow-lg p-8 grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold text-stone-700 mb-4">Turkey Roasting Calculator</h3>
+                    <div class="mb-6">
+                        <label for="turkeyWeight" class="block font-medium text-stone-600 mb-2">Turkey Weight: <span id="weightValue" class="font-bold text-orange-700">14</span> lbs</label>
+                        <input type="range" id="turkeyWeight" min="10" max="24" value="14" step="1" class="w-full h-2 bg-amber-200 rounded-lg appearance-none cursor-pointer">
+                    </div>
+                    <div class="bg-amber-50 rounded-lg p-6">
+                        <h4 class="font-bold text-stone-700 text-lg">Estimated Roasting Time (at 325°F):</h4>
+                        <p id="roastingTime" class="text-2xl font-bold text-orange-700 mt-2">3 hours 30 mins - 4 hours 15 mins</p>
+                        <p class="text-sm text-stone-500 mt-2">Use a meat thermometer to ensure the thigh hits 165°F when cooking.</p>
+                    </div>
+                    <div class="mt-6 flex space-x-4">
+                        <button onclick="showModal('briningModal')" class="bg-orange-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-orange-700 transition-colors">Brining 101</button>
+                        <button onclick="showModal('rubModal')" class="bg-stone-700 text-white font-bold py-2 px-4 rounded-lg hover:bg-stone-800 transition-colors">Flavor Rubs</button>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="roastingChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="sides" class="py-16">
+            <h2 class="text-4xl font-bold text-center mb-2 text-stone-800">The Perfect Pairings: A Symphony of Sides</h2>
+             <p class="text-center text-stone-600 max-w-3xl mx-auto mb-12">
+                For many, side dishes steal the spotlight at any feast. Here, you'll find a handpicked array of timeless and trendy options. Use the filters to uncover recipes that suit your spread, from creamy potatoes to colorful veggies, and complete your meal with the ideal pairings.
+            </p>
+            <div id="sides-filter" class="flex justify-center space-x-2 md:space-x-4 mb-8 flex-wrap">
+                <button class="side-filter-btn active" data-filter="all">All Sides</button>
+                <button class="side-filter-btn" data-filter="stuffing">Stuffing</button>
+                <button class="side-filter-btn" data-filter="potatoes">Potatoes</button>
+                <button class="side-filter-btn" data-filter="vegetables">Vegetables</button>
+                <button class="side-filter-btn" data-filter="condiments">Sauces</button>
+            </div>
+            <div id="sides-gallery" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            </div>
+        </section>
+        
+        <section id="dietary" class="py-16 bg-amber-50 rounded-xl">
+            <h2 class="text-4xl font-bold text-center mb-2 text-stone-800">Accommodating Every Guest</h2>
+             <p class="text-center text-stone-600 max-w-3xl mx-auto mb-12">
+                A perfect Thanksgiving makes every guest feel included and satisfied. This guide offers tips for preparing mouthwatering vegetarian, vegan, and gluten-free options. Discover plant-based showstoppers and creative twists on traditional dishes to delight all at the table.
+            </p>
+             <div class="max-w-4xl mx-auto">
+                <div class="flex border-b border-amber-200">
+                    <button class="dietary-tab-btn active" data-tab="vegetarian">Vegetarian & Vegan</button>
+                    <button class="dietary-tab-btn" data-tab="gluten-free">Gluten-Free</button>
+                </div>
+                <div id="dietary-content" class="pt-8">
+                </div>
+            </div>
+        </section>
+
+
+        <section id="desserts" class="py-16">
+            <h2 class="text-4xl font-bold text-center mb-2 text-stone-800">The Sweet Finale: Classic Pies</h2>
+             <p class="text-center text-stone-600 max-w-3xl mx-auto mb-12">
+                Thanksgiving isn't whole without dessert, and pie steals the show. Here, we honor the timeless trio of fall flavors. Tap each pie to uncover the master recipe and expert tips, from creamy pumpkin custard to a perfect apple lattice.
+            </p>
+            <div id="desserts-gallery" class="grid md:grid-cols-3 gap-8">
+            </div>
+        </section>
+
+        <section id="timeline" class="py-16">
+            <h2 class="text-4xl font-bold text-center mb-2 text-stone-800">Your Thanksgiving Game Plan</h2>
+            <p class="text-center text-stone-600 max-w-3xl mx-auto mb-12">
+                A smooth Thanksgiving starts with a solid plan. This dynamic timeline organizes every prep task into a simple schedule, covering weeks in advance to the final dinner countdown. Tap each section to access your checklist and keep things on track.
+            </p>
+            <div id="timeline-accordion" class="max-w-3xl mx-auto space-y-4">
+            </div>
+        </section>
+    </main>
+<!--   
+    <footer class="bg-stone-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 The Feast Planner. Happy Thanksgiving!</p>
+        </div>
+    </footer>
+-->
+
+    <div id="modal-container" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden">
+        <div id="modal-overlay" class="absolute inset-0 bg-black/60"></div>
+        <div id="modal-content-wrapper" class="modal-content bg-white rounded-xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto relative transform scale-95">
+            <button id="modal-close-btn" class="absolute top-4 right-4 text-stone-500 hover:text-stone-800 text-2xl">&times;</button>
+            <div id="modal-body" class="p-8">
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const data = {
+            modals: {
+                briningModal: {
+                    title: 'The Foundation of Flavor: Brining',
+                    content: `
+                        <p class="mb-4">Brining is the most critical step for a moist, flavorful turkey. It's essentially insurance against dryness. You have two main options:</p>
+                        <h4 class="font-bold text-lg text-stone-700 mb-2">Wet Brining</h4>
+                        <p class="mb-4">This classic method involves submerging the turkey in a saltwater bath for 16-24 hours. A great brine includes 1 cup of kosher salt per gallon of water, plus aromatics like brown sugar, apple cider, peppercorns, rosemary, and orange peel.</p>
+                        <h4 class="font-bold text-lg text-stone-700 mb-2">Dry Brining</h4>
+                        <p>An excellent alternative for intensely flavorful meat and crispy skin. Rub the turkey inside and out with a mix of kosher salt, sugar, and spices. Let it rest uncovered in the fridge for 24-72 hours. The salt creates a natural, concentrated brine that's reabsorbed by the meat.</p>
+                    `
+                },
+                rubModal: {
+                    title: 'The Art of the Rub: Seasoning the Bird',
+                    content: `
+                        <p class="mb-4">A final layer of seasoning before roasting enhances both the flavor and color of the skin.</p>
+                        <h4 class="font-bold text-lg text-stone-700 mb-2">Herb Butter Rub</h4>
+                        <p class="mb-4">A simple, effective rub made of softened butter mixed with chopped fresh herbs like sage, thyme, and rosemary. Gently work this mixture under the skin of the breast for maximum flavor.</p>
+                        <h4 class="font-bold text-lg text-stone-700 mb-2">Dry Spice Rub</h4>
+                        <p>Combine kosher salt, black pepper, dried sage, thyme, rosemary, garlic powder, and a touch of brown sugar. The sugar helps the skin caramelize to a beautiful mahogany brown. Pat the turkey dry and rub this mixture all over the skin before roasting.</p>
+                    `
+                }
+            },
+            sides: [
+                { id: 'stuffing1', category: 'stuffing', name: 'Classic Herb & Sausage Stuffing', description: 'The quintessential Thanksgiving stuffing with savory sausage and aromatic herbs.', recipe: 'Sauté 1 lb pork sausage with 1 diced onion and 2 celery stalks in butter. Toss with 12 cups of dried bread cubes, 1/4 cup fresh parsley, 1 tbsp each of fresh sage and thyme. Moisten with 3-4 cups of chicken broth and bind with 2 beaten eggs. Bake at 375°F for 30-40 minutes until golden.' },
+                { id: 'stuffing2', category: 'stuffing', name: 'Southern Cornbread Dressing', description: 'A tender, cake-like dressing with a slightly sweet flavor from cornbread.', recipe: 'Use 8 cups of crumbled cornbread as your base. Sauté onion and celery as in the classic recipe. Mix with herbs and 3-4 cups of chicken or turkey broth. Add 2 beaten eggs. Bake at 375°F for 35-45 minutes until set.' },
+                { id: 'potatoes1', category: 'potatoes', name: 'Perfect Creamy Mashed Potatoes', description: 'Fluffy, rich, and decadent mashed potatoes, the ultimate comfort food.', recipe: 'Boil 5 lbs of peeled, cubed Russet or Yukon Gold potatoes in salted water until very tender. Drain and return to the pot over low heat to dry. Mash with 1 cup of warm heavy cream, 1 stick (1/2 cup) of melted butter, and salt to taste. For extra tang, add 4 oz of softened cream cheese.' },
+                { id: 'potatoes2', category: 'potatoes', name: 'Sweet Potato Casserole with Pecan Streusel', description: 'A sweet and savory classic with a crunchy, nutty topping.', recipe: 'Bake 4 lbs of sweet potatoes until tender. Mash the flesh with 1/2 cup melted butter, 1/2 cup brown sugar, and 1 tsp cinnamon. Spread in a baking dish. Top with a streusel of 1 cup chopped pecans, 1/2 cup brown sugar, 1/2 cup flour, and 1/2 cup cold butter, cubed. Bake at 375°F for 30 minutes.' },
+                { id: 'vegetables1', category: 'vegetables', name: 'Roasted Brussels Sprouts with Balsamic Glaze', description: 'Caramelized and crispy sprouts with bacon and a sweet, tangy glaze.', recipe: 'Toss 2 lbs of trimmed, halved Brussels sprouts with olive oil, salt, and pepper. Roast at 400°F for 20-25 minutes until tender and crispy. Toss with 6 slices of cooked, crumbled bacon and drizzle with 1/4 cup of balsamic glaze before serving.' },
+                { id: 'vegetables2', category: 'vegetables', name: 'From-Scratch Green Bean Casserole', description: 'An elevated take on the classic, with fresh beans and a creamy mushroom sauce.', recipe: 'Sauté 1 lb sliced mushrooms and 1 chopped shallot in butter. Whisk in 1/4 cup flour, then 1.5 cups milk to make a sauce. Season with salt and pepper. Combine with 2 lbs of blanched fresh green beans. Top with French-fried onions and bake at 375°F for 25 minutes.' },
+                { id: 'condiments1', category: 'condiments', name: 'Homemade Cranberry-Orange Sauce', description: 'Vibrant, tart, and incredibly simple to make from scratch.', recipe: 'In a saucepan, combine a 12-oz bag of fresh cranberries, 1 cup of sugar, and 1 cup of orange juice. Bring to a simmer and cook for 10-15 minutes, until the berries burst and the sauce thickens. Stir in the zest of one orange. Cool completely. Can be made a week ahead.' },
+                { id: 'condiments2', category: 'condiments', name: 'Foolproof Turkey Gravy', description: 'The rich, savory final touch that brings the whole plate together.', recipe: 'After roasting turkey, pour pan drippings into a fat separator. Return 1/4 cup of fat to the pan. Whisk in 1/4 cup of flour and cook for 2 minutes. Gradually whisk in 4 cups of warm turkey stock and the reserved pan juices. Simmer until thickened, about 10 minutes. Season with salt and pepper.' },
+            ],
+            desserts: [
+                { id: 'dessert1', name: 'Classic Pumpkin Pie', description: 'The quintessential Thanksgiving dessert with a silky, spiced custard.', recipe: 'Blind bake a 9-inch pie crust. Whisk 1 (15-oz) can pumpkin purée, 3/4 cup sugar, 3 eggs, 1 (12-oz) can evaporated milk, 2 tsp pumpkin pie spice, and 1/2 tsp salt. Pour into warm crust. Bake at 425°F for 15 mins, then 350°F for 40-50 mins until center is set. Cool completely.' },
+                { id: 'dessert2', name: 'All-American Apple Pie', description: 'A timeless favorite with a tart apple filling and a flaky, golden crust.', recipe: 'Fill a 9-inch pie crust with 6-8 sliced Granny Smith apples tossed with 3/4 cup sugar, 2 tbsp flour, and 1 tsp cinnamon. Dot with butter. Top with a lattice crust. Brush with egg wash. Bake at 425°F for 15 mins, then 375°F for 35-45 mins until bubbly.' },
+                { id: 'dessert3', name: 'Southern Pecan Pie', description: 'An intensely sweet and gooey pie with a crunchy toasted pecan topping.', recipe: 'Whisk 3 eggs, 1 cup corn syrup, 1 cup sugar, 2 tbsp melted butter, and 1 tsp vanilla. Stir in 1.5 cups of pecans. Pour into an unbaked 9-inch pie crust. Bake at 350°F for 60-70 mins until the center is set but slightly wobbly. Cool for at least 2 hours before slicing.' }
+            ],
+            dietary: {
+                vegetarian: {
+                    title: 'Vegetarian & Vegan Centerpieces',
+                    content: `
+                        <h4 class="font-bold text-lg text-stone-700 mb-2">Mushroom Wellington</h4>
+                        <p class="mb-4">A rich filling of chopped mushrooms (duxelles), herbs, and chestnuts wrapped in flaky puff pastry. A truly show-stopping main course.</p>
+                        <h4 class="font-bold text-lg text-stone-700 mb-2">Stuffed Acorn Squash</h4>
+                        <p class="mb-4">Roast acorn squash halves and fill with a hearty mixture of wild rice, quinoa, diced apples, dried cranberries, and toasted pecans.</p>
+                        <h4 class="font-bold text-lg text-stone-700 mb-2">Vegan Mushroom Gravy</h4>
+                        <p>Create a deeply savory gravy by browning mushrooms, onions, and garlic. Add vegetable broth, herbs, and a splash of soy sauce for umami. Thicken with a cornstarch slurry.</p>
+                    `
+                },
+                'gluten-free': {
+                    title: 'Gluten-Free Thanksgiving Solutions',
+                    content: `
+                        <h4 class="font-bold text-lg text-stone-700 mb-2">Gluten-Free Stuffing</h4>
+                        <p class="mb-4">Use a high-quality gluten-free bread, toasted until dry. Combine with sautéed aromatics and a certified gluten-free broth for a delicious result.</p>
+                        <h4 class="font-bold text-lg text-stone-700 mb-2">Gluten-Free Gravy</h4>
+                        <p class="mb-4">Thicken your gravy with a cornstarch slurry (cornstarch mixed with cold water) instead of a traditional flour roux. Whisk it into the simmering pan drippings for a smooth, rich gravy.</p>
+                        <h4 class="font-bold text-lg text-stone-700 mb-2">Gluten-Free Desserts</h4>
+                        <p>An apple crisp with a topping made from gluten-free rolled oats, brown sugar, and butter is a naturally gluten-free crowd-pleaser. For pies, use a reliable gluten-free pie crust recipe or a store-bought version.</p>
+                    `
+                }
+            },
+            timeline: [
+                { title: '3 Weeks Before', tasks: ['Finalize menu and guest list.', 'Inventory all cookware and serving dishes.', 'Order your turkey.'] },
+                { title: '2 Weeks Before', tasks: ['Shop for all non-perishable items (canned goods, spices, wine).', 'Make and freeze pie dough, turkey stock, and gravy.'] },
+                { title: 'The Weekend Before', tasks: ['Begin thawing frozen turkey in the fridge (allow 1 day per 4-5 lbs).', 'Do a thorough house cleaning.', 'Launder and iron table linens.'] },
+                { title: '1-2 Days Before (Wednesday)', tasks: ['Shop for all perishable ingredients.', 'Bake all pies and desserts.', 'Make cranberry sauce.', 'Assemble casseroles (do not bake).', 'Make mashed potatoes.', 'Set the dining table.'] },
+                { title: 'Thanksgiving Day', tasks: ['Morning: Remove turkey from fridge, prep appetizers, chill drinks.', '4-5 Hours Before Dinner: Turkey goes in the oven.', '1 Hour Before Dinner: Turkey comes out to rest. Bake all casseroles.', '15-30 Mins Before: Make gravy, carve turkey, warm rolls.'] }
+            ]
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const weightSlider = document.getElementById('turkeyWeight');
+            const weightValue = document.getElementById('weightValue');
+            const roastingTime = document.getElementById('roastingTime');
+            let roastingChart;
+
+            function updateRoastingInfo() {
+                const weight = parseInt(weightSlider.value);
+                weightValue.textContent = weight;
+                
+                const minTime = weight * 13;
+                const maxTime = weight * 15;
+
+                const formatTime = (minutes) => {
+                    const h = Math.floor(minutes / 60);
+                    const m = minutes % 60;
+                    return `${h} hours ${m > 0 ? `${m} mins` : ''}`.trim();
+                };
+
+                roastingTime.textContent = `${formatTime(minTime)} - ${formatTime(maxTime)}`;
+                
+                if (roastingChart) {
+                    roastingChart.data.datasets[0].data = roastingChart.data.labels.map(w => w * 13 / 60);
+                    roastingChart.data.datasets[1].data = roastingChart.data.labels.map(w => (w * 15 / 60) - (w * 13 / 60));
+                    roastingChart.update();
+                }
+            }
+            
+            function createRoastingChart() {
+                const ctx = document.getElementById('roastingChart').getContext('2d');
+                const labels = [10, 12, 14, 16, 18, 20, 22, 24];
+                roastingChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [
+                            {
+                                label: 'Min Roasting Time (hours)',
+                                data: labels.map(w => w * 13 / 60),
+                                backgroundColor: '#FBBF24', // amber-400
+                                borderWidth: 0,
+                            },
+                            {
+                                label: 'Additional Time (hours)',
+                                data: labels.map(w => (w * 15 / 60) - (w * 13 / 60)),
+                                backgroundColor: '#F97316', // orange-600
+                                borderWidth: 0,
+                            }
+                        ]
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            title: { display: true, text: 'Roasting Time by Turkey Weight (lbs)' },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let total = context.dataset.data[context.dataIndex];
+                                        if (context.datasetIndex === 1) {
+                                            total += context.chart.data.datasets[0].data[context.dataIndex];
+                                        }
+                                        const h = Math.floor(total);
+                                        const m = Math.round((total - h) * 60);
+                                        return `Up to ${h}h ${m}m`;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: { stacked: true, title: { display: true, text: 'Hours' } },
+                            y: { stacked: true, title: { display: true, text: 'Turkey Weight (lbs)' } }
+                        }
+                    }
+                });
+            }
+
+            weightSlider.addEventListener('input', updateRoastingInfo);
+            
+            function populateSides() {
+                const gallery = document.getElementById('sides-gallery');
+                gallery.innerHTML = data.sides.map(side => `
+                    <div class="side-card bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer transform hover:-translate-y-1 transition-transform" data-category="${side.category}" onclick="showRecipeModal('${side.id}', 'side')">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-stone-700">${side.name}</h3>
+                            <p class="text-stone-500 mt-2">${side.description}</p>
+                        </div>
+                    </div>
+                `).join('');
+            }
+            
+            const filterButtons = document.querySelectorAll('.side-filter-btn');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const filter = button.dataset.filter;
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    document.querySelectorAll('.side-card').forEach(card => {
+                        if (filter === 'all' || card.dataset.category === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            function populateDesserts() {
+                const gallery = document.getElementById('desserts-gallery');
+                gallery.innerHTML = data.desserts.map(dessert => `
+                     <div class="bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer text-center p-8 transform hover:-translate-y-1 transition-transform" onclick="showRecipeModal('${dessert.id}', 'dessert')">
+                        <div class="text-6xl mb-4">${dessert.id === 'dessert1' ? '🎃' : dessert.id === 'dessert2' ? '🍎' : '🌰'}</div>
+                        <h3 class="text-2xl font-bold text-stone-700">${dessert.name}</h3>
+                        <p class="text-stone-500 mt-2">${dessert.description}</p>
+                    </div>
+                `).join('');
+            }
+            
+            function populateDietary() {
+                const contentDiv = document.getElementById('dietary-content');
+                const tabs = document.querySelectorAll('.dietary-tab-btn');
+                
+                function updateContent(tabId) {
+                    const info = data.dietary[tabId];
+                    contentDiv.innerHTML = `
+                        <h3 class="text-2xl font-bold text-stone-700 mb-4">${info.title}</h3>
+                        <div class="prose max-w-none">${info.content}</div>
+                    `;
+                }
+                
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        tabs.forEach(t => t.classList.remove('active'));
+                        tab.classList.add('active');
+                        updateContent(tab.dataset.tab);
+                    });
+                });
+                
+                updateContent('vegetarian');
+            }
+            
+            function populateTimeline() {
+                const accordion = document.getElementById('timeline-accordion');
+                accordion.innerHTML = data.timeline.map((item, index) => `
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <button class="w-full text-left p-4 flex justify-between items-center bg-amber-100 hover:bg-amber-200" data-accordion-target="timeline-body-${index}">
+                            <span class="font-bold text-lg text-orange-800">${item.title}</span>
+                            <span class="text-orange-800 transform transition-transform text-2xl">+</span>
+                        </button>
+                        <div id="timeline-body-${index}" class="p-4 hidden">
+                            <ul class="list-disc list-inside space-y-2 text-stone-600">
+                                ${item.tasks.map(task => `<li>${task}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                `).join('');
+
+                accordion.addEventListener('click', (e) => {
+                    const button = e.target.closest('[data-accordion-target]');
+                    if (button) {
+                        const targetId = button.dataset.accordionTarget;
+                        const targetBody = document.getElementById(targetId);
+                        const icon = button.querySelector('span:last-child');
+                        const isHidden = targetBody.classList.contains('hidden');
+                        
+                        if (isHidden) {
+                            targetBody.classList.remove('hidden');
+                            icon.style.transform = 'rotate(45deg)';
+                        } else {
+                            targetBody.classList.add('hidden');
+                            icon.style.transform = 'rotate(0deg)';
+                        }
+                    }
+                });
+            }
+
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.toggle('active', link.getAttribute('href').substring(1) === entry.target.id);
+                        });
+                    }
+                });
+            }, { rootMargin: "-50% 0px -50% 0px" });
+
+            sections.forEach(section => observer.observe(section));
+
+            updateRoastingInfo();
+            createRoastingChart();
+            populateSides();
+            populateDesserts();
+            populateDietary();
+            populateTimeline();
+        });
+
+        const modalContainer = document.getElementById('modal-container');
+        const modalOverlay = document.getElementById('modal-overlay');
+        const modalContentWrapper = document.getElementById('modal-content-wrapper');
+        const modalBody = document.getElementById('modal-body');
+        const modalCloseBtn = document.getElementById('modal-close-btn');
+
+        function showModal(modalId) {
+            const modalData = data.modals[modalId];
+            modalBody.innerHTML = `
+                <h2 class="text-3xl font-bold text-stone-800 mb-6">${modalData.title}</h2>
+                <div class="prose max-w-none text-stone-600">${modalData.content}</div>
+            `;
+            modalContainer.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => {
+                modalOverlay.classList.remove('opacity-0');
+                modalContentWrapper.classList.remove('scale-95');
+            }, 10);
+        }
+        
+        function showRecipeModal(id, type) {
+            const item = (type === 'side' ? data.sides : data.desserts).find(i => i.id === id);
+            modalBody.innerHTML = `
+                <h2 class="text-3xl font-bold text-stone-800 mb-2">${item.name}</h2>
+                <p class="text-stone-500 mb-6">${item.description}</p>
+                <h3 class="text-xl font-bold text-stone-700 mb-4 border-b pb-2">Recipe</h3>
+                <p class="text-stone-600 whitespace-pre-wrap">${item.recipe}</p>
+            `;
+            modalContainer.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => {
+                modalOverlay.classList.remove('opacity-0');
+                modalContentWrapper.classList.remove('scale-95');
+            }, 10);
+        }
+
+        function closeModal() {
+            modalOverlay.classList.add('opacity-0');
+            modalContentWrapper.classList.add('scale-95');
+            setTimeout(() => {
+                modalContainer.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+
+        modalOverlay.addEventListener('click', closeModal);
+        modalCloseBtn.addEventListener('click', closeModal);
+        
+        document.querySelectorAll('.side-filter-btn').forEach(button => {
+            button.style.cssText = 'padding: 0.5rem 1rem; border-radius: 9999px; font-weight: 500; transition: all 0.2s ease; background-color: #F5F5F4; color: #78716C;';
+            if (button.classList.contains('active')) {
+                button.style.cssText += 'background-color: #EA580C; color: white;';
+            }
+        });
+        
+        document.getElementById('sides-filter').addEventListener('click', (e) => {
+            if (e.target.tagName === 'BUTTON') {
+                document.querySelectorAll('.side-filter-btn').forEach(btn => {
+                    btn.style.backgroundColor = '#F5F5F4';
+                    btn.style.color = '#78716C';
+                });
+                e.target.style.backgroundColor = '#EA580C';
+                e.target.style.color = 'white';
+            }
+        });
+        
+        document.querySelectorAll('.dietary-tab-btn').forEach(button => {
+            button.style.cssText = 'padding: 0.75rem 1.5rem; font-weight: 600; color: #A8A29E; border-bottom: 2px solid transparent; transition: all 0.2s ease;';
+             if (button.classList.contains('active')) {
+                button.style.color = '#C05621';
+                button.style.borderColor = '#C05621';
+            }
+        });
+        
+        document.querySelector('.flex.border-b').addEventListener('click', (e) => {
+             if (e.target.tagName === 'BUTTON') {
+                document.querySelectorAll('.dietary-tab-btn').forEach(btn => {
+                    btn.style.color = '#A8A29E';
+                    btn.style.borderColor = 'transparent';
+                });
+                e.target.style.color = '#C05621';
+                e.target.style.borderColor = '#C05621';
+            }
+        });
+
+    </script>
+</body>
+</html>

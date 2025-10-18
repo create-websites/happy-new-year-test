@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infographic: The Ultimate Guide to a Spectacular Halloween</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Energetic & Playful (Adapted for Halloween: Vibrant Orange, Deep Purple, Dark Slate) -->
+    <!-- Application Structure Plan: A top-to-bottom narrative infographic guiding the user from inspiration to execution. It starts with high-level thematic choices (Decor Aesthetics), moves to strategic decisions (DIY vs. Buy), transitions to personal expression (Costume Trends & Difficulty), and concludes with practical logistics (Shopping & Safety). This linear flow mirrors a user's natural planning process, making the dense information easy to digest in a single scroll. -->
+    <!-- Visualization & Content Choices: 1. Aesthetics -> Goal: Compare -> Styled HTML Cards -> Justification: Best for presenting distinct qualitative concepts with icons and text. 2. DIY vs. Buy -> Goal: Compare -> Grouped Bar Chart -> Justification: Ideal for comparing multiple items across multiple quantitative metrics (cost, time, durability). Library: Chart.js. 3. Costume Trends -> Goal: Compare -> Radar Chart -> Justification: Effectively visualizes how different categories perform against multiple abstract metrics (Trendiness, Group Potential). Library: Chart.js. 4. Costume Difficulty -> Goal: Rank -> Horizontal Bar Chart -> Justification: The clearest way to rank items and display their relative values. Library: Chart.js. 5. Safety -> Goal: Inform -> Styled HTML Checklist -> Justification: Prioritizes scannability and clarity for critical information. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0F172A; /* Dark Slate */
+            color: #F1F5F9; /* Light Slate */
+        }
+        .font-creepster {
+            font-family: 'Creepster', cursive;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto px-4 py-12">
+
+        <header class="text-center mb-16">
+            <h1 class="font-creepster text-6xl md:text-8xl text-orange-500 tracking-wider">A Spectacular Halloween</h1>
+            <p class="text-xl md:text-2xl text-slate-300 mt-4 max-w-3xl mx-auto">A skilled visual guide to perfecting the haunt, from chilling decor to stunning costumes.</p>
+        </header>
+
+        <section id="aesthetics" class="mb-20">
+            <div class="text-center mb-10">
+                <h2 class="text-4xl md:text-5xl font-bold mb-3">Step 1: Choose Your Haunt</h2>
+                <p class="text-lg text-slate-400 max-w-2xl mx-auto">Each amazing Halloween setup begins with a vision. Choose a central theme to shape your ideas and create a striking, unified look.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-slate-800 rounded-lg shadow-lg p-6 text-center border-t-4 border-orange-500">
+                    <div class="text-6xl mb-4">💀</div>
+                    <h3 class="text-2xl font-bold mb-2 text-white">Sinister & Spooky</h3>
+                    <p class="text-slate-400">Unleash true fear with animatronics, eerie fog, and chilling figures for the perfect haunted house thrill.</p>
+                </div>
+                <div class="bg-slate-800 rounded-lg shadow-lg p-6 text-center border-t-4 border-purple-500">
+                    <div class="text-6xl mb-4">🥀</div>
+                    <h3 class="text-2xl font-bold mb-2 text-white">Elegant Gothic</h3>
+                    <p class="text-slate-400">Swap cheap thrills for refined allure with tones of deep black, aged gold, and gothic sophistication.</p>
+                </div>
+                <div class="bg-slate-800 rounded-lg shadow-lg p-6 text-center border-t-4 border-yellow-400">
+                    <div class="text-6xl mb-4">🎃</div>
+                    <h3 class="text-2xl font-bold mb-2 text-white">Whimsical & Fun</h3>
+                    <p class="text-slate-400">Joy without the worry. This cheerful theme features vibrant hues, happy characters, and fun-filled designs.</p>
+                </div>
+                <div class="bg-slate-800 rounded-lg shadow-lg p-6 text-center border-t-4 border-green-500">
+                    <div class="text-6xl mb-4">🍂</div>
+                    <h3 class="text-2xl font-bold mb-2 text-white">Rustic Harvest</h3>
+                    <p class="text-slate-400">A refined, autumn-inspired design weaving gentle Halloween touches into a seasonal aesthetic.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="diy-vs-buy" class="mb-20">
+            <div class="text-center mb-10">
+                <h2 class="text-4xl md:text-5xl font-bold mb-3">Step 2: The Creator's Workshop</h2>
+                <p class="text-lg text-slate-400 max-w-3xl mx-auto">Make it or buy it? This guide weighs the pros and cons. DIY offers better quality and personalization, while buying saves effort. A balanced approach often works best.</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-2xl p-6">
+                <div class="chart-container">
+                    <canvas id="diyVsBuyChart"></canvas>
+                </div>
+            </div>
+        </section>
+        
+        <section id="costume-trends" class="mb-20">
+            <div class="text-center mb-10">
+                <h2 class="text-4xl md:text-5xl font-bold mb-3">Step 3: The Art of Disguise</h2>
+                <p class="text-lg text-slate-400 max-w-3xl mx-auto">This year’s costume trends blend blockbuster hits with timeless classics. Pop culture shines for trendy picks, while classic outfits bring nostalgia and group-friendly appeal.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="bg-white rounded-lg shadow-2xl p-6">
+                    <div class="chart-container">
+                        <canvas id="costumeTrendsChart"></canvas>
+                    </div>
+                </div>
+                <div class="text-left">
+                    <h3 class="text-3xl font-bold mb-4 text-white">2025 Trend Forecast</h3>
+                    <div class="space-y-4">
+                        <div class="bg-slate-800 p-4 rounded-lg">
+                            <h4 class="font-bold text-lg text-orange-400">💖 Pop Culture Dominance</h4>
+                            <p class="text-slate-300">Driven by blockbusters like <span class="font-semibold">Barbie</span>, <span class="font-semibold">Beetlejuice</span>, and the latest superhero films. Highest trend factor.</p>
+                        </div>
+                         <div class="bg-slate-800 p-4 rounded-lg">
+                            <h4 class="font-bold text-lg text-purple-400">🤡 Timeless Horror</h4>
+                            <p class="text-slate-300">Icons like <span class="font-semibold">Art the Clown</span> and <span class="font-semibold">Chucky</span> remain a terrifyingly popular choice for die-hard fans.</p>
+                        </div>
+                         <div class="bg-slate-800 p-4 rounded-lg">
+                            <h4 class="font-bold text-lg text-yellow-400">👻 Classic & Nostalgic</h4>
+                            <p class="text-slate-300">Characters like <span class="font-semibold">Velma & Shaggy</span> Deliver a nostalgic vibe and make ideal, simple group costume choices.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="costume-difficulty" class="mb-20">
+            <div class="text-center mb-10">
+                <h2 class="text-4xl md:text-5xl font-bold mb-3">Step 4: Choose Your Costume Strategy</h2>
+                <p class="text-lg text-slate-400 max-w-3xl mx-auto">Top costumes blend creativity and practicality. This guide rates popular choices by DIY difficulty, helping you focus your creative efforts.</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-2xl p-6">
+                 <div class="chart-container" style="height: 450px; max-height: 60vh;">
+                    <canvas id="costumeDifficultyChart"></canvas>
+                </div>
+            </div>
+        </section>
+        
+        <section id="safety" class="mb-12">
+            <div class="text-center mb-10">
+                <h2 class="text-4xl md:text-5xl font-bold mb-3">Final Step: A Safe & Spooky Night</h2>
+                <p class="text-lg text-slate-400 max-w-2xl mx-auto">Halloween's key focus is fun and safety for all. Use this handy checklist to enjoy a stress-free celebration.</p>
+            </div>
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-slate-800 rounded-lg shadow-lg p-6">
+                    <h3 class="font-bold text-2xl mb-4 flex items-center"><span class="text-4xl mr-3">🔥</span> Decor Safety</h3>
+                    <ul class="space-y-2 list-disc list-inside text-slate-300">
+                        <li>Use LED candles, not real flames.</li>
+                        <li>Keep flammables away from heat.</li>
+                        <li>Ensure smoke alarms work.</li>
+                        <li>Keep walkways clear of hazards.</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-800 rounded-lg shadow-lg p-6">
+                    <h3 class="font-bold text-2xl mb-4 flex items-center"><span class="text-4xl mr-3">👁️</span> Costume Safety</h3>
+                    <ul class="space-y-2 list-disc list-inside text-slate-300">
+                        <li>Add reflective tape for visibility.</li>
+                        <li>Use face paint instead of masks.</li>
+                        <li>Ensure costumes aren't a trip hazard.</li>
+                        <li>Avoid non-prescription contact lenses.</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-800 rounded-lg shadow-lg p-6">
+                    <h3 class="font-bold text-2xl mb-4 flex items-center"><span class="text-4xl mr-3">🍬</span> Candy Safety</h3>
+                    <ul class="space-y-2 list-disc list-inside text-slate-300">
+                        <li>Accompany young children.</li>
+                        <li>Stick to well-lit neighborhoods.</li>
+                        <li>Never enter a stranger's home.</li>
+                        <li>Inspect all candy before eating.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+              return label.join(' ');
+            }
+            return label;
+        };
+        
+        const processLabels = (labels) => {
+            return labels.map(label => {
+                if (label.length > 16) {
+                    const words = label.split(' ');
+                    const lines = [];
+                    let currentLine = '';
+                    for (const word of words) {
+                        if ((currentLine + word).length > 16) {
+                            lines.push(currentLine.trim());
+                            currentLine = '';
+                        }
+                        currentLine += word + ' ';
+                    }
+                    lines.push(currentLine.trim());
+                    return lines;
+                }
+                return label;
+            });
+        };
+
+        const diyVsBuyCtx = document.getElementById('diyVsBuyChart').getContext('2d');
+        new Chart(diyVsBuyCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Tombstones', 'Yard Ghosts', 'Giant Spiders', 'Wreaths'],
+                datasets: [
+                    {
+                        label: 'DIY',
+                        data: [4, 5, 3, 5],
+                        backgroundColor: '#F97316',
+                        borderColor: '#FDBA74',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Store-Bought',
+                        data: [2, 3, 4, 3],
+                        backgroundColor: '#7C3AED',
+                        borderColor: '#A78BFA',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 5,
+                        ticks: {
+                            color: '#475569',
+                            callback: function(value) {
+                                const labels = ['','Very Low', 'Low', 'Medium', 'High', 'Very High'];
+                                return labels[value];
+                            }
+                        },
+                        grid: { color: '#334155' }
+                    },
+                    x: { ticks: { color: '#94A3B8' }, grid: { display: false } }
+                },
+                plugins: {
+                    title: { display: true, text: 'Overall Value (Quality, Customization, Durability)', color: '#475569', font: { size: 16 } },
+                    legend: { labels: { color: '#94A3B8' } },
+                    tooltip: {
+                        callbacks: {
+                           title: tooltipTitleCallback,
+                           label: function(context) {
+                                const valueLabels = ['Very Low', 'Low', 'Medium', 'High', 'Very High'];
+                                let label = context.dataset.label || '';
+                                if (label) { label += ': '; }
+                                if (context.parsed.y !== null) {
+                                    label += valueLabels[context.parsed.y - 1];
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        const costumeTrendsCtx = document.getElementById('costumeTrendsChart').getContext('2d');
+        new Chart(costumeTrendsCtx, {
+            type: 'radar',
+            data: {
+                labels: ['Trendiness', 'Group Potential', 'Nostalgia Factor', 'DIY Friendliness', 'Scare Factor'],
+                datasets: [{
+                    label: 'Pop Culture',
+                    data: [5, 4, 3, 2, 3],
+                    fill: true,
+                    backgroundColor: 'rgba(249, 115, 22, 0.2)',
+                    borderColor: '#F97316',
+                    pointBackgroundColor: '#F97316',
+                }, {
+                    label: 'Classic & Funny',
+                    data: [2, 5, 5, 5, 1],
+                    fill: true,
+                    backgroundColor: 'rgba(124, 58, 237, 0.2)',
+                    borderColor: '#7C3AED',
+                    pointBackgroundColor: '#7C3AED',
+                }, {
+                    label: 'Horror',
+                    data: [4, 2, 4, 3, 5],
+                    fill: true,
+                    backgroundColor: 'rgba(220, 38, 38, 0.2)',
+                    borderColor: '#DC2626',
+                    pointBackgroundColor: '#DC2626',
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: '#334155' },
+                        grid: { color: '#334155' },
+                        pointLabels: { color: '#94A3B8', font: { size: 12 } },
+                        ticks: {
+                            color: '#475569',
+                            backdropColor: 'rgba(0,0,0,0)',
+                            stepSize: 1,
+                            max: 5,
+                            min: 0
+                        }
+                    }
+                },
+                plugins: {
+                    legend: { labels: { color: '#94A3B8' } },
+                    tooltip: { callbacks: { title: tooltipTitleCallback } }
+                }
+            }
+        });
+
+        const costumeDifficultyCtx = document.getElementById('costumeDifficultyChart').getContext('2d');
+        new Chart(costumeDifficultyCtx, {
+            type: 'bar',
+            data: {
+                labels: processLabels(['Art the Clown (Makeup)', 'Wolverine & Deadpool', 'Beetlejuice & Lydia', 'Elphaba & Glinda', 'Barbie & Ken', 'Velma & Shaggy', 'Wine & Cheese', 'DIY Ghost']),
+                datasets: [{
+                    label: 'DIY Difficulty',
+                    data: [5, 4, 3, 3, 2, 1, 1, 1],
+                    backgroundColor: ['#DC2626', '#D97706', '#CA8A04', '#CA8A04', '#A21CAF', '#16A34A', '#16A34A', '#16A34A'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 5,
+                        ticks: {
+                            color: '#475569',
+                            callback: function(value) {
+                                const labels = ['','Very Low', 'Low', 'Medium', 'High', 'Very High'];
+                                return labels[value];
+                            }
+                        },
+                        grid: { color: '#334155' }
+                    },
+                    y: { ticks: { color: '#475569', font: { size: 12 } }, grid: { display: false } }
+                },
+                plugins: {
+                    legend: { display: false },
+                    title: { display: true, text: 'Costume DIY Difficulty Ranking (From High to Low)', color: '#475569', font: { size: 16 } },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback,
+                            label: function(context) {
+                                const valueLabels = ['Very Low', 'Low', 'Medium', 'High', 'Very High'];
+                                let label = context.dataset.label || '';
+                                if (label) { label += ': '; }
+                                if (context.parsed.x !== null) {
+                                    label += valueLabels[context.parsed.x - 1];
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Story of Thanksgiving: An Interactive Exploration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Earth Tones -->
+    <!-- Application Structure Plan: The application is structured as a thematic, scroll-based narrative with five key sections: The Alliance, The Feast, The Myth, The Mourning, and a Conclusion. This non-linear, thematic approach was chosen over a simple chronological report to better highlight the central theme of conflicting perspectives and the evolution of the holiday's meaning. A sticky navigation allows users to jump between themes, while interactive elements within each section (side-by-side comparisons, clickable timelines, interactive charts) encourage exploration and active learning rather than passive reading. The user flow is designed to first establish the historical context, then deconstruct the popular myths, and finally present the critical Indigenous counter-narrative, leading to a more nuanced understanding. -->
+    <!-- Visualization & Content Choices: 
+        - Wampanoag Population Data -> Goal: Inform/Impact -> Viz: Large, bold statistic card -> Interaction: None -> Justification: The stark number "90%" is more powerful than a complex chart for conveying the scale of the catastrophe. -> Method: HTML/Tailwind.
+        - 1621 vs. Modern Menu -> Goal: Compare/Engage -> Viz: Interactive card component with a supporting Donut Chart -> Interaction: User clicks on food category buttons to update the text comparison dynamically. -> Justification: An interactive comparison is more engaging than a static table and encourages direct user involvement. The donut chart provides a quick visual summary of the culinary shift. -> Library: Chart.js.
+        - Holiday Creation Timeline -> Goal: Show Change/Organize -> Viz: Vertical timeline -> Interaction: Clicking on a date reveals detailed information in an adjacent panel. -> Justification: A timeline is the most intuitive way to show the process of the holiday's formal establishment over many decades. -> Method: HTML/CSS/JS.
+        - Indigenous Perspective/Speech -> Goal: Inform/Impact -> Viz: A visually distinct, block-quoted section with a somber color scheme. -> Interaction: None -> Justification: Presenting the speech text with solemnity and focus, free of distractions, honors its importance and emotional weight. -> Method: HTML/Tailwind.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF8;
+            color: #402E32;
+        }
+        h1, h2, h3 {
+            font-family: 'Lora', serif;
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #A67B5B;
+            transition: width 0.3s;
+        }
+        .nav-link.active, .nav-link:hover {
+            color: #A67B5B;
+        }
+        .nav-link.active::after, .nav-link:hover::after {
+            width: 100%;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: -21px;
+            width: 10px;
+            height: 10px;
+            background-color: #D3B8A5;
+            border-radius: 50%;
+            border: 2px solid #FDFBF8;
+        }
+        .timeline-item.active::before {
+            background-color: #A67B5B;
+            transform: scale(1.5);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 250px;
+            width: 100%;
+            max-width: 250px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4">
+            <ul class="flex justify-center space-x-4 md:space-x-8 text-sm md:text-base font-semibold tracking-wider uppercase">
+                <li><a href="#alliance" class="nav-link active">The Alliance</a></li>
+                <li><a href="#feast" class="nav-link">The Feast</a></li>
+                <li><a href="#myth" class="nav-link">The Myth</a></li>
+                <li><a href="#mourning" class="nav-link">The Mourning</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="text-center py-20 md:py-32 px-6 bg-[#FDFBF8]">
+            <div class="container mx-auto">
+                <h1 class="text-4xl md:text-6xl font-bold text-[#402E32] mb-4">Harvest & Heartbreak</h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto text-[#6F5B51]">Dive into the rich, dynamic tale of American Thanksgiving, where stories of unity, struggle, myths, and memory intertwine. Discover how this holiday's meaning has shifted and sparked debate over time.</p>
+            </div>
+        </section>
+
+        <section id="alliance" class="py-16 md:py-24 px-6 scroll-mt-20">
+            <div class="container mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">An Alliance of Necessity</h2>
+                    <p class="mt-4 max-w-3xl mx-auto text-lg text-[#6F5B51]">The 1621 gathering was far more than a shared meal; it marked a precarious alliance between two struggling groups, each seeking aid for survival. This portion delves into the hardships that united the Wampanoag and English settlers.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
+                    <div class="bg-white p-8 rounded-lg shadow-md fade-in">
+                        <h3 class="text-2xl font-bold text-center mb-4 text-[#A67B5B]">The Wampanoag's World</h3>
+                        <p class="mb-6">For over 12,000 years, the Wampanoag, known as the 'People of the First Light,' flourished in a complex society. However, between 1616 and 1619, a deadly epidemic brought by European traders ravaged their communities, sparking a geopolitical upheaval.</p>
+                        <div class="bg-[#FDFBF8] p-6 rounded-lg text-center">
+                            <p class="text-6xl font-bold text-[#CD5C5C]">~90%</p>
+                            <p class="text-lg font-semibold mt-2">Mortality Rate</p>
+                            <p class="mt-2 text-sm text-[#6F5B51]">The epidemic decimated up to 90% of coastal Indigenous peoples, leaving the Wampanoag confederacy fragile and exposed to the Narragansett.</p>
+                        </div>
+                        <p class="mt-6">To safeguard his people and reclaim the balance of power, Ousamequin saw an alliance with the newly arrived English and their firearms as essential.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-md fade-in">
+                        <h3 class="text-2xl font-bold text-center mb-4 text-[#A67B5B]">The Colonists' Plight</h3>
+                        <p class="mb-6">The *Mayflower* carried 102 passengers who landed in November 1620, far off course. Their first winter brought harsh challenges—disease, hunger, and unfamiliarity with the land.</p>
+                        <div class="bg-[#FDFBF8] p-6 rounded-lg text-center">
+                            <p class="text-6xl font-bold text-[#CD5C5C]">~50%</p>
+                            <p class="text-lg font-semibold mt-2">Survival Rate</p>
+                            <p class="mt-2 text-sm text-[#6F5B51]">By spring 1621, nearly half the colonists and crew had perished, leaving the Plymouth settlement close to ruin.</p>
+                        </div>
+                        <p class="mt-6">Governor John Carver saw a treaty with the Wampanoag as vital—providing protection and essential Indigenous knowledge for survival and farming.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="feast" class="py-16 md:py-24 px-6 bg-white scroll-mt-20">
+            <div class="container mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">Deconstructing the Feast</h2>
+                    <p class="mt-4 max-w-3xl mx-auto text-lg text-[#6F5B51]">Today's Thanksgiving dinner looks quite different from the three-day harvest feast of 1621. Dive into the contrasts in cuisine, attire, and the event's evolving significance in American tradition.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+                    <div class="fade-in">
+                        <h3 class="text-2xl font-bold mb-4 text-center">The Menu: Then vs. Now</h3>
+                        <p class="text-center mb-6">Select a category to explore 1621's seasonal wild foods alongside today's familiar dishes.</p>
+                        <div class="flex flex-wrap justify-center gap-2 mb-6">
+                            <button class="food-btn bg-[#D3B8A5] text-[#402E32] px-4 py-2 rounded-full font-semibold transition hover:bg-[#A67B5B] hover:text-white" data-category="protein">Protein</button>
+                            <button class="food-btn bg-[#D3B8A5] text-[#402E32] px-4 py-2 rounded-full font-semibold transition hover:bg-[#A67B5B] hover:text-white" data-category="starch">Starch</button>
+                            <button class="food-btn bg-[#D3B8A5] text-[#402E32] px-4 py-2 rounded-full font-semibold transition hover:bg-[#A67B5B] hover:text-white" data-category="vegetables">Vegetables</button>
+                            <button class="food-btn bg-[#D3B8A5] text-[#402E32] px-4 py-2 rounded-full font-semibold transition hover:bg-[#A67B5B] hover:text-white" data-category="dessert">Dessert</button>
+                        </div>
+                        <div id="food-display" class="bg-[#FDFBF8] p-6 rounded-lg min-h-[180px]">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <h4 class="font-bold text-lg border-b-2 border-[#D3B8A5] pb-1 mb-2">1621 Feast</h4>
+                                    <p id="then-text" class="text-sm"></p>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg border-b-2 border-[#D3B8A5] pb-1 mb-2">Modern Dinner</h4>
+                                    <p id="now-text" class="text-sm"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fade-in">
+                        <h3 class="text-2xl font-bold mb-4 text-center">Culinary Shift</h3>
+                        <div class="chart-container">
+                            <canvas id="feastChart"></canvas>
+                        </div>
+                         <p class="text-center mt-4 text-sm text-[#6F5B51]">The 1621 feast featured wild game and seafood, showcasing local resources. Modern meals highlight farm-raised turkey and uniform sides, many of which were unfeasible in the 17th century.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="myth" class="py-16 md:py-24 px-6 scroll-mt-20">
+            <div class="container mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">Forging a National Myth</h2>
+                    <p class="mt-4 max-w-3xl mx-auto text-lg text-[#6F5B51]">For two centuries, the 1621 feast faded into obscurity. It was revived in the 1800s to craft a unifying origin tale for a nation torn by civil war. This timeline traces how a local tradition grew into a national celebration.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="md:col-span-1">
+                        <div class="relative pl-6 border-l-2 border-[#D3B8A5]">
+                            <div id="t-1827" class="timeline-item relative pb-8 cursor-pointer active">
+                                <h4 class="font-bold text-lg">1827-1863</h4>
+                                <p class="text-sm">Sarah Josepha Hale's Crusade</p>
+                            </div>
+                            <div id="t-1863" class="timeline-item relative pb-8 cursor-pointer">
+                                <h4 class="font-bold text-lg">1863</h4>
+                                <p class="text-sm">Lincoln's Proclamation</p>
+                            </div>
+                            <div id="t-1941" class="timeline-item relative pb-8 cursor-pointer">
+                                <h4 class="font-bold text-lg">1941</h4>
+                                <p class="text-sm">A Date Set in Law</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-2 bg-white p-8 rounded-lg shadow-md fade-in">
+                        <div id="timeline-display">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mourning" class="py-16 md:py-24 px-6 bg-[#402E32] text-white scroll-mt-20">
+            <div class="container mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">A National Day of Mourning</h2>
+                    <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-300">For many Indigenous communities, Thanksgiving brings sorrow, not celebration. It symbolizes colonization, violence, and the loss of their culture. The idealized story of harmony hides the harsh truths that came after.</p>
+                </div>
+
+                <div class="max-w-4xl mx-auto">
+                    <div class="fade-in mb-8">
+                        <h3 class="text-2xl font-bold text-[#D3B8A5] mb-2">The Unraveling Peace</h3>
+                        <p class="text-gray-300">The 1621 peace treaty lasted 50 years but faltered under colonial expansion. By 1675, King Philip's War broke out, killing 40% of the region's Native population and ending their sovereignty. In bitter irony, colonists marked military victories over Natives with 'thanksgiving' celebrations.</p>
+                    </div>
+                    <div class="bg-[#2a1f21]/50 p-8 rounded-lg shadow-lg fade-in">
+                        <h3 class="text-2xl font-bold text-center text-[#D3B8A5] mb-4">The Suppressed Speech of 1970</h3>
+                        <p class="text-center text-gray-300 mb-6">On the 350th anniversary of the Pilgrims' landing, Wampanoag leader Wamsutta (Frank) James was asked to give a speech. When officials reviewed his words, which revealed the harsh reality faced by his people, they censored it. He rejected their altered version.</p>
+                        <blockquote class="border-l-4 border-[#A67B5B] pl-6 italic text-gray-200">
+                            <p>"This may be a time of joy for you... but it is not a time of joy for me. My heart is heavy as I remember what befell my People... The Pilgrims had barely set foot on Cape Cod before they disturbed the resting places of my ancestors and took their corn, their wheat, and their beans... Yet, our spirit endures. Once, we walked forest trails and sandy shores. Now, we tread your paved roads and highways. We are rising. We stand not in our native homes but in your concrete shelters. We stand with strength and pride, and before us lies the promise of a new dawn. We will not be silenced."</p>
+                            <cite class="block mt-4 not-italic font-semibold">— From the suppressed speech of Wamsutta Frank James</cite>
+                        </blockquote>
+                        <p class="text-center mt-6 text-gray-300">Rather than addressing the official banquet, James gave his speech on Cole's Hill in Plymouth, marking the start of the National Day of Mourning, a somber protest observed each Thanksgiving.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="conclusion" class="py-20 md:py-32 px-6 text-center">
+             <div class="container mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold">A Holiday of Contradictions</h2>
+                <p class="mt-4 max-w-3xl mx-auto text-lg text-[#6F5B51]">Grasping Thanksgiving means embracing its dual narratives. It's a tale of perseverance and colonization, of shared identity and deep inequity. The day invites gratitude, yet also calls for contemplation of a nation's intricate and often troubling past.</p>
+            </div>
+        </section>
+    </main>
+<!--
+    <footer class="bg-white py-6">
+        <div class="container mx-auto text-center text-sm text-[#6F5B51]">
+            <p>An Interactive Experience. Created to foster understanding.</p>
+        </div>
+    </footer>
+-->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const foodData = {
+                protein: {
+                    then: "Venison (brought by the Wampanoag), wildfowl (ducks, geese, swans), and abundant seafood like lobster, cod, and clams.",
+                    now: "A single, domestically-raised roast turkey is the undisputed centerpiece of the modern meal."
+                },
+                starch: {
+                    then: "Flint corn, which was dried and ground into a porridge. Also, wild nuts like chestnuts and walnuts.",
+                    now: "Bread-based stuffing, mashed white potatoes, sweet potato casserole, and soft dinner rolls."
+                },
+                vegetables: {
+                    then: "Native crops like squash, beans, and pumpkins, likely boiled or roasted. Also wild greens and herbs.",
+                    now: "Standardized side dishes, often from cans, like green bean casserole, glazed carrots, and corn."
+                },
+                dessert: {
+                    then: "None. The colonists lacked the butter, wheat flour, and sugar needed for pies or other sweets.",
+                    now: "Pumpkin pie is essential, often accompanied by apple, pecan, or other sweet pies."
+                }
+            };
+
+            const timelineData = {
+                "t-1827": {
+                    title: "The 36-Year Crusade of Sarah Josepha Hale",
+                    content: "As editor of the influential *Godey's Lady's Book*, Sarah Josepha Hale campaigned relentlessly to make Thanksgiving a national holiday. For decades, she published editorials, recipes (popularizing turkey and pumpkin pie), and wrote letters to presidents, arguing that a shared American festival would help unify a nation fracturing over slavery."
+                },
+                "t-1863": {
+                    title: "Lincoln's Proclamation in a Time of War",
+                    content: "In the midst of the Civil War, President Abraham Lincoln heeded Hale's call. He issued a proclamation establishing the last Thursday of November as a national day of Thanksgiving. His goal was to foster a sense of unity and shared purpose in a profoundly divided country. It was at this point that the 1621 feast was retroactively adopted as the holiday's origin story."
+                },
+                "t-1941": {
+                    title: "A Date Set in Law",
+                    content: "After President Franklin D. Roosevelt controversially moved the holiday to boost Christmas shopping, a confused nation celebrated two different Thanksgivings for two years. To end the chaos, Congress passed a law, signed by FDR on December 26, 1941, permanently fixing the date as the fourth Thursday in November."
+                }
+            };
+
+            const foodBtns = document.querySelectorAll('.food-btn');
+            const thenText = document.getElementById('then-text');
+            const nowText = document.getElementById('now-text');
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            const timelineDisplay = document.getElementById('timeline-display');
+
+            function updateFoodDisplay(category) {
+                thenText.textContent = foodData[category].then;
+                nowText.textContent = foodData[category].now;
+            }
+            
+            function updateTimelineDisplay(id) {
+                timelineItems.forEach(item => item.classList.remove('active'));
+                document.getElementById(id).classList.add('active');
+                
+                const data = timelineData[id];
+                timelineDisplay.innerHTML = `
+                    <h3 class="text-2xl font-bold mb-4 text-[#A67B5B]">${data.title}</h3>
+                    <p>${data.content}</p>
+                `;
+            }
+
+            foodBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    updateFoodDisplay(btn.dataset.category);
+                });
+            });
+
+            timelineItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    updateTimelineDisplay(item.id);
+                });
+            });
+
+            updateFoodDisplay('protein');
+            updateTimelineDisplay('t-1827');
+
+            const ctx = document.getElementById('feastChart').getContext('2d');
+            const feastChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Wild Game & Seafood', 'Native Vegetables', 'Grains & Nuts', 'Modern Menu Items'],
+                    datasets: [{
+                        label: 'Menu Composition',
+                        data: [50, 30, 20, 0],
+                        backgroundColor: ['#A67B5B', '#8B4513', '#D3B8A5', '#FDFBF8'],
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                font: {
+                                    family: "'Inter', sans-serif"
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed !== null) {
+                                        label += context.parsed + '% (1621 Estimate)';
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav a');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.4
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href').substring(1) === entry.target.id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const fadeObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            fadeElements.forEach(el => {
+                fadeObserver.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

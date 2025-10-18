@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Year Around the World</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: The application is designed as a single-page exploratory experience with three main thematic sections, enabling users to engage with the content in a non-linear way. The structure is: 1) A dynamic hero section to grab attention. 2) An interactive map for geographical exploration of greetings and traditions. 3) A "Cultural Deep Dive" section using an accordion layout for detailed information on specific non-Gregorian new year celebrations. This layered approach was chosen to cater to different levels of user interest, moving from a broad, visual overview (the map) to specific, detailed content (the accordion). This is more engaging than a simple list and encourages discovery. -->
+    <!-- Visualization & Content Choices: Report Info: New Year greetings and traditions worldwide. -> Goal: Organize, Compare, Inform. -> Viz/Presentation Method: An interactive HTML-based map for geographic data, an HTML accordion for structured textual deep-dives, and a Chart.js Donut chart to categorize celebrations by calendar type (Gregorian, Lunar, etc.). -> Interaction: Clicking map points reveals info cards. Accordion headers expand to show detailed text. The chart provides a quick visual summary with tooltips. -> Justification: This multi-faceted approach presents diverse information types (geographic, textual, quantitative) in their most effective formats, enhancing user understanding and engagement. The map provides spatial context, the accordion organizes dense text cleanly, and the chart offers a high-level quantitative insight. -> Library/Method: Vanilla JS, Tailwind CSS, Chart.js. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF8;
+            color: #4A4A4A;
+        }
+        .bg-warm-beige { background-color: #F5EFE6; }
+        .bg-soft-brown { background-color: #D3C5B3; }
+        .text-accent-teal { color: #2D7A74; }
+        .border-accent-teal { border-color: #2D7A74; }
+        .bg-accent-teal { background-color: #2D7A74; }
+        .bg-accent-teal-light { background-color: #EAF2F2; }
+        .active-tab {
+            border-bottom: 2px solid #2D7A74;
+            color: #2D7A74;
+            font-weight: 600;
+        }
+        .map-container {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: auto;
+            aspect-ratio: 2 / 1;
+            background-image: url('https://placehold.co/1000x500/F5EFE6/4A4A4A?text=World+Map');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .map-dot {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background-color: #c53030;
+            border-radius: 50%;
+            border: 2px solid white;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        .map-dot:hover {
+            transform: scale(1.5);
+            background-color: #e53e3e;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+         @media (min-width: 768px) { .chart-container { height: 400px; } }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-warm-beige py-6">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-accent-teal">New Year Around the World</h1>
+            <p class="mt-2 text-lg text-gray-600">Explore how cultures celebrate the start of a new year</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+        <section id="greeting-carousel" class="text-center mb-12">
+            <div class="p-6 bg-white rounded-lg shadow-md border border-gray-200">
+                <p class="text-2xl font-semibold transition-opacity duration-500" id="dynamic-greeting">Happy New Year!</p>
+                <p class="text-gray-500" id="dynamic-language">English</p>
+            </div>
+        </section>
+
+        <section id="interactive-map" class="mb-12">
+             <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+                <h2 class="text-3xl font-bold text-center mb-2 text-accent-teal">Global Greetings Map</h2>
+                <p class="text-center text-gray-600 mb-6 max-w-3xl mx-auto">
+                    Discover the Global Greetings Map! Dive into New Year traditions worldwide through this interactive feature. Tap the red dots on the map to reveal how various cultures and countries celebrate and share 'Happy New Year,' along with an interesting fact. Explore the world’s festivities right from your screen!
+                </p>
+                <div class="flex flex-col md:flex-row gap-6 items-center">
+                    <div class="map-container w-full md:w-2/3 rounded-lg overflow-hidden">
+                        <div class="map-dot" style="top: 35%; left: 20%;" data-region="spain"></div>
+                        <div class="map-dot" style="top: 25%; left: 15%;" data-region="usa"></div>
+                        <div class="map-dot" style="top: 65%; left: 30%;" data-region="brazil"></div>
+                        <div class="map-dot" style="top: 30%; left: 78%;" data-region="japan"></div>
+                        <div class="map-dot" style="top: 40%; left: 70%;" data-region="china"></div>
+                        <div class="map-dot" style="top: 45%; left: 55%;" data-region="india"></div>
+                        <div class="map-dot" style="top: 30%; left: 40%;" data-region="russia"></div>
+                        <div class="map-dot" style="top: 55%; left: 52%;" data-region="kenya"></div>
+                    </div>
+                    <div id="map-info-panel" class="w-full md:w-1/3 p-4 bg-accent-teal-light rounded-lg">
+                        <h3 id="info-title" class="text-xl font-bold text-accent-teal">Select a location</h3>
+                        <p id="info-greeting" class="text-lg font-semibold mt-2">&nbsp;</p>
+                        <p id="info-fact" class="text-gray-700 mt-1">&nbsp;</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cultural-celebrations" class="mb-12">
+            <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+                <h2 class="text-3xl font-bold text-center mb-2 text-accent-teal">Cultural Deep Dive</h2>
+                 <p class="text-center text-gray-600 mb-6 max-w-3xl mx-auto">
+                    Beyond January 1st in the Gregorian calendar, various cultures mark the new year at different times, guided by lunar, solar, or lunisolar systems. Dive into this section for insights into these rich celebrations. Click a card below to explore their unique histories, traditions, and meanings.
+                </p>
+                <div id="accordion-container" class="space-y-4">
+                </div>
+            </div>
+        </section>
+
+        <section id="calendar-viz" class="mb-12">
+            <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+                <h2 class="text-3xl font-bold text-center mb-2 text-accent-teal">Celebration Calendar Types</h2>
+                <p class="text-center text-gray-600 mb-6 max-w-3xl mx-auto">
+                    New Year celebrations vary based on distinct calendar systems. This chart visually outlines the calendar types tied to the cultural events featured here. Hover over a segment to discover which system—such as Gregorian, Lunar, or Lunisolar—shapes each tradition, showcasing the rich diversity in how cultures track time.
+                </p>
+                <div class="chart-container">
+                    <canvas id="calendarChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+    </main>
+ 
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const greetings = [
+                { lang: 'Spanish', text: '¡Feliz Año Nuevo!' },
+                { lang: 'French', text: 'Bonne Année !' },
+                { lang: 'Mandarin Chinese', text: '新年快乐 (Xīnnián kuàilè)!' },
+                { lang: 'Hindi', text: 'नया साल मुबारक हो (Naya saal mubaarak ho)!' },
+                { lang: 'Russian', text: 'С Новым Годом (S Novym Godom)!' },
+                { lang: 'Japanese', text: '明けましておめでとうございます (Akemashite omedetō gozaimasu)!' },
+                { lang: 'German', text: 'Frohes neues Jahr!' },
+                { lang: 'Arabic', text: 'سنة جديدة سعيدة (Sana jadida sa\'ida)!' },
+                { lang: 'English', text: 'Happy New Year!' }
+            ];
+
+            const greetingElement = document.getElementById('dynamic-greeting');
+            const languageElement = document.getElementById('dynamic-language');
+            let currentIndex = 0;
+
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % greetings.length;
+                greetingElement.style.opacity = 0;
+                languageElement.style.opacity = 0;
+                setTimeout(() => {
+                    greetingElement.textContent = greetings[currentIndex].text;
+                    languageElement.textContent = greetings[currentIndex].lang;
+                    greetingElement.style.opacity = 1;
+                    languageElement.style.opacity = 1;
+                }, 500);
+            }, 3000);
+
+            const mapData = {
+                spain: { title: 'Spain', greeting: '¡Feliz Año Nuevo!', fact: 'Tradition involves eating 12 grapes at midnight for good luck.' },
+                usa: { title: 'USA', greeting: 'Happy New Year!', fact: 'Many watch the ball drop in New York City\'s Times Square.' },
+                brazil: { title: 'Brazil', greeting: 'Feliz Ano Novo!', fact: 'People often wear white for peace and jump seven waves for good luck.' },
+                japan: { title: 'Japan', greeting: '明けましておめでとうございます', fact: 'Bell towers are rung 108 times to dispel 108 evil passions.' },
+                china: { title: 'China', greeting: '新年快乐', fact: 'Celebrations include red envelopes with money and vibrant dragon dances.' },
+                india: { title: 'India', greeting: 'नया साल मुबारक हो', fact: 'Celebrations vary by region, with Diwali often marking a new year.' },
+                russia: { title: 'Russia', greeting: 'С Новым Годом!', fact: 'Grandfather Frost (Ded Moroz) brings gifts to children.' },
+                kenya: { title: 'Kenya', greeting: 'Heri ya Mwaka Mpya!', fact: 'Families gather for festive meals, often roasting a goat.' }
+            };
+
+            const mapDots = document.querySelectorAll('.map-dot');
+            const infoTitle = document.getElementById('info-title');
+            const infoGreeting = document.getElementById('info-greeting');
+            const infoFact = document.getElementById('info-fact');
+
+            mapDots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    const region = dot.dataset.region;
+                    const data = mapData[region];
+                    infoTitle.textContent = data.title;
+                    infoGreeting.textContent = data.greeting;
+                    infoFact.textContent = data.fact;
+                });
+            });
+            
+            const culturalCelebrations = [
+                {
+                    name: "Chinese New Year (Spring Festival)",
+                    date: "Varies (Jan/Feb), based on the lunar calendar.",
+                    description: "A 15-day celebration marking the end of winter and the beginning of spring. It's a time for family reunions, feasts, and traditions like dragon dances, fireworks, and giving money in red envelopes (hongbao) to bring good fortune.",
+                    calendar: "Lunar"
+                },
+                {
+                    name: "Hindu New Year (e.g., Diwali, Ugadi)",
+                    date: "Varies by region and calendar (e.g., Diwali in Oct/Nov).",
+                    description: "Celebrations vary greatly across India. Diwali, the festival of lights, is one of the most significant, symbolizing the victory of light over darkness. Families light lamps, share sweets, and set off fireworks. Other regional new years include Ugadi and Gudi Padwa.",
+                    calendar: "Lunisolar"
+                },
+                {
+                    name: "Islamic New Year (Raʼs as-Sanah al-Hijrīyah)",
+                    date: "Varies, based on the Islamic lunar calendar.",
+                    description: "A more solemn and reflective occasion compared to many other new year festivities. It marks the Hijra, the migration of the Prophet Muhammad from Mecca to Medina. It's a time for prayer, reflection on the past year, and making resolutions.",
+                    calendar: "Lunar"
+                },
+                {
+                    name: "Jewish New Year (Rosh Hashanah)",
+                    date: "Varies (Sep/Oct), based on the Hebrew calendar.",
+                    description: "A two-day holiday that marks the beginning of the High Holy Days. It's a time of introspection and repentance, symbolized by the blowing of the shofar (a ram's horn). Traditional foods include apples dipped in honey to symbolize a sweet new year.",
+                    calendar: "Lunisolar"
+                },
+                {
+                    name: "Persian New Year (Nowruz)",
+                    date: "On or around March 21st, the vernal equinox.",
+                    description: "Meaning 'New Day,' Nowruz celebrates the arrival of spring. It's an ancient tradition with roots in Zoroastrianism. Festivities include spring cleaning, family visits, and setting up a 'Haft-seen' table with seven symbolic items starting with the letter 'S'.",
+                    calendar: "Solar"
+                },
+                {
+                    name: "Gregorian New Year",
+                    date: "January 1st",
+                    description: "The most widely observed new year celebration globally. It's marked by parties, fireworks, and resolutions. While a global standard, many cultures celebrating it also observe their own traditional new year.",
+                    calendar: "Gregorian"
+                }
+            ];
+
+            const accordionContainer = document.getElementById('accordion-container');
+            culturalCelebrations.forEach((item, index) => {
+                const accordionItem = document.createElement('div');
+                accordionItem.className = 'border border-gray-200 rounded-lg';
+                accordionItem.innerHTML = `
+                    <button class="accordion-header w-full text-left p-4 bg-gray-50 hover:bg-gray-100 flex justify-between items-center transition">
+                        <span class="font-semibold text-lg text-gray-800">${item.name}</span>
+                        <span class="text-accent-teal text-2xl font-light">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="p-4 border-t border-gray-200">
+                            <p class="font-semibold">Date: <span class="font-normal">${item.date}</span></p>
+                            <p class="mt-2">${item.description}</p>
+                        </div>
+                    </div>
+                `;
+                accordionContainer.appendChild(accordionItem);
+            });
+
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    const plusSign = header.querySelector('span:last-child');
+                    
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                        plusSign.textContent = '+';
+                    } else {
+                        document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
+                        document.querySelectorAll('.accordion-header span:last-child').forEach(s => s.textContent = '+');
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        plusSign.textContent = '-';
+                    }
+                });
+            });
+
+            const calendarData = culturalCelebrations.reduce((acc, curr) => {
+                acc[curr.calendar] = (acc[curr.calendar] || 0) + 1;
+                return acc;
+            }, {});
+
+            const ctx = document.getElementById('calendarChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(calendarData),
+                    datasets: [{
+                        label: 'Calendar Type',
+                        data: Object.values(calendarData),
+                        backgroundColor: [
+                            '#4A90E2', // Gregorian (Blue)
+                            '#F5A623', // Lunar (Orange)
+                            '#7ED321', // Lunisolar (Green)
+                            '#BD10E0', // Solar (Purple)
+                        ],
+                        borderColor: '#FDFBF8',
+                        borderWidth: 3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    size: 14,
+                                    family: 'Inter'
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed !== null) {
+                                        label += context.parsed + ' celebration(s)';
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

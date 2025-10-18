@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Thanksgiving Feast Info</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Vibrant & Earthy -->
+    <!-- Application Structure Plan: The infographic is structured as a top-down narrative that follows the user's journey in preparing for Thanksgiving. It starts with a bold header to grab attention, then immediately addresses the main challenge: the turkey, using a bar chart for clear data visualization. It then breaks down the "Anatomy of the Feast" with donut charts to show the composition of a typical menu. The core of the infographic is the "Ultimate Game Plan," a visual timeline implemented with HTML/CSS to make the complex schedule easy to follow. The final section, "A Feast for All," highlights inclusivity. This narrative structure was chosen to transform the dense report into a scannable, actionable, and visually compelling guide. -->
+    <!-- Visualization & Content Choices: Turkey Roasting Times -> Goal: Compare -> Chosen Viz: Bar Chart -> Justification: Visually compares roasting times for different weights more effectively than a table (Chart.js/Canvas). Menu Composition -> Goal: Organize -> Chosen Viz: Donut Charts -> Justification: Shows the proportional breakdown of appetizers, sides, and pies to give a quick overview of the meal's structure (Chart.js/Canvas). Preparation Timeline -> Goal: Organize/Change -> Chosen Viz: HTML/CSS Flow Chart -> Justification: Presents the multi-week preparation process in a clear, linear, and easy-to-follow visual sequence without using SVG or Mermaid JS. Dietary Needs -> Goal: Inform -> Chosen Viz: Styled Cards with Unicode Icons -> Justification: Presents key accommodations in a clean, symbolic, and easily digestible format. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDF8F2;
+            color: #523A28;
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 2.75rem;
+            left: 1.25rem;
+            bottom: 0;
+            width: 4px;
+            background-color: #FAD46B;
+            transform: translateX(-50%);
+        }
+        .timeline-item:last-child::before {
+            display: none;
+        }
+        .timeline-dot {
+            position: absolute;
+            top: 1.25rem;
+            left: 1.25rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 9999px;
+            background-color: #E55934;
+            border: 4px solid #FDF8F2;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="text-center py-16 px-4 bg-white shadow-md">
+        <h1 class="text-5xl md:text-7xl font-black text-[#2E4057] uppercase tracking-wider">The Art of the Feast</h1>
+        <p class="mt-4 text-lg max-w-3xl mx-auto text-[#523A28]">A visual roadmap to creating your ideal Thanksgiving feast, from the star turkey to the last bite of pie.</p>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        
+        <section id="turkey-section" class="mb-20">
+            <h2 class="text-4xl font-bold text-center mb-4 text-[#2E4057]">The Centerpiece Decoded</h2>
+            <p class="text-center max-w-3xl mx-auto mb-10">The roast turkey takes center stage. Timing is everything. This guide shows the estimated roasting time per pound at 325°F, but rely on a meat thermometer (165°F in the thigh) for accuracy.</p>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="chart-container">
+                    <canvas id="turkeyChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="anatomy-section" class="mb-20">
+            <h2 class="text-4xl font-bold text-center mb-4 text-[#2E4057]">Anatomy of the Feast</h2>
+            <p class="text-center max-w-3xl mx-auto mb-10">A Thanksgiving feast is a harmony of tastes. The staples fall into main categories, each adding its own note to the plate. Let’s explore the usual lineup of supporting stars.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                    <h3 class="text-2xl font-bold mb-4">Essential Appetizers</h3>
+                    <div class="chart-container h-64 max-h-64">
+                        <canvas id="appetizerChart"></canvas>
+                    </div>
+                    <p class="mt-4 text-sm">Small snacks like dips, charcuterie, and skewers are ideal for greeting guests without overshadowing the main course.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                    <h3 class="text-2xl font-bold mb-4">The Side Dish Pantheon</h3>
+                    <div class="chart-container h-64 max-h-64">
+                        <canvas id="sidesChart"></canvas>
+                    </div>
+                    <p class="mt-4 text-sm">For countless folks, sides steal the show. Spuds, stuffing, and colorful veggies take center stage.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                    <h3 class="text-2xl font-bold mb-4">A Trio of Classic Pies</h3>
+                    <div class="chart-container h-64 max-h-64">
+                        <canvas id="pieChart"></canvas>
+                    </div>
+                    <p class="mt-4 text-sm">The feast ends with the classic trio of Thanksgiving treats: pecan, apple, and pumpkin pies.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="timeline-section" class="mb-20">
+            <h2 class="text-4xl font-bold text-center mb-4 text-[#2E4057]">The Ultimate Game Plan</h2>
+            <p class="text-center max-w-3xl mx-auto mb-12">A hassle-free Thanksgiving comes down to preparation. This guide simplifies the process, turning a big job into easy steps. Use the turkey’s resting time—the 'Golden Hour'—to warm up your sides.</p>
+            <div class="relative max-w-2xl mx-auto">
+                <div class="timeline-item relative pl-12 pb-8">
+                    <div class="timeline-dot"></div>
+                    <h3 class="text-xl font-bold text-[#E55934]">3 Weeks Before</h3>
+                    <p class="text-sm">Finalize menu & guest list. Order turkey. Inventory cookware.</p>
+                </div>
+                <div class="timeline-item relative pl-12 pb-8">
+                    <div class="timeline-dot"></div>
+                    <h3 class="text-xl font-bold text-[#E55934]">2 Weeks Before</h3>
+                    <p class="text-sm">Buy non-perishables. Prep and freeze dough, broth, and gravy.</p>
+                </div>
+                <div class="timeline-item relative pl-12 pb-8">
+                    <div class="timeline-dot"></div>
+                    <h3 class="text-xl font-bold text-[#E55934]">The Day Before</h3>
+                    <p class="text-sm">Buy perishables. Prepare pies. Cook cranberry sauce. Build casseroles. Arrange the table.</p>
+                </div>
+                <div class="timeline-item relative pl-12 pb-8">
+                    <div class="timeline-dot"></div>
+                    <h3 class="text-xl font-bold text-[#E55934]">Thanksgiving Morning</h3>
+                    <p class="text-sm">Bring turkey to room temp. Prep appetizers. Chill drinks.</p>
+                </div>
+                <div class="timeline-item relative pl-12">
+                    <div class="timeline-dot"></div>
+                    <h3 class="text-xl font-bold text-[#E55934]">The Golden Hour (Post-Roast)</h3>
+                    <p class="text-sm">Let turkey rest; warm sides and casseroles, prepare gravy, then carve.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="dietary-section">
+            <h2 class="text-4xl font-bold text-center mb-4 text-[#2E4057]">A Feast for All</h2>
+            <p class="text-center max-w-3xl mx-auto mb-10">A great host makes every guest feel at home. Thanksgiving favorites can be tailored to dietary needs, letting everyone savor a festive and tasty meal.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-white rounded-lg shadow-md p-8 flex items-start space-x-4">
+                    <div class="text-4xl">🌿</div>
+                    <div>
+                        <h3 class="text-2xl font-bold">Vegetarian & Vegan</h3>
+                        <p class="mt-2">Craft impressive, plant-focused mains such as Mushroom Wellington or Stuffed Acorn Squash, with sides transformed using vegan butter and veggie broth.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-8 flex items-start space-x-4">
+                    <div class="text-4xl">🌾</div>
+                    <div>
+                        <h3 class="text-2xl font-bold">Gluten-Free</h3>
+                        <p class="mt-2">Gravy can be thickened with cornstarch as a flour substitute. Opt for top-notch gluten-free bread in stuffing, and try a crustless pumpkin pie or apple crumble for dessert.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+<!--
+    <footer class="text-center py-8 mt-12 bg-[#2E4057] text-white">
+        <p>Happy Thanksgiving!</p>
+    </footer>
+-->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const FONT_COLOR = '#523A28';
+            const BORDER_COLOR = '#E5E7EB';
+            const PALETTE = {
+                orange: '#E55934',
+                yellow: '#FAD46B',
+                blue: '#2E4057',
+                brown: '#523A28',
+                lightYellow: '#FEF3C7'
+            };
+
+            const tooltipTitleCallback = (tooltipItems) => {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                }
+                return label;
+            };
+
+            const wrapLabel = (label) => {
+                const maxLength = 16;
+                if (label.length <= maxLength) return label;
+                const words = label.split(' ');
+                const lines = [];
+                let currentLine = '';
+                words.forEach(word => {
+                    if ((currentLine + ' ' + word).trim().length > maxLength) {
+                        lines.push(currentLine);
+                        currentLine = word;
+                    } else {
+                        currentLine = (currentLine + ' ' + word).trim();
+                    }
+                });
+                lines.push(currentLine);
+                return lines;
+            };
+
+            const turkeyData = {
+                labels: ['10-12 lbs', '12-14 lbs', '14-18 lbs', '18-20 lbs', '20-24 lbs'],
+                datasets: [{
+                    label: 'Max Roasting Time (Hours)',
+                    data: [3, 3.75, 4.5, 5, 6],
+                    backgroundColor: [PALETTE.yellow, PALETTE.orange, PALETTE.yellow, PALETTE.orange, PALETTE.yellow],
+                    borderColor: PALETTE.brown,
+                    borderWidth: 1
+                }]
+            };
+
+            new Chart(document.getElementById('turkeyChart'), {
+                type: 'bar',
+                data: turkeyData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        title: { display: true, text: 'Turkey Roasting Times (at 325°F)', font: { size: 16, family: "'Inter', sans-serif" }, color: FONT_COLOR },
+                        tooltip: { callbacks: { title: tooltipTitleCallback } }
+                    },
+                    scales: {
+                        y: { title: { display: true, text: 'Hours' }, grid: { color: BORDER_COLOR }, ticks: { color: FONT_COLOR } },
+                        x: { grid: { display: false }, ticks: { color: FONT_COLOR } }
+                    }
+                }
+            });
+
+            const appetizerData = {
+                labels: ['Dips & Spreads', 'Cheese & Charcuterie', 'Bite-Sized & Skewers'],
+                datasets: [{
+                    data: [35, 45, 20],
+                    backgroundColor: [PALETTE.orange, PALETTE.yellow, PALETTE.lightYellow],
+                    borderColor: '#FFFFFF',
+                    borderWidth: 4
+                }]
+            };
+
+            new Chart(document.getElementById('appetizerChart'), {
+                type: 'doughnut',
+                data: appetizerData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { color: FONT_COLOR } },
+                        tooltip: { callbacks: { title: tooltipTitleCallback } }
+                    }
+                }
+            });
+
+            const sidesData = {
+                labels: ['Potatoes', 'Stuffing/Dressing', 'Vegetables', 'Other'],
+                datasets: [{
+                    data: [30, 25, 35, 10],
+                    backgroundColor: [PALETTE.brown, PALETTE.orange, PALETTE.yellow, PALETTE.lightYellow],
+                    borderColor: '#FFFFFF',
+                    borderWidth: 4
+                }]
+            };
+            
+            new Chart(document.getElementById('sidesChart'), {
+                type: 'doughnut',
+                data: sidesData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { color: FONT_COLOR } },
+                        tooltip: { callbacks: { title: tooltipTitleCallback } }
+                    }
+                }
+            });
+
+            const pieData = {
+                labels: ['Pumpkin', 'Apple', 'Pecan'],
+                datasets: [{
+                    data: [50, 30, 20],
+                    backgroundColor: [PALETTE.orange, PALETTE.lightYellow, PALETTE.brown],
+                    borderColor: '#FFFFFF',
+                    borderWidth: 4
+                }]
+            };
+
+            new Chart(document.getElementById('pieChart'), {
+                type: 'doughnut',
+                data: pieData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { color: FONT_COLOR } },
+                        tooltip: { callbacks: { title: tooltipTitleCallback } }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

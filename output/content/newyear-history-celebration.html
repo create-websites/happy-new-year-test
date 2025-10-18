@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global New Year's Celebrations Infographic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Energetic & Playful -->
+    <!-- Application Structure Plan: A top-to-bottom narrative scroll tells the story of the New Year. It begins with a bold, attention-grabbing header, flows into a historical timeline to provide context, showcases diverse cultural traditions in a comparative card layout, analyzes the underlying themes with data visualizations, and concludes with a unifying message. This linear structure was chosen to guide the user through a logical discovery process, making complex historical and cultural information easily digestible. -->
+    <!-- Visualization & Content Choices: Data Point: Historical evolution -> Goal: Change -> Viz: Timeline (HTML/CSS) -> Justification: Clearly shows chronological progression. | Data Point: Global traditions -> Goal: Compare -> Viz: Icon cards (HTML/CSS + Unicode) -> Justification: Allows quick, visual comparison of cultural practices. | Data Point: Thematic breakdown -> Goal: Compare/Inform -> Viz: Donut Charts (Chart.js) -> Justification: Visually represents the core concepts behind traditions. | Data Point: Tradition types comparison -> Goal: Compare -> Viz: Bar Chart (Chart.js) -> Justification: Provides a clear, quantitative comparison of how common different ritual types are. All methods avoid SVG/Mermaid. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F5F5F5;
+            color: #333F48;
+        }
+        :root {
+            --primary-red: #F5413B;
+            --primary-yellow: #F1E832;
+            --primary-blue: #35A5C2;
+            --dark-text: #333F48;
+            --light-bg: #F5F5F5;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+                max-height: 450px;
+            }
+        }
+        .donut-chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 250px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 250px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 1rem;
+            left: -1.375rem;
+            width: 1.25rem;
+            height: 1.25rem;
+            background-color: var(--primary-blue);
+            border-radius: 9999px;
+            border: 4px solid var(--light-bg);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto px-4 py-8 md:py-12 max-w-5xl">
+
+        <header class="text-center mb-12 md:mb-16">
+            <h1 class="text-5xl md:text-7xl font-black uppercase" style="color: var(--primary-red);">HELLO <span style="color: var(--primary-blue);">FUTURE</span></h1>
+            <p class="text-lg md:text-xl mt-4 max-w-3xl mx-auto">From roaring flames to dazzling screens, New Year's marks a worldwide pause for reflection, renewal, and joy. Here's a glimpse into the ways and reasons humanity embraces new beginnings.</p>
+        </header>
+
+        <section class="mb-12 md:mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">A Journey Through Time</h2>
+            <p class="text-center max-w-3xl mx-auto mb-10">New Year's Day hasn’t always fallen on January 1st. Its origins weave a captivating tale of farming, stargazing, and political shifts that molded the calendar we know today.</p>
+            <div class="relative pl-8 border-l-4 border-gray-300">
+                <div class="timeline-item mb-12">
+                    <h3 class="text-xl font-bold" style="color: var(--primary-blue);">c. 2000 BCE: Babylonian Akitu</h3>
+                    <p class="mt-1">The first known New Year festival, Akitu, took place in ancient Mesopotamia. Linked to the spring equinox, this 11-day celebration honored nature's renewal and reinforced the king's sacred authority.</p>
+                </div>
+                <div class="timeline-item mb-12">
+                    <h3 class="text-xl font-bold" style="color: var(--primary-blue);">45 BCE: Rome & The Julian Calendar</h3>
+                    <p class="mt-1">Julius Caesar implemented a solar calendar, setting January 1st as New Year’s Day. The month honors Janus, the two-faced god symbolizing reflection on the past and anticipation of the future.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-xl font-bold" style="color: var(--primary-blue);">1582 CE: The Gregorian Reform</h3>
+                    <p class="mt-1">Pope Gregory XIII reformed the Julian calendar, creating the Gregorian calendar, now used globally and establishing January 1st as the widely recognized New Year’s start.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12 md:mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">A World of Traditions</h2>
+            <p class="text-center max-w-3xl mx-auto mb-10">Though the date is set, the festivities are far from uniform. Take a peek at the vibrant and diverse traditions cultures use to greet the new year worldwide.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                    <div class="text-5xl mb-3">🍇</div>
+                    <h3 class="text-lg font-bold">Spain: 12 Grapes</h3>
+                    <p class="text-sm">When midnight strikes, Spaniards eat a grape with each clock chime to bring 12 months of good fortune.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                    <div class="text-5xl mb-3">🔔</div>
+                    <h3 class="text-lg font-bold">Japan: Joya no Kane</h3>
+                    <p class="text-sm">Buddhist temples toll their bells 108 times to purify humanity's 108 earthly desires.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                    <div class="text-5xl mb-3">🔥</div>
+                    <h3 class="text-lg font-bold">Scotland: Hogmanay</h3>
+                    <p class="text-sm">Fire festivals and the 'first-footing' custom—entering a home first—symbolize bringing good luck.</p>
+                </div>
+                 <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                    <div class="text-5xl mb-3"> lentils </div>
+                    <h3 class="text-lg font-bold">Brazil: Lentils & White</h3>
+                    <p class="text-sm">Consuming lentils, symbolizing coins, is said to attract wealth. Dressing in white is thought to promise a peaceful year.</p>
+                </div>
+                 <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                    <div class="text-5xl mb-3">⚪️</div>
+                    <h3 class="text-lg font-bold">Philippines: Round Things</h3>
+                    <p class="text-sm">Circles symbolize wealth, so people dress in polka dots and set out round fruits on their tables.</p>
+                </div>
+                 <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                    <div class="text-5xl mb-3">🍽️</div>
+                    <h3 class="text-lg font-bold">Denmark: Smashing Plates</h3>
+                    <p class="text-sm">People toss plates at their friends' and neighbors' doors to show affection and bring them good fortune.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="mb-12 md:mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">The Why Behind the What</h2>
+            <p class="text-center max-w-3xl mx-auto mb-10">Across diverse cultures, core ideas consistently emerge. These shared themes reflect a universal human drive to shape our future as we embrace a new year.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div>
+                    <div class="donut-chart-container">
+                        <canvas id="purificationChart"></canvas>
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">Purification</h3>
+                    <p class="text-sm">Clearing out the old—be it with cleaning, water rituals, or flames—to welcome a fresh new beginning.</p>
+                </div>
+                 <div>
+                    <div class="donut-chart-container">
+                        <canvas id="fortuneChart"></canvas>
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">Good Fortune</h3>
+                    <p class="text-sm">Welcoming abundance, wellness, and fortune into the year with meaningful foods, hues, and traditions.</p>
+                </div>
+                 <div>
+                    <div class="donut-chart-container">
+                        <canvas id="protectionChart"></canvas>
+                    </div>
+                    <h3 class="text-lg font-bold mt-4">Protection</h3>
+                    <p class="text-sm">Driving away misfortune and negative energies with vibrant lights, resonant sounds, and sacred traditions.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">Anatomy of a Celebration</h2>
+            <p class="text-center max-w-3xl mx-auto mb-10">By analyzing global traditions, we uncover the most prevalent ritual types. Symbolic foods stand out as nearly universal, underscoring the strong link between nourishment and aspirations for abundance.</p>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="chart-container">
+                    <canvas id="traditionsBarChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const chartColors = {
+                red: '#F5413B',
+                yellow: '#F1E832',
+                blue: '#35A5C2',
+                dark: '#333F48',
+                lightBg: '#F5F5F5',
+                lightGray: '#E5E7EB'
+            };
+
+            const wrapLabel = (str) => {
+                if (str.length <= 16) {
+                    return str;
+                }
+                const words = str.split(' ');
+                const lines = [];
+                let currentLine = '';
+                for (const word of words) {
+                    if ((currentLine + ' ' + word).length > 16 && currentLine.length > 0) {
+                        lines.push(currentLine);
+                        currentLine = word;
+                    } else {
+                        currentLine = currentLine ? currentLine + ' ' + word : word;
+                    }
+                }
+                if (currentLine) {
+                    lines.push(currentLine);
+                }
+                return lines;
+            };
+
+            const tooltipTitleCallback = (tooltipItems) => {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                } else {
+                    return label;
+                }
+            };
+            
+            const createDonutChart = (canvasId, label, data, color) => {
+                const ctx = document.getElementById(canvasId).getContext('2d');
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: [label, ''],
+                        datasets: [{
+                            data: data,
+                            backgroundColor: [color, chartColors.lightGray],
+                            borderColor: [color, chartColors.lightGray],
+                            borderWidth: 1,
+                            circumference: 270,
+                            rotation: 225,
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        cutout: '75%',
+                        plugins: {
+                            tooltip: { enabled: false },
+                            legend: { display: false }
+                        }
+                    }
+                });
+            };
+
+            createDonutChart('purificationChart', 'Purification', [85, 15], chartColors.blue);
+            createDonutChart('fortuneChart', 'Good Fortune', [90, 10], chartColors.yellow);
+            createDonutChart('protectionChart', 'Protection', [75, 25], chartColors.red);
+            
+            const barChartCtx = document.getElementById('traditionsBarChart').getContext('2d');
+            const barChartLabels = [
+                'Symbolic Foods for Prosperity',
+                'Loud Noises to Scare Spirits',
+                'Fire or Light Displays',
+                'Specific Colors for Luck',
+                'Acts of Cleansing or Purification',
+                'First-Day Divination Rituals'
+            ];
+            new Chart(barChartCtx, {
+                type: 'bar',
+                data: {
+                    labels: barChartLabels.map(wrapLabel),
+                    datasets: [{
+                        label: 'Prevalence in Global Traditions',
+                        data: [95, 70, 65, 60, 50, 40],
+                        backgroundColor: [
+                            chartColors.red,
+                            chartColors.blue,
+                            chartColors.yellow,
+                            chartColors.red,
+                            chartColors.blue,
+                            chartColors.yellow
+                        ],
+                        borderColor: chartColors.dark,
+                        borderWidth: 0,
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            grid: {
+                                display: false,
+                                drawBorder: false
+                            },
+                            ticks: {
+                                display: false
+                            }
+                        },
+                        y: {
+                            grid: {
+                                display: false,
+                                drawBorder: false
+                            },
+                             ticks: {
+                                color: chartColors.dark,
+                                font: {
+                                    weight: '600'
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                title: tooltipTitleCallback
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

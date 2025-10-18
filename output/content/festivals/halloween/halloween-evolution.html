@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Evolution of Halloween</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals & Subtle Autumn -->
+    <!-- Application Structure Plan: The application is designed as a vertical, scroll-based narrative, navigated by a sticky timeline. This structure was chosen over a dashboard or tabbed layout because the source report details a chronological evolution. A timeline-driven flow is the most intuitive way for a user to explore a historical topic, allowing them to see cause and effect clearly. Key interactions include clicking timeline events to auto-scroll, using tabs to compare the evolution of specific traditions, and viewing a chart to break down costume history. This design prioritizes storytelling and guided discovery, making the dense historical information digestible and engaging. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: Chronological Eras -> Goal: Navigation -> Viz/Presentation: Sticky Timeline (HTML/CSS) -> Interaction: Click-to-scroll -> Justification: Provides clear, intuitive navigation through the historical narrative.
+        - Report Info: Evolution of Traditions (Jack-o'-lantern, Costumes, Trick-or-Treating) -> Goal: Compare -> Viz/Presentation: Tabbed Content Blocks (HTML/JS) -> Interaction: Click tabs to switch content -> Justification: Allows for direct comparison of how each tradition changed over time within a compact space.
+        - Report Info: Phases of Costume History -> Goal: Inform/Proportions -> Viz/Presentation: Doughnut Chart -> Interaction: Hover for tooltips -> Justification: Visually represents the conceptual shift in costume purpose from spiritual to commercial. Library: Chart.js.
+        - Report Info: Halloween vs. Día de los Muertos -> Goal: Compare -> Viz/Presentation: Comparison Table (HTML) -> Interaction: Static -> Justification: A simple table is the clearest way to present a direct, multi-point comparison between two distinct cultural events.
+        - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FFF8E1;
+            color: #262626;
+        }
+        h1, h2, h3 {
+            font-family: 'Merriweather', serif;
+        }
+        .timeline-item.active button {
+            background-color: #D97706;
+            color: #FFFFFF;
+            transform: scale(1.1);
+        }
+        .timeline-item.active button:after {
+            transform: scale(1);
+        }
+        .tab.active {
+            border-color: #D97706;
+            background-color: #FEF3C7;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="text-center p-8 bg-cover" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://placehold.co/1200x400/1C1917/D97706?text=+)');">
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-2">From Sacred Fire to Commercial Fright</h1>
+        <p class="text-lg md:text-xl text-amber-200">An Interactive History of Halloween</p>
+    </header>
+
+    <main class="w-full">
+        <nav id="timeline-nav" class="sticky top-0 z-10 bg-white/80 backdrop-blur-md shadow-md py-4">
+            <div class="container mx-auto px-4">
+                <ul class="flex justify-center items-center space-x-2 md:space-x-8">
+                    <li class="timeline-item" data-target="samhain">
+                        <button class="transition-all duration-300 ease-in-out text-xs md:text-sm font-semibold p-2 md:px-4 md:py-2 rounded-full bg-gray-200 hover:bg-amber-500 hover:text-white">Ancient Roots</button>
+                    </li>
+                    <li class="timeline-item" data-target="change">
+                        <button class="transition-all duration-300 ease-in-out text-xs md:text-sm font-semibold p-2 md:px-4 md:py-2 rounded-full bg-gray-200 hover:bg-amber-500 hover:text-white">Crucible of Change</button>
+                    </li>
+                    <li class="timeline-item" data-target="america">
+                        <button class="transition-all duration-300 ease-in-out text-xs md:text-sm font-semibold p-2 md:px-4 md:py-2 rounded-full bg-gray-200 hover:bg-amber-500 hover:text-white">The American Experiment</button>
+                    </li>
+                     <li class="timeline-item" data-target="modern">
+                        <button class="transition-all duration-300 ease-in-out text-xs md:text-sm font-semibold p-2 md:px-4 md:py-2 rounded-full bg-gray-200 hover:bg-amber-500 hover:text-white">The Modern Macabre</button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container mx-auto p-4 md:p-8">
+            <section id="samhain" class="py-16 scroll-mt-24">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-amber-700">Part I: The Ancient Roots</h2>
+                <h3 class="text-xl md:text-2xl text-center mb-8">Samhain and the Celtic World</h3>
+                <p class="max-w-3xl mx-auto text-center text-gray-700 mb-12">
+                    Halloween's origins trace back over 2,000 years to the Gaelic festival of Samhain. Far from candy and costumes, it marked the harvest's end and winter's onset—a sacred night when the boundary between the living and spirit realms blurred, inviting otherworldly presences to roam.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                        <div class="text-4xl mb-4">🔥</div>
+                        <h4 class="text-xl font-bold mb-2">Rituals of Fire</h4>
+                        <p class="text-gray-600">Druids kindled great communal fires to celebrate the sun and cleanse the community. Families rekindled their hearths from this holy blaze, signifying harmony and shielding against the looming darkness.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                        <div class="text-4xl mb-4">👻</div>
+                        <h4 class="text-xl font-bold mb-2">A Thinning Veil</h4>
+                        <p class="text-gray-600">Samhain centered on the idea that the veil between worlds was thin. Ancestors were invited back, and harmful spirits and fairies were placated with gifts to protect the people.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                        <div class="text-4xl mb-4">🎭</div>
+                        <h4 class="text-xl font-bold mb-2">Guising & Disguise</h4>
+                        <p class="text-gray-600">Celts donned animal skins and heads as costumes to shield against otherworldly beings, using this disguise to merge with spirits and evade abduction.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="change" class="py-16 scroll-mt-24">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-amber-700">Part II: The Crucible of Change</h2>
+                <h3 class="text-xl md:text-2xl text-center mb-8">Roman and Christian Syncretism</h3>
+                <p class="max-w-3xl mx-auto text-center text-gray-700 mb-12">
+                    As traditions intertwined, Samhain underwent a vast evolution. Roman rituals for the dead likely merged with Celtic customs, but the biggest shift came with Christianity. Instead of abolishing the beloved pagan festival, the Church adapted it, crafting new holidays that retained Samhain's essence within a Christian context.
+                </p>
+                <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-xl">
+                    <div class="grid grid-cols-1 md:grid-cols-3 text-center items-center">
+                        <div class="p-4">
+                            <h4 class="text-2xl font-bold text-gray-800">Samhain</h4>
+                            <p class="text-sm text-gray-500">October 31st</p>
+                            <p class="mt-2">A ritual celebrating ancestors and calming spirits after the harvest.</p>
+                        </div>
+                        <div class="p-4 text-5xl text-amber-600 font-thin">→</div>
+                        <div class="p-4">
+                            <h4 class="text-2xl font-bold text-gray-800">All Hallows' Eve</h4>
+                            <p class="text-sm text-gray-500">October 31st - November 2nd</p>
+                            <p class="mt-2">A Christian triad (All Hallows' Eve, All Saints' Day, All Souls' Day) honors saints and prays for souls in Purgatory.</p>
+                        </div>
+                    </div>
+                    <p class="text-center mt-6 text-gray-600">This practice, called syncretism, preserved ancient traditions. Bonfires, disguises, and honoring the dead endured, but were adapted to fit Christian beliefs, shaping the blended celebration that evolved into today's Halloween.</p>
+                </div>
+            </section>
+
+            <section id="america" class="py-16 scroll-mt-24">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-amber-700">Part III: The American Experiment</h2>
+                <h3 class="text-xl md:text-2xl text-center mb-8">How Core Traditions Evolved in the New World</h3>
+                <p class="max-w-3xl mx-auto text-center text-gray-700 mb-12">
+                    While Halloween has ancient European origins, its modern form is uniquely American. Irish and Scottish immigrants carried their customs to the New World, where they were reshaped by societal changes and consumer culture. Choose a tradition below to explore its shift from sacred rite to secular festivity.
+                </p>
+                <div class="max-w-5xl mx-auto">
+                    <div class="flex justify-center border-b mb-8">
+                        <button class="tab active" data-content="tradition-lantern">🎃 Jack-o'-Lantern</button>
+                        <button class="tab" data-content="tradition-costume">🎭 Costume</button>
+                        <button class="tab" data-content="tradition-trick">🍬 Trick-or-Treat</button>
+                    </div>
+                    <div id="traditions-content" class="bg-white p-8 rounded-lg shadow-lg">
+                        <div id="tradition-lantern" class="tradition-panel"></div>
+                        <div id="tradition-costume" class="tradition-panel hidden"></div>
+                        <div id="tradition-trick" class="tradition-panel hidden"></div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="modern" class="py-16 scroll-mt-24">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-amber-700">Part IV: The Modern Macabre</h2>
+                <h3 class="text-xl md:text-2xl text-center mb-8">Symbolism, Stories, and Global Spread</h3>
+                <p class="max-w-3xl mx-auto text-center text-gray-700 mb-12">
+                    Modern Halloween is a worldwide event, blending ancient traditions, current fears, and American pop culture. Its visuals stem from rich history, while its tales mirror today’s anxieties. Use the tabs below to delve into its symbols or contrast it with another famed festival of the dead.
+                </p>
+                <div class="max-w-5xl mx-auto">
+                    <div class="flex justify-center border-b mb-8">
+                        <button class="tab active" data-content="modern-symbols">🕷️ Symbols</button>
+                        <button class="tab" data-content="modern-comparison">💀 Comparison</button>
+                    </div>
+                    <div id="modern-content" class="bg-white p-8 rounded-lg shadow-lg">
+                        <div id="modern-symbols" class="modern-panel"></div>
+                        <div id="modern-comparison" class="modern-panel hidden"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+<!--
+    <footer class="bg-neutral-800 text-neutral-300 text-center p-6 mt-16">
+        <p>An interactive exploration based on the cultural history of Halloween.</p>
+        <p class="text-sm text-neutral-500 mt-2">Designed to bring history to life.</p>
+    </footer>
+-->
+
+    <script>
+        const traditionsData = {
+            'tradition-lantern': {
+                title: 'From Turnips to Pumpkins: The Jack-o\'-Lantern',
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h4 class="text-2xl font-bold mb-4">Then: A Protective Talisman</h4>
+                            <p class="text-gray-700">Rooted in the Irish folktale of "Stingy Jack," the original jack-o'-lanterns were carved from turnips and potatoes in Ireland and Scotland. With a burning coal inside, they were placed in windows to frighten away wandering evil spirits. Their purpose was purely protective.</p>
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-bold mb-4">Now: A Decorative Icon</h4>
+                            <p class="text-gray-700">When Irish immigrants arrived in America, they discovered the native pumpkin, which was larger and far easier to carve. The practical switch led to the pumpkin becoming the quintessential symbol of Halloween, transforming from a talisman to a festive decoration and a canvas for creativity.</p>
+                        </div>
+                    </div>
+                `
+            },
+            'tradition-costume': {
+                title: 'The Metamorphosis of the Costume',
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                         <div>
+                            <h4 class="text-2xl font-bold mb-4">The Four Phases of Disguise</h4>
+                            <p class="text-gray-700 mb-2">The purpose of the Halloween costume has shifted dramatically over centuries. It began as a form of spiritual protection, evolved into a tool for social mischief, and finally became an expression of pop culture identity.</p>
+                            <p class="text-gray-700">This chart illustrates the conceptual evolution, from a ritual rooted in fear and belief to a multi-billion dollar industry driven by media and commerce.</p>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="costumeChart"></canvas>
+                        </div>
+                    </div>
+                `
+            },
+            'tradition-trick': {
+                title: 'From Souling to "Trick or Treat!"',
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h4 class="text-2xl font-bold mb-4">Then: A Spiritual Exchange</h4>
+                            <p class="text-gray-700">The door-to-door ritual began as "souling" in medieval Europe. The poor would go house to house receiving "soul cakes" in exchange for promising to pray for the souls of the family's deceased relatives. It was a transaction of food for prayer.</p>
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-bold mb-4">Now: A Childhood Ritual</h4>
+                            <p class="text-gray-700">The phrase "trick or treat" emerged in 1930s America as a way to control widespread Halloween pranking. It was a playful ultimatum: give a treat or be subjected to a prank. Post-WWII suburban growth and the candy industry turned it into the organized, child-centric ritual we know today.</p>
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        const modernData = {
+            'modern-symbols': {
+                title: 'The Iconography of Fear',
+                content: `
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                        <div>
+                            <div class="text-5xl">🧙</div>
+                            <h4 class="font-bold mt-2">Witches</h4>
+                            <p class="text-sm text-gray-600">Linked to Halloween through historical witch trials, they transformed from figures of wisdom to symbols of supernatural evil.</p>
+                        </div>
+                        <div>
+                            <div class="text-5xl">🐈‍⬛</div>
+                            <h4 class="font-bold mt-2">Black Cats</h4>
+                            <p class="text-sm text-gray-600">Believed to be witches' "familiars" or witches in disguise during the Middle Ages, they became icons of bad luck and dark magic.</p>
+                        </div>
+                        <div>
+                            <div class="text-5xl">🦇</div>
+                            <h4 class="font-bold mt-2">Bats</h4>
+                            <p class="text-sm text-gray-600">Nocturnal creatures whose spooky reputation was sealed by Bram Stoker's *Dracula*, linking them forever to vampires and the undead.</p>
+                        </div>
+                        <div>
+                            <div class="text-5xl">🟠⚫</div>
+                            <h4 class="font-bold mt-2">Orange & Black</h4>
+                            <p class="text-sm text-gray-600">The official colors established in the early 1900s. Orange represents the harvest and autumn, while black symbolizes darkness and death.</p>
+                        </div>
+                    </div>
+                `
+            },
+            'modern-comparison': {
+                title: 'A Tale of Two Festivals: Halloween vs. Día de los Muertos',
+                content: `
+                    <p class="text-center text-gray-600 mb-6">While they occur at the same time of year and both concern the dead, these two holidays are fundamentally different in origin, tone, and purpose.</p>
+                    <div class="overflow-x-auto">
+                        <table class="w-full min-w-full text-sm text-left text-gray-500">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3">Feature</th>
+                                    <th scope="col" class="px-6 py-3 bg-amber-100">Halloween</th>
+                                    <th scope="col" class="px-6 py-3">Día de los Muertos</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="bg-white border-b">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">Cultural Tone</th>
+                                    <td class="px-6 py-4 bg-amber-50">Fear, Mischief, Spookiness</td>
+                                    <td class="px-6 py-4">Remembrance, Celebration, Joy</td>
+                                </tr>
+                                <tr class="bg-white border-b">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">View of Death</th>
+                                    <td class="px-6 py-4 bg-amber-50">Macabre, to be feared or mocked</td>
+                                    <td class="px-6 py-4">Natural part of life's cycle</td>
+                                </tr>
+                                <tr class="bg-white border-b">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">Core Activities</th>
+                                    <td class="px-6 py-4 bg-amber-50">Trick-or-Treating, Costume Parties</td>
+                                    <td class="px-6 py-4">Building Altars (Ofrendas), Cemetery Visits</td>
+                                </tr>
+                                <tr class="bg-white">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">Primary Origin</th>
+                                    <td class="px-6 py-4 bg-amber-50">Ancient Celtic (Samhain)</td>
+                                    <td class="px-6 py-4">Indigenous Mesoamerican (Aztec)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                `
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const timelineNav = document.getElementById('timeline-nav');
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            const sections = document.querySelectorAll('main section');
+            let costumeChartInstance = null;
+            
+            function updateActiveTimelineItem() {
+                let currentSection = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 120) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+
+                timelineItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.dataset.target === currentSection) {
+                        item.classList.add('active');
+                    }
+                });
+            }
+
+            timelineItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.dataset.target;
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+            window.addEventListener('scroll', updateActiveTimelineItem);
+
+            function setupTabSystem(containerId, contentData, panelClass) {
+                const container = document.getElementById(containerId);
+                if (!container) return;
+                
+                const tabs = container.querySelectorAll('.tab');
+                const contentContainer = container.querySelector(`#${containerId}-content`);
+
+                function renderContent(contentId) {
+                    const data = contentData[contentId];
+                    const panel = contentContainer.querySelector(`#${contentId}`);
+                    if (data && panel) {
+                        panel.innerHTML = `
+                            <h3 class="text-2xl md:text-3xl font-bold text-center mb-6 text-amber-700">${data.title}</h3>
+                            ${data.content}
+                        `;
+                    }
+                }
+
+                tabs.forEach(tab => {
+                    const contentId = tab.dataset.content;
+                    renderContent(contentId);
+
+                    tab.addEventListener('click', function() {
+                        tabs.forEach(t => t.classList.remove('active'));
+                        this.classList.add('active');
+                        
+                        contentContainer.querySelectorAll(`.${panelClass}`).forEach(panel => {
+                            panel.classList.add('hidden');
+                        });
+                        
+                        const activePanel = contentContainer.querySelector(`#${contentId}`);
+                        if (activePanel) {
+                            activePanel.classList.remove('hidden');
+                        }
+
+                        if (contentId === 'tradition-costume' && !costumeChartInstance) {
+                            renderCostumeChart();
+                        }
+                    });
+                });
+            }
+
+            function renderCostumeChart() {
+                const ctx = document.getElementById('costumeChart').getContext('2d');
+                if (ctx) {
+                    costumeChartInstance = new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            labels: ['Spiritual Protection', 'Ritual Impersonation', 'Social Anonymity', 'Pop Culture Expression'],
+                            datasets: [{
+                                label: 'Purpose of Costume',
+                                data: [1, 1, 1, 1],
+                                backgroundColor: [
+                                    '#6d28d9',
+                                    '#7c3aed',
+                                    '#a78bfa',
+                                    '#c4b5fd',
+                                ],
+                                borderColor: '#FFF8E1',
+                                borderWidth: 3
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: {
+                                    position: 'bottom',
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        label: function(context) {
+                                            return ` Phase: ${context.label}`;
+                                        }
+                                    }
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Conceptual Evolution of Costumes'
+                                }
+                            }
+                        }
+                    });
+                }
+            }
+
+            setupTabSystem('traditions-content-wrapper', traditionsData, 'tradition-panel');
+            setupTabSystem('modern-content-wrapper', modernData, 'modern-panel');
+            
+            // Simplified setup for this single HTML file structure
+            const traditionsTabs = document.querySelectorAll('#america .tab');
+            const traditionsContentContainer = document.getElementById('traditions-content');
+            
+            traditionsTabs.forEach(tab => {
+                const contentId = tab.dataset.content;
+                renderContent(contentId, traditionsData, traditionsContentContainer);
+                
+                tab.addEventListener('click', function() {
+                    traditionsTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    traditionsContentContainer.querySelectorAll('.tradition-panel').forEach(p => p.classList.add('hidden'));
+                    const activePanel = traditionsContentContainer.querySelector(`#${contentId}`);
+                    if(activePanel) activePanel.classList.remove('hidden');
+
+                    if (contentId === 'tradition-costume' && !costumeChartInstance) {
+                        renderCostumeChart();
+                    }
+                });
+            });
+
+            const modernTabs = document.querySelectorAll('#modern .tab');
+            const modernContentContainer = document.getElementById('modern-content');
+            
+            modernTabs.forEach(tab => {
+                const contentId = tab.dataset.content;
+                renderContent(contentId, modernData, modernContentContainer);
+
+                tab.addEventListener('click', function() {
+                    modernTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    modernContentContainer.querySelectorAll('.modern-panel').forEach(p => p.classList.add('hidden'));
+                    const activePanel = modernContentContainer.querySelector(`#${contentId}`);
+                    if(activePanel) activePanel.classList.remove('hidden');
+                });
+            });
+
+            function renderContent(contentId, dataSet, container) {
+                const data = dataSet[contentId];
+                const panel = container.querySelector(`#${contentId}`);
+                if (data && panel) {
+                    panel.innerHTML = `
+                        <h3 class="text-2xl md:text-3xl font-bold text-center mb-6 text-amber-700">${data.title}</h3>
+                        ${data.content}
+                    `;
+                }
+            }
+            
+            updateActiveTimelineItem();
+        });
+    </script>
+</body>
+</html>

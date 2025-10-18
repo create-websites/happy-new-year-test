@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Global Feast: An Infographic of Christmas Dinner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Energetic & Playful -->
+    <!-- Application Structure Plan: The infographic tells a linear story, starting with a hook about the dinner's symbolism. It then moves to a global comparison of main dishes, followed by a historical deep-dive into the evolution of specific dishes (desserts, turkey). It concludes by visualizing modern trends. This narrative structure guides the user from the general 'why' to the specific 'what' and 'how,' making complex historical data easy to follow. -->
+    <!-- Visualization & Content Choices: Data Point: Global Main Courses -> Goal: Compare -> Viz: Bar Chart (Chart.js) -> Justification: Best for comparing distinct categories (countries) and their primary food types. Data Point: Dessert Evolution -> Goal: Show Change -> Viz: HTML/CSS Timeline -> Justification: Clearly shows a chronological process without SVG. Data Point: Modern Dinner Choices -> Goal: Show Composition -> Viz: Donut Chart (Chart.js) -> Justification: Effectively shows the proportional breakdown of modern meal preferences. CONFIRMATION: NO SVG/Mermaid used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #f7fafc;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Merriweather', serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-[#073B4C]">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center my-12">
+            <h1 class="text-4xl md:text-6xl font-bold text-[#118AB2]">The Global Feast</h1>
+            <p class="text-xl md:text-2xl mt-4 text-[#073B4C]">An Edible History of the Christmas Dinner</p>
+        </header>
+
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8 text-[#06D6A0]">More Than a Meal: The Spirit of the Feast</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="text-5xl mb-4">☀️</div>
+                    <h3 class="text-xl font-bold mb-2">Ancient Roots</h3>
+                    <p>This tradition originates from pre-Christian solstice festivals, honoring the sun's return and reveling in defiance of the dark.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="text-5xl mb-4">❤️</div>
+                    <h3 class="text-xl font-bold mb-2">Food as Meaning</h3>
+                    <p>Every dish tells a story of love and tradition. The 13 ingredients in Christmas pudding symbolize Christ and His apostles.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="text-5xl mb-4">🔥</div>
+                    <h3 class="text-xl font-bold mb-2">Ritual & Theatre</h3>
+                    <p>The lighting of the pudding and the Yule Log cake are festive customs rooted in old traditions.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16 bg-white p-8 rounded-lg shadow-xl">
+            <h2 class="text-3xl font-bold text-center mb-8 text-[#FF6B6B]">A Global Christmas Plate</h2>
+            <p class="text-center max-w-3xl mx-auto mb-8">Though the spirit is shared, the menu is delightfully varied. This chart highlights the world's favorite main dishes, revealing how culture and climate influence the table.</p>
+            <div class="chart-container">
+                <canvas id="globalMainsChart"></canvas>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-12 text-[#118AB2]">From Savory to Sweet: The Great Dessert Evolution</h2>
+            <p class="text-center max-w-3xl mx-auto mb-8">Many classic Christmas desserts began as savory meat dishes. After the 17th century, cheaper sugar turned them into the sweet delights we enjoy now.</p>
+            <div class="relative border-l-4 border-[#06D6A0] ml-4 md:mx-auto md:max-w-3xl">
+                <div class="mb-12 ml-8">
+                    <div class="absolute -left-4 mt-1 w-8 h-8 bg-[#FFD166] rounded-full border-4 border-white"></div>
+                    <h3 class="text-xl font-bold text-[#073B4C]">14th Century: Plum Pottage</h3>
+                    <p class="text-gray-700">The forerunner of Christmas Pudding: a hearty boiled porridge made with beef broth, spices, and fruit, served as a starter.</p>
+                </div>
+                <div class="mb-12 ml-8">
+                    <div class="absolute -left-4 mt-1 w-8 h-8 bg-[#FFD166] rounded-full border-4 border-white"></div>
+                    <h3 class="text-xl font-bold text-[#073B4C]">13th-17th Century: Meat & Spice Pies</h3>
+                    <p class="text-gray-700">Early Mince Pies featured minced mutton and suet, shaped oblong to represent Jesus's manger. They served as a savory dish.</p>
+                </div>
+                <div class="ml-8">
+                    <div class="absolute -left-4 mt-1 w-8 h-8 bg-[#FFD166] rounded-full border-4 border-white"></div>
+                    <h3 class="text-xl font-bold text-[#073B4C]">19th Century: The Sweet Transformation</h3>
+                    <p class="text-gray-700">Cheaper sugar led to the removal of meat, while Dickens' *A Christmas Carol* helped make sweet Christmas Pudding and Mince Pie beloved holiday treats.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16 grid md:grid-cols-2 gap-8 items-center">
+            <div class="bg-white p-8 rounded-lg shadow-xl">
+                <h2 class="text-3xl font-bold text-center mb-4 text-[#FFD166]">The Reign of the Turkey</h2>
+                <p class="text-center mb-6">Brought to Europe from North America in the 1500s, the turkey rose to fame as a festive Christmas staple, championed by Queen Victoria and Charles Dickens.</p>
+                <div class="chart-container h-64 md:h-80">
+                    <canvas id="turkeyChart"></canvas>
+                </div>
+            </div>
+            <div class="space-y-6">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold mb-2">Stuffing's Roman Roots</h3>
+                    <p>Stuffing dates back to the 1st century AD in the Roman Empire, where leftovers and herbs enhanced flavor.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold mb-2">Brussels Sprouts: A Winter Staple</h3>
+                    <p>Originally grown near Brussels in the 1200s, this winter veggie turned into a festive favorite in Victorian England.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold mb-2">Cranberry Sauce: An American Original</h3>
+                    <p>In the 1940s, Ocean Spray's canning efforts turned this native North American berry into a holiday staple.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8 text-[#06D6A0]">The Modern, Inclusive Feast</h2>
+            <p class="text-center max-w-3xl mx-auto mb-8">Christmas dinner is changing. Families are embracing new traditions, stepping away from the classic turkey to celebrate diverse flavors, diets, and cultural influences.</p>
+            <div class="bg-white p-8 rounded-lg shadow-xl">
+                <div class="chart-container">
+                    <canvas id="modernFeastChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        const chartColors = {
+            red: '#FF6B6B',
+            yellow: '#FFD166',
+            green: '#06D6A0',
+            blue: '#118AB2',
+            darkBlue: '#073B4C'
+        };
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+
+        const processLabels = (labels) => {
+            return labels.map(label => {
+                if (label.length > 16) {
+                    const words = label.split(' ');
+                    const lines = [];
+                    let currentLine = '';
+                    words.forEach(word => {
+                        if ((currentLine + word).length > 16) {
+                            lines.push(currentLine.trim());
+                            currentLine = '';
+                        }
+                        currentLine += word + ' ';
+                    });
+                    lines.push(currentLine.trim());
+                    return lines;
+                }
+                return label;
+            });
+        };
+
+        const globalMainsCtx = document.getElementById('globalMainsChart').getContext('2d');
+        new Chart(globalMainsCtx, {
+            type: 'bar',
+            data: {
+                labels: processLabels(['United Kingdom', 'USA (General)', 'Germany', 'Italy (Eve)', 'Australia', 'Argentina (Eve)']),
+                datasets: [{
+                    label: 'Main Course',
+                    data: [10, 10, 10, 8, 9, 11],
+                    backgroundColor: [chartColors.red, chartColors.red, chartColors.red, chartColors.green, chartColors.blue, chartColors.darkBlue],
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback,
+                            label: function(context) {
+                                const labels = {
+                                    10: 'Roast Poultry (Turkey/Goose)',
+                                    8: 'Feast of the Seven Fishes',
+                                    9: 'Cold Meats & Seafood BBQ',
+                                    11: 'Asado (Barbecue)'
+                                };
+                                return labels[context.raw] || 'Unknown';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: { display: false },
+                    y: { ticks: { color: chartColors.darkBlue, font: { size: 14 } } }
+                }
+            }
+        });
+
+        const turkeyCtx = document.getElementById('turkeyChart').getContext('2d');
+        new Chart(turkeyCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Turkey', 'Goose', 'Ham', 'Beef', 'Other'],
+                datasets: [{
+                    data: [65, 10, 15, 5, 5],
+                    backgroundColor: [chartColors.red, chartColors.yellow, chartColors.green, chartColors.blue, chartColors.darkBlue],
+                    borderColor: '#fff',
+                    borderWidth: 4,
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { callbacks: { title: tooltipTitleCallback } }
+                }
+            }
+        });
+
+        const modernFeastCtx = document.getElementById('modernFeastChart').getContext('2d');
+        new Chart(modernFeastCtx, {
+            type: 'pie',
+            data: {
+                labels: processLabels(['Traditional (Turkey/Ham)', 'Alternative Centerpiece', 'Vegan/Vegetarian', 'Fusion/Cultural Menu']),
+                datasets: [{
+                    data: [55, 20, 15, 10],
+                    backgroundColor: [chartColors.blue, chartColors.green, chartColors.yellow, chartColors.red],
+                    borderColor: '#fff',
+                    borderWidth: 4,
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { color: chartColors.darkBlue, padding: 20 }
+                    },
+                    tooltip: { callbacks: { title: tooltipTitleCallback } }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

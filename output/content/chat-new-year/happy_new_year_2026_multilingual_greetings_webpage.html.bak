@@ -10,18 +10,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#2b0d0d;          /* chocolate reddish background */
-      --fg:#f8f1f0;          /* primary text */
-      --muted:#d6b8b8;
-      --accent:#ff4444;      /* reddish accent */
-      --accent2:#ff9966;     /* warm accent */
-      --card:#3d1414;        /* card bg */
-      --card2:#4a1a1a;
-      --chip:#5c2020;
-      --success:#ff9966;
+      --bg:#07071a;          /* night sky */
+      --fg:#f2f4f8;          /* primary text */
+      --muted:#aab0c0;
+      --accent:#ffcc33;      /* gold */
+      --accent2:#6fd3ff;     /* blue pop */
+      --card:#12122b;        /* card bg */
+      --card2:#19193a;
+      --chip:#24244e;
+      --success:#2bd18b;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;height:100%;background:radial-gradient(1200px 700px at 50% -10%, #662222 0%, #2b0d0d 55%, var(--bg) 100%);color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    html,body{margin:0;height:100%;background:radial-gradient(1200px 700px at 50% -10%, #2a2a52 0%, #0b0b1b 55%, var(--bg) 100%);color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
     a{color:inherit}
 
     .sky{position:fixed;inset:0;z-index:-1;pointer-events:none}
@@ -37,9 +37,9 @@
       font-size:clamp(48px,8vw,120px);
       line-height:1;
       letter-spacing:2px;
-      background:linear-gradient(90deg,#ff6666, #ffcc99, #ff4444, #ff9966);
+      background:linear-gradient(90deg,#ffd86a, #fff5c3, #a6e1ff, #ffd86a);
       -webkit-background-clip:text;background-clip:text;color:transparent;
-      filter:drop-shadow(0 6px 18px rgba(255,100,100,.35));
+      filter:drop-shadow(0 6px 18px rgba(255,238,160,.35));
       animation:shine 6s linear infinite;
     }
     @keyframes shine{to{background-position:1200px 0}}
@@ -48,40 +48,37 @@
 
     .toolbar{
       display:flex;gap:10px;flex-wrap:wrap;justify-content:center;align-items:center;
-      padding:16px 14px 12px;margin:8px auto 0;max-width:1100px;
+      padding:16px 14px 24px;margin:8px auto 0;max-width:1100px;
     }
-    .toolbar .chip{background:var(--chip);border:1px solid #6b2c2c;color:#f8dcdc;
+    .toolbar .chip{background:var(--chip);border:1px solid #36366b;color:#dfe3ff;
       padding:10px 14px;border-radius:999px;display:inline-flex;gap:10px;align-items:center}
     .toolbar input[type="search"]{
       min-width:260px;border:none;outline:none;background:transparent;color:#fff;font-size:16px
     }
     .toolbar button{
-      background:linear-gradient(180deg,#ff6666,#cc3333);color:#fff;border:none;border-radius:999px;padding:10px 16px;font-weight:700;cursor:pointer;
-      box-shadow:0 6px 18px rgba(255,80,80,.35);transition:transform .1s ease}
+      background:linear-gradient(180deg,#ffd86a,#ffb619);color:#201b00;border:none;border-radius:999px;padding:10px 16px;font-weight:700;cursor:pointer;
+      box-shadow:0 6px 18px rgba(255,198,58,.35);transition:transform .1s ease}
     .toolbar button:active{transform:translateY(1px)}
 
-    .count{font-size:14px;color:#f1cccc;opacity:.85}
+    .count{font-size:14px;color:#cdd1e3;opacity:.85}
 
     .grid{
       --min: 260px;
       display:grid;grid-template-columns:repeat(auto-fit,minmax(var(--min),1fr));
       gap:16px;max-width:1200px;margin:0 auto 100px;padding:0 16px 32px
     }
-    .card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid #662222;border-radius:16px;padding:18px 16px 16px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    .card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid #2c2c57;border-radius:16px;padding:18px 16px 16px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
     .top{display:flex;align-items:start;gap:12px;margin-bottom:8px}
     .flag{font-size:26px;filter:drop-shadow(0 2px 6px rgba(0,0,0,.25))}
     .lang{font-weight:800;letter-spacing:.2px}
     .native{font-size:20px;margin:6px 0 2px}
+    .translit{color:#cbd2ff;opacity:.8;font-size:13px}
 
-    .addwrap{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;max-width:1100px;margin:6px auto 20px;padding:0 14px}
-    .addwrap input{background:var(--chip);border:1px solid #6b2c2c;color:#fff;border-radius:10px;padding:10px 12px}
-    .addwrap .ghost{background:transparent;border:1px solid #803333;color:#ffdede;padding:10px 14px;border-radius:10px;cursor:pointer}
-
-    footer{position:sticky;bottom:0;background:linear-gradient(180deg,rgba(43,13,13,.0),rgba(43,13,13,.85));backdrop-filter:blur(4px);border-top:1px solid #6b2c2c}
+    footer{position:sticky;bottom:0;background:linear-gradient(180deg,rgba(7,7,26,.0),rgba(7,7,26,.85));backdrop-filter:blur(4px);border-top:1px solid #2c2c57}
     .footwrap{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
 
     .footwrap .actions{display:flex;gap:10px;flex-wrap:wrap}
-    .ghost{background:transparent;border:1px solid #803333;color:#ffdede;padding:10px 14px;border-radius:12px;cursor:pointer}
+    .ghost{background:transparent;border:1px solid #3d3d6e;color:#e1e6ff;padding:10px 14px;border-radius:12px;cursor:pointer}
 
     @media (prefers-reduced-motion: reduce){.sky{display:none}}
   </style>
@@ -91,7 +88,7 @@
 
   <header>
     <div class="year" aria-label="Happy New Year 2026">HAPPY NEW YEAR 2026</div>
-    <div class="subtitle">Global greetings to all — explore, print, or find your language here.</div>
+    <div class="subtitle">Kind greetings worldwide — explore, print, or find your language here.</div>
 
     <div class="toolbar">
       <div class="chip" title="Search languages">
@@ -99,15 +96,7 @@
       </div>
       <button id="copyAll" title="Copy all wishes as plain text">Copy All</button>
       <button id="toggleFx" class="ghost" title="Toggle fireworks/confetti">Toggle Fireworks</button>
-      <button id="toggleSound" class="ghost" title="Toggle firework sounds">🔊 Sound: On</button>
       <span id="count" class="count" role="status"></span>
-    </div>
-
-    <div class="addwrap">
-      <input id="addFlag" placeholder="Flag (emoji)" maxlength="6" />
-      <input id="addLang" placeholder="Language name" />
-      <input id="addPhrase" placeholder="Your wish (2026)" style="min-width:260px" />
-      <button id="addBtn" class="ghost">Add Wish</button>
     </div>
   </header>
 
@@ -159,21 +148,9 @@ const WISHES = [
   {flag:'🇷🇴', lang:'Romanian / Română', phrase:'La mulți ani 2026!'},
   {flag:'🇺🇦', lang:'Ukrainian / Українська', phrase:'З Новим роком 2026!'},
   {flag:'🇮🇷', lang:'Persian / فارسی', phrase:'سال نو ۲۰۲۶ مبارک!', dir:'rtl'},
-  {flag:'🇬🇺', lang:'Gujarati / ગુજરાતી', phrase:'નવું વર્ષ 2026 મુબારક!'},
-  {flag:'🇮🇳', lang:'Marathi / मराठी', phrase:'नवीन वर्ष 2026 शुभेच्छा!'},
-  {flag:'🇮🇳', lang:'Tamil / தமிழ்', phrase:'இனிய புத்தாண்டு 2026 நல்வாழ்த்துகள்!'},
-  {flag:'🇮🇳', lang:'Telugu / తెలుగు', phrase:'నూతన సంవత్సర శుభాకాంక్షలు 2026!'},
-  {flag:'🇮🇳', lang:'Kannada / ಕನ್ನಡ', phrase:'ಹೊಸ ವರ್ಷದ ಶುಭಾಶಯಗಳು 2026!'},
-  {flag:'🇮🇳', lang:'Malayalam / മലയാളം', phrase:'പുതുവര്‍ഷം 2026 ആശംസകള്‍!'},
-  {flag:'🇳🇵', lang:'Nepali / नेपाली', phrase:'नयाँ वर्ष 2026 शुभकामना!'},
-  {flag:'🇱🇰', lang:'Sinhala / සිංහල', phrase:'සුභ නව වසරක් 2026!'},
-  {flag:'🇫🇮', lang:'Finnish / Suomi', phrase:'Hyvää uutta vuotta 2026!'},
-  {flag:'🇭🇺', lang:'Hungarian / Magyar', phrase:'Boldog új évet 2026!'},
-  {flag:'🇧🇬', lang:'Bulgarian / Български', phrase:'Честита Нова година 2026!'},
-  {flag:'🇮🇪', lang:'Irish / Gaeilge', phrase:'Athbhliain faoi mhaise daoibh 2026!'},
-  {flag:'🏴', lang:'Welsh / Cymraeg', phrase:'Blwyddyn Newydd Dda 2026!'},
-  {flag:'🇪🇸', lang:'Catalan / Català', phrase:'Feliç Any Nou 2026!'},
-  {flag:'🇪🇸', lang:'Basque / Euskara', phrase:'Urte Berri On 2026!'}
+  {flag:'🇪🇹', lang:'Amharic / አማርኛ', phrase:'መልካም አዲስ ዓመት 2026!'},
+  {flag:'🇿🇦', lang:'Zulu / isiZulu', phrase:'Unyaka Omusha Omuhle 2026!'},
+  {flag:'🇳🇬', lang:'Yoruba / Yorùbá', phrase:'E ku Odun Tuntun 2026!'}
 ];
 
 // ---- Render -------------------------------------------------------------
@@ -209,20 +186,6 @@ search.addEventListener('input', e=>{
   render(filtered);
 });
 
-// Add custom wish
-const addFlag=document.getElementById('addFlag');
-const addLang=document.getElementById('addLang');
-const addPhrase=document.getElementById('addPhrase');
-document.getElementById('addBtn').addEventListener('click',()=>{
-  const flag = addFlag.value.trim()||'🌍';
-  const lang = addLang.value.trim()||'Custom';
-  const phrase = addPhrase.value.trim()||'Happy New Year 2026!';
-  WISHES.push({flag,lang,phrase});
-  render(WISHES);
-  addPhrase.value='';
-  toast('Wish added');
-});
-
 // Copy All
 const copyAllBtn = document.getElementById('copyAll');
 copyAllBtn.addEventListener('click', ()=>{
@@ -241,73 +204,44 @@ shareBtn.addEventListener('click', async ()=>{
   }catch(err){ /* user canceled */ }
 });
 
-// ---- Fireworks with Sound ----------------------------------------------
+// ---- Confetti Fireworks -------------------------------------------------
 const canvas = document.getElementById('confetti');
 const ctx = canvas.getContext('2d');
 let fxEnabled = true;
-let soundEnabled = true;
-let audioCtx = null;
-
 let W = canvas.width = window.innerWidth;
 let H = canvas.height = window.innerHeight;
 window.addEventListener('resize',()=>{W=canvas.width=innerWidth;H=canvas.height=innerHeight});
 
-function ensureAudio(){
-  if(!audioCtx){
-    try{audioCtx = new (window.AudioContext||window.webkitAudioContext)();}
-    catch{soundEnabled=false;document.getElementById('toggleSound').textContent='🔇 Sound: Off'}
-  }
+const COLORS = ['#ffd86a','#fff5c3','#6fd3ff','#ff9bb6','#b78cff'];
+const pieces = Array.from({length: 220}, ()=>spawn());
+function spawn(){
+  return {
+    x: Math.random()*W,
+    y: -20 - Math.random()*H,
+    r: 2 + Math.random()*4,
+    w: 6 + Math.random()*6,
+    h: 10 + Math.random()*14,
+    s: 1 + Math.random()*2.5,
+    a: Math.random()*Math.PI,
+    col: COLORS[Math.floor(Math.random()*COLORS.length)]
+  };
 }
-
-function popSound(){
-  if(!soundEnabled) return; ensureAudio(); if(!audioCtx) return;
-  const now = audioCtx.currentTime;
-  const osc = audioCtx.createOscillator();
-  const gain = audioCtx.createGain();
-  osc.type = 'triangle';
-  osc.frequency.setValueAtTime( random(220,520), now );
-  gain.gain.setValueAtTime(0.001, now);
-  gain.gain.exponentialRampToValueAtTime(0.4, now+0.01);
-  gain.gain.exponentialRampToValueAtTime(0.0001, now+0.25);
-  osc.connect(gain).connect(audioCtx.destination);
-  osc.start(now);
-  osc.stop(now+0.26);
-}
-
-const particles=[];
-function random(min,max){return Math.random()*(max-min)+min}
-function createFirework(){
-  const x=random(W*0.15,W*0.85);
-  const y=random(H*0.1,H*0.5);
-  const count=70;
-  popSound();
-  for(let i=0;i<count;i++){
-    const angle=(Math.PI*2*i)/count;
-    const speed=random(2,7);
-    particles.push({x,y,vx:Math.cos(angle)*speed,vy:Math.sin(angle)*speed,life:random(60,100),color:`hsl(${Math.floor(random(0,360))},100%,60%)`});
-  }
-}
-
 function loop(){
   if(!fxEnabled){ctx.clearRect(0,0,W,H);requestAnimationFrame(loop);return}
-  ctx.fillStyle='rgba(43,13,13,0.3)';
-  ctx.fillRect(0,0,W,H);
-  for(let i=particles.length-1;i>=0;i--){
-    const p=particles[i];
-    p.x+=p.vx;p.y+=p.vy;p.vy+=0.05;p.life--;
-    ctx.fillStyle=p.color;ctx.fillRect(p.x,p.y,2,2);
-    if(p.life<=0) particles.splice(i,1);
-  }
-  if(Math.random()<0.05) createFirework();
+  ctx.clearRect(0,0,W,H);
+  pieces.forEach(p=>{
+    p.y += p.s*2; p.x += Math.sin(p.a+=0.02)*1.2; // sway
+    ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.a);
+    ctx.fillStyle = p.col; ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h); ctx.restore();
+    if(p.y>H+40) Object.assign(p, spawn(), {y:-40});
+  });
   requestAnimationFrame(loop);
 }
 loop();
 
-const toggleFxBtn=document.getElementById('toggleFx');
-toggleFxBtn.addEventListener('click',()=>{fxEnabled=!fxEnabled;toggleFxBtn.textContent=fxEnabled? 'Pause Fireworks':'Resume Fireworks'});
-
-const toggleSoundBtn=document.getElementById('toggleSound');
-toggleSoundBtn.addEventListener('click',()=>{soundEnabled=!soundEnabled;toggleSoundBtn.textContent=soundEnabled? '🔊 Sound: On':'🔇 Sound: Off'; if(soundEnabled) ensureAudio();});
+// Toggle FX
+const toggleFxBtn = document.getElementById('toggleFx');
+ toggleFxBtn.addEventListener('click', ()=>{fxEnabled=!fxEnabled; toggleFxBtn.textContent = fxEnabled? 'Pause Fireworks' : 'Resume Fireworks';});
 
 // Toast ---------------------------------------------------------------
 let toastEl;

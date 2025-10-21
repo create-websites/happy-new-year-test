@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sankranti: A Festival of Sun & Harvest</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Energetic & Playful -->
+    <!-- 
+    Narrative & Structure Plan:
+    This infographic tells the story of Sankranti in a top-down narrative, starting with the unifying concept and then exploring its diverse expressions.
+    1. Hook: A big, impactful title and a "single big number" to grab attention and introduce the theme of unity in diversity.
+    2. Pan-Indian Celebration: A stylized map of India visually demonstrates the festival's widespread nature under different names, immediately grounding the user geographically.
+    3. Symphony of Greetings: This section showcases the linguistic diversity through a clean grid of cards, allowing for easy comparison of wishes.
+    4. Regional Flavors: Delves deeper into specific city-based traditions, again using a card-based layout for clarity and consistency.
+    5. Core Elements Chart: A radar chart synthesizes the common activities, providing a holistic view of the festival's essence.
+    6. Conclusion: A brief, uplifting summary reinforces the central theme.
+    This linear, scrolling structure guides the user through a logical discovery process from general to specific.
+    -->
+    <!--
+    Visualization & Content Choices:
+    1.  Big Number Intro: Data: Festival's singular identity with many forms. -> Goal: Inform. -> Chosen Viz: Large, bold HTML text. -> Justification: High-impact, immediate communication of the core message. -> Method: HTML/CSS.
+    2.  Map of India: Data: Festival names by region. -> Goal: Change (by location). -> Chosen Viz: A stylized, abstract map. -> Justification: Visually connects festival names to regions, reinforcing the pan-Indian theme without complex GIS data. -> Method: Structured HTML/CSS with Tailwind for layout. CONFIRMING NO SVG.
+    3.  Language Greetings: Data: Wishes in 6+ languages. -> Goal: Compare. -> Chosen Viz: A grid of styled cards. -> Justification: Presents textual information clearly and allows for easy side-by-side comparison. -> Method: HTML/CSS with Tailwind. CONFIRMING NO SVG.
+    4.  City Traditions: Data: Unique celebrations in key cities. -> Goal: Compare. -> Chosen Viz: A grid of styled cards. -> Justification: Provides a consistent and digestible format for exploring detailed regional customs. -> Method: HTML/CSS with Tailwind. CONFIRMING NO SVG.
+    5.  Common Activities: Data: Popularity of key traditions. -> Goal: Compare/Organize. -> Chosen Viz: Radar Chart. -> Justification: More engaging than a bar chart for an infographic, it effectively compares multiple activity types against a central theme ("The Spirit of Celebration"). -> Library: Chart.js/Canvas. CONFIRMING NO SVG.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        .card {
+            background-color: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 450px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 450px;
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto px-4 py-12 md:py-16">
+
+        <header class="text-center mb-16">
+            <h1 class="font-display text-4xl md:text-6xl font-bold" style="color: #073B4C;">Sankranti</h1>
+            <p class="mt-4 text-xl md:text-2xl font-semibold" style="color: #118AB2;">A Joyous Festival of Sun, Harvest, and New Beginnings</p>
+            <div class="mt-8 bg-white inline-block p-6 rounded-2xl shadow-lg">
+                <p class="text-5xl md:text-7xl font-bold" style="color: #FF6B6B;">1</p>
+                <p class="text-lg md:text-xl font-semibold mt-2" style="color: #073B4C;">FESTIVAL</p>
+                <p class="text-3xl md:text-5xl font-bold my-2" style="color: #118AB2;">&</p>
+                <p class="text-5xl md:text-7xl font-bold" style="color: #FFD166;">100s</p>
+                <p class="text-lg md:text-xl font-semibold mt-2" style="color: #073B4C;">OF TRADITIONS</p>
+            </div>
+            <p class="max-w-3xl mx-auto mt-8 text-lg text-gray-600">Celebrated under various names in India, this festival signifies the sun's shift into Capricorn. It’s a joyful occasion, honoring the harvest and showcasing rich cultural traditions that bring the nation together.</p>
+        </header>
+
+        <section class="mb-16">
+            <h2 class="font-display text-3xl md:text-4xl font-bold text-center mb-10" style="color: #073B4C;">One Nation, Many Names</h2>
+             <p class="max-w-3xl mx-auto text-center text-gray-600 mb-12">From the kite-strewn skies in the west to the sugary rice dishes of the south, every region brings its own charm to the festivity. Here's a peek into the festival's rich diversity across India.</p>
+            <div class="relative w-full max-w-3xl mx-auto h-96 md:h-[500px] bg-blue-100 rounded-2xl flex items-center justify-center">
+                <div class="absolute text-center" style="top: 15%; left: 30%;">
+                    <div class="font-bold text-lg" style="color: #073B4C;">Lohri</div><div class="text-sm" style="color: #118AB2;">Punjab</div>
+                </div>
+                <div class="absolute text-center" style="top: 30%; left: 15%;">
+                    <div class="font-bold text-lg" style="color: #073B4C;">Uttarayan</div><div class="text-sm" style="color: #118AB2;">Gujarat</div>
+                </div>
+                <div class="absolute text-center" style="top: 50%; left: 40%;">
+                    <div class="font-bold text-lg" style="color: #073B4C;">Sankranti</div><div class="text-sm" style="color: #118AB2;">Andhra/Telangana</div>
+                </div>
+                <div class="absolute text-center" style="top: 80%; left: 55%;">
+                    <div class="font-bold text-lg" style="color: #073B4C;">Pongal</div><div class="text-sm" style="color: #118AB2;">Tamil Nadu</div>
+                </div>
+                <div class="absolute text-center" style="top: 35%; right: 10%;">
+                    <div class="font-bold text-lg" style="color: #073B4C;">Magh Bihu</div><div class="text-sm" style="color: #118AB2;">Assam</div>
+                </div>
+                 <div class="font-display text-2xl text-white bg-blue-400 p-4 rounded-full">India</div>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="font-display text-3xl md:text-4xl font-bold text-center mb-10" style="color: #073B4C;">A Symphony of Greetings</h2>
+            <p class="max-w-3xl mx-auto text-center text-gray-600 mb-12">The spirit of the festival shines through India's vibrant tongues. Every greeting, distinct in tone and form, conveys heartfelt wishes for joy and success.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card text-center">
+                    <h3 class="font-bold text-xl mb-2" style="color: #118AB2;">Hindi</h3>
+                    <p class="text-2xl my-4" style="color: #073B4C;">मकर संक्रांति की शुभकामनाएँ!</p>
+                    <p class="text-gray-500 italic">"Makar Sankranti ki shubhkamnayein!"</p>
+                </div>
+                <div class="card text-center">
+                    <h3 class="font-bold text-xl mb-2" style="color: #118AB2;">Tamil</h3>
+                    <p class="text-2xl my-4" style="color: #073B4C;">பொங்கல் வாழ்த்துக்கள்!</p>
+                    <p class="text-gray-500 italic">"Pongal Vazhthukkal!"</p>
+                </div>
+                 <div class="card text-center">
+                    <h3 class="font-bold text-xl mb-2" style="color: #118AB2;">Gujarati</h3>
+                    <p class="text-2xl my-4" style="color: #073B4C;">ઉત્તરાયણની શુભકામનાઓ!</p>
+                    <p class="text-gray-500 italic">"Uttarayan ni shubhkamnao!"</p>
+                </div>
+                <div class="card text-center">
+                    <h3 class="font-bold text-xl mb-2" style="color: #118AB2;">Telugu</h3>
+                    <p class="text-2xl my-4" style="color: #073B4C;">సంక్రాంతి శుభాకాంక్షలు!</p>
+                    <p class="text-gray-500 italic">"Sankranti Subhakankshalu!"</p>
+                </div>
+                <div class="card text-center">
+                    <h3 class="font-bold text-xl mb-2" style="color: #118AB2;">Punjabi</h3>
+                    <p class="text-2xl my-4" style="color: #073B4C;">ਲੋਹੜੀ ਦੀਆਂ ਲੱਖ ਲੱਖ ਵਧਾਈਆਂ!</p>
+                    <p class="text-gray-500 italic">"Lohri diyan lakh lakh vadhaiyan!"</p>
+                </div>
+                 <div class="card text-center">
+                    <h3 class="font-bold text-xl mb-2" style="color: #118AB2;">Marathi</h3>
+                    <p class="text-xl my-4" style="color: #073B4C;">तिळगुळ घ्या, गोड गोड बोला!</p>
+                    <p class="text-gray-500 italic">"Tilgul ghya, god god bola!"</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="font-display text-3xl md:text-4xl font-bold text-center mb-10" style="color: #073B4C;">The Spirit of Celebration</h2>
+            <p class="max-w-3xl mx-auto text-center text-gray-600 mb-12">Though the names and languages vary, the celebration's essence revolves around shared themes of community, food, and joy. This chart highlights the key elements that capture the festival's spirit.</p>
+            <div class="card">
+                <div class="chart-container">
+                    <canvas id="activitiesChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center pt-8 border-t border-gray-200">
+            <p class="text-gray-600">This visual highlights the vibrant traditions of India's harvest celebrations.</p>
+            <p class="text-gray-500 text-sm mt-2">Crafted with joy and a spirit of unity.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const ctx = document.getElementById('activitiesChart').getContext('2d');
+        const activitiesChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Sweet Making', 'Community Feasts', 'Kite Flying', 'Bonfires', 'Home Decoration'],
+                datasets: [{
+                    label: 'Importance in Celebration',
+                    data: [95, 85, 90, 75, 80],
+                    backgroundColor: 'rgba(255, 107, 107, 0.2)',
+                    borderColor: 'rgba(255, 107, 107, 1)',
+                    pointBackgroundColor: 'rgba(255, 107, 107, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(255, 107, 107, 1)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: {
+                            color: 'rgba(7, 59, 76, 0.2)'
+                        },
+                        grid: {
+                            color: 'rgba(7, 59, 76, 0.2)'
+                        },
+                        pointLabels: {
+                            font: {
+                                size: 14,
+                                weight: '600'
+                            },
+                            color: '#073B4C'
+                        },
+                        ticks: {
+                            backdropColor: '#f0f4f8',
+                            color: '#118AB2'
+                        },
+                        min: 0,
+                        max: 100
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                if (Array.isArray(label)) {
+                                  return label.join(' ');
+                                } else {
+                                  return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

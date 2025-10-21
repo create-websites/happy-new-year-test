@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Harvest Festivals</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: The app uses a tabbed navigation structure. A main navigation bar allows users to switch between an 'Overview' and detailed sections for four festivals (Makar Sankranti, Pongal, Bihu, Uttarayan). This non-linear, exploratory design was chosen for usability, enabling users to easily compare festivals or deep-dive into a specific one without a long scroll. Clicking a tab dynamically displays the relevant content block, creating a seamless single-page application experience. -->
+    <!-- Visualization & Content Choices: Report Info: Festival components (food, ritual, etc.). Goal: Compare. Viz: Horizontal Bar Chart. Interaction: Chart dynamically renders/updates when a festival tab is selected. Justification: Provides a quick visual summary of each festival's characteristics, enhancing comparability. Library: Chart.js on Canvas. Report Info: Festival descriptions. Goal: Inform. Presentation: Styled HTML/Tailwind cards with Unicode icons. Interaction: Content visibility is toggled by tab navigation. Justification: Organizes detailed information in a clean, digestible format. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FEF3C7; 
+        }
+        .active-tab {
+            background-color: #F97316;
+            color: white;
+        }
+        .inactive-tab {
+            background-color: white;
+            color: #374151;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="min-h-screen text-gray-800">
+        <header class="bg-white shadow-md">
+            <div class="container mx-auto px-4 py-6 text-center">
+                <h1 class="text-4xl font-bold text-orange-600">One Sun, Many Celebrations</h1>
+                <p class="mt-2 text-lg text-gray-600">Discovering the lively harvest festivals observed simultaneously across India.</p>
+            </div>
+        </header>
+
+        <nav class="sticky top-0 bg-amber-100 z-10 shadow-sm">
+            <div class="container mx-auto px-4 py-3">
+                <div class="flex flex-wrap justify-center gap-2 md:gap-4">
+                    <button data-target="overview" class="nav-button font-medium py-2 px-4 rounded-full shadow-sm transition-all duration-300">Overview</button>
+                    <button data-target="makar-sankranti" class="nav-button font-medium py-2 px-4 rounded-full shadow-sm transition-all duration-300">Makar Sankranti</button>
+                    <button data-target="pongal" class="nav-button font-medium py-2 px-4 rounded-full shadow-sm transition-all duration-300">Pongal</button>
+                    <button data-target="bihu" class="nav-button font-medium py-2 px-4 rounded-full shadow-sm transition-all duration-300">Bihu</button>
+                    <button data-target="uttarayan" class="nav-button font-medium py-2 px-4 rounded-full shadow-sm transition-all duration-300">Uttarayan</button>
+                </div>
+            </div>
+        </nav>
+
+        <main class="container mx-auto p-4 md:p-8">
+            <div id="overview-content" class="content-section">
+                 <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h2 class="text-3xl font-bold text-orange-600 mb-4">A Tapestry of Tradition</h2>
+                    <p class="text-lg mb-4">
+                        In mid-January, as the sun shifts northward during Uttarayan, Indians mark winter's end and the harvest season's arrival. Though names and traditions differ by region, these festivals share a spirit of gratitude, community, and hope. This guide highlights four key celebrations across the country. Click a festival to learn about its traditions, cuisine, and festivities.
+                    </p>
+                    <div class="mt-6 border-t pt-4">
+                        <h3 class="text-xl font-semibold mb-2">The Common Thread:</h3>
+                        <ul class="list-none space-y-2">
+                           <li class="flex items-center"><span class="text-2xl mr-3">☀️</span> <span><strong>Astronomical Significance:</strong> Signals the sun's shift into Capricorn (Makara), marking the onset of longer days.</span></li>
+                           <li class="flex items-center"><span class="text-2xl mr-3">🌾</span> <span><strong>Agricultural Importance:</strong> A harvest festival, celebrating the fruits of the farmers' labor.</span></li>
+                           <li class="flex items-center"><span class="text-2xl mr-3">👨‍👩‍👧‍👦</span> <span><strong>Social Gathering:</strong> A moment for loved ones to unite, enjoy meals, and deepen connections.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="makar-sankranti-content" class="content-section hidden">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h2 class="text-3xl font-bold text-orange-600 mb-2">Makar Sankranti</h2>
+                    <p class="text-lg text-gray-600 mb-4">Celebrated across North, West, and Central India</p>
+                    <p class="mb-6">Makar Sankranti is a popular harvest festival marked by diverse traditions. Key rituals include taking holy dips in rivers such as the Ganga, worshiping the sun god Surya, and exchanging sesame (til) and jaggery (gud) sweets, which are thought to promote warmth and well-being in winter.</p>
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div class="border p-4 rounded-lg bg-amber-50">
+                            <h3 class="font-semibold text-xl mb-2">Key Traditions</h3>
+                            <ul class="list-none space-y-2">
+                                <li class="flex items-start"><span class="text-2xl mr-3">🕊️</span><div><strong>Charity (Daan):</strong> Providing food, blankets, and essentials to those in need is fundamental.</div></li>
+                                <li class="flex items-start"><span class="text-2xl mr-3">🍬</span><div><strong>Special Foods:</strong> Til-gud ladoos (sesame-jaggery balls) and Khichdi are prepared and shared.</div></li>
+                                <li class="flex items-start"><span class="text-2xl mr-3">🪁</span><div><strong>Kite Flying:</strong> Across various regions, notably Gujarat, vibrant kites dot the skies.</div></li>
+                            </ul>
+                        </div>
+                         <div class="border p-4 rounded-lg bg-amber-50">
+                            <h3 class="font-semibold text-xl mb-2">Celebration Focus</h3>
+                            <p class="text-sm text-gray-600 mb-2">A visual representation of the festival's core components.</p>
+                            <div class="chart-container">
+                                <canvas id="makarSankrantiChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="pongal-content" class="content-section hidden">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h2 class="text-3xl font-bold text-orange-600 mb-2">Pongal (பொங்கல்)</h2>
+                    <p class="text-lg text-gray-600 mb-4">A four-day festival in Tamil Nadu and Southern India</p>
+                    <p class="mb-6">Pongal is a lively multi-day harvest celebration honoring the Sun God. The term 'Pongal' translates to 'boil' or 'overflow,' symbolizing the traditional dish made with freshly harvested rice, milk, and jaggery. The overflowing pot represents prosperity and abundance. Each day carries its own special meaning.</p>
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div class="border p-4 rounded-lg bg-amber-50">
+                            <h3 class="font-semibold text-xl mb-2">The Four Days of Pongal</h3>
+                            <ul class="list-none space-y-2">
+                                <li class="flex items-start"><span class="text-xl font-bold mr-3">1.</span><div><strong>Bhogi Pongal:</strong> Discarding old items and welcoming new beginnings.</div></li>
+                                <li class="flex items-start"><span class="text-xl font-bold mr-3">2.</span><div><strong>Surya Pongal:</strong> The main day, dedicated to worshipping the Sun God.</div></li>
+                                <li class="flex items-start"><span class="text-xl font-bold mr-3">3.</span><div><strong>Mattu Pongal:</strong> Honoring cattle for their role in agriculture.</div></li>
+                                <li class="flex items-start"><span class="text-xl font-bold mr-3">4.</span><div><strong>Kaanum Pongal:</strong> A day for family reunions and social gatherings.</div></li>
+                            </ul>
+                        </div>
+                        <div class="border p-4 rounded-lg bg-amber-50">
+                            <h3 class="font-semibold text-xl mb-2">Celebration Focus</h3>
+                             <p class="text-sm text-gray-600 mb-2">A visual representation of the festival's core components.</p>
+                            <div class="chart-container">
+                                <canvas id="pongalChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="bihu-content" class="content-section hidden">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h2 class="text-3xl font-bold text-orange-600 mb-2">Magh Bihu</h2>
+                    <p class="text-lg text-gray-600 mb-4">The festival of feasts in Assam and Northeast India</p>
+                    <p class="mb-6">Magh Bihu, or Bhogali Bihu, is an Assamese festival celebrating the close of the harvest season. Derived from 'Bhog,' meaning feasting and merriment, it features lavish meals, bonfires, and cultural games, fostering a sense of unity and festive cheer among communities.</p>
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div class="border p-4 rounded-lg bg-amber-50">
+                             <h3 class="font-semibold text-xl mb-2">Key Traditions</h3>
+                             <ul class="list-none space-y-2">
+                                <li class="flex items-start"><span class="text-2xl mr-3">🔥</span><div><strong>Meji Bonfire:</strong> On Uruka night, people craft temporary huts (Bhelaghar), share a grand feast, and gather to burn a towering bonfire (Meji) at dawn.</div></li>
+                                <li class="flex items-start"><span class="text-2xl mr-3">🍚</span><div><strong>Pitha & Laru:</strong> Traditional treats include rice cakes (Pitha) and coconut sweets (Laru).</div></li>
+                                <li class="flex items-start"><span class="text-2xl mr-3">🐃</span><div><strong>Traditional Games:</strong> Villages host activities such as buffalo battles and pot-smashing (Tekeli Bhonga).</div></li>
+                             </ul>
+                        </div>
+                        <div class="border p-4 rounded-lg bg-amber-50">
+                            <h3 class="font-semibold text-xl mb-2">Celebration Focus</h3>
+                             <p class="text-sm text-gray-600 mb-2">A visual representation of the festival's core components.</p>
+                            <div class="chart-container">
+                                <canvas id="bihuChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="uttarayan-content" class="content-section hidden">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h2 class="text-3xl font-bold text-orange-600 mb-2">Uttarayan</h2>
+                    <p class="text-lg text-gray-600 mb-4">The grand kite festival of Gujarat</p>
+                    <p class="mb-6">In Gujarat, Uttarayan marks Makar Sankranti as a grand celebration and major festival. Spanning two days, it features vibrant kite-flying contests that draw crowds of all ages to rooftops. The skies fill with colorful kites, transforming the horizon into a lively display. The event blends skill, rivalry, and shared happiness.</p>
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                         <div class="border p-4 rounded-lg bg-amber-50">
+                            <h3 class="font-semibold text-xl mb-2">Key Traditions</h3>
+                            <ul class="list-none space-y-2">
+                                <li class="flex items-start"><span class="text-2xl mr-3">🪁</span><div><strong>Patang Bazi:</strong> The highlight is kite flying (patang) and battling to sever others' strings. Shouts of 'Kai Po Che!' ring out from the terraces.</div></li>
+                                <li class="flex items-start"><span class="text-2xl mr-3">🌶️</span><div><strong>Special Foods:</strong> Undhiyu (spiced mixed veggies), Jalebi (syrupy sweet), and Chikki (nutty jaggery brittle) are savored.</div></li>
+                                <li class="flex items-start"><span class="text-2xl mr-3">🏮</span><div><strong>Tukkal:</strong> At dusk, kites with glowing paper lanterns (Tukkal) light up the sky, offering a stunning spectacle.</div></li>
+                            </ul>
+                        </div>
+                        <div class="border p-4 rounded-lg bg-amber-50">
+                            <h3 class="font-semibold text-xl mb-2">Celebration Focus</h3>
+                             <p class="text-sm text-gray-600 mb-2">A visual representation of the festival's core components.</p>
+                            <div class="chart-container">
+                                <canvas id="uttarayanChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const festivalData = {
+            'makar-sankranti': {
+                labels: ['Ritual & Worship', 'Community Feasting', 'Charity', 'Outdoor Activity'],
+                data: [9, 8, 8, 7],
+                backgroundColor: 'rgba(234, 88, 12, 0.6)',
+                borderColor: 'rgba(234, 88, 12, 1)',
+                canvasId: 'makarSankrantiChart'
+            },
+            'pongal': {
+                labels: ['Ritual & Worship', 'Family Feasting', 'Honoring Nature', 'Decoration'],
+                data: [10, 9, 9, 7],
+                backgroundColor: 'rgba(217, 70, 239, 0.6)',
+                borderColor: 'rgba(217, 70, 239, 1)',
+                canvasId: 'pongalChart'
+            },
+            'bihu': {
+                labels: ['Community Feasting', 'Bonfire Rituals', 'Traditional Games', 'Music & Dance'],
+                data: [10, 8, 7, 6],
+                backgroundColor: 'rgba(22, 163, 74, 0.6)',
+                borderColor: 'rgba(22, 163, 74, 1)',
+                canvasId: 'bihuChart'
+            },
+            'uttarayan': {
+                labels: ['Outdoor Activity', 'Community Spirit', 'Specialty Foods', 'Competition'],
+                data: [10, 9, 7, 8],
+                backgroundColor: 'rgba(37, 99, 235, 0.6)',
+                borderColor: 'rgba(37, 99, 235, 1)',
+                canvasId: 'uttarayanChart'
+            }
+        };
+
+        const charts = {};
+
+        function createOrUpdateChart(festivalId) {
+            const chartData = festivalData[festivalId];
+            if (!chartData) return;
+
+            if (charts[festivalId]) {
+                return;
+            }
+
+            const ctx = document.getElementById(chartData.canvasId).getContext('2d');
+            charts[festivalId] = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: chartData.labels,
+                    datasets: [{
+                        label: 'Importance Score',
+                        data: chartData.data,
+                        backgroundColor: chartData.backgroundColor,
+                        borderColor: chartData.borderColor,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 10,
+                            grid: {
+                                color: 'rgba(200, 200, 200, 0.2)'
+                            }
+                        },
+                         y: {
+                             grid: {
+                                display: false
+                            }
+                         }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return ` Importance: ${context.raw}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const navButtons = document.querySelectorAll('.nav-button');
+            const contentSections = document.querySelectorAll('.content-section');
+
+            function setActiveTab(targetId) {
+                navButtons.forEach(button => {
+                    if (button.dataset.target === targetId) {
+                        button.classList.add('active-tab');
+                        button.classList.remove('inactive-tab');
+                    } else {
+                        button.classList.remove('active-tab');
+                        button.classList.add('inactive-tab');
+                    }
+                });
+
+                contentSections.forEach(section => {
+                    if (section.id === `${targetId}-content`) {
+                        section.classList.remove('hidden');
+                    } else {
+                        section.classList.add('hidden');
+                    }
+                });
+
+                createOrUpdateChart(targetId);
+            }
+
+            navButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.dataset.target;
+                    setActiveTab(targetId);
+                });
+            });
+
+            setActiveTab('overview');
+        });
+
+    </script>
+
+</body>
+</html>

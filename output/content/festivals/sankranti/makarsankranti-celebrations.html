@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makar Sankranti Celebrations: A Tapestry of Joy</title>
+    <meta name="description" content="Explore the vibrant festive celebrations of Makar Sankranti, from the thrilling kite flying traditions to bonfires, feasts, and the unique ways it's celebrated as Pongal, Lohri, and Bihu across India and the world.">
+    <meta name="keywords" content="Makar Sankranti celebrations, Kite Flying, Pongal, Lohri, Magh Bihu, Uttarayan, Indian Festivals, Community Feasts">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Tiro+Devanagari+Sanskrit:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF8;
+            color: #4B5563; 
+        }
+        .font-sanskrit {
+            font-family: 'Tiro Devanagari Sanskrit', serif;
+        }
+        .tab-active {
+            border-color: #D97706;
+            background-color: #FFFBEB;
+            color: #D97706;
+        }
+        .step-item-active {
+            background-color: #D97706;
+            color: #FFFFFF;
+            transform: scale(1.05);
+        }
+    </style>
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: This page focuses on the festival's vibrant traditions and is structured thematically. 1) An engaging Hero Section sets a festive tone. 2) The Kite Flying Tradition is an interactive deep-dive into the festival's most iconic activity. 3) Unity in Diversity is the core section, using a step-based interactive map to guide users through the unique regional celebrations (Lohri, Pongal, Bihu, etc.), highlighting the festival's pan-Indian appeal. 4) Global Celebrations expands the scope, showing the festival's international presence. This structure allows users to explore the celebrations from a broad, joyful overview down to specific, rich cultural details. -->
+    <!-- Visualization & Content Choices: Report Info: Kite flying symbolism, science, joy -> Goal: Deep-dive into a specific tradition -> Viz/Method: Tabbed content -> Interaction: Tabs for "Symbolism," "Science," and "Joy" -> Justification: Breaks down a single, complex tradition into its conceptual parts, making it more engaging and informative. | Report Info: Celebrations across different states -> Goal: Showcase regional diversity -> Viz/Method: Interactive step-based diagram -> Interaction: Clickable steps for Punjab (Lohri), Gujarat (Uttarayan), Assam (Magh Bihu), and Tamil Nadu (Pongal) -> Justification: This is a highly effective way to present a "tour" of India's diverse celebrations, making the information geographically and culturally intuitive. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="text-stone-800">
+
+    <header class="bg-amber-100/30 sticky top-0 z-50 backdrop-blur-sm">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="font-sanskrit text-2xl font-bold text-amber-800">उत्सव</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#kites" class="text-stone-600 hover:text-amber-700 transition">Kite Flying</a>
+                    <a href="#india" class="text-stone-600 hover:text-amber-700 transition">India Celebrates</a>
+                    <a href="#global" class="text-stone-600 hover:text-amber-700 transition">Global Celebrations</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+
+        <section class="text-center my-12 md:my-20">
+            <h1 class="font-sanskrit text-5xl md:text-7xl font-bold text-amber-900 leading-tight">A Tapestry of Joy</h1>
+            <p class="mt-4 text-xl md:text-2xl text-stone-600">The Vibrant Celebrations of Makar Sankranti</p>
+            <p class="mt-6 max-w-3xl mx-auto text-stone-500">
+                Makar Sankranti, though one celestial event, unfolds into countless vibrant festivals across India and beyond. It’s a season of unity, where people gather to feast, light bonfires, dance, sing, and paint the skies with kites, each honoring the sun's northward path in their own distinct and joyous manner.
+            </p>
+        </section>
+
+        <section id="kites" class="my-16 md:my-24">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-amber-800 mb-2">The Soaring Spirit: Kite Flying</h2>
+            <p class="text-center text-stone-600 mb-12 max-w-3xl mx-auto">One of the most striking visuals of Makar Sankranti is the vibrant sky dotted with colorful kites. This age-old custom is a delightful mix of tradition, creativity, and festive cheer.</p>
+
+            <div class="max-w-3xl mx-auto">
+                <div class="flex border-b border-stone-300 mb-6">
+                    <button class="tab-button tab-active flex-1 text-center font-semibold p-3 border-b-2 transition" data-tab="symbolism">Symbolism</button>
+                    <button class="tab-button flex-1 text-center font-semibold p-3 border-b-2 border-transparent text-stone-500 transition" data-tab="science">Science</button>
+                    <button class="tab-button flex-1 text-center font-semibold p-3 border-b-2 border-transparent text-stone-500 transition" data-tab="joy">The Joy</button>
+                </div>
+                <div id="tab-content-kites">
+                    <div id="symbolism-content" class="tab-pane">
+                        <h3 class="text-2xl font-bold text-amber-800 mb-3">Reaching for the Divine</h3>
+                        <p class="text-stone-600">Flying a kite symbolizes reaching for the heavens, expressing gratitude, and connecting to the universe. The thread ties the flyer to the sky, representing unity with the divine. Cutting a kite signifies shedding negativity and embracing a fresh start.</p>
+                    </div>
+                    <div id="science-content" class="hidden tab-pane">
+                        <h3 class="text-2xl font-bold text-amber-800 mb-3">A Dose of Sunshine</h3>
+                        <p class="text-stone-600">Flying kites on this day inspires people to step outside and enjoy the soft morning sunlight. Following chilly winter days, this sun exposure helps boost Vitamin D, ward off illnesses, and restore energy.</p>
+                    </div>
+                    <div id="joy-content" class="hidden tab-pane">
+                        <h3 class="text-2xl font-bold text-amber-800 mb-3">A Sky Full of Fun</h3>
+                        <p class="text-stone-600">Families and friends gather on rooftops for a lively day of competition and feasting. Cheers of "Kai Po Che!" echo as kites clash and strings are cut. It's a colorful celebration of talent and togetherness. </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="india" class="my-16 md:my-24 py-12 bg-amber-50/50 rounded-2xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-amber-800 mb-2">Unity in Diversity: How India Celebrates</h2>
+            <p class="text-center text-stone-600 mb-12 max-w-3xl mx-auto">The festival's name and traditions shift across India, showcasing the vibrant diversity of the nation's cultural heritage.</p>
+            
+            <div>
+                <div class="flex flex-col md:flex-row justify-center items-center md:space-x-4 mb-6">
+                    <button class="step-item step-item-active w-full md:w-auto px-4 h-16 rounded-lg font-bold transition duration-300 mb-2 md:mb-0" data-step="1">Punjab: Lohri</button>
+                    <div class="hidden md:block w-12 h-0.5 bg-stone-300"></div>
+                    <button class="step-item w-full md:w-auto px-4 h-16 rounded-lg font-bold transition duration-300 bg-white mb-2 md:mb-0" data-step="2">Gujarat: Uttarayan</button>
+                    <div class="hidden md:block w-12 h-0.5 bg-stone-300"></div>
+                    <button class="step-item w-full md:w-auto px-4 h-16 rounded-lg font-bold transition duration-300 bg-white" data-step="3">Assam: Magh Bihu</button>
+                    <div class="hidden md:block w-12 h-0.5 bg-stone-300"></div>
+                    <button class="step-item w-full md:w-auto px-4 h-16 rounded-lg font-bold transition duration-300 bg-white" data-step="4">Tamil Nadu: Pongal</button>
+                </div>
+
+                <div id="step-details" class="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-md min-h-[150px]">
+                    <h4 id="step-title" class="font-bold text-xl text-amber-700 mb-2">Punjab: Lohri</h4>
+                    <p id="step-description" class="text-stone-600">On the eve of Sankranti, Lohri is marked by large community bonfires. Participants gather to toss sesame seeds, jaggery, and popcorn into the flames, singing folk tunes and dancing the Bhangra to celebrate the end of the winter harvest. </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="global" class="my-16 md:my-24 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-amber-800">A Global Festival</h2>
+            <p class="mt-4 text-lg max-w-3xl mx-auto text-stone-600">
+                The essence of Sankranti crosses boundaries. In Nepal, it’s marked as Maghe Sankranti with family feasts. Thailand celebrates Songkran, renowned for its lively water festivities. In Sri Lanka, Tamils honor Thai Pongal. Despite their differences, these traditions unite in themes of gratitude, renewal, and togetherness.
+            </p>
+             <div class="text-6xl my-4">🌍</div>
+        </section>
+
+    </main>
+    
+    <footer class="bg-stone-100 border-t border-stone-200/80 mt-20">
+        <div class="container mx-auto px-6 py-12">
+            <div class="text-center mb-10">
+                 <h2 class="font-sanskrit text-3xl font-bold text-amber-800">रामायण-कथावली</h2>
+                 <p class="text-stone-600 mt-2">Explore the Full Epic</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-sm">
+                <!-- Column 1 -->
+                <div class="space-y-4">
+                    <h3 class="font-bold text-stone-800 tracking-wider uppercase">The Beginning</h3>
+                    <ul class="space-y-3">
+                        <li><a href="./ravana-vardaan-arrogance.html" class="text-stone-600 hover:text-amber-700 transition">Ravana's Boons</a></li>
+                        <li><a href="./hanuman-sun-story.html" class="text-stone-600 hover:text-amber-700 transition">Hanuman & the Sun</a></li>
+                        <li><a href="./ahalya-story.html" class="text-stone-600 hover:text-amber-700 transition">Rama Frees Ahalya</a></li>
+                    </ul>
+                </div>
+                <!-- Column 2 -->
+                <div class="space-y-4">
+                    <h3 class="font-bold text-stone-800 tracking-wider uppercase">The Great Search</h3>
+                     <ul class="space-y-3">
+                        <li><a href="./hanuman-ram-first-meet-story.html" class="text-stone-600 hover:text-amber-700 transition">Hanuman Meets Rama</a></li>
+                        <li><a href="./hanuman-leep-to-lanka-story.html" class="text-stone-600 hover:text-amber-700 transition">Hanuman’s Leap</a></li>
+                        <li><a href="./site-in-ashok-vatika-story.html" class="text-stone-600 hover:text-amber-700 transition">Sita in Ashok Vatika</a></li>
+                    </ul>
+                </div>
+                <!-- Column 3 -->
+                <div class="space-y-4">
+                    <h3 class="font-bold text-stone-800 tracking-wider uppercase">The War for Lanka</h3>
+                    <ul class="space-y-3">
+                        <li><a href="./diwali-nal-neel-maker-of-setu-bridge.html" class="text-stone-600 hover:text-amber-700 transition">Nal and Neel</a></li>
+                        <li><a href="./kumbhakarna-battle-story.html" class="text-stone-600 hover:text-amber-700 transition">Kumbhakarna’s Battle</a></li>
+                        <li><a href="./sanjeevini-story.html" class="text-stone-600 hover:text-amber-700 transition">Hanuman & Sanjeevani</a></li>
+                    </ul>
+                </div>
+                <!-- Column 4 -->
+                <div class="space-y-4">
+                    <h3 class="font-bold text-stone-800 tracking-wider uppercase">Triumph & Legacy</h3>
+                    <ul class="space-y-3">
+                        <li><a href="./return-to-ayodhya-first-diwali-celebration.html" class="text-stone-600 hover:text-amber-700 transition">Return to Ayodhya</a></li>
+                        <li><a href="./hanumana-tears-his-chest.html" class="text-stone-600 hover:text-amber-700 transition">Hanuman’s Devotion</a></li>
+                        <li><a href="./diwali-ramyana-stories.html" class="font-bold text-amber-800 hover:text-amber-700 transition">Return to Story Hub</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-stone-200 mt-10 pt-6 text-center text-xs text-stone-500">
+                <p>An interactive collection of stories from the epic Ramayana.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Kites Tab Logic
+            const kiteTabButtons = document.querySelectorAll('#kites .tab-button');
+            const kiteTabPanes = document.querySelectorAll('#kites .tab-pane');
+
+            kiteTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    kiteTabButtons.forEach(btn => btn.classList.remove('tab-active'));
+                    button.classList.add('tab-active');
+
+                    const tab = button.dataset.tab;
+                    kiteTabPanes.forEach(pane => {
+                        if (pane.id === `${tab}-content`) {
+                            pane.classList.remove('hidden');
+                        } else {
+                            pane.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+
+            // Celebrations Step Logic
+            const stepData = {
+                1: { title: 'Punjab: Lohri', description: 'Celebrated the night before Sankranti, Lohri involves lighting huge community bonfires. People circle the fire, throwing in sesame seeds, jaggery, and popcorn, while singing folk songs and dancing the Bhangra. It\'s a joyous celebration of the winter harvest\'s end.' },
+                2: { title: 'Gujarat: Uttarayan', description: 'This is the most famous International Kite Festival. For two days, the sky over cities like Ahmedabad is completely filled with kites of all shapes and sizes as families and friends gather on rooftops for epic kite battles and feasts.' },
+                3: { title: 'Assam: Magh Bihu', description: 'Also known as Bhogali Bihu (Bhog means food), this is a major harvest festival. It features community feasts, bonfires made from makeshift huts (Meji), and traditional games like bullock-cart racing and pot-breaking.' },
+                4: { title: 'Tamil Nadu: Pongal', description: 'A four-day festival dedicated to the Sun God. The main event involves cooking the eponymous dish, Pongal, in an earthen pot outdoors. It is allowed to boil over as a sign of abundance and prosperity for the year ahead.' }
+            };
+
+            const stepItems = document.querySelectorAll('.step-item');
+            const stepTitle = document.getElementById('step-title');
+            const stepDescription = document.getElementById('step-description');
+
+            stepItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    stepItems.forEach(i => i.classList.remove('step-item-active', 'bg-white'));
+                    stepItems.forEach(i => {
+                        if (i !== item) i.classList.add('bg-white');
+                    });
+                    item.classList.add('step-item-active');
+                    item.classList.remove('bg-white');
+
+                    const step = item.dataset.step;
+                    stepTitle.textContent = stepData[step].title;
+                    stepDescription.textContent = stepData[step].description;
+                });
+            });
+            
+            // Smooth scroll for nav links
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

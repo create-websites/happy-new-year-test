@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinese New Year: The Spring Festival</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Teko:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Auspicious Red & Gold -->
+    <!-- Application Structure Plan: A narrative infographic that explains the traditions and significance of the Chinese New Year. The structure is: 1. Hero section. 2. "What is Chinese New Year?". 3. "The Legend of Nian". 4. "The Great Race: Chinese Zodiac". 5. "Traditions of Good Fortune". 6. "A Taste of the New Year" chart. This flow guides the user from the festival's mythological roots to its modern cultural practices. -->
+    <!-- Visualization & Content Choices: 
+        - Data Point: Core concepts -> Goal: Inform -> Viz: Styled cards with Unicode icons -> Justification: A quick, visual summary. -> Library/Method: HTML/CSS.
+        - Data Point: The Legend of Nian -> Goal: Inform -> Viz: A two-column layout -> Justification: Clearly presents the foundational folklore of the festival. -> Library/Method: HTML/CSS.
+        - Data Point: Key traditions -> Goal: Organize/Inform -> Viz: Grid of styled cards -> Justification: A clean format to showcase the main activities. -> Library/Method: HTML/CSS.
+        - Data Point: Key festive foods -> Goal: Compare/Inform -> Viz: Horizontal Bar Chart -> Justification: A simple way to display symbolic New Year dishes. -> Library/Method: Chart.js (Canvas).
+        -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            background-color: #FEF2F2; /* Very Light Red */
+            color: #1F2937;
+            font-family: 'Poppins', sans-serif;
+        }
+        h1, h2, h3 {
+            font-family: 'Teko', sans-serif;
+            letter-spacing: 1px;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 300px;
+            }
+        }
+        .card {
+            background-color: #FFFFFF;
+        }
+        .palette-text-red { color: #DC2626; }
+        .palette-text-gold { color: #D97706; }
+        .palette-text-darkred { color: #991B1B; }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: -21px;
+            width: 12px;
+            height: 12px;
+            background-color: #DC2626; /* Red */
+            border: 3px solid #D97706; /* Gold */
+            border-radius: 50%;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto px-4 py-8 md:py-12">
+
+        <header class="text-center mb-12 md:mb-16">
+            <h1 class="text-6xl md:text-8xl font-bold palette-text-red tracking-wider">Chinese New Year</h1>
+            <p class="text-xl md:text-2xl text-gray-600 mt-2">Celebrating the Spring Festival</p>
+        </header>
+
+        <section id="intro" class="mb-16 md:mb-24">
+            <div class="text-center max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 tracking-wide">What is Chinese New Year?</h2>
+                <p class="mt-4 text-lg text-gray-600 px-4">
+                    Lunar New Year, or Chinese New Year, is a major celebration in China and among Chinese communities globally. It ushers in the new year on the traditional lunisolar calendar and is a time for family reunions, honoring ancestors, and festive feasts.
+                </p>
+            </div>
+            <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card rounded-lg shadow-lg p-8 text-center transform hover:-translate-y-2 transition-transform">
+                    <div class="text-6xl palette-text-red mb-4">🏮</div>
+                    <h3 class="text-3xl font-bold text-gray-900">A New Beginning</h3>
+                    <p class="mt-2 text-gray-600">The festival signifies winter's farewell and spring's arrival, symbolizing the clearing of bad luck and welcoming new blessings.</p>
+                </div>
+                <div class="card rounded-lg shadow-lg p-8 text-center transform hover:-translate-y-2 transition-transform">
+                    <div class="text-6xl palette-text-gold mb-4">🗓️</div>
+                    <h3 class="text-3xl font-bold text-gray-900">The Lunar Calendar</h3>
+                    <p class="mt-2 text-gray-600">The date is set by the lunar calendar, falling between January 21 and February 20, with festivities lasting 15 days.</p>
+                </div>
+                <div class="card rounded-lg shadow-lg p-8 text-center transform hover:-translate-y-2 transition-transform sm:col-span-2 lg:col-span-1">
+                    <div class="text-6xl palette-text-darkred mb-4">👨‍👩‍👧‍👦</div>
+                    <h3 class="text-3xl font-bold text-gray-900">Family Reunion</h3>
+                    <p class="mt-2 text-gray-600">The heart of the festival lies in family reunions, with many journeying far to share the New Year's Eve meal with loved ones.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="legends" class="mb-16 md:mb-24">
+             <div class="text-center max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 tracking-wide">The Legend of Nian</h2>
+                <p class="mt-4 text-lg text-gray-600 px-4">
+                    Chinese New Year traditions trace back to the ancient tale of Nian, a fearsome creature that surfaced on New Year's Eve to attack villages.
+                </p>
+            </div>
+            <div class="mt-12 card rounded-lg shadow-lg p-8 lg:p-12">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div class="text-center">
+                        <div class="text-9xl">👹</div>
+                        <p class="text-xl font-bold mt-2 palette-text-red">Taming the Beast</p>
+                    </div>
+                    <div>
+                        <p class="text-gray-700 leading-relaxed">The villagers learned that the Nian feared red, loud sounds, and fire. To protect themselves, they hung red lanterns, donned red clothing, lit firecrackers, and beat drums on New Year's Eve. The Nian fled, leaving the village safe. Today, this tradition lives on with red decorations, firecrackers, and lion dances to drive away bad luck and usher in prosperity.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="zodiac" class="mb-16 md:mb-24">
+            <div class="text-center max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 tracking-wide">The Great Race: The Chinese Zodiac</h2>
+                <p class="mt-4 text-lg text-gray-600 px-4">
+                   Each year in the Chinese zodiac corresponds to one of twelve animals in a recurring cycle. Legend says the Jade Emperor held a grand race to determine their order. The year 2025 marks the Year of the Snake.
+                </p>
+            </div>
+             <div class="mt-12 grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4 text-center">
+                <div class="card p-4 rounded-lg shadow-md"> <div class="text-4xl">🐀</div> <p class="font-semibold">Rat</p> </div>
+                <div class="card p-4 rounded-lg shadow-md"> <div class="text-4xl">🐂</div> <p class="font-semibold">Ox</p> </div>
+                <div class="card p-4 rounded-lg shadow-md"> <div class="text-4xl">🐅</div> <p class="font-semibold">Tiger</p> </div>
+                <div class="card p-4 rounded-lg shadow-md"> <div class="text-4xl">🐇</div> <p class="font-semibold">Rabbit</p> </div>
+                <div class="card p-4 rounded-lg shadow-md"> <div class="text-4xl">🐉</div> <p class="font-semibold">Dragon</p> </div>
+                <div class="card p-4 rounded-lg shadow-md bg-yellow-100 border-2 border-yellow-400"> <div class="text-4xl">🐍</div> <p class="font-bold">Snake</p> </div>
+                <div class="card p-4 rounded-lg shadow-md"> <div class="text-4xl">🐎</div> <p class="font-semibold">Horse</p> </div>
+                <div class="card p-4 rounded-lg shadow-md"> <div class="text-4xl">🐐</div> <p class="font-semibold">Goat</p> </div>
+                <div class="card p-4 rounded-lg shadow-md"> <div class="text-4xl">🐒</div> <p class="font-semibold">Monkey</p> </div>
+                <div class="card p-4 rounded-lg shadow-md"> <div class="text-4xl">🐓</div> <p class="font-semibold">Rooster</p> </div>
+                <div class="card p-4 rounded-lg shadow-md"> <div class="text-4xl">🐕</div> <p class="font-semibold">Dog</p> </div>
+                <div class="card p-4 rounded-lg shadow-md"> <div class="text-4xl">🐖</div> <p class="font-semibold">Pig</p> </div>
+            </div>
+        </section>
+
+        <section id="traditions" class="mb-16 md:mb-24">
+             <div class="text-center max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 tracking-wide">Traditions of Good Fortune</h2>
+                <p class="mt-4 text-lg text-gray-600 px-4">
+                   The New Year season brims with customs and beliefs designed to bring fortune, wealth, and joy in the coming year.
+                </p>
+            </div>
+            <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="card p-6 rounded-lg shadow-md text-center">
+                    <div class="text-6xl mb-4">🧧</div>
+                    <h3 class="text-2xl font-bold text-gray-900">Red Envelopes (Hóngbāo)</h3>
+                    <p class="mt-2 text-sm text-gray-600">Married couples and seniors gift red envelopes with money to kids and single adults to share blessings.</p>
+                </div>
+                <div class="card p-6 rounded-lg shadow-md text-center">
+                    <div class="text-6xl mb-4">🧹</div>
+                    <h3 class="text-2xl font-bold text-gray-900">Spring Cleaning</h3>
+                    <p class="mt-2 text-sm text-gray-600">Homes are meticulously cleaned ahead of the New Year to clear out misfortune and welcome good fortune.</p>
+                </div>
+                <div class="card p-6 rounded-lg shadow-md text-center">
+                    <div class="text-6xl mb-4">🐲</div>
+                    <h3 class="text-2xl font-bold text-gray-900">Lion & Dragon Dances</h3>
+                    <p class="mt-2 text-sm text-gray-600">Traditional dances fill the streets, driven by drums and cymbals, to ward off evil and invite good fortune.</p>
+                </div>
+                <div class="card p-6 rounded-lg shadow-md text-center">
+                    <div class="text-6xl mb-4">🍽️</div>
+                    <h3 class="text-2xl font-bold text-gray-900">Reunion Dinner</h3>
+                    <p class="mt-2 text-sm text-gray-600">The New Year's Eve feast is a key tradition, bringing families together to enjoy a rich spread of meaningful dishes.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="food" class="mb-16 md:mb-24">
+             <div class="text-center max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 tracking-wide">A Taste of the New Year</h2>
+                <p class="mt-4 text-lg text-gray-600 px-4">
+                    Food is central to Chinese New Year, with dishes selected for their symbolic significance, often tied to names or looks.
+                </p>
+            </div>
+             <div class="mt-12 card rounded-lg shadow-lg p-6">
+                <h3 class="text-2xl font-bold text-center text-gray-900 mb-4">Symbolic New Year Foods</h3>
+                <div class="chart-container">
+                    <canvas id="foodChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const createTooltipTitleCallback = () => {
+                return {
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                title: function(tooltipItems) {
+                                    const item = tooltipItems[0];
+                                    let label = item.chart.data.labels[item.dataIndex];
+                                    if (Array.isArray(label)) {
+                                      return label.join(' ');
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                };
+            };
+
+            const wrapLabel = (label, maxLen = 16) => {
+                if (label.length <= maxLen) return label;
+                const words = label.split(' ');
+                let lines = [];
+                let currentLine = '';
+                for(const word of words) {
+                    if ((currentLine + ' ' + word).trim().length > maxLen) {
+                        lines.push(currentLine.trim());
+                        currentLine = word;
+                    } else {
+                        currentLine = (currentLine + ' ' + word).trim();
+                    }
+                }
+                lines.push(currentLine.trim());
+                return lines;
+            };
+
+            const foodChartCtx = document.getElementById('foodChart').getContext('2d');
+            const foodLabels = [
+                'Dumplings (Jiaozi)', 
+                'Whole Fish (Yú)', 
+                'Spring Rolls (Chūn Juǎn)', 
+                'Glutinous Rice Balls (Tāngyuán)'
+            ].map(label => wrapLabel(label, 20));
+
+            new Chart(foodChartCtx, {
+                type: 'bar',
+                data: {
+                    labels: foodLabels,
+                    datasets: [{
+                        label: 'Symbolic Meaning',
+                        data: [100, 95, 90, 85],
+                        backgroundColor: [
+                           '#FBBF24', // Gold for wealth
+                           '#60A5FA', // Blue for surplus
+                           '#F87171', // Red for prosperity
+                           '#D97706'  // Dark Gold for togetherness
+                        ],
+                        borderWidth: 1,
+                        borderColor: '#FFFFFF'
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Importance & Symbolism',
+                                color: '#4A5568'
+                            },
+                            ticks: { color: '#4A5568' },
+                            grid: { color: 'rgba(0, 0, 0, 0.05)' }
+                        },
+                        y: {
+                            ticks: { 
+                                autoSkip: false,
+                                color: '#4A5568'
+                            },
+                            grid: { display: false }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        ...createTooltipTitleCallback().plugins
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

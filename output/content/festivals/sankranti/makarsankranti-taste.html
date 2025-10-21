@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Taste of Sankranti: Traditional Foods & Recipes</title>
+    <meta name="description" content="Explore the delicious traditional foods of Makar Sankranti, from sesame and jaggery sweets like Tilgul to regional delicacies like Pongal, Puran Poli, and Khichdi. Discover recipes and their health benefits.">
+    <meta name="keywords" content="Makar Sankranti Food, Tilgul, Pongal Recipe, Puran Poli, Khichdi, Sesame Jaggery Benefits, Indian Festival Food">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Tiro+Devanagari+Sanskrit:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF8;
+            color: #4B5563; 
+        }
+        .font-sanskrit {
+            font-family: 'Tiro Devanagari Sanskrit', serif;
+        }
+        .tab-active {
+            border-color: #D97706;
+            background-color: #FFFBEB;
+            color: #D97706;
+        }
+        .step-item-active {
+            background-color: #D97706;
+            color: #FFFFFF;
+            transform: scale(1.05);
+        }
+        .recipe-card {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: This page is a culinary guide to Makar Sankranti, structured thematically. 1) A welcoming Hero Section sets the festive food mood. 2) The Heart of Sankranti Sweets focuses on the iconic Til-Gur (sesame and jaggery) tradition. 3) A Culinary Tour of India is the main interactive section, using a tabbed interface to showcase diverse regional specialties (Pongal, Khichdi, Puran Poli, etc.), making the vast culinary landscape easy to explore. 4) The Science of Festive Eating explains the health benefits of key ingredients. 5) Modern Twists provides inspiration for contemporary takes on classic dishes. This structure guides the user from the most universal traditions to specific regional flavors and modern adaptations. -->
+    <!-- Visualization & Content Choices: Report Info: Diverse regional dishes -> Goal: Showcase culinary variety -> Viz/Method: Interactive tabbed content -> Interaction: Tabs for "Tilgul Laddoos," "Pongal," "Khichdi," and "Puran Poli" -> Justification: Tabs are ideal for presenting distinct recipes and their cultural context without cluttering the page. | Report Info: Health benefits of ingredients -> Goal: Inform and educate -> Viz/Method: Simple, visually distinct info cards -> Justification: Cards allow for bite-sized, easily digestible information about the health aspects of festive foods. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="text-stone-800">
+
+    <header class="bg-amber-100/30 sticky top-0 z-50 backdrop-blur-sm">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="font-sanskrit text-2xl font-bold text-amber-800">भोजन</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#sweets" class="text-stone-600 hover:text-amber-700 transition">Sweets</a>
+                    <a href="#regional" class="text-stone-600 hover:text-amber-700 transition">Regional Delicacies</a>
+                    <a href="#health" class="text-stone-600 hover:text-amber-700 transition">Health Benefits</a>
+                    <a href="#modern" class="text-stone-600 hover:text-amber-700 transition">Modern Twists</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+
+        <section class="text-center my-12 md:my-20">
+            <h1 class="font-sanskrit text-5xl md:text-7xl font-bold text-amber-900 leading-tight">A Taste of the Harvest</h1>
+            <p class="mt-4 text-xl md:text-2xl text-stone-600">The Flavors of Makar Sankranti</p>
+            <p class="mt-6 max-w-3xl mx-auto text-stone-500">
+                Makar Sankranti revolves around food, celebrating the winter harvest with kitchens filled with the scent of fresh grains, spices, and jaggery. Every dish reflects the season, the land, and the enduring joy of sharing with loved ones.
+            </p>
+        </section>
+
+        <section id="sweets" class="my-16 md:my-24 py-12 bg-amber-50/50 rounded-2xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-amber-800 mb-2">The Sweetness of Sesame & Jaggery</h2>
+            <p class="text-center text-stone-600 mb-8 max-w-3xl mx-auto">Sankranti's core culinary tradition centers on sesame (til) and jaggery (gur), a duo that's both flavorful and tied to winter health and symbolism.</p>
+            <div class="max-w-xl mx-auto bg-white p-6 rounded-xl shadow-lg border border-stone-200/80 text-center">
+                <div class="text-5xl my-4">🍬</div>
+                <h3 class="font-sanskrit text-3xl font-bold text-amber-700">तिळगुळ (Tilgul)</h3>
+                <p class="text-stone-500 mt-2">These ingredients are shaped into laddoos (sweet balls) or chikki (brittle) and shared with loved ones. This is paired with the Marathi phrase, 'Tilgul ghya, goad goad bola,' meaning, 'Take this sweet and speak kind words,' promoting forgiveness and fresh beginnings.</p>
+            </div>
+        </section>
+        
+        <section id="regional" class="my-16 md:my-24">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-amber-800 mb-2">A Culinary Tour of India</h2>
+            <p class="text-center text-stone-600 mb-12 max-w-3xl mx-auto">From hearty main dishes to indulgent sweets, each region brings its own taste to the Sankranti celebration.</p>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="flex flex-wrap border-b border-stone-300 mb-6">
+                    <button class="tab-button tab-active flex-grow text-center font-semibold p-3 border-b-2 transition" data-tab="pongal">South India: Pongal</button>
+                    <button class="tab-button flex-grow text-center font-semibold p-3 border-b-2 border-transparent text-stone-500 transition" data-tab="khichdi">North & West: Khichdi</button>
+                    <button class="tab-button flex-grow text-center font-semibold p-3 border-b-2 border-transparent text-stone-500 transition" data-tab="poli">Maharashtra: Puran Poli</button>
+                    <button class="tab-button flex-grow text-center font-semibold p-3 border-b-2 border-transparent text-stone-500 transition" data-tab="chaula">Odisha: Makara Chaula</button>
+                </div>
+                <div id="tab-content-regional" class="bg-white p-6 rounded-lg shadow-md min-h-[150px]">
+                    <div id="pongal-content" class="tab-pane recipe-card">
+                        <h3 class="text-2xl font-bold text-amber-800 mb-3">Ven Pongal & Sakkarai Pongal</h3>
+                        
+                        <p class="text-stone-600 flex-grow">In Tamil Nadu, the festival is named after its iconic dish. It features two key types: Sakkarai Pongal, a sweet blend of fresh rice, milk, jaggery, cardamom, and cashews, and Ven Pongal, a savory mix of rice and moong dal, spiced with black pepper, cumin, and ghee.</p>
+                    </div>
+                    <div id="khichdi-content" class="hidden tab-pane recipe-card">
+                        <h3 class="text-2xl font-bold text-amber-800 mb-3">The Comforting Khichdi</h3>
+                        
+                        <p class="text-stone-600 flex-grow">In regions such as Uttar Pradesh, Bihar, and parts of Gujarat, Makar Sankranti is closely tied to Khichdi—a wholesome mix of rice and lentils, often paired with seasonal vegetables and enriched with ghee, symbolizing harvest unity and celebrated as a sattvic, sacred dish for the occasion.</p>
+                    </div>
+                    <div id="poli-content" class="hidden tab-pane recipe-card">
+                        <h3 class="text-2xl font-bold text-amber-800 mb-3">Puran Poli</h3>
+                        
+                        <p class="text-stone-600 flex-grow">A cherished treat from Maharashtra, Puran Poli is a sweet flatbread. It features a soft dough shell filled with a tasty mix of cooked chana dal (split chickpeas), jaggery, and hints of cardamom and nutmeg. Served warm with ghee, it’s truly delightful.</p>
+                    </div>
+                    <div id="chaula-content" class="hidden tab-pane recipe-card">
+                        <h3 class="text-2xl font-bold text-amber-800 mb-3">Makara Chaula</h3>
+                        
+                        <p class="text-stone-600 flex-grow">This distinct raw blend is a classic prasad from Odisha, crafted with freshly ground rice, milk, jaggery, ripe banana, coconut, chenna, and aromatic spices. It celebrates the rich and flavorful essence of the winter harvest.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="health" class="my-16 md:my-24 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-amber-800">The Science of Festive Eating</h2>
+            <p class="mt-4 text-lg max-w-3xl mx-auto text-stone-600">
+                Sankranti's traditional foods showcase ancient wisdom, offering the body ideal nourishment for the winter season.
+            </p>
+            <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-stone-200/80">
+                    <div class="text-5xl mb-3">⚫</div>
+                    <h3 class="font-bold text-xl text-amber-800">Benefits of Sesame (Til)</h3>
+                    <p class="text-stone-500 text-sm">Sesame seeds are packed with healthy fats, protein, and key minerals like calcium and magnesium. In Ayurveda, they are seen as a 'warming' food, aiding the body in staying warm and cozy during chilly winter days.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-stone-200/80">
+                    <div class="text-5xl mb-3">🟤</div>
+                    <h3 class="font-bold text-xl text-amber-800">Benefits of Jaggery (Gur)</h3>
+                    <p class="text-stone-500 text-sm">Jaggery, an unprocessed sugar, is rich in iron and vital minerals. It boosts energy, supports digestion, and cleanses the blood. Its natural warmth makes it ideal for winter treats.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="modern" class="my-16 md:my-24 text-center">
+             <h2 class="text-3xl md:text-4xl font-bold text-amber-800">Modern Twists on Tradition</h2>
+            <p class="mt-4 text-lg max-w-3xl mx-auto text-stone-600">
+                Though traditional recipes remain cherished, many embrace a modern twist for Sankranti festivities.
+            </p>
+             <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-stone-200/80">
+                    <h3 class="font-bold text-xl text-amber-800">Tilgul Energy Bars</h3>
+                    <p class="text-stone-500 text-sm">Mixing oats, nuts, and seeds with til and jaggery makes wholesome, easy energy bars.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-stone-200/80">
+                    <h3 class="font-bold text-xl text-amber-800">Savory Pongal Waffles</h3>
+                    <p class="text-stone-500 text-sm">Ven Pongal batter can be waffle-cooked for a crispy, modern twist on the traditional dish.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-stone-200/80">
+                    <h3 class="font-bold text-xl text-amber-800">Puran Poli Ice Cream</h3>
+                    <p class="text-stone-500 text-sm">Puran Poli's spiced sweetness blends perfectly into vanilla ice cream for a rich, indulgent treat.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="bg-stone-100 border-t border-stone-200/80 mt-20">
+        <div class="container mx-auto px-6 py-12">
+            <div class="text-center mb-10">
+                 <h2 class="font-sanskrit text-3xl font-bold text-amber-800">रामायण-कथावली</h2>
+                 <p class="text-stone-600 mt-2">Explore the Full Epic</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-sm">
+                <div class="space-y-4">
+                    <h3 class="font-bold text-stone-800 tracking-wider uppercase">The Beginning</h3>
+                    <ul class="space-y-3">
+                        <li><a href="./ravana-vardaan-arrogance.html" class="text-stone-600 hover:text-amber-700 transition">Ravana's Boons</a></li>
+                        <li><a href="./hanuman-sun-story.html" class="text-stone-600 hover:text-amber-700 transition">Hanuman & the Sun</a></li>
+                        <li><a href="./ahalya-story.html" class="text-stone-600 hover:text-amber-700 transition">Rama Frees Ahalya</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="font-bold text-stone-800 tracking-wider uppercase">The Great Search</h3>
+                     <ul class="space-y-3">
+                        <li><a href="./hanuman-ram-first-meet-story.html" class="text-stone-600 hover:text-amber-700 transition">Hanuman Meets Rama</a></li>
+                        <li><a href="./hanuman-leep-to-lanka-story.html" class="text-stone-600 hover:text-amber-700 transition">Hanuman’s Leap</a></li>
+                        <li><a href="./site-in-ashok-vatika-story.html" class="text-stone-600 hover:text-amber-700 transition">Sita in Ashok Vatika</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="font-bold text-stone-800 tracking-wider uppercase">The War for Lanka</h3>
+                    <ul class="space-y-3">
+                        <li><a href="./diwali-nal-neel-maker-of-setu-bridge.html" class="text-stone-600 hover:text-amber-700 transition">Nal and Neel</a></li>
+                        <li><a href="./kumbhakarna-battle-story.html" class="text-stone-600 hover:text-amber-700 transition">Kumbhakarna’s Battle</a></li>
+                        <li><a href="./sanjeevini-story.html" class="text-stone-600 hover:text-amber-700 transition">Hanuman & Sanjeevani</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="font-bold text-stone-800 tracking-wider uppercase">Triumph & Legacy</h3>
+                    <ul class="space-y-3">
+                        <li><a href="./return-to-ayodhya-first-diwali-celebration.html" class="text-stone-600 hover:text-amber-700 transition">Return to Ayodhya</a></li>
+                        <li><a href="./hanumana-tears-his-chest.html" class="text-stone-600 hover:text-amber-700 transition">Hanuman’s Devotion</a></li>
+                        <li><a href="./diwali-ramyana-stories.html" class="font-bold text-amber-800 hover:text-amber-700 transition">Return to Story Hub</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-stone-200 mt-10 pt-6 text-center text-xs text-stone-500">
+                <p>An interactive collection of stories from the epic Ramayana.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Get all tabs within the same parent section
+                    const parentSection = button.closest('div.max-w-4xl');
+                    const sectionTabs = parentSection.querySelectorAll('.tab-button');
+                    const sectionPanes = parentSection.querySelectorAll('.tab-pane');
+
+                    sectionTabs.forEach(btn => btn.classList.remove('tab-active'));
+                    button.classList.add('tab-active');
+
+                    const tab = button.dataset.tab;
+                    sectionPanes.forEach(pane => {
+                        if (pane.id === `${tab}-content`) {
+                            pane.classList.remove('hidden');
+                        } else {
+                            pane.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+            
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

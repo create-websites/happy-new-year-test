@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guru Nanak Jayanti: A Guide to Gurpurab and Sikh Teachings</title>
+    
+    <!-- Meta Description and Keywords for SEO -->
+    <meta name="description" content="Explore the life, spiritual philosophy, and core traditions of Guru Nanak Jayanti (Gurpurab), the birth anniversary of the founder of Sikhism, celebrated with kirtan and community service.">
+    <meta name="keywords" content="Guru Nanak Jayanti, Gurpurab, Sikhism, Guru Nanak Dev Ji, Langar, Seva, Kirat Karo, Naam Japo, Vand Chakko, Akhand Path, Nagar Kirtan">
+
+    <!-- Open Graph (OG) / Social Media Tags -->
+    <meta property="og:title" content="Guru Nanak Jayanti: An Interactive Guide to Gurpurab">
+    <meta property="og:description" content="Discover the three golden pillars of Sikhism and the joyous, spiritual rituals that honor the birth of Guru Nanak Dev Ji.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://example.com/gurunanak-jayanti-guide">
+    <meta property="og:image" content="https://placehold.co/1200x630/4682B4/FFFFFF?text=Guru+Nanak+Jayanti+Guide">
+    <meta property="og:site_name" content="Cultural Festival Explorer">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "Guru Nanak Jayanti (Gurpurab)",
+      "description": "The birthday of the first Sikh Guru, Guru Nanak Dev Ji, celebrated with prayers, processions, and free community meals (Langar).",
+      "image": "https://placehold.co/1200x630/4682B4/FFFFFF?text=Guru+Nanak+Jayanti+Guide",
+      "startDate": "2025-11-15", 
+      "location": {
+        "@type": "Place",
+        "name": "Globally (Sikh Gurdwaras)"
+      }
+    }
+    </script>
+    
+    <!-- Chosen Palette: Steel Blue, Cream/White, and Deep Yellow (Peace, Devotion, and Light Theme) -->
+    <!-- Application Structure Plan: A thematic, single-page application with a sticky top navigation. The flow covers: 'Significance' (birth/founder), 'Three Pillars' chart (visualizing core philosophy), 'Rituals' (Akhand Path/Kirtan), 'Langar and Seva' (community service), and 'Wishes & Quotes'. This structure prioritizes the fundamental philosophical teachings before detailing the rituals. -->
+    <!-- Visualization & Content Choices: 
+        - Significance: Inform -> Text block & Two Image Cards (Placeholders) -> Static -> Justification: Provides historical context alongside visual representations of the Guru and the Golden Temple. Method: HTML/Tailwind.
+        - Three Pillars: Organize/Inform -> Doughnut Chart (used as a conceptual diagram) -> Interactive Tooltips -> Justification: Visually represents the three core principles of Sikhism. Library: Chart.js/Canvas.
+        - Rituals: Organize/Inform -> Step-by-step card flow -> Scroll/Click -> Justification: Breaks down the preparatory and ceremonial rituals leading up to Gurpurab. Method: HTML/Tailwind.
+        - Langar and Seva: Inform -> Detailed Story Block -> Static -> Justification: Focuses on the paramount importance of selfless service and the free community kitchen. Method: HTML/Tailwind.
+        - Wishes/Quotes: Inform -> Grid of Text Cards -> Static -> Justification: Provides appropriate, spiritual messages. Method: HTML/Tailwind. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDF5E6; /* Old Lace */
+        }
+        h1, h2, h3 {
+            font-family: 'Lora', serif;
+        }
+        .nav-link {
+            transition: color 0.3s, border-color 0.3s;
+        }
+        .nav-link.active {
+            color: #4682B4; /* Steel Blue */
+            border-bottom-color: #4682B4;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 450px;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <header class="bg-white/90 backdrop-blur-sm sticky top-0 z-50 shadow-md">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <h1 class="text-2xl font-bold text-blue-700">Gurpurab Guide</h1>
+                <div class="hidden sm:flex sm:space-x-8" id="nav-links">
+                    <a href="#significance" class="nav-link text-gray-600 hover:text-blue-600 border-b-2 border-transparent pb-1">Life & Legacy</a>
+                    <a href="#pillars" class="nav-link text-gray-600 hover:text-blue-600 border-b-2 border-transparent pb-1">Three Pillars</a>
+                    <a href="#rituals" class="nav-link text-gray-600 hover:text-blue-600 border-b-2 border-transparent pb-1">Celebrations</a>
+                    <a href="#seva" class="nav-link text-gray-600 hover:text-blue-600 border-b-2 border-transparent pb-1">Langar & Seva</a>
+                    <a href="#quotes" class="nav-link text-gray-600 hover:text-blue-600 border-b-2 border-transparent pb-1">Wishes & Quotes</a>
+                </div>
+                <div class="sm:hidden">
+                    <select id="mobile-nav" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                        <option value="#significance">Life & Legacy</option>
+                        <option value="#pillars">Three Pillars</option>
+                        <option value="#rituals">Celebrations</option>
+                        <option value="#seva">Langar & Seva</option>
+                        <option value="#quotes">Wishes & Quotes</option>
+                    </select>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+
+        <section id="hero" class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-blue-800 tracking-tight">Guru Nanak Jayanti: Light and Philosophy</h1>
+            <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">A dynamic guide to the life and origins of Guru Nanak Dev Ji, founder of Sikhism.</p>
+        </section>
+
+        <section id="significance" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-8 text-blue-800">The Founder and His Message</h2>
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+                <!-- Text Content -->
+                <div class="md:col-span-2 bg-white p-8 rounded-xl shadow-lg border border-yellow-100">
+                    <h3 class="text-2xl font-semibold text-yellow-700 mb-4">Birth of the First Guru (Gurpurab)</h3>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        **Guru Nanak Dev Ji** (1469–1539), the founder of Sikhism and first of the ten Sikh Gurus, is celebrated on **Gurpurab** or **Guru Nanak Jayanti**. This sacred day, observed in October or November, aligns with Kartik Purnima, the full moon of the Kartik month. 
+                        <br><br>
+                        Guru Nanak Dev Ji’s teachings were transformative, highlighting the oneness of God, equality among all, selfless service (**Seva**), and leading an honest, diligent life. His core belief was: 'There is no Hindu, no Muslim, only God's creation.'
+                    </p>
+                </div>
+                <!-- Image Cards (Placeholders) -->
+                <div class="md:col-span-1 space-y-4">
+                    <div class="rounded-xl overflow-hidden shadow-xl border border-blue-600 bg-blue-50">
+                        <img src="https://placehold.co/400x250/FFD700/4682B4?text=Guru+Nanak+Dev+Ji" alt="Placeholder image of Guru Nanak Dev Ji." class="w-full h-auto object-cover">
+                        <p class="p-3 text-sm text-center font-medium text-yellow-900">Life: 1469 – 1539 CE</p>
+                    </div>
+                    <div class="rounded-xl overflow-hidden shadow-xl border border-blue-600 bg-blue-50">
+                        <img src="https://placehold.co/400x250/4682B4/FFFFFF?text=Golden+Temple" alt="Placeholder image of the Golden Temple (Harmandir Sahib)." class="w-full h-auto object-cover">
+                         <p class="p-3 text-sm text-center font-medium text-blue-900">The Spiritual Center of Sikhism</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pillars" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-8 text-blue-800">The Three Golden Pillars of Sikhism</h2>
+            <p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
+                Guru Nanak Dev Ji outlined his teachings on living a spiritual and righteous life in three key principles.
+            </p>
+            <div class="bg-white p-4 sm:p-8 rounded-xl shadow-lg">
+                <div class="chart-container">
+                    <canvas id="pillarChart"></canvas>
+                </div>
+                <div class="text-center mt-4 text-sm text-gray-500">Explore the chart to grasp the essence of Kirat Karo, Naam Japo, and Vand Chakko.</div>
+            </div>
+        </section>
+
+        <section id="rituals" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-8 text-blue-800">Celebrations: Kirtan, Processions, and Readings</h2>
+             <p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
+                The Gurpurab festival lasts three days, featuring nonstop scripture reading and vibrant community involvement.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-blue-100 transition-transform transform hover:scale-105 border-b-4 border-yellow-500">
+                    <h3 class="text-xl font-semibold text-yellow-700 mb-3"><span class="font-mono text-3xl text-blue-600 mr-2">1.</span> Akhand Path</h3>
+                    <p class="text-gray-600">A nonstop 48-hour recitation of the Guru Granth Sahib, starting two days prior to the Gurpurab.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-blue-100 transition-transform transform hover:scale-105 border-b-4 border-yellow-500">
+                    <h3 class="text-xl font-semibold text-yellow-700 mb-3"><span class="font-mono text-3xl text-blue-600 mr-2">2.</span> Nagar Kirtan</h3>
+                    <p class="text-gray-600">The eve of Gurpurab sees a sacred procession led by the **Panj Pyaras** (Five Beloved Ones), escorting the Guru Granth Sahib along the streets with hymns (**Kirtan**).</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-blue-100 transition-transform transform hover:scale-105 border-b-4 border-yellow-500">
+                    <h3 class="text-xl font-semibold text-yellow-700 mb-3"><span class="font-mono text-3xl text-blue-600 mr-2">3.</span> Prabhat Pheris</h3>
+                    <p class="text-gray-600">Morning processions begin at the Gurdwara, moving through the area with hymns that inspire devotion in the community.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="seva" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-8 text-blue-800">The Heart of Sikhism: Langar and Seva</h2>
+            <div class="bg-white p-8 rounded-xl shadow-2xl max-w-4xl mx-auto border-t-4 border-yellow-600">
+                <h3 class="text-2xl font-bold text-blue-600 mb-4">Langar: The Free Community Kitchen</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    **Langar** is a free community kitchen, operated by volunteers (**Seva**), providing meals to all, irrespective of faith, caste, gender, or status. Diners sit on the floor together, embodying the Sikh value of **equality**.
+                    <br><br>
+                    On Guru Nanak Jayanti, gurdwaras host huge Langars, feeding thousands. Cooking, cleaning, and serving symbolize **Seva** (selfless service) and reflect Guru Nanak's principle, **Vand Chakko** (Share with Others).
+                </p>
+            </div>
+        </section>
+        
+        <section id="quotes" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-8 text-blue-800">20 Spiritual Gurpurab Wishes & Quotes</h2>
+            <p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
+                Words guided by Guru Nanak Dev Ji's wisdom, bringing peace and blessings.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-blue-600 text-gray-700">Happy Gurpurab! May Guru Nanak Dev Ji's teachings guide you.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-blue-600 text-gray-700">May the values of Kirat Karo, Naam Japo, and Vand Chakko guide and inspire you.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-blue-600 text-gray-700">Wishing you a peaceful and blessed Guru Nanak Jayanti.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-blue-600 text-gray-700">May the Guru's sacred light forever illuminate your path.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-blue-600 text-gray-700">Warm wishes on the auspicious occasion of Gurpurab.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-blue-600 text-gray-700">"Utter only words that uphold your dignity." - Guru Nanak Dev Ji</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-blue-600 text-gray-700">May your soul brim with faith and your actions shine with kindness.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-blue-600 text-gray-700">May the spirit of Langar inspire your life with unity and generosity.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-blue-600 text-gray-700">Wishing you joy and fulfillment on this sacred day.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-blue-600 text-gray-700">Happy Birthday to the founder of Sikhism.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-blue-600 text-gray-700">May the teachings of the Guru resonate in your life.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-blue-600 text-gray-700">'Life is a play, unfolding within a dream.' - Guru Nanak Dev Ji</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-blue-600 text-gray-700">May your home be blessed with peace and harmony.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-blue-600 text-gray-700">On this Gurpurab, embrace the idea of 'One God'.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-blue-600 text-gray-700">A blessed day for Kirtan and Seva. Wishing you a joyful Gurpurab!</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-blue-600 text-gray-700">Wishing you happiness and prosperity this season.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-blue-600 text-gray-700">"One who lacks self-belief cannot truly believe in God."</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-blue-600 text-gray-700">May the light of knowledge guide your path.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-blue-600 text-gray-700">Celebrate the spirit of selfless service.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-blue-600 text-gray-700">May you find peace and joy in the Guru's wisdom.</div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="bg-blue-100 mt-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-gray-500">
+            <p>&copy; 2025 Guru Nanak Jayanti Interactive Guide. Embodying the Three Pillars.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section[id]');
+            const mobileNav = document.getElementById('mobile-nav');
+
+            const activateNav = (id) => {
+                navLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+                });
+                if (mobileNav.value !== `#${id}`) {
+                    mobileNav.value = `#${id}`;
+                }
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        activateNav(entry.target.id);
+                    }
+                });
+            }, { rootMargin: '-30% 0px -70% 0px' });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            mobileNav.addEventListener('change', (e) => {
+                window.location.href = e.target.value;
+            });
+            
+            const ctx = document.getElementById('pillarChart').getContext('2d');
+            const pillarChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Kirat Karo (Honest Living)', 'Naam Japo (Remembering God)', 'Vand Chakko (Sharing Earnings)'],
+                    datasets: [{
+                        label: 'The Three Pillars of Sikhism',
+                        data: [33, 34, 33], 
+                        backgroundColor: [
+                            'rgba(255, 215, 0, 0.9)', /* Gold */
+                            'rgba(70, 130, 180, 0.9)', /* Steel Blue */
+                            'rgba(184, 134, 11, 0.9)' /* Dark Goldenrod */
+                        ],
+                        borderColor: '#FFFFFF',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                font: {
+                                    family: "'Inter', sans-serif"
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    let text = '';
+                                    if (label.includes('Kirat Karo')) text = 'Earning an honest living through hard work and integrity.';
+                                    else if (label.includes('Naam Japo')) text = 'Meditating on God’s name and remembering God at all times.';
+                                    else if (label.includes('Vand Chakko')) text = 'Sharing one’s earnings with the needy and practicing charity.';
+                                    return `${label}: ${text}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+        });
+    </script>
+
+</body>
+</html>

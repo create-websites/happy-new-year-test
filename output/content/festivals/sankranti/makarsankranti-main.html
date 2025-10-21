@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makar Sankranti: The Sun's Joyful Journey</title>
+    <meta name="description" content="An interactive page exploring the traditions, significance, and celebrations of Makar Sankranti, the vibrant Indian harvest festival marking the sun's transit into Capricorn.">
+    <meta name="keywords" content="Makar Sankranti, Sankranti, Pongal, Uttarayan, Kite Festival, Harvest Festival, Indian Festivals, Tilgul, Khichdi">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Tiro+Devanagari+Sanskrit:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF8;
+            color: #4B5563; 
+        }
+        .font-sanskrit {
+            font-family: 'Tiro Devanagari Sanskrit', serif;
+        }
+        .tab-active {
+            border-color: #D97706;
+            background-color: #FFFBEB;
+            color: #D97706;
+        }
+        .step-item-active {
+            background-color: #D97706;
+            color: #FFFFFF;
+            transform: scale(1.1);
+        }
+    </style>
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: This page is designed to be an informative and celebratory guide to Makar Sankranti. The structure is thematic: 1) A vibrant Hero Section introduces the festival's spirit. 2) The Significance of Sankranti uses an interactive tabbed interface to explore its multi-faceted meaning (Astronomical, Harvest, Spiritual), allowing users to delve into the aspects that interest them most. 3) A Celebration of Traditions uses a step-based interactive diagram to walk the user through the key rituals and activities, from holy dips to kite flying. 4) A Taste of the Festival showcases the culinary delights associated with the day. This structure provides a comprehensive yet easily digestible overview of the festival. -->
+    <!-- Visualization & Content Choices: Report Info: The different meanings of the festival -> Goal: Explain diverse concepts clearly -> Viz/Method: Tabbed content -> Interaction: Tabs for "Astronomical," "Harvest," and "Spiritual" aspects -> Justification: Tabs are perfect for segmenting different conceptual layers of a single topic, preventing information overload. | Report Info: The various rituals and traditions -> Goal: Show a sequence of activities -> Viz/Method: Interactive step-based diagram -> Interaction: Click steps for Holy Dips, Charity, Kite Flying, and Bonfires -> Justification: This method presents the festival's activities as a vibrant collection of experiences, making them engaging and easy to understand. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="text-stone-800">
+
+    <header class="bg-amber-100/30 sticky top-0 z-50 backdrop-blur-sm">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="font-sanskrit text-2xl font-bold text-amber-800">मकर-सङ्क्रान्ति</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#significance" class="text-stone-600 hover:text-amber-700 transition">Significance</a>
+                    <a href="#traditions" class="text-stone-600 hover:text-amber-700 transition">Traditions</a>
+                    <a href="#foods" class="text-stone-600 hover:text-amber-700 transition">Foods</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+
+        <section class="text-center my-12 md:my-20">
+            <h1 class="font-sanskrit text-5xl md:text-7xl font-bold text-amber-900 leading-tight">The Sun's Joyful Journey</h1>
+            <p class="mt-4 text-xl md:text-2xl text-stone-600">Celebrating the Harvest and Light</p>
+            <p class="mt-6 max-w-3xl mx-auto text-stone-500">
+                Makar Sankranti, a cherished Indian festival, celebrates the sun's northward shift. It’s a day of gratitude for the harvest, marked by kite flying, sweet sharing, and embracing brighter, longer days with joy and festivity.
+            </p>
+        </section>
+
+        <section id="significance" class="my-16 md:my-24">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-amber-800 mb-2">The Many Meanings of Sankranti</h2>
+            <p class="text-center text-stone-600 mb-12 max-w-3xl mx-auto">Beyond a mere festival, Makar Sankranti is a cosmic event, a cultural landmark, and a profound spiritual celebration in unison.</p>
+
+            <div class="max-w-3xl mx-auto">
+                <div class="flex border-b border-stone-300 mb-6">
+                    <button class="tab-button tab-active flex-1 text-center font-semibold p-3 border-b-2 transition" data-tab="astronomical">Astronomical</button>
+                    <button class="tab-button flex-1 text-center font-semibold p-3 border-b-2 border-transparent text-stone-500 transition" data-tab="harvest">Harvest</button>
+                    <button class="tab-button flex-1 text-center font-semibold p-3 border-b-2 border-transparent text-stone-500 transition" data-tab="spiritual">Spiritual</button>
+                </div>
+                <div id="tab-content">
+                    <div id="astronomical-content" class="tab-pane">
+                        <h3 class="text-2xl font-bold text-amber-800 mb-3">The Sun's Transit (Uttarayan)</h3>
+                        <p class="text-stone-600">The festival celebrates the Sun God's shift into the zodiac sign of Capricorn (Makara), marking Uttarayan. This cosmic event signifies winter's end, the onset of longer days, and the victory of light over darkness.</p>
+                    </div>
+                    <div id="harvest-content" class="hidden tab-pane">
+                        <h3 class="text-2xl font-bold text-amber-800 mb-3">A Farmer's Thanksgiving</h3>
+                        <p class="text-stone-600">Across India, Sankranti marks a joyous harvest celebration. Farmers express gratitude for nature's gifts and hope for prosperity ahead. Known by various names—Pongal in the south, Lohri in the north, Bihu in the east—the festival unites all in thankfulness for the earth's abundance.</p>
+                    </div>
+                    <div id="spiritual-content" class="hidden tab-pane">
+                        <h3 class="text-2xl font-bold text-amber-800 mb-3">An Auspicious Time</h3>
+                        <p class="text-stone-600">Uttarayan is seen as a sacred time in Hindu culture, symbolizing renewal, spiritual growth, and shedding negativity. Bhishma, the revered Mahabharata warrior, chose this auspicious period to depart his earthly life, seeking moksha or liberation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="traditions" class="my-16 md:my-24 py-12 bg-amber-50/50 rounded-2xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-amber-800 mb-2">A Celebration of Traditions</h2>
+            <p class="text-center text-stone-600 mb-12 max-w-3xl mx-auto">The happiness of Makar Sankranti shines through vibrant rituals that unite and uplift communities.</p>
+            
+            <div>
+                <div class="flex flex-col md:flex-row justify-center items-center md:space-x-4 mb-6">
+                    <button class="step-item step-item-active w-full md:w-auto px-4 h-16 rounded-lg font-bold transition duration-300 mb-2 md:mb-0" data-step="1">1. Holy Dips & Prayers</button>
+                    <div class="hidden md:block w-12 h-0.5 bg-stone-300"></div>
+                    <button class="step-item w-full md:w-auto px-4 h-16 rounded-lg font-bold transition duration-300 bg-white mb-2 md:mb-0" data-step="2">2. Charity & Goodwill</button>
+                    <div class="hidden md:block w-12 h-0.5 bg-stone-300"></div>
+                    <button class="step-item w-full md:w-auto px-4 h-16 rounded-lg font-bold transition duration-300 bg-white" data-step="3">3. Kite Flying</button>
+                </div>
+
+                <div id="step-details" class="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-md min-h-[150px]">
+                    <h4 id="step-title" class="font-bold text-xl text-amber-700 mb-2">Step 1: Holy Dips & Prayers</h4>
+                    <p id="step-description" class="text-stone-600">Worshippers bathe in sacred rivers such as the Ganga and Yamuna, believing it purifies past sins. They pray to the Sun God, Surya, showing thanks and seeking blessings for the future.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="foods" class="my-16 md:my-24 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-amber-800">A Taste of the Festival</h2>
+            <p class="mt-4 text-lg max-w-3xl mx-auto text-stone-600">
+                Sankranti festivities feel incomplete without traditional foods crafted from the season's fresh harvest, offering warmth and vitality.
+            </p>
+            <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Tilgul -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-stone-200/80">
+                    <div class="text-5xl mb-3">🍬</div>
+                    <h3 class="font-bold text-xl text-amber-800">Tilgul</h3>
+                    <p class="text-stone-500 text-sm">Sesame (til) and jaggery (gur) sweets are shared with the phrase, 'Tilgul ghya, goad goad bola' (Enjoy tilgul, speak sweetly).</p>
+                </div>
+                <!-- Khichdi -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-stone-200/80">
+                    <div class="text-5xl mb-3">🍚</div>
+                    <h3 class="font-bold text-xl text-amber-800">Khichdi</h3>
+                    <p class="text-stone-500 text-sm">A hearty mix of rice and lentils, signifying unity and new harvest. It’s a traditional meal and offering today.</p>
+                </div>
+                <!-- Gajak/Chikki -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-stone-200/80">
+                    <div class="text-5xl mb-3">🥜</div>
+                    <h3 class="font-bold text-xl text-amber-800">Gajak & Chikki</h3>
+                    <p class="text-stone-500 text-sm">Crunchy treats of peanuts, jaggery, and sesame, cherished in Northern India for their warmth and texture.</p>
+                </div>
+                 <!-- Pongal -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-stone-200/80">
+                    <div class="text-5xl mb-3">🍯</div>
+                    <h3 class="font-bold text-xl text-amber-800">Pongal</h3>
+                    <p class="text-stone-500 text-sm">A Southern delicacy of fresh rice, milk, and jaggery, cooked to overflow, symbolizing prosperity.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Using the reusable footer you requested -->
+    <footer class="bg-stone-100 border-t border-stone-200/80 mt-20">
+        <div class="container mx-auto px-6 py-12">
+            <div class="text-center mb-10">
+                 <h2 class="font-sanskrit text-3xl font-bold text-amber-800">रामायण-कथावली</h2>
+                 <p class="text-stone-600 mt-2">Explore the Full Epic</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-sm">
+                <!-- Column 1 -->
+                <div class="space-y-4">
+                    <h3 class="font-bold text-stone-800 tracking-wider uppercase">The Beginning</h3>
+                    <ul class="space-y-3">
+                        <li><a href="./ravana-vardaan-arrogance.html" class="text-stone-600 hover:text-amber-700 transition">Ravana's Boons</a></li>
+                        <li><a href="./hanuman-sun-story.html" class="text-stone-600 hover:text-amber-700 transition">Hanuman & the Sun</a></li>
+                        <li><a href="./ahalya-story.html" class="text-stone-600 hover:text-amber-700 transition">Rama Frees Ahalya</a></li>
+                    </ul>
+                </div>
+                <!-- Column 2 -->
+                <div class="space-y-4">
+                    <h3 class="font-bold text-stone-800 tracking-wider uppercase">The Great Search</h3>
+                     <ul class="space-y-3">
+                        <li><a href="./hanuman-ram-first-meet-story.html" class="text-stone-600 hover:text-amber-700 transition">Hanuman Meets Rama</a></li>
+                        <li><a href="./hanuman-leep-to-lanka-story.html" class="text-stone-600 hover:text-amber-700 transition">Hanuman’s Leap</a></li>
+                        <li><a href="./site-in-ashok-vatika-story.html" class="text-stone-600 hover:text-amber-700 transition">Sita in Ashok Vatika</a></li>
+                    </ul>
+                </div>
+                <!-- Column 3 -->
+                <div class="space-y-4">
+                    <h3 class="font-bold text-stone-800 tracking-wider uppercase">The War for Lanka</h3>
+                    <ul class="space-y-3">
+                        <li><a href="./diwali-nal-neel-maker-of-setu-bridge.html" class="text-stone-600 hover:text-amber-700 transition">Nal and Neel</a></li>
+                        <li><a href="./kumbhakarna-battle-story.html" class="text-stone-600 hover:text-amber-700 transition">Kumbhakarna’s Battle</a></li>
+                        <li><a href="./sanjeevini-story.html" class="text-stone-600 hover:text-amber-700 transition">Hanuman & Sanjeevani</a></li>
+                    </ul>
+                </div>
+                <!-- Column 4 -->
+                <div class="space-y-4">
+                    <h3 class="font-bold text-stone-800 tracking-wider uppercase">Triumph & Legacy</h3>
+                    <ul class="space-y-3">
+                        <li><a href="./return-to-ayodhya-first-diwali-celebration.html" class="text-stone-600 hover:text-amber-700 transition">Return to Ayodhya</a></li>
+                        <li><a href="./hanumana-tears-his-chest.html" class="text-stone-600 hover:text-amber-700 transition">Hanuman’s Devotion</a></li>
+                        <li><a href="./diwali-ramyana-stories.html" class="font-bold text-amber-800 hover:text-amber-700 transition">Return to Story Hub</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-stone-200 mt-10 pt-6 text-center text-xs text-stone-500">
+                <p>An interactive collection of stories from the epic Ramayana.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab Logic
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    tabButtons.forEach(btn => btn.classList.remove('tab-active'));
+                    button.classList.add('tab-active');
+
+                    const tab = button.dataset.tab;
+                    tabPanes.forEach(pane => {
+                        if (pane.id === `${tab}-content`) {
+                            pane.classList.remove('hidden');
+                        } else {
+                            pane.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+
+            // Step Logic
+            const stepData = {
+                1: { title: 'Step 1: Holy Dips & Prayers', description: 'Worshippers bathe in sacred rivers such as the Ganga and Yamuna, believing it purifies past sins. They pray to the Sun God, Surya, showing thanks and seeking blessings for the future.' },
+                2: { title: 'Step 2: Charity & Goodwill (Daan)', description: 'Giving alms to the poor and needy is a key tradition. It is believed that acts of charity performed on this day bring great merit and blessings. People donate food, clothing, and sesame seeds.' },
+                3: { title: 'Step 3: Kite Flying (Patang Utsav)', description: 'The sky fills with colorful kites in many parts of India, especially Gujarat. This joyful activity symbolizes reaching for the heavens and celebrating freedom. The friendly competitions and vibrant atmosphere are a hallmark of the day.' }
+            };
+
+            const stepItems = document.querySelectorAll('.step-item');
+            const stepTitle = document.getElementById('step-title');
+            const stepDescription = document.getElementById('step-description');
+
+            stepItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    stepItems.forEach(i => i.classList.remove('step-item-active', 'bg-white'));
+                    stepItems.forEach(i => {
+                        if (i !== item) i.classList.add('bg-white');
+                    });
+                    item.classList.add('step-item-active');
+                    item.classList.remove('bg-white');
+
+                    const step = item.dataset.step;
+                    stepTitle.textContent = stepData[step].title;
+                    stepDescription.textContent = stepData[step].description;
+                });
+            });
+            
+            // Smooth scroll for nav links
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

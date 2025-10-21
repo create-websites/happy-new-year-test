@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hanukkah: An Interactive Guide to the Festival of Lights</title>
+    
+    <!-- Meta Description and Keywords for SEO -->
+    <meta name="description" content="Explore the history, miracle, traditions (menorah, dreidel, latkes), and eight-night celebration of the Jewish festival of Hanukkah in this interactive guide.">
+    <meta name="keywords" content="Hanukkah, Chanukah, Festival of Lights, Menorah, Dreidel, Latkes, Sufganiyot, Macabees, Miracle of Oil, Jewish holiday">
+
+    <!-- Open Graph (OG) / Social Media Tags -->
+    <meta property="og:title" content="Hanukkah: An Interactive Guide to the Festival of Lights">
+    <meta property="og:description" content="Discover the meaning behind the eight nights of Hanukkah, its historical significance, and the beautiful traditions celebrated worldwide.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://example.com/hanukkah-guide">
+    <meta property="og:image" content="https://placehold.co/1200x630/ADD8E6/00008B?text=Hanukkah+Guide">
+    <meta property="og:site_name" content="Cultural Festival Explorer">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "Hanukkah",
+      "description": "An eight-day Jewish holiday commemorating the rededication of the Holy Temple in Jerusalem at the time of the Maccabean Revolt.",
+      "image": "https://placehold.co/1200x630/ADD8E6/00008B?text=Hanukkah+Guide",
+      "startDate": "2025-12-25", 
+      "location": {
+        "@type": "Place",
+        "name": "Global"
+      }
+    }
+    </script>
+    
+    <!-- Chosen Palette: Navy Blue, Gold/Yellow, and Light Blue (Symbolizing Light and Royalty) -->
+    <!-- Application Structure Plan: A thematic, single-page application with a sticky top navigation. The flow covers: 'Significance' (date/8 nights/meaning), 'Historical Miracle' (Macabees and the oil story), 'Core Traditions' (menorah, food, dreidel), 'Meal Components' chart (focus on oily foods), and 'Wishes & Greetings'. This structure clearly explains the historical foundation before detailing the modern celebration practices. -->
+    <!-- Visualization & Content Choices: 
+        - Significance: Inform -> Text block & Two Image Cards (Placeholders) -> Static -> Justification: Provides contextual meaning alongside visual representations of the two core elements (Menorah, Dreidel). Method: HTML/Tailwind.
+        - Historical Miracle: Inform -> Detailed Story Block -> Static -> Justification: Explains the central event (rededication of the Temple) and the Miracle of the Oil. Method: HTML/Tailwind.
+        - Core Traditions: Organize/Inform -> Step-by-step card flow -> Scroll/Click -> Justification: Breaks down customs (lighting, foods, games) and their significance. Method: HTML/Tailwind.
+        - Meal Components: Inform/Compare -> Doughnut Chart -> Interactive Tooltips -> Justification: Visually represents the common components of a Hanukkah meal, emphasizing the fried element. Library: Chart.js/Canvas.
+        - Wishes/Quotes: Inform -> Grid of Text Cards -> Static -> Justification: Provides appropriate messages for the holiday. Method: HTML/Tailwind. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F8FF; /* Ghost White */
+        }
+        h1, h2, h3 {
+            font-family: 'Lora', serif;
+        }
+        .nav-link {
+            transition: color 0.3s, border-color 0.3s;
+        }
+        .nav-link.active {
+            color: #FFD700; /* Gold */
+            border-bottom-color: #FFD700;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 450px;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <header class="bg-white/90 backdrop-blur-sm sticky top-0 z-50 shadow-md">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <h1 class="text-2xl font-bold text-blue-800">Hanukkah Guide</h1>
+                <div class="hidden sm:flex sm:space-x-8" id="nav-links">
+                    <a href="#significance" class="nav-link text-gray-600 hover:text-yellow-600 border-b-2 border-transparent pb-1">Meaning</a>
+                    <a href="#miracle" class="nav-link text-gray-600 hover:text-yellow-600 border-b-2 border-transparent pb-1">The Miracle</a>
+                    <a href="#traditions" class="nav-link text-gray-600 hover:text-yellow-600 border-b-2 border-transparent pb-1">Traditions</a>
+                    <a href="#food" class="nav-link text-gray-600 hover:text-yellow-600 border-b-2 border-transparent pb-1">Meal Chart</a>
+                    <a href="#quotes" class="nav-link text-gray-600 hover:text-yellow-600 border-b-2 border-transparent pb-1">Wishes & Quotes</a>
+                </div>
+                <div class="sm:hidden">
+                    <select id="mobile-nav" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                        <option value="#significance">Meaning</option>
+                        <option value="#miracle">The Miracle</option>
+                        <option value="#traditions">Traditions</option>
+                        <option value="#food">Meal Chart</option>
+                        <option value="#quotes">Wishes & Quotes</option>
+                    </select>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+
+        <section id="hero" class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-yellow-600 tracking-tight">Hanukkah: The Festival of Lights</h1>
+            <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">A hands-on journey through the eight-day festival of light, wonder, and unwavering faith.</p>
+        </section>
+
+        <section id="significance" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-8 text-blue-800">Eight Nights of Light and Dedication</h2>
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+                <!-- Text Content -->
+                <div class="md:col-span-2 bg-white p-8 rounded-xl shadow-lg border border-yellow-100">
+                    <h3 class="text-2xl font-semibold text-blue-700 mb-4">Date and Central Theme</h3>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Hanukkah (or Chanukah) starts on the 25th of Kislev in the Hebrew calendar and is celebrated for eight days and nights. It typically occurs in late November or December. The term "Hanukkah" means "dedication," marking the rededication of the Second Temple in Jerusalem following the Maccabean revolt. Though religiously minor, it is a significant cultural celebration centered on publicizing the miracle of the oil lasting eight days, highlighting themes of religious freedom and the victory of light over darkness.
+                    </p>
+                </div>
+                <!-- Image Cards (Placeholders) -->
+                <div class="md:col-span-1 space-y-4">
+                    <div class="rounded-xl overflow-hidden shadow-xl border border-yellow-500 bg-yellow-50">
+                        <img src="https://placehold.co/400x250/FFD700/00008B?text=The+Menorah" alt="Placeholder image of a lit Hanukkah menorah." class="w-full h-auto object-cover">
+                        <p class="p-3 text-sm text-center font-medium text-blue-900">The Central Symbol: The Menorah</p>
+                    </div>
+                    <div class="rounded-xl overflow-hidden shadow-xl border border-yellow-500 bg-yellow-50">
+                        <img src="https://placehold.co/400x250/00008B/FFD700?text=The+Dreidel" alt="Placeholder image of a dreidel (spinning top)." class="w-full h-auto object-cover">
+                         <p class="p-3 text-sm text-center font-medium text-yellow-800">The Tradition of the Dreidel</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="miracle" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-8 text-blue-800">The Historical Miracle of the Oil</h2>
+            <div class="bg-white p-8 rounded-xl shadow-2xl max-w-4xl mx-auto border-t-4 border-yellow-600">
+                <h3 class="text-2xl font-bold text-yellow-700 mb-4">The Maccabean Revolt and the Eternal Flame</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Around 168 BCE, the Seleucid Greeks seized the Holy Temple and rededicated it to their gods. A small group of Jewish rebels, led by **Judah Maccabee**, reclaimed and purified the Temple. When they attempted to relight the **Menorah**, they discovered only a single jug of ritually pure olive oil—sufficient for just **one day**. Miraculously, the oil lasted for **eight days**, allowing time to produce more kosher oil. This miracle inspired the eight-day celebration of Hanukkah, symbolizing divine intervention and Jewish perseverance.
+                </p>
+            </div>
+        </section>
+
+        <section id="traditions" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-8 text-blue-800">Core Traditions: Light, Food, and Play</h2>
+             <p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
+                The main customs tie closely to the miracle, focusing on oil and light.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-blue-100 transition-transform transform hover:scale-105 border-b-4 border-yellow-500">
+                    <h3 class="text-xl font-semibold text-yellow-700 mb-3"><span class="font-mono text-3xl text-blue-600 mr-2">1.</span> Menorah Lighting</h3>
+                    <p class="text-gray-600">Each night, a new candle is lit using the **Shammash** (helper), until all eight shine brightly on the last evening, proudly on display.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-blue-100 transition-transform transform hover:scale-105 border-b-4 border-yellow-500">
+                    <h3 class="text-xl font-semibold text-yellow-700 mb-3"><span class="font-mono text-3xl text-blue-600 mr-2">2.</span> Oily Foods</h3>
+                    <p class="text-gray-600">To honor the oil miracle, people enjoy fried foods like **Latkes** (potato pancakes) and **Sufganiyot** (jelly donuts).</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-blue-100 transition-transform transform hover:scale-105 border-b-4 border-yellow-500">
+                    <h3 class="text-xl font-semibold text-yellow-700 mb-3"><span class="font-mono text-3xl text-blue-600 mr-2">3.</span> Dreidel Game</h3>
+                    <p class="text-gray-600">A game with a spinning top, played for **gelt** (chocolate coins), where Hebrew letters mean "A great miracle happened there."</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-blue-100 transition-transform transform hover:scale-105 border-b-4 border-yellow-500">
+                    <h3 class="text-xl font-semibold text-yellow-700 mb-3"><span class="font-mono text-3xl text-blue-600 mr-2">4.</span> Giving Gelt (Gifts)</h3>
+                    <p class="text-gray-600">The practice of gifting kids money (or chocolate coins, Gelt) fosters generosity and has grown into a nightly small-gift tradition.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="food" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-8 text-blue-800">Visualizing the Hanukkah Meal Components</h2>
+            <p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
+                An overview of key elements in a Hanukkah feast, emphasizing the tradition of fried treats.
+            </p>
+            <div class="bg-white p-4 sm:p-8 rounded-xl shadow-lg">
+                <div class="chart-container">
+                    <canvas id="mealChart"></canvas>
+                </div>
+                <div class="text-center mt-4 text-sm text-gray-500">Hover on the segments to view the percentage split for each meal part.</div>
+            </div>
+        </section>
+        
+        <section id="quotes" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-8 text-blue-800">20 Hanukkah Wishes & Greetings</h2>
+            <p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
+                Heartfelt and classic wishes to share throughout the eight nights of joy.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Chag Sameach! Wishing you a Happy Hanukkah!</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">May your lights shine bright through all eight nights.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Wishing you a holiday filled with peace and light.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Happy Festival of Lights! Enjoy your latkes and sufganiyot.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">May the spirit of the Maccabees inspire you.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Here's to freedom, hope, and resilience. Happy Hanukkah!</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Wishing you a Hanukkah full of family, fun, and gelt!</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">May your menorah be a source of warmth and pride.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Wishing you joy and prosperity this holiday season.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">May the light of the miracle guide your way.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">L'Chaim! To life and to light!</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">May the flames remind us of the power of faith.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Shine brightly this Hanukkah!</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Wishing you many happy spins of the dreidel!</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Happy Hanukkah! Wishing you delicious food and great company.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">May your Hanukkah be blessed with peace.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Celebrate the dedication and the triumph of light.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Kol tuv—All the best to you and yours this Hanukkah.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">May your home glow with the light of the candles.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Wishing you eight amazing nights!</div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="bg-blue-100 mt-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-gray-500">
+            <p>&copy; 2025 Hanukkah Interactive Guide. Happy Festival of Lights!</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section[id]');
+            const mobileNav = document.getElementById('mobile-nav');
+
+            const activateNav = (id) => {
+                navLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+                });
+                if (mobileNav.value !== `#${id}`) {
+                    mobileNav.value = `#${id}`;
+                }
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        activateNav(entry.target.id);
+                    }
+                });
+            }, { rootMargin: '-30% 0px -70% 0px' });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            mobileNav.addEventListener('change', (e) => {
+                window.location.href = e.target.value;
+            });
+            
+            const ctx = document.getElementById('mealChart').getContext('2d');
+            const mealChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Fried Foods (Latkes, Sufganiyot)', 'Meat/Poultry (Brisket, Chicken)', 'Side Dishes (Applesauce, Salad)', 'Sweets & Desserts (Gelt)'],
+                    datasets: [{
+                        label: 'Hanukkah Meal Components',
+                        data: [40, 30, 20, 10], // Conceptual percentage distribution
+                        backgroundColor: [
+                            'rgba(255, 215, 0, 0.9)', /* Gold/Yellow for Fried */
+                            'rgba(0, 0, 139, 0.9)', /* Dark Blue for Main Course */
+                            'rgba(173, 216, 230, 0.9)', /* Light Blue for Sides */
+                            'rgba(240, 128, 128, 0.9)'  /* Light Coral for Sweets */
+                        ],
+                        borderColor: '#FFFFFF',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                font: {
+                                    family: "'Inter', sans-serif"
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    let text = '';
+                                    if (label.includes('Fried Foods')) text = 'The central category, eaten to recall the miracle of the oil.';
+                                    else if (label.includes('Meat/Poultry')) text = 'Traditional main course dishes, like brisket, often served for holiday gatherings.';
+                                    else if (label.includes('Side Dishes')) text = 'Applesauce and sour cream often accompany latkes; salads provide balance.';
+                                    else if (label.includes('Sweets')) text = 'Chocolate gelt and other desserts conclude the festive meal.';
+                                    return `${label}: ${text}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+        });
+    </script>
+
+</body>
+</html>

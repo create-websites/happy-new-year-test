@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infographic: Chinese New Year 2026 - Year of the Horse</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Energetic & Playful -->
+    <!-- Narrative & Structure Plan: The infographic follows a top-down narrative, starting with a bold hook about the 2026 Year of the Horse to capture immediate interest. It then broadens to cover timeless traditions and symbolic foods, using a bar chart for visual comparison. A structured timeline follows, visualizing the 15-day festival process. The structure concludes with a look at the full zodiac cycle, providing broader context. This logical flow from specific to general makes the information easy to digest. -->
+    <!-- Visualization Choices: Data Point: 2026 Zodiac Animal -> Goal: Inform -> Chosen Visualization: Large text and Unicode character -> Justification: Creates a strong, immediate visual anchor for the infographic's theme. Data Point: Key Traditions -> Goal: Organize -> Chosen Visualization: Styled HTML cards -> Justification: Breaks down distinct concepts into clean, readable blocks. Data Point: Symbolic Foods -> Goal: Compare -> Chosen Visualization: Chart.js Bar Chart -> Justification: Visually compares the symbolic weight and meaning of different foods effectively. Data Point: 15-Day Festival -> Goal: Show Change/Process -> Chosen Visualization: HTML/CSS Timeline -> Justification: Clearly shows the sequence of events over time. CONFIRMED NO SVG/Mermaid. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FFF8F0; /* Warm off-white from palette */
+            color: #4A4A4A;
+        }
+        .text-brand-red { color: #D92027; }
+        .text-brand-gold { color: #FFBF00; }
+        .bg-brand-red { background-color: #D92027; }
+        .bg-brand-gold { background-color: #FFBF00; }
+        .border-brand-red { border-color: #D92027; }
+        h1, h2 {
+            font-weight: 900;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="container mx-auto p-4 md:p-8 max-w-5xl">
+        
+        <header class="text-center my-12">
+            <p class="text-2xl md:text-3xl font-semibold text-brand-gold">CELEBRATING THE LUNAR NEW YEAR</p>
+            <h1 class="text-6xl md:text-8xl font-black text-brand-red my-4">2026</h1>
+            <p class="text-3xl md:text-5xl font-bold text-gray-700">Year of the Fire Horse</p>
+            <div class="w-24 h-2 bg-brand-red mx-auto mt-6"></div>
+        </header>
+
+        <section class="my-16">
+            <div class="grid md:grid-cols-3 gap-8 items-center text-center md:text-left">
+                <div class="md:col-span-1 text-8xl md:text-9xl text-center">🐴</div>
+                <div class="md:col-span-2">
+                    <h2 class="text-4xl text-brand-red mb-4">The Spirit of the Horse</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        Chinese New Year 2026 starts on **February 17th**, marking the Year of the Fire Horse. The Horse, the seventh zodiac sign, symbolizes energy, intelligence, and cheerfulness. Those born under this sign are seen as lively and sociable. With Fire as its element, 2026 promises a dynamic year filled with creativity, passion, and bold leadership.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="my-20">
+            <h2 class="text-4xl text-center text-brand-red mb-12">Timeless Traditions</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-md p-6 text-center border-t-8 border-brand-red">
+                    <div class="text-6xl mb-4">🧧</div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Red Envelopes (Hongbao)</h3>
+                    <p class="text-gray-600">Elders give red envelopes containing money to children, symbolizing the passing of good fortune and blessings for the new year.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 text-center border-t-8 border-brand-gold">
+                    <div class="text-6xl mb-4">🏮</div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Vibrant Decorations</h3>
+                    <p class="text-gray-600">Houses glow with red lanterns and paper art, symbolizing luck and driving away bad spirits.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 text-center border-t-8 border-brand-red">
+                    <div class="text-6xl mb-4">👨‍👩‍👧‍👦</div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">The Reunion Dinner</h3>
+                    <p class="text-gray-600">The year's key meal, celebrated on New Year's Eve, unites generations of family for a lavish feast.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="my-20">
+            <h2 class="text-4xl text-center text-brand-red mb-4">A Feast of Fortune</h2>
+             <p class="text-center text-lg max-w-3xl mx-auto mb-12 text-gray-600">
+                Food holds significant importance in celebrations, with various dishes chosen for their symbolic meanings tied to names or appearances. The chart below showcases some of the most fortunate foods and their related blessings.
+            </p>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="chart-container">
+                    <canvas id="foodChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="my-20">
+            <h2 class="text-4xl text-center text-brand-red mb-12">The 15-Day Festival Timeline</h2>
+            <div class="relative">
+                <div class="border-l-4 border-brand-gold absolute h-full top-0 left-4"></div>
+                <div class="space-y-12 pl-12">
+                    <div class="relative">
+                        <div class="absolute w-8 h-8 bg-brand-gold rounded-full -left-16 top-0 text-center flex items-center justify-center font-bold text-white">EVE</div>
+                        <h3 class="text-2xl font-bold text-brand-red">New Year's Eve: Reunion Dinner</h3>
+                        <p class="text-gray-600">Loved ones unite for a grand meal to celebrate unity and honor their heritage.</p>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute w-8 h-8 bg-brand-red rounded-full -left-16 top-0 text-center flex items-center justify-center font-bold text-white">1</div>
+                        <h3 class="text-2xl font-bold text-brand-red">Day 1: Welcoming Guests</h3>
+                        <p class="text-gray-600">Day one is spent visiting elders and showing respect to senior family members.</p>
+                    </div>
+                     <div class="relative">
+                        <div class="absolute w-8 h-8 bg-brand-red rounded-full -left-16 top-0 text-center flex items-center justify-center font-bold text-white">5</div>
+                        <h3 class="text-2xl font-bold text-brand-red">Day 5: Welcoming the God of Wealth</h3>
+                        <p class="text-gray-600">Shops reopen, and folks enjoy dumplings to wish for success.</p>
+                    </div>
+                     <div class="relative">
+                        <div class="absolute w-8 h-8 bg-brand-gold rounded-full -left-16 top-0 text-center flex items-center justify-center font-bold text-white">15</div>
+                        <h3 class="text-2xl font-bold text-brand-red">Day 15: The Lantern Festival</h3>
+                        <p class="text-gray-600">The festivity ends with lanterns aglow, tasty rice treats, and lively dragon dances beneath the bright moon.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer class="text-center mt-20 py-8 border-t border-gray-200">
+            <p class="text-gray-600">May the Year of the Horse bring you joy, prosperity, and good health!</p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const ctx = document.getElementById('foodChart').getContext('2d');
+            const foodData = {
+                labels: ['Fish (鱼)', 'Dumplings (饺子)', ['Sweet Rice', 'Balls (汤圆)'], 'Spring Rolls (春卷)', ['Nian Gao', '(年糕 - Rice Cake)']],
+                datasets: [{
+                    label: 'Symbolic Meaning',
+                    data: [95, 90, 80, 85, 75],
+                    backgroundColor: '#D92027',
+                    borderColor: '#FFBF00',
+                    borderWidth: 2,
+                    borderRadius: 5,
+                }]
+            };
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: foodData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: '#4A4A4A',
+                            titleFont: {
+                                size: 16,
+                                weight: 'bold'
+                            },
+                            bodyFont: {
+                                size: 14
+                            },
+                            callbacks: {
+                                title: function(tooltipItems) {
+                                    const item = tooltipItems[0];
+                                    let label = item.chart.data.labels[item.dataIndex];
+                                    if (Array.isArray(label)) {
+                                      return label.join(' ');
+                                    } else {
+                                      return label;
+                                    }
+                                },
+                                afterLabel: function(context) {
+                                    const symbolism = [
+                                        'Symbolizes surplus and prosperity.',
+                                        'Represents wealth, shaped like ancient money.',
+                                        'Symbolizes family togetherness and reunion.',
+                                        'Represents wealth, resembling gold bars.',
+                                        'Symbolizes progress and higher achievements.'
+                                    ];
+                                    return symbolism[context.dataIndex];
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            grid: {
+                                display: false,
+                                drawBorder: false,
+                            },
+                             ticks: {
+                                display: false
+                            }
+                        },
+                        y: {
+                             grid: {
+                                display: false,
+                                drawBorder: false,
+                            },
+                            ticks: {
+                                font: {
+                                    size: 14,
+                                    weight: '600'
+                                },
+                                color: '#4A4A4A'
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

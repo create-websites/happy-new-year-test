@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinese New Year: An Interactive Guide to the Spring Festival</title>
+    
+    <!-- Meta Description and Keywords for SEO -->
+    <meta name="description" content="Explore the history, core traditions, Lunar Calendar significance, and modern celebrations of the Chinese New Year (Spring Festival) in this interactive guide.">
+    <meta name="keywords" content="Chinese New Year, Spring Festival, Lunar New Year, Zodiac, red envelopes, traditions, reunion dinner, good fortune">
+
+    <!-- Open Graph (OG) / Social Media Tags -->
+    <meta property="og:title" content="Chinese New Year: An Interactive Guide to the Spring Festival">
+    <meta property="og:description" content="Discover the most important holiday in Chinese culture, its mythological origins, and how it's celebrated with family, fireworks, and wishes for prosperity.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://example.com/chinese-new-year-guide">
+    <meta property="og:image" content="https://placehold.co/1200x630/B33A3A/FFFACD?text=Chinese+New+Year+Guide">
+    <meta property="og:site_name" content="Cultural Festival Explorer">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "Chinese New Year (Spring Festival)",
+      "description": "The most important of the traditional Chinese holidays, celebrating the beginning of a new year on the traditional Chinese lunisolar calendar.",
+      "image": "https://placehold.co/1200x630/B33A3A/FFFACD?text=Chinese+New+Year+Guide",
+      "startDate": "2025-01-29", 
+      "location": {
+        "@type": "Place",
+        "name": "China and Global Chinese Communities"
+      }
+    }
+    </script>
+    
+    <!-- Chosen Palette: Classic Red & Gold/Yellow (Prosperity Theme) -->
+    <!-- Application Structure Plan: A thematic, single-page application with a sticky top navigation. The flow covers: 'Significance' (date/meaning), 'The Zodiac & Calendar' (core system), 'Key Traditions' (cleaning, envelopes, reunion), 'Expenditure Breakdown' chart (modern financial focus), and 'Wishes & Greetings'. This sequence guides the user from the general meaning to the specific spiritual, traditional, and economic aspects. -->
+    <!-- Visualization & Content Choices: 
+        - Significance: Inform -> Text block & Two Image Cards (Placeholders) -> Static -> Justification: Provides contextual meaning alongside visual representations of key elements (Red Lanterns, Envelopes). Method: HTML/Tailwind.
+        - Zodiac & Calendar: Inform -> Detailed Story Block -> Static -> Justification: Explains the fundamental system determining the date and the animal sign. Method: HTML/Tailwind.
+        - Traditions: Organize/Inform -> Step-by-step card flow -> Scroll/Click -> Justification: Breaks down the core practices (Cleaning, Reunion Dinner, Firecrackers) into digestible steps. Method: HTML/Tailwind.
+        - Expenditure Breakdown: Inform/Compare -> Donut Chart -> Interactive Tooltips -> Justification: Visually represents the conceptual allocation of holiday spending. Library: Chart.js/Canvas.
+        - Wishes/Quotes: Inform -> Grid of Text Cards -> Static -> Justification: Provides essential greetings and messages for sharing good fortune. Method: HTML/Tailwind. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FFFACD; /* Light Cream/Yellow */
+        }
+        h1, h2, h3 {
+            font-family: 'Lora', serif;
+        }
+        .nav-link {
+            transition: color 0.3s, border-color 0.3s;
+        }
+        .nav-link.active {
+            color: #B33A3A; /* Deep Red */
+            border-bottom-color: #B33A3A;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 450px;
+        }
+    </style>
+</head>
+<body class="text-stone-800">
+
+    <header class="bg-white/90 backdrop-blur-sm sticky top-0 z-50 shadow-md">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <h1 class="text-2xl font-bold text-red-700">Chinese New Year</h1>
+                <div class="hidden sm:flex sm:space-x-8" id="nav-links">
+                    <a href="#significance" class="nav-link text-gray-600 hover:text-red-600 border-b-2 border-transparent pb-1">Significance</a>
+                    <a href="#zodiac" class="nav-link text-gray-600 hover:text-red-600 border-b-2 border-transparent pb-1">Zodiac & Calendar</a>
+                    <a href="#traditions" class="nav-link text-gray-600 hover:text-red-600 border-b-2 border-transparent pb-1">Key Traditions</a>
+                    <a href="#spending" class="nav-link text-gray-600 hover:text-red-600 border-b-2 border-transparent pb-1">Expenditures</a>
+                    <a href="#quotes" class="nav-link text-gray-600 hover:text-red-600 border-b-2 border-transparent pb-1">Wishes & Quotes</a>
+                </div>
+                <div class="sm:hidden">
+                    <select id="mobile-nav" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500">
+                        <option value="#significance">Significance</option>
+                        <option value="#zodiac">Zodiac & Calendar</option>
+                        <option value="#traditions">Key Traditions</option>
+                        <option value="#spending">Expenditures</option>
+                        <option value="#quotes">Wishes & Quotes</option>
+                    </select>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+
+        <section id="hero" class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-red-800 tracking-tight">Chinese New Year: Welcoming Spring and Prosperity</h1>
+            <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">A hands-on guide to the Spring Festival, honoring family, luck, and new beginnings tied to the Lunar Calendar.</p>
+        </section>
+
+        <section id="significance" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-8 text-red-800">The Core Meaning of Spring Festival</h2>
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+                <!-- Text Content -->
+                <div class="md:col-span-2 bg-white p-8 rounded-xl shadow-lg border border-yellow-200">
+                    <h3 class="text-2xl font-semibold text-red-700 mb-4">A Festival of Renewal and Family</h3>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        The **Chinese New Year**, also known as the **Spring Festival (Chūnjié)**, is the most significant celebration in China and East Asia. It signifies the shift from winter to spring and emphasizes family reunions and honoring ancestors. Spanning 15 days, it concludes with the **Lantern Festival**. The highlight is the **Reunion Dinner** on New Year's Eve, where families make every effort to come together. Every custom, from thorough house cleaning to wearing red, is aimed at **banishing bad luck** and **inviting good fortune** (Fú) and prosperity for the year ahead.
+                    </p>
+                </div>
+                <!-- Image Cards (Placeholders) -->
+                <div class="md:col-span-1 space-y-4">
+                    <div class="rounded-xl overflow-hidden shadow-xl border border-red-500 bg-red-100">
+                        <img src="https://placehold.co/400x250/B33A3A/FFFACD?text=Red+Lanterns" alt="Placeholder image of traditional red lanterns." class="w-full h-auto object-cover">
+                        <p class="p-3 text-sm text-center font-medium text-red-800">Decorations for Good Luck</p>
+                    </div>
+                    <div class="rounded-xl overflow-hidden shadow-xl border border-red-500 bg-red-100">
+                        <img src="https://placehold.co/400x250/FFD700/B33A3A?text=Red+Envelope" alt="Placeholder image of a traditional red envelope (Hongbao)." class="w-full h-auto object-cover">
+                         <p class="p-3 text-sm text-center font-medium text-amber-800">The Red Envelope (Hongbao)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="zodiac" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-8 text-red-800">The Lunar Calendar and Chinese Zodiac</h2>
+            <div class="bg-white p-8 rounded-xl shadow-2xl max-w-4xl mx-auto border-t-4 border-amber-600">
+                <h3 class="text-2xl font-bold text-amber-700 mb-4">Determining the Date and Sign</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    The Chinese New Year date is based on the **Lunarsolar Calendar**, occurring on the new moon between January 21st and February 20th. It ushers in a year named after one of the 12 animals in the **Chinese Zodiac**. This zodiac follows a 12-year cycle, with each animal (Rat, Ox, Tiger, Rabbit, Dragon, Snake, Horse, Goat, Monkey, Rooster, Dog, Pig) representing a year. It's thought that a person's birth year animal influences their traits and fate. The celebration often takes the name of the incoming year's animal (e.g., Year of the Dragon), shaping the festival's theme and decorations.
+                </p>
+            </div>
+        </section>
+
+        <section id="traditions" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-8 text-red-800">The Essential Family Traditions</h2>
+             <p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
+                These 15-day customs are essential for bringing fortune and success in the new year.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-yellow-200 transition-transform transform hover:scale-105 border-b-4 border-red-500">
+                    <h3 class="text-xl font-semibold text-red-700 mb-3"><span class="font-mono text-3xl text-amber-600 mr-2">1.</span> Grand Cleaning (Sǎochén)</h3>
+                    <p class="text-gray-600">The whole house is thoroughly cleaned *before* New Year's to remove bad luck and welcome good fortune. Cleaning is forbidden on New Year's Day.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-yellow-200 transition-transform transform hover:scale-105 border-b-4 border-red-500">
+                    <h3 class="text-xl font-semibold text-red-700 mb-3"><span class="font-mono text-3xl text-amber-600 mr-2">2.</span> Reunion Dinner (Tuányuán Fàn)</h3>
+                    <p class="text-gray-600">The year's key feast on New Year's Eve features dishes like dumplings (Jiǎozi) and spring rolls (Chūnjuǎn), symbolizing fortune and success.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-yellow-200 transition-transform transform hover:scale-105 border-b-4 border-red-500">
+                    <h3 class="text-xl font-semibold text-red-700 mb-3"><span class="font-mono text-3xl text-amber-600 mr-2">3.</span> Red Envelopes (Hóngbāo)</h3>
+                    <p class="text-gray-600">Red envelopes with money are gifted by married couples or elders to children or unmarried juniors, symbolizing fortune and warding off evil spirits.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-yellow-200 transition-transform transform hover:scale-105 border-b-4 border-red-500">
+                    <h3 class="text-xl font-semibold text-red-700 mb-3"><span class="font-mono text-3xl text-amber-600 mr-2">4.</span> Lion Dances & Firecrackers</h3>
+                    <p class="text-gray-600">Noisy firecrackers and lively lion or dragon dances drive off the mythical Nian and dispel bad luck, cleansing the air for the new year.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="spending" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-8 text-red-800">Visualizing Holiday Expenditure Breakdown</h2>
+            <p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
+                The Spring Festival demands notable financial investment. This chart outlines the main spending categories for the holiday season.
+            </p>
+            <div class="bg-white p-4 sm:p-8 rounded-xl shadow-lg">
+                <div class="chart-container">
+                    <canvas id="spendingChart"></canvas>
+                </div>
+                <div class="text-center mt-4 text-sm text-gray-500">Hover on the sections to view details of holiday fund allocation.</div>
+            </div>
+        </section>
+        
+        <section id="quotes" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-8 text-red-800">20 Chinese New Year Wishes & Greetings</h2>
+            <p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
+                Key phrases to wish luck and wealth (all beginning with the classic **Gōng Xǐ Fā Cái**!).
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-amber-600 text-gray-700">Gōng Xǐ Fā Cái! (恭喜发财!) Wishing you happiness and prosperity!</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-amber-600 text-gray-700">Gōng Xǐ Fā Cái! Wishing your business great success this New Year. (Shēng Yì Xīng Lóng)</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-amber-600 text-gray-700">Gōng Xǐ Fā Cái! May all your wishes come true. (Xīn Xiǎng Shì Chéng)</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-amber-600 text-gray-700">Gōng Xǐ Fā Cái! Wishing you peace all year long. (Suì Suì Píng Ān)</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-amber-600 text-gray-700">Gōng Xǐ Fā Cái! Prosperity, joy, and long life. (Fú Lù Shòu)</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-amber-600 text-gray-700">Gōng Xǐ Fā Cái! Wishing you success in studies and work! (Xué Yè Jìn Bù)</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-amber-600 text-gray-700">Wishing you great fortune! May your year flow with ease. (Yī Fān Fēng Shùn)</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-amber-600 text-gray-700">Gōng Xǐ Fā Cái! May prosperity and joy be with you. (Dà Jí Dà Lì)</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-amber-600 text-gray-700">Gōng Xǐ Fā Cái! Wishing you boundless joy and delight. (Xǐ Lè Wú Qióng)</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-amber-600 text-gray-700">Gōng Xǐ Fā Cái! Wishing you abundant health this new year. (Shēn Tǐ Jiàn Kāng)</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-amber-600 text-gray-700">Wishing you joy and wealth! Stay healthy and thrive always.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-amber-600 text-gray-700">Gōng Xǐ Fā Cái! May your Spring Festival be full of joy and harmony.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-amber-600 text-gray-700">Wishing you wealth and joy! Happy New Year! (Gōng Hè Xīn Xǐ)</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-amber-600 text-gray-700">Wishing you joy and luck! May the [Current Zodiac Animal]'s spirit empower you.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-amber-600 text-gray-700">Gōng Xǐ Fā Cái! Wishing you prosperity and harmony.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-amber-600 text-gray-700">Gōng Xǐ Fā Cái! Hoping for your bright success. (Zhù Nǐ Qián Chéng Sì Jǐn)</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-amber-600 text-gray-700">Gōng Xǐ Fā Cái! Wishing you a prosperous new year. (Xīn Nián Xīng Wàng)</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-amber-600 text-gray-700">Wishing you joy and wealth! May your spring bring growth and cheer.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-amber-600 text-gray-700">Gōng Xǐ Fā Cái! Wishing you great fortune and blessings all year. (Jí Xīng Gāo Zhào)</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-amber-600 text-gray-700">Gōng Xǐ Fā Cái! Wishing you wealth and a thriving year ahead.</div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="bg-yellow-100 mt-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-gray-500">
+            <p>&copy; 2025 Chinese New Year Interactive Guide. Gōng Xǐ Fā Cái!</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section[id]');
+            const mobileNav = document.getElementById('mobile-nav');
+
+            const activateNav = (id) => {
+                navLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+                });
+                if (mobileNav.value !== `#${id}`) {
+                    mobileNav.value = `#${id}`;
+                }
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        activateNav(entry.target.id);
+                    }
+                });
+            }, { rootMargin: '-30% 0px -70% 0px' });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            mobileNav.addEventListener('change', (e) => {
+                window.location.href = e.target.value;
+            });
+            
+            const ctx = document.getElementById('spendingChart').getContext('2d');
+            const spendingChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Hongbao (Red Envelopes)', 'Reunion Dinner & Food', 'Travel & Transport', 'New Clothes & Decorations'],
+                    datasets: [{
+                        label: 'Holiday Spending Breakdown',
+                        data: [40, 30, 15, 15], // Conceptual percentages
+                        backgroundColor: [
+                            'rgba(179, 58, 58, 0.9)', 
+                            'rgba(255, 193, 7, 0.9)', 
+                            'rgba(10, 102, 194, 0.9)', 
+                            'rgba(255, 140, 0, 0.9)'
+                        ],
+                        borderColor: '#FFFFFF',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                font: {
+                                    family: "'Inter', sans-serif"
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    let text = '';
+                                    if (label.includes('Hongbao')) text = 'Gifts of money to children and unmarried juniors; the largest expense.';
+                                    else if (label.includes('Dinner & Food')) text = 'Spending on the lavish reunion dinner and other festive meals.';
+                                    else if (label.includes('Travel')) text = 'The cost of the annual "Chūnyùn," the world’s largest human migration.';
+                                    else if (label.includes('New Clothes')) text = 'Buying new outfits, especially red, to wear for the new year.';
+                                    return `${label}: ${text}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+        });
+    </script>
+
+</body>
+</html>

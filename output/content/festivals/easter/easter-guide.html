@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easter: An Interactive Guide to its Spiritual and Springtime Traditions</title>
+    
+    <!-- Meta Description and Keywords for SEO -->
+    <meta name="description" content="Explore the historical, religious, and popular springtime traditions of Easter, including the Resurrection, Easter Bunny, and egg hunting, in this interactive guide.">
+    <meta name="keywords" content="Easter, Resurrection, Holy Week, Lent, Easter Bunny, egg hunt, history, spring, traditions, calculation">
+
+    <!-- Open Graph (OG) / Social Media Tags -->
+    <meta property="og:title" content="Easter: An Interactive Guide to its Spiritual and Springtime Traditions">
+    <meta property="og:description" content="Discover the meaning behind the most important Christian holiday and its connection to secular customs celebrating spring renewal.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://example.com/easter-guide">
+    <meta property="og:image" content="https://placehold.co/1200x630/90EE90/8B4513?text=Easter+Guide">
+    <meta property="og:site_name" content="Cultural Festival Explorer">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "Easter Sunday",
+      "description": "The Christian festival and cultural holiday commemorating the resurrection of Jesus from the dead, described in the New Testament.",
+      "image": "https://placehold.co/1200x630/90EE90/8B4513?text=Easter+Guide",
+      "startDate": "2025-04-20", 
+      "location": {
+        "@type": "Place",
+        "name": "Global"
+      }
+    }
+    </script>
+    
+    <!-- Chosen Palette: Spring Green, Light Yellow/Gold, and Earthy Brown (Renewal Theme) -->
+    <!-- Application Structure Plan: A thematic, single-page application with a sticky top navigation. The flow covers: 'Significance' (date/meaning/dual nature), 'The Spiritual Core' (Resurrection, Holy Week), 'Secular Traditions' (bunny, eggs, spring), 'Activity Popularity' chart (modern celebration focus), and 'Wishes & Greetings'. This structure clearly separates and explains the religious and cultural aspects of the holiday. -->
+    <!-- Visualization & Content Choices: 
+        - Significance: Inform -> Text block & Two Image Cards (Placeholders) -> Static -> Justification: Provides contextual meaning alongside visual representations of the two core themes (Cross/Church, Bunny/Egg). Method: HTML/Tailwind.
+        - The Spiritual Core: Inform -> Detailed Story Block -> Static -> Justification: Explains the central religious event (Resurrection) and preceding Holy Week. Method: HTML/Tailwind.
+        - Secular Traditions: Organize/Inform -> Step-by-step card flow -> Scroll/Click -> Justification: Breaks down famous customs (bunny, eggs, candy) and their origins. Method: HTML/Tailwind.
+        - Activity Popularity: Inform/Compare -> Horizontal Bar Chart -> Interactive Tooltips -> Justification: Visually compares the common ways people celebrate today (e.g., family time vs. church attendance). Library: Chart.js/Canvas.
+        - Wishes/Quotes: Inform -> Grid of Text Cards -> Static -> Justification: Provides appropriate messages for both religious and secular contexts. Method: HTML/Tailwind. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F8FF; /* Ghost White */
+        }
+        h1, h2, h3 {
+            font-family: 'Lora', serif;
+        }
+        .nav-link {
+            transition: color 0.3s, border-color 0.3s;
+        }
+        .nav-link.active {
+            color: #8B4513; /* Saddle Brown */
+            border-bottom-color: #8B4513;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 450px;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <header class="bg-white/90 backdrop-blur-sm sticky top-0 z-50 shadow-md">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <h1 class="text-2xl font-bold text-green-700">Easter Guide</h1>
+                <div class="hidden sm:flex sm:space-x-8" id="nav-links">
+                    <a href="#significance" class="nav-link text-gray-600 hover:text-green-700 border-b-2 border-transparent pb-1">Dual Meaning</a>
+                    <a href="#spiritual" class="nav-link text-gray-600 hover:text-green-700 border-b-2 border-transparent pb-1">Spiritual Core</a>
+                    <a href="#secular" class="nav-link text-gray-600 hover:text-green-700 border-b-2 border-transparent pb-1">Secular Fun</a>
+                    <a href="#activities" class="nav-link text-gray-600 hover:text-green-700 border-b-2 border-transparent pb-1">Activities Chart</a>
+                    <a href="#quotes" class="nav-link text-gray-600 hover:text-green-700 border-b-2 border-transparent pb-1">Wishes & Quotes</a>
+                </div>
+                <div class="sm:hidden">
+                    <select id="mobile-nav" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500">
+                        <option value="#significance">Dual Meaning</option>
+                        <option value="#spiritual">Spiritual Core</option>
+                        <option value="#secular">Secular Fun</option>
+                        <option value="#activities">Activities Chart</option>
+                        <option value="#quotes">Wishes & Quotes</option>
+                    </select>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+
+        <section id="hero" class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-lime-700 tracking-tight">Easter: Resurrection and Renewal</h1>
+            <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">A look at the key Christian celebration, merging holy traditions with cherished spring rituals.</p>
+        </section>
+
+        <section id="significance" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-8 text-lime-700">The Dual Nature of the Holiday</h2>
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+                <!-- Text Content -->
+                <div class="md:col-span-2 bg-white p-8 rounded-xl shadow-lg border border-green-100">
+                    <h3 class="text-2xl font-semibold text-amber-700 mb-4">Date and Meaning</h3>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Easter Sunday is a movable holiday, determined as the **Sunday following the first full moon after the spring equinox**. This method places it between March 22 and April 25. The day carries **dual meaning**: it commemorates the **Resurrection of Jesus Christ**, central to Christian belief, and serves as a **secular celebration of spring, renewal, and fertility**, with traditions like the **Easter Bunny** and **egg hunts**. This blend of sacred and seasonal elements makes Easter globally distinct.
+                    </p>
+                </div>
+                <!-- Image Cards (Placeholders) -->
+                <div class="md:col-span-1 space-y-4">
+                    <div class="rounded-xl overflow-hidden shadow-xl border border-green-600 bg-green-50">
+                        <img src="https://placehold.co/400x250/38761D/FFFFFF?text=The+Cross+and+Empty+Tomb" alt="Placeholder image of a cross and empty tomb silhouette." class="w-full h-auto object-cover">
+                        <p class="p-3 text-sm text-center font-medium text-green-800">The Core Spiritual Event</p>
+                    </div>
+                    <div class="rounded-xl overflow-hidden shadow-xl border border-green-600 bg-green-50">
+                        <img src="https://placehold.co/400x250/FFD700/8B4513?text=Easter+Eggs+and+Bunny" alt="Placeholder image of colored Easter eggs and a bunny." class="w-full h-auto object-cover">
+                         <p class="p-3 text-sm text-center font-medium text-amber-800">Springtime Symbols of Life</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="spiritual" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-8 text-lime-700">The Spiritual Core: Resurrection</h2>
+            <div class="bg-white p-8 rounded-xl shadow-2xl max-w-4xl mx-auto border-t-4 border-amber-600">
+                <h3 class="text-2xl font-bold text-amber-700 mb-4">The Triumph Over Death</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    For Christians, Easter marks the pinnacle of **Holy Week**, starting with Palm Sunday and including Maundy Thursday (the Last Supper) and Good Friday (the Crucifixion). Easter celebrates Jesus’ resurrection, symbolizing eternal life for believers. The 40 days before Easter, known as **Lent**, are a time for fasting, repentance, and spiritual reflection. Sunrise Services often commence before dawn, representing Christ's rising, featuring joyous hymns, bells, and the lighting of a new Easter candle to replace the old one.
+                </p>
+            </div>
+        </section>
+
+        <section id="secular" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-8 text-lime-700">Secular Fun: Eggs, Bunnies, and Baskets</h2>
+             <p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
+                Rooted in diverse cultures, these customs are now universal icons of spring and youthful joy.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-green-100 transition-transform transform hover:scale-105 border-b-4 border-amber-500">
+                    <h3 class="text-xl font-semibold text-amber-700 mb-3"><span class="font-mono text-3xl text-lime-600 mr-2">1.</span> The Easter Egg</h3>
+                    <p class="text-gray-600">Eggs, once forbidden in Lent, came to symbolize new life, with decorating and sharing them celebrating the end of fasting.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-green-100 transition-transform transform hover:scale-105 border-b-4 border-amber-500">
+                    <h3 class="text-xl font-semibold text-amber-700 mb-3"><span class="font-mono text-3xl text-lime-600 mr-2">2.</span> The Easter Bunny</h3>
+                    <p class="text-gray-600">The custom began with German Lutherans, featuring the rabbit, a pagan emblem of fertility and spring, introduced to America in the 1700s as the 'Osterhase' (Easter Hare).</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-green-100 transition-transform transform hover:scale-105 border-b-4 border-amber-500">
+                    <h3 class="text-xl font-semibold text-amber-700 mb-3"><span class="font-mono text-3xl text-lime-600 mr-2">3.</span> Egg Hunts & Rolls</h3>
+                    <p class="text-gray-600">The egg hunt represents the search for Jesus' empty tomb, while the egg roll (like the White House tradition) signifies the stone being rolled away.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-green-100 transition-transform transform hover:scale-105 border-b-4 border-amber-500">
+                    <h3 class="text-xl font-semibold text-amber-700 mb-3"><span class="font-mono text-3xl text-lime-600 mr-2">4.</span> Chocolate and Candy</h3>
+                    <p class="text-gray-600">Stuffing Easter baskets with goodies like chocolate bunnies and jelly beans grew into a beloved U.S. tradition in the late 1800s.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="activities" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-8 text-lime-700">Visualizing Popular Easter Activities</h2>
+            <p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
+                This chart visually represents the main activities people engage in on Easter Sunday.
+            </p>
+            <div class="bg-white p-4 sm:p-8 rounded-xl shadow-lg">
+                <div class="chart-container">
+                    <canvas id="activityChart"></canvas>
+                </div>
+                <div class="text-center mt-4 text-sm text-gray-500">Hover on the bars to view the percentage split for each activity type.</div>
+            </div>
+        </section>
+        
+        <section id="quotes" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-8 text-lime-700">20 Easter Wishes & Messages</h2>
+            <p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
+                Messages that blend springtime joy with expressions of faith.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-lime-600 text-gray-700">Wishing you a happy and blessed Easter Sunday!</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-lime-600 text-gray-700">May the miracle of the Resurrection bring you joy.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-lime-600 text-gray-700">Joyful Easter! Wishing you a day full of sweets and sunshine.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-lime-600 text-gray-700">“He is Risen! Alleluia!” Wishing you faith and peace.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-lime-600 text-gray-700">Wishing you a beautiful day of spring renewal and hope.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-lime-600 text-gray-700">Happy Easter to you and your beautiful family.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-lime-600 text-gray-700">May your Easter basket be overflowing with happiness.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-lime-600 text-gray-700">Sending you blessings and love this Holy Easter season.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-lime-600 text-gray-700">Enjoy the delicious food and the wonderful company!</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-lime-600 text-gray-700">Hoping the Easter Bunny brings you everything you wished for.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-lime-600 text-gray-700">May Christ's loving light guide and bless you now and forever.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-lime-600 text-gray-700">A time for new beginnings and fresh hope. Happy Easter!</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-lime-600 text-gray-700">Thank you for sharing your love and warmth with us.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-lime-600 text-gray-700">Wishing you joy, peace, and many hidden eggs!</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-lime-600 text-gray-700">"The Earth smiles through blooms." – Ralph Waldo Emerson. Joyful Spring!</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-lime-600 text-gray-700">Enjoy your family, your feast, and your faith.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-lime-600 text-gray-700">May your heart be renewed by the spirit of Easter.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-lime-600 text-gray-700">Here's to a wonderful Easter full of happy moments.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-lime-600 text-gray-700">Happy Easter! Time to put on your spring best!</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-lime-600 text-gray-700">May your day be as vibrant as the colored eggs.</div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="bg-green-100 mt-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-gray-500">
+            <p>&copy; 2025 Easter Interactive Guide. Celebrating faith and spring renewal.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section[id]');
+            const mobileNav = document.getElementById('mobile-nav');
+
+            const activateNav = (id) => {
+                navLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+                });
+                if (mobileNav.value !== `#${id}`) {
+                    mobileNav.value = `#${id}`;
+                }
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        activateNav(entry.target.id);
+                    }
+                });
+            }, { rootMargin: '-30% 0px -70% 0px' });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            mobileNav.addEventListener('change', (e) => {
+                window.location.href = e.target.value;
+            });
+            
+            const ctx = document.getElementById('activityChart').getContext('2d');
+            const activityChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Family Dinner / Feast', 'Gift Baskets / Candy Exchange', 'Attending Church Service', 'Easter Egg Hunt / Roll', 'Buying New Spring Clothes'],
+                    datasets: [{
+                        label: 'Reported Participation Rate',
+                        data: [85, 78, 55, 72, 60], // Conceptual percentage distribution of participation
+                        backgroundColor: [
+                            'rgba(14, 116, 144, 0.8)', 
+                            'rgba(245, 158, 11, 0.8)', 
+                            'rgba(34, 197, 94, 0.8)', 
+                            'rgba(236, 72, 153, 0.8)',
+                            'rgba(192, 132, 252, 0.8)' 
+                        ],
+                        borderColor: '#FFFFFF',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'y', // Make it a horizontal bar chart
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                color: '#4B5563',
+                                callback: function(value) { return value + '%'; }
+                            },
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.1)'
+                            },
+                            title: {
+                                display: true,
+                                text: 'Percentage of Households Reporting Activity',
+                                color: '#10B981'
+                            }
+                        },
+                        y: {
+                            ticks: {
+                                color: '#4B5563', 
+                            },
+                            grid: {
+                                display: false
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = context.parsed.x;
+                                    let text = '';
+                                    if (label.includes('Dinner')) text = 'The central social event, often featuring ham or lamb.';
+                                    else if (label.includes('Baskets')) text = 'A beloved tradition for children, usually involving chocolate and toys.';
+                                    else if (label.includes('Church')) text = 'Observance of the Resurrection; the most important service of the year.';
+                                    else if (label.includes('Egg Hunt')) text = 'A popular secular game for children, symbolizing new life.';
+                                    else if (label.includes('Clothes')) text = 'The tradition of dressing up for the Easter morning service or parade.';
+                                    return `${value}% - ${text}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+        });
+    </script>
+
+</body>
+</html>

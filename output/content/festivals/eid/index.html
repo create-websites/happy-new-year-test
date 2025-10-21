@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eid al-Fitr: A Hands-On Guide to Celebrating the Fast's End</title>
+    
+    <!-- Meta Description and Keywords for SEO -->
+    <meta name="description" content="Explore the history, core traditions, and spiritual significance of Eid al-Fitr, the global Muslim festival marking the end of Ramadan with prayer, charity, and feasting.">
+    <meta name="keywords" content="Eid al-Fitr, Ramadan, Festival of Breaking the Fast, Zakat al-Fitr, Eid Prayer, Shawwal, Eidi, Muslim festival, communal prayer">
+
+    <!-- Open Graph (OG) / Social Media Tags -->
+    <meta property="og:title" content="Eid al-Fitr: A Hands-On Guide to Celebrating the Fast's End">
+    <meta property="og:description" content="Discover the joyous rituals, charitable obligations, and significance of Eid al-Fitr, a three-day celebration of devotion and community.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://example.com/eid-guide">
+    <meta property="og:image" content="https://placehold.co/1200x630/008080/FFFFFF?text=Eid+al-Fitr+Guide">
+    <meta property="og:site_name" content="Cultural Festival Explorer">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "Eid al-Fitr",
+      "description": "A three-day Muslim holiday that marks the end of the fasting month of Ramadan, celebrated with congregational prayers, feasting, and gift-giving.",
+      "image": "https://placehold.co/1200x630/008080/FFFFFF?text=Eid+al-Fitr+Guide",
+      "startDate": "2025-04-01", 
+      "location": {
+        "@type": "Place",
+        "name": "Globally"
+      }
+    }
+    </script>
+    
+    <!-- Chosen Palette: Teal/Sea Green, Gold/Cream, and Dark Blue (Devotion and Tranquility Theme) -->
+    <!-- Application Structure Plan: A thematic, single-page application with a sticky top navigation. The flow covers: 'Significance' (end of Ramadan/spiritual renewal), 'Key Rituals' (Zakat, Prayer), 'Global Traditions' (Feasting, Eidi, Greetings), 'Gifting & Charity' chart (visualizing resource allocation), and 'Wishes & Greetings'. This structure emphasizes the spiritual obligations (Zakat/Prayer) before the celebratory aspects (Feasting/Gifting). -->
+    <!-- Visualization & Content Choices: 
+        - Significance: Inform -> Text block & Two Image Cards (Placeholders) -> Static -> Justification: Provides contextual meaning alongside visual representations of the two core elements (Moon Sighting, Communal Prayer). Method: HTML/Tailwind.
+        - Key Rituals: Inform -> Detailed Story Block -> Static -> Justification: Explains the mandatory acts of worship and charity that define the holiday. Method: HTML/Tailwind.
+        - Global Traditions: Organize/Inform -> Step-by-step card flow -> Scroll/Click -> Justification: Breaks down the celebratory customs (new clothes, Eidi, specific foods). Method: HTML/Tailwind.
+        - Gifting & Charity: Inform/Compare -> Pie Chart -> Interactive Tooltips -> Justification: Visually represents the common areas of resource dedication during the holiday. Library: Chart.js/Canvas.
+        - Wishes/Quotes: Inform -> Grid of Text Cards -> Static -> Justification: Provides appropriate, festive messages. Method: HTML/Tailwind. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAF5; /* Light Mint Cream */
+        }
+        h1, h2, h3 {
+            font-family: 'Lora', serif;
+        }
+        .nav-link {
+            transition: color 0.3s, border-color 0.3s;
+        }
+        .nav-link.active {
+            color: #008080; /* Teal */
+            border-bottom-color: #008080;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 450px;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <header class="bg-white/90 backdrop-blur-sm sticky top-0 z-50 shadow-md">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <h1 class="text-2xl font-bold text-teal-600">Eid al-Fitr Guide</h1>
+                <div class="hidden sm:flex sm:space-x-8" id="nav-links">
+                    <a href="#significance" class="nav-link text-gray-600 hover:text-teal-600 border-b-2 border-transparent pb-1">Meaning</a>
+                    <a href="#rituals" class="nav-link text-gray-600 hover:text-teal-600 border-b-2 border-transparent pb-1">Rituals & Charity</a>
+                    <a href="#traditions" class="nav-link text-gray-600 hover:text-teal-600 border-b-2 border-transparent pb-1">Global Customs</a>
+                    <a href="#charity" class="nav-link text-gray-600 hover:text-teal-600 border-b-2 border-transparent pb-1">Gifting Chart</a>
+                    <a href="#quotes" class="nav-link text-gray-600 hover:text-teal-600 border-b-2 border-transparent pb-1">Wishes & Quotes</a>
+                </div>
+                <div class="sm:hidden">
+                    <select id="mobile-nav" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500">
+                        <option value="#significance">Meaning</option>
+                        <option value="#rituals">Rituals & Charity</option>
+                        <option value="#traditions">Global Customs</option>
+                        <option value="#charity">Gifting Chart</option>
+                        <option value="#quotes">Wishes & Quotes</option>
+                    </select>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+
+        <section id="hero" class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-teal-700 tracking-tight">Eid al-Fitr: The Festival of Breaking the Fast</h1>
+            <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">A worldwide festivity honoring the end of the sacred month of Ramadan.</p>
+        </section>
+
+        <section id="significance" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-8 text-dark-blue">When the Moon Appears</h2>
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+                <!-- Text Content -->
+                <div class="md:col-span-2 bg-white p-8 rounded-xl shadow-lg border border-teal-100">
+                    <h3 class="text-2xl font-semibold text-teal-600 mb-4">Date and Spiritual Renewal</h3>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        **Eid al-Fitr** means the **'Festival of Breaking the Fast'** and marks the start of **Shawwal**, the tenth month in the Islamic lunar calendar, right after **Ramadan**. Its date is determined by the sighting of the new crescent moon. 
+                        <br><br>
+                        Eid is a celebration of faith, gratitude, and spiritual triumph. It is a moment for Muslims to thank God for the strength to observe Ramadan. This three-day event centers on family, community, forgiveness, and renewed spiritual commitment, symbolizing a joyful return to daily life while embracing the lessons of the fast.
+                    </p>
+                </div>
+                <!-- Image Cards (Placeholders) -->
+                <div class="md:col-span-1 space-y-4">
+                    <div class="rounded-xl overflow-hidden shadow-xl border border-teal-600 bg-teal-50">
+                        <img src="https://placehold.co/400x250/008080/FFFFFF?text=Crescent+Moon+Sighting" alt="Placeholder image of a crescent moon and star." class="w-full h-auto object-cover">
+                        <p class="p-3 text-sm text-center font-medium text-teal-900">Signaled by the New Moon</p>
+                    </div>
+                    <div class="rounded-xl overflow-hidden shadow-xl border border-teal-600 bg-teal-50">
+                        <img src="https://placehold.co/400x250/000080/FFFFFF?text=Communal+Prayer+Grounds" alt="Placeholder image of people in communal prayer." class="w-full h-auto object-cover">
+                         <p class="p-3 text-sm text-center font-medium text-blue-900">Gathering for Eid Prayer</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="rituals" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-8 text-dark-blue">Mandatory Rituals: Prayer and Charity</h2>
+            <div class="bg-white p-8 rounded-xl shadow-2xl max-w-4xl mx-auto border-t-4 border-gold-500">
+                <h3 class="text-2xl font-bold text-teal-600 mb-4">Salat al-Eid and Zakat al-Fitr</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Eid starts with giving **Zakat al-Fitr** (a required charity) prior to the morning prayer, allowing everyone, including the needy, to join in the celebration.
+                    <br><br>
+                    The key tradition is the **Salat al-Eid** (Eid Prayer), held in large gatherings at mosques or open spaces (Musalla or Eidgah). Before the prayer, it’s customary to bathe, dress in new clothing, and enjoy a light, sweet meal (commonly dates) to mark the end of fasting. The post-prayer sermon highlights themes of gratitude, compassion, and forgiveness.
+                </p>
+            </div>
+        </section>
+
+        <section id="traditions" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-8 text-dark-blue">Global Customs: Feasting, Gifting, and Greetings</h2>
+             <p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
+                Eid is marked globally, blending local customs with shared traditions.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-blue-100 transition-transform transform hover:scale-105 border-b-4 border-teal-500">
+                    <h3 class="text-xl font-semibold text-teal-600 mb-3"><span class="font-mono text-3xl text-blue-800 mr-2">1.</span> New Clothes and Mehndi</h3>
+                    <p class="text-gray-600">Fresh attire is bought and donned. Ladies and girls typically adorn their hands and feet with **Mehndi** (henna) on 'Chand Raat' (Moon Sighting Night).</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-blue-100 transition-transform transform hover:scale-105 border-b-4 border-teal-500">
+                    <h3 class="text-xl font-semibold text-teal-600 mb-3"><span class="font-mono text-3xl text-blue-800 mr-2">2.</span> Eidi (Gifts and Money)</h3>
+                    <p class="text-gray-600">Adults present **Eidi** (money or small gifts) to children as a gesture of joy and goodwill—a cherished tradition eagerly awaited.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-blue-100 transition-transform transform hover:scale-105 border-b-4 border-teal-500">
+                    <h3 class="text-xl font-semibold text-teal-600 mb-3"><span class="font-mono text-3xl text-blue-800 mr-2">3.</span> Grand Feasting</h3>
+                    <p class="text-gray-600">Families come together for grand feasts, where sweets take center stage, featuring delights like **Sheer Khurma** and **Seviyan**, cherished by all.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-blue-100 transition-transform transform hover:scale-105 border-b-4 border-teal-500">
+                    <h3 class="text-xl font-semibold text-teal-600 mb-3"><span class="font-mono text-3xl text-blue-800 mr-2">4.</span> Hugs and Greetings</h3>
+                    <p class="text-gray-600">The usual greeting is '**Eid Mubarak**' (Blessed Eid). Loved ones embrace thrice, strengthening ties while sharing goodwill and forgiveness.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="charity" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-8 text-dark-blue">Visualizing Resource Allocation on Eid</h2>
+            <p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
+                This chart illustrates the typical allocation of funds and resources during the festive season, emphasizing the value of charity.
+            </p>
+            <div class="bg-white p-4 sm:p-8 rounded-xl shadow-lg">
+                <div class="chart-container">
+                    <canvas id="charityChart"></canvas>
+                </div>
+                <div class="text-center mt-4 text-sm text-gray-500">Hover on the sections to explore the role of each key expense for Eid al-Fitr.</div>
+            </div>
+        </section>
+        
+        <section id="quotes" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-8 text-dark-blue">20 Eid Mubarak Wishes & Greetings</h2>
+            <p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
+                Heartfelt and classic wishes to spread joy this Eid al-Fitr.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-teal-600 text-gray-700">Eid Mubarak! May this special day bring peace and prosperity.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-teal-600 text-gray-700">May you and your loved ones have a joyful and blessed Eid al-Fitr.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-teal-600 text-gray-700">Wishing you endless blessings today and forever. Eid Mubarak!</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-teal-600 text-gray-700">May the guidance and blessings of God be with you.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-teal-600 text-gray-700">Wishing you happiness and spiritual fulfillment this Eid.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-teal-600 text-gray-700">Wishing you joy, treats, and endless cheer. Eid Mubarak!</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-teal-600 text-gray-700">A joyous Eid filled with love, laughter, and Eidi!</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-teal-600 text-gray-700">Sending heartfelt wishes on this wonderful occasion.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-teal-600 text-gray-700">May you enjoy every moment of this blessed festival.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-teal-600 text-gray-700">Wishing you the sweetest Eid ever, full of Sheer Khurma.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-teal-600 text-gray-700">May Eid's light brighten you and those you cherish.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-teal-600 text-gray-700">May your fasting and prayers be accepted. Happy Eid!</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-teal-600 text-gray-700">A joyful day to cherish with loved ones. Eid Mubarak!</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-teal-600 text-gray-700">Wishing you an Eid filled with happiness and peace within.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-teal-600 text-gray-700">Forgiveness, love, and community—the essence of Eid.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-teal-600 text-gray-700">Wishing you a happy three days of celebration.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-teal-600 text-gray-700">May the happiness of Eid overflow into your life.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-teal-600 text-gray-700">Have a delightful and blessed Eid al-Fitr.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-teal-600 text-gray-700">Sending peace and goodwill from my family to yours.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-teal-600 text-gray-700">May your days be bright and your blessings be abundant! Eid Mubarak.</div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="bg-teal-100 mt-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-gray-500">
+            <p>&copy; 2025 Eid al-Fitr Interactive Guide. Celebrating Faith and Community.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section[id]');
+            const mobileNav = document.getElementById('mobile-nav');
+
+            const activateNav = (id) => {
+                navLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+                });
+                if (mobileNav.value !== `#${id}`) {
+                    mobileNav.value = `#${id}`;
+                }
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        activateNav(entry.target.id);
+                    }
+                });
+            }, { rootMargin: '-30% 0px -70% 0px' });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            mobileNav.addEventListener('change', (e) => {
+                window.location.href = e.target.value;
+            });
+            
+            const ctx = document.getElementById('charityChart').getContext('2d');
+            const charityChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Zakat al-Fitr (Mandatory Charity)', 'Eidi (Gifts for Children)', 'New Clothes and Attire', 'Feasting/Sweets'],
+                    datasets: [{
+                        label: 'Estimated Resource Allocation',
+                        data: [15, 35, 25, 25], // Conceptual percentage distribution
+                        backgroundColor: [
+                            'rgba(0, 128, 128, 0.9)', /* Teal for Zakat */
+                            'rgba(255, 215, 0, 0.9)', /* Gold for Eidi */
+                            'rgba(70, 130, 180, 0.9)', /* Steel Blue for Clothes */
+                            'rgba(173, 216, 230, 0.9)'  /* Light Blue for Feasting */
+                        ],
+                        borderColor: '#FFFFFF',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                font: {
+                                    family: "'Inter', sans-serif"
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    let text = '';
+                                    if (label.includes('Zakat')) text = 'A prescribed amount of staple food or its monetary equivalent given to the poor before the Eid prayer.';
+                                    else if (label.includes('Eidi')) text = 'Cash given to children and younger relatives, symbolizing a blessing.';
+                                    else if (label.includes('Clothes')) text = 'Wearing new clothes symbolizes spiritual renewal and celebration.';
+                                    else if (label.includes('Feasting')) text = 'Buying ingredients for elaborate meals and sweets like Sheer Khurma to share with the community.';
+                                    return `${label}: ${text}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+        });
+    </script>
+
+</body>
+</html>

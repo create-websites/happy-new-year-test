@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Father's Day: An Interactive Guide to History, Gifts, and Appreciation</title>
+    
+    <!-- Meta Description and Keywords for SEO -->
+    <meta name="description" content="Explore the history, core traditions, gift ideas, and modern celebrations of Father's Day in this interactive guide dedicated to honoring fathers and father figures.">
+    <meta name="keywords" content="Father's Day, history, gifts, traditions, Sonora Smart Dodd, appreciation, second Sunday of June, father figures">
+
+    <!-- Open Graph (OG) / Social Media Tags -->
+    <meta property="og:title" content="Father's Day: An Interactive Guide to History, Gifts, and Appreciation">
+    <meta property="og:description" content="Discover how Father's Day became a national holiday and find inspiration for celebrating the dads in your life.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://example.com/fathers-day-guide">
+    <meta property="og:image" content="https://placehold.co/1200x630/2F4F4F/F0F8FF?text=Fathers+Day+Guide">
+    <meta property="og:site_name" content="Cultural Festival Explorer">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "Father's Day",
+      "description": "An annual celebration honoring fathers and celebrating fatherhood, paternal bonds, and the influence of fathers in society.",
+      "image": "https://placehold.co/1200x630/2F4F4F/F0F8FF?text=Fathers+Day+Guide",
+      "startDate": "2025-06-15", 
+      "location": {
+        "@type": "Place",
+        "name": "United States and other countries"
+      }
+    }
+    </script>
+    
+    <!-- Chosen Palette: Navy Blue, Forest Green, and Light Gray (Classic/Reliable Theme) -->
+    <!-- Application Structure Plan: A thematic, single-page application with a sticky top navigation. The flow covers: 'Significance' (date/meaning), 'The Modern Origin' (Sonora Smart Dodd's story), 'Key Traditions' (activities, food, gifts), 'Spending Habits' chart (modern consumer focus), and 'Wishes & Quotes'. This sequence guides the user from the general meaning and history to practical celebration ideas and market dynamics. -->
+    <!-- Visualization & Content Choices: 
+        - Significance: Inform -> Text block & Two Image Cards (Placeholders) -> Static -> Justification: Provides contextual meaning alongside visual representations of common themes (Gift, Father/Child). Method: HTML/Tailwind.
+        - The Modern Origin: Inform -> Detailed Story Block -> Static -> Justification: Focuses on the determined woman who campaigned for the holiday's recognition. Method: HTML/Tailwind.
+        - Traditions: Organize/Inform -> Step-by-step card flow -> Scroll/Click -> Justification: Breaks down common celebration ideas (Brunch, Handmade Gifts, Activities) into digestible steps. Method: HTML/Tailwind.
+        - Spending Habits: Inform/Compare -> Bar Chart -> Interactive Tooltips -> Justification: Visually represents the conceptual distribution of spending across different gift types. Library: Chart.js/Canvas.
+        - Wishes/Quotes: Inform -> Grid of Text Cards -> Static -> Justification: Provides heartfelt messages for sharing appreciation. Method: HTML/Tailwind. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F0F8FF; /* Light Blue-Gray */
+        }
+        h1, h2, h3 {
+            font-family: 'Lora', serif;
+        }
+        .nav-link {
+            transition: color 0.3s, border-color 0.3s;
+        }
+        .nav-link.active {
+            color: #2F4F4F; /* Dark Slate Gray */
+            border-bottom-color: #2F4F4F;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 450px;
+        }
+    </style>
+</head>
+<body class="text-gray-900">
+
+    <header class="bg-white/90 backdrop-blur-sm sticky top-0 z-50 shadow-md">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <h1 class="text-2xl font-bold text-gray-700">Father's Day Guide</h1>
+                <div class="hidden sm:flex sm:space-x-8" id="nav-links">
+                    <a href="#significance" class="nav-link text-gray-600 hover:text-gray-800 border-b-2 border-transparent pb-1">Meaning</a>
+                    <a href="#origin" class="nav-link text-gray-600 hover:text-gray-800 border-b-2 border-transparent pb-1">Origin Story</a>
+                    <a href="#traditions" class="nav-link text-gray-600 hover:text-gray-800 border-b-2 border-transparent pb-1">Celebrations</a>
+                    <a href="#spending" class="nav-link text-gray-600 hover:text-gray-800 border-b-2 border-transparent pb-1">Spending Habits</a>
+                    <a href="#quotes" class="nav-link text-gray-600 hover:text-gray-800 border-b-2 border-transparent pb-1">Wishes & Quotes</a>
+                </div>
+                <div class="sm:hidden">
+                    <select id="mobile-nav" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-green-600 focus:ring-green-600">
+                        <option value="#significance">Meaning</option>
+                        <option value="#origin">Origin Story</option>
+                        <option value="#traditions">Celebrations</option>
+                        <option value="#spending">Spending Habits</option>
+                        <option value="#quotes">Wishes & Quotes</option>
+                    </select>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+
+        <section id="hero" class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-green-700 tracking-tight">Father's Day: Honoring Paternal Bonds</h1>
+            <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">A look into the origins, meaning, and cherished traditions of honoring dads and mentors.</p>
+        </section>
+
+        <section id="significance" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-8 text-green-700">The Goal: Appreciation and Recognition</h2>
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+                <!-- Text Content -->
+                <div class="md:col-span-2 bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+                    <h3 class="text-2xl font-semibold text-gray-700 mb-4">Date and Central Theme</h3>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        **Father's Day** is observed each year on the **third Sunday of June** in the United States and numerous countries globally. This day is set aside to recognize fathers, celebrate **fatherhood**, paternal relationships, and the role of fathers in shaping society. Although often accompanied by commercial traditions like giving gifts, the heart of the celebration lies in sharing **quality moments**. Families typically enjoy outdoor fun, a meaningful meal, or quiet time together, reinforcing the deep connection between fathers and their children.
+                    </p>
+                </div>
+                <!-- Image Cards (Placeholders) -->
+                <div class="md:col-span-1 space-y-4">
+                    <div class="rounded-xl overflow-hidden shadow-xl border border-blue-500 bg-blue-50">
+                        <img src="https://placehold.co/400x250/374151/F0F8FF?text=Father+and+Child" alt="Placeholder image of a father and child bonding." class="w-full h-auto object-cover">
+                        <p class="p-3 text-sm text-center font-medium text-blue-800">The Central Family Bond</p>
+                    </div>
+                    <div class="rounded-xl overflow-hidden shadow-xl border border-blue-500 bg-blue-50">
+                        <img src="https://placehold.co/400x250/22C55E/F0F8FF?text=Meaningful+Gift" alt="Placeholder image of a thoughtful Father's Day gift." class="w-full h-auto object-cover">
+                         <p class="p-3 text-sm text-center font-medium text-green-800">The Tradition of Gift Giving</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="origin" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-8 text-green-700">The Modern Origin: Sonora Smart Dodd</h2>
+            <div class="bg-white p-8 rounded-xl shadow-2xl max-w-4xl mx-auto border-t-4 border-amber-600">
+                <h3 class="text-2xl font-bold text-amber-700 mb-4">A Daughter's Determination</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Though earlier local attempts existed, **Sonora Smart Dodd** of Spokane, Washington, is widely credited with founding Father's Day as a national observance. Inspired by a Mother's Day sermon in 1909, she believed fathers deserved a similar tribute, especially her own—Civil War veteran William Smart, who raised six children alone after his wife passed away. Dodd proposed June, aligning with her father’s birthday, and the first Father's Day occurred in Spokane in **June 1910**. President Woodrow Wilson acknowledged it in 1916, and President Richard Nixon declared it a permanent national holiday in **1972**.
+                </p>
+            </div>
+        </section>
+
+        <section id="traditions" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-8 text-green-700">Celebrating Today: Activities and Gifts</h2>
+             <p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
+                Father's Day blends classic acts of kindness with heartfelt, customized gestures.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 transition-transform transform hover:scale-105 border-b-4 border-blue-500">
+                    <h3 class="text-xl font-semibold text-gray-700 mb-3"><span class="font-mono text-3xl text-green-600 mr-2">1.</span> The Family Feast</h3>
+                    <p class="text-gray-600">The day usually begins with breakfast or brunch, leading to an **evening BBQ or cookout** often made by the kids as an act of service.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 transition-transform transform hover:scale-105 border-b-4 border-blue-500">
+                    <h3 class="text-xl font-semibold text-gray-700 mb-3"><span class="font-mono text-3xl text-green-600 mr-2">2.</span> Shared Activities</h3>
+                    <p class="text-gray-600">Engaging in activities he enjoys, like **golfing**, fishing, watching sports, or tackling a project, is greatly appreciated.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 transition-transform transform hover:scale-105 border-b-4 border-blue-500">
+                    <h3 class="text-xl font-semibold text-gray-700 mb-3"><span class="font-mono text-3xl text-green-600 mr-2">3.</span> Thoughtful Presents</h3>
+                    <p class="text-gray-600">Presents vary from DIY cards and custom crafts to electronics, gadgets, apparel, and ties, a timeless classic.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 transition-transform transform hover:scale-105 border-b-4 border-blue-500">
+                    <h3 class="text-xl font-semibold text-gray-700 mb-3"><span class="font-mono text-3xl text-green-600 mr-2">4.</span> Handwritten Cards</h3>
+                    <p class="text-gray-600">A heartfelt handwritten note of thanks and love is often the most treasured gesture for fathers and father figures.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="spending" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-8 text-green-700">Visualizing Father's Day Spending Habits</h2>
+            <p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
+                Today's celebration is largely mirrored in spending habits. This chart highlights the top gift categories bought for dads.
+            </p>
+            <div class="bg-white p-4 sm:p-8 rounded-xl shadow-lg">
+                <div class="chart-container">
+                    <canvas id="spendingChart"></canvas>
+                </div>
+                <div class="text-center mt-4 text-sm text-gray-500">Hover on the bars to view the percentage split for each gift type.</div>
+            </div>
+        </section>
+        
+        <section id="quotes" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-8 text-green-700">20 Heartfelt Father's Day Wishes & Quotes</h2>
+            <p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
+                Share these messages to express your love and gratitude for the amazing dads around you.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-green-600 text-gray-700">Wishing a Happy Father’s Day to the best role model ever.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-green-600 text-gray-700">Thank you for your guidance, strength, and unwavering support.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-green-600 text-gray-700">Hoping for an amazing day for the guy who can solve it all!</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-green-600 text-gray-700">"Being a father is simple, but being a dad takes heart."</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-green-600 text-gray-700">You’re my first hero, now and forever. Happy Father’s Day!</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-green-600 text-gray-700">Thanks for teaching me how to laugh, love, and live.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-green-600 text-gray-700">To the world’s most amazing father, I love you!</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-green-600 text-gray-700">Hoping your day’s packed with all the things you love (like a good nap).</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-green-600 text-gray-700">"A father isn’t an anchor to weigh us down or a sail to push us forward, but a light to guide us."</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-green-600 text-gray-700">Grateful for your peace amid chaos. Enjoy your day!</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-green-600 text-gray-700">You inspire us all, and I’m so thankful. Happy Father’s Day!</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-green-600 text-gray-700">Happy Father’s Day to a truly exceptional father figure.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-green-600 text-gray-700">I wish you a calm and joyful day—you’ve earned it!</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-green-600 text-gray-700">You're an amazing listener and guide. Thanks so much, Dad.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-green-600 text-gray-700">"The best gift I’ve ever known was sent from God—it’s my Dad!"</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-green-600 text-gray-700">All my love on Father's Day. Wishing you happiness always.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-green-600 text-gray-700">Happy Father’s Day! Thanks for all the laughs and wisdom.</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-green-600 text-gray-700">You’ve always been there. Today, we celebrate you!</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-green-600 text-gray-700">"Life has no guidebook, it comes with a dad."</div>
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-green-600 text-gray-700">To the man who does it all—Happy Father's Day!</div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="bg-gray-200 mt-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-gray-500">
+            <p>&copy; 2025 Father's Day Interactive Guide. Dedicated to dads everywhere.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section[id]');
+            const mobileNav = document.getElementById('mobile-nav');
+
+            const activateNav = (id) => {
+                navLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+                });
+                if (mobileNav.value !== `#${id}`) {
+                    mobileNav.value = `#${id}`;
+                }
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        activateNav(entry.target.id);
+                    }
+                });
+            }, { rootMargin: '-30% 0px -70% 0px' });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            mobileNav.addEventListener('change', (e) => {
+                window.location.href = e.target.value;
+            });
+            
+            const ctx = document.getElementById('spendingChart').getContext('2d');
+            const spendingChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Clothing', 'Gift Cards', 'Tools/Gadgets', 'Special Outing', 'Personalized/Handmade'],
+                    datasets: [{
+                        label: 'Purchased Gift Categories',
+                        data: [25, 20, 18, 15, 12], // Conceptual percentage distribution
+                        backgroundColor: [
+                            'rgba(47, 79, 79, 0.8)', 
+                            'rgba(34, 197, 94, 0.8)', 
+                            'rgba(59, 130, 246, 0.8)', 
+                            'rgba(245, 158, 11, 0.8)',
+                            'rgba(192, 132, 252, 0.8)' 
+                        ],
+                        borderColor: '#2F4F4F',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            ticks: {
+                                color: '#4B5563', 
+                            },
+                            grid: {
+                                display: false
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            max: 30,
+                            ticks: {
+                                color: '#4B5563',
+                                callback: function(value) { return value + '%'; }
+                            },
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.1)'
+                            },
+                            title: {
+                                display: true,
+                                text: 'Percentage of Spending',
+                                color: '#10B981'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = context.parsed.y;
+                                    let text = '';
+                                    if (label.includes('Clothing')) text = 'Ties, socks, and other apparel are still traditional favorites.';
+                                    else if (label.includes('Gift Cards')) text = 'Flexibility and ease make these a popular choice.';
+                                    else if (label.includes('Tools/Gadgets')) text = 'Items for hobbies, tech, or DIY projects.';
+                                    else if (label.includes('Special Outing')) text = 'Paying for a nice meal or an experience, like concert tickets.';
+                                    else if (label.includes('Personalized')) text = 'Handmade items or unique engraved gifts.';
+                                    return `${value}% - ${text}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+        });
+    </script>
+
+</body>
+</html>

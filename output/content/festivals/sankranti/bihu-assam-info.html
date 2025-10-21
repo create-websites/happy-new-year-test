@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Bihu Festival: An Infographic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Vibrant & Earthy Tones -->
+    <!-- Narrative & Structure Plan: The infographic tells the story of Bihu in a top-down narrative. It starts with a bold hook ('The Heartbeat of Assam') to grab attention. The core of the infographic is a side-by-side comparison of the three Bihu types, using a grid layout for easy visual scanning. This section uses donut charts to quickly convey the 'feeling' or primary focus of each festival. Following this, a timeline chart visually grounds the user in the annual cycle. The story then zooms into the shared 'Cultural Essence,' using cards and a bar chart to detail common elements like food and traditions. The narrative concludes with a large, memorable statistic to leave a lasting impression. This structure was chosen to guide the user from a broad understanding to specific details in a logical, visually engaging flow. -->
+    <!-- Visualization & Content Choices: 
+    1. Data: The conceptual focus of each of the three Bihus (Celebration vs. Prayer vs. Feasting). -> Goal: Compare. -> Visualization: Three separate Donut Charts. -> Justification: Donut charts provide an immediate, high-impact visual representation of a simple proportion, making the core theme of each festival instantly understandable. -> Library: Chart.js (Canvas). CONFIRM: NO SVG.
+    2. Data: The annual timing of the Bihu festivals. -> Goal: Change/Organize. -> Visualization: Horizontal Bar Chart. -> Justification: A simple bar chart plotted against months of the year is a clean and universally understood way to represent a timeline, superior to a text-only list. -> Library: Chart.js (Canvas). CONFIRM: NO SVG.
+    3. Data: Common Bihu delicacies (Pithas). -> Goal: Compare/Rank. -> Visualization: Ordered Horizontal Bar Chart. -> Justification: A bar chart is the best tool for comparing and ranking categorical items, clearly showing which foods are most integral to the celebrations. -> Library: Chart.js (Canvas). CONFIRM: NO SVG.
+    4. Data: Key rituals and activities. -> Goal: Inform. -> Visualization: Lists with Unicode characters as icons. -> Justification: Using Unicode icons within simple lists is a lightweight and effective way to add visual appeal without the overhead or constraints of image files or SVG graphics. -> Library: HTML/CSS. CONFIRM: NO SVG.
+    5. Data: Overall participation/significance. -> Goal: Inform. -> Visualization: Single Big Number. -> Justification: A large, bold number is the most effective way to convey a key statistic for maximum impact and memorability. -> Library: HTML/CSS. CONFIRM: NO SVG. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #F2F2F2;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 1rem auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        .donut-chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 250px;
+            margin: 1rem auto;
+            height: 250px;
+            max-height: 250px;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center my-8 md:my-12">
+            <h1 class="text-4xl md:text-6xl font-bold" style="color: #593C2A;">The Heartbeat of Assam</h1>
+            <p class="mt-4 text-lg md:text-xl max-w-3xl mx-auto" style="color: #A68A64;">A visual guide to the lively Bihu festival, Assam's cultural gem, celebrating its deep ties to nature and farming.</p>
+        </header>
+
+        <section class="my-12 md:my-16">
+            <h2 class="text-3xl font-bold text-center mb-8" style="color: #D95F30;">Three Festivals, One Spirit</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col">
+                    <h3 class="text-2xl font-bold text-center" style="color: #D95F30;">Rongali Bihu</h3>
+                    <p class="text-center font-semibold text-sm mb-4" style="color: #A68A64;">The Festival of Merriment (Mid-April)</p>
+                    <div class="donut-chart-container">
+                        <canvas id="rongaliChart"></canvas>
+                    </div>
+                    <p class="text-sm text-center my-4 text-gray-600">Celebrating the Assamese New Year, this lively Bihu honors spring, fertility, and communal happiness.</p>
+                    <ul class="text-left space-y-2 text-gray-700 mt-auto">
+                        <li><span class="mr-2">🎶</span>Energetic Bihu dance and Husori songs.</li>
+                        <li><span class="mr-2">🧣</span>Exchanging Gamosa as a sign of respect.</li>
+                        <li><span class="mr-2">🐂</span>Honoring cattle for their role in farming.</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col">
+                    <h3 class="text-2xl font-bold text-center" style="color: #D95F30;">Kongali Bihu</h3>
+                    <p class="text-center font-semibold text-sm mb-4" style="color: #A68A64;">The Festival of Scarcity (Mid-October)</p>
+                    <div class="donut-chart-container">
+                        <canvas id="kongaliChart"></canvas>
+                    </div>
+                    <p class="text-sm text-center my-4 text-gray-600">A somber time of empty granaries, centered on prayers and hopes for a fruitful harvest.</p>
+                     <ul class="text-left space-y-2 text-gray-700 mt-auto">
+                        <li><span class="mr-2">🏮</span>Lighting earthen lamps (Saki) in paddy fields.</li>
+                        <li><span class="mr-2">🌿</span>Worshipping the sacred Tulsi plant for protection.</li>
+                        <li><span class="mr-2">🙏</span>Offering prayers for the health of the crops.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col">
+                    <h3 class="text-2xl font-bold text-center" style="color: #D95F30;">Bhogali Bihu</h3>
+                    <p class="text-center font-semibold text-sm mb-4" style="color: #A68A64;">The Festival of Feasting (Mid-January)</p>
+                    <div class="donut-chart-container">
+                        <canvas id="bhogaliChart"></canvas>
+                    </div>
+                    <p class="text-sm text-center my-4 text-gray-600">Marking the harvest's end with gratitude, full granaries, and festive community gatherings.</p>
+                     <ul class="text-left space-y-2 text-gray-700 mt-auto">
+                        <li><span class="mr-2">🔥</span>Burning ceremonial Meji structures.</li>
+                        <li><span class="mr-2">🍲</span>Holding grand community feasts (Uruka).</li>
+                        <li><span class="mr-2">🥥</span>Preparing and sharing countless traditional sweets.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="my-12 md:my-16 bg-white rounded-lg shadow-md p-6 md:p-8">
+            <h2 class="text-3xl font-bold text-center mb-2" style="color: #593C2A;">The Bihu Calendar</h2>
+            <p class="text-center text-gray-600 mb-6 max-w-2xl mx-auto">This timeline illustrates the three Bihus spread across the year, reflecting their strong ties to the agricultural cycle of sowing, cultivation, and harvest.</p>
+            <div class="chart-container" style="height: 250px; max-height: 250px;">
+                 <canvas id="timelineChart"></canvas>
+            </div>
+        </section>
+        
+        <section class="my-12 md:my-16">
+             <h2 class="text-3xl font-bold text-center mb-8" style="color: #D95F30;">The Cultural Essence</h2>
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
+                <div class="md:col-span-2 space-y-6">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-xl font-bold mb-2 flex items-center"><span class="text-2xl mr-3">💃</span>Bihu Dance & Music</h3>
+                        <p class="text-gray-600 text-sm">Rongali Bihu's essence lies in lively steps, swaying movements, and the vibrant beats of the Dhol and Pepa, celebrating youthful zeal and the spirit of spring.</p>
+                    </div>
+                     <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-xl font-bold mb-2 flex items-center"><span class="text-2xl mr-3">🧣</span>Attire & Symbols</h3>
+                        <p class="text-gray-600 text-sm">Women grace the traditional Mekhela Sador, while men don the Dhoti and Gamosa. The red-and-white Gamosa stands as a cherished emblem of Assamese culture, pride, and honor.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 md:p-8 md:col-span-3">
+                    <h3 class="text-xl font-bold mb-4 text-center">A Taste of Bihu: Popular Pithas</h3>
+                    <p class="text-center text-gray-600 text-sm mb-4">Bihu celebrations are incomplete without Pithas—tasty rice flour cakes. Here’s a chart of some favorite types savored during the festivities.</p>
+                    <div class="chart-container" style="height: 250px; max-height: 300px;">
+                        <canvas id="pithaChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center my-8 md:my-12 py-8" style="background-color: #A68A64; border-radius: 8px;">
+            <p class="text-2xl md:text-3xl font-bold text-white">Celebrated by over</p>
+            <h2 class="text-6xl md:text-8xl font-bold my-2" style="color: #F2A341;">30 Million</h2>
+            <p class="text-2xl md:text-3xl font-bold text-white">people in Assam and across the world.</p>
+        </footer>
+
+    </main>
+
+<script>
+    const tooltipTitleCallback = (tooltipItems) => {
+        const item = tooltipItems[0];
+        let label = item.chart.data.labels[item.dataIndex];
+        if (Array.isArray(label)) {
+            return label.join(' ');
+        }
+        return label;
+    };
+
+    const commonTooltipOptions = {
+        plugins: {
+            tooltip: {
+                callbacks: {
+                    title: tooltipTitleCallback
+                },
+                bodyFont: { size: 14 },
+                backgroundColor: '#593C2A'
+            }
+        }
+    };
+    
+    new Chart(document.getElementById('rongaliChart'), {
+        type: 'doughnut',
+        data: {
+            labels: ['Celebration & Dance', 'Rituals'],
+            datasets: [{
+                data: [75, 25],
+                backgroundColor: ['#D95F30', '#F2A341'],
+                borderColor: '#FFFFFF',
+                borderWidth: 4,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                tooltip: commonTooltipOptions.plugins.tooltip
+            }
+        }
+    });
+
+    new Chart(document.getElementById('kongaliChart'), {
+        type: 'doughnut',
+        data: {
+            labels: ['Prayer & Hope', 'Rituals'],
+            datasets: [{
+                data: [80, 20],
+                backgroundColor: ['#A68A64', '#F2A341'],
+                borderColor: '#FFFFFF',
+                borderWidth: 4,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                tooltip: commonTooltipOptions.plugins.tooltip
+            }
+        }
+    });
+
+    new Chart(document.getElementById('bhogaliChart'), {
+        type: 'doughnut',
+        data: {
+            labels: ['Feasting & Community', 'Rituals'],
+            datasets: [{
+                data: [85, 15],
+                backgroundColor: ['#593C2A', '#F2A341'],
+                borderColor: '#FFFFFF',
+                borderWidth: 4,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                tooltip: commonTooltipOptions.plugins.tooltip
+            }
+        }
+    });
+
+    new Chart(document.getElementById('timelineChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            datasets: [{
+                label: 'Bhogali', data: [1,0,0,0,0,0,0,0,0,0,0,0], backgroundColor: '#593C2A'
+            }, {
+                label: 'Rongali', data: [0,0,0,1,0,0,0,0,0,0,0,0], backgroundColor: '#D95F30'
+            }, {
+                label: 'Kongali', data: [0,0,0,0,0,0,0,0,0,1,0,0], backgroundColor: '#A68A64'
+            }]
+        },
+        options: {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: { display: false, stacked: true },
+                y: { stacked: true, grid: { display: false } }
+            },
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    ...commonTooltipOptions.plugins.tooltip,
+                    callbacks: {
+                         title: () => '',
+                         label: (context) => context.dataset.label + ' Bihu'
+                    }
+                }
+            }
+        }
+    });
+    
+    new Chart(document.getElementById('pithaChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Til Pitha (Sesame)', 'Ghila Pitha (Fried)', 'Narikol Pitha (Coconut)', 'Tekeli Pitha (Steamed)'],
+            datasets: [{
+                label: 'Popularity',
+                data: [90, 85, 75, 60],
+                backgroundColor: ['#D95F30', '#F2A341', '#A68A64', '#593C2A']
+            }]
+        },
+        options: {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: { display: false },
+                y: { grid: { display: false } }
+            },
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                     ...commonTooltipOptions.plugins.tooltip,
+                     callbacks: {
+                        title: tooltipTitleCallback,
+                        label: () => ''
+                     }
+                }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

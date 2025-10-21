@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Pongal Festival: A Celebration of Harvest</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Harvest -->
+    <!-- Application Structure Plan: The application is structured as a single-page, top-to-bottom narrative journey. It starts with a broad, welcoming hero section, then moves to a concise overview. The core interactive element is the 'Four Days of Pongal' section, which uses a tab-like button navigation. This allows users to explore the festival's chronology without overwhelming them with text, making the experience focused and self-directed. This is more effective than a linear text description because it breaks down complex information into digestible, user-controlled segments. Following this, a 'Key Elements' grid provides a visual, at-a-glance summary of important cultural symbols, with click-to-reveal details. The final section on 'Pongal Delicacies' uses a data visualization (a donut chart) to deconstruct the famous dish, adding a quantitative and interactive flavor to a cultural topic. This structure—from general to specific, with interactive deep-dives—is designed for optimal user engagement and understanding. -->
+    <!-- Visualization & Content Choices: 
+        1. Report Info: Four distinct days of the Pongal festival. Goal: Organize & Compare. Viz/Method: Interactive content switcher with buttons and a dynamic display area. Interaction: User clicks a button for a specific day, and JS updates the displayed text and icon. Justification: This is a highly intuitive UI pattern for segmented information, preventing a long scroll and giving the user control over the information flow. Method: Vanilla JS DOM manipulation.
+        2. Report Info: Key cultural symbols (Kolam, Pongal pot, Jallikattu, Sugarcane). Goal: Inform & Organize. Viz/Method: A responsive grid of clickable cards. Interaction: Clicking a card reveals a descriptive text block. Justification: This visually organizes disparate but related concepts, encouraging exploration through interaction. Method: Vanilla JS event listeners.
+        3. Report Info: Ingredients of the sweet Pongal dish. Goal: Inform & Show Proportions. Viz/Method: Donut Chart. Interaction: Hovering over segments reveals tooltips with ingredient names. Justification: A chart provides a more engaging and immediate understanding of the dish's composition than a simple list of ingredients. Library: Chart.js (Canvas).
+        4. Report Info: Overall festival timeline. Goal: Show Change/Process. Viz/Method: The vertical scrolling layout of the page itself acts as a timeline, guiding the user through the festival's narrative. Justification: A natural and intuitive way to present a chronological flow. Method: HTML/CSS layout.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF5;
+            color: #5D4037;
+        }
+        .nav-button {
+            transition: all 0.3s ease;
+        }
+        .nav-button.active {
+            background-color: #E65100;
+            color: #FFFFFF;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .element-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .element-card.active {
+            border-color: #E65100;
+            transform: scale(1.03);
+        }
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 320px;
+            width: 100%;
+            max-width: 320px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+                max-width: 350px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="text-center py-12 md:py-20 bg-amber-50">
+        <div class="container mx-auto px-6">
+            <h1 class="text-4xl md:text-6xl font-bold text-amber-900">Pongal Festival</h1>
+            <p class="mt-4 text-lg md:text-xl text-amber-800">A Joyous Harvest Celebration of Southern India</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <section id="overview" class="mb-16 text-center max-w-3xl mx-auto">
+            <h2 class="text-3xl font-bold text-amber-900 mb-4">A Time for Gratitude and Renewal</h2>
+            <p class="text-base md:text-lg leading-relaxed">
+                Pongal is a lively four-day harvest festival mainly observed in Tamil Nadu, India. It serves as a thanksgiving to the Sun God, Surya, for a fruitful harvest. The event signifies the end of the winter solstice and the sun’s shift northward, symbolizing growth and renewal. Families come together to celebrate, share festive meals, and pay tribute to nature’s bounty.
+            </p>
+        </section>
+
+        <section id="festival-days" class="mb-16">
+            <h2 class="text-3xl font-bold text-amber-900 mb-8 text-center">The Four Days of Pongal</h2>
+            <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-8">
+                <button id="day-1-btn" class="nav-button active text-sm md:text-base font-semibold py-3 px-4 md:px-6 bg-white rounded-full shadow-md hover:bg-amber-100">Day 1: Bhogi Pongal</button>
+                <button id="day-2-btn" class="nav-button text-sm md:text-base font-semibold py-3 px-4 md:px-6 bg-white rounded-full shadow-md hover:bg-amber-100">Day 2: Surya Pongal</button>
+                <button id="day-3-btn" class="nav-button text-sm md:text-base font-semibold py-3 px-4 md:px-6 bg-white rounded-full shadow-md hover:bg-amber-100">Day 3: Mattu Pongal</button>
+                <button id="day-4-btn" class="nav-button text-sm md:text-base font-semibold py-3 px-4 md:px-6 bg-white rounded-full shadow-md hover:bg-amber-100">Day 4: Kaanum Pongal</button>
+            </div>
+            
+            <div id="day-content" class="bg-white p-8 rounded-2xl shadow-lg transition-opacity duration-500 ease-in-out min-h-[20rem] flex flex-col md:flex-row items-center gap-8">
+                <div id="day-icon" class="text-7xl md:text-8xl"></div>
+                <div>
+                    <h3 id="day-title" class="text-2xl font-bold text-amber-900 mb-3"></h3>
+                    <p id="day-description" class="text-base leading-relaxed"></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="elements" class="mb-16">
+            <h2 class="text-3xl font-bold text-amber-900 mb-8 text-center">Key Elements of the Celebration</h2>
+            <p class="text-center max-w-3xl mx-auto mb-8 text-base md:text-lg">
+                The festival brims with cultural symbols and traditions, each carrying deep meaning. From vibrant floor designs to honoring cattle, these elements define Pongal. Tap each card to explore their role in the celebration.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                 <div class="element-card-container cursor-pointer" data-element="pongal-dish">
+                    <div class="element-card bg-white p-6 rounded-2xl shadow-lg text-center h-full">
+                        <div class="text-6xl mb-4">🍯</div>
+                        <h3 class="text-xl font-semibold text-amber-900">The Pongal Dish</h3>
+                    </div>
+                </div>
+                <div class="element-card-container cursor-pointer" data-element="kolam">
+                    <div class="element-card bg-white p-6 rounded-2xl shadow-lg text-center h-full">
+                        <div class="text-6xl mb-4">🎨</div>
+                        <h3 class="text-xl font-semibold text-amber-900">Kolam</h3>
+                    </div>
+                </div>
+                <div class="element-card-container cursor-pointer" data-element="mattu">
+                    <div class="element-card bg-white p-6 rounded-2xl shadow-lg text-center h-full">
+                        <div class="text-6xl mb-4">🐮</div>
+                        <h3 class="text-xl font-semibold text-amber-900">Honoring Cattle</h3>
+                    </div>
+                </div>
+                <div class="element-card-container cursor-pointer" data-element="sugarcane">
+                    <div class="element-card bg-white p-6 rounded-2xl shadow-lg text-center h-full">
+                        <div class="text-6xl mb-4">🎋</div>
+                        <h3 class="text-xl font-semibold text-amber-900">Sugarcane</h3>
+                    </div>
+                </div>
+            </div>
+            <div id="element-description-box" class="mt-8 bg-amber-50 p-6 rounded-2xl text-center min-h-[6rem] flex items-center justify-center transition-all duration-300">
+                <p id="element-description" class="text-base leading-relaxed max-w-2xl mx-auto">Click an element above to see its description.</p>
+            </div>
+        </section>
+
+        <section id="food">
+            <h2 class="text-3xl font-bold text-amber-900 mb-4 text-center">Anatomy of Sweet Pongal</h2>
+            <p class="text-center max-w-3xl mx-auto mb-8 text-base md:text-lg">
+                At the heart of the festival lies 'Pongal,' a sweet treat simmered in an earthen pot until it overflows—a symbol of wealth and plenty. This chart highlights the key ingredients that make it unique. Hover to explore each element.
+            </p>
+            <div class="chart-container">
+                <canvas id="pongalChart"></canvas>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-amber-900 text-white mt-16 py-6">
+        <div class="container mx-auto px-6 text-center">
+            <p>Interactive Experience created to celebrate the spirit of Pongal.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const festivalData = {
+                days: [
+                    {
+                        title: "Day 1: Bhogi Pongal",
+                        icon: "🔥",
+                        description: "The first day is dedicated to new beginnings. People clean their homes, discard old belongings in a bonfire, and welcome prosperity. This ritual symbolizes the cleansing of the soul and the shedding of negativity."
+                    },
+                    {
+                        title: "Day 2: Surya Pongal",
+                        icon: "☀️",
+                        description: "This is the main festival day. The special dish, 'Pongal', is cooked in a new clay pot in an open space under the sun. When the pot boils over, it signifies abundance. The dish is then offered to the Sun God, Surya."
+                    },
+                    {
+                        title: "Day 3: Mattu Pongal",
+                        icon: "🐮",
+                        description: "The third day honors cattle, which are essential for farming. Cows and bulls are bathed, their horns are painted, and they are adorned with garlands. They are fed Pongal and thanked for their hard work. Events like Jallikattu (bull-taming) are also associated with this day."
+                    },
+                    {
+                        title: "Day 4: Kaanum Pongal",
+                        icon: "👨‍👩‍👧‍👦",
+                        description: "The final day is for social gatherings. Families visit relatives and friends, strengthening community bonds. Younger members pay respect to elders. It's a day of outings, sharing meals, and celebrating togetherness."
+                    }
+                ],
+                elements: {
+                    "pongal-dish": "The sweet Pongal dish, or 'Chakkarai Pongal', is made from freshly harvested rice, milk, and jaggery (unrefined cane sugar). It is often garnished with cashews, raisins, and cardamom. Its overflowing during cooking is a key ritual symbolizing prosperity.",
+                    "kolam": "These are intricate, traditional drawings made at the entrance of homes using rice flour. They are drawn early in the morning by women of the household. Kolams are a sign of welcome and are believed to bring good fortune.",
+                    "mattu": "Cattle are considered sacred and are vital to an agricultural community. Mattu Pongal is a day to show gratitude to these animals for their role in the harvest. They are given a day of rest and are celebrated with decorations and special food.",
+                    "sugarcane": "Stalks of sugarcane are tied around the Pongal pot and are a prominent part of the offerings and decorations. They represent the sweetness and joy of the harvest and are enjoyed by families throughout the festival."
+                }
+            };
+            
+            const dayContent = document.getElementById('day-content');
+            const dayIcon = document.getElementById('day-icon');
+            const dayTitle = document.getElementById('day-title');
+            const dayDescription = document.getElementById('day-description');
+            const navButtons = [
+                document.getElementById('day-1-btn'),
+                document.getElementById('day-2-btn'),
+                document.getElementById('day-3-btn'),
+                document.getElementById('day-4-btn')
+            ];
+
+            function updateDayContent(dayIndex) {
+                dayContent.style.opacity = 0;
+                setTimeout(() => {
+                    const dayData = festivalData.days[dayIndex];
+                    dayIcon.textContent = dayData.icon;
+                    dayTitle.textContent = dayData.title;
+                    dayDescription.textContent = dayData.description;
+                    dayContent.style.opacity = 1;
+
+                    navButtons.forEach((btn, index) => {
+                        btn.classList.toggle('active', index === dayIndex);
+                    });
+                }, 300);
+            }
+
+            navButtons.forEach((button, index) => {
+                button.addEventListener('click', () => updateDayContent(index));
+            });
+
+            updateDayContent(0);
+
+            const elementCards = document.querySelectorAll('.element-card-container');
+            const elementDescription = document.getElementById('element-description');
+            
+            elementCards.forEach(cardContainer => {
+                cardContainer.addEventListener('click', () => {
+                    const elementKey = cardContainer.dataset.element;
+                    const description = festivalData.elements[elementKey];
+                    elementDescription.textContent = description;
+                    
+                    elementCards.forEach(c => c.querySelector('.element-card').classList.remove('active'));
+                    cardContainer.querySelector('.element-card').classList.add('active');
+                });
+            });
+
+            const ctx = document.getElementById('pongalChart').getContext('2d');
+            const pongalChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['New Rice', 'Jaggery', 'Milk', 'Ghee & Nuts'],
+                    datasets: [{
+                        label: 'Pongal Ingredients',
+                        data: [45, 30, 20, 5],
+                        backgroundColor: [
+                            '#FFDDBB',
+                            '#D2691E',
+                            '#FFFFFF',
+                            '#FFC107'
+                        ],
+                        borderColor: [
+                            '#D2B48C',
+                            '#8B4513',
+                            '#E0E0E0',
+                            '#FFA000'
+                        ],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#5D4037',
+                                font: {
+                                    size: 14,
+                                    family: "'Inter', sans-serif"
+                                }
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: '#5D4037',
+                            titleFont: {
+                                size: 16
+                            },
+                            bodyFont: {
+                                size: 14
+                            },
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed !== null) {
+                                        label += context.parsed + '%';
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

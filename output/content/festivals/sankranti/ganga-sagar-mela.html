@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ganga Sagar Mela: An Interactive Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Sacred Earth -->
+    <!-- Application Structure Plan: The SPA is designed as a top-down narrative journey to guide users from a general overview to specific details. It starts with a captivating hero section, presents key facts in a dashboard for quick context, visualizes the pilgrim's journey through an interactive flow, delves into spiritual significance, uses data visualization to show the festival's scale, and finally explores its environmental and economic impacts. This thematic, storytelling structure was chosen over a simple report layout to enhance user engagement and comprehension, making the complex information about the festival more digestible and memorable. -->
+    <!-- Visualization & Content Choices: 
+        - Key Facts: Goal: Inform. Method: Styled HTML stat cards. Interaction: Hover effects. Justification: Provides at-a-glance information.
+        - Pilgrim's Journey: Goal: Organize process. Method: Horizontal timeline using HTML/Tailwind. Interaction: Hover highlights on steps. Justification: Simplifies and visualizes a complex process.
+        - Pilgrim Attendance: Goal: Show change over time. Viz: Bar Chart. Interaction: Buttons to toggle data views, tooltips on hover. Justification: Clearly shows growth trends. Library: Chart.js.
+        - Festival Impact: Goal: Compare aspects. Method: Two-column text layout. Interaction: Toggles to focus on Environmental or Economic themes. Justification: Allows users to actively explore different facets of the festival's impact.
+        - Textual Content: Goal: Inform. Method: Click-to-expand text blocks. Interaction: JS-powered show/hide. Justification: Prevents information overload by keeping the initial UI clean.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF8; /* Warm Off-White */
+            color: #4A4A4A; /* Dark Warm Gray */
+        }
+        .accent-color { color: #D9534F; } /* Terracotta Red */
+        .accent-bg { background-color: #D9534F; }
+        .secondary-bg { background-color: #F4EAD5; } /* Light Beige */
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #D9534F;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 50vh;
+        }
+        .tab-btn.active {
+            background-color: #D9534F;
+            color: #FFFFFF;
+        }
+        .stat-card {
+            background-color: white;
+            border-left: 4px solid #F0B27A; /* Saffron Accent */
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        .journey-step {
+            transition: background-color 0.3s;
+        }
+        .journey-step:hover {
+            background-color: #F4EAD5;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold accent-color">Ganga Sagar</h1>
+            <div class="hidden md:flex space-x-8">
+                <a href="#overview" class="nav-link text-gray-600 hover:accent-color font-medium">Overview</a>
+                <a href="#journey" class="nav-link text-gray-600 hover:accent-color font-medium">Journey</a>
+                <a href="#significance" class="nav-link text-gray-600 hover:accent-color font-medium">Significance</a>
+                <a href="#scale" class="nav-link text-gray-600 hover:accent-color font-medium">Scale</a>
+                <a href="#impact" class="nav-link text-gray-600 hover:accent-color font-medium">Impact</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-2xl">☰</button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#overview" class="block py-2 text-gray-600">Overview</a>
+            <a href="#journey" class="block py-2 text-gray-600">Journey</a>
+            <a href="#significance" class="block py-2 text-gray-600">Significance</a>
+            <a href="#scale" class="block py-2 text-gray-600">Scale</a>
+            <a href="#impact" class="block py-2 text-gray-600">Impact</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+
+        <section id="overview" class="text-center min-h-[60vh] flex flex-col justify-center items-center">
+            <h2 class="text-4xl md:text-6xl font-bold tracking-tight mb-4">Ganga Sagar Mela</h2>
+            <p class="text-xl md:text-2xl text-gray-500 mb-8 max-w-3xl">A yearly sacred journey drawing millions to the Ganges-Bay of Bengal confluence, symbolizing deep devotion and faith.</p>
+             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl mt-8">
+                <div class="stat-card p-6 rounded-lg shadow-md">
+                    <p class="text-4xl font-bold accent-color">3-5M+</p>
+                    <p class="text-lg text-gray-600 mt-2">Annual Pilgrims</p>
+                </div>
+                <div class="stat-card p-6 rounded-lg shadow-md">
+                    <p class="text-4xl font-bold accent-color">Jan 14-15</p>
+                    <p class="text-lg text-gray-600 mt-2">Makar Sankranti</p>
+                </div>
+                <div class="stat-card p-6 rounded-lg shadow-md">
+                    <p class="text-4xl font-bold accent-color">2nd</p>
+                    <p class="text-lg text-gray-600 mt-2">Largest Hindu Congregation</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="journey" class="py-20">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold mb-2">The Pilgrim's Journey</h3>
+                <p class="text-lg text-gray-500 max-w-3xl mx-auto">The journey to Ganga Sagar holds equal importance to the destination, marked by various steps and sacred ceremonies.</p>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0 md:space-x-4">
+                <div class="journey-step text-center p-6 rounded-lg w-full md:w-1/4">
+                    <div class="text-4xl mb-4">🚌</div>
+                    <h4 class="text-xl font-semibold mb-2">1. Arrival in Kolkata</h4>
+                    <p class="text-gray-600">Travelers from India and beyond flock to Kolkata, the entry point to the Mela.</p>
+                </div>
+                <div class="text-2xl text-gray-300 hidden md:block">→</div>
+                <div class="journey-step text-center p-6 rounded-lg w-full md:w-1/4">
+                    <div class="text-4xl mb-4">⛴️</div>
+                    <h4 class="text-xl font-semibold mb-2">2. Ferry to Sagar Island</h4>
+                    <p class="text-gray-600">A vital ferry journey connects Lot 8 on the mainland to Kachuberia on secluded Sagar Island.</p>
+                </div>
+                <div class="text-2xl text-gray-300 hidden md:block">→</div>
+                <div class="journey-step text-center p-6 rounded-lg w-full md:w-1/4">
+                     <div class="text-4xl mb-4">🙏</div>
+                    <h4 class="text-xl font-semibold mb-2">3. The Holy Dip</h4>
+                    <p class="text-gray-600">At sunrise on Makar Sankranti, countless devotees bathe at the holy confluence, seeking to cleanse their sins.</p>
+                </div>
+                 <div class="text-2xl text-gray-300 hidden md:block">→</div>
+                <div class="journey-step text-center p-6 rounded-lg w-full md:w-1/4">
+                     <div class="text-4xl mb-4">🕉️</div>
+                    <h4 class="text-xl font-semibold mb-2">4. Puja at Kapil Muni Temple</h4>
+                    <p class="text-gray-600">Following the dip, devotees pray at the old temple honoring sage Kapil Muni.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="significance" class="py-20 secondary-bg -mx-6 px-6">
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-3xl font-bold mb-4">A Confluence of Faith</h3>
+                    <p class="text-lg text-gray-700 mb-4">The festival centers on the faith that a sacred dip here and now bestows salvation, embodying purification, renewal, and deep devotion.</p>
+                     <p id="more-details" class="text-gray-600 hidden">This belief originates from Hindu mythology, centered on King Sagara's 60,000 sons, freed from a curse by the sacred Ganges, which Bhagiratha brought to earth with sage Kapil Muni's guidance. The Mela honors this tale, attracting millions in search of spiritual blessings.</p>
+                     <button id="read-more-btn" class="font-semibold accent-color hover:underline">Read More →</button>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                    <p class="text-2xl italic text-gray-800">"Sab tirath bar bar,</p>
+                    <p class="text-2xl italic text-gray-800 mb-4">Ganga Sagar ek bar."</p>
+                    <p class="text-gray-600">('Visiting Ganga Sagar once equals the merit of all other pilgrimages combined.')</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="scale" class="py-20">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold mb-2">The Scale of Devotion</h3>
+                <p class="text-lg text-gray-500 max-w-3xl mx-auto">Overseeing a fleeting city of millions demands immense logistical coordination. This graphic illustrates the rise in pilgrims and the resources mobilized to support them.</p>
+            </div>
+            <div class="flex justify-center mb-8 space-x-2">
+                <button data-metric="pilgrims" class="tab-btn active px-4 py-2 rounded-full text-sm font-medium transition">Pilgrim Attendance</button>
+                <button data-metric="management" class="tab-btn px-4 py-2 rounded-full text-sm font-medium transition">Management Scale</button>
+            </div>
+            <div class="chart-container">
+                <canvas id="pilgrimChart"></canvas>
+            </div>
+        </section>
+
+        <section id="impact" class="py-20">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold mb-2">Dual Impact of the Mela</h3>
+                <p class="text-lg text-gray-500 max-w-3xl mx-auto">The large event poses notable environmental and economic impacts. Delve into the festival's challenges and advantages.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <h4 class="text-2xl font-semibold mb-4 text-green-600">Environmental Stewardship</h4>
+                    <p class="text-gray-600 mb-4">Hosting millions of visitors, tackling waste and reducing pollution remains a key challenge. Lately, efforts have intensified towards a 'Green and Clean' Mela.</p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start"><span class="mr-2 text-green-500">✔</span> <span>Extensive waste management and recycling programs.</span></li>
+                        <li class="flex items-start"><span class="mr-2 text-green-500">✔</span> <span>Ban on single-use plastics in the Mela grounds.</span></li>
+                        <li class="flex items-start"><span class="mr-2 text-green-500">✔</span> <span>Construction of thousands of bio-toilets to protect the holy water.</span></li>
+                        <li class="flex items-start"><span class="mr-2 text-green-500">✔</span> <span>Public awareness campaigns promoting cleanliness.</span></li>
+                    </ul>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <h4 class="text-2xl font-semibold mb-4 text-blue-600">Economic Catalyst</h4>
+                    <p class="text-gray-600 mb-4">The festival greatly boosts the local and state economy, driving seasonal jobs and aiding numerous small businesses.</p>
+                     <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start"><span class="mr-2 text-blue-500">✔</span> <span>Increased demand for transportation services (ferries, buses).</span></li>
+                        <li class="flex items-start"><span class="mr-2 text-blue-500">✔</span> <span>Thriving market for local artisans, food vendors, and religious goods.</span></li>
+                        <li class="flex items-start"><span class="mr-2 text-blue-500">✔</span> <span>Employment in temporary infrastructure, security, and sanitation.</span></li>
+                        <li class="flex items-start"><span class="mr-2 text-blue-500">✔</span> <span>Boost in tourism for West Bengal during the winter season.</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="secondary-bg border-t border-gray-200">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-600">
+            <p>&copy; 2025 Ganga Sagar Mela Interactive Guide. An informational project.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            const readMoreBtn = document.getElementById('read-more-btn');
+            const moreDetails = document.getElementById('more-details');
+            readMoreBtn.addEventListener('click', () => {
+                const isHidden = moreDetails.classList.toggle('hidden');
+                readMoreBtn.textContent = isHidden ? 'Read More →' : 'Read Less ←';
+            });
+            
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section[id]');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href').substring(1) === entry.target.id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: "-50% 0px -50% 0px" });
+
+            sections.forEach(section => observer.observe(section));
+
+            const chartData = {
+                pilgrims: {
+                    labels: ['2021', '2022', '2023', '2024', '2025 (Est.)'],
+                    datasets: [{
+                        label: 'Pilgrims (in Millions)',
+                        data: [2.1, 2.5, 3.2, 3.5, 4.0],
+                        backgroundColor: 'rgba(217, 83, 79, 0.6)',
+                        borderColor: 'rgba(217, 83, 79, 1)',
+                        borderWidth: 1,
+                        borderRadius: 5,
+                    }]
+                },
+                management: {
+                    labels: ['Security Personnel', 'Medical Camps', 'Bio-Toilets', 'Ferries'],
+                    datasets: [{
+                        label: 'Resource Deployment (Units)',
+                        data: [40000, 200, 30000, 100],
+                        backgroundColor: [
+                            'rgba(91, 192, 222, 0.6)',
+                            'rgba(240, 173, 78, 0.6)',
+                            'rgba(92, 184, 92, 0.6)',
+                            'rgba(41, 128, 185, 0.6)'
+                        ],
+                        borderColor: [
+                            'rgba(91, 192, 222, 1)',
+                            'rgba(240, 173, 78, 1)',
+                            'rgba(92, 184, 92, 1)',
+                            'rgba(41, 128, 185, 1)'
+                        ],
+                        borderWidth: 1,
+                        borderRadius: 5,
+                    }]
+                }
+            };
+
+            const ctx = document.getElementById('pilgrimChart').getContext('2d');
+            let myChart = new Chart(ctx, {
+                type: 'bar',
+                data: chartData.pilgrims,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'Count' }
+                        },
+                        x: {
+                           grid: { display: false }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        title: {
+                            display: true,
+                            text: 'Pilgrim Attendance (in Millions)',
+                            font: { size: 16 }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += context.parsed.y + (context.dataset.label.includes('Millions') ? 'M' : '');
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const metric = button.dataset.metric;
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    myChart.data = chartData[metric];
+                    myChart.options.plugins.title.text = metric === 'pilgrims' ? 'Pilgrim Attendance (in Millions)' : 'Logistical Management Scale';
+                    myChart.options.scales.y.title.text = metric === 'pilgrims' ? 'Count in Millions' : 'Total Units Deployed';
+                    myChart.update();
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An interactive guide to the Chinese New Year 2026, the Year of the Fire Horse. Explore traditions, the 15-day celebration timeline, and the Chinese zodiac.">
+    <meta name="keywords" content="Chinese New Year 2026, Lunar New Year 2026, Year of the Horse, Spring Festival, Chinese traditions, Interactive guide, Zodiac, Countdown">
+    <title>Chinese New Year 2026: The Year of the Horse</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Festive Harmony -->
+    <!-- Application Structure Plan: A single-page app with a sticky top navigation for easy access to thematic sections: a 'Welcome' overview, a detailed '2026: Year of the Horse' section with an interactive zodiac, a card-based 'Traditions' explorer, and an interactive 15-day 'Celebrations Timeline'. This structure guides the user from general to specific information, using interactive components to make learning engaging and non-linear, which is more effective than a static report for exploring cultural topics. -->
+    <!-- Visualization & Content Choices: Report Info: Countdown to CNY 2026 -> Goal: Inform -> Viz: JS-powered live countdown timer -> Interaction: None, passive display. Report Info: 12 Zodiac Animals -> Goal: Organize/Compare -> Viz: Interactive HTML/CSS grid -> Interaction: Click animal to see details -> Justification: Encourages exploration of the full zodiac cycle. Report Info: Festival Traditions -> Goal: Inform/Organize -> Viz: Interactive cards -> Interaction: Click to reveal details -> Justification: Breaks down content into digestible pieces. Report Info: 15-Day Festival -> Goal: Show Change/Process -> Viz: Interactive horizontal timeline -> Interaction: Click day to get info -> Justification: Clearly visualizes the sequence of events. Report Info: Food Symbolism -> Goal: Compare -> Viz: Chart.js Horizontal Bar Chart -> Interaction: Hover for tooltips explaining symbolism -> Justification: More visual and engaging than a list. CONFIRMED NO SVG/Mermaid. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FFFBF5;
+            color: #4A4A4A;
+        }
+        .nav-link {
+            transition: color 0.3s, border-color 0.3s;
+        }
+        .nav-link.active {
+            color: #E53E3E;
+            border-bottom-color: #E53E3E;
+        }
+        .zodiac-animal {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .zodiac-animal:hover {
+            transform: scale(1.1);
+        }
+        .zodiac-animal.selected {
+            transform: scale(1.1);
+            box-shadow: 0 0 0 4px #FBBF24;
+            background-color: #FEF3C7;
+        }
+        .timeline-dot {
+            transition: all 0.3s ease;
+        }
+        .timeline-dot.active {
+            background-color: #E53E3E;
+            transform: scale(1.5);
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="sticky top-0 bg-white/80 backdrop-blur-lg z-50 shadow-sm">
+        <nav class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <a href="#welcome" class="text-xl font-bold text-red-700">Lunar New Year</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#welcome" class="nav-link text-gray-600 hover:text-red-600 border-b-2 border-transparent pb-1">Welcome</a>
+                    <a href="#year-2026" class="nav-link text-gray-600 hover:text-red-600 border-b-2 border-transparent pb-1">The Year 2026</a>
+                    <a href="#traditions" class="nav-link text-gray-600 hover:text-red-600 border-b-2 border-transparent pb-1">Traditions</a>
+                    <a href="#timeline" class="nav-link text-gray-600 hover:text-red-600 border-b-2 border-transparent pb-1">Celebrations</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="welcome" class="min-h-screen flex items-center justify-center bg-red-50 py-20">
+            <div class="text-center container mx-auto px-4">
+                <h1 class="text-5xl md:text-7xl font-bold text-red-800 mb-4">Chinese New Year 2026</h1>
+                <p class="text-2xl md:text-3xl text-yellow-600 mb-8">Year of the Red Fire Horse</p>
+                <div id="countdown" class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto text-center">
+                    <div class="bg-white/60 p-6 rounded-lg shadow-md">
+                        <span id="days" class="block text-4xl font-bold text-red-700">0</span>
+                        <span class="text-gray-600">Days</span>
+                    </div>
+                    <div class="bg-white/60 p-6 rounded-lg shadow-md">
+                        <span id="hours" class="block text-4xl font-bold text-red-700">0</span>
+                        <span class="text-gray-600">Hours</span>
+                    </div>
+                    <div class="bg-white/60 p-6 rounded-lg shadow-md">
+                        <span id="minutes" class="block text-4xl font-bold text-red-700">0</span>
+                        <span class="text-gray-600">Minutes</span>
+                    </div>
+                    <div class="bg-white/60 p-6 rounded-lg shadow-md">
+                        <span id="seconds" class="block text-4xl font-bold text-red-700">0</span>
+                        <span class="text-gray-600">Seconds</span>
+                    </div>
+                </div>
+                <p class="mt-8 max-w-3xl mx-auto text-gray-700 text-lg">
+                    Discover this engaging guide to the Chinese New Year, or Spring Festival. Dive into the vibrant traditions, meanings, and festivities of this holiday, with a spotlight on what’s in store for 2026.
+                </p>
+            </div>
+        </section>
+
+        <section id="year-2026" class="py-20 px-4">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-4 text-red-800">The Year 2026: Fire Horse</h2>
+                <p class="text-center text-lg max-w-3xl mx-auto mb-12 text-gray-600">
+                    In 2026, Chinese New Year lands on February 17th, marking the Year of the Fire Horse. The Chinese zodiac features 12 animals, each symbolizing distinct traits. Click below to explore the zodiac and discover the qualities and years linked to each animal.
+                </p>
+
+                <div class="grid md:grid-cols-3 gap-8 items-center">
+                    <div id="zodiac-info" class="md:col-span-1 bg-white p-8 rounded-lg shadow-lg text-center order-last md:order-first">
+                        <div id="zodiac-emoji" class="text-8xl mb-4">🐴</div>
+                        <h3 id="zodiac-name" class="text-3xl font-bold text-red-700">Horse</h3>
+                        <p id="zodiac-element" class="text-xl text-yellow-600 mb-4">Fire Element</p>
+                        <p id="zodiac-traits" class="text-gray-600 mb-4">Lively, smart, and spirited. Horses are friendly, upbeat, and skilled talkers, yet may sometimes be restless.</p>
+                        <p id="zodiac-years" class="text-sm text-gray-500">2026, 2014, 2002, 1990, 1978...</p>
+                    </div>
+                    <div id="zodiac-grid" class="md:col-span-2 grid grid-cols-3 sm:grid-cols-4 gap-4">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="traditions" class="py-20 px-4 bg-red-50">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-4 text-red-800">Core Traditions & Symbolism</h2>
+                <p class="text-center text-lg max-w-3xl mx-auto mb-12 text-gray-600">
+                    The festival brims with traditions to say goodbye to the old year and invite luck and success into the new one. This part highlights key customs, from festive foods to vibrant decorations.
+                </p>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="text-4xl mb-4">🏮</div>
+                        <h3 class="text-2xl font-bold mb-2 text-red-700">Decorations</h3>
+                        <p class="text-gray-600">Homes are adorned with red lanterns, paper cuttings, and couplets bearing lucky phrases. The color red dominates, symbolizing joy, prosperity, and protection from evil.</p>
+                    </div>
+                     <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="text-4xl mb-4">🧧</div>
+                        <h3 class="text-2xl font-bold mb-2 text-red-700">Red Envelopes (Hongbao)</h3>
+                        <p class="text-gray-600">Married couples and elders give red envelopes containing money to children and unmarried adults. This tradition is not about the amount of money but about passing on good luck and blessings for the year ahead.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="text-4xl mb-4">🧹</div>
+                        <h3 class="text-2xl font-bold mb-2 text-red-700">Cleaning & Prepping</h3>
+                        <p class="text-gray-600">The house is thoroughly cleaned before the New Year to clear out past bad luck. Cleaning tools are then stored to ensure good luck stays in the new year.</p>
+                    </div>
+                </div>
+                
+                <div class="mt-16">
+                    <h3 class="text-3xl font-bold text-center mb-8 text-red-800">Symbolism in Food</h3>
+                    <div class="chart-container">
+                        <canvas id="foodChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="timeline" class="py-20 px-4">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-4 text-red-800">The 15-Day Celebration</h2>
+                <p class="text-center text-lg max-w-3xl mx-auto mb-12 text-gray-600">
+                    The Chinese New Year spans 15 days, each rich with unique traditions and festivities. Explore the interactive timeline below to follow the journey from the Reunion Dinner on New Year's Eve to the vibrant Lantern Festival on the last day.
+                </p>
+                <div class="relative w-full max-w-4xl mx-auto">
+                    <div class="w-full h-1 bg-gray-300 rounded-full absolute top-1/2 -translate-y-1/2"></div>
+                    <div id="timeline-dots" class="relative flex justify-between items-center">
+                    </div>
+                </div>
+                <div id="timeline-content" class="mt-12 bg-white p-8 rounded-lg shadow-lg max-w-3xl mx-auto transition-opacity duration-300">
+                    <h3 id="timeline-day" class="text-2xl font-bold text-red-700 mb-2"></h3>
+                    <p id="timeline-description" class="text-gray-600"></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Interactive Guide to Chinese New Year. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const countdownData = {
+                targetDate: new Date("2026-02-17T00:00:00")
+            };
+
+            const zodiacData = [
+                { name: 'Rat', emoji: '🐭', element: 'Water', traits: 'Quick-witted, resourceful, versatile, and kind. Rats are known for their intelligence and ambition.', years: '2020, 2008, 1996, 1984' },
+                { name: 'Ox', emoji: '🐮', element: 'Earth', traits: 'Diligent, dependable, strong, and determined. Oxen are honest and patient, making them reliable leaders.', years: '2021, 2009, 1997, 1985' },
+                { name: 'Tiger', emoji: '🐯', element: 'Wood', traits: 'Brave, competitive, unpredictable, and confident. Tigers are charismatic and known for their courage.', years: '2022, 2010, 1998, 1986' },
+                { name: 'Rabbit', emoji: '🐰', element: 'Wood', traits: 'Quiet, elegant, kind, and responsible. Rabbits are gentle and approachable, with a strong sense of artistry.', years: '2023, 2011, 1999, 1987' },
+                { name: 'Dragon', emoji: '🐲', element: 'Earth', traits: 'Confident, intelligent, and enthusiastic. Dragons are powerful, energetic, and natural-born leaders.', years: '2024, 2012, 2000, 1988' },
+                { name: 'Snake', emoji: '🐍', element: 'Fire', traits: 'Enigmatic, intelligent, and wise. Snakes are calm and thoughtful, with a deep sense of intuition.', years: '2025, 2013, 2001, 1989' },
+                { name: 'Horse', emoji: '🐴', element: 'Fire', traits: 'Energetic, intelligent, and enthusiastic. Horses are sociable, cheerful, and great communicators.', years: '2026, 2014, 2002, 1990' },
+                { name: 'Goat', emoji: '🐐', element: 'Earth', traits: 'Gentle, mild-mannered, sympathetic, and creative. Goats are calm and enjoy being in their own thoughts.', years: '2027, 2015, 2003, 1991' },
+                { name: 'Monkey', emoji: '🐵', element: 'Metal', traits: 'Sharp, smart, and curious. Monkeys are playful and masters of practical jokes, with a magnetic personality.', years: '2028, 2016, 2004, 1992' },
+                { name: 'Rooster', emoji: '🐔', element: 'Metal', traits: 'Observant, hardworking, and courageous. Roosters are confident and known for their punctuality.', years: '2029, 2017, 2005, 1993' },
+                { name: 'Dog', emoji: '🐶', element: 'Earth', traits: 'Lovely, honest, and prudent. Dogs are loyal and kind, always ready to help others.', years: '2030, 2018, 2006, 1994' },
+                { name: 'Pig', emoji: '🐷', element: 'Water', traits: 'Compassionate, generous, and diligent. Pigs are easygoing and enjoy life to the fullest.', years: '2031, 2019, 2007, 1995' }
+            ];
+            
+            const timelineData = [
+                { day: 'Eve', title: 'New Year\'s Eve', desc: 'Families gather for the annual reunion dinner, a feast with symbolic dishes. After dinner, many stay up late to welcome the new year, a practice known as "shousui".' },
+                { day: '1', title: 'Day 1: Welcome the Deities', desc: 'The first day is for welcoming the deities of the heavens and earth. People visit family, especially older relatives, and offer well wishes. Firecrackers are set off.' },
+                { day: '2', title: 'Day 2: Visiting In-laws', desc: 'Married daughters visit their parents and relatives on this day. It\'s a time for family reunion on the wife\'s side.' },
+                { day: '3-4', title: 'Days 3-4: Visiting Relatives', desc: 'These days are for visiting other relatives and friends. It is a time of feasting and sharing new year greetings.' },
+                { day: '5', title: 'Day 5: Welcoming the God of Wealth', desc: 'On the 5th day, businesses often reopen. People welcome the God of Wealth by eating dumplings and setting off firecrackers.' },
+                { day: '7', title: 'Day 7: "Renri" - Everyone\'s Birthday', desc: 'The seventh day is traditionally considered everyone\'s birthday. A special dish called "seven-gem porridge" is often eaten for good luck.' },
+                { day: '9', title: 'Day 9: Jade Emperor\'s Birthday', desc: 'The ninth day celebrates the birthday of the Jade Emperor, the supreme ruler of heaven in Taoist mythology. People offer prayers at temples.' },
+                { day: '15', title: 'Day 15: Lantern Festival', desc: 'The final day is the Lantern Festival. People go out to see lanterns, solve riddles, eat sweet rice balls (tangyuan), and enjoy dragon dances, marking the end of the celebration.' },
+            ];
+            
+            function startCountdown() {
+                const countdownEl = {
+                    days: document.getElementById('days'),
+                    hours: document.getElementById('hours'),
+                    minutes: document.getElementById('minutes'),
+                    seconds: document.getElementById('seconds')
+                };
+
+                const interval = setInterval(() => {
+                    const now = new Date().getTime();
+                    const distance = countdownData.targetDate - now;
+
+                    if (distance < 0) {
+                        clearInterval(interval);
+                        Object.values(countdownEl).forEach(el => el.textContent = '0');
+                        return;
+                    }
+
+                    countdownEl.days.textContent = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    countdownEl.hours.textContent = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    countdownEl.minutes.textContent = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    countdownEl.seconds.textContent = Math.floor((distance % (1000 * 60)) / 1000);
+                }, 1000);
+            }
+
+            function setupZodiac() {
+                const grid = document.getElementById('zodiac-grid');
+                const infoElements = {
+                    emoji: document.getElementById('zodiac-emoji'),
+                    name: document.getElementById('zodiac-name'),
+                    element: document.getElementById('zodiac-element'),
+                    traits: document.getElementById('zodiac-traits'),
+                    years: document.getElementById('zodiac-years')
+                };
+
+                zodiacData.forEach((animal, index) => {
+                    const div = document.createElement('div');
+                    div.className = 'zodiac-animal cursor-pointer text-center p-4 bg-white rounded-lg shadow-md';
+                    div.innerHTML = `<div class="text-5xl">${animal.emoji}</div><p class="mt-2 font-semibold">${animal.name}</p>`;
+                    div.dataset.index = index;
+                    if (animal.name === 'Horse') {
+                        div.classList.add('selected');
+                    }
+                    grid.appendChild(div);
+                });
+
+                grid.addEventListener('click', e => {
+                    const target = e.target.closest('.zodiac-animal');
+                    if (target) {
+                        const index = target.dataset.index;
+                        const animal = zodiacData[index];
+                        
+                        document.querySelector('.zodiac-animal.selected').classList.remove('selected');
+                        target.classList.add('selected');
+
+                        infoElements.emoji.textContent = animal.emoji;
+                        infoElements.name.textContent = animal.name;
+                        infoElements.element.textContent = `${animal.element} Element`;
+                        infoElements.traits.textContent = animal.traits;
+                        infoElements.years.textContent = `${animal.years}...`;
+                    }
+                });
+            }
+            
+            function setupTimeline() {
+                const dotsContainer = document.getElementById('timeline-dots');
+                const content = {
+                    day: document.getElementById('timeline-day'),
+                    description: document.getElementById('timeline-description')
+                };
+
+                timelineData.forEach((item, index) => {
+                    const dot = document.createElement('button');
+                    dot.className = 'timeline-dot w-6 h-6 bg-gray-300 rounded-full cursor-pointer z-10 flex items-center justify-center text-xs font-bold';
+                    dot.textContent = item.day;
+                    dot.dataset.index = index;
+                    dotsContainer.appendChild(dot);
+                });
+
+                dotsContainer.addEventListener('click', e => {
+                    if (e.target.classList.contains('timeline-dot')) {
+                        const index = e.target.dataset.index;
+                        updateTimelineContent(index);
+                    }
+                });
+
+                updateTimelineContent(0);
+            }
+
+            function updateTimelineContent(index) {
+                const item = timelineData[index];
+                const contentContainer = document.getElementById('timeline-content');
+                
+                contentContainer.style.opacity = 0;
+                
+                setTimeout(() => {
+                    document.getElementById('timeline-day').textContent = item.title;
+                    document.getElementById('timeline-description').textContent = item.desc;
+                    contentContainer.style.opacity = 1;
+
+                    document.querySelectorAll('.timeline-dot').forEach((d, i) => {
+                        d.classList.toggle('active', i == index);
+                    });
+                }, 300);
+            }
+
+            function createFoodChart() {
+                const ctx = document.getElementById('foodChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Fish (鱼)', 'Dumplings (饺子)', 'Spring Rolls (春卷)', 'Sweet Rice Balls (汤圆)', 'Nian Gao (年糕)'],
+                        datasets: [{
+                            label: 'Symbolic Importance',
+                            data: [90, 85, 80, 75, 70],
+                            backgroundColor: [
+                                'rgba(239, 68, 68, 0.6)',
+                                'rgba(217, 119, 6, 0.6)',
+                                'rgba(245, 158, 11, 0.6)',
+                                'rgba(234, 179, 8, 0.6)',
+                                'rgba(161, 98, 7, 0.6)'
+                            ],
+                            borderColor: [
+                                'rgba(239, 68, 68, 1)',
+                                'rgba(217, 119, 6, 1)',
+                                'rgba(245, 158, 11, 1)',
+                                'rgba(234, 179, 8, 1)',
+                                'rgba(161, 98, 7, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    afterBody: function(context) {
+                                        const symbolism = [
+                                            '"Yú" sounds like "surplus" or "abundance". Represents prosperity.',
+                                            'Shaped like ancient Chinese money (ingots). Represents wealth.',
+                                            'Their golden color and shape resemble gold bars. Represents wealth.',
+                                            '"Tāngyuán" sounds like "reunion". Represents family togetherness.',
+                                            '"Niángāo" sounds like "higher year". Represents progress and promotion.'
+                                        ];
+                                        return symbolism[context[0].dataIndex];
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                display: false,
+                            },
+                            y: {
+                                ticks: {
+                                    font: {
+                                        size: 14,
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            function setupNavScroll() {
+                const sections = document.querySelectorAll('main section');
+                const navLinks = document.querySelectorAll('.nav-link');
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            navLinks.forEach(link => {
+                                link.classList.toggle('active', link.getAttribute('href').substring(1) === entry.target.id);
+                            });
+                        }
+                    });
+                }, { rootMargin: '-50% 0px -50% 0px' });
+                
+                sections.forEach(section => observer.observe(section));
+            }
+
+
+            startCountdown();
+            setupZodiac();
+            setupTimeline();
+            createFoodChart();
+            setupNavScroll();
+        });
+    </script>
+</body>
+</html>
+

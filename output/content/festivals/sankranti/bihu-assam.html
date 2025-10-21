@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Bihu Festival: An Interactive Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Assam Earth & Sky -->
+    <!-- Application Structure Plan: The application is designed as a single-page thematic guide. A top navigation bar allows users to jump to specific sections: 'Home' (intro), 'The Three Bihus' (core content), 'Festival Timeline' (visualization), and 'Cultural Fabric' (details). The core section uses an interactive tab system, allowing users to explore each of the three Bihu festivals without overwhelming them with information. This non-linear, user-driven approach is better than a simple top-to-bottom report as it encourages exploration and comparison. The timeline visualization provides a quick, high-level understanding of the annual cycle, reinforcing the information in the tabs. This structure was chosen to make a culturally rich topic digestible, engaging, and easy to navigate for a general audience. -->
+    <!-- Visualization & Content Choices: 
+    1. Report Info: The three types of Bihu and their timing. -> Goal: Organize & Change. -> Viz/Presentation: Interactive Timeline Chart. -> Interaction: Hovering over chart bars reveals tooltips with Bihu names and significance. -> Justification: A visual timeline is more intuitive and memorable than a text list for understanding the annual cycle of the festivals. -> Library/Method: Chart.js (Canvas).
+    2. Report Info: Detailed descriptions of each of the three Bihus. -> Goal: Compare & Inform. -> Viz/Presentation: Tabbed content interface. -> Interaction: Clicking on a Bihu name (button) displays its specific details while hiding the others. -> Justification: Tabs allow for a clean layout, prevent information overload, and facilitate direct comparison between the festivals. -> Library/Method: HTML/CSS/JS.
+    3. Report Info: Key cultural elements like dance, food, attire. -> Goal: Organize & Inform. -> Viz/Presentation: Grid of info cards. -> Interaction: Static display. -> Justification: Grouping these related cultural elements prevents repetition in the main descriptions and provides a quick reference. -> Library/Method: HTML/Tailwind CSS. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FEFBF6;
+            color: #4A4A4A;
+        }
+        .nav-link {
+            transition: color 0.3s, border-bottom-color 0.3s;
+        }
+        .nav-link:hover {
+            color: #C05621;
+        }
+        .tab-btn {
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .tab-btn.active {
+            background-color: #C05621;
+            color: #FFFFFF;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 250px;
+            max-height: 300px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 300px;
+                max-height: 350px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-red-800">Explore Bihu</h1>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-gray-700 font-medium">Home</a>
+                <a href="#the-bihus" class="nav-link text-gray-700 font-medium">The Three Bihus</a>
+                <a href="#timeline" class="nav-link text-gray-700 font-medium">Festival Timeline</a>
+                <a href="#culture" class="nav-link text-gray-700 font-medium">Cultural Fabric</a>
+            </div>
+            <div class="md:hidden">
+                <select id="mobile-nav" class="bg-white border border-gray-300 rounded-md px-3 py-1 text-gray-700">
+                    <option value="#home">Home</option>
+                    <option value="#the-bihus">The Three Bihus</option>
+                    <option value="#timeline">Festival Timeline</option>
+                    <option value="#culture">Culture</option>
+                </select>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="container mx-auto px-6 py-16 md:py-24 text-center">
+            <h2 class="text-4xl md:text-6xl font-bold text-stone-800 mb-4">The Heartbeat of Assam</h2>
+            <p class="text-lg md:text-xl max-w-3xl mx-auto text-gray-600">
+                Bihu isn’t just a festival; it’s the heartbeat of Assam, blending three lively celebrations tied to agriculture and nature. Dive into this guide to uncover its vibrant traditions and festive essence.
+            </p>
+        </section>
+
+        <section id="the-bihus" class="py-16 md:py-24 bg-amber-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold text-stone-800">The Three Pillars of Bihu</h3>
+                    <p class="mt-4 max-w-2xl mx-auto text-gray-600">
+                        Bihu is observed in three unique forms across the year, each with special traditions and meanings. Tap on each tab to explore what sets them apart. This segment lets you compare the festivals and grasp their significance in Assam's calendar.
+                    </p>
+                </div>
+
+                <div class="flex justify-center space-x-2 md:space-x-4 mb-8">
+                    <button id="bohag-btn" class="tab-btn active font-medium py-2 px-4 md:px-6 rounded-full text-sm md:text-base bg-white shadow-sm">Rongali (Bohag) Bihu</button>
+                    <button id="kati-btn" class="tab-btn font-medium py-2 px-4 md:px-6 rounded-full text-sm md:text-base bg-white shadow-sm">Kongali (Kati) Bihu</button>
+                    <button id="magh-btn" class="tab-btn font-medium py-2 px-4 md:px-6 rounded-full text-sm md:text-base bg-white shadow-sm">Bhogali (Magh) Bihu</button>
+                </div>
+
+                <div id="bihu-content" class="max-w-4xl mx-auto">
+                    <div id="bohag-content" class="bihu-pane">
+                        <div class="bg-white p-8 rounded-lg shadow-lg">
+                            <h4 class="text-2xl font-bold text-red-800 mb-4">Rongali Bihu - The Festival of Merriment</h4>
+                            <p class="text-gray-600 mb-6">
+                                Observed in mid-April, Rongali Bihu ushers in the Assamese New Year and welcomes spring. As the liveliest of the three Bihu festivals, it bursts with song, dance, and communal joy. The celebration honors fertility and the start of a new farming season. Lasting several days, it brings together people from all walks of life.
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="bg-amber-50 p-4 rounded-md">
+                                    <h5 class="font-bold text-stone-700">🎶 Bihu Dance & Husori</h5>
+                                    <p class="text-sm text-gray-600">Vibrant youths showcase the lively Bihu dance, while elders guide Husori, blending song and dance to bless households.</p>
+                                </div>
+                                <div class="bg-amber-50 p-4 rounded-md">
+                                    <h5 class="font-bold text-stone-700">🎁 Gamosa Exchange</h5>
+                                    <p class="text-sm text-gray-600">The Gamosa, a traditional red-and-white woven fabric, symbolizes love and respect when exchanged.</p>
+                                </div>
+                                <div class="bg-amber-50 p-4 rounded-md">
+                                    <h5 class="font-bold text-stone-700">🍚 Pitha & Laru</h5>
+                                    <p class="text-sm text-gray-600">Traditional rice cakes (Pitha) and coconut treats (Laru) are made and enjoyed with loved ones.</p>
+                                </div>
+                                <div class="bg-amber-50 p-4 rounded-md">
+                                    <h5 class="font-bold text-stone-700">🐂 Cattle Rites</h5>
+                                    <p class="text-sm text-gray-600">The opening day focuses on celebrating cattle, vital to farming, through rituals of bathing and feeding.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="kati-content" class="bihu-pane hidden">
+                        <div class="bg-white p-8 rounded-lg shadow-lg">
+                            <h4 class="text-2xl font-bold text-emerald-800 mb-4">Kongali Bihu - The Festival of Scarcity</h4>
+                            <p class="text-gray-600 mb-6">
+                                Kongali Bihu, marked in mid-October, is a solemn and introspective festival. It takes place when granaries are often bare, and the paddy is still maturing. The emphasis is on prayers for a rich harvest and safeguarding crops from harm and misfortune.
+                            </p>
+                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="bg-emerald-50 p-4 rounded-md">
+                                    <h5 class="font-bold text-stone-700">🏮 Earthen Lamps (Saki)</h5>
+                                    <p class="text-sm text-gray-600">Lights glow in rice fields, luring insects (safeguarding crops) and welcoming ancestral spirits.</p>
+                                </div>
+                                <div class="bg-emerald-50 p-4 rounded-md">
+                                    <h5 class="font-bold text-stone-700">🌿 Tulsi Plant Worship</h5>
+                                    <p class="text-sm text-gray-600">Devotees pray by the holy Tulsi plant in the courtyard, wishing for health and a bountiful harvest.</p>
+                                </div>
+                                 <div class="bg-emerald-50 p-4 rounded-md">
+                                    <h5 class="font-bold text-stone-700">🙏 Prayers for Prosperity</h5>
+                                    <p class="text-sm text-gray-600">A moment to reflect in peace and seek blessings for the crops' safety and thriving growth.</p>
+                                </div>
+                                <div class="bg-emerald-50 p-4 rounded-md">
+                                    <h5 class="font-bold text-stone-700">🌾 Guarding the Fields</h5>
+                                    <p class="text-sm text-gray-600">Farmers might work in the fields, spinning bamboo sticks and chanting to repel pests and bad energy.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="magh-content" class="bihu-pane hidden">
+                        <div class="bg-white p-8 rounded-lg shadow-lg">
+                           <h4 class="text-2xl font-bold text-orange-800 mb-4">Bhogali Bihu - The Festival of Feasting</h4>
+                            <p class="text-gray-600 mb-6">
+                                Observed in mid-January, Bhogali Bihu signifies the close of the harvest season. The festival centers around food, feasts, and togetherness. With granaries brimming, it’s a moment for gratitude, celebration, and relishing the rewards of hard work with family and friends.
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="bg-orange-50 p-4 rounded-md">
+                                    <h5 class="font-bold text-stone-700">🔥 Meji & Bhelaghar</h5>
+                                    <p class="text-sm text-gray-600">Men construct makeshift huts (Bhelaghar) and towering structures (Meji) using bamboo and thatch, serving as venues for communal feasts.</p>
+                                </div>
+                                <div class="bg-orange-50 p-4 rounded-md">
+                                    <h5 class="font-bold text-stone-700">🍲 Community Feasts</h5>
+                                    <p class="text-sm text-gray-600">The night before the festival, known as Uruka, is celebrated with lavish feasts. The following day, the Meji is ritually set aflame.</p>
+                                </div>
+                                 <div class="bg-orange-50 p-4 rounded-md">
+                                    <h5 class="font-bold text-stone-700">🥮 Abundant Delicacies</h5>
+                                    <p class="text-sm text-gray-600">A wide variety of Pithas, Laru, and other dishes made from the newly harvested rice are prepared and shared.</p>
+                                </div>
+                                <div class="bg-orange-50 p-4 rounded-md">
+                                    <h5 class="font-bold text-stone-700">🐂 Traditional Games</h5>
+                                    <p class="text-sm text-gray-600">Local traditions feature events like buffalo fights and Tekeli Bhonga (pot smashing).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="timeline" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold text-stone-800">The Bihu Annual Cycle</h3>
+                    <p class="mt-4 max-w-2xl mx-auto text-gray-600">
+                        This timeline showcases the timing of each Bihu festival across the year, emphasizing their ties to agricultural cycles. Hover on the bars to explore the meaning of each celebration. It offers a concise overview of Bihu's role in Assam's calendar.
+                    </p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="bihuTimelineChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="culture" class="py-16 md:py-24 bg-amber-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold text-stone-800">The Cultural Fabric</h3>
+                    <p class="mt-4 max-w-2xl mx-auto text-gray-600">
+                        Beyond the unique traditions of each Bihu festival, a common thread of music, cuisine, and attire unites the celebrations. This part explores these core aspects that embody Assamese culture and the essence of Bihu.
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <div class="text-4xl mb-4">💃</div>
+                        <h4 class="text-xl font-bold text-stone-800 mb-2">Bihu Dance</h4>
+                        <p class="text-gray-600 text-sm">A lively dance full of energy, showcasing young men and women with quick steps and swift hand gestures, embodying the spirit and vibrancy of springtime youth.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                         <div class="text-4xl mb-4">🍚</div>
+                        <h4 class="text-xl font-bold text-stone-800 mb-2">Bihu Cuisine</h4>
+                        <p class="text-gray-600 text-sm">At the heart of Bihu celebrations are traditional foods like Pithas (rice cakes), both sweet and savory. Laru, made from coconut or sesame, and dishes featuring fresh ingredients are also key highlights.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                         <div class="text-4xl mb-4">🧣</div>
+                        <h4 class="text-xl font-bold text-stone-800 mb-2">Traditional Attire</h4>
+                        <p class="text-gray-600 text-sm">Women grace the elegant Mekhela Sador, typically in cream and red silk hues. Men don the traditional Dhoti paired with a Gamosa, a revered emblem of Assamese pride and respect.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-stone-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>An Interactive Exploration of the Bihu Festival</p>
+            <p class="text-sm text-stone-400 mt-2">Crafted with care to celebrate the culture of Assam.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabs = {
+                bohag: { btn: document.getElementById('bohag-btn'), content: document.getElementById('bohag-content') },
+                kati: { btn: document.getElementById('kati-btn'), content: document.getElementById('kati-content') },
+                magh: { btn: document.getElementById('magh-btn'), content: document.getElementById('magh-content') }
+            };
+
+            const allBtns = Object.values(tabs).map(t => t.btn);
+            const allPanes = Object.values(tabs).map(t => t.content);
+
+            function activateTab(tabKey) {
+                allBtns.forEach(btn => btn.classList.remove('active'));
+                allPanes.forEach(pane => pane.classList.add('hidden'));
+
+                tabs[tabKey].btn.classList.add('active');
+                tabs[tabKey].content.classList.remove('hidden');
+            }
+
+            tabs.bohag.btn.addEventListener('click', () => activateTab('bohag'));
+            tabs.kati.btn.addEventListener('click', () => activateTab('kati'));
+            tabs.magh.btn.addEventListener('click', () => activateTab('magh'));
+
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+            const mobileNav = document.getElementById('mobile-nav');
+            mobileNav.addEventListener('change', function() {
+                const targetId = this.value;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+
+            const ctx = document.getElementById('bihuTimelineChart').getContext('2d');
+            const bihuTimelineChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [{
+                        label: 'Bhogali (Magh) Bihu',
+                        data: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        backgroundColor: 'rgba(234, 88, 12, 0.7)',
+                        borderColor: 'rgba(234, 88, 12, 1)',
+                        borderWidth: 1,
+                        barPercentage: 0.8,
+                        categoryPercentage: 1.0
+                    }, {
+                        label: 'Rongali (Bohag) Bihu',
+                        data: [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+                        backgroundColor: 'rgba(194, 65, 12, 0.7)',
+                        borderColor: 'rgba(194, 65, 12, 1)',
+                        borderWidth: 1,
+                        barPercentage: 0.8,
+                        categoryPercentage: 1.0
+                    }, {
+                        label: 'Kongali (Kati) Bihu',
+                        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
+                        backgroundColor: 'rgba(6, 78, 59, 0.7)',
+                        borderColor: 'rgba(6, 78, 59, 1)',
+                        borderWidth: 1,
+                        barPercentage: 0.8,
+                        categoryPercentage: 1.0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    scales: {
+                        x: {
+                            stacked: true,
+                            display: false,
+                        },
+                        y: {
+                            stacked: true,
+                             grid: {
+                                display: false
+                            },
+                            ticks: {
+                                font: {
+                                    size: 14,
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        if(label.includes('Bhogali')) return 'Bhogali Bihu: Festival of Feasting';
+                                        if(label.includes('Rongali')) return 'Rongali Bihu: Festival of Merriment';
+                                        if(label.includes('Kongali')) return 'Kongali Bihu: Festival of Scarcity';
+                                    }
+                                    return label;
+                                },
+                                title: function() {
+                                    return '';
+                                }
+                            },
+                            backgroundColor: '#4A4A4A',
+                            titleFont: { size: 0 },
+                            bodyFont: { size: 14 },
+                            displayColors: false,
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

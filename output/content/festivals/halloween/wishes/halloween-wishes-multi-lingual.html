@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Halloween Around the World</title>
+    <style>
+        /* --- Basic Setup --- */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #121212; /* Dark background */
+            color: #f0f0f0; /* Light text */
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* --- Header Styling --- */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            color: #ff6600; /* Halloween Orange */
+            font-size: 3em;
+            text-shadow: 2px 2px 4px #000;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #aaa;
+        }
+
+        /* --- Grid Container for Cards --- */
+        .grid-container {
+            display: grid;
+            /* Creates responsive columns:
+               - On small screens, 1 column
+               - On larger screens, as many 280px columns as fit
+            */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto; /* Center the grid */
+        }
+
+        /* --- Card Styling --- */
+        .card {
+            background-color: #2a2a2a; /* Dark gray card */
+            border: 1px solid #ff6600;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-5px); /* Lift card on hover */
+            box-shadow: 0 6px 15px rgba(255, 102, 0, 0.3); /* Orange glow */
+        }
+
+        /* --- Card Content --- */
+        .card h3 {
+            color: #ff8533; /* Lighter orange */
+            margin-top: 0;
+            font-size: 1.4em;
+            border-bottom: 1px solid #444;
+            padding-bottom: 8px;
+        }
+
+        .card .wish {
+            font-size: 1.6em;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .card .pronunciation {
+            font-size: 1em;
+            color: #bbb;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🎃 Happy Halloween Around the World!</h1>
+        <p>See how to share spooky greetings in over 25 languages.</p>
+    </header>
+
+    <main>
+        <div class="grid-container">
+
+            <div class="card">
+                <h3>English</h3>
+                <p class="wish">Happy Halloween!</p>
+            </div>
+
+            <div class="card">
+                <h3>Spanish</h3>
+                <p class="wish">¡Feliz Halloween!</p>
+            </div>
+
+            <div class="card">
+                <h3>French</h3>
+                <p class="wish">Joyeux Halloween!</p>
+            </div>
+
+            <div class="card">
+                <h3>German</h3>
+                <p class="wish">Fröhliches Halloween!</p>
+            </div>
+
+            <div class="card">
+                <h3>Italian</h3>
+                <p class="wish">Buon Halloween!</p>
+            </div>
+
+            <div class="card">
+                <h3>Portuguese</h3>
+                <p class="wish">Feliz Halloween!</p>
+            </div>
+
+            <div class="card">
+                <h3>Japanese</h3>
+                <p class="wish">ハッピーハロウィン！</p>
+                <p class="pronunciation">(Happī Harowin!)</p>
+            </div>
+
+            <div class="card">
+                <h3>Mandarin Chinese</h3>
+                <p class="wish">万圣节快乐！</p>
+                <p class="pronunciation">(Wànshèngjié kuàilè!)</p>
+            </div>
+
+            <div class="card">
+                <h3>Korean</h3>
+                <p class="wish">해피 할로윈!</p>
+                <p class="pronunciation">(Haepi Hallowin!)</p>
+            </div>
+
+            <div class="card">
+                <h3>Russian</h3>
+                <p class="wish">Счастливого Хэллоуина!</p>
+                <p class="pronunciation">(Schastlivogo Khellouina!)</p>
+            </div>
+
+            <div class="card">
+                <h3>Dutch</h3>
+                <p class="wish">Vrolijk Halloween!</p>
+            </div>
+
+            <div class="card">
+                <h3>Polish</h3>
+                <p class="wish">Wesołego Halloween!</p>
+            </div>
+
+            <div class="card">
+                <h3>Swedish</h3>
+                <p class="wish">Glad Halloween!</p>
+            </div>
+            
+            <div class="card">
+                <h3>Norwegian</h3>
+                <p class="wish">God Halloween!</p>
+            </div>
+
+            <div class="card">
+                <h3>Finnish</h3>
+                <p class="wish">Hyvää Halloweenia!</p>
+            </div>
+
+            <div class="card">
+                <h3>Irish (Gaelic)</h3>
+                <p class="wish">Oíche Shamhna Shona Duit!</p>
+                <p class="pronunciation">(Ee-ha How-na Hun-a Gwitch!)</p>
+            </div>
+
+            <div class="card">
+                <h3>Welsh</h3>
+                <p class="wish">Calan Gaeaf Hapus!</p>
+                <p class="pronunciation">(Cal-an Geye-av Hap-iss!)</p>
+            </div>
+
+            <div class="card">
+                <h3>Greek</h3>
+                <p class="wish">Καλό Χάλογουιν!</p>
+                <p class="pronunciation">(Kaló Halloween!)</p>
+            </div>
+
+            <div class="card">
+                <h3>Turkish</h3>
+                <p class="wish">Mutlu Cadılar Bayramı!</p>
+            </div>
+
+            <div class="card">
+                <h3>Romanian</h3>
+                <p class="wish">Halloween fericit!</p>
+            </div>
+
+            <div class="card">
+                <h3>Tagalog (Filipino)</h3>
+                <p class="wish">Maligayang Halloween!</p>
+            </div>
+
+            <div class="card">
+                <h3>Vietnamese</h3>
+                <p class="wish">Chúc mừng Lễ hội Halloween!</p>
+            </div>
+
+            <div class="card">
+                <h3>Hebrew</h3>
+                <p class="wish">האלווין שמח!</p>
+                <p class="pronunciation">(Halloween Same'ach!)</p>
+            </div>
+
+            <div class="card">
+                <h3>Arabic</h3>
+                <p class="wish">هالوين سعيد!</p>
+                <p class="pronunciation">(Halloween Sa'eed!)</p>
+            </div>
+
+            <div class="card">
+                <h3>Swahili</h3>
+                <p class="wish">Heri ya Halloween!</p>
+            </div>
+
+            <div class="card">
+                <h3>Hungarian</h3>
+                <p class="wish">Boldog Halloweent!</p>
+            </div>
+            
+            <div class="card">
+                <h3>Czech</h3>
+                <p class="wish">Veselý Halloween!</p>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>

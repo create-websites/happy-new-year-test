@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Thanksgiving Wishes</title>
+    <!-- Load Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Google Fonts: Inter (for UI) and Noto Sans (for all the different scripts) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Use Inter as the base font */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* Use Noto Sans for the native scripts to ensure correct rendering */
+        .native-script {
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 1.3rem; /* Make the script larger and readable */
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body class="bg-orange-50 text-gray-800">
+
+    <!-- Main Container -->
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
+
+        <!-- Header -->
+        <header class="text-center my-8 md:my-12">
+            <h1 class="text-4xl md:text-6xl font-bold text-orange-800" style="font-family: 'Georgia', serif;">
+                Happy Thanksgiving!
+            </h1>
+            <p class="text-lg md:text-xl text-orange-600 mt-3">
+                A Collection of Wishes in Indian Languages
+            </p>
+        </header>
+
+        <!-- Image Gallery Section -->
+        <section id="gallery" class="mb-12 md:mb-16">
+            <h2 class="text-3xl font-semibold text-orange-700 mb-6 text-center">
+                Moments of Gratitude
+            </h2>
+            <!-- Grid for images, responsive -->
+            <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                <!-- Images will be dynamically injected here -->
+            </div>
+        </section>
+
+        <!-- Wishes Section -->
+        <section id="wishes">
+            <h2 class="text-3xl font-semibold text-orange-700 mb-6 text-center">
+                Wishes from the Heart
+            </h2>
+            <!-- Grid for wish cards, responsive -->
+            <div id="wishes-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                <!-- Wish cards will be dynamically injected here -->
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center mt-12 md:mt-16 py-8 border-t border-orange-200">
+            <p class="text-lg text-orange-700">
+                Wishing you a harvest of joy and a basket full of blessings!
+            </p>
+        </footer>
+
+    </div>
+
+    <!-- JavaScript Data and Logic -->
+    <script>
+        // Data from your 'thanks-giving-wishes-in-indian-languages.docx' file
+        const wishes = [
+            { lang: "Assamese", script: "Assamese (Eastern Nagari)", wish: "হেপি থেংক্সগিভিং! তোমাৰ দিন কৃতজ্ঞতা, আনন্দ আৰু পৰিয়ালৰ স্নেহৰে পৰিপূৰ্ণ হওক।", english: "Happy Thanksgiving! May your day be filled with gratitude, joy, and your family’s warmth." },
+            { lang: "Bengali", script: "Bengali", wish: "শুভ থ্যাঙ্কসগিভিং! তোমার দিনটা কৃতজ্ঞতা, আনন্দ আর পরিবারে উষ্ণতায় ভরে উঠুক।", english: "Happy Thanksgiving! May your day be filled with gratitude, joy, and family warmth." },
+            { lang: "Bhojpuri", script: "Devanagari", wish: "हैप्पी थैंक्सगिविंग! तोहार दिन कृतज्ञता, खुशी आ परिवार के प्यार से भरल रहे।", english: "Happy Thanksgiving! May your day be filled with gratitude, happiness, and your family’s love." },
+            { lang: "Dogri", script: "Devanagari", wish: "थैंक्सगिविंग दियां ढेर सारी शुभकामनावां! तुंदा दिन कृतज्ञता, खुशी ते परिवार दे पियार नाल भरया रहे।", english: "Many good wishes on Thanksgiving! May your day be filled with gratitude, happiness, and your family’s love." },
+            { lang: "Gujarati", script: "Gujarati", wish: "હેપી થેન્ક્સગિવિંગ! તમારો દિવસ કૃતજ્ઞતા, આનંદ અને પરિવારના પ્રેમથી ભરેલો રહે.", english: "Happy Thanksgiving! May your day be filled with gratitude, joy, and family love." },
+            { lang: "Hindi", script: "Devanagari", wish: "थैंक्सगिविंग की हार्दिक शुभकामनाएँ! आपका दिन कृतज्ञता, खुशी और अपनेपन से भरा रहे।", english: "Heartfelt wishes for Thanksgiving! May your day be filled with gratitude, happiness, and a sense of togetherness." },
+            { lang: "Kannada", script: "Kannada", wish: "ಹ್ಯಾಪಿ ಥ್ಯಾಂಕ್ಸ್ಗಿವಿಂಗ್! ನಿಮ್ಮ ದಿನ ಕೃತಜ್ಞತೆ, ಸಂತೋಷ ಮತ್ತು ಕುಟುಂಬದ ಸ್ನೇಹದಿಂದ ತುಂಬಿರಲಿ.", english: "Happy Thanksgiving! May your day be full of gratitude, happiness, and your family’s affection." },
+            { lang: "Konkani", script: "Latin (Roman)", wish: "Happy Thanksgiving! Tuzo dis upkar-bhav, anand ani kutumbacho mog’n vollom zhao.", english: "Happy Thanksgiving! May your day be filled with gratitude, joy, and your family’s love." },
+            { lang: "Magahi (“Bihari”)", script: "Devanagari", wish: "हैप्पी थैंक्सगिविंग! तोहर दिन आभार, खुशियाँ आ घर-परिवार के नेह से भरल रहो।", english: "Happy Thanksgiving! May your day be full of gratitude, happiness, and family affection." },
+            { lang: "Maithili", script: "Devanagari", wish: "हैप्पी थैंक्सगिविंग! अहाँक दिन कृतज्ञता, खुशीयाँ आ परिवारक स्नेह सँ भरल रहौ।", english: "Happy Thanksgiving! May your day be filled with gratitude, joy, and your family’s warmth." },
+            { lang: "Malayalam", script: "Malayalam", wish: "ഹാപ്പി താങ്ക്സ്‌ഗിവിംഗ്! നിങ്ങളുടെ ദിവസം കൃതജ്ഞത, സന്തോഷം, കുടുംബസ്നേഹം എന്നിവ കൊണ്ട് നിറഞ്ഞിരിക്കട്ടെ.", english: "Happy Thanksgiving! May your day be filled with gratitude, joy, and the love of your family." },
+            { lang: "Marathi", script: "Devanagari", wish: "थँक्सगिव्हिंगच्या हार्दिक शुभेच्छा! तुमचा दिवस कृतज्ञता, आनंद आणि कुटुंबाच्या प्रेमाने भरलेला असो।", english: "Warm wishes for Thanksgiving! May your day be filled with gratitude, joy, and your family’s love." },
+            { lang: "Nepali", script: "Devanagari", wish: "ह्याप्पी थ्याङ्क्सगिभिङ! तपाईंको दिन कृतज्ञता, खुशी र परिवारको माया ले भरियोस्।", english: "Happy Thanksgiving! May your day be filled with gratitude, happiness, and your family’s love." },
+            { lang: "Odia", script: "Odia", wish: "ହ୍ୟାପି ଥ୍ୟାଙ୍କ୍ସଗିଭିଂ! ତୁମର ଦିନ କୃତଜ୍ଞତା, ଖୁସି ଓ ପରିବାରର ସ୍ନେହରେ ପରିପୂର୍ଣ୍ଣ ହେଉ।", english: "Happy Thanksgiving! May your day be full of gratitude, happiness, and family love." },
+            { lang: "Punjabi", script: "Gurmukhi", wish: "ਥੈਂਕਸਗਿਵਿੰਗ ਮੁਬਾਰਕ! ਰੱਬ ਕਰੇ ਤੇਰਾ ਦਿਨ ਸ਼ੁਕਰਗੁਜ਼ਾਰੀ, ਖੁਸ਼ੀ ਅਤੇ ਪਰਿਵਾਰ ਦੀ ਗਰਮੀ ਨਾਲ ਭਰਿਆ ਰਹੇ।", english: "Happy Thanksgiving! May your day be full of gratitude, happiness, and your family’s warmth." },
+            { lang: "Rajasthani (Marwari)", script: "Devanagari", wish: "थैंक्सगिविंग री घणी-घणी शुभकामना! थारो दिन कृतज्ञता, खुशीयाँ अऊर घरेल्यो स्नेह सूं भर्यो रहवे।", english: "Many good wishes for Thanksgiving! May your day be filled with gratitude, happiness, and family warmth." },
+            { lang: "Sanskrit", script: "Devanagari", wish: "कृतज्ञतादिनस्य शुभाशयाः! भवतः दिवसः कृतज्ञतया, आनन्देन च पारिवारिकस्नेहेन च पूर्णो भवतु।", english: "Best wishes for the Day of Gratitude! May your day be filled with gratitude, joy, and the love of your family." },
+            { lang: "Tamil", script: "Tamil", wish: "ஹேப்பி தாங்க்ஸ்கிவிங்! நன்றியுணர்வு, மகிழ்ச்சி மற்றும் குடும்ப அன்பு நிரம்பிய நாளாக இருக்கட்டும்.", english: "Happy Thanksgiving! May your day be filled with gratitude, joy, and family love." },
+            { lang: "Telugu", script: "Telugu", wish: "హ్యాపీ థ్యాంక్స్‌గివింగ్! మీ రోజు కృతజ్ఞత, ఆనందం మరియు కుటుంబ స్నేహంతో నిండిపోవాలి.", english: "Happy Thanksgiving! May your day be filled with gratitude, joy, and family warmth." },
+            { lang: "Urdu", script: "Perso-Arabic", wish: "ہیپی تھینکس گیونگ! دعا ہے آپ کا دن شکر گزاری، خوشی اور گھر والوں کے پیار سے بھرا ہو۔", english: "Happy Thanksgiving! May your day be filled with gratitude, joy, and the love of your family." }
+        ];
+
+        // Data from your 'thanks giving cards.docx' file
+        const imageUrls = [
+            "https://storage.googleapis.com/kreatewebsite/festival/thanks-giving/photos-source/happy-thanks-giving.jpeg",
+            "https://storage.googleapis.com/kreatewebsite/festival/thanks-giving/photos-source/happy-thanks-giving-cake.jpeg",
+            "https://storage.googleapis.com/kreatewebsite/festival/thanks-giving/photos-source/happy-thanks-giving-card-3.jpeg",
+            "https://storage.googleapis.com/kreatewebsite/festival/thanks-giving/photos-source/happy-thanks-giving-card-4.jpeg",
+            "https://storage.googleapis.com/kreatewebsite/festival/thanks-giving/photos-source/happy-thanks-giving-card.jpeg",
+            "https://storage.googleapis.com/kreatewebsite/festival/thanks-giving/photos-source/happy-thanks-giving-orgami-card.jpeg"
+        ];
+
+        // --- Logic to build the page ---
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const galleryGrid = document.getElementById('gallery-grid');
+            const wishesGrid = document.getElementById('wishes-grid');
+
+            // 1. Populate the image gallery
+            // Use Set to get only unique image URLs
+            const uniqueImages = [...new Set(imageUrls)];
+            
+            uniqueImages.forEach(url => {
+                const imgContainer = document.createElement('div');
+                imgContainer.className = "overflow-hidden rounded-lg shadow-lg bg-white transform hover:scale-105 transition-transform duration-300";
+                
+                const img = document.createElement('img');
+                img.src = url;
+                img.alt = "Thanksgiving gratitude image";
+                img.className = "w-full h-64 object-cover";
+                // Add a fallback placeholder image in case one fails to load
+                img.onerror = () => {
+                    img.src = 'https://placehold.co/600x400/FEEBC8/D97706?text=Image+Not+Found';
+                    img.alt = 'Image not found';
+                };
+                
+                imgContainer.appendChild(img);
+                galleryGrid.appendChild(imgContainer);
+            });
+
+            // 2. Populate the wishes grid
+            wishes.forEach(wish => {
+                const card = document.createElement('div');
+                card.className = "bg-white p-6 rounded-lg shadow-lg flex flex-col justify-between border-l-4 border-orange-500 hover:shadow-xl transition-shadow duration-300";
+                
+                card.innerHTML = `
+                    <div>
+                        <h3 class="text-2xl font-bold text-orange-700 mb-3">${wish.lang}</h3>
+                        <p class="native-script text-gray-800 mb-4">${wish.wish}</p>
+                    </div>
+                    <p class="text-gray-600 italic">"${wish.english}"</p>
+                `;
+                
+                wishesGrid.appendChild(card);
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send a Thanksgiving Card</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fdfae1; /* Creamy background */
+        }
+        /* Simple transition for modal */
+        #modal, #confirmation {
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+        .card-image {
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto px-4 py-12">
+        <!-- Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-5xl font-bold text-orange-700 mb-2">Share Your Gratitude</h1>
+            <p class="text-xl text-amber-800">Select a card and send a warm Thanksgiving message.</p>
+        </header>
+
+        <!-- Card Grid -->
+        <div id="cardGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Cards will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <!-- Modal for sending card -->
+    <div id="modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 opacity-0 invisible z-50">
+        <div class="bg-white rounded-lg shadow-2xl w-full max-w-lg overflow-hidden transform transition-all scale-95" id="modal-content">
+            <!-- Modal Header -->
+            <div class="flex justify-between items-center p-5 bg-orange-100 border-b border-orange-200">
+                <h3 class="text-2xl font-semibold text-orange-800">Send this Card</h3>
+                <button onclick="closeModal()" class="text-gray-500 hover:text-gray-800 text-3xl">&times;</button>
+            </div>
+            
+            <!-- Modal Body -->
+            <div class="p-6">
+                <img id="modalImage" src="" alt="Selected Thanksgiving Card" class="rounded-lg mb-6 w-full object-cover h-64">
+                
+                <form id="sendForm" onsubmit="handleSend(event)">
+                    <div class="mb-4">
+                        <label for="recipientName" class="block text-sm font-medium text-gray-700 mb-1">Recipient's Name:</label>
+                        <input type="text" id="recipientName" name="recipientName" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="recipientEmail" class="block text-sm font-medium text-gray-700 mb-1">Recipient's Email:</label>
+                        <input type="email" id="recipientEmail" name="recipientEmail" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Your Message:</label>
+                        <textarea id="message" name="message" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500" placeholder="Wishing you a wonderful Thanksgiving..."></textarea>
+                    </div>
+                    <div class="flex justify-end gap-3">
+                        <button type="button" onclick="closeModal()" class="py-2 px-5 bg-gray-200 text-gray-800 rounded-md font-medium hover:bg-gray-300 transition-colors">
+                            Cancel
+                        </button>
+                        <button type="submit" class="py-2 px-5 bg-orange-600 text-white rounded-md font-medium hover:bg-orange-700 transition-colors shadow-md">
+                            Send
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Message -->
+    <div id="confirmation" class="fixed top-5 right-5 bg-green-500 text-white py-3 px-6 rounded-lg shadow-lg opacity-0 invisible z-50">
+        <span id="confirmation-message">Card sent successfully!</span>
+    </div>
+
+    <script>
+        // Array of card image URLs from the user's document
+        const cardImages = [
+            "https://storage.googleapis.com/kreatewebsite/festival/thanks-giving/photos-source/happy-thanks-giving.jpeg",
+            "https://storage.googleapis.com/kreatewebsite/festival/thanks-giving/photos-source/happy-thanks-giving-cake.jpeg",
+            "https://storage.googleapis.com/kreatewebsite/festival/thanks-giving/photos-source/happy-thanks-giving-card-3.jpeg",
+            "https://storage.googleapis.com/kreatewebsite/festival/thanks-giving/photos-source/happy-thanks-giving-card-4.jpeg",
+            "https://storage.googleapis.com/kreatewebsite/festival/thanks-giving/photos-source/happy-thanks-giving-card.jpeg",
+            "https://storage.googleapis.com/kreatewebsite/festival/thanks-giving/photos-source/happy-thanks-giving-orgami-card.jpeg"
+        ];
+
+        // Placeholder image URL
+        const placeholderUrl = (width, height, text) => `https://placehold.co/${width}x${height}/f97316/ffffff?text=${encodeURIComponent(text)}`;
+
+        const cardGrid = document.getElementById('cardGrid');
+        const modal = document.getElementById('modal');
+        const modalContent = document.getElementById('modal-content');
+        const modalImage = document.getElementById('modalImage');
+        const sendForm = document.getElementById('sendForm');
+        const confirmation = document.getElementById('confirmation');
+        const confirmationMessage = document.getElementById('confirmation-message');
+
+        let selectedImageUrl = '';
+
+        // Function to create and display cards
+        function displayCards() {
+            cardGrid.innerHTML = ''; // Clear existing cards
+            const uniqueImages = [...new Set(cardImages)]; // Remove duplicate images
+
+            uniqueImages.forEach(imageUrl => {
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105';
+                
+                card.innerHTML = `
+                    <img 
+                        src="${imageUrl}" 
+                        alt="Thanksgiving Card" 
+                        class="w-full h-64 object-cover card-image"
+                        onerror="this.src='${placeholderUrl(600, 400, 'Image-Not-Found')}'"
+                    >
+                    <div class="p-5 text-center">
+                        <button 
+                            onclick="openModal('${imageUrl}')" 
+                            class="w-full py-2 px-4 bg-orange-600 text-white rounded-md font-semibold hover:bg-orange-700 transition-colors shadow"
+                        >
+                            Send this Card
+                        </button>
+                    </div>
+                `;
+                cardGrid.appendChild(card);
+            });
+        }
+
+        // Function to open the modal
+        function openModal(imageUrl) {
+            selectedImageUrl = imageUrl;
+            modalImage.src = selectedImageUrl;
+            modal.classList.remove('invisible', 'opacity-0');
+            modalContent.classList.remove('scale-95');
+            modalContent.classList.add('scale-100');
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            modal.classList.add('invisible', 'opacity-0');
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+            sendForm.reset(); // Reset form fields
+        }
+
+        // Function to handle form submission
+        function handleSend(event) {
+            event.preventDefault(); // Prevent actual form submission
+            
+            const recipientName = document.getElementById('recipientName').value;
+            const recipientEmail = document.getElementById('recipientEmail').value;
+            const message = document.getElementById('message').value;
+
+            // 1. Create the email subject
+            const subject = `A Thanksgiving Card for You, ${recipientName}!`;
+
+            // 2. Create the email body
+            // We'll include the message and the image URL.
+            // The image will just be a link, as embedding it directly in a mailto is not reliably supported.
+            const body = `
+Hi ${recipientName},
+
+${message}
+
+Here is the card I picked for you:
+${selectedImageUrl}
+
+Happy Thanksgiving!
+            `;
+
+            // 3. Create the mailto URL, ensuring parts are URL encoded
+            const mailtoUrl = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body.trim())}`;
+
+            // 4. Open the user's default email client
+            window.location.href = mailtoUrl;
+
+            closeModal();
+            
+            // 5. Show a more accurate confirmation message
+            confirmationMessage.textContent = `Opening your email client to send!`;
+            confirmation.classList.remove('invisible', 'opacity-0');
+
+            // Hide confirmation after 3 seconds
+            setTimeout(() => {
+                confirmation.classList.add('invisible', 'opacity-0');
+            }, 3000);
+        }
+
+        // Close modal if clicking outside the content
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Initial load
+        document.addEventListener('DOMContentLoaded', displayCards);
+    </script>
+</body>
+</html>

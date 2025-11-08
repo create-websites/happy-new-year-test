@@ -1,461 +1,371 @@
-<!DOCTYPE html>
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Global History of the New Year</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Warm Harmony -->
-    <!-- Application Structure Plan: The application is designed as a thematic, single-page experience with tab-based navigation to break the dense report into digestible, user-driven sections. This non-linear structure was chosen over a simple scroll to empower users to explore content based on their interests—be it history, modern culture, or thematic analysis. The key interactions include a clickable timeline for historical context, a filterable grid for exploring modern celebrations, and an interactive chart for comparing tradition types. This architecture prioritizes discovery and engagement, transforming a static document into an interactive learning tool. -->
-    <!-- Visualization & Content Choices: Report Info -> Historical dates. Goal -> Show chronology. Viz -> Interactive timeline (HTML/CSS). Interaction -> Click to reveal text. Justification -> More engaging than text. | Report Info -> Modern celebrations. Goal -> Compare cultures. Viz -> Card grid. Interaction -> Click to view details. Justification -> Intuitive and clean. | Report Info -> Thematic threads. Goal -> Summarize concepts. Viz -> Icon-based grid. Interaction -> Click to expand. Justification -> Visuals aid comprehension. | Report Info -> Table of traditions. Goal -> Analyze patterns. Viz -> Bar chart (Chart.js). Interaction -> Hover for details. Justification -> Synthesizes data into a new insight. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #FDFBF5;
-            color: #3D3D3D;
-        }
-        .nav-link {
-            transition: all 0.3s ease;
-            border-bottom: 2px solid transparent;
-        }
-        .nav-link.active {
-            color: #C08A57;
-            border-bottom-color: #C08A57;
-        }
-        .timeline-item.active .timeline-dot {
-            background-color: #C08A57;
-            transform: scale(1.25);
-        }
-        .timeline-item.active .timeline-date {
-            color: #C08A57;
-            font-weight: 600;
-        }
-        .celebration-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .celebration-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 400px;
-        }
-        @media (min-width: 768px) {
-            .chart-container {
-                height: 500px;
-            }
-        }
-    </style>
-</head>
-<body class="antialiased">
+	
+	<head id="ctl00_head1">
+<meta name="google-site-verification" content="RVceKokUCmE6I_4EjvyNso7r-FabKr95sjVmUSOiUAI" />
+<!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-JF94J1W5MC"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-JF94J1W5MC');
+</script><title>
+	The Global History of New Year Celebrations
+</title><meta http-equiv="content-type" content="text/html; charset=utf-8" /><meta name="description" content="Discover the origins, global traditions, and universal themes of New Year celebrations, rooted in the human desire for renewal and hope." /><meta name="keywords" content="New Year history, global New Year traditions, New Year celebrations, ancient New Year rituals, New Year symbolism, cultural New Year customs, origins of New Year, January 1st traditions, New Year renewal, human hope for renewal, agricultural festivals, celestial events and New Year, purification rituals, global New Year themes, traditional New Year foods" /><link rel="icon" href="https://storage.googleapis.com/json_articles/dataknobs-logo-2.jpg" /><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800" rel="stylesheet" type="text/css" />
 
-    <div id="app" class="container mx-auto p-4 md:p-8 max-w-7xl">
-        
-        <header class="text-center mb-8 md:mb-12">
-            <h1 class="text-4xl md:text-6xl font-bold text-[#AF7A51] mb-2">The Eternal Return</h1>
-            <p class="text-lg md:text-xl text-gray-600">A Global History of the New Year</p>
-        </header>
 
-        <nav class="flex justify-center border-b border-gray-200 mb-8 md:mb-12">
-            <ul class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500">
-                <li class="mr-2">
-                    <a href="#" class="nav-link inline-block p-4 rounded-t-lg active" data-target="home">Introduction</a>
-                </li>
-                <li class="mr-2">
-                    <a href="#" class="nav-link inline-block p-4 rounded-t-lg" data-target="history">Ancient Origins</a>
-                </li>
-                <li class="mr-2">
-                    <a href="#" class="nav-link inline-block p-4 rounded-t-lg" data-target="celebrations">World Celebrations</a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link inline-block p-4 rounded-t-lg" data-target="themes">Unifying Themes</a>
-                </li>
-            </ul>
-        </nav>
+		<!--[if lte IE 9]><link rel="stylesheet" href="https://pictures.happy-new-year.org/sites/site-6/site6/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="https://pictures.happy-new-year.org/sites/site-6/site6/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 7]><link rel="stylesheet" href="https://pictures.happy-new-year.org/sites/site-6/site6/css/ie7.css" /><![endif]-->
 
-        <main>
-            <section id="home" class="content-section">
-                <div class="bg-white/50 rounded-lg p-6 md:p-8 text-center max-w-4xl mx-auto">
-                    <h2 class="text-2xl md:text-3xl font-bold text-[#AF7A51] mb-4">The Human Impulse for a New Beginning</h2>
-                    <p class="text-gray-700 leading-relaxed">
-                        The New Year’s turn is a universal event crossing cultures, lands, and eras. It symbolizes humanity's shared desire to organize time, let go of the past, and envision a better future. This journey delves into its origins, from ancient farming cycles to today’s global yet unique festivities. Discover the traditions, meanings, and enduring hope for renewal that unite us all.
-                    </p>
-                </div>
-            </section>
 
-            <section id="history" class="content-section hidden">
-                 <div class="text-center max-w-3xl mx-auto mb-8">
-                    <h2 class="text-2xl md:text-3xl font-bold text-[#AF7A51] mb-4">The Roots of Renewal</h2>
-                    <p class="text-gray-700 leading-relaxed">
-                        Shaped by centuries of farming rhythms, celestial patterns, politics, and faith, New Year's traditions evolved over time. This timeline traces the path from ancient seasonal rites to the worldwide adoption of January 1st. Tap each point to uncover the key events that shaped our modern calendar.
-                    </p>
-                </div>
-                <div class="lg:flex lg:gap-8">
-                    <div id="timeline-nav" class="lg:w-1/3 mb-8 lg:mb-0">
-                    </div>
-                    <div id="timeline-content" class="lg:w-2/3 bg-white/50 rounded-lg p-6 md:p-8 min-h-[300px]">
-                    </div>
-                </div>
-            </section>
+	<script src="https://pictures.happy-new-year.org/sites/site-6/dataknobs/js/jquery-1.8.3.min.js"></script>
+	<script src="https://pictures.happy-new-year.org/sites/site-6/dataknobs/css/5grid/init.js?use=mobile,desktop,1000px&amp;mobileUI=1&amp;mobileUI.theme=none"></script>
+	<script src="https://pictures.happy-new-year.org/sites/site-6/dataknobs/js/jquery.dropotron-1.2.js"></script>
+	<script src="https://pictures.happy-new-year.org/sites/site-6/dataknobs/js/init.js"></script>
+	<noscript>
+		<link rel="stylesheet" href="https://pictures.happy-new-year.org/sites/site-6/dataknobs/css/5grid/core.css" /><link rel="stylesheet" href="https://pictures.happy-new-year.org/sites/site-6/dataknobs/css/5grid/core-desktop.css" /><link rel="stylesheet" href="https://pictures.happy-new-year.org/sites/site-6/dataknobs/css/5grid/core-1200px.css" /><link rel="stylesheet" href="https://pictures.happy-new-year.org/sites/site-6/dataknobs/css/5grid/core-noscript.css" /><link rel="stylesheet" href="https://pictures.happy-new-year.org/sites/site-6/dataknobs/css/style.css" /><link rel="stylesheet" href="https://pictures.happy-new-year.org/sites/site-6/dataknobs/css/style-desktop.css" />
+	</noscript>
+	
+	
 
-            <section id="celebrations" class="content-section hidden">
-                <div class="text-center max-w-3xl mx-auto mb-8">
-                    <h2 class="text-2xl md:text-3xl font-bold text-[#AF7A51] mb-4">A Global Tapestry of Celebration</h2>
-                    <p class="text-gray-700 leading-relaxed">
-                        Though January 1st is globally acknowledged, New Year celebrations vary greatly. Communities worldwide embrace distinct traditions shaped by their heritage and beliefs. Dive into the cards below to discover some of the most colorful and significant New Year's festivities observed today.
-                    </p>
-                </div>
-                <div id="celebrations-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                </div>
-            </section>
+	<meta name="description" content="Discover the origins, global traditions, and universal themes of New Year celebrations, rooted in the human desire for renewal and hope." /><meta name="keywords" content="New Year history, global New Year traditions, New Year celebrations, ancient New Year rituals, New Year symbolism, cultural New Year customs, origins of New Year, January 1st traditions, New Year renewal, human hope for renewal, agricultural festivals, celestial events and New Year, purification rituals, global New Year themes, traditional New Year foods" /></head>
+  
+	<body class="no-sidebar">
+			
+							<!--	
+									<h1> <a id="ctl00_topheader" class="mobileUI-site-name"></a></h1>
+								
+		
+		<li><a id="ctl00_hyperlinkHome"></a></li> 
+			-->
+					
+							
+	
+						
+						
+
+		<div id="main-wrapper">
+
+			<div class="main-wrapper-style2">
+
+					<div class="inner">
+
+						<div class="5grid-layout">
+
+							<div class="row">
+
+									
+									<div class="12u mobileUI-main-content">
+										<div id="content">
+
+										<article>
+
+												
+													
+
+    
+   
+
+														<!--	
+																<h3><span id="ctl00_ContentPlaceHolder1_title">The Global History of New Year Celebrations</span></h3>
+														
+									<span> <span id="ctl00_ContentPlaceHolder1_metadesc"></span></span>		
+    -->
+													
+													
+
+
+                                         
+											
+										
+										
+                                           
+
+							
+									
+									<span id="ctl00_ContentPlaceHolder1_labeltext"></span>	
+
+                                    		                       														
+                            <br />
+                                 
+                            <br />
+                            
+
+							
+
+
+
+										</article>
+									
+										</div>
+									</div>
+									
+
+							</div>
+
+						</div>
+
+					</div>
+
+			</div>
+
+			
+
+		</div>
+
+		
+
+		<!-- Footer Wrapper -->
+			<div id="footer-wrapper">
+		
+				<footer id="footer" class="5grid-layout">
+					<div class="row">
+    
+						<div class="3u">
+						
+						
+								<section class="widget-links">
+									<h2>Main pages</h2>
+									<ul class="style2">
+										<a id="ctl00_hyperlink1"></a>
+										
+
+    
+
+
+
+												
+		<li>								
+		<a id="ctl00_Articleshome3_RepLinks_ctl01_title" href="https://www.happy-new-year.org/">Home</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_Articleshome3_RepLinks_ctl02_title" href="https://www.happy-new-year.org/2024/">2024</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_Articleshome3_RepLinks_ctl03_title" href="https://www.happy-new-year.org/2025/">2025</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_Articleshome3_RepLinks_ctl04_title" href="https://www.happy-new-year.org/chat-new-year/">Chat new year</a>
+            </li>	
+
+
+
+
+
+
+
+             
+ 
+ 
+ 
+
+									</ul>
+								</section>
+						
+						</div>
+						<div class="3u">
+						
+							
+								<section class="widget-links">
+									<h2>Related Pages </h2>
+									<ul class="style2">
+										
+
+    
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles1_RepLinks_ctl01_title" href="https://www.happy-new-year.org/evolution-of-new-year.html">Evolution-of-new-year</a>
+            </li>	
+    <br />
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles1_RepLinks_ctl02_title" href="https://www.happy-new-year.org/new-year-and-wishes-around-the-world.html">New-year-and-wishes-around-the-world</a>
+            </li>	
+    <br />
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles1_RepLinks_ctl03_title" href="https://www.happy-new-year.org/new-year.html">New-year</a>
+            </li>	
+    <br />
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles1_RepLinks_ctl04_title" href="https://www.happy-new-year.org/newyear-history-celebration.html">Newyear-history-celebration</a>
+            </li>	
+    <br />
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles1_RepLinks_ctl05_title" href="https://www.happy-new-year.org/newyear-history.html">Newyear-history</a>
+            </li>	
+    <br />
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles1_RepLinks_ctl06_title" href="https://www.happy-new-year.org/newyear-info.html">Newyear-info</a>
+            </li>	
+    <br />
+
+
+
+
+
+
+
+             
+ 
+ 
+ 
+
+										
+									</ul>
+								</section>
+						
+						</div>
+						<div class="3u">
+						
+					
+								<section class="widget-links">
+									<h2>Explore more </h2>
+									<ul class="style2">
+										
+
+    
+
+
+
+												
+		<li>					
+			<a id="ctl00_Articlesub1_RepLinks_ctl01_title" href="https://www.happy-new-year.org/"><em><b>Home</b></em></a>
             
-            <div id="celebration-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4 z-50">
-                <div class="bg-[#FDFBF5] rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative">
-                    <button id="modal-close-btn" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
-                    <div id="modal-content" class="p-6 md:p-8">
-                    </div>
-                </div>
-            </div>
+           
+            </li>	
 
-            <section id="themes" class="content-section hidden">
-                 <div class="text-center max-w-3xl mx-auto mb-8">
-                    <h2 class="text-2xl md:text-3xl font-bold text-[#AF7A51] mb-4">Common Threads, Universal Hopes</h2>
-                    <p class="text-gray-700 leading-relaxed">
-                        Under the diverse tapestry of global festivities are enduring themes, reflecting a unified human psyche facing time. These patterns expose a universal urge to master uncertainty and embrace hopeful renewal. This part highlights these shared ideas and compares how cultures achieve akin aspirations.
-                    </p>
-                </div>
-                <div id="themes-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-                </div>
-                <div class="bg-white/50 rounded-lg p-6 md:p-8">
-                    <h3 class="text-xl md:text-2xl font-bold text-center text-[#AF7A51] mb-4">Comparing Tradition Types</h3>
-                    <p class="text-center text-gray-600 mb-6 max-w-2xl mx-auto">This chart examines traditions outlined in the report, categorizing them by key symbolic actions. It highlights the prevalence of rituals across cultures, emphasizing purification, food, and fortune as universal themes.</p>
-                    <div class="chart-container">
-                        <canvas id="traditionsChart"></canvas>
-                    </div>
-                </div>
-            </section>
-        </main>
 
-    </div>
 
-    <script>
-        const appData = {
-            history: [
-                {
-                    id: 'mesopotamia',
-                    date: 'c. 2000 BCE',
-                    title: 'Akitu in Mesopotamia',
-                    content: `The earliest known New Year festival, Akitu, was tied to the agricultural calendar. This 11-day Babylonian festival re-enacted the creation myth, where the god Marduk defeats chaos. It involved purification rituals, parades, and a symbolic humiliation of the king to reaffirm his divinely sanctioned rule, establishing a powerful link between cosmic order, kingship, and societal renewal.`
-                },
-                {
-                    id: 'egypt',
-                    date: 'c. 1500 BCE',
-                    title: 'Wepet Renpet in Egypt',
-                    content: `Egypt's New Year, "the opening of the year," was tied to the annual, life-giving flood of the Nile, heralded by the reappearance of the star Sirius. A celebration of rebirth linked to the god Osiris, it included feasts, gift-giving, and a ritual where statues of gods were exposed to the sun to renew their divine power.`
-                },
-                {
-                    id: 'rome',
-                    date: '45 BCE',
-                    title: 'Roman Kalends & Julian Calendar',
-                    content: `Julius Caesar established January 1st as the start of the year with his solar-based Julian calendar. The month was named for Janus, the two-faced god of beginnings. Romans celebrated with offerings, gift-giving, and feasts, believing that the day's activities set the tone for the entire year—a concept that gave rise to New Year's resolutions.`
-                },
-                {
-                    id: 'gregorian',
-                    date: '1582 CE',
-                    title: 'The Gregorian Reform',
-                    content: `To correct the Julian calendar's drift against the seasons, Pope Gregory XIII introduced the Gregorian calendar. It dropped 10 days and refined the leap year rule. While Catholic nations adopted it quickly, Protestant and Orthodox nations resisted for centuries, viewing it as a papal power play, leading to a period of calendrical chaos in Europe.`
-                }
-            ],
-            celebrations: [
-                {
-                    id: 'rosh_hashanah',
-                    name: 'Rosh Hashanah',
-                    region: 'Jewish Culture',
-                    icon: '✡️',
-                    summary: 'A solemn day of judgment, remembrance, and repentance.',
-                    details: `Literally "head of the year," this marks the Jewish civil year. It's a time of moral accounting, known as the Day of Judgment. The central ritual is sounding the shofar (a ram's horn) as a spiritual wake-up call. Symbolic foods are eaten, like apples in honey for a sweet new year, and round challah for the cyclical nature of life. The holiday frames the New Year as a spiritual reckoning where a righteous future is earned.`
-                },
-                {
-                    id: 'nowruz',
-                    name: 'Nowruz',
-                    region: 'Persia & Central Asia',
-                    icon: '🌱',
-                    summary: 'An ancient festival celebrating the spring equinox and rebirth.',
-                    details: `Celebrated for over 3,000 years, Nowruz ("new day") marks the Persian New Year and the first day of spring. Rooted in Zoroastrianism, it symbolizes the triumph of light over darkness. Preparations include a thorough spring cleaning. The centerpiece is the Haft-Seen table, a display of seven symbolic items starting with 'S' in Persian, such as sprouts for rebirth and apples for health.`
-                },
-                {
-                    id: 'spring_festival',
-                    name: 'Spring Festival',
-                    region: 'China',
-                    icon: '🏮',
-                    summary: 'A vibrant family-focused celebration to ward off evil and welcome prosperity.',
-                    details: `The Lunar New Year in China is the year's most important holiday. Traditions stem from the legend of the Nian monster, which was afraid of loud noises, light, and the color red. Homes are decorated in red, and firecrackers are set off to scare away evil. The celebration is centered on family reunion dinners with symbolic foods like dumplings for wealth and long noodles for a long life.`
-                },
-                {
-                    id: 'omisoka',
-                    name: 'Ōmisoka',
-                    region: 'Japan',
-                    icon: '🔔',
-                    summary: 'A tranquil and reflective occasion focused on internal purification.',
-                    details: `In contrast to China, Japan's New Year's Eve is a more serene affair. It involves a thorough house cleaning to purify the home for New Year deities. Families eat "year-crossing noodles" to symbolize longevity and cutting away past hardships. The spiritual climax is *joya no kane*, a Buddhist ritual where temple bells are rung 108 times to cleanse the 108 worldly passions.`
-                },
-                {
-                    id: 'songkran',
-                    name: 'Songkran',
-                    region: 'Thailand',
-                    icon: '💧',
-                    summary: 'A joyous festival of purification and respect, famous for its water fights.',
-                    details: `The traditional Thai New Year uses water as its central element, symbolizing cleansing and blessings. Traditional rituals include gently pouring scented water over the hands of elders as a sign of respect and over Buddha images for purification. These serene acts exist alongside the world's biggest water fight, where streets become lively arenas for dousing each other with water in a spirit of fun and renewal.`
-                },
-                {
-                    id: 'hogmanay',
-                    name: 'Hogmanay',
-                    region: 'Scotland',
-                    icon: '🔥',
-                    summary: 'A fiery festival to defy winter darkness, rooted in Viking and Gaelic traditions.',
-                    details: `Hogmanay is the Scots word for New Year's Eve. Fire is a central element, with torchlight processions and bonfires symbolizing the sun's power and warding off evil spirits. The most iconic tradition is "first-footing," where the first person to cross a threshold after midnight sets the household's luck for the year, bringing symbolic gifts like coal for warmth and whisky for good cheer.`
-                }
-            ],
-            themes: [
-                {
-                    name: 'Purification & Renewal',
-                    icon: '🕊️',
-                    description: 'The universal desire for a "clean slate," expressed through house cleaning, and the use of elemental purifiers like fire and water to wash away the negativity of the past year.'
-                },
-                {
-                    name: 'Warding Off Evil',
-                    icon: '🧿',
-                    description: 'Rituals designed to protect against malevolent forces during the vulnerable transition between years. This is often achieved with loud noises, bright lights, and protective colors.'
-                },
-                {
-                    name: 'Sympathetic Magic',
-                    icon: '✨',
-                    description: 'The belief that "like produces like." This is most evident in food symbolism, where eating coin-shaped foods is believed to attract wealth, and long noodles are eaten to wish for a long life.'
-                },
-                {
-                    name: 'Divination & Fate',
-                    icon: '🔮',
-                    description: 'The idea that the events of the first day can foretell the character of the entire year. This belief shapes "first-footing" traditions and customs around one\'s actions on New Year\'s Day.'
-                },
-                {
-                    name: 'Community & Cohesion',
-                    icon: '🤝',
-                    description: 'New Year rituals reinforce social bonds, from large family reunion dinners to the custom of visiting neighbors. They reaffirm that the journey into the future is a collective one.'
-                }
-            ],
-            traditionTypes: {
-                labels: ['Purification (Water/Fire/Cleaning)', 'Food & Drink Symbolism', 'Divination & Luck-Setting', 'Noise, Light & Warding Off Evil', 'Respect for Elders/Deity', 'Symbolic Objects & Colors'],
-                data: [7, 6, 4, 4, 3, 3]
-            }
-        };
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const navLinks = document.querySelectorAll('.nav-link');
-            const contentSections = document.querySelectorAll('.content-section');
 
-            const timelineNav = document.getElementById('timeline-nav');
-            const timelineContent = document.getElementById('timeline-content');
+												
+		<li>					
+			<a id="ctl00_Articlesub1_RepLinks_ctl02_title" href="https://www.happy-new-year.org/2024/"><em><b>2024</b></em></a>
             
-            const celebrationsGrid = document.getElementById('celebrations-grid');
-            const modal = document.getElementById('celebration-modal');
-            const modalContent = document.getElementById('modal-content');
-            const closeModalBtn = document.getElementById('modal-close-btn');
+           
+            </li>	
 
-            const themesGrid = document.getElementById('themes-grid');
 
-            function initApp() {
-                setupNavigation();
-                renderHistory();
-                renderCelebrations();
-                renderThemes();
-                renderChart();
-            }
 
-            function setupNavigation() {
-                navLinks.forEach(link => {
-                    link.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        const targetId = link.getAttribute('data-target');
 
-                        navLinks.forEach(l => l.classList.remove('active'));
-                        link.classList.add('active');
 
-                        contentSections.forEach(section => {
-                            if (section.id === targetId) {
-                                section.classList.remove('hidden');
-                            } else {
-                                section.classList.add('hidden');
-                            }
-                        });
-                    });
-                });
-            }
-
-            function renderHistory() {
-                appData.history.forEach((item, index) => {
-                    const navItem = document.createElement('div');
-                    navItem.className = `timeline-item relative pl-8 py-2 cursor-pointer border-l-2 border-gray-200 ${index === 0 ? 'active' : ''}`;
-                    navItem.dataset.target = item.id;
-                    navItem.innerHTML = `
-                        <div class="timeline-dot absolute w-4 h-4 bg-gray-200 rounded-full -left-[9px] top-1/2 -translate-y-1/2 transition-all duration-300"></div>
-                        <p class="timeline-date text-sm font-semibold text-gray-500 transition-colors duration-300">${item.date}</p>
-                        <h4 class="font-semibold text-gray-800">${item.title}</h4>
-                    `;
-                    timelineNav.appendChild(navItem);
-                });
-
-                updateTimelineContent(appData.history[0].id);
-
-                document.querySelectorAll('.timeline-item').forEach(item => {
-                    item.addEventListener('click', () => {
-                        document.querySelectorAll('.timeline-item').forEach(i => i.classList.remove('active'));
-                        item.classList.add('active');
-                        updateTimelineContent(item.dataset.target);
-                    });
-                });
-            }
-
-            function updateTimelineContent(id) {
-                const item = appData.history.find(h => h.id === id);
-                if (item) {
-                    timelineContent.innerHTML = `
-                        <h3 class="text-xl md:text-2xl font-bold text-[#AF7A51] mb-3">${item.title}</h3>
-                        <p class="text-gray-700 leading-relaxed">${item.content}</p>
-                    `;
-                }
-            }
+												
+		<li>					
+			<a id="ctl00_Articlesub1_RepLinks_ctl03_title" href="https://www.happy-new-year.org/2025/"><em><b>2025</b></em></a>
             
-            function renderCelebrations() {
-                celebrationsGrid.innerHTML = '';
-                appData.celebrations.forEach(c => {
-                    const card = document.createElement('div');
-                    card.className = 'celebration-card bg-white/50 rounded-lg p-6 cursor-pointer';
-                    card.dataset.id = c.id;
-                    card.innerHTML = `
-                        <div class="flex items-center mb-3">
-                            <span class="text-3xl mr-4">${c.icon}</span>
-                            <div>
-                                <h3 class="text-xl font-bold text-[#AF7A51]">${c.name}</h3>
-                                <p class="text-sm text-gray-500">${c.region}</p>
-                            </div>
-                        </div>
-                        <p class="text-gray-600">${c.summary}</p>
-                    `;
-                    card.addEventListener('click', () => openModal(c.id));
-                    celebrationsGrid.appendChild(card);
-                });
-            }
+           
+            </li>	
 
-            function openModal(id) {
-                const celebration = appData.celebrations.find(c => c.id === id);
-                if (celebration) {
-                    modalContent.innerHTML = `
-                        <div class="flex items-start mb-4">
-                            <span class="text-5xl mr-5">${celebration.icon}</span>
-                            <div>
-                                <h2 class="text-2xl md:text-3xl font-bold text-[#AF7A51]">${celebration.name}</h2>
-                                <p class="text-md text-gray-500">${celebration.region}</p>
-                            </div>
-                        </div>
-                        <p class="text-gray-700 leading-relaxed">${celebration.details}</p>
-                    `;
-                    modal.classList.remove('hidden');
-                    modal.classList.add('flex');
-                }
-            }
 
-            closeModalBtn.addEventListener('click', () => {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-            });
 
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    modal.classList.add('hidden');
-                    modal.classList.remove('flex');
-                }
-            });
 
-            function renderThemes() {
-                themesGrid.innerHTML = '';
-                appData.themes.forEach(theme => {
-                    const themeCard = document.createElement('div');
-                    themeCard.className = 'bg-white/50 rounded-lg p-6 text-center';
-                    themeCard.innerHTML = `
-                        <div class="text-4xl mb-4">${theme.icon}</div>
-                        <h4 class="text-lg font-bold text-[#AF7A51] mb-2">${theme.name}</h4>
-                        <p class="text-gray-600 text-sm">${theme.description}</p>
-                    `;
-                    themesGrid.appendChild(themeCard);
-                });
-            }
 
-            function renderChart() {
-                const ctx = document.getElementById('traditionsChart').getContext('2d');
-                new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: appData.traditionTypes.labels.map(label => label.split(' ')),
-                        datasets: [{
-                            label: 'Number of Cultures Practicing',
-                            data: appData.traditionTypes.data,
-                            backgroundColor: '#E0C9B3',
-                            borderColor: '#C08A57',
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        indexAxis: 'y',
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        scales: {
-                            x: {
-                                beginAtZero: true,
-                                grid: {
-                                    color: 'rgba(0,0,0,0.05)'
-                                }
-                            },
-                            y: {
-                                grid: {
-                                    display: false
-                                }
-                            }
-                        },
-                        plugins: {
-                            legend: {
-                                display: false
-                            },
-                            tooltip: {
-                                backgroundColor: '#3D3D3D',
-                                titleFont: {
-                                    weight: 'bold'
-                                },
-                                bodyFont: {
-                                    size: 14
-                                },
-                                callbacks: {
-                                    title: function(context) {
-                                        return context[0].label.replace(/,/g, ' ');
-                                    }
-                                }
-                            }
-                        }
-                    }
-                });
-            }
+												
+		<li>					
+			<a id="ctl00_Articlesub1_RepLinks_ctl04_title" href="https://www.happy-new-year.org/chat-new-year/"><em><b>Chat new year</b></em></a>
+            
+           
+            </li>	
 
-            initApp();
-        });
-    </script>
-</body>
+
+
+
+
+
+
+             
+ 
+ 
+ 
+	
+									</ul>
+								</section>
+						
+						</div>
+						<div class="3u">
+						
+						
+								<section class="widget-contact last">
+									<h2>Contact Us</h2>
+									<ul>
+										
+										<li><a href="https://www.facebook.com/kreatewebsites/" class="facebook">Facebook</a></li>
+										<li><a href="https://www.linkedin.com/company/kreatewebsites/" class="googleplus">Linkedin</a></li>
+									</ul>
+									<p>
+									Redmond, WA <br />
+									USA  </p>
+								</section>
+						
+						</div>
+                        
+					</div>
+					<div class="row">
+						<div class="12u">
+							 <div id="copyright">
+							&copy;  Design: <a id="ctl00_cright">Happy New Year</a> | <a id="ctl00_sitemap"></a>  | <a id="ctl00_privacypolicy" href="https://www.happy-new-year.org/privacypolicy.html">Privacy Policy</a> | <a id="ctl00_footerfooter" href="https://www.happy-new-year.org/">Happy New Year</a></asp:HyperLink> 
+			</div>
+								 <p></p>
+						</div>
+						</div>
+					
+				</footer>
+			</div>
+
+	</body>
 </html>

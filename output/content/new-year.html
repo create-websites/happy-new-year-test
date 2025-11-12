@@ -1,540 +1,2932 @@
-<!DOCTYPE html>
-<html lang="en"><head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>The Global History of the New Year</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com" rel="preconnect"/>
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
-    <!-- Chosen Palette: Warm Harmony -->
-    <!-- Application Structure Plan: The application is designed as a thematic, single-page experience with tab-based navigation to break the dense report into digestible, user-driven sections. This non-linear structure was chosen over a simple scroll to empower users to explore content based on their interests—be it history, modern culture, or thematic analysis. The key interactions include a clickable timeline for historical context, a filterable grid for exploring modern celebrations, and an interactive chart for comparing tradition types. This architecture prioritizes discovery and engagement, transforming a static document into an interactive learning tool. -->
-    <!-- Visualization & Content Choices: Report Info -> Historical dates. Goal -> Show chronology. Viz -> Interactive timeline (HTML/CSS). Interaction -> Click to reveal text. Justification -> More engaging than text. | Report Info -> Modern celebrations. Goal -> Compare cultures. Viz -> Card grid. Interaction -> Click to view details. Justification -> Intuitive and clean. | Report Info -> Thematic threads. Goal -> Summarize concepts. Viz -> Icon-based grid. Interaction -> Click to expand. Justification -> Visuals aid comprehension. | Report Info -> Table of traditions. Goal -> Analyze patterns. Viz -> Bar chart (Chart.js). Interaction -> Hover for details. Justification -> Synthesizes data into a new insight. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #FDFBF5;
-            color: #3D3D3D;
-        }
-        .nav-link {
-            transition: all 0.3s ease;
-            border-bottom: 2px solid transparent;
-        }
-        .nav-link.active {
-            color: #C08A57;
-            border-bottom-color: #C08A57;
-        }
-        .timeline-item.active .timeline-dot {
-            background-color: #C08A57;
-            transform: scale(1.25);
-        }
-        .timeline-item.active .timeline-date {
-            color: #C08A57;
-            font-weight: 600;
-        }
-        .celebration-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .celebration-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 400px;
-        }
-        @media (min-width: 768px) {
-            .chart-container {
-                height: 500px;
-            }
-        }
-    </style>
-</head>
-<body class="antialiased">
 
-    <div class="container mx-auto p-4 md:p-8 max-w-7xl" id="app">
-        
-        <header class="text-center mb-8 md:mb-12">
-            <h1 class="text-4xl md:text-6xl font-bold text-[#AF7A51] mb-2">The Eternal Return</h1>
-            <p class="text-lg md:text-xl text-gray-600">A Global History of the New Year</p>
-        </header>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+	<head id="ctl00_head1"><title>
+	Happy New Year Wishes
+</title><meta http-equiv="content-type" content="text/html; charset=utf-8" /><meta name="description" content="Happy new year wishes, card, images
+" /><meta name="keywords" content="Happy New Year wishes and cards" /><span id="ctl00_adpkd_ad">		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9804321536688475"
+     crossorigin="anonymous"></script></span>
+<span id="ctl00_ganal_ad">	 <!-- Google Analytics -->
+	 <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JJ6LGZB34T"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-        <nav class="flex justify-center border-b border-gray-200 mb-8 md:mb-12">
-            <ul class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500">
-                <li class="mr-2">
-                    <a class="nav-link inline-block p-4 rounded-t-lg active" data-target="home" href="#">Introduction</a>
-                </li>
-                <li class="mr-2">
-                    <a class="nav-link inline-block p-4 rounded-t-lg" data-target="history" href="#">Ancient Origins</a>
-                </li>
-                <li class="mr-2">
-                    <a class="nav-link inline-block p-4 rounded-t-lg" data-target="celebrations" href="#">World Celebrations</a>
-                </li>
-                <li>
-                    <a class="nav-link inline-block p-4 rounded-t-lg" data-target="themes" href="#">Unifying Themes</a>
-                </li>
-            </ul>
-        </nav>
+  gtag('config', 'G-JJ6LGZB34T');
+</script>
+<!-- Google Analytics end--></span><link href="https://fonts.googleapis.com/css?family=Open+Sans:300,800" rel="stylesheet" type="text/css" /><link href="https://fonts.googleapis.com/css?family=Oleo+Script:400" rel="stylesheet" type="text/css" />
+		<script src="https://photos.happy-new-year.org/site5/css/5grid/jquery.js"></script>
+		<script src="https://photos.happy-new-year.org/site5/css/5grid/init.js?use=mobile,desktop,1000px&amp;mobileUI=1&amp;mobileUI.theme=none&amp;mobileUI_titleBarOverlaid=1&amp;mobileUI_titleBarHeight=60&amp;viewport_is1000px=1060&amp;mobileUI_openerWidth=80"></script>
+		<noscript>
+			<link rel="stylesheet" href="https://photos.happy-new-year.org/site5/css/5grid/core.css" /><link rel="stylesheet" href="https://photos.happy-new-year.org/site5/css/5grid/core-desktop.css" /><link rel="stylesheet" href="https://photos.happy-new-year.org/site5/css/5grid/core-1200px.css" /><link rel="stylesheet" href="https://photos.happy-new-year.org/site5/css/5grid/core-noscript.css" /><link rel="stylesheet" href="https://photos.happy-new-year.org/site5/css/Style.css" /><link rel="stylesheet" href="https://photos.happy-new-year.org/site5/css/Style-desktop.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
+		<!--[if lte IE 7]><link rel="stylesheet" href="css/ie7.css" /><![endif]-->
+	<meta name="description" content="Happy new year wishes, card, images
+" /><meta name="keywords" content="Happy New Year wishes and cards" /></head>
+	<body class="homepage">
+          <div id="fb-root"></div>
+<script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=1573760292911899";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+		<!-- Header Wrapper -->
+			<div id="header-wrapper">
+				<div class="5grid-layout">
+					<div class="row">
+						<div class="12u">
+						
+							<!-- Header -->
+								<header id="header">
+								
+									<!-- Logo -->
+										<div id="logo">
+											<h1> <a id="ctl00_topheader" class="mobileUI-site-name">Happy New Year Wishes</a></h1>
+                                            <a id="ctl00_hyperlinkHome" href="https://www.happy-new-year.org/">Home</a>
+									         
+										</div>
+									
+									<!-- Nav -->
+										<nav id="nav" class="mobileUI-site-nav">
+											<ul>
+											
+                                                <!--	auto calculate width
+                    
 
-        <main>
-            <section class="content-section" id="home">
-                <div class="bg-white/50 rounded-lg p-6 md:p-8 text-center max-w-4xl mx-auto">
-                    <h2 class="text-2xl md:text-3xl font-bold text-[#AF7A51] mb-4">The Human Impulse for a New Beginning</h2>
-                    <p class="text-gray-700 leading-relaxed">
-                        The changing of the year is a universal event that crosses boundaries of culture, geography, and history. It represents a shared human desire to bring structure to time, reflect on the past, and envision a better future. With diverse traditions spanning the globe, the New Year offers a fascinating glimpse into humanity's enduring hope for renewal. This experience delves into its journey—from ancient agrarian cycles to today's unique yet interconnected celebrations—revealing why we mark this moment and the aspirations it embodies.
-                    </p>
-                </div>
-            </section>
-
-            <section class="content-section hidden" id="history">
-                 <div class="text-center max-w-3xl mx-auto mb-8">
-                    <h2 class="text-2xl md:text-3xl font-bold text-[#AF7A51] mb-4">The Roots of Renewal</h2>
-                    <p class="text-gray-700 leading-relaxed">
-                        The New Year’s date and significance evolved over thousands of years, shaped by farming seasons, celestial patterns, politics, and religion. This timeline traces the path from ancient nature-based celebrations to the worldwide adoption of January 1st. Click each point to see how these key events shaped our calendar.
-                    </p>
-                </div>
-                <div class="lg:flex lg:gap-8">
-                    <div class="lg:w-1/3 mb-8 lg:mb-0" id="timeline-nav">
-                    </div>
-                    <div class="lg:w-2/3 bg-white/50 rounded-lg p-6 md:p-8 min-h-[300px]" id="timeline-content">
-                    </div>
-                </div>
-            </section>
-
-            <section class="content-section hidden" id="celebrations">
-                <div class="text-center max-w-3xl mx-auto mb-8">
-                    <h2 class="text-2xl md:text-3xl font-bold text-[#AF7A51] mb-4">A Global Tapestry of Celebration</h2>
-                    <p class="text-gray-700 leading-relaxed">
-                        Though January 1st is universally acknowledged, New Year celebrations vary greatly. Communities worldwide embrace distinct traditions shaped by their histories and beliefs. Discover the cards below to uncover some of the most colorful and significant New Year's festivities observed today.
-                    </p>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" id="celebrations-grid">
-                </div>
-            </section>
-            
-            <div class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4 z-50" id="celebration-modal">
-                <div class="bg-[#FDFBF5] rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative">
-                    <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl" id="modal-close-btn">×</button>
-                    <div class="p-6 md:p-8" id="modal-content">
-                    </div>
-                </div>
-            </div>
-
-            <section class="content-section hidden" id="themes">
-                 <div class="text-center max-w-3xl mx-auto mb-8">
-                    <h2 class="text-2xl md:text-3xl font-bold text-[#AF7A51] mb-4">Common Threads, Universal Hopes</h2>
-                    <p class="text-gray-700 leading-relaxed">
-                        Underneath the diverse array of global festivities, universal themes emerge, reflecting a shared human need to face time's passage. These patterns highlight a collective longing to tame uncertainty and embrace fresh starts with optimism. This part explores these shared ideas, comparing how cultures worldwide strive for similar ends.
-                    </p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12" id="themes-grid">
-                </div>
-                <div class="bg-white/50 rounded-lg p-6 md:p-8">
-                    <h3 class="text-xl md:text-2xl font-bold text-center text-[#AF7A51] mb-4">Comparing Tradition Types</h3>
-                    <p class="text-center text-gray-600 mb-6 max-w-2xl mx-auto">This chart examines traditions outlined in the report, categorizing them by key symbolic actions. It highlights the prevalence of rituals across cultures, emphasizing purification, food, and fortune as universal themes.</p>
-                    <div class="chart-container">
-                        <canvas id="traditionsChart"></canvas>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-    </div>
-
-    <script>
-        const appData = {
-            history: [
-                {
-                    id: 'mesopotamia',
-                    date: 'c. 2000 BCE',
-                    title: 'Akitu in Mesopotamia',
-                    content: `The earliest known New Year festival, Akitu, was tied to the agricultural calendar. This 11-day Babylonian festival re-enacted the creation myth, where the god Marduk defeats chaos. It involved purification rituals, parades, and a symbolic humiliation of the king to reaffirm his divinely sanctioned rule, establishing a powerful link between cosmic order, kingship, and societal renewal.`
-                },
-                {
-                    id: 'egypt',
-                    date: 'c. 1500 BCE',
-                    title: 'Wepet Renpet in Egypt',
-                    content: `Egypt's New Year, "the opening of the year," was tied to the annual, life-giving flood of the Nile, heralded by the reappearance of the star Sirius. A celebration of rebirth linked to the god Osiris, it included feasts, gift-giving, and a ritual where statues of gods were exposed to the sun to renew their divine power.`
-                },
-                {
-                    id: 'rome',
-                    date: '45 BCE',
-                    title: 'Roman Kalends & Julian Calendar',
-                    content: `Julius Caesar established January 1st as the start of the year with his solar-based Julian calendar. The month was named for Janus, the two-faced god of beginnings. Romans celebrated with offerings, gift-giving, and feasts, believing that the day's activities set the tone for the entire year—a concept that gave rise to New Year's resolutions.`
-                },
-                {
-                    id: 'gregorian',
-                    date: '1582 CE',
-                    title: 'The Gregorian Reform',
-                    content: `To correct the Julian calendar's drift against the seasons, Pope Gregory XIII introduced the Gregorian calendar. It dropped 10 days and refined the leap year rule. While Catholic nations adopted it quickly, Protestant and Orthodox nations resisted for centuries, viewing it as a papal power play, leading to a period of calendrical chaos in Europe.`
-                }
-            ],
-            celebrations: [
-                {
-                    id: 'rosh_hashanah',
-                    name: 'Rosh Hashanah',
-                    region: 'Jewish Culture',
-                    icon: '✡️',
-                    summary: 'A solemn day of judgment, remembrance, and repentance.',
-                    details: `Literally "head of the year," this marks the Jewish civil year. It's a time of moral accounting, known as the Day of Judgment. The central ritual is sounding the shofar (a ram's horn) as a spiritual wake-up call. Symbolic foods are eaten, like apples in honey for a sweet new year, and round challah for the cyclical nature of life. The holiday frames the New Year as a spiritual reckoning where a righteous future is earned.`
-                },
-                {
-                    id: 'nowruz',
-                    name: 'Nowruz',
-                    region: 'Persia & Central Asia',
-                    icon: '🌱',
-                    summary: 'An ancient festival celebrating the spring equinox and rebirth.',
-                    details: `Celebrated for over 3,000 years, Nowruz ("new day") marks the Persian New Year and the first day of spring. Rooted in Zoroastrianism, it symbolizes the triumph of light over darkness. Preparations include a thorough spring cleaning. The centerpiece is the Haft-Seen table, a display of seven symbolic items starting with 'S' in Persian, such as sprouts for rebirth and apples for health.`
-                },
-                {
-                    id: 'spring_festival',
-                    name: 'Spring Festival',
-                    region: 'China',
-                    icon: '🏮',
-                    summary: 'A vibrant family-focused celebration to ward off evil and welcome prosperity.',
-                    details: `The Lunar New Year in China is the year's most important holiday. Traditions stem from the legend of the Nian monster, which was afraid of loud noises, light, and the color red. Homes are decorated in red, and firecrackers are set off to scare away evil. The celebration is centered on family reunion dinners with symbolic foods like dumplings for wealth and long noodles for a long life.`
-                },
-                {
-                    id: 'omisoka',
-                    name: 'Ōmisoka',
-                    region: 'Japan',
-                    icon: '🔔',
-                    summary: 'A tranquil and reflective occasion focused on internal purification.',
-                    details: `In contrast to China, Japan's New Year's Eve is a more serene affair. It involves a thorough house cleaning to purify the home for New Year deities. Families eat "year-crossing noodles" to symbolize longevity and cutting away past hardships. The spiritual climax is *joya no kane*, a Buddhist ritual where temple bells are rung 108 times to cleanse the 108 worldly passions.`
-                },
-                {
-                    id: 'songkran',
-                    name: 'Songkran',
-                    region: 'Thailand',
-                    icon: '💧',
-                    summary: 'A joyous festival of purification and respect, famous for its water fights.',
-                    details: `The traditional Thai New Year uses water as its central element, symbolizing cleansing and blessings. Traditional rituals include gently pouring scented water over the hands of elders as a sign of respect and over Buddha images for purification. These serene acts exist alongside the world's biggest water fight, where streets become lively arenas for dousing each other with water in a spirit of fun and renewal.`
-                },
-                {
-                    id: 'hogmanay',
-                    name: 'Hogmanay',
-                    region: 'Scotland',
-                    icon: '🔥',
-                    summary: 'A fiery festival to defy winter darkness, rooted in Viking and Gaelic traditions.',
-                    details: `Hogmanay is the Scots word for New Year's Eve. Fire is a central element, with torchlight processions and bonfires symbolizing the sun's power and warding off evil spirits. The most iconic tradition is "first-footing," where the first person to cross a threshold after midnight sets the household's luck for the year, bringing symbolic gifts like coal for warmth and whisky for good cheer.`
-                }
-            ],
-            themes: [
-                {
-                    name: 'Purification & Renewal',
-                    icon: '🕊️',
-                    description: 'The universal desire for a "clean slate," expressed through house cleaning, and the use of elemental purifiers like fire and water to wash away the negativity of the past year.'
-                },
-                {
-                    name: 'Warding Off Evil',
-                    icon: '🧿',
-                    description: 'Rituals designed to protect against malevolent forces during the vulnerable transition between years. This is often achieved with loud noises, bright lights, and protective colors.'
-                },
-                {
-                    name: 'Sympathetic Magic',
-                    icon: '✨',
-                    description: 'The belief that "like produces like." This is most evident in food symbolism, where eating coin-shaped foods is believed to attract wealth, and long noodles are eaten to wish for a long life.'
-                },
-                {
-                    name: 'Divination & Fate',
-                    icon: '🔮',
-                    description: 'The idea that the events of the first day can foretell the character of the entire year. This belief shapes "first-footing" traditions and customs around one\'s actions on New Year\'s Day.'
-                },
-                {
-                    name: 'Community & Cohesion',
-                    icon: '🤝',
-                    description: 'New Year rituals reinforce social bonds, from large family reunion dinners to the custom of visiting neighbors. They reaffirm that the journey into the future is a collective one.'
-                }
-            ],
-            traditionTypes: {
-                labels: ['Purification (Water/Fire/Cleaning)', 'Food & Drink Symbolism', 'Divination & Luck-Setting', 'Noise, Light & Warding Off Evil', 'Respect for Elders/Deity', 'Symbolic Objects & Colors'],
-                data: [7, 6, 4, 4, 3, 3]
-            }
-        };
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const navLinks = document.querySelectorAll('.nav-link');
-            const contentSections = document.querySelectorAll('.content-section');
-
-            const timelineNav = document.getElementById('timeline-nav');
-            const timelineContent = document.getElementById('timeline-content');
-            
-            const celebrationsGrid = document.getElementById('celebrations-grid');
-            const modal = document.getElementById('celebration-modal');
-            const modalContent = document.getElementById('modal-content');
-            const closeModalBtn = document.getElementById('modal-close-btn');
-
-            const themesGrid = document.getElementById('themes-grid');
-
-            function initApp() {
-                setupNavigation();
-                renderHistory();
-                renderCelebrations();
-                renderThemes();
-                renderChart();
-            }
-
-            function setupNavigation() {
-                navLinks.forEach(link => {
-                    link.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        const targetId = link.getAttribute('data-target');
-
-                        navLinks.forEach(l => l.classList.remove('active'));
-                        link.classList.add('active');
-
-                        contentSections.forEach(section => {
-                            if (section.id === targetId) {
-                                section.classList.remove('hidden');
-                            } else {
-                                section.classList.add('hidden');
-                            }
-                        });
-                    });
-                });
-            }
-
-            function renderHistory() {
-                appData.history.forEach((item, index) => {
-                    const navItem = document.createElement('div');
-                    navItem.className = `timeline-item relative pl-8 py-2 cursor-pointer border-l-2 border-gray-200 ${index === 0 ? 'active' : ''}`;
-                    navItem.dataset.target = item.id;
-                    navItem.innerHTML = `
-                        <div class="timeline-dot absolute w-4 h-4 bg-gray-200 rounded-full -left-[9px] top-1/2 -translate-y-1/2 transition-all duration-300"></div>
-                        <p class="timeline-date text-sm font-semibold text-gray-500 transition-colors duration-300">${item.date}</p>
-                        <h4 class="font-semibold text-gray-800">${item.title}</h4>
-                    `;
-                    timelineNav.appendChild(navItem);
-                });
-
-                updateTimelineContent(appData.history[0].id);
-
-                document.querySelectorAll('.timeline-item').forEach(item => {
-                    item.addEventListener('click', () => {
-                        document.querySelectorAll('.timeline-item').forEach(i => i.classList.remove('active'));
-                        item.classList.add('active');
-                        updateTimelineContent(item.dataset.target);
-                    });
-                });
-            }
-
-            function updateTimelineContent(id) {
-                const item = appData.history.find(h => h.id === id);
-                if (item) {
-                    timelineContent.innerHTML = `
-                        <h3 class="text-xl md:text-2xl font-bold text-[#AF7A51] mb-3">${item.title}</h3>
-                        <p class="text-gray-700 leading-relaxed">${item.content}</p>
-                    `;
-                }
-            }
-            
-            function renderCelebrations() {
-                celebrationsGrid.innerHTML = '';
-                appData.celebrations.forEach(c => {
-                    const card = document.createElement('div');
-                    card.className = 'celebration-card bg-white/50 rounded-lg p-6 cursor-pointer';
-                    card.dataset.id = c.id;
-                    card.innerHTML = `
-                        <div class="flex items-center mb-3">
-                            <span class="text-3xl mr-4">${c.icon}</span>
-                            <div>
-                                <h3 class="text-xl font-bold text-[#AF7A51]">${c.name}</h3>
-                                <p class="text-sm text-gray-500">${c.region}</p>
-                            </div>
-                        </div>
-                        <p class="text-gray-600">${c.summary}</p>
-                    `;
-                    card.addEventListener('click', () => openModal(c.id));
-                    celebrationsGrid.appendChild(card);
-                });
-            }
-
-            function openModal(id) {
-                const celebration = appData.celebrations.find(c => c.id === id);
-                if (celebration) {
-                    modalContent.innerHTML = `
-                        <div class="flex items-start mb-4">
-                            <span class="text-5xl mr-5">${celebration.icon}</span>
-                            <div>
-                                <h2 class="text-2xl md:text-3xl font-bold text-[#AF7A51]">${celebration.name}</h2>
-                                <p class="text-md text-gray-500">${celebration.region}</p>
-                            </div>
-                        </div>
-                        <p class="text-gray-700 leading-relaxed">${celebration.details}</p>
-                    `;
-                    modal.classList.remove('hidden');
-                    modal.classList.add('flex');
-                }
-            }
-
-            closeModalBtn.addEventListener('click', () => {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-            });
-
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    modal.classList.add('hidden');
-                    modal.classList.remove('flex');
-                }
-            });
-
-            function renderThemes() {
-                themesGrid.innerHTML = '';
-                appData.themes.forEach(theme => {
-                    const themeCard = document.createElement('div');
-                    themeCard.className = 'bg-white/50 rounded-lg p-6 text-center';
-                    themeCard.innerHTML = `
-                        <div class="text-4xl mb-4">${theme.icon}</div>
-                        <h4 class="text-lg font-bold text-[#AF7A51] mb-2">${theme.name}</h4>
-                        <p class="text-gray-600 text-sm">${theme.description}</p>
-                    `;
-                    themesGrid.appendChild(themeCard);
-                });
-            }
-
-            function renderChart() {
-                const ctx = document.getElementById('traditionsChart').getContext('2d');
-                new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: appData.traditionTypes.labels.map(label => label.split(' ')),
-                        datasets: [{
-                            label: 'Number of Cultures Practicing',
-                            data: appData.traditionTypes.data,
-                            backgroundColor: '#E0C9B3',
-                            borderColor: '#C08A57',
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        indexAxis: 'y',
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        scales: {
-                            x: {
-                                beginAtZero: true,
-                                grid: {
-                                    color: 'rgba(0,0,0,0.05)'
-                                }
-                            },
-                            y: {
-                                grid: {
-                                    display: false
-                                }
-                            }
-                        },
-                        plugins: {
-                            legend: {
-                                display: false
-                            },
-                            tooltip: {
-                                backgroundColor: '#3D3D3D',
-                                titleFont: {
-                                    weight: 'bold'
-                                },
-                                bodyFont: {
-                                    size: 14
-                                },
-                                callbacks: {
-                                    title: function(context) {
-                                        return context[0].label.replace(/,/g, ' ');
-                                    }
-                                }
-                            }
-                        }
-                    }
-                });
-            }
-
-            initApp();
-        });
-    </script>
+    
 
 
-<html><head></head><body><footer class="bg-gray-800 text-gray-300">
-  <div class="container mx-auto px-6 py-12 lg:px-8">
-    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-      
-      <div>
-        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
-        <ul class="space-y-2">
-          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
-          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
-          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
-          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
-          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
-        </ul>
-      </div>
 
-      <div>
-        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
-        <ul class="space-y-2">
-          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
-          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Kontrols</a></li>
-          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Knobs</a></li>
-          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Case Studies</a></li>
-		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Case Studies</a></li>
-        </ul>
-      </div>
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl01_title" href="https://www.happy-new-year.org/">Home</a>
+            </li>	
 
-      <div>
-        <h5 class="text-lg font-semibold text-white mb-4">Thanks giving and Christmas</h5>
-        <ul class="space-y-2">
-          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
-          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
-          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
-          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
-          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
-          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
 
-          
-        </ul>
-      </div>
 
-      <div>
-        <h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
-        <div class="space-y-2">
-          <p>Redmond<br/>WA, USA</p>
-          <p>
-            <a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
-          </p>
-          <p>
-            <a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
-          </p>
-        </div>
-      </div>
-    </div>
 
-    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
-      <p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
-      
-      <div class="flex space-x-4 mt-4 sm:mt-0">
-        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
-          <span class="sr-only">Facebook</span>
-          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-            <path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
-          </svg>
-        </a>
-        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
-          <span class="sr-only">Twitter</span>
-          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
-          </svg>
-        </a>
-        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
-          <span class="sr-only">LinkedIn</span>
-          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-            <path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
-          </svg>
-        </a>
-      </div>
-    </div>
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl02_title" href="https://www.happy-new-year.org/2008/">2008</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl03_title" href="https://www.happy-new-year.org/2009/">2009</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl04_title" href="https://www.happy-new-year.org/2010/">2010</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl05_title" href="https://www.happy-new-year.org/2011/">2011</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl06_title" href="https://www.happy-new-year.org/2012/">2012</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl07_title" href="https://www.happy-new-year.org/2013/">2013</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl08_title" href="https://www.happy-new-year.org/2014/">2014</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl09_title" href="https://www.happy-new-year.org/2015/">2015</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl10_title" href="https://www.happy-new-year.org/2016/">2016</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl11_title" href="https://www.happy-new-year.org/2017/">2017</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl12_title" href="https://www.happy-new-year.org/2018/">2018</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl13_title" href="https://www.happy-new-year.org/2019/">2019</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl14_title" href="https://www.happy-new-year.org/2020/">2020</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl15_title" href="https://www.happy-new-year.org/2021/">2021</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl16_title" href="https://www.happy-new-year.org/2022/">2022</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl17_title" href="https://www.happy-new-year.org/2023/">2023</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl18_title" href="https://www.happy-new-year.org/2024/">2024</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl19_title" href="https://www.happy-new-year.org/2025/">2025</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl20_title" href="https://www.happy-new-year.org/2026/">2026</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl21_title" href="https://www.happy-new-year.org/assyrian/">Assyrian</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl22_title" href="https://www.happy-new-year.org/balinese/">Balinese</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl23_title" href="https://www.happy-new-year.org/beauty-competition/">Beauty competition</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl24_title" href="https://www.happy-new-year.org/black-friday/">Black friday</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl25_title" href="https://www.happy-new-year.org/buddhist/">Buddhist</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl26_title" href="https://www.happy-new-year.org/cambodian/">Cambodian</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl27_title" href="https://www.happy-new-year.org/cards/">Cards</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl28_title" href="https://www.happy-new-year.org/celebrations/">Celebrations</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl29_title" href="https://www.happy-new-year.org/chat-new-year/">Chat new year</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl30_title" href="https://www.happy-new-year.org/chinese-new-year/">Chinese new year</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl31_title" href="https://www.happy-new-year.org/cyber-monday/">Cyber monday</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl32_title" href="https://www.happy-new-year.org/ethiopian/">Ethiopian</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl33_title" href="https://www.happy-new-year.org/festivals/">Festivals</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl34_title" href="https://www.happy-new-year.org/food-and-wine-tips/">Food and wine tips</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl35_title" href="https://www.happy-new-year.org/gadgets/">Gadgets</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl36_title" href="https://www.happy-new-year.org/hindu/">Hindu</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl37_title" href="https://www.happy-new-year.org/hindu-calendar/">Hindu calendar</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl38_title" href="https://www.happy-new-year.org/hindu-new-year/">Hindu new year</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl39_title" href="https://www.happy-new-year.org/in/">In</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl40_title" href="https://www.happy-new-year.org/inca/">Inca</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl41_title" href="https://www.happy-new-year.org/islamic/">Islamic</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl42_title" href="https://www.happy-new-year.org/islamic-new-year/">Islamic new year</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl43_title" href="https://www.happy-new-year.org/japanese-new-year/">Japanese new year</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl44_title" href="https://www.happy-new-year.org/jewish/">Jewish</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl45_title" href="https://www.happy-new-year.org/jewish-new-year/">Jewish new year</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl46_title" href="https://www.happy-new-year.org/korean/">Korean</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl47_title" href="https://www.happy-new-year.org/marwari/">Marwari</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl48_title" href="https://www.happy-new-year.org/mayan/">Mayan</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl49_title" href="https://www.happy-new-year.org/messages/">Messages</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl50_title" href="https://www.happy-new-year.org/movie/">Movie</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl51_title" href="https://www.happy-new-year.org/noble-prize/">Noble prize</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl52_title" href="https://www.happy-new-year.org/pagan/">Pagan</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl53_title" href="https://www.happy-new-year.org/persian/">Persian</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl54_title" href="https://www.happy-new-year.org/photos/">Photos</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl55_title" href="https://www.happy-new-year.org/quotations/">Quotations</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl56_title" href="https://www.happy-new-year.org/resolutions/">Resolutions</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl57_title" href="https://www.happy-new-year.org/slides/">Slides</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl58_title" href="https://www.happy-new-year.org/special-day/">Special day</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl59_title" href="https://www.happy-new-year.org/temp/">Temp</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl60_title" href="https://www.happy-new-year.org/thai/">Thai</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl61_title" href="https://www.happy-new-year.org/tibetan/">Tibetan</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl62_title" href="https://www.happy-new-year.org/wallpapers/">Wallpapers</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl63_title" href="https://www.happy-new-year.org/websites/">Websites</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl64_title" href="https://www.happy-new-year.org/wishes/">Wishes</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_articles_RepLinks_ctl65_title" href="https://www.happy-new-year.org/zulu/">Zulu</a>
+            </li>	
+
+
+
+
+
+
+
+             
+ 
+ 
+ 
+ -->
+                                               
+											</ul>
+										</nav>
+								
+								</header>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		
+		
+
+    	<div id="main-wrapper">
+				<div class="5grid-layout">
+					<div class="row">
+						<div class="8u mobileUI-main-content">
+
+							<!-- Content -->
+								<div id="content">
+									<article class="last">
+											
+                                             <h2><span id="ctl00_ContentPlaceHolder1_title">Happy New Year Wishes</span></h2>
+											
+							<span> <span id="ctl00_ContentPlaceHolder1_metadesc">Happy new year wishes, card, images
+</span></span>	
+										
+
+
+                                         
+											
+										
+										
+                                           
+
+							<table id="ctl00_ContentPlaceHolder1_RepDetails" cellspacing="0" border="0">
+	<tr>
+		<td>
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+					
+                   
+<a id="ctl00_ContentPlaceHolder1_RepDetails_ctl01_imghyperlink" href="https://photos.happy-new-year.org/image.html?imageurl=https://storage.googleapis.com/kreatewebsites/festival/Cards/NewYear/1.jpg"><img id="ctl00_ContentPlaceHolder1_RepDetails_ctl01_Image1" alt="1" NavigateUrl="https://photos.happy-new-year.org/image.html?imageurl=https://storage.googleapis.com/kreatewebsites/festival/Cards/NewYear/1.jpg" src="https://s://storage.googleapis.com/kreatewebsites/festival/Cards/NewYear/1.jpg" border="0" /></a>
+
+                                                <blockquote>  <a id="ctl00_ContentPlaceHolder1_RepDetails_ctl01_hyperlink1" href="https://photos.happy-new-year.org/image.html?imageurl=https://storage.googleapis.com/kreatewebsites/festival/Cards/NewYear/1.jpg">1</a>
+
+                                                </blockquote>
+												 
+				
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                							
+		
+
   </div>
-</footer></body></html></body></html>
+
+</td>
+	</tr><tr>
+		<td>
+
+
+					
+                   
+<a id="ctl00_ContentPlaceHolder1_RepDetails_ctl02_imghyperlink" href="https://photos.happy-new-year.org/image.html?imageurl=https://storage.googleapis.com/kreatewebsites/festival/Cards/NewYear/6.jpg"><img id="ctl00_ContentPlaceHolder1_RepDetails_ctl02_Image1" alt="6" NavigateUrl="https://photos.happy-new-year.org/image.html?imageurl=https://storage.googleapis.com/kreatewebsites/festival/Cards/NewYear/6.jpg" src="https://s://storage.googleapis.com/kreatewebsites/festival/Cards/NewYear/6.jpg" border="0" /></a>
+
+                                                <blockquote>  <a id="ctl00_ContentPlaceHolder1_RepDetails_ctl02_hyperlink1" href="https://photos.happy-new-year.org/image.html?imageurl=https://storage.googleapis.com/kreatewebsites/festival/Cards/NewYear/6.jpg">6</a>
+
+                                                </blockquote>
+												 
+				
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                							
+		
+
+  </div>
+
+</td>
+	</tr><tr>
+		<td>
+
+
+					
+                   
+<a id="ctl00_ContentPlaceHolder1_RepDetails_ctl03_imghyperlink" href="https://photos.happy-new-year.org/image.html?imageurl=https://storage.googleapis.com/kreatewebsites/festival/Cards/NewYear/3.jpg"><img id="ctl00_ContentPlaceHolder1_RepDetails_ctl03_Image1" alt="3" NavigateUrl="https://photos.happy-new-year.org/image.html?imageurl=https://storage.googleapis.com/kreatewebsites/festival/Cards/NewYear/3.jpg" src="https://s://storage.googleapis.com/kreatewebsites/festival/Cards/NewYear/3.jpg" border="0" /></a>
+
+                                                <blockquote>  <a id="ctl00_ContentPlaceHolder1_RepDetails_ctl03_hyperlink1" href="https://photos.happy-new-year.org/image.html?imageurl=https://storage.googleapis.com/kreatewebsites/festival/Cards/NewYear/3.jpg">3</a>
+
+                                                </blockquote>
+												 
+				
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                							
+		
+
+  </div>
+
+</td>
+	</tr><tr>
+		<td>
+
+
+					
+                   
+<a id="ctl00_ContentPlaceHolder1_RepDetails_ctl04_imghyperlink" href="https://photos.happy-new-year.org/image.html?imageurl=https://storage.googleapis.com/kreatewebsites/festival/Cards/NewYear/4.jpg"><img id="ctl00_ContentPlaceHolder1_RepDetails_ctl04_Image1" alt="4" NavigateUrl="https://photos.happy-new-year.org/image.html?imageurl=https://storage.googleapis.com/kreatewebsites/festival/Cards/NewYear/4.jpg" src="https://s://storage.googleapis.com/kreatewebsites/festival/Cards/NewYear/4.jpg" border="0" /></a>
+
+                                                <blockquote>  <a id="ctl00_ContentPlaceHolder1_RepDetails_ctl04_hyperlink1" href="https://photos.happy-new-year.org/image.html?imageurl=https://storage.googleapis.com/kreatewebsites/festival/Cards/NewYear/4.jpg">4</a>
+
+                                                </blockquote>
+												 
+				
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                							
+		
+
+  </div>
+
+</td>
+	</tr><tr>
+		<td>
+
+
+
+</td>
+	</tr>
+</table>
+										
+									<span id="ctl00_ContentPlaceHolder1_labeltext"></span>	
+
+                                                           														
+                            <br />
+                            <br />
+                            <table id="ctl00_ContentPlaceHolder1_RepComments" cellspacing="0" border="0">
+	<tr>
+		<td>
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+					
+                   
+
+												 
+               							
+		
+
+      <span id="ctl00_ContentPlaceHolder1_RepComments_ctl01_label2"><font color="Black" size="4"><h3>New year wishes and Greeting Cards</h3></font></span>
+    <br />
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+					
+                   
+
+												 
+               							
+		
+
+      <span id="ctl00_ContentPlaceHolder1_RepComments_ctl02_label2"><font color="Black" size="4"><p>Hope you have a great new year 2017. Let the celebration begin. Cheers to 2016. May all your dreams come true.. 
+Happy New Year !</p></font></span>
+    <br />
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+					
+                   
+
+												 
+               							
+		
+
+      <span id="ctl00_ContentPlaceHolder1_RepComments_ctl03_label2"><font color="Black" size="4"><p>May you always look ahead this New Year without being held back by any backlog so that when you finally reach your destination you can look back upon the memories with fondness and at leisure.
+As the new year renews all the happiness and good tidings, hope the joyful spirit keeps glowing in the your heart forever! Happy New Year!</p></font></span>
+    <br />
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+					
+                   
+
+												 
+               							
+		
+
+      <span id="ctl00_ContentPlaceHolder1_RepComments_ctl04_label2"><font color="Black" size="4"><p>Wishing you a year that is filled with all the fragrance of roses, illuminated with all the lights of the world and be blessed with all the
+ smiles on the planet. Hope this year will be the year when all your dreams come true. 
+Happy New Year 2017!! </p></font></span>
+    <br />
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+					
+                   
+
+												 
+               							
+		
+
+      <span id="ctl00_ContentPlaceHolder1_RepComments_ctl05_label2"><font color="Black" size="4"><p>As the New Year approaches us with hopes anew, here is wishing you and your family a wonderful year ahead.
+Happy New Year !</p></font></span>
+    <br />
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+					
+                   
+
+												 
+               							
+		
+
+      <span id="ctl00_ContentPlaceHolder1_RepComments_ctl06_label2"><font color="Black" size="4"><p>Wishing you a Happy New Year with the hope that you will have many blessings in the year to come.
+Happy New Year !</p></font></span>
+    <br />
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+					
+                   
+
+												 
+               							
+		
+
+      <span id="ctl00_ContentPlaceHolder1_RepComments_ctl07_label2"><font color="Black" size="4"><p>May God spread prosperity and joy in your life on this New Year and fulfill all your dreams.
+Have a Wonderful New Year !</p></font></span>
+    <br />
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+					
+                   
+
+												 
+               							
+		
+
+      <span id="ctl00_ContentPlaceHolder1_RepComments_ctl08_label2"><font color="Black" size="4"><p>Out with the old, in with the new: may you be happy the whole year through. Happy New Year!</p></font></span>
+    <br />
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+					
+                   
+
+												 
+               							
+		
+
+      <span id="ctl00_ContentPlaceHolder1_RepComments_ctl09_label2"><font color="Black" size="4"><p>As I think about our friendship and how happy it has made me, I want to wish you happiness in the year to come.
+Happy New Year !</p></font></span>
+    <br />
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+					
+                   
+
+												 
+               							
+		
+
+      <span id="ctl00_ContentPlaceHolder1_RepComments_ctl10_label2"><font color="Black" size="4"><p>New year is around the corner. Bring up your drinks and lets rock this new year eve party like never before.
+Have a Happy New Year !</p></font></span>
+    <br />
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+					
+                   
+
+												 
+               							
+		
+
+      <span id="ctl00_ContentPlaceHolder1_RepComments_ctl11_label2"><font color="Black" size="4"><p>Let us leave behind sadness, regrets and painful moments and have a new start full of joy this new year.
+Happy New Year !</p></font></span>
+    <br />
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+					
+                   
+
+												 
+               							
+		
+
+      <span id="ctl00_ContentPlaceHolder1_RepComments_ctl12_label2"><font color="Black" size="4">Wish You New Year 2017<br/>
+On 1st January, when Moon Sets and Sun Rises,<br/>
+the world would wake up to a new dawn,<br/>
+i wish all my friends and family live long and to<br/>
+witness 100 such dawns. 
+</font></span>
+    <br />
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+					
+                   
+
+												 
+               							
+		
+
+      <span id="ctl00_ContentPlaceHolder1_RepComments_ctl13_label2"><font color="Black" size="4"><p>New year is around the corner. Bring up your drinks and lets rock this new year eve party like never before.
+Have a Happy New Year !</p></font></span>
+    <br />
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+					
+                   
+
+												 
+               							
+		
+
+      <span id="ctl00_ContentPlaceHolder1_RepComments_ctl14_label2"><font color="Black" size="4"><p>May the New Year fill up days
+with all things that are nice
+and bright – here is
+wishing you a lovely 2017
+</p></font></span>
+    <br />
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+					
+                   
+
+												 
+               							
+		
+
+      <span id="ctl00_ContentPlaceHolder1_RepComments_ctl15_label2"><font color="Black" size="4"><p>Friend, neighbor, confidante: you have improved my life so much that, as we enter a new year, I wish for you all the love you have shown me.
+ Happy New Year.</p></font></span>
+    <br />
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+
+</td>
+	</tr>
+</table>    
+                            <br />
+                            <br />
+                             <div class="fb-activity" data-site="https://www.happy-new-year.org/" data-action="likes, recommends" data-colorscheme="light" data-header="true"></div>
+	
+								
+                                <div class="fb-comments" data-href="https://www.happy-new-year.org/" data-numposts="5" data-colorscheme="light" data-order-by="reverse_time"></div>
+			
+<!--
+                            <div class="fb-post" data-href="https://www.facebook.com/DiwaliCelebrations" data-width="500"></div>		
+                              <div class="fb-recommendations" data-site="https://www.happy-new-year.org/" data-action="likes, recommends" data-colorscheme="light" data-header="true"></div>
+		
+                            -->
+     
+
+    
+
+
+
+												
+									
+		<a id="ctl00_ContentPlaceHolder1_articles2_RepLinks_ctl01_title" href="https://www.happy-new-year.org/CheesePlatter.html">CheesePlatter</a>
+            	
+&nbsp;&nbsp;
+
+
+
+
+
+												
+									
+		<a id="ctl00_ContentPlaceHolder1_articles2_RepLinks_ctl02_title" href="https://www.happy-new-year.org/chinese-new-year-history.html">Chinese-new-year-history</a>
+            	
+&nbsp;&nbsp;
+
+
+
+
+
+												
+									
+		<a id="ctl00_ContentPlaceHolder1_articles2_RepLinks_ctl03_title" href="https://www.happy-new-year.org/chinese-new-year.html">Chinese-new-year</a>
+            	
+&nbsp;&nbsp;
+
+
+
+
+
+												
+									
+		<a id="ctl00_ContentPlaceHolder1_articles2_RepLinks_ctl04_title" href="https://www.happy-new-year.org/cookies.html">Cookies</a>
+            	
+&nbsp;&nbsp;
+
+
+
+
+
+												
+									
+		<a id="ctl00_ContentPlaceHolder1_articles2_RepLinks_ctl05_title" href="https://www.happy-new-year.org/evolution-of-new-year.html">Evolution-of-new-year</a>
+            	
+&nbsp;&nbsp;
+
+
+
+
+
+												
+									
+		<a id="ctl00_ContentPlaceHolder1_articles2_RepLinks_ctl06_title" href="https://www.happy-new-year.org/festivals-countdown.html">Festivals-countdown</a>
+            	
+&nbsp;&nbsp;
+
+
+
+
+
+												
+									
+		<a id="ctl00_ContentPlaceHolder1_articles2_RepLinks_ctl07_title" href="https://www.happy-new-year.org/fruit%20platter.html">Fruit platter</a>
+            	
+&nbsp;&nbsp;
+
+
+
+
+
+												
+									
+		<a id="ctl00_ContentPlaceHolder1_articles2_RepLinks_ctl08_title" href="https://www.happy-new-year.org/full-dinner.html">Full-dinner</a>
+            	
+&nbsp;&nbsp;
+
+
+
+
+
+												
+									
+		<a id="ctl00_ContentPlaceHolder1_articles2_RepLinks_ctl09_title" href="https://www.happy-new-year.org/Ham-dinner.html">Ham-dinner</a>
+            	
+&nbsp;&nbsp;
+
+
+
+
+
+												
+									
+		<a id="ctl00_ContentPlaceHolder1_articles2_RepLinks_ctl10_title" href="https://www.happy-new-year.org/Hamm-dinner.html">Hamm-dinner</a>
+            	
+&nbsp;&nbsp;
+
+
+
+
+
+
+
+             
+ 
+ 
+ 
+	
+						
+		<span id="ctl00_ContentPlaceHolder1_label1"></span>	
+
+                                                           														
+ 
+           <span id="ctl00_ContentPlaceHolder1_ad728_ad"></span>
+                                        <br /><br />
+
+						
+
+    
+
+
+
+												
+
+    <a id="ctl00_ContentPlaceHolder1_articlesbutton_RepLinks_ctl01_buttonall" class="button button-alt" href="https://www.happy-new-year.org/">Home</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+												
+
+    <a id="ctl00_ContentPlaceHolder1_articlesbutton_RepLinks_ctl02_buttonall" class="button button-alt" href="https://www.happy-new-year.org/2008/">2008</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+												
+
+    <a id="ctl00_ContentPlaceHolder1_articlesbutton_RepLinks_ctl03_buttonall" class="button button-alt" href="https://www.happy-new-year.org/2009/">2009</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+             
+ 
+ 
+ 
+	
+     
+    
+
+    
+
+
+
+												
+								
+		<a id="ctl00_ContentPlaceHolder1_articleslistbutton_RepLinks_ctl01_buttonmain" class="button" href="https://www.happy-new-year.org/CheesePlatter.html">CheesePlatter</a>
+         	&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+												
+								
+		<a id="ctl00_ContentPlaceHolder1_articleslistbutton_RepLinks_ctl02_buttonmain" class="button" href="https://www.happy-new-year.org/chinese-new-year-history.html">Chinese-new-year-hi</a>
+         	&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+             
+ 
+ 
+ 
+												
+															</article>
+								</div>
+
+						</div>
+						<div class="4u">
+						
+							<!-- Sidebar -->
+								<div id="sidebar">
+
+									<section>
+										<!--ABC
+										<h3>Add Cards and images here</h3>
+									
+										XYZ -->
+										<footer>
+                                             <a id="ctl00_ContentPlaceHolder1_buttonMore" class="button button-icon button-icon-info"></a>	
+											
+										</footer>
+									</section>
+
+									<section>
+										<h3>Related Articles</h3>
+										<ul class="style2">
+                                            
+
+    
+
+
+
+												
+		<li>								
+		<a id="ctl00_ContentPlaceHolder1_articles_RepLinks_ctl01_title" href="https://www.happy-new-year.org/CheesePlatter.html">CheesePlatter</a>
+            </li>	
+    <br />
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_ContentPlaceHolder1_articles_RepLinks_ctl02_title" href="https://www.happy-new-year.org/chinese-new-year-history.html">Chinese-new-year-history</a>
+            </li>	
+    <br />
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_ContentPlaceHolder1_articles_RepLinks_ctl03_title" href="https://www.happy-new-year.org/chinese-new-year.html">Chinese-new-year</a>
+            </li>	
+    <br />
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_ContentPlaceHolder1_articles_RepLinks_ctl04_title" href="https://www.happy-new-year.org/cookies.html">Cookies</a>
+            </li>	
+    <br />
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_ContentPlaceHolder1_articles_RepLinks_ctl05_title" href="https://www.happy-new-year.org/evolution-of-new-year.html">Evolution-of-new-year</a>
+            </li>	
+    <br />
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_ContentPlaceHolder1_articles_RepLinks_ctl06_title" href="https://www.happy-new-year.org/festivals-countdown.html">Festivals-countdown</a>
+            </li>	
+    <br />
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_ContentPlaceHolder1_articles_RepLinks_ctl07_title" href="https://www.happy-new-year.org/fruit%20platter.html">Fruit platter</a>
+            </li>	
+    <br />
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_ContentPlaceHolder1_articles_RepLinks_ctl08_title" href="https://www.happy-new-year.org/full-dinner.html">Full-dinner</a>
+            </li>	
+    <br />
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_ContentPlaceHolder1_articles_RepLinks_ctl09_title" href="https://www.happy-new-year.org/Ham-dinner.html">Ham-dinner</a>
+            </li>	
+    <br />
+
+
+
+
+
+												
+		<li>								
+		<a id="ctl00_ContentPlaceHolder1_articles_RepLinks_ctl10_title" href="https://www.happy-new-year.org/Hamm-dinner.html">Hamm-dinner</a>
+            </li>	
+    <br />
+
+
+
+
+
+
+
+             
+ 
+ 
+ 
+
+											
+										</ul>
+									</section>
+									<section>
+										<h3>Main Topics</h3>
+										<ul class="style2">
+											
+											
+
+    
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl01_title" href="https://www.happy-new-year.org/"><em><b>Home</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl02_title" href="https://www.happy-new-year.org/2008/"><em><b>2008</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl03_title" href="https://www.happy-new-year.org/2009/"><em><b>2009</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl04_title" href="https://www.happy-new-year.org/2010/"><em><b>2010</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl05_title" href="https://www.happy-new-year.org/2011/"><em><b>2011</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl06_title" href="https://www.happy-new-year.org/2012/"><em><b>2012</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl07_title" href="https://www.happy-new-year.org/2013/"><em><b>2013</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl08_title" href="https://www.happy-new-year.org/2014/"><em><b>2014</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl09_title" href="https://www.happy-new-year.org/2015/"><em><b>2015</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl10_title" href="https://www.happy-new-year.org/2016/"><em><b>2016</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl11_title" href="https://www.happy-new-year.org/2017/"><em><b>2017</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl12_title" href="https://www.happy-new-year.org/2018/"><em><b>2018</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl13_title" href="https://www.happy-new-year.org/2019/"><em><b>2019</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl14_title" href="https://www.happy-new-year.org/2020/"><em><b>2020</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl15_title" href="https://www.happy-new-year.org/2021/"><em><b>2021</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl16_title" href="https://www.happy-new-year.org/2022/"><em><b>2022</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl17_title" href="https://www.happy-new-year.org/2023/"><em><b>2023</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl18_title" href="https://www.happy-new-year.org/2024/"><em><b>2024</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl19_title" href="https://www.happy-new-year.org/2025/"><em><b>2025</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl20_title" href="https://www.happy-new-year.org/2026/"><em><b>2026</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl21_title" href="https://www.happy-new-year.org/assyrian/"><em><b>Assyrian</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl22_title" href="https://www.happy-new-year.org/balinese/"><em><b>Balinese</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl23_title" href="https://www.happy-new-year.org/beauty-competition/"><em><b>Beauty competition</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl24_title" href="https://www.happy-new-year.org/black-friday/"><em><b>Black friday</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl25_title" href="https://www.happy-new-year.org/buddhist/"><em><b>Buddhist</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl26_title" href="https://www.happy-new-year.org/cambodian/"><em><b>Cambodian</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl27_title" href="https://www.happy-new-year.org/cards/"><em><b>Cards</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl28_title" href="https://www.happy-new-year.org/celebrations/"><em><b>Celebrations</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl29_title" href="https://www.happy-new-year.org/chat-new-year/"><em><b>Chat new year</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl30_title" href="https://www.happy-new-year.org/chinese-new-year/"><em><b>Chinese new year</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl31_title" href="https://www.happy-new-year.org/cyber-monday/"><em><b>Cyber monday</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl32_title" href="https://www.happy-new-year.org/ethiopian/"><em><b>Ethiopian</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl33_title" href="https://www.happy-new-year.org/festivals/"><em><b>Festivals</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl34_title" href="https://www.happy-new-year.org/food-and-wine-tips/"><em><b>Food and wine tips</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl35_title" href="https://www.happy-new-year.org/gadgets/"><em><b>Gadgets</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl36_title" href="https://www.happy-new-year.org/hindu/"><em><b>Hindu</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl37_title" href="https://www.happy-new-year.org/hindu-calendar/"><em><b>Hindu calendar</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl38_title" href="https://www.happy-new-year.org/hindu-new-year/"><em><b>Hindu new year</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl39_title" href="https://www.happy-new-year.org/in/"><em><b>In</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl40_title" href="https://www.happy-new-year.org/inca/"><em><b>Inca</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl41_title" href="https://www.happy-new-year.org/islamic/"><em><b>Islamic</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl42_title" href="https://www.happy-new-year.org/islamic-new-year/"><em><b>Islamic new year</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl43_title" href="https://www.happy-new-year.org/japanese-new-year/"><em><b>Japanese new year</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl44_title" href="https://www.happy-new-year.org/jewish/"><em><b>Jewish</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl45_title" href="https://www.happy-new-year.org/jewish-new-year/"><em><b>Jewish new year</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl46_title" href="https://www.happy-new-year.org/korean/"><em><b>Korean</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl47_title" href="https://www.happy-new-year.org/marwari/"><em><b>Marwari</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl48_title" href="https://www.happy-new-year.org/mayan/"><em><b>Mayan</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl49_title" href="https://www.happy-new-year.org/messages/"><em><b>Messages</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl50_title" href="https://www.happy-new-year.org/movie/"><em><b>Movie</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl51_title" href="https://www.happy-new-year.org/noble-prize/"><em><b>Noble prize</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl52_title" href="https://www.happy-new-year.org/pagan/"><em><b>Pagan</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl53_title" href="https://www.happy-new-year.org/persian/"><em><b>Persian</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl54_title" href="https://www.happy-new-year.org/photos/"><em><b>Photos</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl55_title" href="https://www.happy-new-year.org/quotations/"><em><b>Quotations</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl56_title" href="https://www.happy-new-year.org/resolutions/"><em><b>Resolutions</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl57_title" href="https://www.happy-new-year.org/slides/"><em><b>Slides</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl58_title" href="https://www.happy-new-year.org/special-day/"><em><b>Special day</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl59_title" href="https://www.happy-new-year.org/temp/"><em><b>Temp</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl60_title" href="https://www.happy-new-year.org/thai/"><em><b>Thai</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl61_title" href="https://www.happy-new-year.org/tibetan/"><em><b>Tibetan</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl62_title" href="https://www.happy-new-year.org/wallpapers/"><em><b>Wallpapers</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl63_title" href="https://www.happy-new-year.org/websites/"><em><b>Websites</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl64_title" href="https://www.happy-new-year.org/wishes/"><em><b>Wishes</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+												
+		<li>					
+			<a id="ctl00_ContentPlaceHolder1_Articlessub1_RepLinks_ctl65_title" href="https://www.happy-new-year.org/zulu/"><em><b>Zulu</b></em></a>
+            
+           
+            </li>	
+
+
+
+
+
+
+
+             
+ 
+ 
+ 
+
+										</ul>
+									</section>
+
+								</div>
+						
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+
+
+
+ 
+<div id="footer-wrapper">
+			<div class="5grid-layout">
+				<div class="row">
+					<div class="8u">
+						
+						<section>
+
+								<h2><a id="ctl00_footer_footerhead" title="Happy New Year" href="https://www.happy-new-year.org/">Happy New Year</a></h2>
+                            	<div class="5grid">
+								<div class="row">
+									<div class="3u">
+								       <ul class="link-list">
+										
+									
+									
+                                    <table id="ctl00_footer_RepLinks" cellspacing="0" border="0">
+	<tr>
+		<td>
+
+    
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl01_title" href="https://www.happy-new-year.org/">Home</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl02_title" href="https://www.happy-new-year.org/2008/">2008</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl03_title" href="https://www.happy-new-year.org/2009/">2009</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl04_title" href="https://www.happy-new-year.org/2010/">2010</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl05_title" href="https://www.happy-new-year.org/2011/">2011</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl06_title" href="https://www.happy-new-year.org/2012/">2012</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl07_title" href="https://www.happy-new-year.org/2013/">2013</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl08_title" href="https://www.happy-new-year.org/2014/">2014</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl09_title" href="https://www.happy-new-year.org/2015/">2015</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl10_title" href="https://www.happy-new-year.org/2016/">2016</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl11_title" href="https://www.happy-new-year.org/2017/">2017</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl12_title" href="https://www.happy-new-year.org/2018/">2018</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl13_title" href="https://www.happy-new-year.org/2019/">2019</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl14_title" href="https://www.happy-new-year.org/2020/">2020</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl15_title" href="https://www.happy-new-year.org/2021/">2021</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl16_title" href="https://www.happy-new-year.org/2022/">2022</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl17_title" href="https://www.happy-new-year.org/2023/">2023</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl18_title" href="https://www.happy-new-year.org/2024/">2024</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl19_title" href="https://www.happy-new-year.org/2025/">2025</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl20_title" href="https://www.happy-new-year.org/2026/">2026</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl21_title" href="https://www.happy-new-year.org/assyrian/">Assyrian</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl22_title" href="https://www.happy-new-year.org/balinese/">Balinese</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl23_title" href="https://www.happy-new-year.org/beauty-competition/">Beauty competition</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl24_title" href="https://www.happy-new-year.org/black-friday/">Black friday</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl25_title" href="https://www.happy-new-year.org/buddhist/">Buddhist</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl26_title" href="https://www.happy-new-year.org/cambodian/">Cambodian</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl27_title" href="https://www.happy-new-year.org/cards/">Cards</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl28_title" href="https://www.happy-new-year.org/celebrations/">Celebrations</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl29_title" href="https://www.happy-new-year.org/chat-new-year/">Chat new year</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl30_title" href="https://www.happy-new-year.org/chinese-new-year/">Chinese new year</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl31_title" href="https://www.happy-new-year.org/cyber-monday/">Cyber monday</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl32_title" href="https://www.happy-new-year.org/ethiopian/">Ethiopian</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl33_title" href="https://www.happy-new-year.org/festivals/">Festivals</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl34_title" href="https://www.happy-new-year.org/food-and-wine-tips/">Food and wine tips</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl35_title" href="https://www.happy-new-year.org/gadgets/">Gadgets</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl36_title" href="https://www.happy-new-year.org/hindu/">Hindu</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl37_title" href="https://www.happy-new-year.org/hindu-calendar/">Hindu calendar</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl38_title" href="https://www.happy-new-year.org/hindu-new-year/">Hindu new year</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl39_title" href="https://www.happy-new-year.org/in/">In</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl40_title" href="https://www.happy-new-year.org/inca/">Inca</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl41_title" href="https://www.happy-new-year.org/islamic/">Islamic</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl42_title" href="https://www.happy-new-year.org/islamic-new-year/">Islamic new year</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl43_title" href="https://www.happy-new-year.org/japanese-new-year/">Japanese new year</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl44_title" href="https://www.happy-new-year.org/jewish/">Jewish</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl45_title" href="https://www.happy-new-year.org/jewish-new-year/">Jewish new year</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl46_title" href="https://www.happy-new-year.org/korean/">Korean</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl47_title" href="https://www.happy-new-year.org/marwari/">Marwari</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl48_title" href="https://www.happy-new-year.org/mayan/">Mayan</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl49_title" href="https://www.happy-new-year.org/messages/">Messages</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl50_title" href="https://www.happy-new-year.org/movie/">Movie</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl51_title" href="https://www.happy-new-year.org/noble-prize/">Noble prize</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl52_title" href="https://www.happy-new-year.org/pagan/">Pagan</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl53_title" href="https://www.happy-new-year.org/persian/">Persian</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl54_title" href="https://www.happy-new-year.org/photos/">Photos</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl55_title" href="https://www.happy-new-year.org/quotations/">Quotations</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl56_title" href="https://www.happy-new-year.org/resolutions/">Resolutions</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl57_title" href="https://www.happy-new-year.org/slides/">Slides</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl58_title" href="https://www.happy-new-year.org/special-day/">Special day</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl59_title" href="https://www.happy-new-year.org/temp/">Temp</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl60_title" href="https://www.happy-new-year.org/thai/">Thai</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl61_title" href="https://www.happy-new-year.org/tibetan/">Tibetan</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl62_title" href="https://www.happy-new-year.org/wallpapers/">Wallpapers</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl63_title" href="https://www.happy-new-year.org/websites/">Websites</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl64_title" href="https://www.happy-new-year.org/wishes/">Wishes</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+												
+		<li>								
+		<a id="ctl00_footer_RepLinks_ctl65_title" href="https://www.happy-new-year.org/zulu/">Zulu</a>
+            </li>	
+
+
+</td>
+	</tr><tr>
+		<td>
+
+
+
+</td>
+	</tr>
+</table>
+                                    
+
+                   </ul>
+							</section>
+						</div>
+
+
+
+                 </div>
+					<div class="row">
+						<div class="12u">
+							<div class="divider"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="12u">
+							<div id="copyright">
+								&copy; Copyright. All rights reserved. |  <a id="ctl00_footer_footerfooter" href="https://www.happy-new-year.org/">Happy New Year</a>
+							</div>
+						</div>
+					</div>
+                </div>
+</div>
+		<!-- Footer Wrapper -->
+        <!--
+			<div id="footer-wrapper">
+				<footer id="footer" class="5grid-layout">
+					<div class="row">
+                       
+					</div>
+					<div class="row">
+						<div class="12u">
+							 <div id="copyright">
+							&copy;  Design: <a id="ctl00_cright"></a> | <a id="ctl00_sitemap"></a>  | <a id="ctl00_privacypolicy"></a> 
+						</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+        -->
+	</body>
+</html>

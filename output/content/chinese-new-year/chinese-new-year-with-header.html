@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html class="scroll-smooth" lang="en"><head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Explore the vibrant traditions and celebrations of the Chinese New Year 2026, the Year of the Fire Horse. This interactive infographic covers everything from symbolic foods to the 15-day festival timeline." name="description"/>
+    <meta content="Chinese New Year 2026, Lunar New Year 2026, Year of the Horse, Spring Festival, Chinese traditions, Hongbao, Lantern Festival, Chinese Zodiac" name="keywords"/>
     <title>Infographic: Chinese New Year 2026 - Year of the Horse</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -43,14 +45,24 @@
     </style>
 </head>
 <body class="antialiased">
+    <header class="sticky top-0 bg-white/80 backdrop-blur-md z-50 shadow-sm">
+        <nav class="container mx-auto px-4 md:px-8 flex justify-between items-center py-4">
+            <a class="text-xl font-bold text-brand-red" href="#">Lunar New Year 2026</a>
+            <div class="hidden md:flex space-x-8">
+                <a class="text-gray-600 hover:text-brand-red font-semibold" href="#">Home</a>
+                <a class="text-gray-600 hover:text-brand-red font-semibold" href="#traditions">Traditions</a>
+                <a class="text-gray-600 hover:text-brand-red font-semibold" href="#timeline">Timeline</a>
+            </div>
+        </nav>
+    </header>
     <div class="container mx-auto p-4 md:p-8 max-w-5xl">
         
-        <header class="text-center my-12">
+        <div class="text-center my-12">
             <p class="text-2xl md:text-3xl font-semibold text-brand-gold">CELEBRATING THE LUNAR NEW YEAR</p>
             <h1 class="text-6xl md:text-8xl font-black text-brand-red my-4">2026</h1>
             <p class="text-3xl md:text-5xl font-bold text-gray-700">Year of the Fire Horse</p>
             <div class="w-24 h-2 bg-brand-red mx-auto mt-6"></div>
-        </header>
+        </div>
 
         <section class="my-16">
             <div class="grid md:grid-cols-3 gap-8 items-center text-center md:text-left">
@@ -58,13 +70,13 @@
                 <div class="md:col-span-2">
                     <h2 class="text-4xl text-brand-red mb-4">The Spirit of the Horse</h2>
                     <p class="text-lg text-gray-600 leading-relaxed">
-                        Chinese New Year 2026 starts on **February 17th**, marking the Year of the Fire Horse. The Horse, the seventh zodiac sign, symbolizes energy, intelligence, and cheerfulness. Those born under this sign are seen as lively and sociable. With Fire as its element, 2026 promises a dynamic year filled with creativity, passion, and bold leadership.
+                        The Chinese New Year in 2026 starts on **February 17th**, marking the Year of the Fire Horse. As the seventh zodiac sign, the Horse symbolizes energy, intelligence, and enthusiasm. Those born under this sign are seen as lively, social, and optimistic. The Fire element enhances traits like passion, creativity, and leadership, suggesting 2026 will be a dynamic year of innovation, excitement, and bold ventures.
                     </p>
                 </div>
             </div>
         </section>
 
-        <section class="my-20">
+        <section class="my-20" id="traditions">
             <h2 class="text-4xl text-center text-brand-red mb-12">Timeless Traditions</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-white rounded-lg shadow-md p-6 text-center border-t-8 border-brand-red">
@@ -75,12 +87,12 @@
                 <div class="bg-white rounded-lg shadow-md p-6 text-center border-t-8 border-brand-gold">
                     <div class="text-6xl mb-4">🏮</div>
                     <h3 class="text-2xl font-bold text-gray-800 mb-2">Vibrant Decorations</h3>
-                    <p class="text-gray-600">Houses glow with red lanterns and paper art, symbolizing luck and driving away bad spirits.</p>
+                    <p class="text-gray-600">Houses display red lanterns and paper designs. Red symbolizes luck and is thought to keep evil away.</p>
                 </div>
                 <div class="bg-white rounded-lg shadow-md p-6 text-center border-t-8 border-brand-red">
                     <div class="text-6xl mb-4">👨‍👩‍👧‍👦</div>
                     <h3 class="text-2xl font-bold text-gray-800 mb-2">The Reunion Dinner</h3>
-                    <p class="text-gray-600">The year's key meal, celebrated on New Year's Eve, unites generations of family for a lavish feast.</p>
+                    <p class="text-gray-600">The year's key meal, celebrated on New Year's Eve, unites generations of family for a festive feast.</p>
                 </div>
             </div>
         </section>
@@ -88,7 +100,7 @@
         <section class="my-20">
             <h2 class="text-4xl text-center text-brand-red mb-4">A Feast of Fortune</h2>
              <p class="text-center text-lg max-w-3xl mx-auto mb-12 text-gray-600">
-                Food holds significant importance in celebrations, with various dishes chosen for their symbolic meanings tied to names or appearances. The chart below showcases some of the most fortunate foods and their related blessings.
+                Food holds great significance in celebrations, with dishes often selected for their symbolic meanings tied to names or looks. The chart below showcases some of the luckiest foods and their related blessings.
             </p>
             <div class="bg-white rounded-lg shadow-md p-6">
                 <div class="chart-container">
@@ -97,7 +109,7 @@
             </div>
         </section>
 
-        <section class="my-20">
+        <section class="my-20" id="timeline">
             <h2 class="text-4xl text-center text-brand-red mb-12">The 15-Day Festival Timeline</h2>
             <div class="relative">
                 <div class="border-l-4 border-brand-gold absolute h-full top-0 left-4"></div>
@@ -105,22 +117,22 @@
                     <div class="relative">
                         <div class="absolute w-8 h-8 bg-brand-gold rounded-full -left-16 top-0 text-center flex items-center justify-center font-bold text-white">EVE</div>
                         <h3 class="text-2xl font-bold text-brand-red">New Year's Eve: Reunion Dinner</h3>
-                        <p class="text-gray-600">Loved ones unite for a grand meal to celebrate unity and honor their heritage.</p>
+                        <p class="text-gray-600">Relatives unite for a grand meal to pay tribute to ancestors and cherish unity.</p>
                     </div>
                     <div class="relative">
                         <div class="absolute w-8 h-8 bg-brand-red rounded-full -left-16 top-0 text-center flex items-center justify-center font-bold text-white">1</div>
                         <h3 class="text-2xl font-bold text-brand-red">Day 1: Welcoming Guests</h3>
-                        <p class="text-gray-600">Day one is spent visiting elders and showing respect to senior family members.</p>
+                        <p class="text-gray-600">Day one is spent visiting elder relatives and paying them respect.</p>
                     </div>
                      <div class="relative">
                         <div class="absolute w-8 h-8 bg-brand-red rounded-full -left-16 top-0 text-center flex items-center justify-center font-bold text-white">5</div>
                         <h3 class="text-2xl font-bold text-brand-red">Day 5: Welcoming the God of Wealth</h3>
-                        <p class="text-gray-600">Shops reopen, and folks enjoy dumplings to wish for success.</p>
+                        <p class="text-gray-600">Shops reopen, and folks enjoy dumplings to wish for wealth.</p>
                     </div>
                      <div class="relative">
                         <div class="absolute w-8 h-8 bg-brand-gold rounded-full -left-16 top-0 text-center flex items-center justify-center font-bold text-white">15</div>
                         <h3 class="text-2xl font-bold text-brand-red">Day 15: The Lantern Festival</h3>
-                        <p class="text-gray-600">The festivity ends with lanterns aglow, tasty rice treats, and lively dragon dances beneath the bright moon.</p>
+                        <p class="text-gray-600">The festivity ends with lanterns aglow, tasty rice balls, and lively dragon dances beneath the full moon.</p>
                     </div>
                 </div>
             </div>
@@ -296,6 +308,7 @@
             });
         });
     </script>
+
 
 
 </body></html>

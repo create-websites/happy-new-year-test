@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>Christmas Wishes — For Everyone 🎁</title>
+  <meta content="A single‑file webpage of 1–2 sentence Christmas wishes, organized by audience with copy/share tools." name="description"/>
+  <style>
+    :root{
+      --ink:#0f172a; --bg1:#061b16; --bg2:#0a2e24; --card:rgba(255,255,255,.06);
+      --gold:#f5d061; --red:#e11d48; --green:#0ea66b; --border:rgba(255,255,255,.14);
+      --text:#fff8e7;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; color:var(--text); background:radial-gradient(1200px 800px at 10% 10%, rgba(255,255,255,.05), transparent 60%), radial-gradient(800px 800px at 90% 0%, rgba(255,255,255,.05), transparent 60%), linear-gradient(180deg, var(--bg2), var(--bg1));}
+    header{padding:clamp(1.5rem,4vw,3rem) 1rem 1rem; text-align:center}
+    h1{font-size:clamp(1.8rem,6vw,3.2rem); margin:.2rem 0 .5rem; text-shadow:0 2px 16px rgba(245,208,97,.25)}
+    .subtitle{max-width:70ch; margin:0 auto; opacity:.9}
+    .toolbar{display:flex; gap:.5rem; justify-content:center; flex-wrap:wrap; margin:1rem auto 0}
+    select, input[type="search"]{background:rgba(0,0,0,.3); color:var(--text); border:1px solid var(--border); border-radius:12px; padding:.6rem .8rem; min-width:220px}
+    .btn{appearance:none; border:none; border-radius:999px; padding:.6rem .95rem; font-weight:700; cursor:pointer; color:white; background:linear-gradient(180deg, #0fbf78, #0b7a4a); box-shadow:0 8px 24px rgba(15,191,120,.25)}
+    .btn.alt{background:linear-gradient(180deg, #e71d36, #b3122a); box-shadow:0 8px 24px rgba(231,29,54,.25)}
+
+    main{max-width:1200px; margin:1.25rem auto 3rem; padding:0 1rem}
+    .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:.9rem}
+    .card{background:var(--card); border:1px solid var(--border); border-radius:18px; padding:1rem; box-shadow:0 12px 30px rgba(0,0,0,.25); display:flex; flex-direction:column}
+    .card h2{font-size:1.1rem; margin:.25rem 0 .5rem; color:var(--gold)}
+    .wish{position:relative; background:rgba(0,0,0,.18); border:1px solid rgba(255,255,255,.14); border-radius:14px; padding:.75rem .9rem; margin:.5rem 0;}
+    .mini{display:flex; gap:.5rem; flex-wrap:wrap}
+    .chip{font-size:.8rem; opacity:.8}
+    .actions{display:flex; gap:.5rem; margin-top:.4rem}
+    .copy{margin-left:auto}
+
+    .lights{display:flex; gap:16px; justify-content:center; align-items:center; padding:10px; background:linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,0)); border-bottom:1px solid rgba(255,255,255,.08)}
+    .bulb{width:12px;height:18px;border-radius:8px 8px 14px 14px; box-shadow:0 0 10px currentColor, 0 0 22px currentColor inset; animation:twinkle 2.2s ease-in-out infinite}
+    .bulb:nth-child(4n+1){color:#ff6961;animation-delay:.1s}
+    .bulb:nth-child(4n+2){color:#77dd77;animation-delay:.4s}
+    .bulb:nth-child(4n+3){color:#fdfd96;animation-delay:.8s}
+    .bulb:nth-child(4n+4){color:#84b6f4;animation-delay:1.2s}
+    @keyframes twinkle{0%,100%{filter:brightness(1);transform:translateY(0)}50%{filter:brightness(1.6);transform:translateY(1px)}}
+
+    footer{text-align:center; opacity:.85; padding:2rem 1rem 3rem}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+    @media print{.toolbar,.lights,button{display:none!important}.card{break-inside:avoid}}
+  </style>
+</head>
+<body>
+  <div aria-hidden="true" class="lights">
+    <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+    <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+  </div>
+
+  <header>
+    <h1>Christmas Wishes — For Everyone 🎄</h1>
+    <p class="subtitle">Brief, heartfelt messages (1–2 sentences) crafted for various loved ones. Customize, shuffle, and share effortlessly.</p>
+    <div aria-label="Filters and tools" class="toolbar" role="group">
+      <label class="sr-only" for="audienceSelect">Audience</label>
+      <select id="audienceSelect"></select>
+      <input id="searchBox" placeholder="Search wishes (e.g., joy, peace, cozy)" type="search"/>
+      <button class="btn" id="randomBtn">✨ Random Wish</button>
+      <button class="btn alt" id="copyAllBtn">📋 Copy Selected</button>
+    </div>
+  </header>
+
+  <main>
+    <section aria-live="polite" class="grid" id="cards"></section>
+  </main>
+
+  <html><head></head><body><footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Kontrols</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Knobs</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Case Studies</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Case Studies</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Thanks giving and Christmas</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+
+          
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+        <div class="space-y-2">
+          <p>Redmond<br/>WA, USA</p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+          </p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+      
+      <div class="flex space-x-4 mt-4 sm:mt-0">
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+          <span class="sr-only">Facebook</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+          <span class="sr-only">Twitter</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+          <span class="sr-only">LinkedIn</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer></body></html>
+
+  <script>
+    // --- Data: wishes by audience (1–2 sentences each) ---
+    const WISHES = {
+      "Parents": [
+        "Mom and Dad, may your Christmas be wrapped in warmth, laughter, and the comfort of family traditions old and new.",
+        "Wishing you cozy moments, quiet joy, and the sweetest memories—thank you for making the season magical every year."
+      ],
+      "Child": [
+        "May your Christmas sparkle with wonder, giggles, and hot cocoa mustaches—Santa's got you on the nice list!",
+        "Wishing you snowflake magic, twinkly lights, and gifts that make your eyes shine like stars."
+      ],
+      "Friends": [
+        "To the friend who feels like family: may your holidays be easy, bright, and filled with good food and better company.",
+        "Cheers to late-night laughs, comfy sweaters, and a new year of adventures together."
+      ],
+      "Colleagues": [
+        "Wishing you a restful break, a festive inbox (of out-of-office replies), and a fresh start in the new year!",
+        "Thanks for being such a dependable teammate—may your holidays be calm, merry, and caffeine-optional."
+      ],
+      "Newlyweds": [
+        "Your first Christmas as a married couple—may it be the start of traditions you'll cherish for a lifetime.",
+        "Wishing you a cozy season of fresh mistletoe kisses, shared dreams, and warm lights at home."
+      ],
+      "Grandparents": [
+        "May your Christmas be peaceful and filled with the joy you always bring to our family.",
+        "Sending hugs and gratitude for your stories, recipes, and love—you're the heart of our holidays."
+      ],
+      "Teachers": [
+        "Thank you for the gift of learning all year—wishing you a restful, joy-filled holiday.",
+        "May your break be full of books you choose, tea that stays warm, and days that move at your pace."
+      ],
+      "Neighbors": [
+        "Wishing you a season of friendly hellos, warm windows, and doorstep surprises (the good kind).",
+        "May your home glow with peace and your new year be filled with neighborly cheer."
+      ],
+      "Clients": [
+        "Thank you for your trust this year—wishing you prosperity, clarity, and calm in the season ahead.",
+        "Warm holiday wishes and appreciation—here's to shared success and fresh opportunities in the new year."
+      ],
+      "Boss": [
+        "Grateful for your guidance—wishing you a restful, joy-filled holiday and a new year of meaningful wins.",
+        "May your season be bright, your goals aligned, and your calendar blissfully light."
+      ],
+      "Healthcare Workers": [
+        "Thank you for your steady hands and big hearts—may you find rest, warmth, and moments of quiet joy this Christmas.",
+        "Wishing you peace, strength, and the same care you give so generously to others."
+      ],
+      "Essential Workers": [
+        "Your dedication keeps the lights on for all of us—wishing you safety, gratitude, and holiday comfort.",
+        "May kindness meet you on every shift and joy greet you when you get home."
+      ],
+      "Long‑Distance Partner": [
+        "Even miles apart, you're my favorite part of Christmas—counting down the days until we're together.",
+        "Sending you warm wishes across the miles—meet me under the same moon tonight."
+      ],
+      "Boyfriend/Girlfriend": [
+        "You make the season brighter—here's to cozy nights, silly photos, and a year full of us.",
+        "Mistletoe called: it says we're due for another kiss. Merry Christmas, love!"
+      ],
+      "Husband/Wife": [
+        "Home is wherever I'm with you—may our Christmas be tender, cozy, and full of laughter.",
+        "Thank you for being my constant—wishing us quiet joys and new traditions together."
+      ],
+      "Pet Owners": [
+        "May your Christmas be furry, purry, waggy, and wonderfully messy in the best ways.",
+        "Wishing you warm snuggles, zero chewed ornaments, and a treat-filled holiday."
+      ],
+      "New Parents": [
+        "Your first Christmas with baby—may time slow down and memories last a lifetime.",
+        "Wishing you soft lullabies, tiny socks, and a season of awe."
+      ],
+      "Grieving": [
+        "Holding you in my heart this Christmas—may gentle memories bring you moments of peace.",
+        "May you find room for both tears and light; I'm here for you, always."
+      ],
+      "Tough Times": [
+        "If this season feels heavy, I hope small joys keep finding you and reminding you you're not alone.",
+        "Wishing you the quiet kind of Christmas—soft, kind, and unhurried."
+      ],
+      "Religious": [
+        "May the hope of Christ fill your heart with peace and joy this Christmas.",
+        "Rejoicing with you in the Savior's birth—blessings to you and yours."
+      ],
+      "Non‑Religious": [
+        "Wishing you a season of kindness, rest, and moments that make you genuinely smile.",
+        "May your days be cozy, your nights bright, and your new year gentle."
+      ],
+      "Funny": [
+        "May your cocoa be hot, your Wi‑Fi strong, and your relatives' questions mercifully short.",
+        "Wishing you gifts with receipts and cookies with no calories—it's a Christmas miracle!"
+      ],
+      "Short & Sweet": [
+        "Warm wishes for a calm, cozy Christmas.",
+        "Peace, joy, and everything merry—today and always."
+      ],
+      "Students": [
+        "May your break be restful, your notes untouched, and your snacks plentiful.",
+        "Wishing you brain-off days and a bright new semester ahead."
+      ],
+      "Roommates": [
+        "Cheers to shared takeout, twinkly lights, and a drama-free chore chart—merry Christmas!",
+        "Wishing us a season of good vibes, clean sinks, and movie marathons."
+      ],
+      "Coaches": [
+        "Thanks for pushing us to be our best—wishing you rest, pride, and a season of victory snacks.",
+        "May your holidays be full of team spirit, warm cheers, and well-earned downtime."
+      ],
+      "Volunteers": [
+        "Your kindness is the season's brightest light—wishing you joy returned tenfold.",
+        "May your heart be as full as the lives you lift—merry Christmas."
+      ],
+      "Military & Families": [
+        "With gratitude for your service and sacrifice—wishing you safety, connection, and holiday peace.",
+        "May distance be softened by love and homecomings come soon."
+      ]
+    };
+
+    // --- Build UI ---
+    const cards = document.getElementById('cards');
+    const select = document.getElementById('audienceSelect');
+    const searchBox = document.getElementById('searchBox');
+    const randomBtn = document.getElementById('randomBtn');
+    const copyAllBtn = document.getElementById('copyAllBtn');
+
+    // Populate select
+    const groups = Object.keys(WISHES);
+    for (const g of groups){
+      const opt = document.createElement('option');
+      opt.value = g; opt.textContent = g; select.appendChild(opt);
+    }
+    select.insertAdjacentHTML('afterbegin', '<option value="__all" selected>All audiences</option>');
+
+    function render(filterGroup='__all', textFilter=''){
+      cards.innerHTML='';
+      const tf = textFilter.trim().toLowerCase();
+      const entries = Object.entries(WISHES).filter(([grp])=> filterGroup==='__all' || grp===filterGroup);
+      for (const [grp, list] of entries){
+        const card = document.createElement('article');
+        card.className='card';
+        card.innerHTML = `<h2>${grp}</h2>`;
+        list.forEach((w,i)=>{
+          if(tf && !w.toLowerCase().includes(tf)) return;
+          const id = `${grp}-${i}`.replace(/\W+/g,'_');
+          const wrap = document.createElement('div');
+          wrap.className='wish';
+          wrap.innerHTML = `
+            <div class="mini">
+              <input type="checkbox" id="chk_${id}" aria-label="Select wish" />
+              <label for="chk_${id}" class="chip">Select</label>
+            </div>
+            <p>${w}</p>
+            <div class="actions">
+              <button class="btn copy" data-text="${w.replace(/&/g,'&amp;').replace(/\"/g,'&quot;')}">📋 Copy</button>
+              <button class="btn alt share" data-text="${w.replace(/&/g,'&amp;').replace(/\"/g,'&quot;')}">🔗 Share</button>
+            </div>`;
+          card.appendChild(wrap);
+        });
+        if(card.children.length>1) cards.appendChild(card);
+      }
+      if(!cards.children.length){
+        cards.innerHTML = '<p>No results. Try a different search term.</p>';
+      }
+    }
+
+    function currentFilters(){
+      return {group: select.value, text: searchBox.value};
+    }
+
+    // Initial render
+    render();
+
+    // Events
+    select.addEventListener('change', ()=>{
+      const f = currentFilters();
+      render(f.group, f.text);
+    });
+    searchBox.addEventListener('input', ()=>{
+      const f = currentFilters();
+      render(f.group, f.text);
+    });
+
+    // Delegate copy/share buttons
+    cards.addEventListener('click', async (e)=>{
+      const btn = e.target.closest('button'); if(!btn) return;
+      const text = btn.getAttribute('data-text');
+      if(btn.classList.contains('copy')){
+        await navigator.clipboard.writeText(text).catch(()=>{});
+        btn.textContent = '✅ Copied'; setTimeout(()=> btn.textContent='📋 Copy', 1400);
+      } else if(btn.classList.contains('share')){
+        if(navigator.share){
+          try{ await navigator.share({ text, title:'Christmas Wish' }); }catch(err){}
+        } else {
+          await navigator.clipboard.writeText(text).catch(()=>{});
+          btn.textContent='✅ Copied'; setTimeout(()=> btn.textContent='🔗 Share', 1400);
+        }
+      }
+    });
+
+    // Random wish (from filtered view)
+    randomBtn.addEventListener('click', ()=>{
+      const visible = [...document.querySelectorAll('.wish p')].map(p=>p.textContent);
+      if(!visible.length) return;
+      const pick = visible[Math.floor(Math.random()*visible.length)];
+      navigator.clipboard.writeText(pick).catch(()=>{});
+      randomBtn.textContent='✨ Copied a random wish!';
+      setTimeout(()=> randomBtn.textContent='✨ Random Wish', 1400);
+    });
+
+    // Copy selected wishes
+    copyAllBtn.addEventListener('click', async ()=>{
+      const selected = [...document.querySelectorAll('.wish input:checked')]
+        .map(chk => chk.closest('.wish').querySelector('p').textContent);
+      if(!selected.length) return;
+      const bundle = selected.join('\n\n');
+      await navigator.clipboard.writeText(bundle).catch(()=>{});
+      copyAllBtn.textContent='📋 Copied!';
+      setTimeout(()=> copyAllBtn.textContent='📋 Copy Selected', 1400);
+    });
+  </script>
+
+
+</body></html>

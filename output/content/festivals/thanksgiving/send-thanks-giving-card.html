@@ -4,21 +4,19 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Send a Thanksgiving Card</title>
 
-      <!-- Primary Meta Tags -->
- 
     <meta content="Find the perfect traditional and poetic Thanksgiving wishes for family, friends, colleagues, and more. Share gratitude with heartfelt messages." name="description"/>
     <meta content="Thanksgiving wishes, Thanksgiving messages, happy Thanksgiving, Thanksgiving greetings, poetic Thanksgiving wishes, traditional Thanksgiving wishes" name="keywords"/>
 
     <!-- Open Graph / Facebook -->
     <meta content="website" property="og:type"/>
-    <meta content="https://www.happy-new-year.org/festivals/thanksgiving/wishes/send-thanks-giving-card-by-email.html" property="og:url"/> <!-- Replace with your actual URL -->
+    <meta content="https://www.happy-new-year.org/festivals/thanksgiving/wishes/send-thanks-giving-card.html" property="og:url"/> <!-- Replace with your actual URL -->
     <meta content="Warm Thanksgiving Wishes &amp; Messages" property="og:title"/>
     <meta content="Find the perfect traditional and poetic Thanksgiving wishes for family, friends, colleagues, and more. Share gratitude with heartfelt messages." property="og:description"/>
     <meta content="https://storage.googleapis.com/kreatewebsite/festival/thanks-giving/photos-source/happy-thanks-giving.jpeg" property="og:image"/>
 
     <!-- Twitter -->
     <meta content="summary_large_image" property="twitter:card"/>
-    <meta content="https://www.happy-new-year.org/festivals/thanksgiving/wishes/send-thanks-giving-card-by-email.html" property="twitter:url"/> <!-- Replace with your actual URL -->
+    <meta content="https://www.happy-new-year.org/festivals/thanksgiving/wishes/send-thanks-giving-card.html" property="twitter:url"/> <!-- Replace with your actual URL -->
     <meta content="Warm Thanksgiving Wishes &amp; Messages" property="twitter:title"/>
     <meta content="Find the perfect traditional and poetic Thanksgiving wishes for family, friends, colleagues, and more. Share gratitude with heartfelt messages." property="twitter:description"/>
     <meta content="https://storage.googleapis.com/kreatewebsite/festival/thanks-giving/photos-source/happy-thanks-giving.jpeg" property="twitter:image"/>
@@ -178,36 +176,18 @@
             event.preventDefault(); // Prevent actual form submission
             
             const recipientName = document.getElementById('recipientName').value;
-            const recipientEmail = document.getElementById('recipientEmail').value;
-            const message = document.getElementById('message').value;
-
-            // 1. Create the email subject
-            const subject = `A Thanksgiving Card for You, ${recipientName}!`;
-
-            // 2. Create the email body
-            // We'll include the message and the image URL.
-            // The image will just be a link, as embedding it directly in a mailto is not reliably supported.
-            const body = `
-Hi ${recipientName},
-
-${message}
-
-Here is the card I picked for you:
-${selectedImageUrl}
-
-Happy Thanksgiving!
-            `;
-
-            // 3. Create the mailto URL, ensuring parts are URL encoded
-            const mailtoUrl = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body.trim())}`;
-
-            // 4. Open the user's default email client
-            window.location.href = mailtoUrl;
+            
+            // Simulate sending
+            console.log('Simulating sending card...');
+            console.log('To:', recipientName);
+            console.log('Email:', document.getElementById('recipientEmail').value);
+            console.log('Message:', document.getElementById('message').value);
+            console.log('Image URL:', selectedImageUrl);
 
             closeModal();
             
-            // 5. Show a more accurate confirmation message
-            confirmationMessage.textContent = `Opening your email client to send!`;
+            // Show confirmation message
+            confirmationMessage.textContent = `Card sent to ${recipientName}!`;
             confirmation.classList.remove('invisible', 'opacity-0');
 
             // Hide confirmation after 3 seconds

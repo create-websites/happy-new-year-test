@@ -2,26 +2,7 @@
 <html lang="en"><head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Thanksgiving Wishes in Different Languages With Images</title>
-    <meta content="Find the perfect traditional and poetic Thanksgiving wishes for family, friends, colleagues, and more. Share gratitude with heartfelt messages." name="description"/>
-    <meta content="Thanksgiving wishes, Thanksgiving messages, happy Thanksgiving, Thanksgiving greetings, poetic Thanksgiving wishes, traditional Thanksgiving wishes" name="keywords"/>
-
-    <!-- Open Graph / Facebook -->
-    <meta content="website" property="og:type"/>
-    <meta content="https://www.happy-new-year.org/festivals/thanksgiving/wishes/thanks-giving-wishes-in-different-languages.html" property="og:url"/> <!-- Replace with your actual URL -->
-    <meta content="Warm Thanksgiving Wishes &amp; Messages" property="og:title"/>
-    <meta content="Find the perfect traditional and poetic Thanksgiving wishes for family, friends, colleagues, and more. Share gratitude with heartfelt messages." property="og:description"/>
-    <meta content="https://storage.googleapis.com/kreatewebsite/festival/thanks-giving/photos-source/happy-thanks-giving.jpeg" property="og:image"/>
-
-    <!-- Twitter -->
-    <meta content="summary_large_image" property="twitter:card"/>
-    <meta content="https://www.happy-new-year.org/festivals/thanksgiving/wishes/thanks-giving-wishes-in-different-languages.html" property="twitter:url"/> <!-- Replace with your actual URL -->
-    <meta content="Warm Thanksgiving Wishes &amp; Messages" property="twitter:title"/>
-    <meta content="Find the perfect traditional and poetic Thanksgiving wishes for family, friends, colleagues, and more. Share gratitude with heartfelt messages." property="twitter:description"/>
-    <meta content="https://storage.googleapis.com/kreatewebsite/festival/thanks-giving/photos-source/happy-thanks-giving.jpeg" property="twitter:image"/>
-
-
-
+    <title>Thanksgiving Wishes Around the World</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Import Google Font -->
@@ -54,17 +35,6 @@
                 Sharing Gratitude From Around the World
             </p>
         </header>
-
-        <!-- Added Image Section -->
-        <section class="my-8 md:my-12">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                <!-- Image 1 -->
-                <img alt="Origami Thanksgiving card with a turkey" class="w-full h-auto rounded-xl shadow-lg object-cover aspect-video" onerror="this.src='https://placehold.co/600x400/f97316/ffffff?text=Thanksgiving+Card'; this.onerror=null;" src="https://storage.googleapis.com/kreatewebsite/festival/thanks-giving/photos-source/happy-thanks-giving-orgami-card.webp"/>
-                
-                <!-- Image 2 -->
-                <img alt="Happy Thanksgiving text with autumn leaves" class="w-full h-auto rounded-xl shadow-lg object-cover aspect-video" onerror="this.src='https://placehold.co/600x400/f97316/ffffff?text=Autumn+Wishes'; this.onerror=null;" src="https://storage.googleapis.com/kreatewebsite/festival/thanks-giving/photos-source/happy-thanks-giving.webp"/>
-            </div>
-        </section>
 
         <!-- Main Content: Wishes will be injected here -->
         <main class="bg-white shadow-xl rounded-2xl p-6 md:p-10" id="wishes-container">
@@ -351,17 +321,18 @@ Uzbek  Xayrli Thanksgiving bayrami! Kuningiz minnatdorchilik, quvonch va oila me
                     let language = "";
                     let original = "";
 
-                    // FIXED: Find the index of the first occurrence of 2 or more spaces
-                    const splitIndex = remaining.search(/\s{2,}/);
-
-                    if (splitIndex > -1) {
-                        // Everything before the first gap is the language
-                        language = remaining.substring(0, splitIndex).trim();
-                        // Everything after the first gap is the original phrase
-                        original = remaining.substring(splitIndex).trim();
+                    // Split the remaining string by the dash separator
+                    // It uses two different types of dashes (– and –)
+                    // FIXED: Split on 2 or more spaces, not dashes
+                    const parts = remaining.split(/\s{2,}/); 
+                    
+                    if (parts.length >= 2) {
+                        language = parts[0].trim();
+                        // Join the rest back together in case the phrase itself had a dash
+                        original = parts.slice(1).join(' ').trim();
                     } else {
                         // Skip lines that don't match the expected format
-                        continue;
+                        continue; 
                     }
 
                     if (language && original && english) {

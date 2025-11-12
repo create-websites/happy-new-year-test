@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>Happy New Year 2026 – Multilingual Greetings</title>
+  <meta content="A festive Happy New Year 2026 webpage with wishes in many languages." name="description"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;family=Playfair+Display:wght@700;900&amp;display=swap" rel="stylesheet"/>
+  <style>
+    :root{
+      --bg:#2b0d0d;          /* chocolate reddish background */
+      --fg:#f8f1f0;          /* primary text */
+      --muted:#d6b8b8;
+      --accent:#ff4444;      /* reddish accent */
+      --accent2:#ff9966;     /* warm accent */
+      --card:#3d1414;        /* card bg */
+      --card2:#4a1a1a;
+      --chip:#5c2020;
+      --success:#ff9966;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;background:radial-gradient(1200px 700px at 50% -10%, #662222 0%, #2b0d0d 55%, var(--bg) 100%);color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    a{color:inherit}
+
+    .sky{position:fixed;inset:0;z-index:-1;pointer-events:none}
+
+    header{
+      position:relative;
+      padding:clamp(24px,4vw,48px) 20px 8px;
+      text-align:center;
+    }
+    .year{
+      font-family:"Playfair Display",serif;
+      font-weight:900;
+      font-size:clamp(48px,8vw,120px);
+      line-height:1;
+      letter-spacing:2px;
+      background:linear-gradient(90deg,#ff6666, #ffcc99, #ff4444, #ff9966);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+      filter:drop-shadow(0 6px 18px rgba(255,100,100,.35));
+      animation:shine 6s linear infinite;
+    }
+    @keyframes shine{to{background-position:1200px 0}}
+
+    .subtitle{color:var(--muted);margin-top:8px;font-size:clamp(14px,2.2vw,18px)}
+
+    .toolbar{
+      display:flex;gap:10px;flex-wrap:wrap;justify-content:center;align-items:center;
+      padding:16px 14px 12px;margin:8px auto 0;max-width:1100px;
+    }
+    .toolbar .chip{background:var(--chip);border:1px solid #6b2c2c;color:#f8dcdc;
+      padding:10px 14px;border-radius:999px;display:inline-flex;gap:10px;align-items:center}
+    .toolbar input[type="search"]{
+      min-width:260px;border:none;outline:none;background:transparent;color:#fff;font-size:16px
+    }
+    .toolbar button{
+      background:linear-gradient(180deg,#ff6666,#cc3333);color:#fff;border:none;border-radius:999px;padding:10px 16px;font-weight:700;cursor:pointer;
+      box-shadow:0 6px 18px rgba(255,80,80,.35);transition:transform .1s ease}
+    .toolbar button:active{transform:translateY(1px)}
+
+    .count{font-size:14px;color:#f1cccc;opacity:.85}
+
+    .grid{
+      --min: 260px;
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(var(--min),1fr));
+      gap:16px;max-width:1200px;margin:0 auto 100px;padding:0 16px 32px
+    }
+    .card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid #662222;border-radius:16px;padding:18px 16px 16px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    .top{display:flex;align-items:start;gap:12px;margin-bottom:8px}
+    .flag{font-size:26px;filter:drop-shadow(0 2px 6px rgba(0,0,0,.25))}
+    .lang{font-weight:800;letter-spacing:.2px}
+    .native{font-size:20px;margin:6px 0 2px}
+
+    .addwrap{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;max-width:1100px;margin:6px auto 20px;padding:0 14px}
+    .addwrap input{background:var(--chip);border:1px solid #6b2c2c;color:#fff;border-radius:10px;padding:10px 12px}
+    .addwrap .ghost{background:transparent;border:1px solid #803333;color:#ffdede;padding:10px 14px;border-radius:10px;cursor:pointer}
+
+    footer{position:sticky;bottom:0;background:linear-gradient(180deg,rgba(43,13,13,.0),rgba(43,13,13,.85));backdrop-filter:blur(4px);border-top:1px solid #6b2c2c}
+    .footwrap{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+
+    .footwrap .actions{display:flex;gap:10px;flex-wrap:wrap}
+    .ghost{background:transparent;border:1px solid #803333;color:#ffdede;padding:10px 14px;border-radius:12px;cursor:pointer}
+
+    @media (prefers-reduced-motion: reduce){.sky{display:none}}
+  </style>
+</head>
+<body>
+  <canvas aria-hidden="true" class="sky" id="confetti"></canvas>
+
+  <header>
+    <div aria-label="Happy New Year 2026" class="year">HAPPY NEW YEAR 2026</div>
+    <div class="subtitle">Kind greetings worldwide — explore, print, or find your language here.</div>
+
+    <div class="toolbar">
+      <div class="chip" title="Search languages">
+        🔎 <input id="search" placeholder="Search language or country…" type="search"/>
+      </div>
+      <button id="copyAll" title="Copy all wishes as plain text">Copy All</button>
+      <button class="ghost" id="toggleFx" title="Toggle fireworks/confetti">Toggle Fireworks</button>
+      <button class="ghost" id="toggleSound" title="Toggle firework sounds">🔊 Sound: On</button>
+      <span class="count" id="count" role="status"></span>
+    </div>
+
+    <div class="addwrap">
+      <input id="addFlag" maxlength="6" placeholder="Flag (emoji)"/>
+      <input id="addLang" placeholder="Language name"/>
+      <input id="addPhrase" placeholder="Your wish (2026)" style="min-width:260px"/>
+      <button class="ghost" id="addBtn">Add Wish</button>
+    </div>
+  </header>
+
+  <main aria-live="polite" class="grid" id="grid"></main>
+
+  <html><head></head><body><footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Kontrols</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Knobs</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Case Studies</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Case Studies</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Thanks giving and Christmas</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+
+          
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+        <div class="space-y-2">
+          <p>Redmond<br/>WA, USA</p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+          </p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+      
+      <div class="flex space-x-4 mt-4 sm:mt-0">
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+          <span class="sr-only">Facebook</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+          <span class="sr-only">Twitter</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+          <span class="sr-only">LinkedIn</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer></body></html>
+
+<script>
+// ---- Data ---------------------------------------------------------------
+const WISHES = [
+  {flag:'🇬🇧', lang:'English', phrase:'Happy New Year 2026!'},
+  {flag:'🇪🇸', lang:'Spanish / Español', phrase:'¡Feliz Año Nuevo 2026!'},
+  {flag:'🇫🇷', lang:'French / Français', phrase:'Bonne année 2026 !'},
+  {flag:'🇩🇪', lang:'German / Deutsch', phrase:'Frohes neues Jahr 2026!'},
+  {flag:'🇮🇹', lang:'Italian / Italiano', phrase:'Felice Anno Nuovo 2026!'},
+  {flag:'🇵🇹', lang:'Portuguese / Português', phrase:'Feliz Ano Novo 2026!'},
+  {flag:'🇷🇺', lang:'Russian / Русский', phrase:'С Новым 2026 годом!'},
+  {flag:'🇦🇪', lang:'Arabic / العربية', phrase:'عام 2026 سعيد!', dir:'rtl'},
+  {flag:'🇨🇳', lang:'Chinese (Simplified) / 中文', phrase:'2026年新年快乐！'},
+  {flag:'🇭🇰', lang:'Chinese (Traditional) / 繁體中文', phrase:'2026年新年快樂！'},
+  {flag:'🇯🇵', lang:'Japanese / 日本語', phrase:'2026年、明けましておめでとうございます！'},
+  {flag:'🇰🇷', lang:'Korean / 한국어', phrase:'2026년 새해 복 많이 받으세요!'},
+  {flag:'🇮🇳', lang:'Hindi / हिन्दी', phrase:'नया साल 2026 मुबारक हो!'},
+  {flag:'🇧🇩', lang:'Bengali / বাংলা', phrase:'শুভ নববর্ষ ২০২৬!'},
+  {flag:'🇵🇰', lang:'Urdu / اردو', phrase:'نیا سال 2026 مبارک ہو!', dir:'rtl'},
+  {flag:'🇹🇷', lang:'Turkish / Türkçe', phrase:'Mutlu Yıllar 2026!'},
+  {flag:'🇹🇿', lang:'Swahili / Kiswahili', phrase:'Heri ya Mwaka Mpya 2026!'},
+  {flag:'🇬🇷', lang:'Greek / Ελληνικά', phrase:'Καλή Χρονιά 2026!'},
+  {flag:'🇮🇱', lang:'Hebrew / עברית', phrase:'שנה אזרחית טובה 2026!', dir:'rtl'},
+  {flag:'🇹🇭', lang:'Thai / ไทย', phrase:'สวัสดีปีใหม่ 2026!'},
+  {flag:'🇻🇳', lang:'Vietnamese / Tiếng Việt', phrase:'Chúc mừng năm mới 2026!'},
+  {flag:'🇮🇩', lang:'Indonesian / Bahasa Indonesia', phrase:'Selamat Tahun Baru 2026!'},
+  {flag:'🇲🇾', lang:'Malay / Bahasa Melayu', phrase:'Selamat Tahun Baharu 2026!'},
+  {flag:'🇵🇭', lang:'Filipino / Tagalog', phrase:'Manigong Bagong Taon 2026!'},
+  {flag:'🇳🇱', lang:'Dutch / Nederlands', phrase:'Gelukkig nieuwjaar 2026!'},
+  {flag:'🇸🇪', lang:'Swedish / Svenska', phrase:'Gott nytt år 2026!'},
+  {flag:'🇩🇰', lang:'Danish / Dansk', phrase:'Godt nytår 2026!'},
+  {flag:'🇳🇴', lang:'Norwegian / Norsk', phrase:'Godt nyttår 2026!'},
+  {flag:'🇵🇱', lang:'Polish / Polski', phrase:'Szczęśliwego Nowego Roku 2026!'},
+  {flag:'🇨🇿', lang:'Czech / Čeština', phrase:'Šťastný nový rok 2026!'},
+  {flag:'🇷🇴', lang:'Romanian / Română', phrase:'La mulți ani 2026!'},
+  {flag:'🇺🇦', lang:'Ukrainian / Українська', phrase:'З Новим роком 2026!'},
+  {flag:'🇮🇷', lang:'Persian / فارسی', phrase:'سال نو ۲۰۲۶ مبارک!', dir:'rtl'},
+  {flag:'🇬🇺', lang:'Gujarati / ગુજરાતી', phrase:'નવું વર્ષ 2026 મુબારક!'},
+  {flag:'🇮🇳', lang:'Marathi / मराठी', phrase:'नवीन वर्ष 2026 शुभेच्छा!'},
+  {flag:'🇮🇳', lang:'Tamil / தமிழ்', phrase:'இனிய புத்தாண்டு 2026 நல்வாழ்த்துகள்!'},
+  {flag:'🇮🇳', lang:'Telugu / తెలుగు', phrase:'నూతన సంవత్సర శుభాకాంక్షలు 2026!'},
+  {flag:'🇮🇳', lang:'Kannada / ಕನ್ನಡ', phrase:'ಹೊಸ ವರ್ಷದ ಶುಭಾಶಯಗಳು 2026!'},
+  {flag:'🇮🇳', lang:'Malayalam / മലയാളം', phrase:'പുതുവര്‍ഷം 2026 ആശംസകള്‍!'},
+  {flag:'🇳🇵', lang:'Nepali / नेपाली', phrase:'नयाँ वर्ष 2026 शुभकामना!'},
+  {flag:'🇱🇰', lang:'Sinhala / සිංහල', phrase:'සුභ නව වසරක් 2026!'},
+  {flag:'🇫🇮', lang:'Finnish / Suomi', phrase:'Hyvää uutta vuotta 2026!'},
+  {flag:'🇭🇺', lang:'Hungarian / Magyar', phrase:'Boldog új évet 2026!'},
+  {flag:'🇧🇬', lang:'Bulgarian / Български', phrase:'Честита Нова година 2026!'},
+  {flag:'🇮🇪', lang:'Irish / Gaeilge', phrase:'Athbhliain faoi mhaise daoibh 2026!'},
+  {flag:'🏴', lang:'Welsh / Cymraeg', phrase:'Blwyddyn Newydd Dda 2026!'},
+  {flag:'🇪🇸', lang:'Catalan / Català', phrase:'Feliç Any Nou 2026!'},
+  {flag:'🇪🇸', lang:'Basque / Euskara', phrase:'Urte Berri On 2026!'}
+];
+
+// ---- Render -------------------------------------------------------------
+const grid = document.getElementById('grid');
+const count = document.getElementById('count');
+const search = document.getElementById('search');
+
+function render(list){
+  grid.innerHTML = '';
+  list.forEach(({flag,lang,phrase,dir})=>{
+    const card = document.createElement('article');
+    card.className = 'card';
+    card.innerHTML = `
+      <div class="top">
+        <div class="flag" aria-hidden="true">${flag}</div>
+        <div>
+          <div class="lang">${lang}</div>
+          <div class="native" ${dir?`dir="${dir}"`:''}>${phrase}</div>
+        </div>
+      </div>
+      <button class="ghost" style="margin-top:8px" aria-label="Copy phrase" onclick="navigator.clipboard.writeText('${phrase.replace(/'/g,"&#39;")}').then(()=>toast('Copied!'))">Copy</button>
+    `;
+    grid.appendChild(card);
+  });
+  count.textContent = `${list.length} languages`;
+}
+render(WISHES);
+
+// Search
+search.addEventListener('input', e=>{
+  const q = e.target.value.trim().toLowerCase();
+  const filtered = !q ? WISHES : WISHES.filter(w=> (w.lang+" "+w.phrase).toLowerCase().includes(q));
+  render(filtered);
+});
+
+// Add custom wish
+const addFlag=document.getElementById('addFlag');
+const addLang=document.getElementById('addLang');
+const addPhrase=document.getElementById('addPhrase');
+document.getElementById('addBtn').addEventListener('click',()=>{
+  const flag = addFlag.value.trim()||'🌍';
+  const lang = addLang.value.trim()||'Custom';
+  const phrase = addPhrase.value.trim()||'Happy New Year 2026!';
+  WISHES.push({flag,lang,phrase});
+  render(WISHES);
+  addPhrase.value='';
+  toast('Wish added');
+});
+
+// Copy All
+const copyAllBtn = document.getElementById('copyAll');
+copyAllBtn.addEventListener('click', ()=>{
+  const txt = WISHES.map(w=>`${w.lang}: ${w.phrase}`).join('\n');
+  navigator.clipboard.writeText(txt).then(()=>toast('All wishes copied'));
+});
+
+// Share (Web Share API fallback to copy)
+const shareBtn = document.getElementById('shareBtn');
+shareBtn.addEventListener('click', async ()=>{
+  const url = location.href;
+  const text = 'Happy New Year 2026 – Multilingual Greetings';
+  try{
+    if(navigator.share){await navigator.share({title:document.title,text,url});}
+    else{await navigator.clipboard.writeText(url);toast('Link copied');}
+  }catch(err){ /* user canceled */ }
+});
+
+// ---- Fireworks with Sound ----------------------------------------------
+const canvas = document.getElementById('confetti');
+const ctx = canvas.getContext('2d');
+let fxEnabled = true;
+let soundEnabled = true;
+let audioCtx = null;
+
+let W = canvas.width = window.innerWidth;
+let H = canvas.height = window.innerHeight;
+window.addEventListener('resize',()=>{W=canvas.width=innerWidth;H=canvas.height=innerHeight});
+
+function ensureAudio(){
+  if(!audioCtx){
+    try{audioCtx = new (window.AudioContext||window.webkitAudioContext)();}
+    catch{soundEnabled=false;document.getElementById('toggleSound').textContent='🔇 Sound: Off'}
+  }
+}
+
+function popSound(){
+  if(!soundEnabled) return; ensureAudio(); if(!audioCtx) return;
+  const now = audioCtx.currentTime;
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  osc.type = 'triangle';
+  osc.frequency.setValueAtTime( random(220,520), now );
+  gain.gain.setValueAtTime(0.001, now);
+  gain.gain.exponentialRampToValueAtTime(0.4, now+0.01);
+  gain.gain.exponentialRampToValueAtTime(0.0001, now+0.25);
+  osc.connect(gain).connect(audioCtx.destination);
+  osc.start(now);
+  osc.stop(now+0.26);
+}
+
+const particles=[];
+function random(min,max){return Math.random()*(max-min)+min}
+function createFirework(){
+  const x=random(W*0.15,W*0.85);
+  const y=random(H*0.1,H*0.5);
+  const count=70;
+  popSound();
+  for(let i=0;i<count;i++){
+    const angle=(Math.PI*2*i)/count;
+    const speed=random(2,7);
+    particles.push({x,y,vx:Math.cos(angle)*speed,vy:Math.sin(angle)*speed,life:random(60,100),color:`hsl(${Math.floor(random(0,360))},100%,60%)`});
+  }
+}
+
+function loop(){
+  if(!fxEnabled){ctx.clearRect(0,0,W,H);requestAnimationFrame(loop);return}
+  ctx.fillStyle='rgba(43,13,13,0.3)';
+  ctx.fillRect(0,0,W,H);
+  for(let i=particles.length-1;i>=0;i--){
+    const p=particles[i];
+    p.x+=p.vx;p.y+=p.vy;p.vy+=0.05;p.life--;
+    ctx.fillStyle=p.color;ctx.fillRect(p.x,p.y,2,2);
+    if(p.life<=0) particles.splice(i,1);
+  }
+  if(Math.random()<0.05) createFirework();
+  requestAnimationFrame(loop);
+}
+loop();
+
+const toggleFxBtn=document.getElementById('toggleFx');
+toggleFxBtn.addEventListener('click',()=>{fxEnabled=!fxEnabled;toggleFxBtn.textContent=fxEnabled? 'Pause Fireworks':'Resume Fireworks'});
+
+const toggleSoundBtn=document.getElementById('toggleSound');
+toggleSoundBtn.addEventListener('click',()=>{soundEnabled=!soundEnabled;toggleSoundBtn.textContent=soundEnabled? '🔊 Sound: On':'🔇 Sound: Off'; if(soundEnabled) ensureAudio();});
+
+// Toast ---------------------------------------------------------------
+let toastEl;
+function toast(msg){
+  if(!toastEl){ toastEl = document.createElement('div'); document.body.appendChild(toastEl); }
+  toastEl.textContent = msg;
+  Object.assign(toastEl.style,{
+    position:'fixed',left:'50%',bottom:'28px',transform:'translateX(-50%)',background:'rgba(0,0,0,.6)',color:'#fff',padding:'10px 14px',borderRadius:'999px',border:'1px solid #444a',backdropFilter:'blur(6px)',fontWeight:'600',zIndex:9999
+  });
+  clearTimeout(toastEl._t); toastEl._t=setTimeout(()=>toastEl.remove(),1400);
+}
+</script>
+
+
+</body></html>

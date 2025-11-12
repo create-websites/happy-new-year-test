@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Global Feast: Christmas Dinner</title>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>The Global Feast: An Interactive History of Christmas Dinner</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&amp;family=Lato:wght@400;700&amp;display=swap" rel="stylesheet"/>
     <!-- Chosen Palette: Warm Festive (Cream, Muted Red, Gentle Green, Warm Brown) -->
     <!-- Application Structure Plan: The SPA is structured as a narrative journey. It begins with the 'Why' (symbolism), moves to the 'Where' (interactive global tour), then the 'What' (deconstructed plate diagram and charts), and concludes with the 'Now' (modern adaptations). This thematic, interactive approach is chosen over a linear text dump to engage users, allowing them to explore content based on interest rather than report order, enhancing comprehension and retention. -->
     <!-- Visualization & Content Choices: Report Info: Global dinner menus -> Goal: Compare -> Viz: Interactive HTML Table & Bar Chart (Chart.js) -> Interaction: Click regions/buttons to filter/show data -> Justification: Provides both at-a-glance visual comparison (chart) and detailed exploration (table), making dense data accessible. Report Info: Dish histories -> Goal: Organize/Inform -> Viz: Clickable diagram of a dinner plate -> Interaction: Click dish to reveal history -> Justification: Transforms static text into an interactive discovery tool, increasing engagement. Report Info: Dessert Evolution -> Goal: Show Change -> Viz: HTML/CSS Timeline -> Justification: Visually represents the historical shift from savory to sweet. CONFIRMATION: NO SVG/Mermaid used. -->
@@ -69,14 +68,14 @@
                 </div>
                 <nav class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#spirit" class="nav-link px-3 py-2 rounded-md text-sm font-medium border-b-2 border-transparent">The Spirit</a>
-                        <a href="#tour" class="nav-link px-3 py-2 rounded-md text-sm font-medium border-b-2 border-transparent">Global Tour</a>
-                        <a href="#deconstruct" class="nav-link px-3 py-2 rounded-md text-sm font-medium border-b-2 border-transparent">Deconstruct</a>
-                        <a href="#modern" class="nav-link px-3 py-2 rounded-md text-sm font-medium border-b-2 border-transparent">The Modern Feast</a>
+                        <a class="nav-link px-3 py-2 rounded-md text-sm font-medium border-b-2 border-transparent" href="#spirit">The Spirit</a>
+                        <a class="nav-link px-3 py-2 rounded-md text-sm font-medium border-b-2 border-transparent" href="#tour">Global Tour</a>
+                        <a class="nav-link px-3 py-2 rounded-md text-sm font-medium border-b-2 border-transparent" href="#deconstruct">Deconstruct</a>
+                        <a class="nav-link px-3 py-2 rounded-md text-sm font-medium border-b-2 border-transparent" href="#modern">The Modern Feast</a>
                     </div>
                 </nav>
                 <div class="md:hidden">
-                    <select id="mobile-nav" class="bg-white border border-gray-300 rounded-md py-2 px-3 text-sm">
+                    <select class="bg-white border border-gray-300 rounded-md py-2 px-3 text-sm" id="mobile-nav">
                         <option value="#spirit">The Spirit</option>
                         <option value="#tour">Global Tour</option>
                         <option value="#deconstruct">Deconstruct</option>
@@ -89,49 +88,49 @@
 
     <main class="container mx-auto p-4 sm:p-6 lg:p-8">
 
-        <section id="spirit" class="content-section active">
+        <section class="content-section active" id="spirit">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-[#6B4F4F]">The Spirit of the Feast</h2>
-                <p class="mt-4 text-lg max-w-3xl mx-auto text-gray-600">Christmas dinner transcends mere sustenance; it’s a ceremonial act steeped in history, belief, and tradition. This part delves into the rich symbolism and age-old practices that shape its significance, tracing roots from pagan solstice rites to the stories told through the dishes we serve.</p>
+                <p class="mt-4 text-lg max-w-3xl mx-auto text-gray-600">Christmas dinner transcends a mere meal; it embodies a ritual rich with history, faith, and remembrance. This part delves into the profound symbolism and age-old customs that infuse the feast with lasting significance, from ancient solstice rites to the layered meanings behind the dishes we enjoy.</p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="bg-white p-6 rounded-lg shadow-lg">
                     <h3 class="text-xl font-bold text-[#C87979] mb-2">Ancient Impulse to Feast</h3>
-                    <p class="text-gray-700">Born from winter solstice rites, the feast defies the darkness. Early pagan customs, such as offering a boar to the Norse god Freyr, merged with Christianity, uniting the sun's rebirth with the Son's arrival.</p>
+                    <p class="text-gray-700">Born from winter solstice rituals, the feast defies darkness. Pagan customs, such as offering a boar to Freyr, merged with Christianity, uniting the sun's return with the Son's birth.</p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-lg">
                     <h3 class="text-xl font-bold text-[#A2B8A4] mb-2">Food as a Vessel of Meaning</h3>
-                    <p class="text-gray-700">Every dish holds love, warmth, and tradition. Mince pies molded as a manger, 13 ingredients in Christmas pudding for Christ and his disciples, or apples exchanged in China to wish for peace—food transforms into a deep emblem of faith and unity.</p>
+                    <p class="text-gray-700">Every dish tells a story of love, tradition, and meaning. Manger-shaped mince pies, 13-ingredient Christmas puddings honoring Christ and his apostles, or apples exchanged in China to symbolize peace—food transforms into a profound emblem of faith and unity.</p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-lg">
                     <h3 class="text-xl font-bold text-[#C87979] mb-2">The Ritual of the Meal</h3>
-                    <p class="text-gray-700">The choreography, assembly, and display transform the meal into a cultural celebration. The fiery spectacle of the Christmas pudding and the sweet Bûche de Noël (Yule Log) embody culinary traditions that honor the age-old triumph of light over shadow.</p>
+                    <p class="text-gray-700">The coordination, assembly, and display transform the meal into a cultural experience. The flaming Christmas pudding and the edible Yule Log (Bûche de Noël) are time-honored culinary traditions symbolizing the victory of light over darkness.</p>
                 </div>
             </div>
         </section>
 
-        <section id="tour" class="content-section">
+        <section class="content-section" id="tour">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-[#6B4F4F]">A Global Tour of the Christmas Table</h2>
-                <p class="mt-4 text-lg max-w-3xl mx-auto text-gray-600">Though the spirit is shared, its expression beautifully varies. This section invites you to explore Christmas dinners worldwide, influenced by unique climates, ingredients, and traditions. Tap the buttons below to see what's served across regions.</p>
+                <p class="mt-4 text-lg max-w-3xl mx-auto text-gray-600">Though the spirit is shared, its expression beautifully varies. This section invites you to explore Christmas dinners worldwide, influenced by unique climates, ingredients, and traditions. Tap the buttons below to uncover festive menus from different corners of the globe.</p>
             </div>
             <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-8">
                 <button class="region-btn bg-[#A2B8A4] text-white px-4 py-2 rounded-full shadow-md hover:bg-[#8a9f8b] transition-colors" data-region="uk">United Kingdom</button>
-                <button class="region-btn bg-[#A2B8A4] text-white px-4 py-2 rounded-full shadow-md hover:bg-[#8a9f8b] transition-colors" data-region="usa">USA & Canada</button>
+                <button class="region-btn bg-[#A2B8A4] text-white px-4 py-2 rounded-full shadow-md hover:bg-[#8a9f8b] transition-colors" data-region="usa">USA &amp; Canada</button>
                 <button class="region-btn bg-[#A2B8A4] text-white px-4 py-2 rounded-full shadow-md hover:bg-[#8a9f8b] transition-colors" data-region="germany">Germany</button>
                 <button class="region-btn bg-[#A2B8A4] text-white px-4 py-2 rounded-full shadow-md hover:bg-[#8a9f8b] transition-colors" data-region="italy">Italy / Italian-American</button>
                 <button class="region-btn bg-[#A2B8A4] text-white px-4 py-2 rounded-full shadow-md hover:bg-[#8a9f8b] transition-colors" data-region="australia">Australia</button>
                 <button class="region-btn bg-[#A2B8A4] text-white px-4 py-2 rounded-full shadow-md hover:bg-[#8a9f8b] transition-colors" data-region="argentina">Argentina</button>
             </div>
-            <div id="region-details" class="bg-white p-6 md:p-8 rounded-lg shadow-xl min-h-[300px] flex items-center justify-center">
+            <div class="bg-white p-6 md:p-8 rounded-lg shadow-xl min-h-[300px] flex items-center justify-center" id="region-details">
                 <p class="text-xl text-gray-500">Select a region to explore its traditions.</p>
             </div>
         </section>
 
-        <section id="deconstruct" class="content-section">
+        <section class="content-section" id="deconstruct">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-[#6B4F4F]">Deconstructing the Dinner</h2>
-                <p class="mt-4 text-lg max-w-3xl mx-auto text-gray-600">The Christmas table holds edible treasures, each steeped in tradition. Here, we unravel the classic elements of a festive feast. Tap a dish to uncover its rich history, or dive into the chart to explore global holiday meal variations.</p>
+                <p class="mt-4 text-lg max-w-3xl mx-auto text-gray-600">The Christmas table holds edible treasures, each dish telling a tale. This section unpacks the key elements of a classic feast. Tap a plate item to uncover its rich history, or dive into the chart to explore global variations in festive mains.</p>
             </div>
             
             <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -139,13 +138,13 @@
                     <h3 class="text-2xl font-bold text-center mb-4">Click an Item to Learn Its Story</h3>
                     <div class="relative max-w-md mx-auto">
                         <div class="aspect-w-1 aspect-h-1 bg-gray-100 rounded-full p-8 grid grid-cols-2 gap-4">
-                            <div class="plate-item bg-white rounded-lg shadow-md flex items-center justify-center p-4 text-center" data-dish="turkey">🦃<br>Turkey</div>
-                            <div class="plate-item bg-white rounded-lg shadow-md flex items-center justify-center p-4 text-center" data-dish="stuffing">🍞<br>Stuffing</div>
-                            <div class="plate-item bg-white rounded-lg shadow-md flex items-center justify-center p-4 text-center" data-dish="sprouts">🥬<br>Sprouts</div>
-                            <div class="plate-item bg-white rounded-lg shadow-md flex items-center justify-center p-4 text-center" data-dish="cranberry">🍓<br>Cranberry Sauce</div>
+                            <div class="plate-item bg-white rounded-lg shadow-md flex items-center justify-center p-4 text-center" data-dish="turkey">🦃<br/>Turkey</div>
+                            <div class="plate-item bg-white rounded-lg shadow-md flex items-center justify-center p-4 text-center" data-dish="stuffing">🍞<br/>Stuffing</div>
+                            <div class="plate-item bg-white rounded-lg shadow-md flex items-center justify-center p-4 text-center" data-dish="sprouts">🥬<br/>Sprouts</div>
+                            <div class="plate-item bg-white rounded-lg shadow-md flex items-center justify-center p-4 text-center" data-dish="cranberry">🍓<br/>Cranberry Sauce</div>
                         </div>
                     </div>
-                    <div id="dish-info" class="mt-6 bg-white p-6 rounded-lg shadow-lg min-h-[150px]">
+                    <div class="mt-6 bg-white p-6 rounded-lg shadow-lg min-h-[150px]" id="dish-info">
                         <p class="text-gray-500 text-center">Click a food item above for its history.</p>
                     </div>
                 </div>
@@ -163,39 +162,39 @@
                     <div class="mb-8 md:mb-0 md:w-1/2 md:pr-8 relative">
                          <div class="absolute -left-5 md:left-auto md:-top-5 md:right-1/2 w-8 h-8 bg-[#C87979] rounded-full border-4 border-white"></div>
                          <h4 class="text-xl font-bold mt-2">14th Century: Plum Pottage</h4>
-                         <p class="text-gray-600">The forebear of Christmas Pudding: a hearty, boiled mix of beef broth, grain, fruit, and spices, served as a meal starter.</p>
+                         <p class="text-gray-600">The forebear of Christmas Pudding: a hearty, boiled porridge made with beef broth, grains, fruit, and spices, served as a meal opener.</p>
                     </div>
                     <div class="mb-8 md:mb-0 md:w-1/2 md:pl-8 md:text-right relative">
                          <div class="absolute -left-5 md:left-1/2 md:-top-5 w-8 h-8 bg-[#C87979] rounded-full border-4 border-white"></div>
-                         <h4 class="text-xl font-bold mt-2">13th-17th Century: Meat & Spice Pies</h4>
-                         <p class="text-gray-600">Mince Pies once held minced mutton, suet, fruit, and spices. Their oval shape represented Jesus's manger. Originally, they were a savory dish.</p>
+                         <h4 class="text-xl font-bold mt-2">13th-17th Century: Meat &amp; Spice Pies</h4>
+                         <p class="text-gray-600">Mince Pies once held minced mutton, suet, fruits, and spices. Their oval form represented Jesus's manger. They served as a savory main dish.</p>
                     </div>
                     <div class="md:w-1/2 md:pr-8 relative">
                          <div class="absolute -left-5 md:left-auto md:-top-5 md:right-0 w-8 h-8 bg-[#C87979] rounded-full border-4 border-white"></div>
                          <h4 class="text-xl font-bold mt-2">19th Century: The Sweet Transformation</h4>
-                         <p class="text-gray-600">Cheaper sugar from colonial trade led to meat being dropped from both recipes. Dickens' *A Christmas Carol* helped establish sweet Christmas Pudding and Mince Pie as beloved holiday treats.</p>
+                         <p class="text-gray-600">With cheaper sugar from colonial trade, meat vanished from both dishes. Dickens' *A Christmas Carol* helped cement Christmas Pudding and Mince Pie as the beloved festive treats we enjoy today.</p>
                     </div>
                  </div>
             </div>
         </section>
         
-        <section id="modern" class="content-section">
+        <section class="content-section" id="modern">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-[#6B4F4F]">The Evolving Feast</h2>
-                <p class="mt-4 text-lg max-w-3xl mx-auto text-gray-600">Tradition evolves. Today's Christmas dinner embraces flexibility, inclusivity, and modern values, catering to diverse diets and multicultural roots. This part explores how the celebration adapts to contemporary tastes.</p>
+                <p class="mt-4 text-lg max-w-3xl mx-auto text-gray-600">Tradition evolves. Today's Christmas dinner embraces flexibility, inclusivity, and modern values, catering to diverse diets and multicultural identities. This part explores how the celebration adapts to contemporary tables.</p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="bg-white p-6 rounded-lg shadow-lg">
                     <h3 class="text-xl font-bold text-[#C87979] mb-2">An Inclusive Table</h3>
-                    <p class="text-gray-700">Innovative dishes ensure inclusivity: Vegans savor Mushroom Wellingtons, gluten-free stuffing features tailored bread, and dairy-free mashed potatoes shine with cashew or coconut milk. The aim is a festive table for all.</p>
+                    <p class="text-gray-700">Innovative dishes ensure everyone feels included. Vegans savor Mushroom Wellingtons, gluten-free stuffing features unique breads, and mashed potatoes go dairy-free with cashew or coconut milk. The aim is a feast for all to enjoy.</p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-lg">
                     <h3 class="text-xl font-bold text-[#A2B8A4] mb-2">Fusion Feasts</h3>
-                    <p class="text-gray-700">Families unite diverse culinary traditions on one table. A holiday meal could showcase a Korean-infused spread, a rich Jamaican oxtail stew, or a vibrant Thai-inspired celebration, crafting heartfelt and uniquely festive new customs.</p>
+                    <p class="text-gray-700">Households unite varied cultural roots in every dish. A holiday meal could showcase a Korean-style spread, a savory Jamaican oxtail stew, or a vibrant Thai-inspired banquet, crafting heartfelt traditions that are both personal and joyfully distinctive.</p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-xl font-bold text-[#C87979] mb-2">Low-Key & Less Stress</h3>
-                    <p class="text-gray-700">Many now choose low-effort holidays, swapping multi-course feasts for easy, hearty dishes like shepherd's pie or lasagna, prioritizing family time over kitchen chaos.</p>
+                    <h3 class="text-xl font-bold text-[#C87979] mb-2">Low-Key &amp; Less Stress</h3>
+                    <p class="text-gray-700">More people are choosing easy, low-effort holidays, swapping elaborate feasts for cozy one-dish meals like lasagna or shepherd’s pie, freeing up time for loved ones and cutting down on kitchen hassle.</p>
                 </div>
             </div>
              <div class="mt-12 bg-white p-8 rounded-lg shadow-xl">
@@ -203,7 +202,7 @@
                 <div class="chart-container h-64 md:h-80">
                     <canvas id="modernDinnerChart"></canvas>
                 </div>
-                <p class="text-center mt-4 text-gray-600">This chart highlights the expanding variety in Christmas meals, illustrating a move from one main tradition to a range of options that embrace contemporary tastes and lifestyles.</p>
+                <p class="text-center mt-4 text-gray-600">This chart highlights the evolving diversity of Christmas meals, illustrating a move from one dominant tradition to a range of options that embrace contemporary tastes and lifestyles.</p>
             </div>
         </section>
 
@@ -392,5 +391,85 @@
             });
         });
     </script>
-</body>
-</html>
+
+
+<html><head></head><body><footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Kontrols</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Knobs</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Case Studies</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Case Studies</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Thanks giving and Christmas</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+
+          
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+        <div class="space-y-2">
+          <p>Redmond<br/>WA, USA</p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+          </p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+      
+      <div class="flex space-x-4 mt-4 sm:mt-0">
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+          <span class="sr-only">Facebook</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+          <span class="sr-only">Twitter</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+          <span class="sr-only">LinkedIn</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer></body></html></body></html>

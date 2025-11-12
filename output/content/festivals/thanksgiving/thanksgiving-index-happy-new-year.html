@@ -11,12 +11,15 @@
     <!-- Open Graph / Facebook -->
     <meta content="website" property="og:type"/>
     <meta content="Thanksgiving Wishes &amp; Cards Hub" property="og:title"/>
+
+    <meta content="https://www.happy-new-year.org/festivals/thanksgiving/wishes/" property="og:url"/> <!-- Replace with your actual URL -->
     <meta content="Your central hub for all things Thanksgiving. Find links to send e-cards, discover warm wishes, and see 'Happy Thanksgiving' in languages from around the world." property="og:description"/>
     <meta content="https://storage.googleapis.com/kreatewebsite/festival/thanks-giving/photos-source/happy-thanks-giving.jpeg" property="og:image"/>
     
     <!-- Twitter -->
     <meta content="summary_large_image" property="twitter:card"/>
     <meta content="Thanksgiving Wishes &amp; Cards Hub" property="twitter:title"/>
+    <meta content="https://www.happy-new-year.org/festivals/thanksgiving/wishes/blessings.html" property="twitter:url"/> <!-- Replace with your actual URL -->
     <meta content="Your central hub for all things Thanksgiving. Find links to send e-cards, discover warm wishes, and see 'Happy Thanksgiving' in languages from around the world." property="twitter:description"/>
     <meta content="https://storage.googleapis.com/kreatewebsite/festival/thanks-giving/photos-source/happy-thanks-giving.jpeg" property="twitter:image"/>
 
@@ -38,22 +41,40 @@
 </head>
 <body class="bg-orange-50 text-amber-900">
 
-    <!-- Main Container -->
-    <div class="container mx-auto px-4 py-12 max-w-7xl">
+    <!-- Navigation Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
+            <!-- Logo/Brand -->
+            <a class="text-2xl font-bold text-orange-700" href="https://www.happy-new-year.org/" style="font-family: 'Playfair Display', serif;">
+                Happy New Year
+            </a>
+            <!-- Navigation Links -->
+            <div class-="flex flex-col md:flex-row items-center gap-4 md:gap-6 mt-4 md:mt-0">
+                <a class="text-amber-800 hover:text-orange-600 font-medium" href="https://www.happy-new-year.org/">Home</a>
+                <a class="text-orange-600 font-bold border-b-2 border-orange-600 pb-1" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanksgiving</a>
+                <a class="text-amber-800 hover:text-orange-600 font-medium" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a>
+                <a class="text-amber-800 hover:text-orange-600 font-medium" href="https://www.happy-new-year.org/festivals/valentineday/">Valentine's Day</a>
+            </div>
+        </nav>
+    </header>
 
-        <!-- Header -->
-        <header class="text-center mb-12">
+    <!-- Main Container -->
+    <main class="container mx-auto px-4 py-12 max-w-7xl">
+
+        <!-- Page Title Header -->
+        <section class="text-center mb-12">
             <h1 class="text-5xl md:text-7xl font-bold text-orange-800 mb-4">
                 A Harvest of Gratitude
             </h1>
             <p class="text-lg md:text-xl text-amber-800">
                 Your complete collection of Thanksgiving wishes, cards, and messages.
             </p>
-        </header>
+        </section>
 
         <!-- Hero Image -->
         <section class="mb-16">
             <img alt="Happy Thanksgiving banner with autumn leaves and pumpkins" class="w-full max-w-5xl mx-auto rounded-2xl shadow-2xl object-cover h-64 md:h-96" src="https://storage.googleapis.com/kreatewebsite/festival/thanks-giving/photos-source/happy-thanks-giving.jpeg"/>
+
         </section>
 
         <!-- Introduction to Page Links -->
@@ -79,7 +100,7 @@
             </div>
         </section>
 
-    </div>
+    </main>
 
     <!-- Footer -->
     <html><head></head><body><footer class="bg-gray-800 text-gray-300">
@@ -200,6 +221,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const pageLinksGrid = document.getElementById('page-links-grid');
             const galleryGrid = document.getElementById('gallery-grid');
+            const footerLinks = document.getElementById('footer-links');
 
             // 1. Populate the page links
             pages.forEach(page => {
@@ -230,8 +252,15 @@
                 img.src = url;
                 img.alt = "Thanksgiving gallery image";
                 img.className = "w-full h-auto object-cover rounded-lg shadow-md";
-              
+                img.onerror="this.src='https://placehold.co/400x400/f97316/ffffff?text=Image+Missing'; this.onerror=null;"
                 galleryGrid.appendChild(img);
+            });
+
+            // 3. Populate the footer links
+            pages.forEach(page => {
+                const li = document.createElement('li');
+                li.innerHTML = `<a href="${page.link}" class="text-orange-200 hover:text-white hover:underline">${page.title}</a>`;
+                footerLinks.appendChild(li);
             });
         });
     </script>

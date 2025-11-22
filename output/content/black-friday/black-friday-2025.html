@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Friday 2025: Sales Analysis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Chosen Palette: Calm Neutral + Muted Blue -->
+    <!-- Application Structure Plan: The application uses a thematic, non-linear dashboard structure. A fixed header provides navigation (Overview, Category Deep Dive, Channel Performance, Key Trends), allowing users to jump to sections. This is more user-friendly than a linear report. 'Overview' acts as a landing dashboard with high-level KPIs and charts. 'Category Deep Dive' combines a pie chart with an interactive button panel to dynamically display qualitative insights, encouraging exploration. 'Channel Performance' and 'Key Trends' use a mix of charts and styled content cards to present data and insights clearly. This structure prioritizes immediate understanding (Overview) and user-driven exploration (thematic sections). -->
+    <!-- Visualization & Content Choices: 
+        1. Report Info: Key Metrics (Total Sales, YoY Growth). Goal: Inform. Viz/Method: Large-text HTML/Tailwind "KPI Cards". Interaction: None. Justification: Fast, clear display of headline numbers. Library: HTML/Tailwind.
+        2. Report Info: Online vs. In-Store Sales Split. Goal: Inform (Proportion). Viz/Method: Doughnut Chart. Interaction: Hover (tooltip). Justification: Clearly shows part-to-whole relationship for the main sales channels. Library: Chart.js (Canvas).
+        3. Report Info: Peak Shopping Times. Goal: Change (Time). Viz/Method: Line Chart. Interaction: Hover (tooltip). Justification: Best visual for showing trends over a 24-hour period. Library: Chart.js (Canvas).
+        4. Report Info: Sales by Category (Electronics, Apparel, etc.). Goal: Inform (Proportion) & Explore. Viz/Method: Pie Chart + adjacent interactive HTML buttons. Interaction: Click buttons (not chart) to update a text details block. Justification: Pie chart gives the overview, while buttons provide a clear, accessible way to "drill down" for qualitative insights on each category. Library: Chart.js (Canvas) + Vanilla JS.
+        5. Report Info: Marketing Channel Effectiveness. Goal: Compare. Viz/Method: Horizontal Bar Chart. Interaction: Hover (tooltip). Justification: Easiest way to compare discrete categories (channels) and their performance. Library: Chart.js (Canvas).
+        6. Report Info: Key Consumer Trends (BNPL, Early Access, etc.). Goal: Inform (Qualitative). Viz/Method: Styled HTML/Tailwind "Insight Cards" in a grid. Interaction: None (static display). Justification: Scannable, digestible format for text-based findings. Library: HTML/Tailwind.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fdfcfb;
+            color: #292524;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (max-width: 640px) {
+            .chart-container {
+                height: 300px;
+                max-height: 350px;
+            }
+        }
+        .nav-link {
+            transition: color 0.2s, border-color 0.2s;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-link:hover {
+            color: #2563eb;
+            border-bottom-color: #2563eb;
+        }
+        .nav-link.active {
+            color: #2563eb;
+            border-bottom-color: #2563eb;
+            font-weight: 600;
+        }
+        .kpi-card {
+            background-color: #ffffff;
+            border: 1px solid #e7e5e4;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+        }
+        .insight-card {
+            background-color: #ffffff;
+            border: 1px solid #e7e5e4;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .insight-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 10px 0 rgb(0 0 0 / 0.07);
+        }
+        .category-button {
+            transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+        }
+        .category-button.active {
+            background-color: #3b82f6;
+            color: #ffffff;
+            border-color: #3b82f6;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="sticky top-0 z-50 w-full bg-white/95 shadow-sm backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-2xl font-bold text-stone-800">Black Friday 2025 Analysis</h1>
+                </div>
+                <nav class="hidden md:block">
+                    <ul class="flex items-center space-x-6">
+                        <li><a href="#overview" class="nav-link active text-sm font-medium py-1 px-2">Overview</a></li>
+                        <li><a href="#categories" class="nav-link text-sm font-medium py-1 px-2">Category Deep Dive</a></li>
+                        <li><a href="#channels" class="nav-link text-sm font-medium py-1 px-2">Channel Performance</a></li>
+                        <li><a href="#trends" class="nav-link text-sm font-medium py-1 px-2">Key Trends</a></li>
+                    </ul>
+                </nav>
+                <div class="md:hidden">
+                    <select id="mobile-nav" class="border border-stone-300 rounded-md py-1 px-2 text-sm">
+                        <option value="#overview">Overview</option>
+                        <option value="#categories">Categories</option>
+                        <option value="#channels">Channels</option>
+                        <option value="#trends">Trends</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+
+        <section id="overview" class="scroll-mt-20 py-12">
+            <h2 class="text-3xl font-bold text-center text-blue-700 mb-4">Executive Overview</h2>
+            <p class="text-lg text-stone-600 text-center max-w-3xl mx-auto mb-10">
+                This section provides a high-level summary of the Black Friday 2025 sales event. Key performance indicators (KPIs) show the overall health, while charts visualize the channel split and shopping behavior throughout the day.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="kpi-card text-center">
+                    <h3 class="text-sm font-medium text-stone-500 uppercase tracking-wider">Total Sales</h3>
+                    <p id="kpi-total-sales" class="text-4xl font-bold text-blue-700 mt-2">$98.2B</p>
+                </div>
+                <div class="kpi-card text-center">
+                    <h3 class="text-sm font-medium text-stone-500 uppercase tracking-wider">YoY Growth</h3>
+                    <p id="kpi-yoy-growth" class="text-4xl font-bold text-green-600 mt-2">+5.2%</p>
+                </div>
+                <div class="kpi-card text-center">
+                    <h3 class="text-sm font-medium text-stone-500 uppercase tracking-wider">Online Sales</h3>
+                    <p id="kpi-online-sales" class="text-4xl font-bold text-stone-800 mt-2">$70.1B</p>
+                </div>
+                <div class="kpi-card text-center">
+                    <h3 class="text-sm font-medium text-stone-500 uppercase tracking-wider">In-Store Sales</h3>
+                    <p id="kpi-in-store-sales" class="text-4xl font-bold text-stone-800 mt-2">$28.1B</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="flex flex-col items-center">
+                    <h3 class="text-xl font-semibold text-center mb-4">Online vs. In-Store Sales</h3>
+                    <div class="chart-container">
+                        <canvas id="onlineVsInStoreChart"></canvas>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center">
+                    <h3 class="text-xl font-semibold text-center mb-4">Peak Shopping Times (Hourly Sales)</h3>
+                    <div class="chart-container">
+                        <canvas id="hourlySalesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-16 border-stone-200">
+
+        <section id="categories" class="scroll-mt-20 py-12">
+            <h2 class="text-3xl font-bold text-center text-blue-700 mb-4">Category Deep Dive</h2>
+            <p class="text-lg text-stone-600 text-center max-w-3xl mx-auto mb-10">
+                Explore the breakdown of sales by product category. The chart shows the overall revenue share. Click the buttons below to see key insights and performance notes for each specific category.
+            </p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="flex flex-col items-center">
+                    <h3 class="text-xl font-semibold text-center mb-4">Sales Share by Category</h3>
+                    <div class="chart-container">
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col">
+                    <div id="category-buttons" class="flex flex-wrap gap-3 mb-6 justify-center lg:justify-start">
+                        <button data-category="electronics" class="category-button active text-sm font-medium py-2 px-4 rounded-full border border-stone-300 bg-white text-stone-700 hover:bg-stone-50">Electronics</button>
+                        <button data-category="apparel" class="category-button text-sm font-medium py-2 px-4 rounded-full border border-stone-300 bg-white text-stone-700 hover:bg-stone-50">Apparel</button>
+                        <button data-category="home" class="category-button text-sm font-medium py-2 px-4 rounded-full border border-stone-300 bg-white text-stone-700 hover:bg-stone-50">Home Goods</button>
+                        <button data-category="toys" class="category-button text-sm font-medium py-2 px-4 rounded-full border border-stone-300 bg-white text-stone-700 hover:bg-stone-50">Toys</button>
+                        <button data-category="other" class="category-button text-sm font-medium py-2 px-4 rounded-full border border-stone-300 bg-white text-stone-700 hover:bg-stone-50">Other</button>
+                    </div>
+                    <div id="category-insight" class="kpi-card min-h-[200px]">
+                        <h4 id="insight-title" class="text-lg font-semibold text-blue-700 mb-2">Electronics</h4>
+                        <p id="insight-text" class="text-stone-600">Electronics continued its dominance, driven by new flagship phone releases and high demand for 8K televisions. Average discount levels were shallower at 15%, but volume remained high.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-16 border-stone-200">
+
+        <section id="channels" class="scroll-mt-20 py-12">
+            <h2 class="text-3xl font-bold text-center text-blue-700 mb-4">Channel Performance</h2>
+            <p class="text-lg text-stone-600 text-center max-w-3xl mx-auto mb-10">
+                This section analyzes how customers were acquired and their shopping behavior. The chart highlights the effectiveness of marketing channels, while key metrics show shopping patterns.
+            </p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="flex flex-col items-center">
+                    <h3 class="text-xl font-semibold text-center mb-4">Sales Attribution by Channel</h3>
+                    <div class="chart-container">
+                        <canvas id="channelChart"></canvas>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div class="kpi-card">
+                        <h3 class="text-sm font-medium text-stone-500 uppercase tracking-wider">Average Order Value (AOV)</h3>
+                        <p id="kpi-aov" class="text-4xl font-bold text-stone-800 mt-2">$175.40</p>
+                        <p class="text-stone-600 mt-2">A 4.5% increase from 2024, indicating successful upselling and bundling strategies.</p>
+                    </div>
+                    <div class="kpi-card">
+                        <h3 class="text-sm font-medium text-stone-500 uppercase tracking-wider">Mobile Shopping</h3>
+                        <p id="kpi-mobile" class="text-4xl font-bold text-stone-800 mt-2">65%</p>
+                        <p class="text-stone-600 mt-2">of all online sales were completed on a mobile device, a new record.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-16 border-stone-200">
+
+        <section id="trends" class="scroll-mt-20 py-12">
+            <h2 class="text-3xl font-bold text-center text-blue-700 mb-4">Key Consumer Trends</h2>
+            <p class="text-lg text-stone-600 text-center max-w-3xl mx-auto mb-10">
+                Beyond the numbers, several key trends defined consumer behavior during the 2025 event. These qualitative insights highlight emerging patterns and strategic considerations for the future.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="insight-card">
+                    <span class="text-3xl">💳</span>
+                    <h3 class="text-xl font-semibold mt-3 mb-2">1. Rise of "Buy Now, Pay Later" (BNPL)</h3>
+                    <p class="text-stone-600">BNPL usage surged by 30% YoY. Consumers increasingly used this option to manage budgets for high-ticket items, particularly in Electronics and Home Goods. Retailers with prominent BNPL integrations saw higher conversion rates.</p>
+                </div>
+                <div class="insight-card">
+                    <span class="text-3xl">🗓️</span>
+                    <h3 class="text-xl font-semibold mt-3 mb-2">2. "Early Access" Dilutes the Day</h3>
+                    <p class="text-stone-600">The "Black Friday Week" model is now standard. Sales spikes were observed as early as Monday, with many "doorbuster" deals launching online days in advance. This diluted the sales concentration on Friday itself, creating a marathon vs. a sprint.</p>
+                </div>
+                <div class="insight-card">
+                    <span class="text-3xl">🌿</span>
+                    <h3 class="text-xl font-semibold mt-3 mb-2">3. The Sustainability Factor</h3>
+                    <p class="text-stone-600">A notable 15% boost was seen for brands that highlighted sustainable practices or offered "conscious consumption" alternatives. Shoppers, particularly Gen Z, actively sought out eco-friendly products and carbon-neutral shipping options.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="mt-16 bg-stone-100 border-t border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center">
+            <p class="text-sm text-stone-500">&copy; 2025 Sales Analysis Report. All data is illustrative.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const reportData = {
+                kpis: {
+                    totalSales: '$98.2B',
+                    yoyGrowth: '+5.2%',
+                    onlineSales: '$70.1B',
+                    inStoreSales: '$28.1B',
+                    aov: '$175.40',
+                    mobileShare: '65%'
+                },
+                onlineVsInStore: {
+                    labels: ['Online Sales', 'In-Store Sales'],
+                    data: [70.1, 28.1],
+                    colors: ['#2563eb', '#9ca3af']
+                },
+                hourlySales: {
+                    labels: ['12a', '1a', '2a', '3a', '4a', '5a', '6a', '7a', '8a', '9a', '10a', '11a', '12p', '1p', '2p', '3p', '4p', '5p', '6p', '7p', '8p', '9p', '10p', '11p'],
+                    data: [1.5, 1.2, 1.0, 0.8, 1.1, 1.8, 2.5, 3.8, 5.5, 6.2, 5.8, 5.5, 5.0, 4.8, 4.5, 4.2, 4.8, 5.5, 6.0, 6.8, 7.5, 6.5, 4.2, 2.8]
+                },
+                categories: {
+                    labels: ['Electronics', 'Apparel', 'Home Goods', 'Toys', 'Other'],
+                    data: [35, 25, 20, 10, 10],
+                    colors: ['#2563eb', '#3b82f6', '#60a5fa', '#93c5fd', '#bfdbfe']
+                },
+                categoryInsights: {
+                    electronics: {
+                        title: 'Electronics',
+                        text: 'Electronics continued its dominance, driven by new flagship phone releases and high demand for 8K televisions. Average discount levels were shallower at 15%, but volume remained high.'
+                    },
+                    apparel: {
+                        title: 'Apparel',
+                        text: 'Apparel saw strong performance in "comfort" and "athleisure" wear. High-end fashion struggled, but mid-range brands with strong online presence performed well, with an AOV of $120.'
+                    },
+                    home: {
+                        title: 'Home Goods',
+                        text: 'Smart home devices and kitchen appliances were the top performers. Furniture sales were modest, reflecting the "early access" trend where many deals started weeks prior.'
+                    },
+                    toys: {
+                        title: 'Toys',
+                        text: 'STEM-focused toys and classic board games saw a resurgence. Licensed merchandise from blockbuster films was a major driver, accounting for 40% of sales in this category.'
+                    },
+                    other: {
+                        title: 'Other',
+                        text: 'This category includes health & beauty, sporting goods, and subscription boxes. Beauty saw a 22% increase, driven by social media influencer campaigns and "self-care" bundles.'
+                    }
+                },
+                channels: {
+                    labels: ['Email Marketing', 'Paid Social', 'PPC (Search)', 'Organic Search', 'Direct'],
+                    data: [40, 25, 20, 10, 5],
+                    colors: ['#2563eb', '#3b82f6', '#60a5fa', '#93c5fd', '#bfdbfe']
+                }
+            };
+
+            function autoWrapLabels(label, maxWidth) {
+                const words = label.split(' ');
+                let lines = [];
+                let currentLine = '';
+                words.forEach(word => {
+                    if ((currentLine + word).length > maxWidth) {
+                        lines.push(currentLine.trim());
+                        currentLine = '';
+                    }
+                    currentLine += word + ' ';
+                });
+                lines.push(currentLine.trim());
+                return lines;
+            }
+
+            function populateKPIs() {
+                document.getElementById('kpi-total-sales').innerText = reportData.kpis.totalSales;
+                document.getElementById('kpi-yoy-growth').innerText = reportData.kpis.yoyGrowth;
+                document.getElementById('kpi-online-sales').innerText = reportData.kpis.onlineSales;
+                document.getElementById('kpi-in-store-sales').innerText = reportData.kpis.inStoreSales;
+                document.getElementById('kpi-aov').innerText = reportData.kpis.aov;
+                document.getElementById('kpi-mobile').innerText = reportData.kpis.mobileShare;
+            }
+
+            function initOnlineVsInStoreChart() {
+                const ctx = document.getElementById('onlineVsInStoreChart').getContext('2d');
+                if (!ctx) return;
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: reportData.onlineVsInStore.labels,
+                        datasets: [{
+                            data: reportData.onlineVsInStore.data,
+                            backgroundColor: reportData.onlineVsInStore.colors,
+                            borderColor: '#fdfcfb',
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    font: { size: 12, family: 'Inter' }
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed !== null) {
+                                            label += '$' + context.parsed + 'B';
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            function initHourlySalesChart() {
+                const ctx = document.getElementById('hourlySalesChart').getContext('2d');
+                if (!ctx) return;
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: reportData.hourlySales.labels,
+                        datasets: [{
+                            label: 'Sales Volume (Billions)',
+                            data: reportData.hourlySales.data,
+                            backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                            borderColor: '#2563eb',
+                            fill: true,
+                            tension: 0.3,
+                            pointRadius: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                grid: {
+                                    color: '#e7e5e4'
+                                },
+                                ticks: {
+                                    callback: (value) => '$' + value + 'B'
+                                }
+                            },
+                            x: {
+                                grid: {
+                                    display: false
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        }
+                    }
+                });
+            }
+
+            function initCategoryChart() {
+                const ctx = document.getElementById('categoryChart').getContext('2d');
+                if (!ctx) return;
+                new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: reportData.categories.labels,
+                        datasets: [{
+                            data: reportData.categories.data,
+                            backgroundColor: reportData.categories.colors,
+                            borderColor: '#fdfcfb',
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    font: { size: 12, family: 'Inter' }
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return `${context.label}: ${context.parsed}%`;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            function initChannelChart() {
+                const ctx = document.getElementById('channelChart').getContext('2d');
+                if (!ctx) return;
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: reportData.channels.labels,
+                        datasets: [{
+                            label: 'Sales Attribution',
+                            data: reportData.channels.data,
+                            backgroundColor: reportData.channels.colors,
+                            borderRadius: 4
+                        }]
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                grid: {
+                                    color: '#e7e5e4'
+                                },
+                                ticks: {
+                                    callback: (value) => value + '%'
+                                }
+                            },
+                            y: {
+                                grid: {
+                                    display: false
+                                },
+                                ticks: {
+                                    font: { size: 12, family: 'Inter' },
+                                    callback: function(value) {
+                                        return autoWrapLabels(this.getLabelForValue(value), 16);
+                                    }
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return ` ${context.parsed.x}%`;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+            
+            function setupNav() {
+                const navLinks = document.querySelectorAll('.nav-link');
+                const mobileNav = document.getElementById('mobile-nav');
+
+                function setActive(target) {
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    const activeLink = document.querySelector(`.nav-link[href="${target}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                    }
+                    if (mobileNav.value !== target) {
+                        mobileNav.value = target;
+                    }
+                }
+
+                navLinks.forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const targetId = link.getAttribute('href');
+                        document.querySelector(targetId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        setActive(targetId);
+                    });
+                });
+
+                mobileNav.addEventListener('change', (e) => {
+                    const targetId = e.target.value;
+                    document.querySelector(targetId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    setActive(targetId);
+                });
+            }
+
+            function setupCategoryInteraction() {
+                const buttonsContainer = document.getElementById('category-buttons');
+                const insightTitle = document.getElementById('insight-title');
+                const insightText = document.getElementById('insight-text');
+
+                if (!buttonsContainer) return;
+
+                buttonsContainer.addEventListener('click', (e) => {
+                    const button = e.target.closest('button');
+                    if (!button) return;
+
+                    const category = button.dataset.category;
+                    if (!category || !reportData.categoryInsights[category]) return;
+
+                    buttonsContainer.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    const insight = reportData.categoryInsights[category];
+                    insightTitle.innerText = insight.title;
+                    insightText.innerText = insight.text;
+                });
+            }
+            
+            populateKPIs();
+            initOnlineVsInStoreChart();
+            initHourlySalesChart();
+            initCategoryChart();
+            initChannelChart();
+            setupNav();
+            setupCategoryInteraction();
+        });
+    </script>
+</body>
+</html>

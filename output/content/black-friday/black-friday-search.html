@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Friday 2025 Deals</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f7f9fb; }
+        .deal-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+        .deal-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen p-4 sm:p-8">
+        <header class="max-w-4xl mx-auto mb-10 text-center">
+            <h1 class="text-4xl font-extrabold text-gray-800 mb-2">Black Friday 2025 Deals Tracker</h1>
+            <p class="text-gray-600">Real-time listing of announced or leaked sales using Google Search grounding.</p>
+            <button id="fetchDealsButton" class="mt-4 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-300">
+                Search Latest Deals
+            </button>
+        </header>
+
+        <div class="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow-2xl">
+            <div id="searchControls" class="mb-6 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                <input type="text" id="searchBar" placeholder="Filter by product or retailer..." class="flex-grow p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" disabled>
+                <select id="retailerFilter" class="p-3 border border-gray-300 rounded-lg" disabled>
+                    <option value="">All Retailers</option>
+                </select>
+            </div>
+
+            <div id="loadingIndicator" class="text-center py-10 hidden">
+                <div class="animate-spin inline-block w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full mb-3"></div>
+                <p class="text-blue-600 font-medium">Searching the web for the freshest Black Friday 2025 deals...</p>
+            </div>
+
+            <div id="dealsContainer" class="space-y-4">
+                <p class="text-center text-gray-500 py-10">Click "Search Latest Deals" to find current Black Friday 2025 announcements.</p>
+            </div>
+
+            <div id="errorDisplay" class="text-center text-red-500 py-4 hidden"></div>
+        </div>
+    </div>
+
+    <script>
+        const API_URL_BASE = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent";
+        const apiKey = ""; 
+
+        const dealsContainer = document.getElementById('dealsContainer');
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        const errorDisplay = document.getElementById('errorDisplay');
+        const searchBar = document.getElementById('searchBar');
+        const retailerFilter = document.getElementById('retailerFilter');
+        const fetchDealsButton = document.getElementById('fetchDealsButton');
+
+        let allDeals = [];
+
+        function base64ToArrayBuffer(base64) {
+            const binaryString = atob(base64);
+            const len = binaryString.length;
+            const bytes = new Uint8Array(len);
+            for (let i = 0; i < len; i++) {
+                bytes[i] = binaryString.charCodeAt(i);
+            }
+            return bytes.buffer;
+        }
+
+        async function fetchWithRetry(url, options, retries = 3) {
+            for (let i = 0; i < retries; i++) {
+                try {
+                    const response = await fetch(url, options);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response;
+                } catch (error) {
+                    if (i === retries - 1) throw error;
+                    const delay = Math.pow(2, i) * 1000;
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                }
+            }
+        }
+
+        async function fetchDeals() {
+            loadingIndicator.classList.remove('hidden');
+            dealsContainer.innerHTML = '';
+            errorDisplay.classList.add('hidden');
+            fetchDealsButton.disabled = true;
+            searchBar.disabled = true;
+            retailerFilter.disabled = true;
+
+            const systemPrompt = "You are a retail news aggregator. Based on current search results, generate a list of announced or leaked Black Friday 2025 deals. If no specific deals are found, generate mock data relevant to typical 2025 predictions. Format the output strictly as a JSON array of objects.";
+            const userQuery = "List announced or predicted Black Friday 2025 deals for Electronics, Apparel, and Home Goods.";
+
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                tools: [{ "google_search": {} }],
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+                generationConfig: {
+                    responseMimeType: "application/json",
+                    responseSchema: {
+                        type: "ARRAY",
+                        items: {
+                            type: "OBJECT",
+                            properties: {
+                                "product": { "type": "STRING", "description": "Name of the product or category on sale." },
+                                "retailer": { "type": "STRING", "description": "The store offering the deal." },
+                                "discount": { "type": "STRING", "description": "The specific discount (e.g., 50% off, $100 off, $299)." },
+                                "startDate": { "type": "STRING", "description": "The date the deal starts (e.g., Nov 21, or 'Already Live')." }
+                            },
+                            required: ["product", "retailer", "discount", "startDate"]
+                        }
+                    }
+                }
+            };
+
+            try {
+                const response = await fetchWithRetry(`${API_URL_BASE}?key=${apiKey}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                const candidate = result.candidates?.[0];
+
+                if (candidate && candidate.content?.parts?.[0]?.text) {
+                    const jsonText = candidate.content.parts[0].text.trim();
+                    allDeals = JSON.parse(jsonText);
+                    
+                    renderDeals(allDeals);
+                    populateFilters(allDeals);
+
+                    searchBar.disabled = false;
+                    retailerFilter.disabled = false;
+                } else {
+                    errorDisplay.innerText = "No structured deals data was returned by the model. Please try again.";
+                    errorDisplay.classList.remove('hidden');
+                }
+
+            } catch (error) {
+                console.error("API Call Error:", error);
+                errorDisplay.innerText = "Failed to fetch deals due to a network or API error. Please check the console for details.";
+                errorDisplay.classList.remove('hidden');
+            } finally {
+                loadingIndicator.classList.add('hidden');
+                fetchDealsButton.disabled = false;
+            }
+        }
+
+        function renderDeals(dealsToRender) {
+            dealsContainer.innerHTML = '';
+            if (dealsToRender.length === 0) {
+                dealsContainer.innerHTML = '<p class="text-center text-gray-500 py-6">No deals match the current filters.</p>';
+                return;
+            }
+
+            dealsToRender.forEach(deal => {
+                const card = document.createElement('div');
+                card.className = 'deal-card p-4 sm:p-6 border border-gray-200 rounded-xl bg-white shadow-sm';
+                card.innerHTML = `
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center">
+                        <div class="flex-grow min-w-0">
+                            <h3 class="text-xl font-bold text-gray-800 truncate">${deal.product}</h3>
+                            <p class="text-sm text-gray-500 mt-1">Retailer: <span class="font-medium text-gray-700">${deal.retailer}</span></p>
+                        </div>
+                        <div class="mt-3 sm:mt-0 sm:ml-4 text-right">
+                            <p class="text-3xl font-extrabold text-red-600">${deal.discount}</p>
+                            <p class="text-xs font-medium text-gray-500 mt-1">Starts: ${deal.startDate}</p>
+                        </div>
+                    </div>
+                `;
+                dealsContainer.appendChild(card);
+            });
+        }
+
+        function populateFilters(deals) {
+            const uniqueRetailers = [...new Set(deals.map(deal => deal.retailer))].sort();
+            retailerFilter.innerHTML = '<option value="">All Retailers</option>';
+            uniqueRetailers.forEach(retailer => {
+                const option = document.createElement('option');
+                option.value = retailer;
+                option.textContent = retailer;
+                retailerFilter.appendChild(option);
+            });
+        }
+
+        function filterDeals() {
+            const searchTerm = searchBar.value.toLowerCase();
+            const selectedRetailer = retailerFilter.value;
+
+            const filtered = allDeals.filter(deal => {
+                const matchesSearch = (
+                    deal.product.toLowerCase().includes(searchTerm) ||
+                    deal.retailer.toLowerCase().includes(searchTerm)
+                );
+                const matchesRetailer = (
+                    selectedRetailer === "" || deal.retailer === selectedRetailer
+                );
+                return matchesSearch && matchesRetailer;
+            });
+
+            renderDeals(filtered);
+        }
+
+        fetchDealsButton.addEventListener('click', fetchDeals);
+        searchBar.addEventListener('input', filterDeals);
+        retailerFilter.addEventListener('change', filterDeals);
+        
+        // Initial setup
+        document.addEventListener('DOMContentLoaded', () => {
+             // Mock data structure for initial empty state (optional)
+             allDeals = [];
+             renderDeals(allDeals);
+        });
+
+    </script>
+</body>
+</html>

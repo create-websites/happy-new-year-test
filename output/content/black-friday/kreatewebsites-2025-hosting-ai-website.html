@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Black Friday 2025 Special | KreateWebsites</title>
+  <meta name="description" content="Black Friday deals from KreateWebsites: 1–5 page Starter Website for $10/month and AI‑powered Startup Website for $40/month (50% off). Limited time only." />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Black Friday Special — KreateWebsites" />
+  <meta property="og:description" content="Starter site $10/mo • AI Startup site $40/mo after 50% off. Azure/AWS/GCP hosting, KreateWebsites Builder, Generative AI, AI Agent." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kreatewebsites.com/black-friday" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #09090b;           /* near-black */
+      --card: #0f0f14;         /* deep gray */
+      --muted: #a1a1aa;        /* gray-400 */
+      --text: #fafafa;         /* off-white */
+      --accent: #22c55e;       /* green */
+      --accent-2: #f59e0b;     /* amber */
+      --ring: rgba(34,197,94,.4);
+      --border: #1f2937;
+      --danger: #ef4444;
+      --shadow: 0 20px 40px rgba(0,0,0,.45);
+      --radius: 18px;
+    }
+    * { box-sizing: border-box }
+    html, body { height: 100% }
+    body {
+      margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text); background: radial-gradient(1200px 800px at 80% -10%, #1e1b4b22, transparent 60%),
+                         radial-gradient(900px 600px at -10% 10%, #064e3b22, transparent 60%),
+                         var(--bg);
+      line-height: 1.55;
+    }
+    a { color: inherit; text-decoration: none }
+    .container { width: min(1100px, 92%); margin: 0 auto }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: linear-gradient(180deg, rgba(9,9,11,.9), rgba(9,9,11,.65));
+      backdrop-filter: saturate(1.2) blur(6px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0 }
+    .brand { display: flex; gap: .6rem; align-items: center; font-weight: 800; letter-spacing: .2px }
+    .brand-badge { width: 34px; height: 34px; border-radius: 9px; background: linear-gradient(135deg, #22c55e, #06b6d4); display: grid; place-items: center; box-shadow: var(--shadow) }
+    .brand-badge svg { width: 22px; height: 22px; }
+    .nav a.cta { padding: 10px 16px; border: 1px solid #22c55e55; border-radius: 12px; transition: .2s; font-weight: 600 }
+    .nav a.cta:hover { transform: translateY(-1px); box-shadow: 0 10px 24px var(--ring); }
+
+    /* Hero */
+    .hero { padding: 72px 0 36px }
+    .eyebrow { display: inline-flex; gap: .5rem; align-items: center; font-weight: 600; color: #e5e7eb; background: rgba(34,197,94,.12); border: 1px solid #22c55e33; padding: 8px 12px; border-radius: 999px }
+    .title { font-size: clamp(32px, 5vw, 56px); margin: 14px 0 10px; letter-spacing: -.02em }
+    .subtitle { font-size: clamp(16px, 2.2vw, 20px); color: var(--muted); max-width: 780px }
+
+    /* Grid */
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 22px; margin-top: 34px }
+
+    /* Card */
+    .card { grid-column: span 12; background: linear-gradient(180deg, rgba(17,24,39,.8), rgba(17,24,39,.5)); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow) }
+    @media (min-width: 860px) { .card { padding: 28px } }
+    .card.highlight { outline: 2px solid #f59e0b44; box-shadow: 0 20px 60px rgba(245,158,11,.18) }
+
+    .card h3 { margin: 0 0 6px; font-size: 22px }
+    .price { display: flex; align-items: baseline; gap: 12px; margin-top: 8px }
+    .price .now { font-size: 42px; font-weight: 800 }
+    .price .mo { font-size: 16px; color: var(--muted) }
+    .price .was { text-decoration: line-through; color: #a3a3a3; font-size: 16px }
+
+    .bullets { display: grid; gap: 10px; margin: 18px 0 22px }
+    .bullet { display: grid; grid-template-columns: 24px 1fr; gap: 12px; align-items: start }
+    .bullet svg { width: 20px; height: 20px }
+    .bullet small { color: var(--muted) }
+
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 18px; border-radius: 12px; font-weight: 700; letter-spacing: .2px; border: 1px solid var(--border); transition: .2s ease }
+    .btn-primary { background: linear-gradient(180deg, #22c55e, #16a34a); color: #052e16; border-color: #16a34a }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 14px 30px var(--ring) }
+    .btn-ghost { background: #0b0b0e; color: #e5e7eb }
+
+    /* Trust */
+    .trust { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; margin-top: 28px; color: #d1d5db }
+    .trust div { background: #0b0b0e; border: 1px solid var(--border); border-radius: 12px; padding: 12px }
+    @media (min-width: 700px){ .trust { grid-template-columns: repeat(4,1fr) } }
+
+    /* Features band */
+    .features { margin: 48px 0 10px }
+    .features .band { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px }
+    .feature { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow) }
+    .feature h4 { margin: 0 0 8px }
+    .feature p { margin: 0; color: var(--muted) }
+    @media (max-width: 900px){ .features .band { grid-template-columns: 1fr } }
+
+    /* FAQ */
+    .faq { margin: 56px 0 }
+    .faq h3 { margin-bottom: 16px }
+    details { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px; margin-bottom: 12px }
+    summary { font-weight: 600; cursor: pointer }
+    details p { color: var(--muted) }
+
+    /* Footer */
+    footer { border-top: 1px solid var(--border); padding: 26px 0; color: #a1a1aa; font-size: 14px }
+    .tiny { color: #9ca3af; font-size: 12px }
+
+    /* Layout spans */
+    .span-6 { grid-column: span 12 }
+    @media (min-width: 860px){ .span-6 { grid-column: span 6 } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand" aria-label="KreateWebsites">
+        <div class="brand-badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M4 12L10 6l4 4 6-6" stroke="#052e16" stroke-width="3"/>
+            <path d="M4 12l6 6 10-10" stroke="#fff" stroke-width="2"/>
+          </svg>
+        </div>
+        <span>KreateWebsites</span>
+      </div>
+      <nav>
+        <a class="cta" href="#pricing">View Offers</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <span class="eyebrow" aria-label="Black Friday">
+          🖤 Black Friday Special • Limited Time Only
+        </span>
+        <h1 class="title">Build smarter with <span style="background:linear-gradient(90deg,#22c55e,#06b6d4); -webkit-background-clip:text; background-clip:text; color:transparent">AI + Cloud</span> — and save big</h1>
+        <p class="subtitle">Launch fast with our Starter Website for <strong>$10/mo</strong> or scale with the AI‑powered Startup Website for <strong>$20/mo</strong> after <strong>50-80% off</strong>. Hosting on <strong>Azure / AWS / GCP</strong>, plus the <strong>KreateWebsites Builder</strong>, <strong>Generative AI</strong>, and an integrated <strong>AI Agent</strong>.</p>
+
+        <div class="grid" id="pricing">
+          <!-- Offer 1: Starter -->
+          <article class="card span-6" aria-labelledby="starter-title">
+            <h3 id="starter-title">🚀 Offer 1: Website Hosting</h3>
+            <p>Perfect for individuals, freelancers & small businesses.</p>
+            <div class="price" aria-label="price">
+              <div class="now">$10</div>
+              <div class="mo">/ month</div>
+              <div class="was" aria-label="original price">$40</div>
+            </div>
+            <div class="bullets" role="list">
+              <div class="bullet" role="listitem">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#22c55e" stroke-width="2"/></svg>
+                <div>Professional Website Hosting<br><small>For High Performance Website</small></div>
+              </div>
+              <div class="bullet" role="listitem">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#22c55e" stroke-width="2"/></svg>
+                <div>Hosted on KreateWebsites Platform<br><small>Fast, secure, SSL included</small></div>
+              </div>
+              <div class="bullet" role="listitem">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#22c55e" stroke-width="2"/></svg>
+                <div>Easy‑to‑use Website Builder<br><small>99.9% availability guaranteed</small></div>
+              </div>
+              <div class="bullet" role="listitem">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#22c55e" stroke-width="2"/></svg>
+                <div>SSL Included</div>
+              </div>
+            </div>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="#get-starter" aria-label="Get Starter Website for $10 per month">Get Starter — $10/mo</a>
+              <a class="btn btn-ghost" href="#features">See what’s included</a>
+            </div>
+          </article>
+
+          <!-- Offer 2: Startup AI -->
+          <article class="card span-6 highlight" aria-labelledby="startup-title">
+            <h3 id="startup-title">🌐 Offer 2: Startup AI‑Powered Hosting and Website Builder</h3>
+            <p>For startups and growing businesses that want intelligence & scale.</p>
+            <div class="price" aria-label="price">
+              <div class="now">$20</div>
+              <div class="mo">/ month</div>
+              <div class="was" aria-label="original price">$99</div>
+            </div>
+            <div class="bullets" role="list">
+              <div class="bullet" role="listitem">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#22c55e" stroke-width="2"/></svg>
+                <div>Hosted on Azure / AWS / GCP<br><small>Choose your preferred cloud</small></div>
+              </div>
+              <div class="bullet" role="listitem">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#22c55e" stroke-width="2"/></svg>
+                <div>KreateWebsites Builder + Generative AI<br><small>Create pages & content in seconds</small></div>
+              </div>
+              <div class="bullet" role="listitem">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#22c55e" stroke-width="2"/></svg>
+                <div>Integrated AI Agent<br><small>24/7 visitor engagement & lead capture</small></div>
+              </div>
+              <div class="bullet" role="listitem">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#22c55e" stroke-width="2"/></svg>
+                <div>Priority Cloud Support & Scalability</div>
+              </div>
+            </div>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="#get-startup" aria-label="Get Startup AI Website for $40 per month">Get Startup — $40/mo</a>
+              <a class="btn btn-ghost" href="#features">Compare features</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="trust" aria-label="Trust badges">
+          <div>Free SSL</div>
+          <div>Global CDN</div>
+          <div>No long‑term contracts</div>
+          <div>Cancel anytime</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features" id="features">
+      <div class="container">
+        <div class="band">
+          <div class="feature">
+            <h4>AI‑Powered Creation</h4>
+            <p>Generate pages, copy, and images with built‑in Generative AI. Edit with a simple, visual builder.</p>
+          </div>
+          <div class="feature">
+            <h4>Cloud‑Grade Hosting</h4>
+            <p>Choose Azure, AWS, or GCP (Startup plan) or use our optimized KreateWebsites platform (Starter).
+            Free SSL, fast load times, and security best practices included.</p>
+          </div>
+          <div class="feature">
+            <h4>AI Agent Included</h4>
+            <p>Engage visitors, answer FAQs, book meetings, and capture leads 24/7. Route conversations to your inbox.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq container">
+      <h3>Frequently Asked Questions</h3>
+      <details>
+        <summary>How long do the Black Friday prices last?</summary>
+        <p>Prices shown are Black Friday promotional rates for new subscriptions activated during the offer window (Nov 24-Nov 30 2025). You’ll keep your promotional price for 12 months from signup.</p>
+      </details>
+      <details>
+        <summary>What’s included in Hosting and Website builder</summary>
+        <p> Hosting will let you bring pre-built site and host it on Kreatewebsites. AI Site builder include hosting and build e2e website for you.</p>
+      </details>
+      <details>
+        <summary>Can I switch between plans later?</summary>
+        <p>Yes. You can upgrade or downgrade anytime and only pay the pro‑rated difference.</p>
+      </details>
+      <details>
+        <summary>Do I need a domain first?</summary>
+        <p>No. We can launch your site on a temporary URL and assist with custom domain setup when you’re ready.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>© <span id="y">2025</span> KreateWebsites. All rights reserved.</div>
+      <div class="tiny">Prices in USD. Taxes, third‑party fees (e.g., domain registration), and usage‑based cloud costs may apply for Startup plan depending on your chosen provider and traffic.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Set year automatically
+    document.getElementById('y').textContent = new Date().getFullYear();
+    // Optional: If you later add checkout URLs, replace #get-starter / #get-startup with real links.
+  </script>
+</body>
+</html>

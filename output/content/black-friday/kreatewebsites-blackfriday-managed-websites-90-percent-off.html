@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Friday Sale - 90% OFF | KreateWebsites</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            accent: '#ef4444', // Red for sale
+                            highlight: '#f59e0b', // Gold for premium
+                            blue: '#3b82f6'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce-slight': 'bounce 2s infinite'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #050505;
+            color: #e5e7eb;
+        }
+        .bg-grid-pattern {
+            background-image: linear-gradient(to right, #1f2937 1px, transparent 1px),
+                              linear-gradient(to bottom, #1f2937 1px, transparent 1px);
+            background-size: 40px 40px;
+            mask-image: linear-gradient(to bottom, transparent, black, transparent);
+            -webkit-mask-image: linear-gradient(to bottom, transparent 5%, black 40%, black 70%, transparent 95%);
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+        }
+        .glass-card {
+            background: rgba(31, 41, 55, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #444;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ef4444;
+        }
+    </style>
+</head>
+<body class="antialiased relative">
+
+    <!-- Top Banner -->
+    <div class="bg-brand-accent text-white text-center py-2 text-sm font-bold uppercase tracking-widest">
+        Limited Time Offer: Valid Nov 24 - Nov 30 Only!
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-10 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 bg-gray-900/90 backdrop-blur-md rounded-full mt-4 px-6 border border-gray-700 shadow-2xl">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="font-bold text-2xl tracking-tighter text-white">Kreate<span class="text-brand-blue">Websites</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#pricing" class="text-gray-300 hover:text-white transition">Pricing</a>
+                    <a href="#examples" class="text-gray-300 hover:text-white transition">Portfolio</a>
+                    <a href="#features" class="text-gray-300 hover:text-white transition">Features</a>
+                    <a href="#contact" onclick="openModal('General Inquiry')" class="bg-brand-accent hover:bg-red-600 text-white px-5 py-2 rounded-full font-bold transition transform hover:scale-105">
+                        Get Offer
+                    </a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="toggleMobileMenu()" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 absolute top-24 w-full border-b border-gray-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#pricing" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-800">Pricing</a>
+                <a href="#examples" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-800">Portfolio</a>
+                <a href="#contact" onclick="openModal('Mobile Inquiry')" class="block px-3 py-2 rounded-md text-base font-medium text-red-500 font-bold">Get Offer Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="absolute inset-0 bg-grid-pattern opacity-20 z-0"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            
+            <div class="inline-flex items-center px-4 py-2 rounded-full border border-red-500/50 bg-red-500/10 text-red-400 text-sm font-semibold mb-8 animate-pulse-slow">
+                <span class="flex h-2 w-2 rounded-full bg-red-500 mr-2"></span>
+                BLACK FRIDAY SALE IS LIVE
+            </div>
+
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-6">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-500">Fully Managed Websites</span><br>
+                <span class="text-red-500 text-glow">90% OFF</span>
+            </h1>
+            
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-400 mb-10">
+                Don't build it yourself. Let our experts design, build, and launch your professional website for a fraction of the cost.
+            </p>
+
+            <!-- Countdown Timer -->
+            <div class="flex justify-center gap-4 mb-12">
+                <div class="glass-card p-4 rounded-lg min-w-[80px]">
+                    <div id="days" class="text-3xl font-bold text-white">00</div>
+                    <div class="text-xs text-gray-400 uppercase">Days</div>
+                </div>
+                <div class="glass-card p-4 rounded-lg min-w-[80px]">
+                    <div id="hours" class="text-3xl font-bold text-white">00</div>
+                    <div class="text-xs text-gray-400 uppercase">Hours</div>
+                </div>
+                <div class="glass-card p-4 rounded-lg min-w-[80px]">
+                    <div id="minutes" class="text-3xl font-bold text-white">00</div>
+                    <div class="text-xs text-gray-400 uppercase">Mins</div>
+                </div>
+                <div class="glass-card p-4 rounded-lg min-w-[80px]">
+                    <div id="seconds" class="text-3xl font-bold text-red-500">00</div>
+                    <div class="text-xs text-gray-400 uppercase">Secs</div>
+                </div>
+            </div>
+
+            <a href="#pricing" class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-bold rounded-full text-white bg-red-600 hover:bg-red-700 md:py-4 md:text-xl md:px-10 transition transform hover:scale-105 shadow-[0_0_20px_rgba(220,38,38,0.5)]">
+                View Deals <i class="fas fa-arrow-down ml-2 animate-bounce-slight"></i>
+            </a>
+            <p class="mt-4 text-sm text-gray-500">Valid only Nov 24 - Nov 30</p>
+        </div>
+    </div>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-gray-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Unbeatable Black Friday Pricing</h2>
+                <p class="text-gray-400">Choose the perfect package. Fully managed means we do the work.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+                <!-- Package 1 -->
+                <div class="glass-card rounded-2xl p-8 border-t-4 border-gray-600 flex flex-col hover:bg-gray-800 transition duration-300">
+                    <div class="mb-4">
+                        <h3 class="text-xl font-bold text-white">Starter Landing Page</h3>
+                        <p class="text-sm text-gray-400 mt-2">Perfect for product launches</p>
+                    </div>
+                    <div class="mb-6">
+                        <p class="text-gray-500 line-through text-lg">$100.00</p>
+                        <div class="flex items-baseline">
+                            <span class="text-4xl font-extrabold text-white">$10</span>
+                            <span class="ml-2 text-gray-400">/one-time</span>
+                        </div>
+                        <span class="inline-block bg-red-500/20 text-red-400 text-xs px-2 py-1 rounded mt-2 font-bold">SAVE 90%</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-1 text-gray-300 text-sm">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> 1 Rich Landing Page</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> Responsive Design</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> Contact Form Integration</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> Social Media Links</li>
+                    </ul>
+                    <button onclick="openModal('Starter Package - $10')" class="w-full py-3 rounded-lg border border-white text-white font-bold hover:bg-white hover:text-black transition">
+                        Select Starter
+                    </button>
+                </div>
+
+                <!-- Package 2 (Featured) -->
+                <div class="glass-card rounded-2xl p-8 border-t-4 border-red-500 flex flex-col transform md:-translate-y-4 relative shadow-[0_0_30px_rgba(239,68,68,0.15)]">
+                    <div class="absolute top-0 right-0 transform translate-x-2 -translate-y-2">
+                        <span class="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Best Value</span>
+                    </div>
+                    <div class="mb-4">
+                        <h3 class="text-xl font-bold text-white">Professional Biz</h3>
+                        <p class="text-sm text-gray-400 mt-2">Complete small business solution</p>
+                    </div>
+                    <div class="mb-6">
+                        <p class="text-gray-500 line-through text-lg">$250.00</p>
+                        <div class="flex items-baseline">
+                            <span class="text-5xl font-extrabold text-red-500">$25</span>
+                            <span class="ml-2 text-gray-400">/one-time</span>
+                        </div>
+                        <span class="inline-block bg-red-500 text-white text-xs px-2 py-1 rounded mt-2 font-bold">BLACK FRIDAY SPECIAL</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-1 text-gray-300 text-sm">
+                        <li class="flex items-center"><i class="fas fa-check text-red-500 mr-3"></i> <strong>5 Custom Pages</strong></li>
+                        <li class="flex items-center"><i class="fas fa-check text-red-500 mr-3"></i> Interactive Elements</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> Dynamic Content</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> Mobile Optimized</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> Basic SEO Setup</li>
+                    </ul>
+                    <button onclick="openModal('Professional Package - $25')" class="w-full py-4 rounded-lg bg-gradient-to-r from-red-600 to-orange-600 text-white font-bold hover:from-red-700 hover:to-orange-700 transition shadow-lg">
+                        Claim This Deal
+                    </button>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="glass-card rounded-2xl p-8 border-t-4 border-gray-600 flex flex-col hover:bg-gray-800 transition duration-300">
+                    <div class="mb-4">
+                        <h3 class="text-xl font-bold text-white">Enterprise Growth</h3>
+                        <p class="text-sm text-gray-400 mt-2">For expanding businesses</p>
+                    </div>
+                    <div class="mb-6">
+                        <p class="text-gray-500 line-through text-lg">$400.00</p>
+                        <div class="flex items-baseline">
+                            <span class="text-4xl font-extrabold text-white">$40</span>
+                            <span class="ml-2 text-gray-400">/one-time</span>
+                        </div>
+                        <span class="inline-block bg-red-500/20 text-red-400 text-xs px-2 py-1 rounded mt-2 font-bold">SAVE 90%</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-1 text-gray-300 text-sm">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> <strong>10 Full Pages</strong></li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> Advanced Animations</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> Blog Integration</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> Google Maps & Analytics</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> Priority Support</li>
+                    </ul>
+                    <button onclick="openModal('Enterprise Package - $40')" class="w-full py-3 rounded-lg border border-white text-white font-bold hover:bg-white hover:text-black transition">
+                        Select Enterprise
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Examples Section -->
+    <section id="examples" class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Our Recent Work</h2>
+                    <p class="text-gray-400">Check out what we can build for you.</p>
+                </div>
+                <a href="https://www.kreatewebsites.com/themes" target="_blank" class="text-brand-blue hover:text-white mt-4 md:mt-0 transition">
+                    View All Themes <i class="fas fa-arrow-right ml-1"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Mockup 1 -->
+                <div class="group relative overflow-hidden rounded-xl cursor-pointer">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 z-10"></div>
+                    <div class="h-64 bg-gray-800 flex items-center justify-center overflow-hidden group-hover:scale-105 transition duration-500">
+                       <!-- Placeholder for mockup -->
+                       <div class="text-center">
+                           <i class="fas fa-laptop-code text-6xl text-gray-600 group-hover:text-brand-blue transition"></i>
+                       </div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6 z-20">
+                        <h3 class="text-white font-bold text-xl">Corporate Modern</h3>
+                        <a href="https://designs.kreatewebsites.com" target="_blank" class="text-sm text-gray-300 hover:text-white mt-2 inline-block">
+                            View Live Demo <i class="fas fa-external-link-alt text-xs ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mockup 2 -->
+                <div class="group relative overflow-hidden rounded-xl cursor-pointer">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 z-10"></div>
+                    <div class="h-64 bg-gray-800 flex items-center justify-center overflow-hidden group-hover:scale-105 transition duration-500">
+                        <div class="text-center">
+                            <i class="fas fa-shopping-bag text-6xl text-gray-600 group-hover:text-brand-blue transition"></i>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6 z-20">
+                        <h3 class="text-white font-bold text-xl">E-Commerce Starter</h3>
+                        <a href="https://designs.kreatewebsites.com" target="_blank" class="text-sm text-gray-300 hover:text-white mt-2 inline-block">
+                            View Live Demo <i class="fas fa-external-link-alt text-xs ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                 <!-- Mockup 3 -->
+                 <div class="group relative overflow-hidden rounded-xl cursor-pointer">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 z-10"></div>
+                    <div class="h-64 bg-gray-800 flex items-center justify-center overflow-hidden group-hover:scale-105 transition duration-500">
+                        <div class="text-center">
+                            <i class="fas fa-camera text-6xl text-gray-600 group-hover:text-brand-blue transition"></i>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6 z-20">
+                        <h3 class="text-white font-bold text-xl">Creative Portfolio</h3>
+                        <a href="https://designs.kreatewebsites.com" target="_blank" class="text-sm text-gray-300 hover:text-white mt-2 inline-block">
+                            View Live Demo <i class="fas fa-external-link-alt text-xs ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us (Features) -->
+    <section id="features" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-white">Why "Fully Managed"?</h2>
+                <p class="text-gray-400 mt-2">We handle the tech, so you can handle your business.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4 text-brand-blue">
+                        <i class="fas fa-rocket text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Lightning Fast</h3>
+                    <p class="text-gray-400 text-sm">Optimized code and assets to ensure your site loads instantly on any network.</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4 text-brand-blue">
+                        <i class="fas fa-mobile-alt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Mobile First</h3>
+                    <p class="text-gray-400 text-sm">Every design is responsive. Your site will look perfect on iPhone, Android, and Desktop.</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4 text-brand-blue">
+                        <i class="fas fa-headset text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Expert Support</h3>
+                    <p class="text-gray-400 text-sm">Need a change? Just ask. Our team is ready to help you scale during the holidays.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <span class="font-bold text-xl text-white">Kreate<span class="text-brand-blue">Websites</span></span>
+                <p class="text-gray-500 text-sm mt-1">&copy; 2025 KreateWebsites. All rights reserved.</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="https://www.kreatewebsites.com/themes" class="text-gray-400 hover:text-white transition">Themes</a>
+                <a href="https://designs.kreatewebsites.com" class="text-gray-400 hover:text-white transition">Designs</a>
+                <a href="#" class="text-gray-400 hover:text-white transition">Privacy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Order Modal -->
+    <div id="orderModal" class="fixed inset-0 z-[60] hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            
+            <div class="fixed inset-0 bg-black bg-opacity-80 transition-opacity" aria-hidden="true" onclick="closeModal()"></div>
+
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+            <div class="inline-block align-bottom bg-gray-800 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg w-full border border-gray-700">
+                <div class="bg-gray-800 px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start">
+                        <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
+                            <h3 class="text-2xl leading-6 font-medium text-white mb-2" id="modal-title">Claim Your Deal</h3>
+                            <p class="text-gray-400 text-sm mb-6">You are selecting: <span id="selectedPackage" class="text-brand-blue font-bold"></span></p>
+                            
+                            <form id="claimForm" onsubmit="submitForm(event)">
+                                <div class="mb-4">
+                                    <label class="block text-gray-400 text-sm font-bold mb-2" for="name">Name</label>
+                                    <input class="shadow appearance-none border border-gray-600 bg-gray-900 rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:border-brand-blue" id="name" type="text" placeholder="Your Name" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="block text-gray-400 text-sm font-bold mb-2" for="email">Email</label>
+                                    <input class="shadow appearance-none border border-gray-600 bg-gray-900 rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:border-brand-blue" id="email" type="email" placeholder="email@example.com" required>
+                                </div>
+                                <div class="mb-6">
+                                    <label class="block text-gray-400 text-sm font-bold mb-2" for="message">Requirements (Optional)</label>
+                                    <textarea class="shadow appearance-none border border-gray-600 bg-gray-900 rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:border-brand-blue" id="message" placeholder="Briefly describe your website idea..."></textarea>
+                                </div>
+                                <div class="flex justify-end">
+                                    <button type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-600 shadow-sm px-4 py-2 bg-transparent text-base font-medium text-gray-300 hover:text-white focus:outline-none sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm transition" onclick="closeModal()">Cancel</button>
+                                    <button type="submit" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm transition">Secure Price</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Countdown Timer Logic
+        // Setting target to Nov 30th of the current year
+        const currentYear = new Date().getFullYear();
+        const countDownDate = new Date(`Nov 30, ${currentYear} 23:59:59`).getTime();
+
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            // Calculate days, hours, minutes and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display result
+            document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+
+            // If the count down is finished, write some text
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById("days").innerHTML = "00";
+                document.getElementById("hours").innerHTML = "00";
+                document.getElementById("minutes").innerHTML = "00";
+                document.getElementById("seconds").innerHTML = "00";
+            }
+        }, 1000);
+
+        // Modal Logic
+        function openModal(packageName) {
+            const modal = document.getElementById('orderModal');
+            const packageSpan = document.getElementById('selectedPackage');
+            packageSpan.textContent = packageName;
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('orderModal');
+            modal.classList.add('hidden');
+        }
+
+        // Mobile Menu Logic
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Form Submission Simulation
+        function submitForm(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalText = btn.innerText;
+            
+            btn.innerText = "Processing...";
+            btn.disabled = true;
+
+            setTimeout(() => {
+                alert("Thank you! Your Black Friday offer has been reserved. We will contact you shortly.");
+                closeModal();
+                e.target.reset();
+                btn.innerText = originalText;
+                btn.disabled = false;
+            }, 1500);
+        }
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-0');
+                navbar.classList.remove('top-10');
+                navbar.classList.add('top-0');
+            } else {
+                navbar.classList.remove('py-0');
+                navbar.classList.remove('top-0');
+                navbar.classList.add('top-10');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Happy New Year in Over 100 Languages</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta content="Say Happy New Year in over 100 languages! Find festive wishes from around the world to celebrate 2026, from Spanish (Feliz Año Nuevo) to Japanese (Akemashite Omedetou Gozaimasu)." name="description"/>
+    <meta content="Happy New Year, New Year Wishes, 2026, New Year in 100 Languages, Feliz Año Nuevo, Bonne Année, International Greetings" name="keywords"/>
+
+    <!-- OpenGraph Meta Tags (for social media sharing) -->
+    <meta content="Happy New Year in Over 100 Languages" property="og:title"/>
+    <meta content="Celebrate 2026 by learning to say 'Happy New Year' in languages from around the globe." property="og:description"/>
+    <meta content="website" property="og:type"/>
+    <meta content="https://example.com/new_year_wishes_2026.html" property="og:url"/> <!-- TODO: Replace with actual URL when live -->
+    <meta content="https://placehold.co/1200x630/0a192f/f1c40f?text=Happy+New+Year+2026" property="og:image"/>
+    <meta content="Happy New Year 2026 written in gold on a dark blue background" property="og:image:alt"/>
+
+    <!-- JSON-LD Structured Data (for search engines) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Happy New Year in Over 100 Languages",
+      "description": "A festive list of 'Happy New Year' wishes in more than 100 languages to celebrate the start of 2026.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Global Wishes" 
+      }
+    }
+    </script>
+
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Inter font -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&amp;family=Playfair+Display:wght@700;900&amp;display=swap" rel="stylesheet"/>
+    <style>
+        /* Use Inter as the default font */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a192f; /* Dark navy blue */
+        }
+        /* Use a festive display font for the header */
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Simple confetti animation */
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100%) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+        .confetti {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 16px;
+            background-color: #f00;
+            opacity: 0.7;
+            animation: confetti-fall 5s infinite linear;
+        }
+        .confetti:nth-child(5n+1) { background-color: #f1c40f; animation-delay: -0.5s; }
+        .confetti:nth-child(5n+2) { background-color: #3498db; animation-delay: -1.2s; }
+        .confetti:nth-child(5n+3) { background-color: #e74c3c; animation-delay: -2.3s; }
+        .confetti:nth-child(5n+4) { background-color: #2ecc71; animation-delay: -3.1s; }
+        .confetti:nth-child(5n+5) { background-color: #9b59b6; animation-delay: -4.5s; }
+        
+        /* Apply random horizontal positions */
+        /* Note: This is a pseudo-random distribution for demonstration */
+        .confetti:nth-child(7n+1) { left: 10%; }
+        .confetti:nth-child(7n+2) { left: 20%; animation-delay: -1.8s; }
+        .confetti:nth-child(7n+3) { left: 30%; animation-delay: -2.7s; }
+        .confetti:nth-child(7n+4) { left: 40%; animation-delay: -0.9s; }
+        .confetti:nth-child(7n+5) { left: 50%; animation-delay: -3.6s; }
+        .confetti:nth-child(7n+6) { left: 60%; animation-delay: -2.1s; }
+        .confetti:nth-child(7n+7) { left: 70%; }
+        .confetti:nth-child(7n+8) { left: 80%; animation-delay: -1.5s; }
+        .confetti:nth-child(7n+9) { left: 90%; animation-delay: -4.2s; }
+        .confetti:nth-child(7n+10) { left: 95%; animation-delay: -0.3s; }
+    </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen p-6 md:p-12 relative overflow-x-hidden">
+
+    <!-- Confetti Background -->
+    <div class="absolute inset-0 z-0 pointer-events-none">
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div classs="relative z-10">
+        <header class="text-center mb-12">
+            <h1 class="font-display text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-white to-yellow-400 mb-4">
+                Happy New Year!
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300">Wishes from Around the World 🌍</p>
+        </header>
+
+        <main class="max-w-7xl mx-auto bg-gray-800 bg-opacity-70 rounded-2xl shadow-2xl p-6 md:p-10 backdrop-blur-sm">
+            <!-- Language List -->
+            <!-- 
+                I'm parsing the list you provided and formatting it into a clean, multi-column layout.
+                I've focused on the first, more structured list from your document.
+            -->
+            <div class="columns-1 md:columns-2 lg:columns-3 gap-6">
+                <!-- Data is parsed from the user's document -->
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="english.html">English</a></p>
+                    <p class="text-gray-200">Happy New Year</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="spanish.html">Spanish</a></p>
+                    <p class="text-gray-200">Feliz Año Nuevo</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="french.html">French</a></p>
+                    <p class="text-gray-200">Bonne Année</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="german.html">German</a></p>
+                    <p class="text-gray-200">Frohes Neues Jahr</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="italian.html">Italian</a></p>
+                    <p class="text-gray-200">Felice Anno Nuovo</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="portuguese.html">Portuguese</a></p>
+                    <p class="text-gray-200">Feliz Ano Novo</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="dutch.html">Dutch</a></p>
+                    <p class="text-gray-200">Gelukkig Nieuwjaar</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="swedish.html">Swedish</a></p>
+                    <p class="text-gray-200">Gott Nytt År</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="danish.html">Danish</a></p>
+                    <p class="text-gray-200">Godt Nytår</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="norwegian.html">Norwegian</a></p>
+                    <p class="text-gray-200">Godt Nyttår</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="finnish.html">Finnish</a></p>
+                    <p class="text-gray-200">Hyvää Uutta Vuotta</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="icelandic.html">Icelandic</a></p>
+                    <p class="text-gray-200">Gleðilegt nýtt ár</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="irish.html">Irish</a></p>
+                    <p class="text-gray-200">Athbhliain faoi mhaise duit</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="scottish-gaelic.html">Scottish Gaelic</a></p>
+                    <p class="text-gray-200">Bliadhna Mhath Ùr</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="welsh.html">Welsh</a></p>
+                    <p class="text-gray-200">Blwyddyn Newydd Dda</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="polish.html">Polish</a></p>
+                    <p class="text-gray-200">Szczęśliwego Nowego Roku</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="czech.html">Czech</a></p>
+                    <p class="text-gray-200">Šťastný Nový Rok</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="slovak.html">Slovak</a></p>
+                    <p class="text-gray-200">Šťastný Nový Rok</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="slovenian.html">Slovenian</a></p>
+                    <p class="text-gray-200">Srečno Novo Leto</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="croatian.html">Croatian</a></p>
+                    <p class="text-gray-200">Sretna Nova Godina</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="serbian.html">Serbian</a></p>
+                    <p class="text-gray-200">Срећна Нова година (Srećna Nova godina)</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="bosnian.html">Bosnian</a></p>
+                    <p class="text-gray-200">Sretna Nova Godina</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="bulgarian.html">Bulgarian</a></p>
+                    <p class="text-gray-200">Честита Нова Година (Chestita Nova Godina)</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="macedonian.html">Macedonian</a></p>
+                    <p class="text-gray-200">Среќна Нова Година (Srekjna Nova Godina)</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="russian.html">Russian</a></p>
+                    <p class="text-gray-200">С Новым годом (S Novym Godom)</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="ukrainian.html">Ukrainian</a></p>
+                    <p class="text-gray-200">З Новим роком (Z Novym rokom)</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="belarusian.html">Belarusian</a></p>
+                    <p class="text-gray-200">З Новым годам (Z Novym hodam)</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="lithuanian.html">Lithuanian</a></p>
+                    <p class="text-gray-200">Laimingų Naujųjų Metų</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="latvian.html">Latvian</a></p>
+                    <p class="text-gray-200">Laimīgu Jauno Gadu</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="estonian.html">Estonian</a></p>
+                    <p class="text-gray-200">Head Uut Aastat</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="hungarian.html">Hungarian</a></p>
+                    <p class="text-gray-200">Boldog Új Évet</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="romanian.html">Romanian</a></p>
+                    <p class="text-gray-200">La Mulți Ani</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="greek.html">Greek</a></p>
+                    <p class="text-gray-200">Καλή Χρονιά (Kalí Chroniá)</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="turkish.html">Turkish</a></p>
+                    <p class="text-gray-200">Mutlu Yıllar</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="albanian.html">Albanian</a></p>
+                    <p class="text-gray-200">Gëzuar Vitin e Ri</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="armenian.html">Armenian</a></p>
+                    <p class="text-gray-200">Շնորհավոր Նոր Տարի (Shnorhavor Nor Tari)</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="georgian.html">Georgian</a></p>
+                    <p class="text-gray-200">გილოცავთ ახალ წელს (Gilotsavt Akhal Tselts)</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="azerbaijani.html">Azerbaijani</a></p>
+                    <p class="text-gray-200">Yeni İlınız Mübarək</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="kazakh.html">Kazakh</a></p>
+                    <p class="text-gray-200">Жаңа жылыңызбен (Zhana zhylynyzben)</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="uzbek.html">Uzbek</a></p>
+                    <p class="text-gray-200">Yangi Yilingiz Bilan</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="kyrgyz.html">Kyrgyz</a></p>
+                    <p class="text-gray-200">Жаңы жылыңыз менен (Zhany zhylynyz menen)</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="tajik.html">Tajik</a></p>
+                    <p class="text-gray-200">Соли Нав Муборак (Soli Nav Muborak)</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="persian-(farsi).html">Persian (Farsi)</a></p>
+                    <p class="text-gray-200">سال نو مبارک (Sale No Mobarak)</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="arabic.html">Arabic</a></p>
+                    <p class="text-gray-200">سنة جديدة سعيدة (Sana Jadida Saida)</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="hebrew.html">Hebrew</a></p>
+                    <p class="text-gray-200">שנה טובה (Shana Tova)</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="hindi.html">Hindi</a></p>
+                    <p class="text-gray-200">नव वर्ष की शुभकामनाएँ (Naya Saal Mubarak Ho)</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="bengali.html">Bengali</a></p>
+                    <p class="text-gray-200">শুভ নববর্ষ (Shubho Noboborsho)</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="punjabi.html">Punjabi</a></p>
+                    <p class="text-gray-200">ਨਵਾਂ ਸਾਲ ਮੁਬਾਰਕ (Nava Saal Mubarak)</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="gujarati.html">Gujarati</a></p>
+                    <p class="text-gray-200">નવું વર્ષ મુબਾਰક (Navu Varsh Mubarak)</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="marathi.html">Marathi</a></p>
+                    <p class="text-gray-200">नवीन वर्षाच्या हार्दिक शुभेच्छा</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="tamil.html">Tamil</a></p>
+                    <p class="text-gray-200">இனிய புத்தாண்டு நல்வாழ்த்துகள்</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="telugu.html">Telugu</a></p>
+                    <p class="text-gray-200">నూతన సంవత్సర శుభాకాంక్షలు</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="kannada.html">Kannada</a></p>
+                    <p class="text-gray-200">ಹೊಸ ವರ್ಷದ ಶುಭಾಶಯಗಳು</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="malayalam.html">Malayalam</a></p>
+                    <p class="text-gray-200">പുതുവത്സരാശംസകൾ</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="sinhala.html">Sinhala</a></p>
+                    <p class="text-gray-200">සුභ නව වසරක් වේවා (Subha Nawa Wasarak Weva)</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="nepali.html">Nepali</a></p>
+                    <p class="text-gray-200">नयाँ वर्षको शुभकामना</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="urdu.html">Urdu</a></p>
+                    <p class="text-gray-200">نیا سال مبارک</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="pashto.html">Pashto</a></p>
+                    <p class="text-gray-200">نوی کال مو مبارک شه</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="dari.html">Dari</a></p>
+                    <p class="text-gray-200">سال نو مبارک</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="thai.html">Thai</a></p>
+                    <p class="text-gray-200">สวัสดีปีใหม่ (Sawasdee Pee Mai)</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="lao.html">Lao</a></p>
+                    <p class="text-gray-200">ສະບາຍດີປີໃໝ່ (Sabaidee Pi Mai)</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="khmer.html">Khmer</a></p>
+                    <p class="text-gray-200">សួស្តីឆ្នាំថ្មី (Soursdey Chhnam Thmei)</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="vietnamese.html">Vietnamese</a></p>
+                    <p class="text-gray-200">Chúc Mừng Năm Mới</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="indonesian.html">Indonesian</a></p>
+                    <p class="text-gray-200">Selamat Tahun Baru</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="malay.html">Malay</a></p>
+                    <p class="text-gray-200">Selamat Tahun Baru</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="filipino.html">Filipino</a></p>
+                    <p class="text-gray-200">Manigong Bagong Taon</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="burmese.html">Burmese</a></p>
+                    <p class="text-gray-200">ချစ်ခင်ရပါသောနှစ်သစ်ကူးပါ (Hnyin Thit Ku Par)</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="mongolian.html">Mongolian</a></p>
+                    <p class="text-gray-200">Шинэ жилийн мэнд хүргэе (Shine Jiliin Mend Hurgeye)</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="chinese-(mandarin).html">Chinese (Mandarin)</a></p>
+                    <p class="text-gray-200">新年快乐 (Xīnnián Kuàilè)</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="cantonese.html">Cantonese</a></p>
+                    <p class="text-gray-200">新年快樂 (San Nin Fai Lok)</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="japanese.html">Japanese</a></p>
+                    <p class="text-gray-200">明けましておめでとうございます (Akemashite Omedetou Gozaimasu)</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="korean.html">Korean</a></p>
+                    <p class="text-gray-200">새해 복 많이 받으세요 (Saehae Bok Mani Badeuseyo)</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="tibetan.html">Tibetan</a></p>
+                    <p class="text-gray-200">ལོ་གསར་བཟང་མོ། (Lo Sar Zang Mo)</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="swahili.html">Swahili</a></p>
+                    <p class="text-gray-200">Heri ya Mwaka Mpya</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="zulu.html">Zulu</a></p>
+                    <p class="text-gray-200">Unyaka Omusha Ojabulisayo</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="xhosa.html">Xhosa</a></p>
+                    <p class="text-gray-200">Unyaka Omnandi Omtsha</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="afrikaans.html">Afrikaans</a></p>
+                    <p class="text-gray-200">Gelukkige Nuwe Jaar</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="somali.html">Somali</a></p>
+                    <p class="text-gray-200">Sanad Cusub oo Wanaagsan</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="amharic.html">Amharic</a></p>
+                    <p class="text-gray-200">መልካም አዲስ ዓመት (Melkam Addis Amet)</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="hausa.html">Hausa</a></p>
+                    <p class="text-gray-200">Barka da Sabuwar Shekara</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="yoruba.html">Yoruba</a></p>
+                    <p class="text-gray-200">E ku odun, e ku iyedun</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="igbo.html">Igbo</a></p>
+                    <p class="text-gray-200">Afọ Ọhụrụ ọma</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="malagasy.html">Malagasy</a></p>
+                    <p class="text-gray-200">Tratry ny Taona</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="maori.html">Maori</a></p>
+                    <p class="text-gray-200">Hari Tau Hou</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="samoan.html">Samoan</a></p>
+                    <p class="text-gray-200">Manuia le Tausaga Fou</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="tongan.html">Tongan</a></p>
+                    <p class="text-gray-200">Monu’ia e Ta’u Fo’ou</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="fijian.html">Fijian</a></p>
+                    <p class="text-gray-200">Sa Sucu na Yabaki Vou</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="hawaiian.html">Hawaiian</a></p>
+                    <p class="text-gray-200">Hauʻoli Makahiki Hou</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="tahitian.html">Tahitian</a></p>
+                    <p class="text-gray-200">Ia ora na i te matahiti api</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="esperanto.html">Esperanto</a></p>
+                    <p class="text-gray-200">Feliĉan Novjaron</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="latin.html">Latin</a></p>
+                    <p class="text-gray-200">Felix Annus Novus</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="haitian-creole.html">Haitian Creole</a></p>
+                    <p class="text-gray-200">Bòn Ane</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="jamaican-patois.html">Jamaican Patois</a></p>
+                    <p class="text-gray-200">Av a Appi Nyoo Yiea</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="quechua.html">Quechua</a></p>
+                    <p class="text-gray-200">Sumaq wata muskuykuyki</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="navajo.html">Navajo</a></p>
+                    <p class="text-gray-200">Nizhónígo Nináánááhai Dooleeł</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="inuktitut.html">Inuktitut</a></p>
+                    <p class="text-gray-200">Ukiortaami Pilluaritsi</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="cherokee.html">Cherokee</a></p>
+                    <p class="text-gray-200">ᎤᎵᎮᎵᏍᏗ ᏕᎧᏃᎩ (Ulihelisdi Detkanogi)</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="basque.html">Basque</a></p>
+                    <p class="text-gray-200">Urte Berri On</p>
+                </div>
+                <!-- Additional entries from the second list in your doc -->
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="afghani.html">Afghani</a></p>
+                    <p class="text-gray-200">Saale Nao Mubbarak</p>
+                </div>
+                 <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="corsican.html">Corsican</a></p>
+                    <p class="text-gray-200">Pace e Salute</p>
+                </div>
+                 <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="dhivehi.html">Dhivehi</a></p>
+                    <p class="text-gray-200">Ufaaveri Aa Aharakah Edhen</p>
+                </div>
+                 <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="eskimo.html">Eskimo</a></p>
+                    <p class="text-gray-200">Kiortame pivdluaritlo</p>
+                </div>
+                 <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="kabyle.html">Kabyle</a></p>
+                    <p class="text-gray-200">Asegwas Amegaz</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="kisii.html">Kisii</a></p>
+                    <p class="text-gray-200">SOMWAKA OMOYIA OMUYA</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="kurdish.html">Kurdish</a></p>
+                    <p class="text-gray-200">NEWROZ PIROZBE</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="maltese.html">Maltese</a></p>
+                    <p class="text-gray-200">Is-Sena t- Tajba</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="papua-new-guinea.html">Papua New Guinea</a></p>
+                    <p class="text-gray-200">Nupela yia i go long yu</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="sindhi.html">Sindhi</a></p>
+                    <p class="text-gray-200">Nayou Saal Mubbarak Hoje</p>
+                </div>
+                <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="siraiki.html">Siraiki</a></p>
+                    <p class="text-gray-200">Nawan Saal Shala Mubarak Theevay</p>
+                </div>
+                 <div class="mb-4 p-4 bg-gray-700 bg-opacity-50 rounded-lg break-inside-avoid">
+                    <p class="font-bold text-lg text-yellow-300"><a class="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" href="sudanese.html">Sudanese</a></p>
+                    <p class="text-gray-200">Warsa Enggal</p>
+                </div>
+            </div>
+        </main>
+
+        <html><head></head><body><footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Thanks giving and Christmas</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+
+          
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+        <div class="space-y-2">
+          <p>Redmond<br/>WA, USA</p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+          </p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+      
+      <div class="flex space-x-4 mt-4 sm:mt-0">
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+          <span class="sr-only">Facebook</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+          <span class="sr-only">Twitter</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+          <span class="sr-only">LinkedIn</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+	  
+	  <div class="flex gap-4 mt-4 sm:mt-0">
+                    <a class="text-stone-400 hover:text-white" href="https://business.kreatewebsites.com/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+                 
+					<a class="text-stone-400 hover:text-white" href="https://business.kreatewebsites.com/sitemap.html">Sitemap</a> <!-- 14 -->
+      </div>
+    </div>
+	
+  </div>
+</footer></body></html>
+    </div>
+
+</body></html>

@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="A comprehensive interactive guide to body optimization, muscle gain, and holistic health. Explore scientific protocols for training, nutrition, and recovery." name="description"/>
+    <meta content="muscle gain, hypertrophy, health optimization, nutrition guide, recovery protocols, workout science, fitness dashboard, bio-hacking, wellness planner" name="keywords"/>
+    <title>The Bio-Optimization Blueprint: Muscle &amp; Health</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Custom Font Import */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Oswald:wght@400;600&display=swap');
+
+        :root {
+            /* Palette: Clinical Cleanliness meets Organic Strength */
+            /* Using a base of cool slate and white, with vitality green accents */
+            --color-bg: #F8FAFC; /* Slate-50 */
+            --color-card: #FFFFFF;
+            --color-text-main: #1E293B; /* Slate-800 */
+            --color-text-muted: #64748B; /* Slate-500 */
+            --color-accent: #0EA5E9; /* Sky-500 (Focus/Tech) */
+            --color-success: #10B981; /* Emerald-500 (Health) */
+            --color-strength: #334155; /* Slate-700 */
+        }
+
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text-main);
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1, h2, h3, .brand-font {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 350px; /* Base height */
+            margin: 0 auto;
+        }
+
+        /* Custom Scrollbar */
+        .custom-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: #E2E8F0; 
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #94A3B8; 
+            border-radius: 10px;
+        }
+
+        .card-interaction {
+            transition: all 0.2s ease;
+        }
+        .card-interaction:hover {
+            transform: translateY(-2px);
+            border-left-width: 6px; 
+        }
+
+        .tab-active {
+            background-color: #0EA5E9;
+            color: white;
+            border-color: #0EA5E9;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+    <!-- Chosen Palette: "Vitality Slate" - Cool neutrals (Slate/White) for a clinical/scientific feel, paired with Sky Blue and Emerald Green to represent technology and biological health. -->
+    
+    <!-- Application Structure Plan:
+         1. Header: Sets the tone of "Engineering the Body."
+         2. Physiology Dashboard (Top):
+            - Radar Chart: Visualizes the "Fitness 4-Pillar Balance" (Strength, Hypertrophy, Cardio, Mobility) to show users that health is not just one thing.
+            - Bar Chart: "Recovery Velocity" showing how long different tissues (CNS, Muscle, Tendon) take to repair, emphasizing the importance of rest.
+         3. Protocol Explorer (Main): 
+            - Categorized by "Training", "Fuel (Nutrition)", "Repair (Recovery)", and "Mindset".
+            - Users filter categories to find specific protocols (e.g., "Progressive Overload", "Protein Pacing").
+            - Detail view explains the *Why* (Mechanism) and the *How* (Execution).
+         4. Routine Builder (Bottom): 
+            - Users "equip" protocols to build a daily stack.
+            - A summary view helps them visualize their new lifestyle regimen.
+    -->
+
+    <!-- Visualization & Content Choices:
+         1. Radar Chart (The 4 Pillars): Goal: Balance. Interaction: None (Static reference). Justification: Best way to show multi-dimensional data relative to a center point (holistic health).
+         2. Bar Chart (Recovery Times): Goal: Education. Interaction: Hover for time details. Justification: Compares distinct categorical data (Body Systems) effectively.
+         3. Dynamic List/Detail: Goal: Deep Learning. Interaction: Selection updates view. Justification: Allows dense scientific info to be consumed in bite-sized pieces without overwhelming the user.
+    -->
+
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="w-full bg-slate-900 text-white border-b-4 border-sky-500 py-10 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                <div>
+                    <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-2">BIO-OPTIMIZATION <span class="text-sky-400">BLUEPRINT</span></h1>
+                    <p class="text-slate-400 text-lg max-w-2xl">
+                        A scientific framework for musculoskeletal growth, metabolic health, and systemic longevity. 
+                        Design your protocol based on human physiology.
+                    </p>
+                </div>
+                <div class="mt-6 md:mt-0 bg-slate-800 p-4 rounded-lg border border-slate-700">
+                    <p class="text-xs text-slate-400 uppercase tracking-widest mb-1">Current Focus</p>
+                    <p class="text-2xl font-bold text-white" id="focus-stat">Hypertrophy &amp; Health</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow w-full max-w-7xl mx-auto px-4 md:px-8 py-10 space-y-16">
+
+        <!-- SECTION 1: Physiology Dashboard -->
+        <section class="animate-fade-in-up">
+            <div class="mb-8 border-l-4 border-emerald-500 pl-4">
+                <h2 class="text-3xl font-bold text-slate-800">The Physiology Dashboard</h2>
+                <p class="text-slate-600 mt-2 max-w-3xl">
+                    True health is an equilibrium. Focusing solely on muscle size (Hypertrophy) often neglects cardiovascular efficiency or tissue quality. 
+                    Review the metrics below to understand the balance required for a high-performing body.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Chart 1: Fitness Pillars -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-bold text-slate-700 uppercase tracking-wide">The 4 Pillars of Function</h3>
+                        <span class="text-xs bg-slate-100 text-slate-500 px-2 py-1 rounded">Ideal Balance</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="pillarChart"></canvas>
+                    </div>
+                    <div class="mt-4 text-sm text-slate-500 bg-slate-50 p-3 rounded">
+                        <strong>Insight:</strong> Many individuals tend to focus too heavily on one aspect, but a well-balanced body maintains a minimum score of 7 out of 10 in each of the four quadrants.
+                    </div>
+                </div>
+
+                <!-- Chart 2: Recovery Windows -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-bold text-slate-700 uppercase tracking-wide">Systemic Recovery Curves</h3>
+                        <span class="text-xs bg-slate-100 text-slate-500 px-2 py-1 rounded">Hours to Repair</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="recoveryChart"></canvas>
+                    </div>
+                    <div class="mt-4 text-sm text-slate-500 bg-slate-50 p-3 rounded">
+                        <strong>Insight:</strong> Muscles have a faster recovery rate compared to tendons and the central nervous system (CNS). When engaging in heavy lifting, longer breaks are needed not for the muscles, but for the neural drive.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: Protocol Explorer -->
+        <section>
+            <div class="mb-8 border-l-4 border-sky-500 pl-4">
+                <h2 class="text-3xl font-bold text-slate-800">Protocol Explorer</h2>
+                <p class="text-slate-600 mt-2 max-w-3xl">
+                    Choose a category to discover evidence-based protocols. Simply click on a card to see the biological mechanism and implementation strategy.
+                </p>
+            </div>
+
+            <!-- Tabs -->
+            <div class="flex flex-wrap gap-2 mb-6">
+                <button class="filter-btn tab-active px-6 py-3 rounded-lg font-bold text-sm border transition-colors shadow-sm" onclick="filterProtocols('Training', this)">TRAINING (Stimulus)</button>
+                <button class="filter-btn px-6 py-3 rounded-lg font-bold text-sm border bg-white text-slate-600 hover:bg-slate-50 transition-colors shadow-sm" onclick="filterProtocols('Nutrition', this)">NUTRITION (Fuel)</button>
+                <button class="filter-btn px-6 py-3 rounded-lg font-bold text-sm border bg-white text-slate-600 hover:bg-slate-50 transition-colors shadow-sm" onclick="filterProtocols('Recovery', this)">RECOVERY (Repair)</button>
+                <button class="filter-btn px-6 py-3 rounded-lg font-bold text-sm border bg-white text-slate-600 hover:bg-slate-50 transition-colors shadow-sm" onclick="filterProtocols('Longevity', this)">LONGEVITY (Sustain)</button>
+            </div>
+
+            <!-- Explorer Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-[650px] md:h-[550px]">
+                
+                <!-- Left: List -->
+                <div class="md:col-span-4 bg-white rounded-xl shadow border border-slate-200 overflow-hidden flex flex-col">
+                    <div class="p-4 bg-slate-50 border-b border-slate-200">
+                        <h4 class="font-bold text-slate-700 text-sm uppercase">Available Protocols</h4>
+                    </div>
+                    <div class="overflow-y-auto custom-scroll p-2 space-y-2 flex-grow" id="protocolList">
+                        <!-- JS injected items -->
+                    </div>
+                </div>
+
+                <!-- Right: Details -->
+                <div class="md:col-span-8 bg-white rounded-xl shadow border border-slate-200 p-6 md:p-8 flex flex-col relative">
+                    <div class="h-full overflow-y-auto custom-scroll fade-in" id="detailView">
+                        <!-- Default State -->
+                        <div class="flex h-full flex-col items-center justify-center text-slate-300">
+                            <span class="text-6xl mb-4">🧬</span>
+                            <p class="text-xl font-medium">Select a protocol to analyze</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Routine Builder -->
+        <section class="bg-slate-900 rounded-2xl p-8 shadow-2xl">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="md:col-span-2 text-white">
+                    <h2 class="text-2xl font-bold text-emerald-400 mb-2">My Daily Stack</h2>
+                    <p class="text-slate-400 mb-6">
+                        Establish your daily routine by choosing up to 5 protocols from the explorer to include in your bio-optimization stack.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="stackContainer">
+                        <p class="text-slate-600 italic col-span-2">No protocols added yet.</p>
+                    </div>
+                </div>
+                <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-white font-bold uppercase tracking-wider text-sm mb-4">Stack Summary</h3>
+                        <div class="flex justify-between items-end mb-2">
+                            <span class="text-slate-400 text-sm">Capacity</span>
+                            <span class="text-2xl font-bold text-white" id="stackCount">0/5</span>
+                        </div>
+                        <div class="w-full bg-slate-700 h-2 rounded-full overflow-hidden">
+                            <div class="bg-emerald-500 h-full w-0 transition-all duration-500" id="progressBar"></div>
+                        </div>
+                    </div>
+                    <button class="w-full mt-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg transition-colors shadow-lg shadow-emerald-900/50" onclick="printStack()">
+                        DOWNLOAD PROTOCOL
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <html><head></head><body><footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Thanks giving and Christmas</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+
+          
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+        <div class="space-y-2">
+          <p>Redmond<br/>WA, USA</p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+          </p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+      
+      <div class="flex space-x-4 mt-4 sm:mt-0">
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+          <span class="sr-only">Facebook</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+          <span class="sr-only">Twitter</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+          <span class="sr-only">LinkedIn</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+	  
+	  <div class="flex gap-4 mt-4 sm:mt-0">
+                    <a class="text-stone-400 hover:text-white" href="https://business.kreatewebsites.com/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+                 
+					<a class="text-stone-400 hover:text-white" href="https://business.kreatewebsites.com/sitemap.html">Sitemap</a> <!-- 14 -->
+      </div>
+    </div>
+	
+  </div>
+</footer></body></html>
+
+    <script>
+        // --- DATA: The Scientific Protocols ---
+        const protocols = [
+            // TRAINING
+            { 
+                id: 1, 
+                category: 'Training', 
+                title: 'Progressive Overload', 
+                tag: 'Hypertrophy', 
+                mechanism: "The fundamental driver of muscle growth. It involves consistently increasing the demands on the musculoskeletal system to avoid adaptation plateaus.", 
+                execution: "Increase weight, reps, or sets by 2-5% every week. Track every lift.",
+                benefit: "Forces muscle fiber adaptation (growth)."
+            },
+            { 
+                id: 2, 
+                category: 'Training', 
+                title: 'Time Under Tension (TUT)', 
+                tag: 'Technique', 
+                mechanism: "Slowing down the repetition (specifically the eccentric/lowering phase) creates micro-tears and metabolic stress signaling growth.", 
+                execution: "3 seconds down, 1 second pause, 1 second up (3-1-1 tempo).",
+                benefit: "Maximizes fiber recruitment without heavy loads."
+            },
+            { 
+                id: 3, 
+                category: 'Training', 
+                title: 'Compound Movements', 
+                tag: 'Strength', 
+                mechanism: "Multi-joint movements recruit the maximum amount of muscle mass and trigger the largest hormonal response (Testosterone/HGH).", 
+                execution: "Build workouts around: Squats, Deadlifts, Bench Press, Overhead Press, Pull-ups.",
+                benefit: "Systemic strength and efficiency."
+            },
+            { 
+                id: 4, 
+                category: 'Training', 
+                title: 'Zone 2 Cardio', 
+                tag: 'Metabolism', 
+                mechanism: "Low-intensity steady-state cardio builds mitochondrial density and improves the body's ability to use fat as fuel.", 
+                execution: "30-45 mins at a pace where you can talk but not sing (60-70% Max HR).",
+                benefit: "Metabolic flexibility and endurance base."
+            },
+
+            // NUTRITION
+            { 
+                id: 5, 
+                category: 'Nutrition', 
+                title: 'Protein Pacing', 
+                tag: 'Synthesis', 
+                mechanism: "Muscle Protein Synthesis (MPS) spikes and drops every 3-4 hours. Eating protein frequently keeps the body in an anabolic (building) state.", 
+                execution: "Consume 20-40g of protein every 3-4 hours, totaling 1.6g-2.2g per kg of bodyweight.",
+                benefit: "Maximized muscle repair."
+            },
+            { 
+                id: 6, 
+                category: 'Nutrition', 
+                title: 'Creatine Monohydrate', 
+                tag: 'Supplement', 
+                mechanism: "Increases phosphocreatine stores in muscles, allowing for faster ATP (energy) regeneration during high-intensity effort.", 
+                execution: "5g daily mixed with water. No cycling required.",
+                benefit: "Explosive power and cognitive boost."
+            },
+            { 
+                id: 7, 
+                category: 'Nutrition', 
+                title: 'Hydration + Electrolytes', 
+                tag: 'Performance', 
+                mechanism: "Even 2% dehydration reduces strength by 10%. Electrolytes (Sodium, Potassium, Magnesium) enable muscle contraction.", 
+                execution: "Drink 3-4 liters daily. Add a pinch of sea salt to pre-workout water.",
+                benefit: "Sustained performance and cramp prevention."
+            },
+            { 
+                id: 8, 
+                category: 'Nutrition', 
+                title: 'Caloric Surplus/Deficit', 
+                tag: 'Physics', 
+                mechanism: "Thermodynamics dictates weight. Surplus builds tissue (muscle+fat), deficit removes tissue.", 
+                execution: "Gain: Maintenance + 300kcal. Cut: Maintenance - 500kcal.",
+                benefit: "Controlled weight manipulation."
+            },
+
+            // RECOVERY
+            { 
+                id: 9, 
+                category: 'Recovery', 
+                title: 'Sleep Opportunity (8hr)', 
+                tag: 'Hormones', 
+                mechanism: "Growth Hormone is released primarily during deep sleep stages. Sleep deprivation mimics aging metabolically.", 
+                execution: "In bed 8.5 hours to get 7.5 hours of actual sleep. Room temp 65-68°F.",
+                benefit: "The #1 performance enhancer."
+            },
+            { 
+                id: 10, 
+                category: 'Recovery', 
+                title: 'Active Recovery', 
+                tag: 'Bloodflow', 
+                mechanism: "Low-impact movement flushes metabolic waste (lactate) and delivers nutrients to damaged tissue via blood flow.", 
+                execution: "Walking, light swimming, or yoga on 'Rest Days'.",
+                benefit: "Reduced soreness (DOMS)."
+            },
+            { 
+                id: 11, 
+                category: 'Recovery', 
+                title: 'Magnesium Loading', 
+                tag: 'Nervous System', 
+                mechanism: "Magnesium is essential for muscle relaxation and CNS downregulation.", 
+                execution: "400mg Magnesium Glycinate or Threonate 1 hour before bed.",
+                benefit: "Improved sleep quality and muscle relaxation."
+            },
+
+            // LONGEVITY
+            { 
+                id: 12, 
+                category: 'Longevity', 
+                title: 'Grip Strength', 
+                tag: 'Biomarker', 
+                mechanism: "Grip strength is one of the strongest correlations to overall longevity and all-cause mortality.", 
+                execution: "Farmers walks: Carry heavy dumbbells for distance/time.",
+                benefit: "Predictor of functional aging."
+            },
+            { 
+                id: 13, 
+                category: 'Longevity', 
+                title: 'Mobility/Joint Health', 
+                tag: 'Function', 
+                mechanism: "Joint range of motion decreases with age. Maintenance requires taking joints through full ROM under load.", 
+                execution: "Deep squats (ATG), hanging from a bar (shoulder health).",
+                benefit: "Pain-free movement into old age."
+            },
+            { 
+                id: 14, 
+                category: 'Longevity', 
+                title: 'Cold/Heat Exposure', 
+                tag: 'Hormetic Stress', 
+                mechanism: "Sauna mimics moderate cardio; Cold shock increases dopamine and metabolism.", 
+                execution: "Sauna: 20 mins @ 180°F. Cold Shower: 2 mins.",
+                benefit: "Cardiovascular health and mood resilience."
+            }
+        ];
+
+        // --- STATE ---
+        let currentCategory = 'Training';
+        let myStack = new Set();
+
+        // --- INIT ---
+        document.addEventListener('DOMContentLoaded', () => {
+            initCharts();
+            renderList();
+            renderStack();
+        });
+
+        // --- FUNCTIONS ---
+        
+        function filterProtocols(category, btnElement) {
+            currentCategory = category;
+            
+            // Update Tab UI
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('tab-active', 'border-transparent', 'shadow-sm');
+                btn.classList.add('bg-white', 'text-slate-600', 'hover:bg-slate-50');
+            });
+            btnElement.classList.remove('bg-white', 'text-slate-600', 'hover:bg-slate-50');
+            btnElement.classList.add('tab-active');
+
+            renderList();
+            // Clear detail view
+            document.getElementById('detailView').innerHTML = `
+                <div class="flex h-full flex-col items-center justify-center text-slate-300">
+                    <span class="text-6xl mb-4">🧬</span>
+                    <p class="text-xl font-medium">Select a protocol to analyze</p>
+                </div>
+            `;
+        }
+
+        function renderList() {
+            const listContainer = document.getElementById('protocolList');
+            listContainer.innerHTML = '';
+            
+            const items = protocols.filter(p => p.category === currentCategory);
+            
+            items.forEach(item => {
+                const isAdded = myStack.has(item.id);
+                const el = document.createElement('div');
+                el.className = `p-3 rounded-lg cursor-pointer card-interaction border-l-4 border bg-white ${isAdded ? 'border-emerald-500 bg-emerald-50' : 'border-slate-300 hover:border-sky-400'}`;
+                el.onclick = () => showDetail(item.id);
+                el.innerHTML = `
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-slate-800">${item.title}</span>
+                        ${isAdded ? '<span class="text-xs text-emerald-600 font-bold">ACTIVE</span>' : ''}
+                    </div>
+                    <span class="text-xs text-slate-500 uppercase tracking-wide bg-slate-100 px-2 py-0.5 rounded mt-1 inline-block">${item.tag}</span>
+                `;
+                listContainer.appendChild(el);
+            });
+        }
+
+        function showDetail(id) {
+            const item = protocols.find(p => p.id === id);
+            const isAdded = myStack.has(item.id);
+            const btnLabel = isAdded ? "Remove from Stack" : "Add to Daily Stack";
+            const btnColor = isAdded ? "bg-red-50 text-red-600 border border-red-200 hover:bg-red-100" : "bg-slate-900 text-white hover:bg-slate-800";
+
+            const html = `
+                <div class="fade-in">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <span class="text-sky-500 font-bold tracking-widest text-xs uppercase mb-1 block">${item.category} // ${item.tag}</span>
+                            <h2 class="text-3xl md:text-4xl font-bold text-slate-800 leading-tight">${item.title}</h2>
+                        </div>
+                    </div>
+
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg mb-6">
+                        <h4 class="font-bold text-blue-900 text-sm uppercase mb-1">Mechanism of Action</h4>
+                        <p class="text-blue-800 text-sm leading-relaxed">${item.mechanism}</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-6 mb-8">
+                        <div>
+                            <h4 class="font-bold text-slate-900 mb-2 flex items-center">
+                                <span class="bg-slate-200 w-6 h-6 rounded-full flex items-center justify-center text-xs mr-2">1</span> 
+                                Implementation Strategy
+                            </h4>
+                            <p class="text-slate-600 ml-8">${item.execution}</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-emerald-700 mb-2 flex items-center">
+                                <span class="bg-emerald-100 w-6 h-6 rounded-full flex items-center justify-center text-xs mr-2 text-emerald-700">✓</span> 
+                                Expected Outcome
+                            </h4>
+                            <p class="text-slate-600 ml-8">${item.benefit}</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-auto pt-6 border-t border-slate-100 flex justify-end">
+                        <button onclick="toggleStack(${item.id})" class="px-6 py-3 rounded-lg font-bold shadow-sm transition-colors ${btnColor}">
+                            ${btnLabel}
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.getElementById('detailView').innerHTML = html;
+        }
+
+        function toggleStack(id) {
+            if (myStack.has(id)) {
+                myStack.delete(id);
+            } else {
+                if (myStack.size >= 5) {
+                    alert("Stack Full: Focus is key. Limit your active protocols to 5 for best adherence.");
+                    return;
+                }
+                myStack.add(id);
+            }
+            renderStack();
+            renderList();
+            showDetail(id); // refresh button state
+        }
+
+        function renderStack() {
+            const container = document.getElementById('stackContainer');
+            const countEl = document.getElementById('stackCount');
+            const progressEl = document.getElementById('progressBar');
+            
+            countEl.innerText = `${myStack.size}/5`;
+            progressEl.style.width = `${(myStack.size / 5) * 100}%`;
+
+            if (myStack.size === 0) {
+                container.innerHTML = `<p class="text-slate-600 italic col-span-2 text-center py-4 bg-slate-800 rounded border border-slate-700 border-dashed">Select protocols from the list to build your routine.</p>`;
+                return;
+            }
+
+            container.innerHTML = '';
+            myStack.forEach(id => {
+                const item = protocols.find(p => p.id === id);
+                const div = document.createElement('div');
+                div.className = 'bg-slate-800 border border-slate-600 p-3 rounded flex justify-between items-center text-white shadow-lg';
+                div.innerHTML = `
+                    <div class="flex items-center overflow-hidden">
+                        <div class="w-2 h-2 rounded-full bg-emerald-400 mr-2 flex-shrink-0"></div>
+                        <span class="text-sm font-medium truncate">${item.title}</span>
+                    </div>
+                    <button onclick="toggleStack(${item.id})" class="ml-2 text-slate-400 hover:text-red-400 text-lg leading-none">&times;</button>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function printStack() {
+            if (myStack.size === 0) {
+                alert("Please add at least one protocol.");
+                return;
+            }
+            alert("Protocol generated! (This would download a PDF in a full app). Prepare to optimize.");
+        }
+
+        // --- CHARTS ---
+        function initCharts() {
+            // Radar Chart: Pillars
+            new Chart(document.getElementById('pillarChart'), {
+                type: 'radar',
+                data: {
+                    labels: ['Hypertrophy (Size)', 'Strength (Force)', 'Cardio (Endurance)', 'Mobility (Range)', 'Recovery (Health)'],
+                    datasets: [{
+                        label: 'Optimized Balance',
+                        data: [8, 9, 7, 8, 9],
+                        backgroundColor: 'rgba(14, 165, 233, 0.2)',
+                        borderColor: '#0EA5E9',
+                        pointBackgroundColor: '#0EA5E9',
+                        borderWidth: 2
+                    }, {
+                        label: 'Common Imbalance',
+                        data: [9, 6, 3, 2, 4], // All show, no go
+                        backgroundColor: 'rgba(100, 116, 139, 0.1)',
+                        borderColor: '#94A3B8',
+                        borderDash: [5, 5],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: '#E2E8F0' },
+                            grid: { color: '#E2E8F0' },
+                            pointLabels: { font: { size: 11, weight: 'bold' }, color: '#475569' },
+                            suggestedMin: 0,
+                            suggestedMax: 10
+                        }
+                    },
+                    plugins: { legend: { position: 'bottom' } }
+                }
+            });
+
+            // Bar Chart: Recovery
+            new Chart(document.getElementById('recoveryChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Heart Rate', 'Glycogen Stores', 'Muscle Tissue', 'Tendons/Ligaments', 'CNS (Nervous System)'],
+                    datasets: [{
+                        label: 'Hours to Full Recovery',
+                        data: [2, 24, 48, 72, 96], // Rough estimates for intense training
+                        backgroundColor: [
+                            '#10B981', // Heart (Fast)
+                            '#34D399', 
+                            '#0EA5E9', 
+                            '#6366F1', 
+                            '#1E293B'  // CNS (Slow)
+                        ],
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            title: { display: true, text: 'Hours' },
+                            grid: { color: '#F1F5F9' }
+                        },
+                        x: { grid: { display: false } }
+                    },
+                    plugins: { legend: { display: false } }
+                }
+            });
+        }
+    </script>
+
+</body></html>

@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="A strategic dashboard for career advancement and business growth. Explore 26 high-ROI resolutions for leadership, productivity, and networking." name="description"/>
+    <meta content="career growth, business strategy, productivity hacks, leadership skills, professional development, networking tips, deep work, ROI analysis" name="keywords"/>
+    <title>The Career Catalyst: Strategic Growth Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Typography */
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Manrope:wght@300;400;600;800&display=swap');
+
+        :root {
+            /* Palette: Executive Suite (Navy, Gold, White, Slate) */
+            --color-bg: #F1F5F9; /* Slate-100 */
+            --color-surface: #FFFFFF;
+            --color-navy: #0F172A; /* Slate-900 */
+            --color-gold: #D97706; /* Amber-600 */
+            --color-text: #334155; /* Slate-700 */
+            --color-accent: #3B82F6; /* Blue-500 */
+        }
+
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: 'Manrope', sans-serif;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            margin: 0 auto;
+        }
+
+        /* Custom Scrollbar */
+        .custom-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: #E2E8F0; 
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #0F172A; 
+            border-radius: 2px;
+        }
+
+        .card-interaction {
+            transition: all 0.2s ease-out;
+        }
+        .card-interaction:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.1), 0 4px 6px -2px rgba(15, 23, 42, 0.05);
+            border-color: var(--color-navy);
+        }
+
+        .nav-btn.active {
+            background-color: #0F172A;
+            color: white;
+            border-color: #0F172A;
+        }
+
+        .quarter-slot {
+            transition: all 0.3s ease;
+        }
+        .quarter-slot:hover {
+            background-color: #F8FAFC;
+        }
+    </style>
+    
+    <!-- Application Structure Plan:
+         1. Header: "The Career Catalyst" - Professional and bold.
+         2. Executive Analytics (Top): 
+            - Radar Chart: "Career Capital Mix" (Skills, Network, Brand, Execution).
+            - Bar Chart: "The Productivity Audit" (Deep Work vs. Shallow Work ratios).
+         3. Strategy Center (Main):
+            - 26 Resolutions categorized by: High Performance, Leadership, Network/Brand, Innovation.
+            - Detail View: Uses business language ("The ROI", "Implementation Protocol", "KPI").
+         4. Quarterly Roadmap (Bottom):
+            - Users drag/select resolutions to fill Q1, Q2, Q3, Q4 slots.
+            - This mimics quarterly business planning cycles (QBRs).
+    -->
+
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-slate-900 text-white border-b-4 border-amber-500 py-8 px-6 shadow-lg">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div>
+                <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-2 uppercase">The Career <span class="text-amber-500">Catalyst</span></h1>
+                <p class="text-slate-400 text-sm mono">Strategic Protocols for Professional Acceleration</p>
+            </div>
+            <div class="mt-4 md:mt-0 text-right">
+                <div class="bg-slate-800 px-4 py-2 rounded border border-slate-700">
+                    <span class="text-xs text-slate-400 uppercase tracking-widest block">Planning Cycle</span>
+                    <span class="text-xl font-bold text-white">FY 2025</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow w-full max-w-7xl mx-auto px-4 md:px-8 py-10 space-y-12">
+
+        <!-- SECTION 1: Career Analytics -->
+        <section>
+            <div class="flex items-center mb-6">
+                <div class="h-8 w-1 bg-amber-500 mr-3"></div>
+                <h2 class="text-2xl font-bold text-slate-800 uppercase tracking-wide">Executive Analytics</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Chart 1: Capital Mix -->
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
+                    <h3 class="text-sm font-bold text-slate-500 uppercase mb-4 flex justify-between">
+                        <span>Career Capital Mix</span>
+                        <span class="text-amber-600">Optimal Profile</span>
+                    </h3>
+                    <div class="chart-container">
+                        <canvas id="capitalChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Chart 2: Time Allocation -->
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
+                    <h3 class="text-sm font-bold text-slate-500 uppercase mb-4 flex justify-between">
+                        <span>Deep Work vs. Admin</span>
+                        <span class="text-blue-600">Productivity Audit</span>
+                    </h3>
+                    <div class="chart-container">
+                        <canvas id="timeChart"></canvas>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-4 mono text-center">
+                        *Top performers spend 50%+ time in Deep Work blocks.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: Strategy Center -->
+        <section>
+            <div class="flex flex-col md:flex-row justify-between items-end mb-6 border-b border-slate-200 pb-4">
+                <div class="flex items-center">
+                    <div class="h-8 w-1 bg-blue-600 mr-3"></div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-800 uppercase tracking-wide">Strategy Center</h2>
+                        <p class="text-sm text-slate-500 mt-1">Select a category to filter strategic initiatives.</p>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-2 mt-4 md:mt-0">
+                    <button class="nav-btn active px-4 py-2 rounded text-sm font-bold border border-slate-300 transition-colors" onclick="filterList('All', this)">All</button>
+                    <button class="nav-btn px-4 py-2 rounded text-sm font-bold border border-slate-300 bg-white text-slate-600 hover:bg-slate-50 transition-colors" onclick="filterList('Productivity', this)">Productivity</button>
+                    <button class="nav-btn px-4 py-2 rounded text-sm font-bold border border-slate-300 bg-white text-slate-600 hover:bg-slate-50 transition-colors" onclick="filterList('Leadership', this)">Leadership</button>
+                    <button class="nav-btn px-4 py-2 rounded text-sm font-bold border border-slate-300 bg-white text-slate-600 hover:bg-slate-50 transition-colors" onclick="filterList('Network', this)">Network/Brand</button>
+                    <button class="nav-btn px-4 py-2 rounded text-sm font-bold border border-slate-300 bg-white text-slate-600 hover:bg-slate-50 transition-colors" onclick="filterList('Innovation', this)">Innovation</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 h-[650px]">
+                <!-- List View -->
+                <div class="lg:col-span-4 bg-white rounded-lg shadow border border-slate-200 overflow-hidden flex flex-col">
+                    <div class="p-3 bg-slate-50 border-b border-slate-200 flex justify-between items-center">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Initiatives</span>
+                        <span class="text-xs font-mono text-slate-400">Total: 26</span>
+                    </div>
+                    <div class="overflow-y-auto custom-scroll p-2 space-y-2 flex-grow" id="resolutionList">
+                        <!-- JS injected -->
+                    </div>
+                </div>
+
+                <!-- Detail View -->
+                <div class="lg:col-span-8 bg-white rounded-lg shadow-lg border border-slate-200 p-8 relative flex flex-col">
+                    <div class="h-full overflow-y-auto custom-scroll" id="detailView">
+                        <!-- Default State -->
+                        <div class="flex flex-col items-center justify-center h-full text-center text-slate-300 opacity-60">
+                            <span class="text-6xl mb-6">📊</span>
+                            <h3 class="text-2xl font-bold uppercase tracking-widest">Select Initiative</h3>
+                            <p class="font-mono mt-2">Awaiting strategic input...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Quarterly Roadmap Builder -->
+        <section class="bg-slate-900 rounded-xl p-8 text-white shadow-2xl">
+            <div class="flex flex-col md:flex-row justify-between items-start mb-8">
+                <div>
+                    <h2 class="text-2xl font-bold uppercase tracking-wide text-amber-500 mb-2">Quarterly Roadmap</h2>
+                    <p class="text-slate-400 max-w-xl">
+                        Strategic focus requires elimination. Assign <strong>one key initiative</strong> to each quarter to ensure execution.
+                    </p>
+                </div>
+                <button class="mt-4 md:mt-0 px-6 py-3 bg-white text-slate-900 font-bold uppercase text-sm tracking-wider hover:bg-slate-100 transition-colors rounded" onclick="printRoadmap()">
+                    Export Plan
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Q1 -->
+                <div class="quarter-slot bg-slate-800 rounded-lg p-4 border border-slate-700 relative min-h-[140px] flex flex-col">
+                    <span class="text-4xl font-black text-slate-700 absolute top-2 right-3 select-none">Q1</span>
+                    <h4 class="text-amber-500 font-mono text-sm mb-4">JAN - MAR</h4>
+                    <div class="flex-grow flex items-center justify-center" id="q1-slot">
+                        <span class="text-slate-500 text-xs uppercase tracking-widest border border-dashed border-slate-600 px-3 py-1 rounded">Empty Slot</span>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="quarter-slot bg-slate-800 rounded-lg p-4 border border-slate-700 relative min-h-[140px] flex flex-col">
+                    <span class="text-4xl font-black text-slate-700 absolute top-2 right-3 select-none">Q2</span>
+                    <h4 class="text-amber-500 font-mono text-sm mb-4">APR - JUN</h4>
+                    <div class="flex-grow flex items-center justify-center" id="q2-slot">
+                        <span class="text-slate-500 text-xs uppercase tracking-widest border border-dashed border-slate-600 px-3 py-1 rounded">Empty Slot</span>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="quarter-slot bg-slate-800 rounded-lg p-4 border border-slate-700 relative min-h-[140px] flex flex-col">
+                    <span class="text-4xl font-black text-slate-700 absolute top-2 right-3 select-none">Q3</span>
+                    <h4 class="text-amber-500 font-mono text-sm mb-4">JUL - SEP</h4>
+                    <div class="flex-grow flex items-center justify-center" id="q3-slot">
+                        <span class="text-slate-500 text-xs uppercase tracking-widest border border-dashed border-slate-600 px-3 py-1 rounded">Empty Slot</span>
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="quarter-slot bg-slate-800 rounded-lg p-4 border border-slate-700 relative min-h-[140px] flex flex-col">
+                    <span class="text-4xl font-black text-slate-700 absolute top-2 right-3 select-none">Q4</span>
+                    <h4 class="text-amber-500 font-mono text-sm mb-4">OCT - DEC</h4>
+                    <div class="flex-grow flex items-center justify-center" id="q4-slot">
+                        <span class="text-slate-500 text-xs uppercase tracking-widest border border-dashed border-slate-600 px-3 py-1 rounded">Empty Slot</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <html><head></head><body><footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Thanks giving and Christmas</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+
+          
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+        <div class="space-y-2">
+          <p>Redmond<br/>WA, USA</p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+          </p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+      
+      <div class="flex space-x-4 mt-4 sm:mt-0">
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+          <span class="sr-only">Facebook</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+          <span class="sr-only">Twitter</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+          <span class="sr-only">LinkedIn</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+	  
+	  <div class="flex gap-4 mt-4 sm:mt-0">
+                    <a class="text-stone-400 hover:text-white" href="https://business.kreatewebsites.com/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+                 
+					<a class="text-stone-400 hover:text-white" href="https://business.kreatewebsites.com/sitemap.html">Sitemap</a> <!-- 14 -->
+      </div>
+    </div>
+	
+  </div>
+</footer></body></html>
+
+    <script>
+        // --- DATASET: 26 Strategic Career Resolutions ---
+        const resolutions = [
+            // PRODUCTIVITY (High Performance)
+            { id: 1, title: "Deep Work Blocks", category: "Productivity", roi: "High", protocol: "Schedule two 90-minute distraction-free blocks daily.", kpi: "15 hours of deep work/week", why: "Cognitive output maximizes when context switching is eliminated." },
+            { id: 2, title: "Inbox Zero System", category: "Productivity", roi: "Med", protocol: "Touch every email once: Delete, Delegate, Do (<2m), or Defer.", kpi: "Empty inbox every Friday at 4 PM", why: "Reduces mental clutter and 'open loop' anxiety." },
+            { id: 3, title: "The 'No' Audit", category: "Productivity", roi: "High", protocol: "Decline all meetings without a clear agenda or role for you.", kpi: "5 hours reclaimed/week", why: "Protects your most expensive asset: time." },
+            { id: 4, title: "The Pre-Mortem", category: "Productivity", roi: "Med", protocol: "Before starting a project, write down why it might fail.", kpi: "1 risk mitigation plan per project", why: "Prevents avoidable failures through prospective hindsight." },
+            { id: 5, title: "Batch Processing", category: "Productivity", roi: "Med", protocol: "Group similar tasks (admin, calls, creative) into specific days.", kpi: "Theme days established", why: "Reduces cognitive switching costs." },
+            { id: 6, title: "Single-Tasking Sprint", category: "Productivity", roi: "High", protocol: "Close all tabs except the one you are working on.", kpi: "Task completion velocity +20%", why: "Multitasking drops IQ by 10 points (comparable to losing a night's sleep)." },
+            { id: 7, title: "Documentation Habit", category: "Productivity", roi: "High", protocol: "Document one process you do repeatedly every week.", kpi: "1 SOP created/week", why: "Allows for future delegation or automation." },
+
+            // LEADERSHIP (Soft Skills & Management)
+            { id: 8, title: "Radical Candor", category: "Leadership", roi: "High", protocol: "Give feedback that is 'Challenge Directly' + 'Care Personally'.", kpi: "1 constructive feedback session/week", why: "Builds trust and corrects course immediately." },
+            { id: 9, title: "The 1:1 Revamp", category: "Leadership", roi: "High", protocol: "Focus 1:1s on career growth and blockers, not status updates.", kpi: "Employee satisfaction scores", why: "Status updates belong in email; meetings are for coaching." },
+            { id: 10, title: "Public Speaking Reps", category: "Leadership", roi: "High", protocol: "Volunteer to present in one meeting or event monthly.", kpi: "12 presentations/year", why: "Communication at scale is the highest-leverage leadership skill." },
+            { id: 11, title: "Active Listening Loop", category: "Leadership", roi: "Med", protocol: "Wait 2 seconds after someone finishes speaking before you start.", kpi: "Reduced interruptions", why: "Ensures the other party feels fully heard and understood." },
+            { id: 12, title: "Delegate & Elevate", category: "Leadership", roi: "High", protocol: "Identify tasks you are good at but don't love, and hand them off.", kpi: "20% of workload delegated", why: "Frees you to operate in your 'Zone of Genius'." },
+            { id: 13, title: "Emotional EQ Audit", category: "Leadership", roi: "Med", protocol: "Pause when triggered. Name the emotion before reacting.", kpi: "Fewer reactive outbursts", why: "Emotional regulation is the hallmark of senior leadership." },
+
+            // NETWORK / BRAND (External Capital)
+            { id: 14, title: "The 'Weak Tie' Audit", category: "Network", roi: "High", protocol: "Reconnect with one dormant contact (haven't spoken in 6mo) weekly.", kpi: "52 reactivated connections", why: "New opportunities come from weak ties, not your inner circle." },
+            { id: 15, title: "LinkedIn Consistency", category: "Network", roi: "High", protocol: "Post one industry insight or learning weekly.", kpi: "Profile views / Inbound leads", why: "You are the CEO of 'Me Inc.'; marketing is mandatory." },
+            { id: 16, title: "Cross-Function Coffee", category: "Network", roi: "Med", protocol: "Meet someone from a different department/industry monthly.", kpi: "12 new perspectives", why: "Breaks silos and increases organizational awareness." },
+            { id: 17, title: "The Mentor Ask", category: "Network", roi: "High", protocol: "Identify a gap, find an expert, and ask specific questions.", kpi: "1 active mentorship", why: "Collapses learning timelines by borrowing experience." },
+            { id: 18, title: "Personal CRM", category: "Network", roi: "Med", protocol: "Track key contacts and set reminders to follow up.", kpi: "No dropped relationships", why: "Relationships degrade without maintenance (entropy)." },
+            { id: 19, title: "The 'Value-Add' Intro", category: "Network", roi: "High", protocol: "Connect two people in your network who would benefit from knowing each other.", kpi: "2 intros/month", why: "Positions you as a 'Super-Connector'." },
+
+            // INNOVATION (Skills & Future)
+            { id: 20, title: "AI Workflow Integration", category: "Innovation", roi: "High", protocol: "Replace one manual task with an AI tool every month.", kpi: "12 automated workflows", why: "AI leverage is the new literacy." },
+            { id: 21, title: "Financial Literacy", category: "Innovation", roi: "High", protocol: "Review P&L (Profit & Loss) or personal investment dashboard monthly.", kpi: "Net worth tracking", why: "Understanding money is understanding business." },
+            { id: 22, title: "Syntopical Reading", category: "Innovation", roi: "Med", protocol: "Read 3 books on one subject simultaneously to spot patterns.", kpi: "1 subject mastered/quarter", why: "Creates deep expertise rather than surface knowledge." },
+            { id: 23, title: "The 10% Innovation Time", category: "Innovation", roi: "High", protocol: "Spend 4 hours/week on a project unrelated to current KPIs.", kpi: "1 moonshot project launched", why: "Prevents obsolescence." },
+            { id: 24, title: "Negotiation Prep", category: "Innovation", roi: "High", protocol: "Roleplay salary/deal negotiations before the actual meeting.", kpi: "Increased deal value", why: "Preparation is 80% of negotiation success." },
+            { id: 25, title: "Side Project Sprint", category: "Innovation", roi: "Med", protocol: "Launch a micro-product or service.", kpi: "$1 earned online", why: "Teaches the full lifecycle of business (Product, Sales, Ops)." },
+            { id: 26, title: "Industry Forecasting", category: "Innovation", roi: "Med", protocol: "Write a 'State of the Industry' internal memo once a year.", kpi: "Thought leadership recognition", why: "Forces you to synthesize trends and form an opinion." }
+        ];
+
+        // --- STATE ---
+        let currentFilter = 'All';
+        let roadmap = { q1: null, q2: null, q3: null, q4: null };
+
+        // --- INIT ---
+        document.addEventListener('DOMContentLoaded', () => {
+            initCharts();
+            renderList();
+        });
+
+        // --- LOGIC ---
+        function filterList(category, btn) {
+            currentFilter = category;
+            document.querySelectorAll('.nav-btn').forEach(b => {
+                b.classList.remove('active', 'bg-slate-900', 'text-white');
+                b.classList.add('bg-white', 'text-slate-600');
+            });
+            btn.classList.remove('bg-white', 'text-slate-600');
+            btn.classList.add('active');
+            renderList();
+        }
+
+        function renderList() {
+            const list = document.getElementById('resolutionList');
+            list.innerHTML = '';
+            
+            const items = currentFilter === 'All' ? resolutions : resolutions.filter(r => r.category === currentFilter);
+            
+            items.forEach(res => {
+                const el = document.createElement('div');
+                el.className = 'p-3 rounded border border-slate-200 bg-white cursor-pointer card-interaction flex justify-between items-center';
+                el.onclick = () => showDetail(res.id);
+                el.innerHTML = `
+                    <div>
+                        <div class="font-bold text-slate-800 text-sm">${res.title}</div>
+                        <div class="text-xs text-slate-500 font-mono mt-1">${res.category}</div>
+                    </div>
+                    <div class="h-2 w-2 rounded-full ${getCategoryColor(res.category)}"></div>
+                `;
+                list.appendChild(el);
+            });
+        }
+
+        function getCategoryColor(cat) {
+            if(cat === 'Productivity') return 'bg-blue-500';
+            if(cat === 'Leadership') return 'bg-amber-500';
+            if(cat === 'Network') return 'bg-purple-500';
+            return 'bg-emerald-500'; // Innovation
+        }
+
+        function showDetail(id) {
+            const res = resolutions.find(r => r.id === id);
+            
+            const html = `
+                <div class="animate-fade-in h-full flex flex-col">
+                    <!-- Header -->
+                    <div class="border-b border-slate-100 pb-4 mb-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="text-xs font-bold uppercase tracking-widest text-slate-400 font-mono">${res.category} // ROI: ${res.roi}</span>
+                            <span class="bg-slate-100 text-slate-600 px-2 py-1 text-xs rounded font-bold">ID: #${res.id}</span>
+                        </div>
+                        <h2 class="text-3xl font-extrabold text-slate-800 mb-2">${res.title}</h2>
+                    </div>
+
+                    <!-- Content Grid -->
+                    <div class="grid grid-cols-1 gap-6 mb-8">
+                        
+                        <div class="bg-slate-50 p-4 rounded border-l-4 border-amber-400">
+                            <h4 class="font-bold text-slate-700 text-sm uppercase mb-2">Strategic Rationale (Why)</h4>
+                            <p class="text-slate-600 text-sm leading-relaxed">${res.why}</p>
+                        </div>
+
+                        <div class="bg-white border border-slate-200 p-4 rounded shadow-sm">
+                            <h4 class="font-bold text-slate-700 text-sm uppercase mb-2">Implementation Protocol (How)</h4>
+                            <p class="font-mono text-sm text-slate-600 bg-slate-50 p-3 rounded border border-slate-100">${res.protocol}</p>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-slate-700 text-sm uppercase mb-2 flex items-center">
+                                <span class="text-blue-500 mr-2">Target Metric</span> KPI
+                            </h4>
+                            <p class="text-2xl font-bold text-slate-800">${res.kpi}</p>
+                        </div>
+                    </div>
+
+                    <!-- Roadmap Actions -->
+                    <div class="mt-auto bg-slate-900 text-white p-6 rounded-lg">
+                        <h4 class="font-bold uppercase text-xs tracking-widest text-slate-400 mb-4 text-center">Assign to Quarterly Roadmap</h4>
+                        <div class="grid grid-cols-4 gap-2">
+                            <button onclick="assignToQuarter('q1', ${res.id})" class="py-2 text-sm font-bold border border-slate-600 rounded hover:bg-amber-600 hover:border-amber-600 transition-colors">Q1</button>
+                            <button onclick="assignToQuarter('q2', ${res.id})" class="py-2 text-sm font-bold border border-slate-600 rounded hover:bg-amber-600 hover:border-amber-600 transition-colors">Q2</button>
+                            <button onclick="assignToQuarter('q3', ${res.id})" class="py-2 text-sm font-bold border border-slate-600 rounded hover:bg-amber-600 hover:border-amber-600 transition-colors">Q3</button>
+                            <button onclick="assignToQuarter('q4', ${res.id})" class="py-2 text-sm font-bold border border-slate-600 rounded hover:bg-amber-600 hover:border-amber-600 transition-colors">Q4</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.getElementById('detailView').innerHTML = html;
+        }
+
+        function assignToQuarter(q, id) {
+            const res = resolutions.find(r => r.id === id);
+            roadmap[q] = res;
+            renderRoadmap();
+        }
+
+        function renderRoadmap() {
+            ['q1', 'q2', 'q3', 'q4'].forEach(q => {
+                const container = document.getElementById(`${q}-slot`);
+                if (roadmap[q]) {
+                    container.innerHTML = `
+                        <div class="w-full h-full bg-white rounded p-3 flex flex-col justify-center items-center text-center shadow-lg relative overflow-hidden group">
+                            <div class="absolute top-0 left-0 w-1 h-full bg-amber-500"></div>
+                            <h5 class="font-bold text-slate-800 text-sm leading-tight mb-1">${roadmap[q].title}</h5>
+                            <span class="text-xs text-slate-500 font-mono">${roadmap[q].category}</span>
+                            <button onclick="clearQuarter('${q}')" class="absolute top-1 right-1 text-slate-300 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity">&times;</button>
+                        </div>
+                    `;
+                } else {
+                    container.innerHTML = `<span class="text-slate-500 text-xs uppercase tracking-widest border border-dashed border-slate-600 px-3 py-1 rounded">Empty Slot</span>`;
+                }
+            });
+        }
+
+        function clearQuarter(q) {
+            roadmap[q] = null;
+            renderRoadmap();
+        }
+
+        function printRoadmap() {
+            alert("Roadmap ready for export! (Feature creates a PDF in full version).");
+            window.print();
+        }
+
+        // --- CHARTS ---
+        function initCharts() {
+            // Capital Mix (Radar)
+            new Chart(document.getElementById('capitalChart'), {
+                type: 'radar',
+                data: {
+                    labels: ['Technical Skills', 'Network Equity', 'Personal Brand', 'Execution Speed', 'Strategy'],
+                    datasets: [{
+                        label: 'Target Executive Profile',
+                        data: [8, 9, 8, 9, 8],
+                        borderColor: '#D97706',
+                        backgroundColor: 'rgba(217, 119, 6, 0.2)',
+                        pointBackgroundColor: '#D97706',
+                        borderWidth: 2
+                    }, {
+                        label: 'Average Employee',
+                        data: [9, 4, 3, 6, 4], // High tech skills, low leverage
+                        borderColor: '#94A3B8',
+                        backgroundColor: 'rgba(148, 163, 184, 0.1)',
+                        borderWidth: 1,
+                        borderDash: [5,5]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: '#E2E8F0' },
+                            grid: { color: '#E2E8F0' },
+                            pointLabels: { font: { family: 'Manrope', size: 10, weight: 'bold' } },
+                            suggestedMin: 0, suggestedMax: 10
+                        }
+                    },
+                    plugins: { legend: { position: 'bottom' } }
+                }
+            });
+
+            // Time Audit (Bar)
+            new Chart(document.getElementById('timeChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Avg. Worker', 'Top Performer'],
+                    datasets: [{
+                        label: 'Deep Work (Strategic)',
+                        data: [20, 60],
+                        backgroundColor: '#3B82F6'
+                    }, {
+                        label: 'Shallow Work (Admin/Meetings)',
+                        data: [80, 40],
+                        backgroundColor: '#CBD5E1'
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { stacked: true, max: 100, title: { display: true, text: '% of Time' } },
+                        y: { stacked: true }
+                    },
+                    plugins: { legend: { position: 'bottom' } }
+                }
+            });
+        }
+    </script>
+
+</body></html>

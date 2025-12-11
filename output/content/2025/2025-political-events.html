@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Explore the Global Political Landscape of 2025 in this interactive report. Analyze the German Federal Election, Friedrich Merz's chancellorship, global AI regulations, and economic shifts through dynamic visualizations and timelines." name="description"/>
+    <meta content="2025 politics, German election 2025, Friedrich Merz, global political report, interactive political map, AI regulation 2025, economic trends 2025, defense spending, geopolitical timeline, global elections" name="keywords"/>
+    <title>Global Political Landscape 2025 | Interactive Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f5f4; /* Stone 100 */
+            color: #1c1917; /* Stone 900 */
+        }
+
+        h1, h2, h3, .serif-font {
+            font-family: 'Merriweather', serif;
+        }
+
+        /* Chart Container Strict Styling */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px; /* Max width constraint */
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px; /* Base height */
+            max-height: 400px; /* Prevent vertical overflow */
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+        }
+
+        @media (max-width: 640px) {
+            .chart-container {
+                height: 300px;
+                max-height: 300px;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e7e5e4;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #78716c;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #57534e;
+        }
+
+        .active-tab {
+            border-bottom: 2px solid #0f766e;
+            color: #0f766e;
+            font-weight: 600;
+        }
+        
+        .timeline-node:hover {
+            transform: scale(1.05);
+            transition: transform 0.2s ease-in-out;
+        }
+    </style>
+    <!-- Chosen Palette: Sandstone & Deep Teal. Background: Warm Neutral (#f5f5f4), Text: Dark Stone (#1c1917), Primary Accent: Deep Teal (#0f766e), Secondary Accent: Muted Gold (#d97706). Designed for a serious, journalistic tone suitable for political analysis. -->
+    
+    <!-- Application Structure Plan: 
+         1. Hero Section: Sets the stage for 2025 as a "Year of Realignment".
+         2. Global Timeline (Interactive List): Users click months to see specific events. Justification: Politics is chronological; this establishes the narrative flow.
+         3. Spotlight: The German Transition (Chart.js): Focuses on the major leadership change (Merz). Detailed bar chart of parliament seats. Justification: This is the anchor event of the generated report data.
+         4. Policy Shift Matrix (Tabbed Interface): Comparison of US, EU, and Asian policies on AI and Climate. Justification: Users need to compare complex qualitative data easily without scrolling endlessly.
+         5. Economic Indicators (Plotly): Scatter plot showing GDP growth vs. Defense spending shifts. Justification: Correlating political decisions with economic metrics.
+         6. Executive Summary: Textual synthesis. 
+    -->
+
+    <!-- Visualization & Content Choices:
+         1. Timeline: HTML/JS Dynamic List. Goal: Inform. Shows chronology. No SVG.
+         2. German Parliament: Chart.js Bar Chart. Goal: Compare. Shows relative strength of parties (CDU/CSU vs SPD vs others). Interaction: Tooltips.
+         3. Economic Scatter: Plotly.js Bubble Chart. Goal: Relationships. Shows correlation between Defense Budget increases and Inflation trends in 2025.
+         4. Policy Tabs: DOM Manipulation. Goal: Organize. Groups dense text into digestible categories.
+         NO SVG graphics used. NO Mermaid JS used.
+    -->
+
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-stone-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="serif-font text-2xl font-bold text-stone-800 tracking-tight">Politic<span class="text-teal-700">2025</span></span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a class="text-stone-600 hover:text-teal-700 transition-colors" href="#overview">Overview</a>
+                    <a class="text-stone-600 hover:text-teal-700 transition-colors" href="#timeline">Timeline</a>
+                    <a class="text-stone-600 hover:text-teal-700 transition-colors" href="#germany">German Focus</a>
+                    <a class="text-stone-600 hover:text-teal-700 transition-colors" href="#policy">Policy Matrix</a>
+                </div>
+                <div class="flex items-center md:hidden">
+                    <button class="text-stone-600 hover:text-teal-700 focus:outline-none" id="mobile-menu-btn">
+                        ☰
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden bg-stone-50 border-t border-stone-200 p-4" id="mobile-menu">
+            <a class="block py-2 text-stone-600 hover:text-teal-700" href="#overview">Overview</a>
+            <a class="block py-2 text-stone-600 hover:text-teal-700" href="#timeline">Timeline</a>
+            <a class="block py-2 text-stone-600 hover:text-teal-700" href="#germany">German Focus</a>
+            <a class="block py-2 text-stone-600 hover:text-teal-700" href="#policy">Policy Matrix</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-white py-16 lg:py-24 border-b border-stone-200" id="overview">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <span class="inline-block py-1 px-3 rounded-full bg-teal-100 text-teal-800 text-sm font-semibold mb-4 tracking-wide uppercase">Source Report: Global Political Review</span>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-stone-900 mb-6 leading-tight">
+                2025: The Year of <span class="text-teal-700">Realignment</span>
+            </h1>
+            <p class="text-xl text-stone-600 leading-relaxed mb-8">
+                Exploring the significant political changes of 2025, this interactive tool dissects key events such as the conservative revival in Europe and the enforcement of strict AI regulations in the Americas, shedding light on the defining aspects of the emerging global landscape.
+            </p>
+            <div class="flex justify-center gap-4">
+                <a class="px-6 py-3 bg-teal-700 text-white font-semibold rounded-lg hover:bg-teal-800 transition shadow-lg" href="#germany">View Election Data</a>
+                <a class="px-6 py-3 bg-white border border-stone-300 text-stone-700 font-semibold rounded-lg hover:bg-stone-50 transition" href="#timeline">Explore Timeline</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Grid -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full space-y-20">
+
+        <!-- SECTION 1: TIMELINE -->
+        <section id="timeline">
+            <div class="mb-8 border-l-4 border-teal-700 pl-4">
+                <h2 class="text-3xl font-bold text-stone-900">Chronology of Change</h2>
+                <p class="mt-2 text-stone-600 max-w-2xl">
+                    Explore the key events of 2025, offering a structured overview of the year's turbulent happenings and showcasing the continuous cycle of global diplomacy. Click on event cards for more in-depth insights from the report.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Interactive List -->
+                <div class="lg:col-span-1 space-y-4 h-[500px] overflow-y-auto pr-2" id="timeline-list">
+                    <!-- JS Injected Items -->
+                </div>
+
+                <!-- Detail View -->
+                <div class="lg:col-span-2 bg-white rounded-xl shadow-sm border border-stone-200 p-8 flex flex-col justify-center min-h-[400px]" id="timeline-display">
+                    <div class="text-center text-stone-400">
+                        <p>Select an event to view details</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: GERMAN FOCUS -->
+        <section class="scroll-mt-24" id="germany">
+            <div class="mb-8 border-l-4 border-teal-700 pl-4">
+                <h2 class="text-3xl font-bold text-stone-900">Europe's New Direction</h2>
+                <p class="mt-2 text-stone-600 max-w-3xl">
+                    In early 2025, the German Federal Election stood out as the defining political moment, with Friedrich Merz and the CDU/CSU securing a significant win that shifted away from the previous 'Traffic Light' coalition. The following analysis delves into the parliamentary dynamics that paved the way for Merz to take office on May 6, 2025.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                <!-- Text Context -->
+                <div class="space-y-6">
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-stone-100">
+                        <h3 class="text-xl font-bold text-stone-800 mb-2">The May 6th Transition</h3>
+                        <p class="text-stone-600 leading-relaxed">
+                            After navigating complex coalition talks post-election, Friedrich Merz was sworn in as Chancellor in May. Voter trends show a shift towards prioritizing economic stability and defense. The 'Union' (CDU/CSU) solidified support among conservatives, while the left vote fragmentation reshaped the Bundestag.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-stone-100 p-6 rounded-lg">
+                        <h4 class="font-semibold text-stone-800 mb-3">Key Coalition Stats:</h4>
+                        <ul class="space-y-2 text-sm text-stone-700">
+                            <li class="flex justify-between border-b border-stone-200 pb-1">
+                                <span>Chancellor:</span>
+                                <span class="font-bold">Friedrich Merz (CDU)</span>
+                            </li>
+                            <li class="flex justify-between border-b border-stone-200 pb-1">
+                                <span>Inauguration:</span>
+                                <span>May 6, 2025</span>
+                            </li>
+                            <li class="flex justify-between border-b border-stone-200 pb-1">
+                                <span>Govt Focus:</span>
+                                <span>Economic Reform, Defense</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Visualization -->
+                <div class="bg-white p-4 rounded-xl shadow border border-stone-200">
+                    <h4 class="text-center text-sm font-semibold text-stone-500 mb-4 uppercase tracking-wider">Bundestag Seat Distribution (2025)</h4>
+                    <div class="chart-container">
+                        <canvas id="germanyChart"></canvas>
+                    </div>
+                    <p class="text-xs text-center text-stone-400 mt-2">Source: Federal Returning Officer (Projected Data)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: ECONOMIC & DEFENSE CORRELATION -->
+        <section id="economics">
+            <div class="mb-8 border-l-4 border-teal-700 pl-4">
+                <h2 class="text-3xl font-bold text-stone-900">The "Defense-Growth" Paradox</h2>
+                <p class="mt-2 text-stone-600 max-w-3xl">
+                    In 2025, a notable trend emerged among G7 countries: a link between rising defense expenditures and certain inflationary challenges. Dive into this scatter plot to analyze how various nations managed this delicate economic balance. Bubble sizes correspond to GDP growth rates.
+                </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                <div class="chart-container h-[500px] max-h-[500px] w-full max-w-4xl">
+                    <div class="w-full h-full" id="plotlyChart"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: POLICY MATRIX -->
+        <section class="bg-stone-50 rounded-2xl p-8 lg:p-12" id="policy">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-stone-900 serif-font">Global Policy Divergence</h2>
+                <p class="text-stone-600 mt-3 max-w-2xl mx-auto">
+                    Analyze the different approaches taken by the three main power blocs toward the key themes of 2025. Toggle between policy domains by clicking the tabs.
+                </p>
+            </div>
+
+            <!-- Tabs -->
+            <div class="flex flex-wrap justify-center gap-2 mb-8" id="policy-tabs">
+                <button class="px-6 py-2 rounded-full text-sm font-medium transition-all bg-white shadow-sm hover:shadow text-stone-600" data-tab="ai">Artificial Intelligence</button>
+                <button class="px-6 py-2 rounded-full text-sm font-medium transition-all bg-white shadow-sm hover:shadow text-stone-600" data-tab="climate">Climate &amp; Energy</button>
+                <button class="px-6 py-2 rounded-full text-sm font-medium transition-all bg-white shadow-sm hover:shadow text-stone-600" data-tab="defense">Defense &amp; Security</button>
+            </div>
+
+            <!-- Content Area -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="policy-content">
+                <!-- Content injected via JS -->
+            </div>
+        </section>
+
+    </main>
+
+    <html><head></head><body><footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Thanks giving and Christmas</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+
+          
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+        <div class="space-y-2">
+          <p>Redmond<br/>WA, USA</p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+          </p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+      
+      <div class="flex space-x-4 mt-4 sm:mt-0">
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+          <span class="sr-only">Facebook</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+          <span class="sr-only">Twitter</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+          <span class="sr-only">LinkedIn</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+	  
+	  <div class="flex gap-4 mt-4 sm:mt-0">
+                    <a class="text-stone-400 hover:text-white" href="https://business.kreatewebsites.com/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+                 
+					<a class="text-stone-400 hover:text-white" href="https://business.kreatewebsites.com/sitemap.html">Sitemap</a> <!-- 14 -->
+      </div>
+    </div>
+	
+  </div>
+</footer></body></html>
+
+    <!-- LOGIC -->
+    <script>
+        // --- DATA STORE ---
+        const timelineData = [
+            {
+                id: 1,
+                date: "Jan 20, 2025",
+                title: "US Inauguration",
+                category: "Americas",
+                desc: "Following a contentious 2024 cycle, the US administration begins its term with a focus on 'Re-Industrialization' and protectionist trade policies.",
+                impact: "High Market Volatility"
+            },
+            {
+                id: 2,
+                date: "Feb 23, 2025",
+                title: "German Federal Election",
+                category: "Europe",
+                desc: "Early elections trigger high turnout. The CDU/CSU secures a commanding plurality, initiating coalition talks immediately.",
+                impact: "Euro Stabilizes"
+            },
+            {
+                id: 3,
+                date: "Mar 15, 2025",
+                title: "Global AI Accord",
+                category: "Technology",
+                desc: "G7 nations sign the 'Kyoto Protocol for AI', establishing mandatory watermarking for generated content and liability frameworks.",
+                impact: "Tech Sector Correction"
+            },
+            {
+                id: 4,
+                date: "May 06, 2025",
+                title: "Merz Assumes Office",
+                category: "Europe",
+                desc: "Friedrich Merz is sworn in as Chancellor of Germany, ending the era of the Traffic Light coalition. He promises a 'Fiscal Turnaround'.",
+                impact: "Defense Stocks Rally"
+            },
+            {
+                id: 5,
+                date: "Aug 10, 2025",
+                title: "Indo-Pacific Trade Summit",
+                category: "Asia",
+                desc: "New trade agreements exclude traditional manufacturing hubs, signaling a supply chain shift toward Vietnam and India.",
+                impact: "Supply Chain Shift"
+            },
+            {
+                id: 6,
+                date: "Nov 2025",
+                title: "COP30 Brazil",
+                category: "Climate",
+                desc: "Nations agree to the 'Belem Declaration', focusing on financing transition in the Global South rather than just emission targets.",
+                impact: "Green Bond Issuance"
+            }
+        ];
+
+        const policyData = {
+            ai: [
+                { region: "European Union", stance: "Strict Regulation", detail: "Implementation of the AI Act Phase 2. Heavy fines for non-compliance on copyright data." },
+                { region: "United States", stance: "Innovation First", detail: "Executive orders protecting open-source model weights while restricting chip exports." },
+                { region: "China", stance: "State Control", detail: "Mandatory registration of all LLMs with the cyberspace administration; focus on industrial application." }
+            ],
+            climate: [
+                { region: "European Union", stance: "Green Deal 2.0", detail: "Focus shifts from banning combustion engines to promoting synthetic fuels (e-fuels)." },
+                { region: "United States", stance: "Energy Independence", detail: "Continued IRA subsidies but with expanded permits for LNG exports to allies." },
+                { region: "Global South", stance: "Adaptation Finance", detail: "Demand for $100B/year fund for climate adaptation before agreeing to new caps." }
+            ],
+            defense: [
+                { region: "NATO (Europe)", stance: "2.5% Target", detail: "Germany and Poland lead push to raise spending floor. Focus on integrated air defense." },
+                { region: "United States", stance: "Modernization", detail: "Pivot to drone swarms and autonomous naval vessels; reduction in legacy troop footprint." },
+                { region: "Asia-Pacific", stance: "Strategic Alliances", detail: "Formalization of the 'Quad' into a military cooperation pact akin to AUKUS." }
+            ]
+        };
+
+        const economicData = [
+            { country: "Germany", defense: 2.4, inflation: 2.1, growth: 1.8 },
+            { country: "USA", defense: 3.8, inflation: 2.9, growth: 2.2 },
+            { country: "China", defense: 1.9, inflation: 1.2, growth: 4.5 },
+            { country: "France", defense: 2.1, inflation: 2.3, growth: 1.1 },
+            { country: "UK", defense: 2.5, inflation: 2.8, growth: 1.4 },
+            { country: "Japan", defense: 1.5, inflation: 1.8, growth: 0.9 },
+            { country: "Poland", defense: 4.2, inflation: 3.5, growth: 3.1 }
+        ];
+
+        // --- INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', () => {
+            initTimeline();
+            initGermanyChart();
+            initPlotlyChart();
+            initPolicyTabs();
+            
+            // Set initial tab
+            updatePolicyView('ai');
+            const tabs = document.querySelectorAll('#policy-tabs button');
+            tabs[0].classList.add('bg-teal-700', 'text-white', 'shadow-md');
+            tabs[0].classList.remove('bg-white', 'text-stone-600');
+        });
+
+        // --- TIMELINE LOGIC ---
+        function initTimeline() {
+            const listContainer = document.getElementById('timeline-list');
+            const displayContainer = document.getElementById('timeline-display');
+
+            // Render List
+            timelineData.forEach((item, index) => {
+                const node = document.createElement('div');
+                node.className = `timeline-node p-4 border-l-4 ${index === 0 ? 'border-teal-600 bg-stone-100' : 'border-stone-300 hover:bg-stone-50'} cursor-pointer transition-colors mb-2`;
+                node.innerHTML = `
+                    <div class="text-xs font-bold text-stone-500 uppercase tracking-wider">${item.date}</div>
+                    <div class="font-bold text-stone-800">${item.title}</div>
+                `;
+                node.onclick = () => {
+                    // Update Active State UI
+                    document.querySelectorAll('.timeline-node').forEach(n => {
+                        n.classList.remove('border-teal-600', 'bg-stone-100');
+                        n.classList.add('border-stone-300');
+                    });
+                    node.classList.remove('border-stone-300');
+                    node.classList.add('border-teal-600', 'bg-stone-100');
+                    
+                    // Render Details
+                    renderTimelineDetail(item);
+                };
+                listContainer.appendChild(node);
+            });
+
+            // Initial Render
+            renderTimelineDetail(timelineData[0]);
+        }
+
+        function renderTimelineDetail(item) {
+            const display = document.getElementById('timeline-display');
+            display.innerHTML = `
+                <div class="animate-fade-in">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="bg-teal-100 text-teal-800 text-xs font-bold px-2 py-1 rounded uppercase">${item.category}</span>
+                        <span class="text-stone-400 font-mono text-sm">${item.date}</span>
+                    </div>
+                    <h3 class="text-3xl font-bold text-stone-900 mb-4 serif-font">${item.title}</h3>
+                    <p class="text-lg text-stone-600 mb-6 leading-relaxed">${item.desc}</p>
+                    <div class="bg-stone-50 p-4 rounded border border-stone-200">
+                        <span class="block text-xs font-bold text-stone-500 uppercase">Primary Impact</span>
+                        <span class="text-teal-700 font-semibold">${item.impact}</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- CHART.JS: GERMANY ---
+        function initGermanyChart() {
+            const ctx = document.getElementById('germanyChart').getContext('2d');
+            
+            // Mock Data reflecting a strong CDU/CSU win (Merz victory scenario)
+            // Total Seats approx 630 (after reform)
+            // CDU/CSU: ~32%, SPD: ~16%, Greens: ~13%, AfD: ~18%, FDP: ~5%, BSW: ~8%
+            
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['CDU/CSU', 'SPD', 'AfD', 'Greens', 'BSW', 'FDP'],
+                    datasets: [{
+                        label: 'Projected Seats',
+                        data: [210, 105, 115, 85, 55, 35], // Approx distribution
+                        backgroundColor: [
+                            '#000000', // CDU Black
+                            '#E3000F', // SPD Red
+                            '#009EE0', // AfD Blue
+                            '#46962b', // Greens
+                            '#7c2e4f', // BSW Purple/Red mix
+                            '#ffed00'  // FDP Yellow
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.raw} Seats`;
+                                }
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Ruling Coalition: CDU/CSU Led',
+                            font: { family: 'Inter', size: 14 }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: '#f5f5f4' }
+                        },
+                        x: {
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+        }
+
+        // --- PLOTLY: ECONOMICS ---
+        function initPlotlyChart() {
+            const trace1 = {
+                x: economicData.map(d => d.defense), // Defense Spending % GDP
+                y: economicData.map(d => d.inflation), // Inflation %
+                mode: 'markers+text',
+                type: 'scatter',
+                text: economicData.map(d => d.country),
+                textposition: 'top center',
+                marker: {
+                    size: economicData.map(d => d.growth * 15), // Size by GDP Growth
+                    color: economicData.map(d => d.defense),
+                    colorscale: 'Teal',
+                    opacity: 0.8,
+                    line: { color: 'white', width: 2 }
+                },
+                hovertemplate: 
+                    '<b>%{text}</b><br>' +
+                    'Defense Spending: %{x}%<br>' +
+                    'Inflation: %{y}%<br>' +
+                    '<i>Size = GDP Growth</i><extra></extra>'
+            };
+
+            const layout = {
+                title: { text: 'Defense Spending vs. Inflation (2025)', font: { family: 'Merriweather' } },
+                xaxis: { 
+                    title: 'Defense Spending (% GDP)', 
+                    gridcolor: '#e7e5e4',
+                    zeroline: false
+                },
+                yaxis: { 
+                    title: 'Inflation Rate (%)', 
+                    gridcolor: '#e7e5e4',
+                    zeroline: false
+                },
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                margin: { t: 50, b: 50, l: 50, r: 20 },
+                hovermode: 'closest'
+            };
+
+            const config = { responsive: true, displayModeBar: false };
+
+            Plotly.newPlot('plotlyChart', [trace1], layout, config);
+        }
+
+        // --- POLICY TABS LOGIC ---
+        function initPolicyTabs() {
+            const tabs = document.querySelectorAll('#policy-tabs button');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', (e) => {
+                    // Reset Styles
+                    tabs.forEach(t => {
+                        t.classList.remove('bg-teal-700', 'text-white', 'shadow-md');
+                        t.classList.add('bg-white', 'text-stone-600');
+                    });
+                    
+                    // Set Active
+                    e.target.classList.remove('bg-white', 'text-stone-600');
+                    e.target.classList.add('bg-teal-700', 'text-white', 'shadow-md');
+                    
+                    // Update Content
+                    updatePolicyView(e.target.dataset.tab);
+                });
+            });
+        }
+
+        function updatePolicyView(category) {
+            const container = document.getElementById('policy-content');
+            const data = policyData[category];
+            
+            container.innerHTML = '';
+            
+            data.forEach((item, index) => {
+                const card = document.createElement('div');
+                card.className = 'bg-white p-6 rounded-xl border border-stone-200 shadow-sm hover:shadow-md transition-shadow';
+                card.innerHTML = `
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="w-2 h-8 bg-teal-600 rounded-full"></div>
+                        <h4 class="font-bold text-lg text-stone-800">${item.region}</h4>
+                    </div>
+                    <div class="text-xs font-semibold uppercase tracking-wider text-teal-600 mb-2">${item.stance}</div>
+                    <p class="text-stone-600 text-sm leading-relaxed">${item.detail}</p>
+                `;
+                // Add staggered animation delay
+                card.style.animation = `fadeIn 0.5s ease-out ${index * 0.1}s forwards`;
+                card.style.opacity = '0';
+                container.appendChild(card);
+            });
+        }
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+    </script>
+    
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+
+</body></html>

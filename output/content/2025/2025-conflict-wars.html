@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Conflict Horizon: 2025 Global Security Assessment</title>
+    
+    <meta content="Interactive 2025 Global Security Assessment dashboard visualizing key conflict theaters (Ukraine, Middle East, Indo-Pacific), military technology trends, and humanitarian impacts." name="description"/>
+    <meta content="2025 War Report, Global Conflict Monitor, Military Strategy, Geopolitics, Ukraine War, Middle East Crisis, Indo-Pacific Security, Drone Warfare, Data Visualization" name="keywords"/>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+
+    <!-- Chosen Palette: Warm Neutrals (Stone) -->
+    <!-- Application Structure Plan: 
+         1. Executive Summary: High-level metrics to orient the user immediately.
+         2. Global Risk Matrix: Interactive scatter plot (Plotly) to compare different conflicts by intensity and duration, allowing users to see the "big picture" distribution.
+         3. Regional Theaters (Tabbed): The core detailed section. Users select a region (Ukraine, Middle East, Indo-Pacific) to see specific data, text analysis, and charts relevant to that theater. This prevents information overload.
+         4. The Tech Shift: Focuses on the changing nature of war (Drones, AI).
+         5. Human Toll: The consequence of the data—displacement and funding.
+         Why this structure? It moves from the abstract (global stats) to the specific (regional details) to the thematic (tech) and finally to the impact (human), creating a narrative arc.
+    -->
+    <!-- Visualization & Content Choices:
+         - Global Matrix -> Goal: Compare -> Scatter Plot -> Interaction: Hover for details -> Plotly.js (Handles complex XY data well).
+         - Regional Data -> Goal: Inform/Change -> Bar/Line Charts -> Interaction: Tab switching updates data -> Chart.js (Clean, responsive).
+         - Tech Shift -> Goal: Trends -> Dual Axis Line/Bar -> Interaction: Toggle views -> Chart.js.
+         - Human Impact -> Goal: Proportion -> Doughnut/Stacked Bar -> Chart.js.
+         - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used.
+    -->
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f5f4; /* Stone-100 */
+            color: #1c1917; /* Stone-900 */
+        }
+
+        /* Custom Chart Container Styles for Responsiveness */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 100%; /* Context-dependent */
+            height: 350px;
+            max-height: 400px;
+            margin: 0 auto;
+        }
+
+        /* Custom Scrollbar for text panels */
+        .custom-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: #e7e5e4;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background-color: #a8a29e;
+            border-radius: 20px;
+        }
+
+        /* Tab Active State */
+        .tab-active {
+            border-bottom: 3px solid #ea580c; /* Orange-600 */
+            color: #ea580c;
+            font-weight: 600;
+        }
+        .tab-inactive {
+            color: #78716c;
+            border-bottom: 3px solid transparent;
+        }
+        .tab-inactive:hover {
+            color: #44403c;
+            border-bottom: 3px solid #d6d3d1;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-white border-b border-stone-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl font-bold tracking-tight text-stone-800">CONFLICT<span class="text-orange-600">HORIZON</span></span>
+                <span class="bg-stone-200 text-stone-600 text-xs px-2 py-1 rounded font-mono">2025 ASSESSMENT</span>
+            </div>
+            <nav class="hidden md:flex space-x-8 text-sm font-medium text-stone-600">
+                <a class="hover:text-orange-600 transition" href="#overview">Global Overview</a>
+                <a class="hover:text-orange-600 transition" href="#theaters">Regional Theaters</a>
+                <a class="hover:text-orange-600 transition" href="#tech">Future Tech</a>
+                <a class="hover:text-orange-600 transition" href="#human">Human Cost</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full space-y-12">
+
+        <!-- Section 1: Executive Summary & High-Level Metrics -->
+        <section class="space-y-6" id="overview">
+            <div class="max-w-3xl">
+                <h1 class="text-3xl font-bold text-stone-900 mb-2">2025: The Year of Entrenchment</h1>
+                <p class="text-stone-600 text-lg leading-relaxed">
+                    The 2025 Global Security Assessment indicates a shift from dynamic maneuvering to systemic entrenchment. 
+                    While the probability of new large-scale state-on-state wars remains moderate, existing conflicts in Eastern Europe and the Middle East have hardened into attritional struggles. 
+                    Simultaneously, the proliferation of autonomous systems is lowering the barrier to entry for lethal force.
+                </p>
+            </div>
+
+            <!-- Key Metric Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-stone-200 hover:border-orange-200 transition">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-sm font-medium text-stone-500 uppercase tracking-wide">High-Intensity Conflicts</h3>
+                        <span class="text-2xl">⚡</span>
+                    </div>
+                    <div class="text-3xl font-bold text-stone-900">14</div>
+                    <p class="text-sm text-stone-500 mt-1">Up from 11 in 2024</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-stone-200 hover:border-orange-200 transition">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-sm font-medium text-stone-500 uppercase tracking-wide">Global Displacement</h3>
+                        <span class="text-2xl">🏃</span>
+                    </div>
+                    <div class="text-3xl font-bold text-stone-900">123M</div>
+                    <p class="text-sm text-stone-500 mt-1">Record High (+4% YoY)</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-stone-200 hover:border-orange-200 transition">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-sm font-medium text-stone-500 uppercase tracking-wide">Defense Spending</h3>
+                        <span class="text-2xl">💰</span>
+                    </div>
+                    <div class="text-3xl font-bold text-stone-900">$2.6T</div>
+                    <p class="text-sm text-stone-500 mt-1">Global Aggregate Est.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Global Risk Matrix (Plotly) -->
+        <section class="bg-white rounded-xl shadow-sm border border-stone-200 p-6 sm:p-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                <div>
+                    <h2 class="text-2xl font-bold text-stone-900">Global Conflict Matrix</h2>
+                    <p class="text-stone-500 text-sm mt-1">Interactive scatter plot comparing conflict intensity vs. duration. <br/>Hover over bubbles for details on specific conflict zones.</p>
+                </div>
+            </div>
+            
+            <div class="w-full h-[500px] bg-stone-50 rounded-lg border border-stone-100" id="riskMatrixContainer">
+                <!-- Plotly Chart renders here -->
+            </div>
+            <div class="mt-4 flex flex-wrap gap-4 text-xs text-stone-500 justify-center">
+                <div class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-red-500 opacity-70"></span> Critical Escalation Risk</div>
+                <div class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-orange-500 opacity-70"></span> High Steady State</div>
+                <div class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-blue-500 opacity-70"></span> Frozen/Sporadic</div>
+            </div>
+        </section>
+
+        <!-- Section 3: Regional Deep Dives (Tabbed Interface) -->
+        <section class="scroll-mt-20" id="theaters">
+            <div class="mb-6">
+                <h2 class="text-2xl font-bold text-stone-900">Regional Threat Theaters</h2>
+                <p class="text-stone-600 mt-2">In-depth examination of the main geostrategic pivot points in 2025. Choose a region to delve into particular dynamics.</p>
+            </div>
+
+            <!-- Tabs -->
+            <div class="border-b border-stone-200 flex gap-6 overflow-x-auto">
+                <button class="tab-active py-3 px-1 text-sm whitespace-nowrap transition focus:outline-none" id="tab-ukraine" onclick="switchTab('ukraine')">
+                    Eastern Front (Ukraine)
+                </button>
+                <button class="tab-inactive py-3 px-1 text-sm whitespace-nowrap transition focus:outline-none" id="tab-mideast" onclick="switchTab('mideast')">
+                    Middle East &amp; Levant
+                </button>
+                <button class="tab-inactive py-3 px-1 text-sm whitespace-nowrap transition focus:outline-none" id="tab-pacific" onclick="switchTab('pacific')">
+                    Indo-Pacific Tension
+                </button>
+            </div>
+
+            <!-- Tab Content Panel -->
+            <div class="bg-white rounded-b-xl shadow-sm border border-t-0 border-stone-200 p-6 md:p-8">
+                
+                <!-- Ukraine Content -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 animate-fade-in" id="content-ukraine">
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-bold text-stone-800">The War of Attrition: Year 4</h3>
+                        <p class="text-stone-600 leading-relaxed text-sm">
+                            By 2025, the conflict has reached a stalemate, with a shift in focus from territorial gains to the production of artillery shells and FPV drones.
+                        </p>
+                        <ul class="space-y-2 mt-4">
+                            <li class="flex items-start gap-2 text-sm text-stone-700">
+                                <span class="text-orange-600 font-bold">›</span>
+                                <span><strong>Resource Exhaustion:</strong> Both sides are experiencing critical shortages in manpower and are heavily dependent on mobilization and electronic warfare.</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-sm text-stone-700">
+                                <span class="text-orange-600 font-bold">›</span>
+                                <span><strong>Infrastructure Strikes:</strong> Targeting the energy grid continues to be a key winter strategy, impacting the resilience of civilians.</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-sm text-stone-700">
+                                <span class="text-orange-600 font-bold">›</span>
+                                <span><strong>Aid Volatility:</strong> Western aid packages have transitioned from focusing on heavy armor to prioritizing air defense and long-range precision fires.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-stone-50 rounded-lg p-4 border border-stone-100 flex flex-col justify-center">
+                        <h4 class="text-sm font-semibold text-stone-500 mb-4 text-center">Artillery Shell Consumption vs. Production (Monthly Est.)</h4>
+                        <div class="chart-container">
+                            <canvas id="ukraineChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Middle East Content -->
+                <div class="hidden grid grid-cols-1 lg:grid-cols-2 gap-8 animate-fade-in" id="content-mideast">
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-bold text-stone-800">Regional Spillover &amp; Multi-Front War</h3>
+                        <p class="text-stone-600 leading-relaxed text-sm">
+                            In 2025, the security landscape in the Middle East remains fragmented, with the 'Ring of Fire' strategy continuing to be implemented by non-state actors, leading to coordinated cross-border attacks that challenge traditional deterrence measures.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 mt-4">
+                            <div class="bg-stone-100 p-3 rounded">
+                                <div class="text-xs text-stone-500 uppercase">Proxy Activity</div>
+                                <div class="font-bold text-stone-800">Very High</div>
+                            </div>
+                            <div class="bg-stone-100 p-3 rounded">
+                                <div class="text-xs text-stone-500 uppercase">Maritime Risk</div>
+                                <div class="font-bold text-red-600">Severe</div>
+                            </div>
+                        </div>
+                        <p class="text-stone-600 text-sm mt-4">
+                            <em>Interactive Note:</em> The chart shows the imbalance in expenses caused by the use of affordable interception drones and rockets, leading to the need for costly defense systems like Iron Dome and David's Sling.
+                        </p>
+                    </div>
+                    <div class="bg-stone-50 rounded-lg p-4 border border-stone-100 flex flex-col justify-center">
+                        <h4 class="text-sm font-semibold text-stone-500 mb-4 text-center">Asymmetric Exchange Cost Ratio (Attacker vs. Defender)</h4>
+                        <div class="chart-container">
+                            <canvas id="mideastChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pacific Content -->
+                <div class="hidden grid grid-cols-1 lg:grid-cols-2 gap-8 animate-fade-in" id="content-pacific">
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-bold text-stone-800">Indo-Pacific: The Naval Buildup</h3>
+                        <p class="text-stone-600 leading-relaxed text-sm">
+                            Although direct conflict continues to be avoided, 2025 sees a peak in naval tonnage production. The Taiwan Strait remains the most dangerous flashpoint globally, with blockade scenarios becoming the main focus in wargames instead of invasion.
+                        </p>
+                        <ul class="space-y-2 mt-4">
+                            <li class="flex items-start gap-2 text-sm text-stone-700">
+                                <span class="text-orange-600 font-bold">›</span>
+                                <span><strong>Gray Zone Tactics:</strong> increased coast guard patrols and "quarantine" drills around islands.</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-sm text-stone-700">
+                                <span class="text-orange-600 font-bold">›</span>
+                                <span><strong>A2/AD Bubbles:</strong> Expansion of Anti-Access/Area Denial missile ranges deep into the Pacific.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-stone-50 rounded-lg p-4 border border-stone-100 flex flex-col justify-center">
+                        <h4 class="text-sm font-semibold text-stone-500 mb-4 text-center">Naval Tonnage Launched (2020-2025 Trend)</h4>
+                        <div class="chart-container">
+                            <canvas id="pacificChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 4: Technology & Future Warfare -->
+        <section class="scroll-mt-20" id="tech">
+            <div class="bg-stone-900 rounded-xl p-8 text-stone-50">
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-1/3 space-y-4">
+                        <h2 class="text-2xl font-bold text-white">The Automization of Kill Chains</h2>
+                        <p class="text-stone-400 text-sm leading-relaxed">
+                            By 2025, 'First Person View' (FPV) drones and loitering munitions have solidified their dominance, with the notable advancement of terminal guidance AI enabling strikes on targets amidst heavy Electronic Warfare (EW) jamming.
+                        </p>
+                        <div class="border-l-2 border-orange-500 pl-4 py-1">
+                            <p class="text-stone-300 italic text-xs">
+                                By 2025, it is no longer just a theory that a $500 drone can take down a $5 million tank; it has become the statistical norm of the battlefield.
+                            </p>
+                        </div>
+                        <div class="mt-6">
+                            <h4 class="text-sm font-bold text-stone-300 mb-2">Key Tech Trends</h4>
+                            <div class="flex gap-2 flex-wrap">
+                                <span class="px-3 py-1 bg-stone-800 rounded-full text-xs text-orange-400 border border-stone-700">Swarm Logic</span>
+                                <span class="px-3 py-1 bg-stone-800 rounded-full text-xs text-orange-400 border border-stone-700">Optical Nav</span>
+                                <span class="px-3 py-1 bg-stone-800 rounded-full text-xs text-orange-400 border border-stone-700">Mobile EW</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-2/3">
+                        <div class="bg-stone-800 rounded-lg p-4 h-full border border-stone-700">
+                            <h4 class="text-sm font-semibold text-stone-400 mb-4 text-center">Global FPV Drone Production Estimates (Units per Month)</h4>
+                            <div class="chart-container h-64 md:h-80">
+                                <canvas id="techChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Human Cost -->
+        <section class="scroll-mt-20 mb-12" id="human">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="space-y-6">
+                    <div>
+                        <h2 class="text-2xl font-bold text-stone-900">The Human Toll</h2>
+                        <p class="text-stone-600 mt-2 text-sm">
+                            Beneath the surface of the strategy and technology is a worsening humanitarian crisis, with record-breaking displacement numbers in 2025 due to conflict in Sudan and instability in the Sahel, often overlooked amidst headlines from Europe and the Levant.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-orange-50 border border-orange-100 p-4 rounded-lg">
+                        <h4 class="text-orange-800 font-bold text-sm mb-2">Critical Funding Gaps</h4>
+                        <p class="text-orange-700 text-xs mb-3">Percentage of UN humanitarian appeal funded for 2025 (YTD).</p>
+                        <!-- Simple HTML/Tailwind Progress Bars -->
+                        <div class="space-y-3">
+                            <div>
+                                <div class="flex justify-between text-xs text-orange-900 mb-1"><span>Sudan Crisis</span><span>32%</span></div>
+                                <div class="w-full bg-orange-200 rounded-full h-2">
+                                    <div class="bg-orange-600 h-2 rounded-full" style="width: 32%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs text-orange-900 mb-1"><span>Ukraine Response</span><span>68%</span></div>
+                                <div class="w-full bg-orange-200 rounded-full h-2">
+                                    <div class="bg-orange-600 h-2 rounded-full" style="width: 68%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs text-orange-900 mb-1"><span>Sahel Regional</span><span>24%</span></div>
+                                <div class="w-full bg-orange-200 rounded-full h-2">
+                                    <div class="bg-orange-600 h-2 rounded-full" style="width: 24%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                    <h4 class="text-sm font-semibold text-stone-500 mb-4 text-center">Displacement by Region (Millions)</h4>
+                    <div class="chart-container">
+                        <canvas id="humanChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <html><head></head><body><footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Thanks giving and Christmas</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+
+          
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+        <div class="space-y-2">
+          <p>Redmond<br/>WA, USA</p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+          </p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+      
+      <div class="flex space-x-4 mt-4 sm:mt-0">
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+          <span class="sr-only">Facebook</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+          <span class="sr-only">Twitter</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+          <span class="sr-only">LinkedIn</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+	  
+	  <div class="flex gap-4 mt-4 sm:mt-0">
+                    <a class="text-stone-400 hover:text-white" href="https://business.kreatewebsites.com/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+                 
+					<a class="text-stone-400 hover:text-white" href="https://business.kreatewebsites.com/sitemap.html">Sitemap</a> <!-- 14 -->
+      </div>
+    </div>
+	
+  </div>
+</footer></body></html>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // --- State Management ---
+        const state = {
+            currentTab: 'ukraine',
+            charts: {} // Store chart instances to update/destroy if needed
+        };
+
+        // --- Data Store ---
+        const dataStore = {
+            ukraine: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                shellsNeeded: [350, 360, 380, 400, 410, 420], // Thousands
+                shellsProduced: [210, 230, 245, 270, 290, 310]
+            },
+            mideast: {
+                labels: ['Interceptor Missile', 'Attack Rocket', 'Attack Drone'],
+                cost: [50000, 500, 2000] // Cost in USD (approx) to show asymmetry
+            },
+            pacific: {
+                labels: ['2020', '2021', '2022', '2023', '2024', '2025'],
+                china: [120, 135, 150, 170, 190, 210], // Tonnage index
+                us_allies: [90, 92, 95, 100, 110, 125]
+            },
+            tech: {
+                labels: ['Q1 2023', 'Q3 2023', 'Q1 2024', 'Q3 2024', 'Q1 2025', 'Q3 2025'],
+                fpv: [15, 45, 120, 250, 400, 650] // Thousands of units
+            },
+            human: {
+                labels: ['Sub-Saharan Africa', 'Middle East', 'Europe', 'Americas', 'Asia-Pacific'],
+                data: [42, 28, 18, 14, 11] // Millions displaced
+            }
+        };
+
+        // --- Initialization ---
+        document.addEventListener('DOMContentLoaded', () => {
+            initGlobalMatrix();
+            initUkraineChart();
+            initMideastChart();
+            initPacificChart();
+            initTechChart();
+            initHumanChart();
+        });
+
+        // --- Tab Logic ---
+        function switchTab(tabId) {
+            // Update State
+            state.currentTab = tabId;
+
+            // Hide all content
+            ['ukraine', 'mideast', 'pacific'].forEach(id => {
+                document.getElementById(`content-${id}`).classList.add('hidden');
+                document.getElementById(`tab-${id}`).classList.remove('tab-active');
+                document.getElementById(`tab-${id}`).classList.add('tab-inactive');
+            });
+
+            // Show selected
+            document.getElementById(`content-${tabId}`).classList.remove('hidden');
+            const activeBtn = document.getElementById(`tab-${tabId}`);
+            activeBtn.classList.remove('tab-inactive');
+            activeBtn.classList.add('tab-active');
+        }
+
+        // --- Chart Implementations ---
+
+        // 1. Plotly Global Matrix (Scatter)
+        function initGlobalMatrix() {
+            const trace1 = {
+                x: [4, 1.5, 3, 5, 2], // Intensity (1-5)
+                y: [36, 12, 18, 24, 60], // Duration (Months/Years normalized)
+                mode: 'markers',
+                text: ['Ukraine War', 'Levant Escalation', 'Sudan Civil War', 'Taiwan Strait Tensions', 'Myanmar Civil War'],
+                marker: {
+                    size: [35, 25, 30, 40, 20], // Size relative to strategic impact
+                    color: ['#ea580c', '#ef4444', '#f97316', '#3b82f6', '#78716c'],
+                    opacity: 0.8
+                },
+                type: 'scatter'
+            };
+
+            const layout = {
+                margin: { t: 20, r: 20, b: 40, l: 40 },
+                hovermode: 'closest',
+                xaxis: { title: 'Conflict Intensity (Index)', range: [0, 6], showgrid: true, gridcolor: '#e5e5e5' },
+                yaxis: { title: 'Duration / Entrenchment Factor', showgrid: true, gridcolor: '#e5e5e5' },
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                showlegend: false
+            };
+
+            const config = { responsive: true, displayModeBar: false };
+            Plotly.newPlot('riskMatrixContainer', [trace1], layout, config);
+        }
+
+        // 2. Chart.js Ukraine (Line - Comparison)
+        function initUkraineChart() {
+            const ctx = document.getElementById('ukraineChart').getContext('2d');
+            state.charts.ukraine = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: dataStore.ukraine.labels,
+                    datasets: [
+                        {
+                            label: 'Monthly Requirement (k)',
+                            data: dataStore.ukraine.shellsNeeded,
+                            borderColor: '#ef4444', // Red
+                            borderDash: [5, 5],
+                            tension: 0.4
+                        },
+                        {
+                            label: 'Domestic + Aid Production (k)',
+                            data: dataStore.ukraine.shellsProduced,
+                            borderColor: '#22c55e', // Green
+                            backgroundColor: 'rgba(34, 197, 94, 0.1)',
+                            fill: true,
+                            tension: 0.4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { position: 'bottom' } },
+                    scales: { y: { beginAtZero: true } }
+                }
+            });
+        }
+
+        // 3. Chart.js Mideast (Bar - Logarithmic for scale)
+        function initMideastChart() {
+            const ctx = document.getElementById('mideastChart').getContext('2d');
+            state.charts.mideast = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: dataStore.mideast.labels,
+                    datasets: [{
+                        label: 'Cost per Unit ($)',
+                        data: dataStore.mideast.cost,
+                        backgroundColor: ['#3b82f6', '#ef4444', '#f97316'],
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { type: 'logarithmic', title: { display: true, text: 'Cost in USD (Log Scale)' } }
+                    },
+                    plugins: { legend: { display: false } }
+                }
+            });
+        }
+
+        // 4. Chart.js Pacific (Grouped Bar)
+        function initPacificChart() {
+            const ctx = document.getElementById('pacificChart').getContext('2d');
+            state.charts.pacific = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: dataStore.pacific.labels,
+                    datasets: [
+                        {
+                            label: 'China (PLAN)',
+                            data: dataStore.pacific.china,
+                            backgroundColor: '#ef4444'
+                        },
+                        {
+                            label: 'US & Regional Allies',
+                            data: dataStore.pacific.us_allies,
+                            backgroundColor: '#3b82f6'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { position: 'bottom' } }
+                }
+            });
+        }
+
+        // 5. Chart.js Tech (Line/Area)
+        function initTechChart() {
+            const ctx = document.getElementById('techChart').getContext('2d');
+            // Chart.js defaults to dark text, need to override for dark mode section
+            Chart.defaults.color = '#a8a29e'; 
+            Chart.defaults.borderColor = '#44403c';
+
+            state.charts.tech = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: dataStore.tech.labels,
+                    datasets: [{
+                        label: 'FPV Drones Deployed',
+                        data: dataStore.tech.fpv,
+                        borderColor: '#f97316', // Orange
+                        backgroundColor: 'rgba(249, 115, 22, 0.2)',
+                        fill: true,
+                        pointBackgroundColor: '#fff',
+                        tension: 0.3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { mode: 'index', intersect: false }
+                    },
+                    scales: {
+                        y: { grid: { color: '#44403c' } },
+                        x: { grid: { display: false } }
+                    }
+                }
+            });
+            // Reset defaults for other charts if re-rendered
+            Chart.defaults.color = '#666';
+            Chart.defaults.borderColor = '#e5e5e5';
+        }
+
+        // 6. Chart.js Human (Doughnut)
+        function initHumanChart() {
+            const ctx = document.getElementById('humanChart').getContext('2d');
+            state.charts.human = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: dataStore.human.labels,
+                    datasets: [{
+                        data: dataStore.human.data,
+                        backgroundColor: [
+                            '#78350f', // Dark Brown
+                            '#92400e', // Brown
+                            '#b45309', // Orange-Brown
+                            '#d97706', // Orange
+                            '#f59e0b'  // Light Orange
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'right', labels: { boxWidth: 12 } }
+                    },
+                    cutout: '60%'
+                }
+            });
+        }
+
+    </script>
+
+</body></html>

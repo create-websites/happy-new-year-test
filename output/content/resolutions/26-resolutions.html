@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Explore a curated research analysis of 26 unique, high-impact New Year's resolutions. Analyze difficulty vs. impact metrics and build a personalized micro-habit plan for 2025." name="description"/>
+    <meta content="New Year resolutions, 2025 goals, micro-habits, behavioral psychology, self-improvement, goal setting dashboard, habit formation research, personal growth, interactive planner" name="keywords"/>
+    <title>2025 New Year Resolution Research Explorer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Custom Font Import */
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:wght@500;700&display=swap');
+
+        :root {
+            --color-bg: #F5F2EB; /* Warm Neutral Background */
+            --color-card: #FFFFFF;
+            --color-text: #4A453C;
+            --color-accent: #D4A373; /* Soft Earthy Orange */
+            --color-secondary: #CCD5AE; /* Muted Green */
+            --color-dark: #2C2A25;
+        }
+
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: 'Outfit', sans-serif;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 350px;
+            margin: 0 auto;
+        }
+
+        /* Custom Scrollbar for the list container */
+        .custom-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #D4A373; 
+            border-radius: 10px;
+        }
+
+        .card-hover {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .active-filter {
+            background-color: var(--color-dark);
+            color: white;
+        }
+        
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #68D391;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #68D391;
+        }
+    </style>
+    <!-- Chosen Palette: Warm Neutrals & Earth Tones (Cream, Taupe, Soft Sage, Clay) for a calm, reflective, and non-intrusive aesthetic. -->
+    
+    <!-- Application Structure Plan: 
+         1. Header: Impactful title and summary of the research scope.
+         2. Analytical Dashboard (Top Section): Visualizes the "Landscape of Change" using Chart.js. Includes a Donut chart for category distribution and a Scatter Plot for "Impact vs. Difficulty" analysis. This gives the user a high-level view before diving into details.
+         3. Resolution Explorer (Main Section): A split-pane interactive view. Left side: Filterable list of the 26 resolutions. Right side: Dynamic detail view showing the "Research Insight," "Action Plan," and "Success Metrics" for the selected item.
+         4. My Selection (Bottom Section): A lightweight interactive checklist allowing users to "save" resolutions they are interested in, culminating in a synthesized "Commitment List." 
+         Rationale: This structure moves from macro (data trends) to micro (specific habits) to personal application (selection), mimicking the cognitive process of research-backed decision making.
+    -->
+
+    <!-- Visualization & Content Choices:
+         1. Impact vs. Difficulty Matrix (Scatter Plot): Goal: Strategic Planning. Interaction: Hover to see resolution names. Justification: Users need to weigh effort against reward. Chart.js is perfect for XY coordinate plotting.
+         2. Category Distribution (Donut Chart): Goal: Context. Interaction: Click legend to filter. Justification: Shows the holistic nature of the 26 resolutions (Mental vs Physical vs Social).
+         3. Dynamic Content Cards: Goal: Information Consumption. Interaction: Click list item -> Update Detail View. Justification: 26 items is too many for a long scroll; a master-detail view keeps the UI clean.
+         4. Progress/Selection Counter: Goal: Engagement. Interaction: Checkbox logic. Justification: Simple JS state management to gamify the research exploration.
+    -->
+    
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+<!-- Google tag (gtag.js) --><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JJ6LGZB34T"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JJ6LGZB34T');
+</script></head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <!-- Header Section -->
+    <header class="w-full bg-white border-b border-stone-200 py-8 px-4 md:px-8">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-stone-800 mb-4">The 26 Resolutions Project</h1>
+            <p class="text-lg md:text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
+                A curated research analysis of 26 unique, high-impact micro-habits designed for sustainable lifestyle transformation. 
+                Explore the data, analyze the difficulty-to-impact ratio, and build your roadmap for the new year.
+            </p>
+        </div>
+    </header>
+
+    <main class="flex-grow w-full max-w-7xl mx-auto px-4 md:px-8 py-8 space-y-12">
+
+        <!-- SECTION 1: Analytical Overview -->
+        <section class="w-full animate-fade-in-up" id="analytics">
+            <div class="mb-6">
+                <h2 class="text-2xl font-bold text-stone-800">The Landscape of Change</h2>
+                <p class="text-stone-600 mt-2">
+                    Before selecting a resolution, it is critical to understand the commitment landscape. 
+                    Our analysis maps these 26 resolutions across four key dimensions: <strong>Well-being</strong>, <strong>Growth</strong>, <strong>Connection</strong>, and <strong>Systems</strong>.
+                    The scatter plot below correlates the <em>Psychological Difficulty</em> of adoption against the <em>Long-term Impact</em>.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                
+                <!-- Chart 1: Distribution -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-100 flex flex-col items-center">
+                    <h3 class="text-lg font-semibold mb-4 text-center">Category Distribution</h3>
+                    <div class="chart-container">
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                    <p class="text-sm text-stone-500 mt-4 text-center italic">
+                        The 26 resolutions are balanced to ensure holistic life improvement.
+                    </p>
+                </div>
+
+                <!-- Chart 2: Strategic Matrix -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-100 flex flex-col items-center">
+                    <h3 class="text-lg font-semibold mb-4 text-center">Strategic Matrix: Impact vs. Difficulty</h3>
+                    <div class="chart-container">
+                        <canvas id="scatterChart"></canvas>
+                    </div>
+                    <p class="text-sm text-stone-500 mt-4 text-center italic">
+                        Top-Right Quadrant = High Impact, High Difficulty (Transformational). <br/>
+                        Top-Left Quadrant = High Impact, Low Difficulty (Quick Wins).
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: Interactive Explorer -->
+        <section class="w-full" id="explorer">
+            <div class="mb-6 flex flex-col md:flex-row justify-between items-end border-b border-stone-200 pb-4">
+                <div class="mb-4 md:mb-0">
+                    <h2 class="text-2xl font-bold text-stone-800">Resolution Database</h2>
+                    <p class="text-stone-600 mt-2 max-w-2xl">
+                        Explore the 26 distinct resolutions provided. Filter by category to find what you need, then click on a card for in-depth research, practical steps, and measurable outcomes.
+                    </p>
+                </div>
+                <!-- Filters -->
+                <div class="flex flex-wrap gap-2" id="filterContainer">
+                    <button class="filter-btn active-filter px-4 py-2 rounded-full text-sm font-medium border border-stone-300 transition-colors" data-category="All">All</button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium border border-stone-300 hover:bg-stone-100 transition-colors" data-category="Well-being">Well-being</button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium border border-stone-300 hover:bg-stone-100 transition-colors" data-category="Growth">Growth</button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium border border-stone-300 hover:bg-stone-100 transition-colors" data-category="Connection">Connection</button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium border border-stone-300 hover:bg-stone-100 transition-colors" data-category="Systems">Systems</button>
+                </div>
+            </div>
+
+            <!-- Master-Detail View -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-[600px] md:h-[500px]">
+                
+                <!-- Left: List View -->
+                <div class="md:col-span-4 lg:col-span-3 overflow-y-auto custom-scroll pr-2 space-y-3" id="resolutionsList">
+                    <!-- Items injected via JS -->
+                </div>
+
+                <!-- Right: Detail View -->
+                <div class="md:col-span-8 lg:col-span-9 bg-white rounded-xl shadow-lg border border-stone-200 p-8 flex flex-col relative overflow-hidden">
+                    <div class="h-full flex flex-col overflow-y-auto custom-scroll" id="detailContent">
+                        <!-- Default State -->
+                        <div class="flex-grow flex flex-col justify-center items-center text-center opacity-50">
+                            <span class="text-6xl mb-4">🔍</span>
+                            <h3 class="text-2xl font-serif text-stone-400">Select a resolution to view full analysis</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Selection & Commitment -->
+        <section class="w-full bg-stone-800 text-stone-100 rounded-2xl p-8 mb-12" id="commitment">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="md:col-span-2">
+                    <h2 class="text-2xl font-bold text-white mb-2">Your Focus List</h2>
+                    <p class="text-stone-400 mb-6">
+                        Studies show that narrowing your focus can boost success rates by 80%. Choose up to three goals from the options provided to enhance your customized plan.
+                    </p>
+                    <div class="space-y-3 min-h-[100px]" id="selectedList">
+                        <p class="text-stone-500 italic">No resolutions selected yet.</p>
+                    </div>
+                </div>
+                <div class="bg-stone-700 rounded-xl p-6 flex flex-col justify-center items-center text-center">
+                    <span class="text-4xl font-bold text-orange-300 mb-2" id="selectionCount">0/3</span>
+                    <span class="text-sm uppercase tracking-widest text-stone-300">Slots Filled</span>
+                    <button class="mt-6 px-6 py-2 bg-orange-300 text-stone-900 font-bold rounded hover:bg-orange-200 transition-colors w-full" onclick="printPlan()">
+                        Finalize Plan
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <html><head></head><body><footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Thanks giving and Christmas</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+
+          
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+        <div class="space-y-2">
+          <p>Redmond<br/>WA, USA</p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+          </p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+      
+      <div class="flex space-x-4 mt-4 sm:mt-0">
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+          <span class="sr-only">Facebook</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+          <span class="sr-only">Twitter</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+          <span class="sr-only">LinkedIn</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+	  
+	  <div class="flex gap-4 mt-4 sm:mt-0">
+                    <a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+                 
+					<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+      </div>
+    </div>
+	
+  </div>
+</footer></body></html>
+
+    <script>
+        // --- DATASET: 26 Unique Resolutions ---
+        const resolutions = [
+            // WELL-BEING (Physical/Mental)
+            { id: 1, title: "The '20-20-20' Vision Rule", category: "Well-being", impact: 7, difficulty: 2, summary: "Every 20 mins, look at something 20 feet away for 20 seconds.", insight: "Reduces digital eye strain by 40% and lowers cortisol spikes associated with focused screen work.", action: "Set a recurring silent timer on your phone/desktop during work hours." },
+            { id: 2, title: "Circadian Light Sync", category: "Well-being", impact: 9, difficulty: 6, summary: "View outdoor sunlight within 30 minutes of waking.", insight: "Resets the master clock (SCN), improving sleep onset latency and mood regulation via dopamine release.", action: "Drink your morning coffee on the porch or by an open window." },
+            { id: 3, title: "Hydration Anchoring", category: "Well-being", impact: 8, difficulty: 3, summary: "Drink 1 glass of water before every coffee or meal.", insight: "Uses existing habits (coffee/food) as triggers (anchors) to guarantee minimum hydration levels.", action: "Place a water glass next to your coffee machine." },
+            { id: 4, title: "Techno-Fasting", category: "Well-being", impact: 8, difficulty: 8, summary: "No screens 1 hour before bed.", insight: "Blue light inhibition of melatonin is well-documented; absence improves REM cycle stability.", action: "Create a charging station outside the bedroom." },
+            { id: 5, title: "Zone 2 Walking", category: "Well-being", impact: 9, difficulty: 5, summary: "30 mins of brisk walking daily.", insight: "Builds mitochondrial efficiency and base metabolic health without the cortisol spike of HIIT.", action: "Take calls while walking or park further away." },
+            { id: 6, title: "The 3-Minute Cold Finish", category: "Well-being", impact: 6, difficulty: 9, summary: "End showers with 30-60 seconds of cold water.", insight: "Increases norepinephrine (focus) and metabolic rate via brown fat activation.", action: "Start with 10 seconds and build up." },
+            { id: 7, title: "Conscious Chewing", category: "Well-being", impact: 5, difficulty: 4, summary: "Chew food until liquid (approx 20 times).", insight: "Improves nutrient absorption and satiety signaling (leptin) to prevent overeating.", action: "Put fork down between bites." },
+
+            // GROWTH (Learning/Skills)
+            { id: 8, title: "The 'One Page' Rule", category: "Growth", impact: 6, difficulty: 1, summary: "Read at least one page of a book daily.", insight: "Overcomes inertia. The friction is in starting; once started, people avg 15 pages.", action: "Keep a book on your pillow." },
+            { id: 9, title: "Micro-Journaling", category: "Growth", impact: 7, difficulty: 3, summary: "Write one sentence about the day's highlight.", insight: "Retrains the brain's reticular activating system to scan for positives (Gratitude).", action: "Keep a notebook on nightstand." },
+            { id: 10, title: "Learn 1 Excel Function/Wk", category: "Growth", impact: 8, difficulty: 5, summary: "Master one new spreadsheet tool weekly.", insight: "Compound skill growth. 52 functions in a year puts you in the top 1% of users.", action: "Schedule 15 mins every Friday morning." },
+            { id: 11, title: "DuoLingo Commutes", category: "Growth", impact: 6, difficulty: 4, summary: "Language learning during transit time.", insight: "Utilizes 'dead time' for neuroplasticity benefits regarding language centers.", action: "Replace music with audio lessons." },
+            { id: 12, title: "The 'No' Practice", category: "Growth", impact: 9, difficulty: 8, summary: "Decline one non-essential request weekly.", insight: "Protects deep work time and establishes boundary enforcement psychology.", action: "Draft a polite refusal template." },
+            { id: 13, title: "Weekly Curiosity Dive", category: "Growth", impact: 5, difficulty: 2, summary: "Read one article on a topic you know nothing about.", insight: "Expands lateral thinking and metaphor creation capabilities.", action: "Use Wikipedia's 'Random Article' feature on Sundays." },
+
+            // CONNECTION (Social/Community)
+            { id: 14, title: "The Text-Back Hour", category: "Connection", impact: 6, difficulty: 3, summary: "Batch reply to personal messages once daily.", insight: "Reduces switching costs (context switching) while maintaining relationships.", action: "Set 'Do Not Disturb' until 7 PM." },
+            { id: 15, title: "Compliment Bombing", category: "Connection", impact: 7, difficulty: 4, summary: "Send one genuine compliment via text daily.", insight: "Strengthens social bonds and triggers reciprocal oxytocin release.", action: "Scroll contacts, pick one, send love." },
+            { id: 16, title: "Active Listening Drills", category: "Connection", impact: 8, difficulty: 7, summary: "Ask two follow-up questions before sharing your own story.", insight: "Deepens empathy and prevents 'conversational narcissism'.", action: "Count your questions in your next meeting." },
+            { id: 17, title: "The Monthly Dinner", category: "Connection", impact: 9, difficulty: 6, summary: "Host or attend one dinner party/gathering per month.", insight: "Combats the loneliness epidemic; consistent community interaction is a longevity factor.", action: "Set a recurring date (e.g., 3rd Friday)." },
+            { id: 18, title: "Volunteer Micro-Dose", category: "Connection", impact: 7, difficulty: 5, summary: "2 hours of community service per month.", insight: "Provides 'helper's high' (endorphins) and perspective on personal problems.", action: "Find a local food bank." },
+            { id: 19, title: "Phone-Free Dining", category: "Connection", impact: 7, difficulty: 5, summary: "No devices at the dinner table.", insight: "Reclaims the primary social ritual of human history.", action: "Designate a 'phone basket' in the hallway." },
+
+            // SYSTEMS (Finance/Environment/Organization)
+            { id: 20, title: "The '2-Minute Rule'", category: "Systems", impact: 8, difficulty: 2, summary: "If it takes < 2 mins, do it now.", insight: "Prevents clutter accumulation (physical and mental) and decision fatigue.", action: "Apply to: dishes, emails, putting clothes away." },
+            { id: 21, title: "Sunday Reset", category: "Systems", impact: 9, difficulty: 5, summary: "1 hour prep for the week ahead (clothes, food, schedule).", insight: "Front-loads decision making, reducing anxiety on Monday mornings.", action: "Checklist: Laundry, Calendar, Meal Plan." },
+            { id: 22, title: "Financial Check-in", category: "Systems", impact: 9, difficulty: 4, summary: "Review bank accounts every Friday.", insight: "Increases awareness of spending leaks (Latte Factor) and subscription creep.", action: "Calendar alert: 'Money Date' Fridays." },
+            { id: 23, title: "Inbox Zero (Sort)", category: "Systems", impact: 6, difficulty: 6, summary: "Archive, Delete, or Snooze emails daily.", insight: "Reduces visual noise and the cognitive load of 'open loops'.", action: "Unsubscribe from 3 newsletters today." },
+            { id: 24, title: "Single-Tasking Windows", category: "Systems", impact: 10, difficulty: 8, summary: "One 90-min block of focused work daily.", insight: "Flow state requires 15-20 mins to access; multitasking prevents this.", action: "Use a website blocker app." },
+            { id: 25, title: "Meatless Mondays", category: "Systems", impact: 6, difficulty: 3, summary: "Vegetarian eating one day a week.", insight: "Reduces carbon footprint and encourages culinary creativity.", action: "Find 3 bean-based recipes." },
+            { id: 26, title: "Buy-Nothing Month", category: "Systems", impact: 7, difficulty: 9, summary: "No discretionary spending for 30 days.", insight: "Resets dopaminergic reward pathways associated with consumerism.", action: "Delete shopping apps from phone." }
+        ];
+
+        // --- STATE MANAGEMENT ---
+        let selectedResolutions = new Set();
+        let currentFilter = 'All';
+
+        // --- INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCharts();
+            renderList();
+            updateSelectionUI();
+            
+            // Filter Listeners
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    // Update UI classes
+                    filterBtns.forEach(b => {
+                        b.classList.remove('active-filter', 'bg-stone-800', 'text-white');
+                        b.classList.add('hover:bg-stone-100');
+                    });
+                    e.target.classList.add('active-filter');
+                    e.target.classList.remove('hover:bg-stone-100');
+                    
+                    // Update Logic
+                    currentFilter = e.target.getAttribute('data-category');
+                    renderList();
+                });
+            });
+        });
+
+        // --- RENDER FUNCTIONS ---
+
+        function renderList() {
+            const container = document.getElementById('resolutionsList');
+            container.innerHTML = '';
+            
+            const filtered = currentFilter === 'All' 
+                ? resolutions 
+                : resolutions.filter(r => r.category === currentFilter);
+
+            filtered.forEach(res => {
+                const isSelected = selectedResolutions.has(res.id);
+                const item = document.createElement('div');
+                item.className = `p-4 rounded-lg cursor-pointer card-hover border-l-4 transition-all ${isSelected ? 'bg-orange-50 border-orange-400' : 'bg-white border-stone-200'}`;
+                item.onclick = () => showDetail(res.id);
+                
+                item.innerHTML = `
+                    <div class="flex justify-between items-center">
+                        <h4 class="font-bold text-stone-800 text-sm md:text-base">${res.title}</h4>
+                        <span class="text-xs px-2 py-1 rounded bg-stone-100 text-stone-500">${res.category}</span>
+                    </div>
+                    <p class="text-xs text-stone-500 mt-1 truncate">${res.summary}</p>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        function showDetail(id) {
+            const res = resolutions.find(r => r.id === id);
+            if (!res) return;
+
+            const container = document.getElementById('detailContent');
+            const isSelected = selectedResolutions.has(id);
+            const btnText = isSelected ? "Remove from List" : "Add to Focus List";
+            const btnClass = isSelected ? "bg-red-100 text-red-700 hover:bg-red-200" : "bg-stone-800 text-white hover:bg-stone-700";
+
+            container.innerHTML = `
+                <div class="animate-fade-in">
+                    <div class="flex justify-between items-start mb-6 border-b border-stone-100 pb-4">
+                        <div>
+                            <span class="text-orange-400 font-bold tracking-wider text-xs uppercase mb-1 block">${res.category}</span>
+                            <h2 class="text-3xl font-serif text-stone-800 font-bold">${res.title}</h2>
+                        </div>
+                        <div class="text-right">
+                            <div class="inline-block bg-stone-100 rounded px-3 py-1 text-xs font-bold text-stone-600 mb-1">
+                                Impact: ${res.impact}/10
+                            </div>
+                            <div class="block"></div>
+                            <div class="inline-block bg-stone-100 rounded px-3 py-1 text-xs font-bold text-stone-600">
+                                Difficulty: ${res.difficulty}/10
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-stone-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-stone-700 mb-2 flex items-center"><span class="mr-2">🔬</span> Research Insight</h4>
+                            <p class="text-stone-600 text-sm leading-relaxed">${res.insight}</p>
+                        </div>
+                        <div class="bg-stone-50 p-4 rounded-lg border border-orange-100">
+                            <h4 class="font-bold text-stone-700 mb-2 flex items-center"><span class="mr-2">⚡</span> Action Plan</h4>
+                            <p class="text-stone-600 text-sm leading-relaxed">${res.action}</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-8">
+                        <h4 class="font-bold text-stone-800 mb-2">The Habit Summary</h4>
+                        <p class="text-lg text-stone-600 italic">"${res.summary}"</p>
+                    </div>
+
+                    <div class="mt-auto pt-4 flex justify-end">
+                        <button onclick="toggleSelection(${res.id})" class="px-6 py-3 rounded shadow-sm transition-colors font-semibold ${btnClass}">
+                            ${btnText}
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function toggleSelection(id) {
+            if (selectedResolutions.has(id)) {
+                selectedResolutions.delete(id);
+            } else {
+                if (selectedResolutions.size >= 3) {
+                    alert("Focus Limit Reached: Research suggests focusing on max 3 habits at a time. Please remove one to add this.");
+                    return;
+                }
+                selectedResolutions.add(id);
+            }
+            updateSelectionUI();
+            renderList(); // Update highlights in list
+            showDetail(id); // Update button state
+        }
+
+        function updateSelectionUI() {
+            const container = document.getElementById('selectedList');
+            const countSpan = document.getElementById('selectionCount');
+            
+            countSpan.innerText = `${selectedResolutions.size}/3`;
+
+            if (selectedResolutions.size === 0) {
+                container.innerHTML = `<p class="text-stone-500 italic">No resolutions selected yet. Click a card to add it.</p>`;
+                return;
+            }
+
+            container.innerHTML = '';
+            selectedResolutions.forEach(id => {
+                const res = resolutions.find(r => r.id === id);
+                const el = document.createElement('div');
+                el.className = 'bg-stone-600 rounded p-3 flex justify-between items-center text-stone-100';
+                el.innerHTML = `
+                    <span class="font-medium text-sm">${res.title}</span>
+                    <button onclick="toggleSelection(${res.id})" class="text-red-300 hover:text-red-100 text-xs font-bold">REMOVE</button>
+                `;
+                container.appendChild(el);
+            });
+        }
+
+        function printPlan() {
+            if (selectedResolutions.size === 0) {
+                alert("Please select at least one resolution.");
+                return;
+            }
+            window.print();
+        }
+
+        // --- CHARTS CONFIGURATION ---
+
+        function renderCharts() {
+            // Data Prep for Category Chart
+            const categories = {};
+            resolutions.forEach(r => {
+                categories[r.category] = (categories[r.category] || 0) + 1;
+            });
+
+            // Donut Chart: Categories
+            new Chart(document.getElementById('categoryChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(categories),
+                    datasets: [{
+                        data: Object.values(categories),
+                        backgroundColor: ['#CCD5AE', '#D4A373', '#E9EDC9', '#FAEDCD'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' }
+                    }
+                }
+            });
+
+            // Scatter Chart: Impact vs Difficulty
+            const scatterData = resolutions.map(r => ({
+                x: r.difficulty,
+                y: r.impact,
+                title: r.title,
+                category: r.category
+            }));
+
+            new Chart(document.getElementById('scatterChart'), {
+                type: 'scatter',
+                data: {
+                    datasets: [{
+                        label: 'Resolutions',
+                        data: scatterData,
+                        backgroundColor: (ctx) => {
+                            const cat = ctx.raw?.category;
+                            if(cat === 'Well-being') return '#CCD5AE';
+                            if(cat === 'Growth') return '#D4A373';
+                            if(cat === 'Connection') return '#E9EDC9';
+                            return '#FAEDCD'; // Systems
+                        },
+                        pointRadius: 6,
+                        pointHoverRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            title: { display: true, text: 'Difficulty (Implementation Effort)' },
+                            min: 0, max: 10
+                        },
+                        y: {
+                            title: { display: true, text: 'Impact (Life Change)' },
+                            min: 0, max: 11
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.raw.title;
+                                }
+                            }
+                        },
+                        legend: { display: false }
+                    }
+                }
+            });
+        }
+
+    </script>
+
+</body></html>

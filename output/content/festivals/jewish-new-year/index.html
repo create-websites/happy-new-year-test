@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Rosh Hashanah: The Jewish New Year</title>
+    <!-- 1. Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 2. Load Tone.js for audio synthesis (Shofar sound) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.min.js"></script>
+
+    <!-- 3. Custom styles and font -->
+    <style>
+        /* Use the Inter font */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Style for the active tab */
+        .tab-button.active {
+            @apply bg-yellow-600 text-white;
+        }
+        /* Style for inactive tabs */
+        .tab-button {
+            @apply bg-gray-700 text-gray-200 hover:bg-yellow-700;
+        }
+        /* Simple fade-in animation for content */
+        .tab-panel {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-panel.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200 antialiased">
+
+    <!-- Header Section -->
+    <header class="bg-gray-800 shadow-lg">
+        <div class="max-w-6xl mx-auto py-8 px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-yellow-400">Rosh Hashanah</h1>
+            <h2 class="text-2xl text-gray-300 mt-2">An Interactive Guide to the Jewish New Year</h2>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="max-w-6xl mx-auto p-4 md:p-8">
+
+        <!-- Interactive Symbols Section -->
+        <section class="mb-12">
+            <h3 class="text-3xl font-bold text-center text-yellow-500 mb-8">Key Symbols &amp; Sounds</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Card 1: Apple & Honey -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-xl border border-gray-700 text-center">
+                    <div class="text-5xl mb-4">🍎🍯</div>
+                    <h4 class="text-2xl font-semibold mb-2 text-white">Apples &amp; Honey</h4>
+                    <p class="text-gray-300">Dipping apples in honey is a central custom, symbolizing the hope for a sweet and fruitful new year.</p>
+                </div>
+
+                <!-- Card 2: The Shofar (Interactive) -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-xl border border-yellow-600 text-center flex flex-col justify-between">
+                    <div>
+                        <div class="text-5xl mb-4">🐏</div>
+                        <h4 class="text-2xl font-semibold mb-2 text-white">The Shofar</h4>
+                        <p class="text-gray-300 mb-4">The ram's horn is blown like a trumpet, serving as a spiritual "wake-up call" and heralding God's kingship.</p>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-sm text-yellow-400">Click to hear a sound:</p>
+                        <button class="w-full bg-yellow-600 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded-lg transition duration-200" id="play-tekiah">
+                            Tekiah (Long Blast)
+                        </button>
+                        <button class="w-full bg-yellow-600 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded-lg transition duration-200" id="play-shevarim">
+                            Shevarim (3 Broken)
+                        </button>
+                        <button class="w-full bg-yellow-600 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded-lg transition duration-200" id="play-teruah">
+                            Teruah (9 Staccato)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 3: Pomegranate -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-xl border border-gray-700 text-center">
+                    <div class="text-5xl mb-4"><span>🍑</span></div>
+                    <h4 class="text-2xl font-semibold mb-2 text-white">Pomegranate</h4>
+                    <p class="text-gray-300">This fruit is eaten with the hope that our merits in the new year will be as plentiful as its many seeds.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabbed Content Section -->
+        <section class="bg-gray-800 rounded-lg shadow-xl p-4 md:p-8 border border-gray-700">
+            
+            <!-- Tab Buttons -->
+            <div class="flex flex-wrap justify-center border-b border-gray-700 mb-6 -mx-2">
+                <button class="tab-button active text-sm md:text-base font-semibold py-3 px-3 md:px-6 m-2 rounded-t-lg transition duration-200" data-tab="tab-origins">
+                    Origins &amp; Significance
+                </button>
+                <button class="tab-button text-sm md:text-base font-semibold py-3 px-3 md:px-6 m-2 rounded-t-lg transition duration-200" data-tab="tab-traditions">
+                    Traditions &amp; Customs
+                </button>
+                <button class="tab-button text-sm md:text-base font-semibold py-3 px-3 md:px-6 m-2 rounded-t-lg transition duration-200" data-tab="tab-symbolism">
+                    Symbolism &amp; Theology
+                </button>
+                <button class="tab-button text-sm md:text-base font-semibold py-3 px-3 md:px-6 m-2 rounded-t-lg transition duration-200" data-tab="tab-modern">
+                    Modern Observance
+                </button>
+                <button class="tab-button text-sm md:text-base font-semibold py-3 px-3 md:px-6 m-2 rounded-t-lg transition duration-200" data-tab="tab-denominations">
+                    Denominations
+                </button>
+            </div>
+
+            <!-- Tab Panels -->
+            <div class="text-gray-300 leading-relaxed text-lg">
+
+                <!-- Tab 1: Origins & Significance -->
+                <div class="tab-panel active" id="tab-origins">
+                    <h4 class="text-2xl font-bold text-yellow-400 mb-4">Historical Origins</h4>
+                    <p class="mb-4">Rosh Hashanah (lit. "Head of the Year") is the Jewish New Year, but its biblical origins are not explicit. The Torah doesn't call it "Rosh Hashanah" but refers to a sacred day on the first of the seventh month (Tishrei) as <strong class="text-white">Yom Teruah</strong> (Day of Blasting [the horn]).</p>
+                    <p class="mb-4">By the time of the Mishnah (c. 200 CE), this holy day had evolved. It was firmly identified as the "New Year" for calendar years and agricultural cycles. Over time, it also became the primary spiritual new year, known as <strong class="text-white">Yom HaDin</strong> (Day of Judgment), when God is said to judge all humanity. The rabbis taught this was the anniversary of the creation of humanity.</p>
+                </div>
+
+                <!-- Tab 2: Traditions & Customs -->
+                <div class="tab-panel" id="tab-traditions">
+                    <h4 class="text-2xl font-bold text-yellow-400 mb-6">Traditions &amp; Customs</h4>
+                    <div class="space-y-8">
+                        
+                        <div>
+                            <h5 class="text-xl font-semibold text-white mb-2">Blowing the Shofar</h5>
+                            <p>The central ritual is hearing the shofar (ram's horn). Traditionally, 100 blasts are sounded in the synagogue, serving as a powerful, wordless call to repentance (Teshuvah) and symbolizing the coronation of God as King.</p>
+                        </div>
+
+                        <div>
+                            <h5 class="text-xl font-semibold text-white mb-2">Festive Meals &amp; Symbolic Foods</h5>
+                            <p class="mb-4">Families gather for festive meals. Symbolic foods, or <em class="text-gray-100">simanim</em>, are eaten to represent hopes for the new year:</p>
+                            <ul class="list-disc list-inside ml-4 space-y-2">
+                                <li><strong>Apples dipped in honey:</strong> For a sweet new year.</li>
+                                <li><strong>Round Challah:</strong> Often with raisins, its circular shape symbolizes the cycle of the year.</li>
+                                <li><strong>Pomegranates:</strong> To have merits as plentiful as the seeds.</li>
+                                <li><strong>Fish Head:</strong> To be "a head and not a tail," expressing a wish to lead.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="my-6">
+                            <!-- Image 1 from document -->
+                            <img alt="Traditional symbols of Rosh Hashanah: A shofar, pomegranates, apples, honey, and wine." class="modal-trigger w-full max-w-lg mx-auto rounded-lg shadow-lg cursor-pointer" data-caption="Traditional symbols of Rosh Hashanah: A shofar (ram’s horn), pomegranates, apples dipped in honey, and wine for Kiddush." onerror="this.src='https://placehold.co/800x600/374151/9CA3AF?text=Rosh+Hashanah+Symbols'; this.onerror=null;" src="https://placehold.co/800x600/374151/9CA3AF?text=Traditional+Symbols"/>
+                            <p class="text-center text-sm text-gray-400 mt-2 italic">Click image to enlarge. (Placeholder for doc image)</p>
+                        </div>
+
+                        <div>
+                            <h5 class="text-xl font-semibold text-white mb-2">Tashlich ("Casting Off")</h5>
+                            <p>On the first afternoon, many walk to a flowing body of water (like a river or sea) and recite prayers. They symbolically "cast off" their sins, often by throwing breadcrumbs into the water, representing a fresh start.</p>
+                        </div>
+
+                        <div>
+                            <h5 class="text-xl font-semibold text-white mb-2">Prayer Services</h5>
+                            <p>Services are long and use a special prayer book called a <strong class="text-white">Machzor</strong>. The liturgy emphasizes God's kingship, remembrance, and the shofar. A famous, solemn prayer is <strong class="text-white">Unetaneh Tokef</strong>, which describes the Day of Judgment: "On Rosh Hashanah it is written... who shall live and who shall die..."</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Tab 3: Symbolism & Theology -->
+                <div class="tab-panel" id="tab-symbolism">
+                    <h4 class="text-2xl font-bold text-yellow-400 mb-6">Core Theological Themes</h4>
+                    <p class="mb-6">Rosh Hashanah is imbued with profound, layered meanings:</p>
+                    <ul class="list-disc list-inside ml-4 space-y-4">
+                        <li><strong class="text-white">Divine Kingship:</strong> The shofar blasts are like a trumpet herald at a coronation, symbolically crowning God as King of the Universe for the new year.</li>
+                        <li><strong class="text-white">Divine Judgment (Yom HaDin):</strong> Tradition holds that on this day, God reviews the deeds of all people and decrees their fate for the coming year in the "Book of Life."</li>
+                        <li><strong class="text-white">Repentance &amp; Renewal (Teshuvah):</strong> It's not a day of final doom, but a call to action. It begins the Ten Days of Repentance, a period for introspection and self-improvement to influence the final decree on Yom Kippur.</li>
+                        <li><strong class="text-white">Creation &amp; "Birthday of the World":</strong> The holiday is seen as the anniversary of the creation of Adam and Eve—the birthday of humanity and the completion of the world.</li>
+                        <li><strong class="text-white">Mercy &amp; Hope:</strong> Despite the solemnity of judgment, the day is filled with hope. Prayers like <em class="text-gray-100">Avinu Malkeinu</em> ("Our Father, Our King") appeal to God's mercy as both a sovereign and a compassionate parent.</li>
+                    </ul>
+                </div>
+
+                <!-- Tab 4: Modern Observance -->
+                <div class="tab-panel" id="tab-modern">
+                    <h4 class="text-2xl font-bold text-yellow-400 mb-6">Modern Observances</h4>
+                    
+                    <h5 class="text-xl font-semibold text-white mb-2">In Israel</h5>
+                    <p class="mb-6">Rosh Hashanah is a two-day national holiday. Even secular Israelis often gather for large family feasts. Synagogues are full, and the sound of shofars can be heard in many neighborhoods. The holiday blends national, cultural, and religious identity.</p>
+
+                    <h5 class="text-xl font-semibold text-white mb-2">In the Diaspora</h5>
+                    <p class="mb-4">Outside of Israel, observance varies. Many Jews who are not otherwise observant attend synagogue on Rosh Hashanah and Yom Kippur (sometimes called "High Holy Day Jews"). It's a time for family gatherings, and communities often hold large, public Tashlich ceremonies at local parks or waterfronts.</p>
+                    
+                    <div class="my-8">
+                        <!-- Image 2 from document -->
+                        <img alt="Historical Tashlich: Early 20th-century American Jews perform the Tashlich prayer on a bridge in New York City." class="modal-trigger w-full max-w-lg mx-auto rounded-lg shadow-lg cursor-pointer" data-caption="Historical Tashlich: Early 20th-century American Jewish women and children perform the Tashlich prayer on the Williamsburg Bridge in New York City (1909)." onerror="this.src='https://placehold.co/800x600/374151/9CA3AF?text=Historical+Tashlich+Prayer'; this.onerror=null;" src="https://placehold.co/800x600/374151/9CA3AF?text=Historical+Tashlich"/>
+                        <p class="text-center text-sm text-gray-400 mt-2 italic">Click image to enlarge. (Placeholder for doc image)</p>
+                    </div>
+
+                    <h5 class="text-xl font-semibold text-white mb-2">Cultural Variations</h5>
+                    <p>Different Jewish communities have unique customs. Sephardic and Mizrahi Jews hold a special "seder" with symbolic foods, while Ashkenazi Jews might focus on brisket and sweet carrot tzimmes. The core themes, however, remain universal.</p>
+                </div>
+
+                <!-- Tab 5: Denominations -->
+                <div class="tab-panel" id="tab-denominations">
+                    <h4 class="text-2xl font-bold text-yellow-400 mb-6">Observance Across Denominations</h4>
+                    <p class="mb-6">While all Jewish movements observe Rosh Hashanah, practices can differ:</p>
+                    <div class="space-y-6">
+                        <div>
+                            <h5 class="text-xl font-semibold text-white">Orthodox Judaism</h5>
+                            <p>Observes two full days, even in Israel. Services are long, entirely in Hebrew, and follow traditional Jewish law strictly. The theology of a literal Day of Judgment is fully embraced. Men and women sit separately.</p>
+                        </div>
+                        <div>
+                            <h5 class="text-xl font-semibold text-white">Conservative Judaism</h5>
+                            <p>Also observes two days. Services are traditional and mostly in Hebrew, but men and women sit together, and women participate equally. The theology is traditional, though open to more modern interpretations.</p>
+                        </div>
+                        <div>
+                            <h5 class="text-xl font-semibold text-white">Reform Judaism</h5>
+                            <p>Typically observes one day (though some congregations now offer a second). Services are shorter, with a mix of Hebrew and English, and often include musical instruments. The theology is often interpreted more metaphorically, focusing on personal renewal and ethical reflection.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <html><head></head><body><footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Thanks giving and Christmas</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+
+          
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+        <div class="space-y-2">
+          <p>Redmond<br/>WA, USA</p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+          </p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+      
+      <div class="flex space-x-4 mt-4 sm:mt-0">
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+          <span class="sr-only">Facebook</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+          <span class="sr-only">Twitter</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+          <span class="sr-only">LinkedIn</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+	  
+	  <div class="flex gap-4 mt-4 sm:mt-0">
+                    <a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+                 
+					<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+      </div>
+    </div>
+	
+  </div>
+</footer></body></html>
+
+    <!-- Image Modal -->
+    <div class="fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50 hidden" id="image-modal">
+        <div class="bg-gray-800 p-4 rounded-lg shadow-2xl max-w-3xl max-h-[90vh] w-full relative">
+            <button class="absolute -top-4 -right-4 text-white bg-red-600 rounded-full w-10 h-10 text-2xl font-bold" id="modal-close">×</button>
+            <img alt="Enlarged image" class="w-full h-auto object-contain max-h-[75vh]" id="modal-image" src=""/>
+            <p class="text-gray-300 italic text-center mt-4" id="modal-caption"></p>
+        </div>
+    </div>
+
+
+    <script>
+        // --- Shofar Sound Logic ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize synth. We use AMSynth for a slightly reedy, horn-like sound.
+            // Using Tone.js requires a user interaction to start the audio context.
+            let synth;
+            let audioStarted = false;
+
+            async function startAudio() {
+                if (!audioStarted) {
+                    await Tone.start();
+                    synth = new Tone.AMSynth({
+                        harmonicity: 1.5,
+                        oscillator: { type: "fatsawtooth" },
+                        envelope: { attack: 0.1, decay: 0.2, sustain: 0.5, release: 1.0 },
+                        modulation: { type: "sine" },
+                        modulationEnvelope: { attack: 0.2, decay: 0.1, sustain: 0.3, release: 0.5 }
+                    }).toDestination();
+                    audioStarted = true;
+                    console.log("Audio Context Started");
+                }
+            }
+            
+            // Tekiah: One long blast
+            document.getElementById('play-tekiah').addEventListener('click', async () => {
+                await startAudio();
+                const now = Tone.now();
+                synth.triggerAttackRelease("G3", "2s", now);
+            });
+
+            // Shevarim: Three broken blasts
+            document.getElementById('play-shevarim').addEventListener('click', async () => {
+                await startAudio();
+                const now = Tone.now();
+                synth.triggerAttackRelease("G3", "0.5s", now);
+                synth.triggerAttackRelease("G3", "0.5s", now + 0.7);
+                synth.triggerAttackRelease("G3", "0.5s", now + 1.4);
+            });
+
+            // Teruah: Nine staccato blasts
+            document.getElementById('play-teruah').addEventListener('click', async () => {
+                await startAudio();
+                const now = Tone.now();
+                for (let i = 0; i < 9; i++) {
+                    synth.triggerAttackRelease("G3", "0.1s", now + i * 0.15);
+                }
+            });
+
+            // --- Tabbed Interface Logic ---
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabPanels = document.querySelectorAll('.tab-panel');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.getAttribute('data-tab');
+
+                    // Deactivate all buttons and hide all panels
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabPanels.forEach(panel => panel.classList.remove('active'));
+
+                    // Activate the clicked button and show the corresponding panel
+                    button.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+
+            // --- Image Modal Logic ---
+            const modal = document.getElementById('image-modal');
+            const modalImage = document.getElementById('modal-image');
+            const modalCaption = document.getElementById('modal-caption');
+            const modalClose = document.getElementById('modal-close');
+            const modalTriggers = document.querySelectorAll('.modal-trigger');
+
+            function openModal(imgElement) {
+                modalImage.src = imgElement.src;
+                modalCaption.textContent = imgElement.getAttribute('data-caption') || imgElement.alt;
+                modal.classList.remove('hidden');
+            }
+
+            function closeModal() {
+                modal.classList.add('hidden');
+            }
+
+            modalTriggers.forEach(trigger => {
+                trigger.addEventListener('click', () => openModal(trigger));
+            });
+
+            modalClose.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                // Close if clicking on the background, not the content
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+
+
+</body></html>

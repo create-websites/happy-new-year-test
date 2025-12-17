@@ -2,9 +2,9 @@
 <html lang="en"><head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <meta content="Live countdown timers for major festivals in 2026, including Valentine's Day, Holi, Easter, Mother's Day, Father's Day, Eid, Thanksgiving, Christmas, and more." name="description"/>
-    <meta content="2026 festival countdown, 2026 holiday timer, valentine's day 2026, easter 2026, eid 2026, christmas 2026, holi 2026, diwali 2026, dusshera 2026" name="keywords"/>
-    <title>2026 Festival Countdown</title>
+    <meta content="Live countdown timers for major festivals in 2027, including Valentine's Day, Holi, Easter, Mother's Day, Father's Day, Eid, Thanksgiving, Christmas, and more." name="description"/>
+    <meta content="2027 festival countdown, 2027 holiday timer, valentine's day 2027, easter 2027, eid 2027, christmas 2027, holi 2027, diwali 2027, dusshera 2027" name="keywords"/>
+    <title>2027 Festival Countdown</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com" rel="preconnect"/>
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -52,7 +52,7 @@
 
     <div class="container mx-auto p-4 md:p-8">
         <header class="text-center mb-8 md:mb-12">
-            <h1 class="font-playfair text-4xl md:text-6xl font-bold text-gray-800">2026 Festival Countdown</h1>
+            <h1 class="font-playfair text-4xl md:text-6xl font-bold text-gray-800">2027 Festival Countdown</h1>
             <p class="text-gray-500 mt-2">Counting down to the next big celebration!</p>
             <div class="mt-4 border-t border-gray-200 pt-4 text-gray-600 text-sm max-w-sm mx-auto">
                 <p id="current-time">Loading current time...</p>
@@ -75,14 +75,14 @@
         function getMothersDay(year) { // 2nd Sunday in May
             const date = new Date(year, 4, 1);
             const dayOfWeek = date.getDay();
-            const firstSunday = (7 - dayOfWeek) % 7 + 1;
+            const firstSunday = (7 - dayOfWeek + 7) % 7 + 1;
             return new Date(year, 4, firstSunday + 7);
         }
 
         function getFathersDay(year) { // 3rd Sunday in June
             const date = new Date(year, 5, 1);
             const dayOfWeek = date.getDay();
-            const firstSunday = (7 - dayOfWeek) % 7 + 1;
+            const firstSunday = (7 - dayOfWeek + 7) % 7 + 1;
             return new Date(year, 5, firstSunday + 14);
         }
 
@@ -93,23 +93,23 @@
             return new Date(year, 10, firstThursday + 21);
         }
 
-        // --- Festival Data for 2026 ---
+        // --- Festival Data for 2027 ---
         const festivals = [
-            { name: "New Year's Day", date: '2026-01-01T00:00:00', color: '#3b82f6' }, // blue-500
-            { name: 'Makar Sankranti', date: '2026-01-15T00:00:00', color: '#f97316' }, // orange-500
-            { name: "Valentine's Day", date: '2026-02-14T00:00:00', color: '#ec4899' }, // pink-500
-            { name: 'Holi', date: '2026-03-14T00:00:00', color: '#a855f7' }, // purple-500
-            { name: "St. Patrick's Day", date: '2026-03-17T00:00:00', color: '#22c55e' }, // green-500
-            { name: 'Eid al-Fitr', date: '2026-03-29T00:00:00', color: '#10b981' }, // emerald-500
-            { name: 'Easter', date: '2026-04-05T00:00:00', color: '#facc15' }, // yellow-400
-            { name: "Mother's Day", date: getMothersDay(2026), color: '#f472b6' }, // rose-400
-            { name: "Father's Day", date: getFathersDay(2026), color: '#0284c7' }, // sky-600
-            { name: 'Dussehra', date: '2026-10-20T00:00:00', color: '#d946ef' }, // fuchsia-500
-            { name: 'Halloween', date: '2026-10-31T00:00:00', color: '#ea580c' }, // orange-600
-            { name: 'Diwali', date: '2026-11-08T00:00:00', color: '#fbbf24' }, // amber-400
-            { name: 'Guru Nanak Jayanti', date: '2026-11-15T00:00:00', color: '#f59e0b' }, // amber-500
-            { name: 'Thanksgiving', date: getThanksgiving(2026), color: '#b45309' }, // yellow-700
-            { name: 'Christmas', date: '2026-12-25T00:00:00', color: '#dc2626' } // red-600
+            { name: "New Year's Day", date: '2027-01-01T00:00:00', color: '#3b82f6' },
+            { name: 'Makar Sankranti', date: '2027-01-15T00:00:00', color: '#f97316' },
+            { name: "Valentine's Day", date: '2027-02-14T00:00:00', color: '#ec4899' },
+            { name: 'Holi', date: '2027-03-02T00:00:00', color: '#a855f7' },
+            { name: "St. Patrick's Day", date: '2027-03-17T00:00:00', color: '#22c55e' },
+            { name: 'Eid al-Fitr', date: '2027-03-18T00:00:00', color: '#10b981' },
+            { name: 'Easter', date: '2027-03-28T00:00:00', color: '#facc15' },
+            { name: "Mother's Day", date: getMothersDay(2027), color: '#f472b6' },
+            { name: "Father's Day", date: getFathersDay(2027), color: '#0284c7' },
+            { name: 'Dussehra', date: '2027-10-10T00:00:00', color: '#d946ef' },
+            { name: 'Diwali', date: '2027-10-29T00:00:00', color: '#fbbf24' },
+            { name: 'Halloween', date: '2027-10-31T00:00:00', color: '#ea580c' },
+            { name: 'Guru Nanak Jayanti', date: '2027-11-12T00:00:00', color: '#f59e0b' },
+            { name: 'Thanksgiving', date: getThanksgiving(2027), color: '#b45309' },
+            { name: 'Christmas', date: '2027-12-25T00:00:00', color: '#dc2626' }
         ];
 
         // Sort festivals by date to display them chronologically
@@ -151,7 +151,7 @@
                     countdownEl.classList.add('hidden');
                     messageEl.textContent = `Celebrated!`;
                     messageEl.classList.remove('hidden', 'animate-pulse');
-                } else if (totalSeconds <= 86400) { // On the day of the festival
+                } else if (totalSeconds <= 86400 && totalSeconds >=0) { // On the day of the festival
                     countdownEl.classList.add('hidden');
                     messageEl.textContent = `Happy ${festival.name}!`;
                     messageEl.classList.remove('hidden');
@@ -199,7 +199,6 @@
         createStars();
         setInterval(updateAllCountdowns, 1000);
     </script>
-
 
 
 <html><head></head><body><footer class="bg-gray-800 text-gray-300">

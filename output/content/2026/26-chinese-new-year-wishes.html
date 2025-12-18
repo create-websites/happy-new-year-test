@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    
+    <!-- SEO Meta Tags -->
+    <meta content="Celebrate Chinese New Year with 26 auspicious wishes from A to Z. A collection of Lunar New Year greetings for prosperity, longevity, and joy." name="description"/>
+    <meta content="Chinese New Year wishes, Lunar New Year quotes, Gong Xi Fa Cai, CNY A-Z, Spring Festival greetings, Ang Pao wishes" name="keywords"/>
+    <meta content="Holiday Greetings Collection" name="author"/>
+    <meta content="26 Auspicious Chinese New Year Wishes - A-Z Guide" property="og:title"/>
+    <meta content="Share the prosperity of the Lunar New Year with these 26 beautiful A-Z greetings." property="og:description"/>
+    <meta content="website" property="og:type"/>
+
+    <title>26 CNY Wishes | A-Z Lunar New Year Guide</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&amp;family=Crimson+Pro:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+
+    <!-- React and ReactDOM -->
+    <script crossorigin="" src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin="" src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Crimson Pro', serif;
+        }
+        h1, h2, h3, .font-calligraphy {
+            font-family: 'Ma Shan Zheng', cursive;
+        }
+        .bg-pattern {
+            background-color: #7f1d1d;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23991b1b' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .animate-sway {
+            animation: sway 3s ease-in-out infinite;
+        }
+        @keyframes sway {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fffbeb;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #b91c1c;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #991b1b;
+        }
+    </style>
+</head>
+<body class="bg-amber-50 text-red-950">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // --- Icons ---
+        const IconLantern = ({ className, size=24 }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><line x1="9" x2="15" y1="3" y2="3"/><line x1="12" x2="12" y1="3" y2="5"/><path d="M6 5h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/><line x1="12" x2="12" y1="19" y2="22"/><line x1="9" x2="15" y1="22" y2="22"/></svg>
+        );
+        const IconCoin = ({ className, size=24 }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><circle cx="12" cy="12" r="9"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>
+        );
+        const IconFan = ({ className, size=24 }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M12 22v-5"/><path d="M12 17c5 0 10-4 10-9s-5-7-10-7-10 2-10 7 5 9 10 9Z"/><path d="m12 17 4.2-7.1"/><path d="m12 17-4.2-7.1"/><path d="m12 17 8-5"/><path d="m12 17-8-5"/></svg>
+        );
+        const IconFirecracker = ({ className, size=24 }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M12.5 21a.5.5 0 0 1-1 0L12 8h1l-.5 13Z"/><path d="M9 3v4"/><path d="M15 3v4"/><path d="M12 3v3"/><path d="m10 5 4 2"/><rect x="8" y="8" width="8" height="2" rx="1"/><rect x="8" y="11" width="8" height="2" rx="1"/><rect x="8" y="14" width="8" height="2" rx="1"/><rect x="8" y="17" width="8" height="2" rx="1"/></svg>
+        );
+        const IconCopy = ({ className, size=24 }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+        );
+        const IconCheck = ({ className, size=24 }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M20 6 9 17l-5-5"/></svg>
+        );
+
+        // --- Data: 26 CNY Wishes (A-Z) ---
+        const wishes = [
+            { letter: "A", title: "Abundance & Ancestors", body: "May your year overflow with abundance and surplus. As we honor our ancestors, may their blessings guide your path to prosperity." },
+            { letter: "B", title: "Blessings & Banquet", body: "Wishing you a table full of delicious food and a home full of blessings. May your family banquet be a celebration of love and unity." },
+            { letter: "C", title: "Coins & Celebration", body: "May good fortune roll into your life like golden coins. Let the celebration of the Spring Festival bring you endless joy." },
+            { letter: "D", title: "Dragon & Delight", body: "May the spirit of the Dragon bring you strength, courage, and delight in every endeavor you undertake this year." },
+            { letter: "E", title: "Envelopes & Energy", body: "May your Red Envelopes (Ang Pao) be thick and your energy be boundless. Wishing you good health and high spirits." },
+            { letter: "F", title: "Fortune & Fireworks", body: "As fireworks light up the sky, may fortune light up your life. Gong Xi Fa Cai! Wishing you wealth and success." },
+            { letter: "G", title: "Gold & Good Luck", body: "May your year be as bright as gold and filled with good luck at every turn. May everything go according to your wishes." },
+            { letter: "H", title: "Harmony & Health", body: "Health is the greatest wealth. Wishing you a year of physical vitality and perfect harmony within your family." },
+            { letter: "I", title: "Ingots & Inspiration", body: "May wealth accumulate like piles of gold ingots, and may you find inspiration to achieve all your dreams." },
+            { letter: "J", title: "Jade & Joy", body: "Like precious jade, may your life be polished and valuable. Wishing you pure joy and peace throughout the Lunar New Year." },
+            { letter: "K", title: "Kinship & Knots", body: "Celebrating the unbreakable bonds of kinship. May the Chinese knots of luck tie your family together in happiness." },
+            { letter: "L", title: "Lanterns & Longevity", body: "May the red lanterns shine a light on a bright future. Wishing you and your elders the blessing of great longevity." },
+            { letter: "M", title: "Moon & Mandarins", body: "As the new moon rises, may your luck be as sweet and abundant as a basket of mandarin oranges." },
+            { letter: "N", title: "Noodles & Newness", body: "Slurp your longevity noodles high for a long life! Embrace the newness of the year with hope and excitement." },
+            { letter: "O", title: "Oranges & Opportunity", body: "May the exchange of oranges bring you luck, and may the New Year open doors to incredible opportunities." },
+            { letter: "P", title: "Prosperity & Peach Blossoms", body: "Wishing you blooming prosperity and the romance of peach blossoms. May your career and relationships flourish." },
+            { letter: "Q", title: "Qi & Quality", body: "May your 'Qi' (energy) flow smoothly, bringing you balance, peace, and a high quality of life this year." },
+            { letter: "R", title: "Reunion & Red", body: "There is no joy like the Reunion Dinner. May your home be painted red with happiness and the warmth of family." },
+            { letter: "S", title: "Spring & Success", body: "Happy Spring Festival! May the arrival of Spring bring the growth of your success and the realization of your goals." },
+            { letter: "T", title: "Tea & Togetherness", body: "May you share many cups of tea with loved ones. Here is to togetherness, warmth, and conversation." },
+            { letter: "U", title: "Unity & Understanding", body: "May the New Year foster unity in your community and deep understanding in your relationships." },
+            { letter: "V", title: "Vitality & Victory", body: "Wishing you the vitality of a tiger and the victory of a warrior. May you conquer every challenge." },
+            { letter: "W", title: "Wealth & Wisdom", body: "May wealth come pouring in from all directions, and may wisdom guide you in how to use it well." },
+            { letter: "X", title: "Xi (Happiness) & X-citement", body: "Double Happiness (Xi) to you! May your year be filled with double the excitement and double the love." },
+            { letter: "Y", title: "Year & Youth", body: "Nian Nian You Yu — May every year have surplus! Wishing you a youthful spirit and an abundant year ahead." },
+            { letter: "Z", title: "Zodiac & Zeal", body: "No matter your Zodiac sign, may you approach this year with zeal and passion. Make it your best year yet!" }
+        ];
+
+        // --- Sub-component ---
+        const WishCard = ({ wish }) => {
+            const [copied, setCopied] = useState(false);
+
+            const copyToClipboard = () => {
+                const textToCopy = `${wish.title}\n\n${wish.body}`;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        setCopied(true);
+                        setTimeout(() => setCopied(false), 2000);
+                    });
+                } else {
+                    const textArea = document.createElement("textarea");
+                    textArea.value = textToCopy;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    setCopied(true);
+                    setTimeout(() => setCopied(false), 2000);
+                }
+            };
+
+            return (
+                <div className="group bg-white rounded-lg p-6 shadow-md hover:shadow-2xl hover:shadow-red-900/20 transition-all duration-300 border-2 border-amber-100 hover:border-red-600 relative overflow-hidden h-full flex flex-col justify-between">
+                    {/* Decorative Corner (Chinese Knot style abstract) */}
+                    <div className="absolute top-0 right-0 w-16 h-16 border-t-4 border-r-4 border-red-600 rounded-tr-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div className="absolute bottom-0 left-0 w-16 h-16 border-b-4 border-l-4 border-red-600 rounded-bl-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    
+                    <div className="absolute top-2 right-4 text-3xl font-calligraphy text-red-100 group-hover:text-red-500 transition-colors z-0 select-none">{wish.letter}</div>
+
+                    <div className="mb-4 relative z-10">
+                        <div className="flex items-center gap-2 mb-3 border-b-2 border-amber-200 pb-2">
+                             <div className="text-red-700">
+                                {wish.letter === 'L' || wish.letter === 'R' ? <IconLantern size={22}/> : 
+                                 wish.letter === 'C' || wish.letter === 'G' || wish.letter === 'W' ? <IconCoin size={22}/> :
+                                 wish.letter === 'F' || wish.letter === 'X' ? <IconFirecracker size={22}/> :
+                                 <IconFan size={22}/>}
+                             </div>
+                            <h3 className="text-xl font-bold text-red-900 font-serif">
+                                {wish.title}
+                            </h3>
+                        </div>
+                        <p className="text-lg text-slate-700 leading-relaxed font-normal font-serif">
+                            {wish.body}
+                        </p>
+                    </div>
+
+                    <div className="flex justify-between items-center mt-4 pt-2">
+                        <span className="text-sm text-red-600 font-calligraphy text-xl">
+                            Gong Xi Fa Cai
+                        </span>
+                        <button 
+                            onClick={copyToClipboard}
+                            className="text-amber-600 hover:text-red-600 transition-colors p-2 rounded-full hover:bg-amber-50"
+                            title="Copy to clipboard"
+                        >
+                            {copied ? <span className="text-green-600 text-xs font-bold flex items-center gap-1">Copied <IconCheck size={14}/></span> : <IconCopy size={18} />}
+                        </button>
+                    </div>
+                </div>
+            );
+        };
+
+        // --- Main Component ---
+        const ChineseNewYear = () => {
+            const [currentWishIndex, setCurrentWishIndex] = useState(0);
+            const [isCopied, setIsCopied] = useState(false);
+
+            const handleCopy = (wish) => {
+                const textToCopy = `${wish.title}\n\n${wish.body}`;
+                 if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        setIsCopied(true);
+                        setTimeout(() => setIsCopied(false), 2000);
+                    });
+                } else {
+                    const textArea = document.createElement("textarea");
+                    textArea.value = textToCopy;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    setIsCopied(true);
+                    setTimeout(() => setIsCopied(false), 2000);
+                }
+            };
+
+            const nextWish = () => {
+                setCurrentWishIndex((prev) => (prev + 1) % wishes.length);
+            };
+
+            const prevWish = () => {
+                setCurrentWishIndex((prev) => (prev - 1 + wishes.length) % wishes.length);
+            };
+            
+            const currentWish = wishes[currentWishIndex];
+
+            return (
+                <div className="min-h-screen bg-pattern font-serif text-slate-800 overflow-x-hidden selection:bg-red-700 selection:text-amber-100 pb-12">
+                
+                {/* --- Decorative Background Overlay --- */}
+                <div className="fixed inset-0 pointer-events-none z-0 bg-gradient-to-b from-transparent via-transparent to-red-950/80"></div>
+
+                {/* --- Header / Hero Section --- */}
+                <header className="relative z-10 bg-red-900 shadow-2xl border-b-4 border-amber-400">
+                     <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, #fcd34d 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
+                    
+                    <div className="container mx-auto px-4 py-16 text-center relative">
+                        {/* Hanging Lanterns */}
+                        <div className="absolute top-0 left-10 md:left-1/4 text-red-600 animate-sway origin-top">
+                            <div className="w-1 h-12 bg-amber-500 mx-auto"></div>
+                            <div className="bg-red-700 p-2 rounded-lg shadow-lg border border-amber-400"><IconLantern size={48} className="text-amber-400"/></div>
+                            <div className="w-px h-8 bg-amber-400 mx-auto"></div>
+                            <div className="w-2 h-8 bg-red-600 mx-auto"></div>
+                        </div>
+                        <div className="absolute top-0 right-10 md:right-1/4 text-red-600 animate-sway origin-top" style={{animationDelay: '1.5s'}}>
+                            <div className="w-1 h-8 bg-amber-500 mx-auto"></div>
+                            <div className="bg-red-700 p-2 rounded-lg shadow-lg border border-amber-400"><IconLantern size={40} className="text-amber-400"/></div>
+                            <div className="w-px h-6 bg-amber-400 mx-auto"></div>
+                             <div className="w-2 h-6 bg-red-600 mx-auto"></div>
+                        </div>
+
+                        <div className="mt-8">
+                            <h2 className="text-2xl md:text-3xl font-calligraphy text-amber-300 mb-2 tracking-widest">
+                                恭喜发财
+                            </h2>
+                            <h1 className="text-5xl md:text-7xl font-bold mb-4 text-amber-50 font-calligraphy drop-shadow-md">
+                                Happy Chinese New Year
+                            </h1>
+                            <p className="text-xl md:text-2xl font-normal italic text-red-200 max-w-2xl mx-auto">
+                                26 Auspicious Wishes for Prosperity & Joy
+                            </p>
+                        </div>
+                    </div>
+                </header>
+
+                <main className="relative z-10 container mx-auto px-4 py-12">
+                    
+                    {/* --- Featured Wish Card (Scroll Style) --- */}
+                    <section className="mb-20 max-w-4xl mx-auto">
+                        <div className="relative bg-[#fffcf5] rounded-none shadow-2xl overflow-hidden border-y-8 border-red-800 transform transition-all">
+                            {/* Scroll Rollers */}
+                            <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-amber-700 to-amber-900 shadow-xl border-r border-amber-950"></div>
+                            <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-amber-700 to-amber-900 shadow-xl border-l border-amber-950"></div>
+
+                            {/* Inner Scroll Content */}
+                            <div className="p-8 md:p-16 mx-8 flex flex-col items-center justify-center min-h-[400px] text-center relative border-x border-dashed border-amber-300">
+                                {/* Giant Background Letter */}
+                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[200px] font-calligraphy text-red-500 opacity-5 select-none -z-10">
+                                    {currentWish.letter}
+                                </div>
+
+                                <div className="bg-red-50 p-4 rounded-full mb-6 text-red-700 border border-red-200">
+                                    <IconFan size={36} />
+                                </div>
+                                
+                                <h4 className="text-3xl md:text-5xl font-bold text-red-900 mb-6 font-calligraphy">
+                                    {currentWish.title}
+                                </h4>
+                                
+                                <p className="text-xl md:text-2xl font-normal leading-relaxed text-slate-700 mb-10 max-w-2xl font-serif">
+                                    "{currentWish.body}"
+                                </p>
+                                
+                                <div className="flex flex-wrap gap-4 justify-center mt-2">
+                                    <button 
+                                    onClick={() => handleCopy(currentWish)}
+                                    className="flex items-center gap-2 px-8 py-3 bg-red-800 hover:bg-red-900 text-amber-50 rounded-full font-bold transition-all shadow-lg hover:shadow-red-500/30 border border-amber-500"
+                                    >
+                                    {isCopied ? "Copied!" : "Copy Wish"} <IconCopy size={18} />
+                                    </button>
+                                    <button 
+                                    onClick={nextWish}
+                                    className="flex items-center gap-2 px-8 py-3 bg-white border-2 border-red-800 text-red-800 hover:bg-red-50 rounded-full font-bold transition-colors"
+                                    >
+                                    Next Letter
+                                    </button>
+                                </div>
+                            </div>
+
+                            <button onClick={prevWish} className="absolute left-10 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-red-800 hover:bg-red-900 rounded-full text-amber-50 transition-colors shadow-md hidden md:flex text-xl">←</button>
+                            <button onClick={nextWish} className="absolute right-10 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-red-800 hover:bg-red-900 rounded-full text-amber-50 transition-colors shadow-md hidden md:flex text-xl">→</button>
+                        </div>
+                    </section>
+
+                    {/* --- Grid of Wishes --- */}
+                    <section>
+                        <div className="flex items-center justify-center mb-12 gap-6 bg-white/10 backdrop-blur-md py-4 rounded-xl border border-white/20">
+                            <IconCoin className="text-amber-400 drop-shadow-md" size={32} />
+                            <h3 className="text-3xl md:text-4xl font-bold text-amber-50 font-calligraphy text-center drop-shadow-md">Lunar New Year Collection</h3>
+                            <IconCoin className="text-amber-400 drop-shadow-md" size={32} />
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                            {wishes.map((wish, index) => (
+                            <WishCard key={index} wish={wish} />
+                            ))}
+                        </div>
+                    </section>
+
+                </main>
+
+                {/* --- Footer --- */}
+                <footer className="relative z-10 bg-red-950 text-amber-100/80 py-16 mt-16 border-t-2 border-amber-600">
+                    <div className="container mx-auto px-4 text-center">
+                        <div className="flex justify-center items-center gap-3 mb-6">
+                            <span className="text-3xl">🏮</span>
+                            <h2 className="text-4xl font-calligraphy text-amber-400">Happy New Year</h2>
+                            <span className="text-3xl">🏮</span>
+                        </div>
+                        <p className="max-w-xl mx-auto text-amber-100/60 mb-8 font-serif text-lg">
+                            May prosperity and peace be with you throughout the year.
+                        </p>
+                        <div className="flex justify-center gap-6 mb-8 font-bold text-sm uppercase tracking-wider">
+                            <span className="cursor-pointer hover:text-white transition-colors">Home</span>
+                            <span className="cursor-pointer hover:text-white transition-colors">About</span>
+                            <span className="cursor-pointer hover:text-white transition-colors">Share</span>
+                        </div>
+                        <div className="text-sm text-red-800/50 pt-8 border-t border-red-900/50">
+                            © {new Date().getFullYear()} Holiday Greetings Collection. All rights reserved.
+                        </div>
+                    </div>
+                </footer>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<ChineseNewYear />);
+    </script>
+
+<html><head></head><body><footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Thanks giving and Christmas</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+
+          
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+        <div class="space-y-2">
+          <p>Redmond<br/>WA, USA</p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+          </p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+      
+      <div class="flex space-x-4 mt-4 sm:mt-0">
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+          <span class="sr-only">Facebook</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+          <span class="sr-only">Twitter</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+          <span class="sr-only">LinkedIn</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+	  
+	  <div class="flex gap-4 mt-4 sm:mt-0">
+                    <a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+                 
+					<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+      </div>
+    </div>
+	
+  </div>
+</footer></body></html></body></html>

@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    
+    <!-- SEO Meta Tags -->
+    <meta content="Celebrate the New Year with 26 colorful wishes from A to Z. A vibrant collection of greetings, quotes, and messages for a bright and happy year ahead." name="description"/>
+    <meta content="New Year wishes, Happy New Year 2026, Colorful greetings, Party quotes, A-Z New Year messages, best new year wishes" name="keywords"/>
+    <meta content="Holiday Greetings Collection" name="author"/>
+    <meta content="26 Colorful New Year Wishes - A-Z Guide" property="og:title"/>
+    <meta content="Start the year with a splash of joy! 26 beautiful A-Z greetings for the New Year." property="og:description"/>
+    <meta content="website" property="og:type"/>
+
+    <title>26 Colorful New Year Wishes | A-Z Guide</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        partyPink: '#ec4899',
+                        partyYellow: '#facc15',
+                        partyGreen: '#22c55e',
+                        partyBlue: '#3b82f6',
+                        partyPurple: '#a855f7',
+                    },
+                    animation: {
+                        'bounce-slow': 'bounce 3s infinite',
+                        'spin-slow': 'spin 12s linear infinite',
+                        'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&amp;family=Nunito:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+
+    <!-- React and ReactDOM -->
+    <script crossorigin="" src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin="" src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+        }
+        h1, h2, h3, .font-display {
+            font-family: 'Carter One', cursive;
+        }
+        .bg-confetti {
+            background-color: #f0fdf4;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(236, 72, 153, 0.15) 0%, transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 25%),
+                radial-gradient(circle at 50% 80%, rgba(250, 204, 21, 0.15) 0%, transparent 25%);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fff;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #ec4899, #3b82f6, #facc15);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body class="bg-confetti text-gray-800">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // --- Icons ---
+        const IconPartyPopper = ({ className, size=24 }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+                <path d="M5.8 11.3 2 22l10.7-3.79" />
+                <path d="M4 3h.01" />
+                <path d="M22 8h.01" />
+                <path d="M15 2h.01" />
+                <path d="M22 20h.01" />
+                <path d="m22 2-2.24.75a2.9 2.9 0 0 0-1.96 3.12v0c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L14 10" />
+                <path d="m22 13-.82-.33c-.86-.34-1.82.2-1.98 1.11v0c-.11.7-.72 1.22-1.43 1.22H17" />
+                <path d="m11 2 .33.82c.34.86-.2 1.82-1.11 1.98v0C9.52 4.9 9 5.52 9 6.23V7" />
+            </svg>
+        );
+
+        const IconFireworks = ({ className, size=24 }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+                <path d="M12 2v4" />
+                <path d="m12 18 2 2" />
+                <path d="m21.03 2.97-2.12 2.12" />
+                <path d="m14 10 2 2" />
+                <path d="M22 12h-4" />
+                <path d="m6 12-2 2" />
+                <path d="m21.03 21.03-2.12-2.12" />
+                <path d="m14 14 2 2" />
+                <path d="M12 22v-4" />
+                <path d="m2.97 21.03 2.12-2.12" />
+                <path d="m10 14-2 2" />
+                <path d="M2 12h4" />
+                <path d="m10 6-2-2" />
+                <path d="m2.97 2.97 2.12 2.12" />
+            </svg>
+        );
+
+        const IconClock = ({ className, size=24 }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+            </svg>
+        );
+
+        const IconStar = ({ className, size=24 }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+            </svg>
+        );
+
+        const IconCopy = ({ className, size=24 }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+        );
+        const IconCheck = ({ className, size=24 }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M20 6 9 17l-5-5"/></svg>
+        );
+
+        // --- Data: 26 New Year Wishes (A-Z) ---
+        const wishes = [
+            { letter: "A", title: "Adventures & Awe", body: "May the New Year bring adventures that thrill you and moments of awe that inspire you. Step into the unknown with courage!", color: "text-partyPink", bgColor: "bg-pink-100", borderColor: "border-pink-300" },
+            { letter: "B", title: "Bright Beginnings", body: "Here's to bright beginnings and leaving the shadows behind. May your path be illuminated with hope and happiness.", color: "text-partyBlue", bgColor: "bg-blue-100", borderColor: "border-blue-300" },
+            { letter: "C", title: "Celebration & Cheers", body: "Raise a glass! Wishing you a year long celebration, endless cheers, and reasons to party every single day.", color: "text-partyPurple", bgColor: "bg-purple-100", borderColor: "border-purple-300" },
+            { letter: "D", title: "Dreams & Daring", body: "Dare to dream big this year. May your wildest dreams take flight and turn into beautiful realities.", color: "text-partyGreen", bgColor: "bg-green-100", borderColor: "border-green-300" },
+            { letter: "E", title: "Energy & Excitement", body: "May you wake up every morning with boundless energy and go to bed with excitement for tomorrow. Happy New Year!", color: "text-partyYellow", bgColor: "bg-yellow-100", borderColor: "border-yellow-300" },
+            { letter: "F", title: "Fun & Friendship", body: "Life is better with friends. Wishing you a year full of fun times, inside jokes, and unforgettable memories with your squad.", color: "text-indigo-500", bgColor: "bg-indigo-100", borderColor: "border-indigo-300" },
+            { letter: "G", title: "Goals & Growth", body: "Set your goals high and don't stop until you get there. Wishing you tremendous personal growth and success.", color: "text-teal-500", bgColor: "bg-teal-100", borderColor: "border-teal-300" },
+            { letter: "H", title: "Health & Happiness", body: "The classic duo! May good health be your foundation and happiness be your daily companion throughout the year.", color: "text-rose-500", bgColor: "bg-rose-100", borderColor: "border-rose-300" },
+            { letter: "I", title: "Inspiration & Ideas", body: "May inspiration strike when you least expect it. Here's to brilliant ideas and the creativity to make them happen.", color: "text-cyan-600", bgColor: "bg-cyan-100", borderColor: "border-cyan-300" },
+            { letter: "J", title: "Joy & Journey", body: "Enjoy the journey, not just the destination. May joy find you in the little detours and scenic routes of life.", color: "text-orange-500", bgColor: "bg-orange-100", borderColor: "border-orange-300" },
+            { letter: "K", title: "Kindness & Karma", body: "Spread kindness wherever you go, and watch good karma find its way back to you. Have a blessed year.", color: "text-lime-600", bgColor: "bg-lime-100", borderColor: "border-lime-300" },
+            { letter: "L", title: "Love & Laughter", body: "May your heart be full of love and your home echo with laughter. Wishing you the warmest connections.", color: "text-fuchsia-600", bgColor: "bg-fuchsia-100", borderColor: "border-fuchsia-300" },
+            { letter: "M", title: "Magic & Moments", body: "Believe in magic! May this year bring you magical moments that take your breath away.", color: "text-violet-600", bgColor: "bg-violet-100", borderColor: "border-violet-300" },
+            { letter: "N", title: "New Opportunities", body: "When one door closes, another opens. May the New Year bring you fresh opportunities to shine.", color: "text-sky-500", bgColor: "bg-sky-100", borderColor: "border-sky-300" },
+            { letter: "O", title: "Optimism & Openness", body: "Stay optimistic! Keep an open mind and an open heart, and amazing things will surely come your way.", color: "text-amber-500", bgColor: "bg-amber-100", borderColor: "border-amber-300" },
+            { letter: "P", title: "Prosperity & Peace", body: "Wishing you prosperity in your wallet and peace in your soul. May abundance flow freely into your life.", color: "text-emerald-600", bgColor: "bg-emerald-100", borderColor: "border-emerald-300" },
+            { letter: "Q", title: "Quality & Quiet", body: "Seek quality over quantity in all things. May you find quiet moments to recharge amidst the celebrations.", color: "text-purple-600", bgColor: "bg-purple-100", borderColor: "border-purple-300" },
+            { letter: "R", title: "Resolutions & Rewards", body: "May you stick to your resolutions and reap the rewards of your hard work. You've got this!", color: "text-red-500", bgColor: "bg-red-100", borderColor: "border-red-300" },
+            { letter: "S", title: "Sparkle & Success", body: "It's your time to sparkle! May success follow you in every endeavor you undertake this year.", color: "text-yellow-600", bgColor: "bg-yellow-100", borderColor: "border-yellow-300" },
+            { letter: "T", title: "Time & Treasure", body: "Time is our greatest treasure. Spend it wisely with those you love. Happy New Year!", color: "text-blue-600", bgColor: "bg-blue-100", borderColor: "border-blue-300" },
+            { letter: "U", title: "Unstoppable You", body: "Be unstoppable! Let no obstacle hinder your path. Wishing you resilience and strength.", color: "text-pink-600", bgColor: "bg-pink-100", borderColor: "border-pink-300" },
+            { letter: "V", title: "Victory & Vibes", body: "Good vibes only! May you claim victory over your challenges and keep your spirit high.", color: "text-green-600", bgColor: "bg-green-100", borderColor: "border-green-300" },
+            { letter: "W", title: "Wonder & Wisdom", body: "May you never lose your sense of wonder. Wishing you a year of gaining wisdom and experiencing beauty.", color: "text-indigo-600", bgColor: "bg-indigo-100", borderColor: "border-indigo-300" },
+            { letter: "X", title: "X-factor", body: "May you discover your X-factor this year! Shine your unique light for the world to see.", color: "text-fuchsia-500", bgColor: "bg-fuchsia-100", borderColor: "border-fuchsia-300" },
+            { letter: "Y", title: "Your Year", body: "This is YOUR year. Own it, live it, and love every minute of it. Make it count!", color: "text-cyan-500", bgColor: "bg-cyan-100", borderColor: "border-cyan-300" },
+            { letter: "Z", title: "Zeal & Zest", body: "Attack the New Year with zeal and a zest for life! Live passionately and joyfully.", color: "text-orange-600", bgColor: "bg-orange-100", borderColor: "border-orange-300" }
+        ];
+
+        // --- Sub-component ---
+        const WishCard = ({ wish }) => {
+            const [copied, setCopied] = useState(false);
+
+            const copyToClipboard = () => {
+                const textToCopy = `${wish.title}\n\n${wish.body}`;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        setCopied(true);
+                        setTimeout(() => setCopied(false), 2000);
+                    });
+                } else {
+                    const textArea = document.createElement("textarea");
+                    textArea.value = textToCopy;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    setCopied(true);
+                    setTimeout(() => setCopied(false), 2000);
+                }
+            };
+
+            return (
+                <div className={`group ${wish.bgColor} rounded-3xl p-6 shadow-md hover:shadow-2xl transition-all duration-300 border-b-4 ${wish.borderColor} hover:-translate-y-2 relative overflow-hidden h-full flex flex-col justify-between`}>
+                    
+                    {/* Decorative Confetti Background */}
+                    <div className="absolute -top-4 -right-4 opacity-20 transform rotate-12 group-hover:scale-125 transition-transform duration-500">
+                        <IconFireworks size={80} className={wish.color} />
+                    </div>
+
+                    <div className="mb-4 relative z-10">
+                        <div className="flex items-center gap-3 mb-4">
+                             <div className={`w-12 h-12 bg-white rounded-full flex items-center justify-center border-2 ${wish.borderColor} shadow-sm group-hover:animate-pulse`}>
+                                <div className={wish.color}>
+                                    {wish.letter === 'T' || wish.letter === 'C' || wish.letter === 'N' ? <IconClock size={24}/> : 
+                                     wish.letter === 'S' || wish.letter === 'D' || wish.letter === 'M' || wish.letter === 'W' ? <IconStar size={24}/> :
+                                     wish.letter === 'A' || wish.letter === 'J' || wish.letter === 'F' ? <IconPartyPopper size={24}/> :
+                                     <IconFireworks size={24}/>}
+                                </div>
+                             </div>
+                             <span className={`text-4xl font-display font-black ${wish.color} opacity-80 select-none`}>{wish.letter}</span>
+                        </div>
+                        <h3 className={`text-xl font-bold font-display mb-2 tracking-wide ${wish.color} brightness-75`}>
+                            {wish.title}
+                        </h3>
+                        <p className="text-base text-gray-700 leading-relaxed font-bold">
+                            {wish.body}
+                        </p>
+                    </div>
+
+                    <div className="flex justify-between items-center mt-2 pt-4 border-t border-white/50 relative z-10">
+                        <span className={`text-xs font-black uppercase tracking-widest ${wish.color} opacity-70`}>
+                            Happy New Year
+                        </span>
+                        <button 
+                            onClick={copyToClipboard}
+                            className={`bg-white hover:bg-gray-100 ${wish.color} transition-colors p-2 rounded-full shadow-sm`}
+                            title="Copy to clipboard"
+                        >
+                            {copied ? <span className="text-green-500 font-bold text-xs">Copied</span> : <IconCopy size={18} />}
+                        </button>
+                    </div>
+                </div>
+            );
+        };
+
+        // --- Main Component ---
+        const NewYearWishes = () => {
+            const [currentWishIndex, setCurrentWishIndex] = useState(0);
+            const [isCopied, setIsCopied] = useState(false);
+
+            const handleCopy = (wish) => {
+                const textToCopy = `${wish.title}\n\n${wish.body}`;
+                 if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        setIsCopied(true);
+                        setTimeout(() => setIsCopied(false), 2000);
+                    });
+                } else {
+                    const textArea = document.createElement("textarea");
+                    textArea.value = textToCopy;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    setIsCopied(true);
+                    setTimeout(() => setIsCopied(false), 2000);
+                }
+            };
+
+            const nextWish = () => {
+                setCurrentWishIndex((prev) => (prev + 1) % wishes.length);
+            };
+
+            const prevWish = () => {
+                setCurrentWishIndex((prev) => (prev - 1 + wishes.length) % wishes.length);
+            };
+            
+            const currentWish = wishes[currentWishIndex];
+
+            return (
+                <div className="min-h-screen font-sans text-gray-800 overflow-x-hidden selection:bg-partyPink selection:text-white pb-12">
+                
+                {/* --- Header / Hero Section --- */}
+                <header className="relative z-10 bg-white/90 backdrop-blur-md border-b-8 border-b-partyPurple shadow-xl overflow-hidden">
+                    {/* Moving colorful blobs */}
+                    <div className="absolute top-0 left-0 w-40 h-40 bg-partyYellow rounded-full mix-blend-multiply filter blur-2xl opacity-60 animate-bounce-slow"></div>
+                    <div className="absolute top-10 right-10 w-40 h-40 bg-partyPink rounded-full mix-blend-multiply filter blur-2xl opacity-60 animate-bounce-slow" style={{animationDelay: '1s'}}></div>
+                    <div className="absolute -bottom-10 left-1/3 w-40 h-40 bg-partyBlue rounded-full mix-blend-multiply filter blur-2xl opacity-60 animate-bounce-slow" style={{animationDelay: '2s'}}></div>
+
+                    <div className="container mx-auto px-4 py-16 text-center relative z-10">
+                        
+                        <div className="inline-block mb-4 p-4 bg-white rounded-full shadow-lg border-4 border-partyGreen animate-spin-slow">
+                            <IconClock size={48} className="text-partyGreen" />
+                        </div>
+                        
+                        <h1 className="text-5xl md:text-8xl font-black mb-2 font-display text-transparent bg-clip-text bg-gradient-to-r from-partyPink via-partyYellow to-partyBlue drop-shadow-sm transform -rotate-1">
+                            Happy New Year
+                        </h1>
+                        <h2 className="text-2xl md:text-3xl text-gray-600 font-bold mb-6 tracking-wider bg-white/60 inline-block px-6 py-2 rounded-full border border-gray-100">
+                            Wishes from A to Z
+                        </h2>
+                        <p className="max-w-xl mx-auto text-gray-500 text-lg font-bold">
+                            Pop the confetti! Here's to fresh starts and colorful adventures.
+                        </p>
+                    </div>
+                </header>
+
+                <main className="relative z-10 container mx-auto px-4 py-16">
+                    
+                    {/* --- Featured Wish Card (Hero) --- */}
+                    <section className="mb-24 max-w-4xl mx-auto">
+                        <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden border-4 border-dashed border-partyBlue transform transition-transform hover:scale-[1.01]">
+                            {/* Color Bar */}
+                            <div className="absolute top-0 w-full h-4 bg-gradient-to-r from-partyPink via-partyYellow via-partyGreen to-partyPurple"></div>
+                            
+                            <div className="p-8 md:p-14 flex flex-col md:flex-row items-center gap-10">
+                                {/* Left Side: Letter */}
+                                <div className="flex-shrink-0 relative group">
+                                    <div className="w-48 h-48 rounded-full flex items-center justify-center border-8 border-partyYellow shadow-xl relative z-10 bg-pink-50">
+                                        <span className="text-9xl font-display font-black text-partyPink drop-shadow-lg pt-4">{currentWish.letter}</span>
+                                    </div>
+                                    <div className="absolute -bottom-4 -right-4 bg-partyBlue text-white p-3 rounded-full shadow-lg animate-pulse-fast">
+                                        <IconPartyPopper size={32} />
+                                    </div>
+                                </div>
+
+                                {/* Right Side: Content */}
+                                <div className="flex-grow text-center md:text-left relative z-10">
+                                    <div className={`inline-block px-3 py-1 ${currentWish.bgColor} ${currentWish.color} rounded-full text-xs font-black uppercase mb-3 border ${currentWish.borderColor}`}>
+                                        Featured Wish
+                                    </div>
+                                    <h4 className={`text-4xl md:text-5xl font-black mb-6 font-display ${currentWish.color} brightness-90`}>
+                                        {currentWish.title}
+                                    </h4>
+                                    
+                                    <p className="text-xl md:text-2xl text-gray-600 mb-10 leading-relaxed font-bold">
+                                        "{currentWish.body}"
+                                    </p>
+                                    
+                                    <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
+                                        <button 
+                                        onClick={() => handleCopy(currentWish)}
+                                        className="flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-partyPink to-partyPurple hover:from-partyPurple hover:to-partyPink text-white rounded-full font-bold transition-all shadow-lg hover:shadow-pink-400/50 uppercase tracking-wider transform hover:-translate-y-1"
+                                        >
+                                        {isCopied ? "Copied!" : "Copy Wish"} <IconCopy size={18} />
+                                        </button>
+                                        
+                                        <div className="flex items-center gap-2 bg-gray-100 p-1 rounded-full">
+                                            <button 
+                                            onClick={prevWish}
+                                            className="w-12 h-12 flex items-center justify-center bg-white hover:bg-gray-200 text-gray-600 rounded-full shadow-sm transition-colors border border-gray-200"
+                                            >
+                                            ←
+                                            </button>
+                                            <button 
+                                            onClick={nextWish}
+                                            className="w-12 h-12 flex items-center justify-center bg-white hover:bg-gray-200 text-gray-600 rounded-full shadow-sm transition-colors border border-gray-200"
+                                            >
+                                            →
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* --- Grid of Wishes --- */}
+                    <section>
+                        <div className="flex items-center justify-center gap-4 mb-12">
+                            <IconFireworks className="text-partyGreen" size={32} />
+                            <h3 className="text-4xl font-black text-gray-700 font-display text-center tracking-wide">Cheers to the Year</h3>
+                            <IconFireworks className="text-partyBlue" size={32} />
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                            {wishes.map((wish, index) => (
+                            <WishCard key={index} wish={wish} />
+                            ))}
+                        </div>
+                    </section>
+
+                </main>
+
+                {/* --- Footer --- */}
+                <footer className="relative z-10 bg-white border-t-4 border-dashed border-gray-300 py-16 mt-16">
+                    <div className="container mx-auto px-4 text-center">
+                        <div className="flex justify-center items-center gap-4 mb-8">
+                            <IconStar className="text-partyPurple" size={32} />
+                            <h2 className="text-5xl font-display text-transparent bg-clip-text bg-gradient-to-r from-partyPurple via-partyPink to-partyYellow">Cheers!</h2>
+                            <IconStar className="text-partyPink" size={32} />
+                        </div>
+                        <p className="max-w-xl mx-auto text-gray-500 mb-8 font-semibold text-lg">
+                            May your year be filled with laughter, love, and light.
+                        </p>
+                        <div className="text-sm text-gray-400 pt-8 border-t border-gray-100">
+                            © {new Date().getFullYear()} Holiday Greetings Collection. All rights reserved.
+                        </div>
+                    </div>
+                </footer>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<NewYearWishes />);
+    </script>
+
+<html><head></head><body><footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Thanks giving and Christmas</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+
+          
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+        <div class="space-y-2">
+          <p>Redmond<br/>WA, USA</p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+          </p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+      
+      <div class="flex space-x-4 mt-4 sm:mt-0">
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+          <span class="sr-only">Facebook</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+          <span class="sr-only">Twitter</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+          <span class="sr-only">LinkedIn</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+	  
+	  <div class="flex gap-4 mt-4 sm:mt-0">
+                    <a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+                 
+					<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+      </div>
+    </div>
+	
+  </div>
+</footer></body></html></body></html>

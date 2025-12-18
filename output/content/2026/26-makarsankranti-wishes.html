@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    
+    <!-- SEO Meta Tags -->
+    <meta content="Celebrate Makar Sankranti with 26 auspicious wishes from A to Z. A collection of greetings for the Kite Festival, honoring the Sun God and the harvest." name="description"/>
+    <meta content="Makar Sankranti wishes, Happy Uttarayan, Kite Festival quotes, Til Gul wishes, A-Z Sankranti messages, Pongal greetings" name="keywords"/>
+    <meta content="Holiday Greetings Collection" name="author"/>
+    <meta content="26 Makar Sankranti Wishes - A-Z Guide" property="og:title"/>
+    <meta content="Fly high with these 26 beautiful A-Z greetings for Makar Sankranti." property="og:description"/>
+    <meta content="website" property="og:type"/>
+
+    <title>26 Makar Sankranti Wishes | A-Z Guide</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Rozha+One&amp;family=Poppins:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+
+    <!-- React and ReactDOM -->
+    <script crossorigin="" src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin="" src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        h1, h2, h3, .font-festive {
+            font-family: 'Rozha One', serif;
+        }
+        .bg-sunburst {
+            background-color: #fff7ed;
+            background-image: repeating-linear-gradient(45deg, #ffedd5 0px, #ffedd5 10px, #fff7ed 10px, #fff7ed 20px);
+        }
+        .animate-sway {
+            animation: sway 4s ease-in-out infinite;
+            transform-origin: bottom center;
+        }
+        @keyframes sway {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fff7ed;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f97316;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ea580c;
+        }
+    </style>
+</head>
+<body class="bg-orange-50 text-orange-950">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // --- Icons ---
+        const IconKite = ({ className, size=24 }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M12 2 2 12l10 10 10-10L12 2Z"/><path d="m2 12 10 10"/><path d="m12 22 10-10"/><path d="M12 2v20"/><path d="M2 12h20"/><path d="m12 22 4 4"/><path d="m12 22-4 4"/></svg>
+        );
+        const IconSun = ({ className, size=24 }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+        );
+        const IconSweet = ({ className, size=24 }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 0 0 16 8 8 0 0 0 0-16z"/><path d="M16 8a3 3 0 1 0-4.2 4.2"/></svg>
+        );
+        const IconHarvest = ({ className, size=24 }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M12 2a5 5 0 0 1 5 5v11"/><path d="M11 2a5 5 0 0 0-5 5v11"/><path d="M7 22h10"/><path d="M7 17h10"/><path d="M8 12h8"/></svg>
+        );
+        const IconCopy = ({ className, size=24 }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+        );
+        const IconCheck = ({ className, size=24 }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M20 6 9 17l-5-5"/></svg>
+        );
+
+        // --- Data: 26 Makar Sankranti Wishes (A-Z) ---
+        const wishes = [
+            { letter: "A", title: "Abundance & Ambition", body: "Like kites soaring high in the sky, may your ambitions rise and your life be filled with the abundance of the harvest season." },
+            { letter: "B", title: "Blessings & Bounty", body: "May the Sun God shower you with his choicest blessings, and may the harvest bring a bounty of wealth and health to your home." },
+            { letter: "C", title: "Crops & Celebration", body: "Celebrating the golden crops swaying in the fields. May the fruits of your hard work be sweet and plentiful this year." },
+            { letter: "D", title: "Delight & Devotion", body: "Wishing you a festival filled with pure delight and a heart full of devotion. Happy Makar Sankranti!" },
+            { letter: "E", title: "Energy & Enthusiasm", body: "May the transition of the Sun into Capricorn bring a surge of new energy and enthusiasm into your life." },
+            { letter: "F", title: "Flying & Freedom", body: "Fly your kites high and let your spirit find freedom! May you rise above all challenges just like a kite against the wind." },
+            { letter: "G", title: "Gud (Jaggery) & Goodness", body: "May your life be as sweet as Gud (Jaggery) and filled with the goodness of Til (Sesame). Speak sweet, spread love!" },
+            { letter: "H", title: "Harvest & Happiness", body: "Happy Harvest Festival! May your granaries be full and your heart overflow with happiness and contentment." },
+            { letter: "I", title: "Inspiration & India", body: "Celebrating the vibrant spirit of India! May this festival inspire you to reach new heights and embrace your roots." },
+            { letter: "J", title: "Joy & Jaggery", body: "Sending you a box full of joy and the sweetness of jaggery. May bitterness vanish from your life forever." },
+            { letter: "K", title: "Kites & Kai Po Che!", body: "Kai Po Che! May you cut through all obstacles and fly victorious. Wishing you a sky full of colorful kites and fun." },
+            { letter: "L", title: "Light & Laddus", body: "May the divine light of Surya Dev guide you, and may you enjoy delicious Til Laddus with your loved ones." },
+            { letter: "M", title: "Makar & Magic", body: "On this holy day of Makar Sankranti, may magic unfold in your life, bringing prosperity and peace." },
+            { letter: "N", title: "New Beginnings", body: "As the Sun begins its northward journey, may you embark on beautiful new beginnings and successful ventures." },
+            { letter: "O", title: "Optimism & Outdoors", body: "Step outdoors, feel the sun on your face, and fill your heart with optimism. A bright future awaits you!" },
+            { letter: "P", title: "Prosperity & Peace", body: "Wishing you a harvest of prosperity and a season of peace. May your home be a haven of harmony." },
+            { letter: "Q", title: "Quality Time", body: "Festivals are for family. May you spend quality time with your near and dear ones, creating memories on the rooftop." },
+            { letter: "R", title: "Rays & Radiance", body: "May the radiant rays of the Sun wash away all darkness and fill your life with warmth and positivity." },
+            { letter: "S", title: "Surya & Sweetness", body: "Salutations to Surya Dev! May he bless you with vitality, wisdom, and a life full of sweetness." },
+            { letter: "T", title: "Til-Gul & Togetherness", body: "'Til-Gul ghya, god-god bola!' (Take sweet sesame, speak sweet words). Here's to togetherness and mending bonds." },
+            { letter: "U", title: "Uttarayan & Unity", body: "Happy Uttarayan! May this auspicious period bring unity to our community and success to your endeavors." },
+            { letter: "V", title: "Vibrance & Victory", body: "May your life be as vibrant as the colorful kites in the sky. Wishing you victory in every kite fight of life." },
+            { letter: "W", title: "Warmth & Wishes", body: "Sending you warm wishes on a cool winter day. May the bonfire of Lohri and the sun of Sankranti keep you warm." },
+            { letter: "X", title: "X-tra Special", body: "Hoping your Sankranti is X-tra special this year, filled with extra sweets, extra fun, and extra love." },
+            { letter: "Y", title: "Yellow & Yield", body: "Wearing yellow for prosperity and celebrating the yield of the land. May your hard work pay off beautifully." },
+            { letter: "Z", title: "Zeal & Zest", body: "Celebrate the festival with zeal and zest! Let the sky be your limit. Happy Makar Sankranti!" }
+        ];
+
+        // --- Sub-component ---
+        const WishCard = ({ wish }) => {
+            const [copied, setCopied] = useState(false);
+
+            const copyToClipboard = () => {
+                const textToCopy = `${wish.title}\n\n${wish.body}`;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        setCopied(true);
+                        setTimeout(() => setCopied(false), 2000);
+                    });
+                } else {
+                    const textArea = document.createElement("textarea");
+                    textArea.value = textToCopy;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    setCopied(true);
+                    setTimeout(() => setCopied(false), 2000);
+                }
+            };
+
+            return (
+                <div className="group bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:shadow-orange-200 transition-all duration-300 border-b-4 border-orange-200 hover:border-yellow-400 relative overflow-hidden h-full flex flex-col justify-between transform hover:-translate-y-1">
+                    
+                    {/* Decorative Kite Background */}
+                    <div className="absolute top-2 right-2 text-orange-100 group-hover:text-yellow-100 transition-colors transform rotate-12">
+                        <IconKite size={80} />
+                    </div>
+
+                    <div className="mb-4 relative z-10">
+                        <div className="flex items-center gap-3 mb-4">
+                             <div className="w-10 h-10 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center border border-orange-200 group-hover:scale-110 transition-transform">
+                                {wish.letter === 'K' || wish.letter === 'F' || wish.letter === 'V' ? <IconKite size={20}/> : 
+                                 wish.letter === 'S' || wish.letter === 'R' || wish.letter === 'B' ? <IconSun size={20}/> :
+                                 wish.letter === 'G' || wish.letter === 'T' || wish.letter === 'L' ? <IconSweet size={20}/> :
+                                 <IconHarvest size={20}/>}
+                             </div>
+                             <span className="text-4xl font-festive text-orange-200 select-none absolute right-4 top-2 opacity-30 group-hover:opacity-60">{wish.letter}</span>
+                        </div>
+                        <h3 className="text-xl font-bold text-orange-900 font-festive mb-2">
+                            {wish.title}
+                        </h3>
+                        <p className="text-base text-gray-600 leading-relaxed font-light">
+                            {wish.body}
+                        </p>
+                    </div>
+
+                    <div className="flex justify-between items-center mt-4 pt-4 border-t border-orange-50 relative z-10">
+                        <span className="text-xs font-bold text-orange-400 uppercase tracking-widest">
+                            Happy Sankranti
+                        </span>
+                        <button 
+                            onClick={copyToClipboard}
+                            className="text-gray-400 hover:text-orange-600 transition-colors p-2 rounded-full hover:bg-orange-50"
+                            title="Copy to clipboard"
+                        >
+                            {copied ? <span className="text-green-600 text-xs font-bold flex items-center gap-1">Copied <IconCheck size={14}/></span> : <IconCopy size={18} />}
+                        </button>
+                    </div>
+                </div>
+            );
+        };
+
+        // --- Main Component ---
+        const SankrantiWishes = () => {
+            const [currentWishIndex, setCurrentWishIndex] = useState(0);
+            const [isCopied, setIsCopied] = useState(false);
+
+            const handleCopy = (wish) => {
+                const textToCopy = `${wish.title}\n\n${wish.body}`;
+                 if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        setIsCopied(true);
+                        setTimeout(() => setIsCopied(false), 2000);
+                    });
+                } else {
+                    const textArea = document.createElement("textarea");
+                    textArea.value = textToCopy;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    setIsCopied(true);
+                    setTimeout(() => setIsCopied(false), 2000);
+                }
+            };
+
+            const nextWish = () => {
+                setCurrentWishIndex((prev) => (prev + 1) % wishes.length);
+            };
+
+            const prevWish = () => {
+                setCurrentWishIndex((prev) => (prev - 1 + wishes.length) % wishes.length);
+            };
+            
+            const currentWish = wishes[currentWishIndex];
+
+            return (
+                <div className="min-h-screen bg-sunburst font-sans text-gray-800 overflow-x-hidden selection:bg-orange-500 selection:text-white pb-12">
+                
+                {/* --- Header / Hero Section --- */}
+                <header className="relative z-10 bg-gradient-to-r from-orange-500 via-yellow-500 to-orange-500 text-white shadow-lg border-b-8 border-yellow-300">
+                    <div className="container mx-auto px-4 py-16 text-center relative overflow-hidden">
+                        
+                        {/* Animated Kites in Header */}
+                        <div className="absolute top-4 left-4 md:left-20 animate-sway opacity-80 text-yellow-200">
+                            <IconKite size={64} />
+                        </div>
+                        <div className="absolute bottom-4 right-4 md:right-20 animate-sway opacity-80 text-yellow-200" style={{animationDelay: '2s'}}>
+                            <IconKite size={48} />
+                        </div>
+                        <div className="absolute top-10 right-1/4 animate-pulse opacity-50 text-white">
+                            <IconSun size={32} />
+                        </div>
+
+                        <div className="inline-block mb-4 p-3 bg-white/20 rounded-full backdrop-blur-sm border border-white/40">
+                            <IconSun size={48} className="text-yellow-100 animate-spin" style={{animationDuration: '10s'}} />
+                        </div>
+                        
+                        <h1 className="text-5xl md:text-7xl font-bold mb-2 font-festive text-white drop-shadow-md">
+                            Makar Sankranti
+                        </h1>
+                        <h2 className="text-2xl md:text-3xl text-yellow-100 font-semibold mb-6 tracking-wide">
+                            Wishes from A to Z
+                        </h2>
+                        <p className="max-w-xl mx-auto text-orange-50 text-lg font-medium">
+                            Celebrating the Harvest, the Sun, and the Joy of Flying High!
+                        </p>
+                    </div>
+                    
+                    {/* Wavy bottom border */}
+                    <div className="absolute -bottom-1 left-0 right-0 h-10 bg-sunburst" style={{ clipPath: 'polygon(0 100%, 0 0, 100% 100%, 100% 100%)' }}></div>
+                     <svg className="absolute -bottom-1 w-full h-12 text-orange-50 fill-current" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                        <path fillOpacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,261.3C960,256,1056,224,1152,197.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                    </svg>
+                </header>
+
+                <main className="relative z-10 container mx-auto px-4 py-16">
+                    
+                    {/* --- Featured Wish Card (Hero) --- */}
+                    <section className="mb-20 max-w-4xl mx-auto">
+                        <div className="relative bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-yellow-400">
+                            <div className="absolute top-0 w-full h-2 bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-400"></div>
+                            
+                            <div className="p-8 md:p-12 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                                {/* Left Side: Letter */}
+                                <div className="flex-shrink-0 relative">
+                                    <div className="w-40 h-40 bg-orange-100 rounded-full flex items-center justify-center border-4 border-white shadow-lg relative z-10">
+                                        <span className="text-8xl font-festive text-orange-500">{currentWish.letter}</span>
+                                    </div>
+                                    <div className="absolute -top-4 -left-4 text-yellow-400 animate-bounce" style={{animationDuration: '3s'}}>
+                                        <IconKite size={40} />
+                                    </div>
+                                </div>
+
+                                {/* Right Side: Content */}
+                                <div className="flex-grow text-center md:text-left">
+                                    <h4 className="text-3xl md:text-4xl font-bold text-orange-900 mb-4 font-festive">
+                                        {currentWish.title}
+                                    </h4>
+                                    
+                                    <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed font-light">
+                                        "{currentWish.body}"
+                                    </p>
+                                    
+                                    <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
+                                        <button 
+                                        onClick={() => handleCopy(currentWish)}
+                                        className="flex items-center gap-2 px-8 py-3 bg-orange-500 hover:bg-orange-600 text-white rounded-full font-bold transition-all shadow-lg hover:shadow-orange-300 transform hover:-translate-y-0.5"
+                                        >
+                                        {isCopied ? "Copied!" : "Copy Wish"} <IconCopy size={18} />
+                                        </button>
+                                        
+                                        <div className="flex items-center gap-2">
+                                            <button 
+                                            onClick={prevWish}
+                                            className="w-12 h-12 flex items-center justify-center bg-white hover:bg-orange-50 border border-orange-200 text-orange-500 rounded-full transition-colors"
+                                            >
+                                            ←
+                                            </button>
+                                            <button 
+                                            onClick={nextWish}
+                                            className="w-12 h-12 flex items-center justify-center bg-white hover:bg-orange-50 border border-orange-200 text-orange-500 rounded-full transition-colors"
+                                            >
+                                            →
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* --- Grid of Wishes --- */}
+                    <section>
+                        <div className="flex items-center justify-center gap-4 mb-12">
+                            <IconHarvest className="text-yellow-600" size={32} />
+                            <h3 className="text-3xl font-bold text-orange-900 font-festive text-center">Festival Greetings Collection</h3>
+                            <IconHarvest className="text-yellow-600" size={32} />
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {wishes.map((wish, index) => (
+                            <WishCard key={index} wish={wish} />
+                            ))}
+                        </div>
+                    </section>
+
+                </main>
+
+                {/* --- Footer --- */}
+                <footer className="relative z-10 bg-orange-900 text-orange-100 py-12 mt-12 border-t-8 border-yellow-500">
+                    <div className="container mx-auto px-4 text-center">
+                        <div className="flex justify-center items-center gap-4 mb-6">
+                            <IconKite className="text-yellow-400" size={24} />
+                            <h2 className="text-3xl font-festive text-white">Happy Uttarayan</h2>
+                            <IconKite className="text-yellow-400" size={24} />
+                        </div>
+                        <p className="max-w-xl mx-auto text-orange-200/80 mb-8 font-light">
+                            Til-Gul ghya, god-god bola. May your life be as sweet as sesame and jaggery.
+                        </p>
+                        <div className="text-sm text-orange-400 pt-8 border-t border-orange-800">
+                            © {new Date().getFullYear()} Holiday Greetings Collection. All rights reserved.
+                        </div>
+                    </div>
+                </footer>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<SankrantiWishes />);
+    </script>
+
+<html><head></head><body><footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Thanks giving and Christmas</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+
+          
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+        <div class="space-y-2">
+          <p>Redmond<br/>WA, USA</p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+          </p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+      
+      <div class="flex space-x-4 mt-4 sm:mt-0">
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+          <span class="sr-only">Facebook</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+          <span class="sr-only">Twitter</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+          <span class="sr-only">LinkedIn</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+	  
+	  <div class="flex gap-4 mt-4 sm:mt-0">
+                    <a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+                 
+					<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+      </div>
+    </div>
+	
+  </div>
+</footer></body></html></body></html>

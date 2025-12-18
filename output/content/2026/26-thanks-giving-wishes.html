@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    
+    <!-- SEO Meta Tags -->
+    <meta content="Celebrate Thanksgiving with 26 heartfelt wishes from A to Z. A collection of gratitude greetings, quotes, and messages for family and friends." name="description"/>
+    <meta content="Thanksgiving wishes, Happy Thanksgiving 2025, Gratitude quotes, Turkey Day greetings, A-Z Thanksgiving messages, best harvest wishes" name="keywords"/>
+    <meta content="Holiday Greetings Collection" name="author"/>
+    <meta content="26 Thanksgiving Wishes - A-Z Guide" property="og:title"/>
+    <meta content="Share the gratitude with these 26 beautiful A-Z greetings for Thanksgiving." property="og:description"/>
+    <meta content="website" property="og:type"/>
+
+    <title>26 Thanksgiving Wishes | A-Z Guide</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:wght@400;700&amp;family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&amp;display=swap" rel="stylesheet"/>
+
+    <!-- React and ReactDOM -->
+    <script crossorigin="" src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin="" src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Merriweather', serif;
+        }
+        h1, h2, h3, .font-cursive {
+            font-family: 'Lobster Two', cursive;
+        }
+        .bg-autumn {
+            background-color: #fff7ed;
+            background-image: radial-gradient(#fb923c 0.5px, transparent 0.5px);
+            background-size: 30px 30px;
+        }
+        .animate-sway {
+            animation: sway 4s ease-in-out infinite;
+            transform-origin: top center;
+        }
+        @keyframes sway {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fff7ed;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c2410c;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9a3412;
+        }
+    </style>
+</head>
+<body class="bg-orange-50 text-amber-950">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // --- Icons ---
+        const IconTurkey = ({ className, size=24 }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+                <path d="M12 7a4 4 0 0 1 4 4v9a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-9a4 4 0 0 1 4-4Z" />
+                <path d="M12 2v5" />
+                <path d="M5 12h2" />
+                <path d="M17 12h2" />
+                <path d="M22 12c0-3-2-5-5-5" />
+                <path d="M2 12c0-3 2-5 5-5" />
+                <path d="M7 21v-3" />
+                <path d="M17 21v-3" />
+            </svg>
+        );
+
+        const IconPumpkin = ({ className, size=24 }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+                <path d="M12 5a3 3 0 0 0-3 3" />
+                <path d="M19 8.3a9 9 0 0 1 0 12.3" />
+                <path d="M5 8.3a9 9 0 0 0 0 12.3" />
+                <path d="M12 21a9 9 0 0 0 0-18 9 9 0 0 0 0 18Z" />
+                <path d="M12 3v3" />
+                <path d="M12 8c-1.5 0-2.5 4-2.5 7.5S10.5 21 12 21" />
+                <path d="M12 8c1.5 0 2.5 4 2.5 7.5S13.5 21 12 21" />
+            </svg>
+        );
+
+        const IconLeaf = ({ className, size=24 }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.77 10-10 10Z" />
+                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+            </svg>
+        );
+
+        const IconPie = ({ className, size=24 }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+                <path d="M21.21 15.89A10 10 0 1 1 8 2.83" />
+                <path d="M22 12A10 10 0 0 0 12 2v10z" />
+            </svg>
+        );
+
+        const IconCopy = ({ className, size=24 }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+        );
+        const IconCheck = ({ className, size=24 }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M20 6 9 17l-5-5"/></svg>
+        );
+
+        // --- Data: 26 Thanksgiving Wishes (A-Z) ---
+        const wishes = [
+            { letter: "A", title: "Abundance & Acorns", body: "May your home be filled with abundance and your heart with gratitude. Like tiny acorns growing into mighty oaks, may your blessings grow year after year." },
+            { letter: "B", title: "Blessings & Bounty", body: "Counting my blessings today, and you are at the top of the list. Wishing you a table full of bounty and a heart full of joy." },
+            { letter: "C", title: "Cornucopia & Comfort", body: "May your cornucopia overflow with happiness, health, and love. Sending you the warmest wishes for comfort this holiday season." },
+            { letter: "D", title: "Dinner & Delight", body: "Here’s to a Thanksgiving dinner that delights the senses and company that warms the soul. Enjoy every delicious bite!" },
+            { letter: "E", title: "Eat & Enjoy", body: "Eat, drink, and be thankful! May you enjoy the feast, the football, and most importantly, the family time." },
+            { letter: "F", title: "Family & Feast", body: "Grateful for the feast on the table and the family gathered around it. Thank you for making our lives so full." },
+            { letter: "G", title: "Gratitude & Gathering", body: "Gratitude turns what we have into enough. So happy to be gathering with loved ones to share this special day." },
+            { letter: "H", title: "Harvest & Home", body: "Happy Harvest! May your home be a haven of peace and your heart a harvest of happiness." },
+            { letter: "I", title: "Invite & Inspiration", body: "Thank you for the invite to your table and for being an inspiration of kindness and generosity to us all." },
+            { letter: "J", title: "Joy & Journey", body: "Wishing you joy on this journey of life. May Thanksgiving remind us of the beautiful moments we've shared along the way." },
+            { letter: "K", title: "Kindness & Kitchen", body: "From our kitchen to yours, sending love and kindness. May your holiday be seasoned with sweet memories." },
+            { letter: "L", title: "Leftovers & Love", body: "The only thing better than Thanksgiving dinner is the leftovers! And the only thing better than that is your love. Happy Thanksgiving!" },
+            { letter: "M", title: "Memories & Mashed Potatoes", body: "Here's to making new memories over mountains of mashed potatoes. Cherishing every moment with you." },
+            { letter: "N", title: "November & Nap", body: "Happy November! May your turkey be moist, your pie be sweet, and your post-dinner nap be uninterrupted." },
+            { letter: "O", title: "Overflowing & Opportunity", body: "May your heart be overflowing with thanks and your life filled with opportunity. Grateful for you today and always." },
+            { letter: "P", title: "Pumpkin Pie & Peace", body: "Wishing you a slice of the good life—sweet like pumpkin pie and peaceful like a quiet autumn evening." },
+            { letter: "Q", title: "Quiet & Quality", body: "Amidst the holiday hustle, I hope you find quiet moments to reflect and quality time with those who matter most." },
+            { letter: "R", title: "Roast & Reunion", body: "Enjoying the roast and the reunion of friends and family. There is no better feeling than coming together." },
+            { letter: "S", title: "Stuffing & Sharing", body: "Stuffing our faces and sharing our hearts. That's what Thanksgiving is all about. Sending you big hugs." },
+            { letter: "T", title: "Turkey & Thanks", body: "Gobble 'til you wobble! Giving thanks for a wonderful friend like you. Have a fantastic Turkey Day." },
+            { letter: "U", title: "Unity & Understanding", body: "May this holiday foster unity and understanding in our family and community. We are stronger together." },
+            { letter: "V", title: "Vegetables & Visiting", body: "Eat your vegetables (so you can have dessert!) and enjoy visiting with dear ones. Happy Thanksgiving!" },
+            { letter: "W", title: "Warmth & Wishbone", body: "Sending you warmth on this crisp autumn day. May you get the big half of the wishbone and may all your wishes come true." },
+            { letter: "X", title: "X-tra Grateful", body: "I am X-tra grateful for you this year. Thank you for bringing so much light and laughter into my life." },
+            { letter: "Y", title: "Yams & Year", body: "Sweet yams and a sweet year ahead! May the gratitude of today spill over into every day of the coming year." },
+            { letter: "Z", title: "Zest & Zeal", body: "Celebrate with zest and zeal! Embrace the spirit of Thanksgiving with a full heart and a joyous spirit." }
+        ];
+
+        // --- Sub-component ---
+        const WishCard = ({ wish }) => {
+            const [copied, setCopied] = useState(false);
+
+            const copyToClipboard = () => {
+                const textToCopy = `${wish.title}\n\n${wish.body}`;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        setCopied(true);
+                        setTimeout(() => setCopied(false), 2000);
+                    });
+                } else {
+                    const textArea = document.createElement("textarea");
+                    textArea.value = textToCopy;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    setCopied(true);
+                    setTimeout(() => setCopied(false), 2000);
+                }
+            };
+
+            return (
+                <div className="group bg-white rounded-xl p-6 shadow-md hover:shadow-xl hover:shadow-orange-200/50 transition-all duration-300 border-t-4 border-orange-700 hover:border-amber-500 relative overflow-hidden h-full flex flex-col justify-between transform hover:-translate-y-1">
+                    
+                    {/* Decorative Background Icon */}
+                    <div className="absolute -bottom-6 -right-6 text-orange-50 group-hover:text-orange-100 transition-colors transform -rotate-12">
+                        {wish.letter === 'T' || wish.letter === 'D' ? <IconTurkey size={100} /> :
+                         wish.letter === 'P' || wish.letter === 'H' ? <IconPumpkin size={100} /> :
+                         wish.letter === 'L' || wish.letter === 'A' ? <IconLeaf size={100} /> :
+                         <IconPie size={100} />}
+                    </div>
+
+                    <div className="mb-4 relative z-10">
+                        <div className="flex items-center gap-3 mb-4 border-b border-orange-100 pb-2">
+                             <div className="text-amber-700 bg-orange-50 p-2 rounded-full group-hover:bg-amber-100 transition-colors">
+                                {wish.letter === 'T' || wish.letter === 'G' || wish.letter === 'F' ? <IconTurkey size={24}/> : 
+                                 wish.letter === 'P' || wish.letter === 'H' || wish.letter === 'C' ? <IconPumpkin size={24}/> :
+                                 wish.letter === 'L' || wish.letter === 'F' || wish.letter === 'A' ? <IconLeaf size={24}/> :
+                                 <IconPie size={24}/>}
+                             </div>
+                             <span className="text-4xl font-cursive text-amber-900/10 absolute right-2 top-0 select-none group-hover:text-amber-900/20 transition-colors">{wish.letter}</span>
+                        </div>
+                        <h3 className="text-xl font-bold text-amber-900 font-cursive mb-2 tracking-wide">
+                            {wish.title}
+                        </h3>
+                        <p className="text-base text-stone-600 leading-relaxed font-light">
+                            {wish.body}
+                        </p>
+                    </div>
+
+                    <div className="flex justify-between items-center mt-4 pt-2 relative z-10">
+                        <span className="text-xs font-bold text-orange-600 uppercase tracking-widest">
+                            Happy Thanksgiving
+                        </span>
+                        <button 
+                            onClick={copyToClipboard}
+                            className="text-stone-400 hover:text-amber-600 transition-colors p-2 rounded-full hover:bg-orange-50"
+                            title="Copy to clipboard"
+                        >
+                            {copied ? <span className="text-green-600 text-xs font-bold flex items-center gap-1">Copied <IconCheck size={14}/></span> : <IconCopy size={18} />}
+                        </button>
+                    </div>
+                </div>
+            );
+        };
+
+        // --- Main Component ---
+        const ThanksgivingWishes = () => {
+            const [currentWishIndex, setCurrentWishIndex] = useState(0);
+            const [isCopied, setIsCopied] = useState(false);
+
+            const handleCopy = (wish) => {
+                const textToCopy = `${wish.title}\n\n${wish.body}`;
+                 if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        setIsCopied(true);
+                        setTimeout(() => setIsCopied(false), 2000);
+                    });
+                } else {
+                    const textArea = document.createElement("textarea");
+                    textArea.value = textToCopy;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    setIsCopied(true);
+                    setTimeout(() => setIsCopied(false), 2000);
+                }
+            };
+
+            const nextWish = () => {
+                setCurrentWishIndex((prev) => (prev + 1) % wishes.length);
+            };
+
+            const prevWish = () => {
+                setCurrentWishIndex((prev) => (prev - 1 + wishes.length) % wishes.length);
+            };
+            
+            const currentWish = wishes[currentWishIndex];
+
+            return (
+                <div className="min-h-screen bg-autumn font-serif text-amber-950 overflow-x-hidden selection:bg-orange-700 selection:text-white pb-12">
+                
+                {/* --- Header / Hero Section --- */}
+                <header className="relative z-10 bg-white/90 backdrop-blur-md border-b-4 border-amber-700 shadow-sm">
+                    <div className="container mx-auto px-4 py-16 text-center relative">
+                        
+                        {/* Hanging Leaves (Decorative) */}
+                        <div className="absolute top-0 left-10 md:left-1/4 animate-sway text-orange-600 origin-top">
+                            <div className="h-12 w-px bg-stone-400 mx-auto"></div>
+                            <IconLeaf size={40} />
+                        </div>
+                        <div className="absolute top-0 right-10 md:right-1/4 animate-sway text-red-700 origin-top" style={{animationDelay: '1.5s'}}>
+                            <div className="h-8 w-px bg-stone-400 mx-auto"></div>
+                            <IconLeaf size={32} />
+                        </div>
+
+                        <div className="inline-block mb-4 p-4 bg-orange-50 rounded-full border border-orange-200">
+                            <IconTurkey size={56} className="text-amber-800" />
+                        </div>
+                        
+                        <h1 className="text-5xl md:text-7xl font-bold mb-4 font-cursive text-amber-800 drop-shadow-sm">
+                            Happy Thanksgiving
+                        </h1>
+                        <h2 className="text-xl md:text-2xl text-stone-500 font-light mb-8 italic">
+                            A-Z Guide of Gratitude & Blessings
+                        </h2>
+                        
+                        <div className="flex justify-center gap-2">
+                            <div className="w-16 h-1 bg-amber-700 rounded-full"></div>
+                            <div className="w-4 h-1 bg-orange-600 rounded-full"></div>
+                            <div className="w-16 h-1 bg-amber-700 rounded-full"></div>
+                        </div>
+                    </div>
+                </header>
+
+                <main className="relative z-10 container mx-auto px-4 py-16">
+                    
+                    {/* --- Featured Wish Card (Hero) --- */}
+                    <section className="mb-24 max-w-4xl mx-auto">
+                        <div className="relative bg-white rounded-2xl shadow-xl overflow-hidden border border-stone-200">
+                            {/* Decorative Top Border */}
+                            <div className="absolute top-0 w-full h-2 bg-gradient-to-r from-amber-700 via-orange-600 to-red-700"></div>
+                            
+                            <div className="p-8 md:p-14 flex flex-col md:flex-row items-center gap-12">
+                                {/* Left Side: Letter */}
+                                <div className="flex-shrink-0 relative group">
+                                    <div className="w-48 h-48 rounded-full flex items-center justify-center border-4 border-orange-100 shadow-inner relative z-10 bg-amber-50">
+                                        <span className="text-9xl font-cursive text-amber-700 pt-4">{currentWish.letter}</span>
+                                    </div>
+                                    <div className="absolute -bottom-2 -right-2 text-orange-600 bg-white p-2 rounded-full shadow border border-orange-100">
+                                        <IconPumpkin size={32} />
+                                    </div>
+                                </div>
+
+                                {/* Right Side: Content */}
+                                <div className="flex-grow text-center md:text-left relative z-10">
+                                    <div className="inline-block px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-xs font-bold uppercase mb-4 tracking-widest">
+                                        Featured Wish
+                                    </div>
+                                    <h4 className="text-3xl md:text-5xl font-bold text-amber-900 mb-6 font-cursive">
+                                        {currentWish.title}
+                                    </h4>
+                                    
+                                    <p className="text-xl md:text-2xl text-stone-600 mb-10 leading-relaxed font-light italic">
+                                        "{currentWish.body}"
+                                    </p>
+                                    
+                                    <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
+                                        <button 
+                                        onClick={() => handleCopy(currentWish)}
+                                        className="flex items-center gap-2 px-8 py-3 bg-amber-700 hover:bg-amber-800 text-white rounded-full font-bold transition-all shadow-lg hover:shadow-amber-900/30"
+                                        >
+                                        {isCopied ? "Copied!" : "Copy Wish"} <IconCopy size={18} />
+                                        </button>
+                                        
+                                        <div className="flex items-center gap-2 bg-stone-100 rounded-full p-1">
+                                            <button 
+                                            onClick={prevWish}
+                                            className="w-10 h-10 flex items-center justify-center bg-white hover:bg-white text-stone-500 hover:text-amber-700 rounded-full shadow-sm transition-colors"
+                                            >
+                                            ←
+                                            </button>
+                                            <button 
+                                            onClick={nextWish}
+                                            className="w-10 h-10 flex items-center justify-center bg-white hover:bg-white text-stone-500 hover:text-amber-700 rounded-full shadow-sm transition-colors"
+                                            >
+                                            →
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* --- Grid of Wishes --- */}
+                    <section>
+                        <div className="flex items-center justify-center gap-4 mb-12">
+                            <span className="h-px w-12 bg-stone-300"></span>
+                            <IconPie className="text-amber-600" size={28} />
+                            <h3 className="text-3xl font-bold text-amber-900 font-cursive text-center">Collection of Gratitude</h3>
+                            <IconPie className="text-amber-600" size={28} />
+                            <span className="h-px w-12 bg-stone-300"></span>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                            {wishes.map((wish, index) => (
+                            <WishCard key={index} wish={wish} />
+                            ))}
+                        </div>
+                    </section>
+
+                </main>
+
+                {/* --- Footer --- */}
+                <footer className="relative z-10 bg-stone-900 text-stone-300 py-16 mt-16 border-t-8 border-amber-700">
+                    <div className="container mx-auto px-4 text-center">
+                        <div className="flex justify-center items-center gap-4 mb-8">
+                            <IconTurkey className="text-orange-500" size={32} />
+                            <h2 className="text-4xl font-cursive text-white">Give Thanks</h2>
+                            <IconTurkey className="text-orange-500" size={32} />
+                        </div>
+                        <p className="max-w-xl mx-auto text-stone-400 mb-8 font-light text-lg">
+                            "Gratitude is not only the greatest of virtues, but the parent of all others."
+                        </p>
+                        <div className="text-sm text-stone-500 pt-8 border-t border-stone-800">
+                            © {new Date().getFullYear()} Holiday Greetings Collection. All rights reserved.
+                        </div>
+                    </div>
+                </footer>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<ThanksgivingWishes />);
+    </script>
+
+<html><head></head><body><footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Thanks giving and Christmas</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+
+          
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+        <div class="space-y-2">
+          <p>Redmond<br/>WA, USA</p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+          </p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+      
+      <div class="flex space-x-4 mt-4 sm:mt-0">
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+          <span class="sr-only">Facebook</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+          <span class="sr-only">Twitter</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+          <span class="sr-only">LinkedIn</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+	  
+	  <div class="flex gap-4 mt-4 sm:mt-0">
+                    <a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+                 
+					<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+      </div>
+    </div>
+	
+  </div>
+</footer></body></html></body></html>

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    
+    <!-- SEO Meta Tags -->
+    <meta content="Celebrate Dad with 26 heartfelt wishes from A to Z. A collection of Father's Day greetings, quotes, and messages honoring his love and guidance." name="description"/>
+    <meta content="Fathers Day wishes, Happy Fathers Day 2025, Dad quotes, Papa greetings, A-Z Father's Day messages, best dad wishes" name="keywords"/>
+    <meta content="Holiday Greetings Collection" name="author"/>
+    <meta content="26 Heartfelt Father's Day Wishes - A-Z Guide" property="og:title"/>
+    <meta content="Share your love and appreciation for Dad with these 26 beautiful A-Z greetings." property="og:description"/>
+    <meta content="website" property="og:type"/>
+
+    <title>26 Father's Day Wishes | A-Z Guide</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600;700&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+
+    <!-- React and ReactDOM -->
+    <script crossorigin="" src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin="" src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+        h1, h2, h3, .font-slab {
+            font-family: 'Roboto Slab', serif;
+        }
+        .bg-grid-pattern {
+            background-image: linear-gradient(#e2e8f0 1px, transparent 1px), linear-gradient(to right, #e2e8f0 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .animate-pulse-slow {
+            animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .7; }
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #475569;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // --- Icons ---
+        const IconTie = ({ className, size=24 }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="m12 2 4 4-2 18-2 2-2-2-2-18 4-4Z"/><line x1="12" x2="12" y1="2" y2="4"/><path d="M10 2h4"/></svg>
+        );
+        const IconTool = ({ className, size=24 }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        );
+        const IconStar = ({ className, size=24 }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        );
+        const IconMug = ({ className, size=24 }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" x2="6" y1="2" y2="4"/><line x1="10" x2="10" y1="2" y2="4"/><line x1="14" x2="14" y1="2" y2="4"/></svg>
+        );
+        const IconCopy = ({ className, size=24 }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+        );
+        const IconCheck = ({ className, size=24 }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M20 6 9 17l-5-5"/></svg>
+        );
+
+        // --- Data: 26 Father's Day Wishes (A-Z) ---
+        const wishes = [
+            { letter: "A", title: "Advice & Admiration", body: "Thank you for the years of advice, even when I didn't want to hear it. Looking back, you were always right. Sending you my deepest admiration today." },
+            { letter: "B", title: "Bravery & Bond", body: "To the bravest man I know. The bond we share is my greatest treasure. Thank you for making me feel safe and loved every single day." },
+            { letter: "C", title: "Courage & Character", body: "Your courage in the face of challenges has shaped my character. Thank you for showing me what it truly means to be strong and kind." },
+            { letter: "D", title: "Dad Jokes & Dedication", body: "Happy Father's Day! Here's to your terrible dad jokes and your unwavering dedication to our family. You put the 'grand' in grandfather!" },
+            { letter: "E", title: "Example & Encouragement", body: "You have always led by example, teaching me to work hard and stay humble. Thank you for your constant encouragement." },
+            { letter: "F", title: "Fun & Fatherhood", body: "You make fatherhood look fun and easy, even when I know it was hard. Thanks for all the laughs and good times, Dad." },
+            { letter: "G", title: "Guidance & Gratitude", body: "For every wrong turn I took, you were there to guide me back. My heart is full of gratitude for your patience and wisdom." },
+            { letter: "H", title: "Hero & Hard Work", body: "Not all heroes wear capes; some wear work boots and ties. Thank you for your hard work and for being my everyday hero." },
+            { letter: "I", title: "Integrity & Inspiration", body: "Your integrity inspires me to be a better person. Thank you for setting the bar high and helping me reach for it." },
+            { letter: "J", title: "Joy & Journey", body: "It's been a joy sharing this journey of life with you. Thank you for making every step of the way memorable." },
+            { letter: "K", title: "Kindness & Knowledge", body: "Your kindness warms our home, and your knowledge lights our way. I'm so lucky to have a dad as smart and caring as you." },
+            { letter: "L", title: "Love & Legacy", body: "The greatest legacy one can pass on to one's children and grandchildren is not money... but a legacy of character and faith. You have given us both love and a legacy." },
+            { letter: "M", title: "Memories & Mentor", body: "Thank you for the memories that I will cherish forever and for being the best mentor a child could ask for." },
+            { letter: "N", title: "Noble & Nurture", body: "You have a noble heart, Dad. Thank you for nurturing my dreams and believing in me even when I doubted myself." },
+            { letter: "O", title: "One of a Kind", body: "There is no one else like you. You are truly one of a kind, and I am so proud to call you my father." },
+            { letter: "P", title: "Protector & Provider", body: "Thank you for always being our protector and provider. We never had to worry because we knew you were there." },
+            { letter: "Q", title: "Quiet Strength", body: "Your quiet strength speaks volumes. You don't have to shout to be heard; your actions say everything. Love you, Dad." },
+            { letter: "R", title: "Role Model & Rock", body: "You are my rock in stormy seas and my role model in calm waters. Thank you for being the steady foundation of our family." },
+            { letter: "S", title: "Support & Sacrifice", body: "I know how much you sacrificed to give us a good life. Your support means the world to me. Happy Father's Day." },
+            { letter: "T", title: "Teacher & Trust", body: "You were my first teacher and the person I trust most. Thank you for teaching me how to navigate the world." },
+            { letter: "U", title: "Unconditional Love", body: "Thank you for your unconditional love, even through my rebellious phase. You never gave up on me." },
+            { letter: "V", title: "Values & Vision", body: "The values you instilled in me guide my decisions every day. Thank you for having a vision for my future." },
+            { letter: "W", title: "Wisdom & Warmth", body: "Your wisdom is my compass, and your warmth is my comfort. Wishing you a day as wonderful as you are." },
+            { letter: "X", title: "X-traordinary Dad", body: "To an eXtraordinary Dad! You go above and beyond in everything you do. I hope today is extra special for you." },
+            { letter: "Y", title: "You", body: "Today is all about YOU. Relax, put your feet up, and enjoy the day. You deserve every bit of it." },
+            { letter: "Z", title: "Zeal & Zest", body: "I admire your zeal for life and the zest you bring to everything. Keep shining, Dad. Happy Father's Day!" }
+        ];
+
+        // --- Sub-component ---
+        const WishCard = ({ wish }) => {
+            const [copied, setCopied] = useState(false);
+
+            const copyToClipboard = () => {
+                const textToCopy = `${wish.title}\n\n${wish.body}`;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        setCopied(true);
+                        setTimeout(() => setCopied(false), 2000);
+                    });
+                } else {
+                    const textArea = document.createElement("textarea");
+                    textArea.value = textToCopy;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    setCopied(true);
+                    setTimeout(() => setCopied(false), 2000);
+                }
+            };
+
+            return (
+                <div className="group bg-white rounded-lg p-6 shadow-md hover:shadow-xl hover:shadow-blue-900/10 transition-all duration-300 border-b-4 border-slate-300 hover:border-blue-700 relative overflow-hidden h-full flex flex-col justify-between">
+                    {/* Decorative Background Icon */}
+                    <div className="absolute -bottom-4 -right-4 text-slate-100 group-hover:text-blue-50 transition-colors transform rotate-12">
+                         {wish.letter === 'T' || wish.letter === 'W' ? <IconTool size={100} /> :
+                          wish.letter === 'D' || wish.letter === 'H' ? <IconTie size={100} /> :
+                          wish.letter === 'J' || wish.letter === 'R' ? <IconMug size={100} /> :
+                          <IconStar size={100} />}
+                    </div>
+
+                    <div className="mb-4 relative z-10">
+                         <div className="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
+                             <div className="w-10 h-10 bg-slate-800 text-white rounded flex items-center justify-center font-slab font-bold text-xl shadow-lg">
+                                {wish.letter}
+                             </div>
+                             <div className="text-blue-800">
+                                {wish.letter === 'T' || wish.letter === 'W' ? <IconTool size={20} /> :
+                                 wish.letter === 'D' || wish.letter === 'H' ? <IconTie size={20} /> :
+                                 wish.letter === 'J' || wish.letter === 'R' ? <IconMug size={20} /> :
+                                 <IconStar size={20} />}
+                             </div>
+                         </div>
+                        <h3 className="text-xl font-bold text-slate-800 font-slab mb-3">
+                            {wish.title}
+                        </h3>
+                        <p className="text-base text-slate-600 leading-relaxed font-sans">
+                            {wish.body}
+                        </p>
+                    </div>
+
+                    <div className="flex justify-between items-center mt-2 pt-2 relative z-10">
+                        <span className="text-xs text-slate-400 uppercase tracking-widest font-bold">
+                            For Dad
+                        </span>
+                        <button 
+                            onClick={copyToClipboard}
+                            className="text-slate-400 hover:text-blue-700 transition-colors p-2 rounded-full hover:bg-blue-50"
+                            title="Copy to clipboard"
+                        >
+                            {copied ? <span className="text-green-600 text-xs font-bold flex items-center gap-1">Copied <IconCheck size={14}/></span> : <IconCopy size={18} />}
+                        </button>
+                    </div>
+                </div>
+            );
+        };
+
+        // --- Main Component ---
+        const FathersDayWishes = () => {
+            const [currentWishIndex, setCurrentWishIndex] = useState(0);
+            const [isCopied, setIsCopied] = useState(false);
+
+            const handleCopy = (wish) => {
+                const textToCopy = `${wish.title}\n\n${wish.body}`;
+                 if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        setIsCopied(true);
+                        setTimeout(() => setIsCopied(false), 2000);
+                    });
+                } else {
+                    const textArea = document.createElement("textarea");
+                    textArea.value = textToCopy;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    setIsCopied(true);
+                    setTimeout(() => setIsCopied(false), 2000);
+                }
+            };
+
+            const nextWish = () => {
+                setCurrentWishIndex((prev) => (prev + 1) % wishes.length);
+            };
+
+            const prevWish = () => {
+                setCurrentWishIndex((prev) => (prev - 1 + wishes.length) % wishes.length);
+            };
+            
+            const currentWish = wishes[currentWishIndex];
+
+            return (
+                <div className="min-h-screen bg-slate-50 font-sans text-slate-800 overflow-x-hidden selection:bg-blue-800 selection:text-white pb-12">
+                
+                {/* --- Header / Hero Section --- */}
+                <header className="relative z-10 bg-slate-900 text-white shadow-xl border-b-4 border-amber-500">
+                    <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+                    
+                    <div className="container mx-auto px-4 py-16 text-center relative">
+                        <div className="inline-flex items-center justify-center p-4 bg-slate-800 rounded-full border-2 border-slate-700 shadow-2xl mb-6">
+                            <IconTie className="text-amber-500" size={48} />
+                        </div>
+                        
+                        <h1 className="text-5xl md:text-7xl font-bold mb-4 font-slab tracking-tight">
+                            Father's Day
+                        </h1>
+                        <h2 className="text-xl md:text-2xl text-slate-400 font-light tracking-wide uppercase mb-8">
+                            A to Z Wishes Guide
+                        </h2>
+
+                        <div className="w-24 h-1 bg-amber-500 mx-auto rounded-full"></div>
+                    </div>
+                </header>
+
+                <main className="relative z-10 container mx-auto px-4 py-12">
+                    
+                    {/* --- Featured Wish Card (Hero) --- */}
+                    <section className="mb-20 max-w-4xl mx-auto">
+                        <div className="relative bg-white rounded-xl shadow-xl overflow-hidden border border-slate-200">
+                            <div className="absolute top-0 left-0 w-2 h-full bg-blue-800"></div>
+                            
+                            <div className="p-8 md:p-14 flex flex-col md:flex-row items-center gap-10">
+                                {/* Left Side: Graphic */}
+                                <div className="flex-shrink-0 relative">
+                                    <div className="w-48 h-48 bg-slate-100 rounded-full flex items-center justify-center border-4 border-slate-200">
+                                        <span className="text-9xl font-slab font-bold text-slate-300 select-none">{currentWish.letter}</span>
+                                    </div>
+                                    <div className="absolute bottom-0 right-0 bg-amber-500 text-white p-3 rounded-full shadow-lg">
+                                         <IconStar size={28} fill="currentColor" />
+                                    </div>
+                                </div>
+
+                                {/* Right Side: Content */}
+                                <div className="flex-grow text-center md:text-left">
+                                    <h4 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 font-slab">
+                                        {currentWish.title}
+                                    </h4>
+                                    
+                                    <p className="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed">
+                                        "{currentWish.body}"
+                                    </p>
+                                    
+                                    <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+                                        <button 
+                                        onClick={() => handleCopy(currentWish)}
+                                        className="flex items-center gap-2 px-6 py-3 bg-blue-800 hover:bg-blue-900 text-white rounded font-bold transition-all shadow hover:shadow-lg"
+                                        >
+                                        {isCopied ? "Copied!" : "Copy Wish"} <IconCopy size={18} />
+                                        </button>
+                                        <div className="flex gap-2">
+                                            <button 
+                                            onClick={prevWish}
+                                            className="w-12 h-12 flex items-center justify-center bg-slate-100 hover:bg-slate-200 text-slate-700 rounded transition-colors"
+                                            >
+                                            ←
+                                            </button>
+                                            <button 
+                                            onClick={nextWish}
+                                            className="w-12 h-12 flex items-center justify-center bg-slate-100 hover:bg-slate-200 text-slate-700 rounded transition-colors"
+                                            >
+                                            →
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* --- Grid of Wishes --- */}
+                    <section>
+                        <div className="flex items-center gap-4 mb-10">
+                            <div className="h-px bg-slate-300 flex-grow"></div>
+                            <h3 className="text-3xl font-bold text-slate-800 font-slab text-center uppercase tracking-wide">The Full Collection</h3>
+                            <div className="h-px bg-slate-300 flex-grow"></div>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {wishes.map((wish, index) => (
+                            <WishCard key={index} wish={wish} />
+                            ))}
+                        </div>
+                    </section>
+
+                </main>
+
+                {/* --- Footer --- */}
+                <footer className="relative z-10 bg-slate-800 text-slate-300 py-16 mt-16 border-t-8 border-slate-600">
+                    <div className="container mx-auto px-4 text-center">
+                        <IconMug className="mx-auto mb-6 text-slate-500" size={32} />
+                        <h2 className="text-3xl font-slab text-white mb-2">To the World's Greatest Dad</h2>
+                        <p className="max-w-xl mx-auto text-slate-400 mb-8">
+                            Thank you for everything you do.
+                        </p>
+                        <div className="text-sm text-slate-500 pt-8 border-t border-slate-700">
+                            © {new Date().getFullYear()} Holiday Greetings Collection. All rights reserved.
+                        </div>
+                    </div>
+                </footer>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<FathersDayWishes />);
+    </script>
+
+<html><head></head><body><footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Thanks giving and Christmas</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+
+          
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+        <div class="space-y-2">
+          <p>Redmond<br/>WA, USA</p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+          </p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+      
+      <div class="flex space-x-4 mt-4 sm:mt-0">
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+          <span class="sr-only">Facebook</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+          <span class="sr-only">Twitter</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+          <span class="sr-only">LinkedIn</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+	  
+	  <div class="flex gap-4 mt-4 sm:mt-0">
+                    <a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+                 
+					<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+      </div>
+    </div>
+	
+  </div>
+</footer></body></html></body></html>

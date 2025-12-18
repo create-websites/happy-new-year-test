@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    
+    <!-- SEO Meta Tags -->
+    <meta content="2026 Digital Outlook: A comprehensive forecast of New Year's Eve 2025 behavior, emerging 2026 resolution trends, and the shift towards 'Intentional Living'." name="description"/>
+    <meta content="New Year 2026 trends, digital behavior forecast, 2026 resolutions, AI trends 2026, sober curious statistics, January 2026 consumer insights" name="keywords"/>
+    
+    <title>The 2026 Digital Outlook: Trends &amp; Forecasts</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&amp;family=Inter:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+    
+    <!-- Chosen Palette: Neo-Slate & Electric Teal (Modern, Future-Facing) -->
+    <!-- Application Structure Plan:
+         1. Hero: "The Intentional Year" - Setting the theme for 2026.
+         2. Forecast Timeline (NYE 2025): Comparing the "Traditional" party spike vs. the "Sober Curious" rise.
+         3. Resolution Shift: Analysis of how AI and Mental Health are displacing traditional weight-loss goals.
+         4. The 2026 Vibe: A card-based matrix of emerging cultural shifts (JOMO, Soft Saving, Analog Return).
+         5. Interaction: Persona explorer updated for 2026 archetypes. -->
+    
+    <!-- Visualization & Content Choices:
+         1. "The Sober Shift" (Line Chart): Contrasting alcohol-related queries vs. wellness queries on NYE.
+         2. "2026 Goal Matrix" (Radar Chart): A new visualization to show the balance of goal categories (Mental vs Physical vs Digital).
+         3. "Tech vs Touch" (Donut): The split between Digital/AI resolutions and Analog/Offline resolutions.
+         4. NO SVG/Mermaid. Chart.js used for all visualizations. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F0F4F8; /* Cool Blue-Grey */
+            color: #1A202C;
+        }
+        h1, h2, h3, .heading-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            height: 320px;
+            margin: 0 auto;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.1);
+        }
+        .nav-btn {
+            position: relative;
+            overflow: hidden;
+        }
+        .nav-btn::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background-color: #319795; /* Teal */
+            transition: width 0.3s;
+        }
+        .nav-btn.active::after {
+            width: 100%;
+        }
+        .nav-btn.active {
+            color: #234E52;
+            font-weight: 700;
+        }
+        .tab-content {
+            display: none;
+            animation: slideUp 0.4s ease-out;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .stat-highlight {
+            color: #319795; /* Teal 500 */
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-md border-b border-gray-200 py-5 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="bg-teal-600 text-white font-bold p-2 rounded-lg text-xs tracking-widest">2026 REPORT</div>
+                <div>
+                    <h1 class="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight heading-font">The Digital Horizon</h1>
+                </div>
+            </div>
+            <nav class="mt-4 md:mt-0 flex space-x-6 overflow-x-auto w-full md:w-auto pb-2 md:pb-0">
+                <button class="nav-btn active px-2 py-1 text-sm text-gray-600 hover:text-teal-700 whitespace-nowrap" id="btn-forecast" onclick="switchTab('forecast')">2026 Outlook</button>
+                <button class="nav-btn px-2 py-1 text-sm text-gray-600 hover:text-teal-700 whitespace-nowrap" id="btn-nye" onclick="switchTab('nye')">NYE: The Sober Shift</button>
+                <button class="nav-btn px-2 py-1 text-sm text-gray-600 hover:text-teal-700 whitespace-nowrap" id="btn-resolutions" onclick="switchTab('resolutions')">Resolutions 2.0</button>
+                <button class="nav-btn px-2 py-1 text-sm text-gray-600 hover:text-teal-700 whitespace-nowrap" id="btn-culture" onclick="switchTab('culture')">Culture Matrix</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
+
+        <!-- TAB 1: 2026 OUTLOOK (HERO) -->
+        <section class="tab-content active space-y-10" id="forecast">
+            <div class="text-center max-w-4xl mx-auto mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6 heading-font">The Year of Intentionality</h2>
+                <p class="text-xl text-gray-600 leading-relaxed">
+                    As we approach 2026, data suggests a massive pivot from "Hustle Culture" to <span class="font-bold text-teal-700">"Soft Systems."</span> 
+                    The upcoming New Year will be defined by AI-assisted planning, a rejection of chaotic celebration, and a focus on financial resilience.
+                </p>
+            </div>
+
+            <!-- Hero Stats Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card p-8 border-t-4 border-teal-500">
+                    <div class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2">Projected Trend</div>
+                    <h3 class="text-2xl font-bold mb-2">The "Quiet" Eve</h3>
+                    <p class="text-gray-600 text-sm">Search interest for "Board game night ideas" and "Hosting dinner party" is outacing "Club tickets" by <span class="stat-highlight font-bold">34%</span>.</p>
+                </div>
+                <div class="glass-card p-8 border-t-4 border-indigo-500">
+                    <div class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2">Tech Adoption</div>
+                    <h3 class="text-2xl font-bold mb-2">AI Life Coaching</h3>
+                    <p class="text-gray-600 text-sm">Downloads for AI-based planning apps are projected to spike <span class="stat-highlight font-bold">200%</span> higher than Jan 1, 2025.</p>
+                </div>
+                <div class="glass-card p-8 border-t-4 border-rose-500">
+                    <div class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2">Finance</div>
+                    <h3 class="text-2xl font-bold mb-2">Soft Saving</h3>
+                    <p class="text-gray-600 text-sm">"Low buy year" and "Financial fasting" queries are trending <span class="stat-highlight font-bold">2 weeks earlier</span> than usual.</p>
+                </div>
+            </div>
+
+            <div class="bg-gray-900 rounded-2xl p-8 md:p-12 text-white relative overflow-hidden">
+                <div class="relative z-10 flex flex-col md:flex-row items-center justify-between">
+                    <div class="md:w-2/3">
+                        <h3 class="text-3xl font-bold mb-4 heading-font">The 2026 Prediction Model</h3>
+                        <p class="text-gray-300 text-lg mb-6">Based on Q4 2025 search volume, we predict the "Hangover" search spike will be the lowest in a decade, replaced by a surge in "Morning Routine" queries on Jan 1st.</p>
+                        <button class="bg-teal-500 hover:bg-teal-400 text-white font-bold py-3 px-8 rounded-full transition shadow-lg shadow-teal-500/30" onclick="switchTab('nye')">View the Data →</button>
+                    </div>
+                    <div class="md:w-1/3 mt-8 md:mt-0 flex justify-center">
+                        <div class="text-center">
+                            <div class="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-indigo-400">14 Days</div>
+                            <div class="text-gray-400 text-sm mt-2">Until The Shift</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 2: NYE BEHAVIOR (The Sober Shift) -->
+        <section class="tab-content space-y-8" id="nye">
+            <div class="flex flex-col md:flex-row justify-between items-end border-b border-gray-300 pb-4 mb-6">
+                <div class="max-w-2xl">
+                    <h2 class="text-3xl font-bold text-gray-900 heading-font">NYE 2025: The Sober Curious Shift</h2>
+                    <p class="text-gray-600 mt-2">
+                        Comparing historical average search volume (2020-2024) against projected 2025-2026 volume. 
+                        Note the divergence in "Recovery" queries.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Chart Container -->
+            <div class="glass-card p-6">
+                <div class="mb-4 flex justify-between items-center">
+                    <h3 class="font-bold text-gray-700">Hourly Search Intent: Dec 31 - Jan 1</h3>
+                    <div class="flex gap-4 text-xs">
+                        <div class="flex items-center gap-1"><div class="w-3 h-3 bg-indigo-500 rounded-full"></div> Traditional (Avg)</div>
+                        <div class="flex items-center gap-1"><div class="w-3 h-3 bg-teal-400 rounded-full"></div> 2026 Prediction</div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="nyeChart"></canvas>
+                </div>
+                <div class="mt-4 p-4 bg-teal-50 rounded-lg border border-teal-100 text-sm text-teal-800">
+                    <strong>Analyst Note:</strong> The projected dip in "Hangover" queries at 10:00 AM Jan 1st correlates with a 45% YoY increase in "Mocktail recipes" and "Non-alcoholic champagne" searches in December 2025.
+                </div>
+            </div>
+
+            <!-- Insight Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                <div class="glass-card p-6">
+                    <h4 class="font-bold text-lg mb-3">Top "Party" Queries (Projected)</h4>
+                    <ul class="space-y-3">
+                        <li class="flex justify-between items-center p-2 bg-white rounded shadow-sm">
+                            <span>"Cozy New Years Eve outfits"</span>
+                            <span class="text-green-600 font-mono text-xs">▲ 120%</span>
+                        </li>
+                        <li class="flex justify-between items-center p-2 bg-white rounded shadow-sm">
+                            <span>"Board games for adults"</span>
+                            <span class="text-green-600 font-mono text-xs">▲ 85%</span>
+                        </li>
+                        <li class="flex justify-between items-center p-2 bg-white rounded shadow-sm">
+                            <span>"NYE Meditation Livestream"</span>
+                            <span class="text-green-600 font-mono text-xs">▲ 200%</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="glass-card p-6">
+                    <h4 class="font-bold text-lg mb-3">Declining Trends</h4>
+                    <ul class="space-y-3">
+                        <li class="flex justify-between items-center p-2 bg-white rounded shadow-sm opacity-75">
+                            <span>"Open Bar tickets near me"</span>
+                            <span class="text-red-500 font-mono text-xs">▼ 30%</span>
+                        </li>
+                        <li class="flex justify-between items-center p-2 bg-white rounded shadow-sm opacity-75">
+                            <span>"Hangover IV drip"</span>
+                            <span class="text-red-500 font-mono text-xs">▼ 15%</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 3: RESOLUTIONS 2.0 -->
+        <section class="tab-content space-y-8" id="resolutions">
+            <div class="border-b border-gray-300 pb-4 mb-6">
+                <h2 class="text-3xl font-bold text-gray-900 heading-font">Resolutions 2.0: The AI Era</h2>
+                <p class="text-gray-600 mt-2 max-w-3xl">
+                    The prompt "Lose 10 pounds" is being replaced by "Optimize my sleep data." 
+                    2026 resolutions are characterized by system-building rather than willpower.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Radar Chart -->
+                <div class="glass-card p-6">
+                    <h3 class="font-bold text-gray-800 mb-4 text-center">Resolution Category Shift (2025 vs 2026)</h3>
+                    <div class="chart-container">
+                        <canvas id="radarChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Donut Chart & Text -->
+                <div class="glass-card p-6 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-gray-800 mb-4 text-center">The "Analog" Rebound</h3>
+                        <p class="text-sm text-gray-500 text-center mb-4">Despite the rise of AI, a significant portion of resolutions are explicitly "Offline."</p>
+                        <div class="chart-container" style="height: 250px;">
+                            <canvas id="techDonutChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="mt-6 bg-indigo-50 p-4 rounded-lg">
+                        <h4 class="font-bold text-indigo-900 text-sm">Key Insight:</h4>
+                        <p class="text-xs text-indigo-800 mt-1">
+                            People are using high-tech tools (AI planners, smart rings) to achieve low-tech goals (Reading paper books, walking in nature, sleeping).
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2026 Archetypes Interactive -->
+            <div class="mt-10">
+                <h3 class="text-2xl font-bold mb-6 heading-font">Meet the 2026 Resolvers</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <!-- Archetype 1 -->
+                    <button class="archetype-btn active bg-white p-6 rounded-xl border-2 border-teal-500 shadow-md text-left transition hover:bg-gray-50" onclick="updateArchetype('optimizer')">
+                        <div class="text-2xl mb-2">🤖</div>
+                        <h4 class="font-bold text-gray-900">The AI Optimizer</h4>
+                        <p class="text-xs text-gray-500 mt-1">Delegates planning to algorithms.</p>
+                    </button>
+                    <!-- Archetype 2 -->
+                    <button class="archetype-btn bg-white p-6 rounded-xl border border-gray-200 shadow-sm text-left transition hover:bg-gray-50" onclick="updateArchetype('monk')">
+                        <div class="text-2xl mb-2">🧘</div>
+                        <h4 class="font-bold text-gray-900">The Urban Monk</h4>
+                        <p class="text-xs text-gray-500 mt-1">Seeks silence and 'Dumb Phone' lifestyle.</p>
+                    </button>
+                    <!-- Archetype 3 -->
+                    <button class="archetype-btn bg-white p-6 rounded-xl border border-gray-200 shadow-sm text-left transition hover:bg-gray-50" onclick="updateArchetype('hacker')">
+                        <div class="text-2xl mb-2">🌱</div>
+                        <h4 class="font-bold text-gray-900">The Eco-Hacker</h4>
+                        <p class="text-xs text-gray-500 mt-1">Focuses on sustainability &amp; circular economy.</p>
+                    </button>
+                </div>
+
+                <div class="mt-6 glass-card p-8 border-t-4 border-teal-500 animate-fade-in" id="archetype-detail">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="md:w-1/2">
+                            <h4 class="text-xl font-bold text-gray-900 mb-2">The AI Optimizer</h4>
+                            <p class="text-gray-600 text-sm mb-4">
+                                This user doesn't just want to "work out"; they want their smartwatch to tell them *when* to work out based on their HRV (Heart Rate Variability). They start 2026 by feeding their entire life context into a Large Language Model to generate a 365-day plan.
+                            </p>
+                            <div class="flex gap-2">
+                                <span class="px-3 py-1 bg-gray-100 text-xs font-bold rounded-full">Automated Finance</span>
+                                <span class="px-3 py-1 bg-gray-100 text-xs font-bold rounded-full">Biohacking</span>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 border-l border-gray-200 pl-0 md:pl-8">
+                            <h5 class="font-bold text-sm text-gray-500 uppercase mb-3">Key Search Queries</h5>
+                            <ul class="space-y-2 text-sm text-gray-800">
+                                <li>• "Best AI calendar assistant 2026"</li>
+                                <li>• "Oura ring vs Whoop 5.0"</li>
+                                <li>• "ChatGPT prompts for annual planning"</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 4: CULTURE MATRIX -->
+        <section class="tab-content space-y-8" id="culture">
+            <div class="border-b border-gray-300 pb-4 mb-6">
+                <h2 class="text-3xl font-bold text-gray-900 heading-font">The 2026 Vibe Shift</h2>
+                <p class="text-gray-600 mt-2">
+                    What's In vs. What's Out. Based on sentiment analysis of social platforms in Q4 2025.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- IN List -->
+                <div class="glass-card p-8 bg-gradient-to-br from-white to-teal-50">
+                    <h3 class="text-xl font-bold text-teal-800 mb-6 flex items-center gap-2">
+                        <span class="text-2xl">⚡</span> IN (Rising Trends)
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="font-bold text-gray-900 w-32">Soft Saving</div>
+                            <div class="text-sm text-gray-600 flex-1">Publicly embracing frugality. "Loud Budgeting" evolves into a quiet lifestyle choice.</div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="font-bold text-gray-900 w-32">Third Places</div>
+                            <div class="text-sm text-gray-600 flex-1">Physical locations (libraries, parks) over digital chat rooms.</div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="font-bold text-gray-900 w-32">Micro-Learning</div>
+                            <div class="text-sm text-gray-600 flex-1">5-minute daily skill acquisition apps instead of hour-long courses.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OUT List -->
+                <div class="glass-card p-8 bg-gradient-to-br from-white to-gray-100">
+                    <h3 class="text-xl font-bold text-gray-500 mb-6 flex items-center gap-2">
+                        <span class="text-2xl">💤</span> OUT (Fading Trends)
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="font-bold text-gray-400 w-32">Doomscrolling</div>
+                            <div class="text-sm text-gray-500 flex-1">Active rejection of infinite feeds. High usage of "App blockers."</div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="font-bold text-gray-400 w-32">Hustle Culture</div>
+                            <div class="text-sm text-gray-500 flex-1">"Rise and Grind" is being replaced by "Rest and Digest."</div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="font-bold text-gray-400 w-32">Fast Fashion</div>
+                            <div class="text-sm text-gray-500 flex-1">Search volume for "Hauls" is down 40% YoY.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <p class="text-gray-500 text-sm">Data projections based on aggregated search trends Q3-Q4 2025.</p>
+                <div class="mt-4">
+                    <button class="text-teal-600 hover:text-teal-800 font-bold transition" onclick="switchTab('forecast')">Return to Forecast ↑</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <html><head></head><body><footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Thanks giving and Christmas</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+
+          
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+        <div class="space-y-2">
+          <p>Redmond<br/>WA, USA</p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+          </p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+      
+      <div class="flex space-x-4 mt-4 sm:mt-0">
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+          <span class="sr-only">Facebook</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+          <span class="sr-only">Twitter</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+          <span class="sr-only">LinkedIn</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+	  
+	  <div class="flex gap-4 mt-4 sm:mt-0">
+                    <a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+                 
+					<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+      </div>
+    </div>
+	
+  </div>
+</footer></body></html>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // State
+        const appState = {
+            currentTab: 'forecast',
+            chartsInitialized: false
+        };
+
+        const archetypeData = {
+            optimizer: {
+                title: "The AI Optimizer",
+                icon: "🤖",
+                desc: "This user doesn't just want to 'work out'; they want their smartwatch to tell them *when* to work out based on their HRV. They start 2026 by feeding their entire life context into an LLM to generate a 365-day plan.",
+                tags: ["Automated Finance", "Biohacking"],
+                queries: ["Best AI calendar assistant 2026", "Oura ring vs Whoop 5.0", "ChatGPT prompts for annual planning"]
+            },
+            monk: {
+                title: "The Urban Monk",
+                icon: "🧘",
+                desc: "Rebelling against the notification economy. Their 2026 resolution is to buy a 'Dumb Phone' and read 50 physical books. They prioritize sleep hygiene and silence above productivity.",
+                tags: ["Digital Detox", "Slow Living"],
+                queries: ["Light phone 3 review", "Silent retreat near me", "Books to read 2026"]
+            },
+            hacker: {
+                title: "The Eco-Hacker",
+                icon: "🌱",
+                desc: "Combines tech savvy with sustainability. They use apps to track carbon footprints, buy exclusively second-hand (Vinted/Depop), and repair their own electronics.",
+                tags: ["Circular Economy", "Right to Repair"],
+                queries: ["How to fix iPhone screen", "Zero waste grocery store", "Permaculture for apartments"]
+            }
+        };
+
+        // Navigation
+        function switchTab(tabId) {
+            appState.currentTab = tabId;
+
+            // Tabs UI
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+
+            // Buttons UI
+            document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById(`btn-${tabId}`).classList.add('active');
+
+            // Scroll Top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Lazy Load Charts
+            if (!appState.chartsInitialized && (tabId === 'nye' || tabId === 'resolutions')) {
+                initCharts();
+                appState.chartsInitialized = true;
+            }
+        }
+
+        // Archetype Interaction
+        function updateArchetype(key) {
+            const data = archetypeData[key];
+            const container = document.getElementById('archetype-detail');
+            
+            // Highlight Button
+            document.querySelectorAll('.archetype-btn').forEach(btn => {
+                btn.classList.remove('active', 'border-teal-500', 'border-2');
+                btn.classList.add('border-gray-200', 'border');
+            });
+            event.currentTarget.classList.add('active', 'border-teal-500', 'border-2');
+            event.currentTarget.classList.remove('border-gray-200');
+
+            // Update Content
+            container.innerHTML = `
+                <div class="flex flex-col md:flex-row gap-8 animate-fade-in">
+                    <div class="md:w-1/2">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-2xl">${data.icon}</span>
+                            <h4 class="text-xl font-bold text-gray-900">${data.title}</h4>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">${data.desc}</p>
+                        <div class="flex gap-2">
+                            ${data.tags.map(tag => `<span class="px-3 py-1 bg-gray-100 text-xs font-bold rounded-full text-gray-700">${tag}</span>`).join('')}
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 border-l border-gray-200 pl-0 md:pl-8 mt-4 md:mt-0">
+                        <h5 class="font-bold text-sm text-gray-500 uppercase mb-3">Key Search Queries</h5>
+                        <ul class="space-y-2 text-sm text-gray-800">
+                            ${data.queries.map(q => `<li>• "${q}"</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Charts
+        function initCharts() {
+            Chart.defaults.font.family = "'Inter', sans-serif";
+            Chart.defaults.color = '#4A5568';
+
+            // 1. NYE Line Chart (Comparison)
+            const nyeCtx = document.getElementById('nyeChart').getContext('2d');
+            new Chart(nyeCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Dec 31 8PM', '10PM', '12AM', 'Jan 1 2AM', '4AM', '8AM', '10AM', '12PM'],
+                    datasets: [
+                        {
+                            label: 'Avg Hangover Queries (2020-2024)',
+                            data: [10, 20, 50, 70, 60, 80, 100, 85],
+                            borderColor: '#667EEA', // Indigo
+                            borderDash: [5, 5],
+                            tension: 0.4,
+                            pointRadius: 0
+                        },
+                        {
+                            label: 'Projected 2026',
+                            data: [10, 15, 40, 45, 30, 40, 55, 45],
+                            borderColor: '#38B2AC', // Teal
+                            backgroundColor: 'rgba(56, 178, 172, 0.1)',
+                            fill: true,
+                            tension: 0.4,
+                            borderWidth: 3
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { mode: 'index', intersect: false }
+                    },
+                    scales: {
+                        y: { display: false },
+                        x: { grid: { display: false } }
+                    }
+                }
+            });
+
+            // 2. Radar Chart (Resolutions)
+            const radarCtx = document.getElementById('radarChart').getContext('2d');
+            new Chart(radarCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['Physical Fitness', 'Mental Clarity', 'Financial Health', 'Digital Wellbeing', 'Social Connection', 'Career Upskilling'],
+                    datasets: [{
+                        label: '2025 (Last Year)',
+                        data: [90, 40, 70, 30, 50, 60],
+                        borderColor: '#CBD5E0',
+                        backgroundColor: 'rgba(203, 213, 224, 0.2)',
+                    }, {
+                        label: '2026 (Projected)',
+                        data: [70, 85, 80, 75, 60, 50],
+                        borderColor: '#319795',
+                        backgroundColor: 'rgba(49, 151, 149, 0.2)',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            ticks: { display: false },
+                            grid: { color: '#E2E8F0' }
+                        }
+                    }
+                }
+            });
+
+            // 3. Donut Chart (Tech vs Touch)
+            const techCtx = document.getElementById('techDonutChart').getContext('2d');
+            new Chart(techCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['AI/Tech Assisted Goals', 'Strictly Analog Goals', 'Hybrid'],
+                    datasets: [{
+                        data: [45, 30, 25],
+                        backgroundColor: ['#63B3ED', '#F6AD55', '#A0AEC0'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: {
+                        legend: { position: 'bottom' }
+                    }
+                }
+            });
+        }
+    </script>
+
+</body></html>

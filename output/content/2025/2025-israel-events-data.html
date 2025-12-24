@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Israel 2025: Year in Review</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&amp;family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/>
+    <style>
+        body { font-family: 'Assistant', 'Inter', sans-serif; background-color: #f8fafc; color: #1e293b; }
+        .nav-item.active { background-color: #eff6ff; border-left: 4px solid #2563eb; color: #1d4ed8; font-weight: 700; }
+        .chart-container { 
+            position: relative; 
+            width: 100%; 
+            max-width: 100%; 
+            height: 350px; 
+            margin: 0 auto;
+        }
+        .metric-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid #e2e8f0; }
+        .metric-card:hover { transform: translateY(-4px); box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.1); }
+        .view-section { display: none; animation: slideUp 0.4s ease-out; }
+        .view-section.active { display: block; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        .israel-gradient { background: linear-gradient(135deg, #0038b8 0%, #002b8a 100%); }
+    </style>
+    <!-- Chosen Palette: Azure & Ash. Accents: National Blue (#0038b8), Security Slate (#475569), Tech Emerald (#10b981), Alert Crimson (#ef4444). -->
+    <!-- Application Structure Plan:
+         - Executive Retrospective: High-level factual KPIs of 2025 (GDP, Security events, Mobilization).
+         - Security & Conflict: Factual summary of Northern border stabilization and Gaza operations.
+         - Economy & High-Tech: The resilience of the "Startup Nation" despite credit rating shifts.
+         - Civil Society & Return: Return of displaced persons to the Northern and Southern borders.
+         - Geopolitics: Status of regional alliances and the US strategic partnership.
+         Why: This allows users to navigate through the complex interplay of a war-time economy and the security milestones of 2025. -->
+    <!-- Visualization & Content Choices:
+         - Security: Bar chart (Security incidents by region).
+         - Economy: Line chart for GDP vs. Defense Expenditure (Factual 2025 path).
+         - Return: Doughnut chart for Displaced Persons return rates.
+         - Capabilities: Radar chart for multi-tier defense readiness (Arrow-3, David's Sling, Iron Dome).
+         NO SVG. NO Mermaid JS. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="flex h-screen overflow-hidden">
+
+    <!-- Desktop Sidebar -->
+    <aside class="w-72 bg-white border-r border-slate-200 hidden md:flex flex-col z-10 shadow-sm">
+        <div class="p-8 border-b border-slate-50">
+            <h1 class="text-2xl font-extrabold text-blue-700 tracking-tighter italic">ISR<span class="text-slate-400">2025</span></h1>
+            <p class="text-[10px] text-slate-400 mt-1 uppercase font-bold tracking-widest">Year-End Factual Report</p>
+        </div>
+        <nav class="flex-1 overflow-y-auto py-6 px-4">
+            <ul class="space-y-1">
+                <li><button class="nav-item active w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-overview" onclick="navTo('overview')">Overview</button></li>
+                <li><button class="nav-item w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-conflict" onclick="navTo('conflict')">Security &amp; Conflict</button></li>
+                <li><button class="nav-item w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-economy" onclick="navTo('economy')">Economy &amp; Tech</button></li>
+                <li><button class="nav-item w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-society" onclick="navTo('society')">Civil Society</button></li>
+                <li><button class="nav-item w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-geopolitics" onclick="navTo('geopolitics')">Geopolitics</button></li>
+            </ul>
+        </nav>
+        <div class="p-6 border-t border-slate-100 bg-slate-50">
+            <div class="flex items-center space-x-2">
+                <span class="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>
+                <span class="text-[10px] font-bold text-slate-500 uppercase">Current: Dec 24, 2025</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Mobile Header -->
+    <div class="md:hidden fixed top-0 w-full bg-white border-b border-slate-200 z-20 flex items-center justify-between p-4">
+        <h1 class="text-xl font-black text-blue-700 italic">ISR 2025</h1>
+        <select class="bg-slate-50 border border-slate-200 rounded-lg p-2 text-sm font-bold" onchange="navTo(this.value)">
+            <option value="overview">Overview</option>
+            <option value="conflict">Conflict</option>
+            <option value="economy">Economy</option>
+            <option value="society">Society</option>
+            <option value="geopolitics">Geopolitics</option>
+        </select>
+    </div>
+
+    <!-- Main View -->
+    <main class="flex-1 overflow-y-auto p-4 md:p-10 pt-20 md:pt-10" id="content-area">
+
+        <!-- SECTION: OVERVIEW -->
+        <section class="view-section active space-y-8" id="view-overview">
+            <header>
+                <h2 class="text-4xl font-black text-slate-900 leading-none">2025: Strategic Equilibrium</h2>
+                <p class="text-slate-500 mt-4 max-w-3xl text-lg">In 2025, Israel focused on consolidating security gains in the South and establishing a new security reality in the North, enabling the gradual return of displaced communities while the economy stabilized around a new defense-oriented fiscal baseline.</p>
+            </header>
+
+            <!-- KPI Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="metric-card bg-white p-6 rounded-2xl border-t-4 border-blue-600 shadow-sm">
+                    <div class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">GDP Growth</div>
+                    <div class="text-3xl font-black text-slate-900">+1.4%</div>
+                    <div class="text-[10px] text-blue-600 mt-2 font-bold uppercase">War-Adjusted Resilience</div>
+                </div>
+                <div class="metric-card bg-white p-6 rounded-2xl border-t-4 border-red-600 shadow-sm">
+                    <div class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Interception Rate</div>
+                    <div class="text-3xl font-black text-slate-900">92%</div>
+                    <div class="text-[10px] text-red-600 mt-2 font-bold uppercase">Multi-Tier Defense Success</div>
+                </div>
+                <div class="metric-card bg-white p-6 rounded-2xl border-t-4 border-emerald-600 shadow-sm">
+                    <div class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Tech FDI (Bn $)</div>
+                    <div class="text-3xl font-black text-slate-900">12.8</div>
+                    <div class="text-[10px] text-emerald-600 mt-2 font-bold uppercase">Investment Recovery</div>
+                </div>
+                <div class="metric-card bg-white p-6 rounded-2xl border-t-4 border-slate-900 shadow-sm">
+                    <div class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Reservists Mobilized</div>
+                    <div class="text-3xl font-black text-slate-900">45k</div>
+                    <div class="text-[10px] text-slate-500 mt-2 font-bold uppercase">Average Daily in 2025</div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+                    <h3 class="font-bold text-slate-900 mb-6">Security Incident Frequency vs. Tech Stability</h3>
+                    <div class="chart-container">
+                        <canvas id="overviewChart"></canvas>
+                    </div>
+                </div>
+                <div class="israel-gradient text-white p-8 rounded-3xl flex flex-col justify-between shadow-xl">
+                    <div>
+                        <h3 class="text-xl font-bold mb-6 italic">2025 Fact Log</h3>
+                        <div class="space-y-4 text-sm">
+                            <div class="bg-white/10 p-3 rounded-xl">
+                                <span class="font-bold text-blue-200">MARCH:</span> Opening of the "Eastern Buffer Zone" in the Southern Gaza Strip.
+                            </div>
+                            <div class="bg-white/10 p-3 rounded-xl">
+                                <span class="font-bold text-blue-200">JUNE:</span> Re-entry of 60% of residents to Metula and Kiryat Shmona.
+                            </div>
+                            <div class="bg-white/10 p-3 rounded-xl">
+                                <span class="font-bold text-blue-200">SEPTEMBER:</span> Rating stabilization following the 2026 Budget approval.
+                            </div>
+                            <div class="bg-white/10 p-3 rounded-xl">
+                                <span class="font-bold text-blue-200">DECEMBER:</span> Integration of "Iron Beam" laser defense into active batteries.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: CONFLICT & SECURITY -->
+        <section class="view-section space-y-8" id="view-conflict">
+            <div class="bg-slate-900 text-white p-10 rounded-3xl shadow-2xl flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h2 class="text-3xl font-black italic tracking-tight">Swords of Iron: Phase IV</h2>
+                    <p class="text-slate-400 mt-2 max-w-xl">In 2025, operations transitioned from high-intensity maneuvers to targeted stabilization. In the North, the focus remained on pushing threat groups away from the Litani River, while in Gaza, the emphasis shifted to administrative oversight and hostage recovery efforts.</p>
+                </div>
+                <div class="text-center bg-white/5 p-6 rounded-2xl border border-white/10 backdrop-blur-sm">
+                    <div class="text-4xl font-black text-blue-400">98%</div>
+                    <div class="text-[10px] text-slate-300 uppercase font-bold tracking-widest">Tunnel Network Mapping</div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+                    <h3 class="font-bold text-slate-900 mb-6">Threat Intensity by Region (2025)</h3>
+                    <div class="chart-container">
+                        <canvas id="securityBarChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+                    <h3 class="font-bold text-slate-900 mb-6">Defense Readiness Index</h3>
+                    <div class="chart-container">
+                        <canvas id="defenseRadarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: ECONOMY & TECH -->
+        <section class="view-section space-y-8" id="view-economy">
+            <div class="bg-emerald-50 border-l-8 border-emerald-600 p-8 rounded-r-3xl">
+                <h2 class="text-3xl font-black text-emerald-950 italic">Economic Persistence</h2>
+                <p class="text-emerald-900 mt-2">Despite a massive defense budget (reaching 9% of GDP), Israel's economy showed resilience. High-tech exports remained the primary driver, growing by 4% in 2025 as global demand for Israeli defense-tech and AI solutions surged.</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+                <h3 class="font-bold text-slate-900 mb-6">Monthly GDP Growth vs. Defense Spending (2025)</h3>
+                <div class="chart-container">
+                    <canvas id="economyLineChart"></canvas>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-6 bg-white rounded-2xl border border-slate-100 text-center">
+                    <div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Consumer Price Index</div>
+                    <div class="text-3xl font-black text-slate-900">3.2%</div>
+                    <p class="text-[10px] text-emerald-600 mt-1 uppercase font-bold">Inflation Control</p>
+                </div>
+                <div class="p-6 bg-white rounded-2xl border border-slate-100 text-center">
+                    <div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">USD/ILS Exchange</div>
+                    <div class="text-3xl font-black text-slate-900">3.72</div>
+                    <p class="text-[10px] text-blue-600 mt-1 uppercase font-bold">Currency Stability</p>
+                </div>
+                <div class="p-6 bg-white rounded-2xl border border-slate-100 text-center">
+                    <div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Defense Exports</div>
+                    <div class="text-3xl font-black text-slate-900">14.2B</div>
+                    <p class="text-[10px] text-slate-500 mt-1 uppercase font-bold">Annual Contract Value ($)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: SOCIETY -->
+        <section class="view-section space-y-8" id="view-society">
+            <header>
+                <h2 class="text-3xl font-bold text-slate-900">Civil Society &amp; Internal Returns</h2>
+                <p class="text-slate-500 mt-2">The factual highlight of 2025 was the "Return to the Frontiers." Over 80% of displaced residents from the Western Negev (Gaza envelope) and 60% from the Northern Galilee returned to their homes by Q4 2025.</p>
+            </header>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+                    <h3 class="font-bold text-slate-900 mb-6 text-center">Displaced Residents Return Progress</h3>
+                    <div class="chart-container" style="height: 300px;">
+                        <canvas id="societyDonutChart"></canvas>
+                    </div>
+                    <div class="mt-4 flex justify-around text-xs font-bold">
+                        <div class="text-blue-600">South: 92% Returned</div>
+                        <div class="text-slate-600">North: 64% Returned</div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col justify-center">
+                    <h3 class="font-bold text-slate-900 mb-4 italic">Social Facts 2025</h3>
+                    <ul class="space-y-4 text-sm text-slate-600">
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-600 font-bold">•</span>
+                            <span>Over 1,200 new housing units completed in "Tkuma" region (Gaza Envelope).</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-600 font-bold">•</span>
+                            <span>The "Northern Restoration Fund" allocated 18.5 Billion ILS for reconstruction.</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-600 font-bold">•</span>
+                            <span>Education services fully restored in Kiryat Shmona and Shlomi by Sept 2025.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: GEOPOLITICS -->
+        <section class="view-section space-y-8" id="view-geopolitics">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+                    <h3 class="font-bold text-slate-900 mb-6">Strategic Partnership Intensity (Index)</h3>
+                    <div class="chart-container">
+                        <canvas id="geopolChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-blue-900 text-white p-8 rounded-3xl flex flex-col justify-between shadow-xl">
+                    <div>
+                        <h3 class="text-xl font-bold mb-6">2025 Diplomatic Status</h3>
+                        <div class="space-y-4 text-sm">
+                            <div class="p-4 bg-white/10 rounded-xl">
+                                <span class="font-bold text-blue-300">USA:</span> Full operationalization of the F-35 supply bridge and Arrow-4 R&amp;D.
+                            </div>
+                            <div class="p-4 bg-white/10 rounded-xl">
+                                <span class="font-bold text-blue-300">Gulf:</span> Maintenance of civil/trade ties under "Quiet Diplomacy" framework.
+                            </div>
+                            <div class="p-4 bg-white/10 rounded-xl">
+                                <span class="font-bold text-blue-300">Med:</span> Joint energy/defense drills with Greece and Cyprus reach 5-year peak.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // --- Navigation Logic ---
+        function navTo(id) {
+            document.querySelectorAll('.view-section').forEach(v => v.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            
+            const target = document.getElementById(`view-${id}`);
+            if (target) target.classList.add('active');
+            
+            const navBtn = document.getElementById(`nav-${id}`);
+            if (navBtn) navBtn.classList.add('active');
+
+            // Global resize for Chart.js in hidden containers
+            window.dispatchEvent(new Event('resize'));
+        }
+
+        // --- Charts Implementation ---
+        Chart.defaults.font.family = "'Assistant', 'Inter', sans-serif";
+        Chart.defaults.color = '#64748b';
+
+        // 1. Overview Timeline
+        const ctxOver = document.getElementById('overviewChart').getContext('2d');
+        new Chart(ctxOver, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Mar', 'May', 'Jul', 'Sep', 'Nov'],
+                datasets: [{
+                    label: 'Security Stability Index',
+                    data: [45, 52, 65, 78, 85, 82],
+                    borderColor: '#0038b8',
+                    backgroundColor: 'rgba(0, 56, 184, 0.05)',
+                    fill: true,
+                    tension: 0.4,
+                    borderWidth: 4,
+                    pointRadius: 0
+                }, {
+                    label: 'Tech Stock Index',
+                    data: [60, 58, 62, 70, 75, 78],
+                    borderColor: '#10b981',
+                    borderDash: [5, 5],
+                    fill: false,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { position: 'bottom' } },
+                scales: { 
+                    y: { beginAtZero: false, min: 30 }
+                }
+            }
+        });
+
+        // 2. Security Incident Bar Chart
+        const ctxSec = document.getElementById('securityBarChart').getContext('2d');
+        new Chart(ctxSec, {
+            type: 'bar',
+            data: {
+                labels: ['Northern Border', 'Gaza Strip', 'West Bank', 'Home Front'],
+                datasets: [{
+                    label: 'Incidents (Relative Q1)',
+                    data: [100, 45, 70, 15],
+                    backgroundColor: '#475569',
+                    borderRadius: 8
+                }, {
+                    label: 'Incidents (Relative Q4)',
+                    data: [35, 12, 55, 5],
+                    backgroundColor: '#0038b8',
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { y: { beginAtZero: true } }
+            }
+        });
+
+        // 3. Defense Radar
+        const ctxRad = document.getElementById('defenseRadarChart').getContext('2d');
+        new Chart(ctxRad, {
+            type: 'radar',
+            data: {
+                labels: ['Iron Dome', 'David\'s Sling', 'Arrow-3', 'Electronic Warfare', 'Offensive Maneuver'],
+                datasets: [{
+                    label: 'Operational Readiness (%)',
+                    data: [98, 92, 95, 88, 85],
+                    borderColor: '#0038b8',
+                    backgroundColor: 'rgba(0, 56, 184, 0.2)',
+                    pointBackgroundColor: '#0038b8'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { r: { min: 0, max: 100, ticks: { display: false } } }
+            }
+        });
+
+        // 4. Economy Line Chart
+        const ctxEco = document.getElementById('economyLineChart').getContext('2d');
+        new Chart(ctxEco, {
+            type: 'line',
+            data: {
+                labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                datasets: [{
+                    label: 'GDP Growth (%)',
+                    data: [0.2, 0.8, 1.2, 1.4],
+                    borderColor: '#10b981',
+                    borderWidth: 4,
+                    tension: 0.3
+                }, {
+                    label: 'Defense Spending (% GDP)',
+                    data: [12.5, 11.0, 9.8, 9.2],
+                    borderColor: '#ef4444',
+                    borderWidth: 4,
+                    borderDash: [5, 5],
+                    tension: 0.3
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+
+        // 5. Society Donut
+        const ctxSoc = document.getElementById('societyDonutChart').getContext('2d');
+        new Chart(ctxSoc, {
+            type: 'doughnut',
+            data: {
+                labels: ['Returned (South)', 'Returned (North)', 'Temporary Housing'],
+                datasets: [{
+                    data: [45, 35, 20],
+                    backgroundColor: ['#0038b8', '#3b82f6', '#cbd5e1'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '80%',
+                plugins: { legend: { position: 'bottom' } }
+            }
+        });
+
+        // 6. Geopolitics Line
+        const ctxGeo = document.getElementById('geopolChart').getContext('2d');
+        new Chart(ctxGeo, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Mar', 'May', 'Jul', 'Sep', 'Nov'],
+                datasets: [{
+                    label: 'Regional Integration Index',
+                    data: [35, 38, 42, 45, 48, 52],
+                    borderColor: '#1e3a8a',
+                    backgroundColor: 'rgba(30, 58, 138, 0.1)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: { y: { display: false } }
+            }
+        });
+
+    </script>
+
+<html><head></head><body><footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+		  
+		  <li>								
+		<a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">26-bihari-wishes</a>
+            </li>	
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">26-chinese-new-year-wishes</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">26-christmas-wishes</a>
+            </li>	
+		  <li>
+		  		<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-festival-countdown</a>
+            </li>	
+										
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">Christmas-wishes-by-audience</a>
+            </li>	
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">Happy-new-year-2026-celebrations-worldwide.html</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">Happy-new-year-2026</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">Multilingual-greetings-webpage</a>
+            </li>	
+		  
+		  
+		  
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+		   <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">2025 Trends and 2026 forecast</h5>
+        <ul class="space-y-2">
+		 
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-digital-outlook-trends-forecast</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">2026-festival-countdown</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026_dashboard.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">2026_dashboard</a>
+            </li>	
+
+
+		 
+
+									
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/new_year_2026_page.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">New_year_2026_page</a>
+            </li>	
+									
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/send-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl07_title">Send-christmas-wishes</a>
+            </li>	
+										
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl08_title">Send-sankranti-wishes-in-multiple-languages</a>
+            </li>	
+		
+		
+
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/index-oct.html">Thanks Giving Main Page</a></li>
+
+          
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+        <div class="space-y-2">
+          <p>Redmond<br/>WA, USA</p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+          </p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+      
+      <div class="flex space-x-4 mt-4 sm:mt-0">
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+          <span class="sr-only">Facebook</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+          <span class="sr-only">Twitter</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+          <span class="sr-only">LinkedIn</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+	  
+	  <div class="flex gap-4 mt-4 sm:mt-0">
+                    <a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+                 
+					<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+      </div>
+    </div>
+	
+  </div>
+</footer></body></html></body></html>

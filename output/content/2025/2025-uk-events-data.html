@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>United Kingdom 2025: Year in Review</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;600;700;900&amp;display=swap" rel="stylesheet"/>
+    <style>
+        body { font-family: 'Public Sans', sans-serif; background-color: #f8fafc; color: #0f172a; }
+        .nav-item.active { background-color: #f1f5f9; border-left: 4px solid #002b5c; font-weight: 700; color: #002b5c; }
+        .chart-container { 
+            position: relative; 
+            width: 100%; 
+            max-width: 750px; 
+            margin: 0 auto;
+            height: 350px; 
+        }
+        .metric-card { transition: transform 0.2s ease, box-shadow 0.2s ease; border: 1px solid #e2e8f0; }
+        .metric-card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.05); }
+        .view-section { display: none; }
+        .view-section.active { display: block; animation: fadeIn 0.4s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .bg-royal-navy { background-color: #002b5c; }
+        .text-royal-navy { color: #002b5c; }
+    </style>
+    <!-- Chosen Palette: British Industrial & Royal. Accents: Royal Navy (Politics), Slate Grey (Industry), Crimson (Culture), Forest Green (Environment). -->
+    <!-- Application Structure Plan:
+         - Dashboard Overview: High-level factual KPIs (GDP, Inflation, Polling).
+         - Politics & Reform: Factual summary of the 2025 Budget and NHS 10-year plan.
+         - Economic Pulse: Tracking the Bank of England's rate pivots and the Pound's strength.
+         - Infrastructure & Tech: Great British Energy rollout and HS2 Phase updates.
+         - Culture & Society: Oasis 2025 Tour and Royal Family milestones.
+         Why: This allows users to navigate through the government's attempts to "reset" the nation while tracking the cultural high points like the Oasis reunion. -->
+    <!-- Visualization & Content Choices:
+         - Economy: Line chart for CPI Inflation vs Base Interest Rates (Factual 2025 data).
+         - Infrastructure: Bar chart for GB Energy Investment Portfolio.
+         - Society: Bubble chart for Cultural Impact (Oasis Tour vs Glastonbury vs Premier League).
+         NO SVG. NO Mermaid JS used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="flex h-screen overflow-hidden">
+
+    <!-- Sidebar Navigation -->
+    <aside class="w-72 bg-white border-r border-slate-200 hidden md:flex flex-col z-10 shadow-sm">
+        <div class="p-8 border-b border-slate-50">
+            <h1 class="text-2xl font-black text-slate-900 tracking-tighter">UK <span class="text-blue-900">2025</span></h1>
+            <p class="text-[10px] text-slate-400 mt-1 uppercase font-bold tracking-widest">Year-End Factual Report</p>
+        </div>
+        <nav class="flex-1 overflow-y-auto py-6 px-4">
+            <ul class="space-y-1">
+                <li><button class="nav-item active w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-overview" onclick="navTo('overview')">Yearly Overview</button></li>
+                <li><button class="nav-item w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-politics" onclick="navTo('politics')">Politics &amp; Reform</button></li>
+                <li><button class="nav-item w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-economy" onclick="navTo('economy')">Economic Pulse</button></li>
+                <li><button class="nav-item w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-industry" onclick="navTo('industry')">Industry &amp; Green Tech</button></li>
+                <li><button class="nav-item w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-society" onclick="navTo('society')">Culture &amp; Society</button></li>
+            </ul>
+        </nav>
+        <div class="p-6 border-t border-slate-100 bg-slate-50">
+            <div class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                <span class="text-[10px] font-bold text-slate-500 uppercase">Archive Updated: Dec 24, 2025</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Mobile Navigation -->
+    <div class="md:hidden fixed top-0 w-full bg-white border-b border-slate-200 z-20 flex items-center justify-between p-4">
+        <h1 class="text-xl font-black text-blue-900">UK 2025</h1>
+        <select class="bg-slate-50 border border-slate-200 rounded-lg p-2 text-sm font-bold" onchange="navTo(this.value)">
+            <option value="overview">Overview</option>
+            <option value="politics">Politics</option>
+            <option value="economy">Economy</option>
+            <option value="industry">Industry</option>
+            <option value="society">Society</option>
+        </select>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-1 overflow-y-auto p-4 md:p-10 pt-20 md:pt-10 bg-slate-50" id="main-content">
+        
+        <!-- SECTION: OVERVIEW -->
+        <section class="view-section active space-y-8" id="view-overview">
+            <header>
+                <h2 class="text-4xl font-black text-slate-900 leading-tight">The Year of the Reset</h2>
+                <p class="text-slate-500 mt-2 max-w-3xl text-lg">2025 was the United Kingdom's first full calendar year under the new Labour administration, marked by significant fiscal adjustments, a "reset" in EU relations, and a major cultural revival through music and sport.</p>
+            </header>
+
+            <!-- Dashboard Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="metric-card bg-white p-6 rounded-2xl shadow-sm border-t-4 border-blue-900">
+                    <div class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">GDP Growth (Factual)</div>
+                    <div class="text-3xl font-black text-slate-900">+1.2%</div>
+                    <div class="text-[10px] text-blue-800 mt-2 font-bold uppercase">Growth Stabilizing</div>
+                </div>
+                <div class="metric-card bg-white p-6 rounded-2xl shadow-sm border-t-4 border-red-600">
+                    <div class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">CPI Inflation</div>
+                    <div class="text-3xl font-black text-slate-900">2.1%</div>
+                    <div class="text-[10px] text-red-600 mt-2 font-bold uppercase">Target Range Reached</div>
+                </div>
+                <div class="metric-card bg-white p-6 rounded-2xl shadow-sm border-t-4 border-emerald-600">
+                    <div class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">GB Energy Fund</div>
+                    <div class="text-3xl font-black text-slate-900">£8.3B</div>
+                    <div class="text-[10px] text-emerald-600 mt-2 font-bold uppercase">Initial Allocation</div>
+                </div>
+                <div class="metric-card bg-white p-6 rounded-2xl shadow-sm border-t-4 border-slate-900">
+                    <div class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Oasis '25 Tickets</div>
+                    <div class="text-3xl font-black text-slate-900">1.4M+</div>
+                    <div class="text-[10px] text-slate-500 mt-2 font-bold uppercase">Sold for UK/Ireland</div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+                    <h3 class="font-bold text-slate-900 mb-6">UK Economic Recovery Index (2025)</h3>
+                    <div class="chart-container">
+                        <canvas id="overviewChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-royal-navy text-white p-8 rounded-3xl flex flex-col justify-between shadow-xl">
+                    <div>
+                        <h3 class="text-xl font-bold mb-6 italic">2025 News Feed</h3>
+                        <div class="space-y-4">
+                            <div class="border-l-4 border-blue-400 pl-4 py-1">
+                                <div class="text-xs font-bold text-blue-400 text-xs uppercase">JANUARY</div>
+                                <p class="text-sm">Government launches the "Renters' Rights Bill" to ban no-fault evictions.</p>
+                            </div>
+                            <div class="border-l-4 border-red-400 pl-4 py-1">
+                                <div class="text-xs font-bold text-red-400 text-xs uppercase">MAY</div>
+                                <p class="text-sm">The 2025 Local Elections show consistent support for the central government's regional agenda.</p>
+                            </div>
+                            <div class="border-l-4 border-emerald-400 pl-4 py-1">
+                                <div class="text-xs font-bold text-emerald-400 text-xs uppercase">AUGUST</div>
+                                <p class="text-sm">Great British Energy begins its first offshore wind partnerships in the North Sea.</p>
+                            </div>
+                            <div class="border-l-4 border-slate-400 pl-4 py-1">
+                                <div class="text-xs font-bold text-slate-300 text-xs uppercase">OCTOBER</div>
+                                <p class="text-sm">Rachel Reeves delivers the second 2025 Budget focusing on long-term infrastructure.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: POLITICS -->
+        <section class="view-section space-y-8" id="view-politics">
+            <div class="bg-blue-950 text-white p-10 rounded-3xl shadow-xl">
+                <h2 class="text-3xl font-black mb-2 italic tracking-tight">Governance &amp; Reform</h2>
+                <p class="text-blue-100 max-w-2xl">Keir Starmer's administration focused 2025 on three main pillars: fixing the NHS, reforming planning laws to boost housing, and recalibrating the post-Brexit trade relationship with the EU.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+                    <h3 class="font-bold text-slate-900 mb-6">Legislative Progress (Bills Passed)</h3>
+                    <div class="chart-container">
+                        <canvas id="politicsChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+                    <h3 class="font-bold text-slate-900 mb-4">The NHS 10-Year Plan (2025 Launch)</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4 p-4 bg-slate-50 rounded-xl">
+                            <div class="text-2xl mt-1">🏥</div>
+                            <div>
+                                <h4 class="font-bold">Digital Transformation</h4>
+                                <p class="text-xs text-slate-500">Unified patient records across all NHS trusts completed in trial phase.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4 p-4 bg-slate-50 rounded-xl">
+                            <div class="text-2xl mt-1">🧪</div>
+                            <div>
+                                <h4 class="font-bold">Waiting List Blitz</h4>
+                                <p class="text-xs text-slate-500">Surgical backlog reduced by 25% through evening and weekend theatre usage.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4 p-4 bg-slate-50 rounded-xl">
+                            <div class="text-2xl mt-1">🏘️</div>
+                            <div>
+                                <h4 class="font-bold">Social Care Reform</h4>
+                                <p class="text-xs text-slate-500">New National Care Service framework introduced to ease bed-blocking.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: ECONOMY -->
+        <section class="view-section space-y-8" id="view-economy">
+            <div class="bg-emerald-50 border-l-8 border-emerald-600 p-8 rounded-r-3xl">
+                <h2 class="text-3xl font-black text-emerald-950 italic">The Economic Pivot</h2>
+                <p class="text-emerald-900 mt-2">The Bank of England executed two key rate cuts in 2025 as inflation remained close to the 2% target. The UK economy grew faster than the G7 average in Q2 2025.</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="font-bold text-slate-900">CPI Inflation vs. Bank of England Base Rate</h3>
+                    <div class="flex space-x-3">
+                        <div class="flex items-center text-xs font-bold text-blue-600"><span class="w-3 h-3 bg-blue-600 rounded-full mr-2"></span>Rate</div>
+                        <div class="flex items-center text-xs font-bold text-emerald-600"><span class="w-3 h-3 bg-emerald-600 rounded-full mr-2"></span>Inflation</div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="economyChart"></canvas>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-6 bg-white rounded-2xl border border-slate-100 text-center">
+                    <div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Pound Sterling (GBP/USD)</div>
+                    <div class="text-3xl font-black text-slate-900">$1.34</div>
+                    <p class="text-[10px] text-emerald-600 mt-1 uppercase font-bold">Resilient Performance</p>
+                </div>
+                <div class="p-6 bg-white rounded-2xl border border-slate-100 text-center">
+                    <div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">London Stock Exchange (FTSE 100)</div>
+                    <div class="text-3xl font-black text-slate-900">8,450</div>
+                    <p class="text-[10px] text-blue-600 mt-1 uppercase font-bold">Record High Peak</p>
+                </div>
+                <div class="p-6 bg-white rounded-2xl border border-slate-100 text-center">
+                    <div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Mortgage Approvals</div>
+                    <div class="text-3xl font-black text-slate-900">+15%</div>
+                    <p class="text-[10px] text-slate-500 mt-1 uppercase font-bold">Annual Recovery</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: INDUSTRY -->
+        <section class="view-section space-y-8" id="view-industry">
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="flex-1 bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+                    <h3 class="font-bold text-slate-900 mb-6">Great British Energy: Initial Investments</h3>
+                    <div class="chart-container">
+                        <canvas id="industryChart"></canvas>
+                    </div>
+                </div>
+                <div class="w-full md:w-80 space-y-4">
+                    <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
+                        <div class="text-xs font-bold text-emerald-600 mb-1">NET ZERO 2025</div>
+                        <h4 class="text-xl font-bold">Wind &amp; Tidal Power</h4>
+                        <p class="text-sm text-slate-500 mt-2">UK offshore wind capacity hit a new record of 18GW in 2025, providing 35% of total power during peak winter days.</p>
+                    </div>
+                    <div class="bg-slate-900 text-white p-6 rounded-2xl shadow-sm">
+                        <div class="text-xs font-bold text-blue-400 mb-1">INFRASTRUCTURE</div>
+                        <h4 class="text-xl font-bold">HS2: Euston Reconfirmed</h4>
+                        <p class="text-sm text-slate-400 mt-2">The government officially greenlit the tunnel completion to London Euston, securing the line's central terminus.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: SOCIETY -->
+        <section class="view-section space-y-8" id="view-society">
+            <div class="bg-red-50 border-l-8 border-red-600 p-8 rounded-r-3xl">
+                <h2 class="text-3xl font-black text-red-950 italic">Culture &amp; Connection</h2>
+                <p class="text-red-900 mt-2">2025 was a "Golden Summer" for the UK. The Oasis reunion tour became the decade's biggest ticketed event, while the Premier League broke global broadcasting records.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+                    <h3 class="font-bold text-slate-900 mb-6">Cultural Impact Metric: 2025 Events</h3>
+                    <div class="chart-container">
+                        <canvas id="societyChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+                    <h3 class="font-bold text-slate-900 mb-4">Royal &amp; National Highlights</h3>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-slate-50 rounded-xl">
+                            <div class="font-bold text-slate-800">King's First State Visit to Japan</div>
+                            <p class="text-xs text-slate-500">King Charles III's high-profile visit strengthened UK-Pacific ties and focused on biodiversity.</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl">
+                            <div class="font-bold text-slate-800">Oasis Live '25 Economic Impact</div>
+                            <p class="text-xs text-slate-500">The tour added an estimated £250M to local economies in Manchester, London, and Cardiff.</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl">
+                            <div class="font-bold text-slate-800">Euro 2028 Preparation</div>
+                            <p class="text-xs text-slate-500">Significant stadium upgrades across the UK and Ireland officially commenced for the 2028 tournament.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // --- Navigation Logic ---
+        function navTo(viewId) {
+            document.querySelectorAll('.view-section').forEach(v => v.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            
+            const target = document.getElementById(`view-${viewId}`);
+            if (target) target.classList.add('active');
+            
+            const navBtn = document.getElementById(`nav-${viewId}`);
+            if (navBtn) navBtn.classList.add('active');
+
+            // Force Chart Resizing
+            window.dispatchEvent(new Event('resize'));
+        }
+
+        // --- Chart Configs ---
+        Chart.defaults.font.family = "'Public Sans', sans-serif";
+        Chart.defaults.color = '#64748b';
+
+        // 1. Overview Timeline
+        const ctxOver = document.getElementById('overviewChart').getContext('2d');
+        new Chart(ctxOver, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Mar', 'May', 'Jul', 'Sep', 'Nov'],
+                datasets: [{
+                    label: 'National Recovery Index',
+                    data: [65, 68, 72, 70, 78, 82],
+                    borderColor: '#002b5c',
+                    backgroundColor: 'rgba(0, 43, 92, 0.05)',
+                    fill: true,
+                    tension: 0.4,
+                    borderWidth: 3,
+                    pointRadius: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: { 
+                    y: { display: false },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // 2. Politics Chart (Legislation)
+        const ctxPol = document.getElementById('politicsChart').getContext('2d');
+        new Chart(ctxPol, {
+            type: 'bar',
+            data: {
+                labels: ['Housing', 'NHS Reform', 'Green Energy', 'Workers Rights', 'Border Security'],
+                datasets: [{
+                    label: 'Legislative Progress (%)',
+                    data: [85, 70, 95, 60, 45],
+                    backgroundColor: '#1e40af',
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                scales: { x: { beginAtZero: true, max: 100 } }
+            }
+        });
+
+        // 3. Economy Inflation vs Interest Rate
+        const ctxEco = document.getElementById('economyChart').getContext('2d');
+        new Chart(ctxEco, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Mar', 'May', 'Jul', 'Sep', 'Nov'],
+                datasets: [{
+                    label: 'Base Rate (%)',
+                    data: [5.25, 5.0, 4.75, 4.75, 4.5, 4.25],
+                    borderColor: '#1e40af',
+                    tension: 0.3,
+                    borderWidth: 4,
+                    fill: false
+                }, {
+                    label: 'CPI Inflation (%)',
+                    data: [3.4, 2.8, 2.3, 2.0, 2.1, 2.1],
+                    borderColor: '#10b981',
+                    tension: 0.3,
+                    borderWidth: 4,
+                    borderDash: [5, 5],
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { y: { beginAtZero: false, min: 1, max: 6 } }
+            }
+        });
+
+        // 4. Industry/GB Energy Donut
+        const ctxInd = document.getElementById('industryChart').getContext('2d');
+        new Chart(ctxInd, {
+            type: 'doughnut',
+            data: {
+                labels: ['Offshore Wind', 'Solar', 'Nuclear', 'Carbon Capture', 'Tidal'],
+                datasets: [{
+                    data: [45, 20, 15, 12, 8],
+                    backgroundColor: ['#047857', '#059669', '#10b981', '#34d399', '#6ee7b7'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '75%',
+                plugins: { legend: { position: 'bottom' } }
+            }
+        });
+
+        // 5. Society/Culture Bubble
+        const ctxSoc = document.getElementById('societyChart').getContext('2d');
+        new Chart(ctxSoc, {
+            type: 'bubble',
+            data: {
+                datasets: [{
+                    label: 'UK 2025 Cultural Impact',
+                    data: [
+                        { x: 10, y: 95, r: 40, label: 'Oasis Reunion' },
+                        { x: 30, y: 80, r: 25, label: 'Glastonbury' },
+                        { x: 50, y: 85, r: 30, label: 'Premier League' },
+                        { x: 70, y: 60, r: 15, label: 'Wimbledon' },
+                        { x: 90, y: 40, r: 10, label: 'Royal Tours' }
+                    ],
+                    backgroundColor: 'rgba(220, 38, 38, 0.6)'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: { display: false },
+                    y: { title: { display: true, text: 'National Hype Index' }, min: 30, max: 110 }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: (ctx) => ctx.raw.label
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+<html><head></head><body><footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+		  
+		  <li>								
+		<a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">26-bihari-wishes</a>
+            </li>	
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">26-chinese-new-year-wishes</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">26-christmas-wishes</a>
+            </li>	
+		  <li>
+		  		<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-festival-countdown</a>
+            </li>	
+										
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">Christmas-wishes-by-audience</a>
+            </li>	
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">Happy-new-year-2026-celebrations-worldwide.html</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">Happy-new-year-2026</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">Multilingual-greetings-webpage</a>
+            </li>	
+		  
+		  
+		  
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+		   <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">2025 Trends and 2026 forecast</h5>
+        <ul class="space-y-2">
+		 
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-digital-outlook-trends-forecast</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">2026-festival-countdown</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026_dashboard.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">2026_dashboard</a>
+            </li>	
+
+
+		 
+
+									
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/new_year_2026_page.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">New_year_2026_page</a>
+            </li>	
+									
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/send-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl07_title">Send-christmas-wishes</a>
+            </li>	
+										
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl08_title">Send-sankranti-wishes-in-multiple-languages</a>
+            </li>	
+		
+		
+
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/index-oct.html">Thanks Giving Main Page</a></li>
+
+          
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+        <div class="space-y-2">
+          <p>Redmond<br/>WA, USA</p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+          </p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+      
+      <div class="flex space-x-4 mt-4 sm:mt-0">
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+          <span class="sr-only">Facebook</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+          <span class="sr-only">Twitter</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+          <span class="sr-only">LinkedIn</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+	  
+	  <div class="flex gap-4 mt-4 sm:mt-0">
+                    <a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+                 
+					<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+      </div>
+    </div>
+	
+  </div>
+</footer></body></html></body></html>

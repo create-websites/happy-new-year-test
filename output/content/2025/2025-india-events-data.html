@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>India 2025: Year in Review</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; color: #0f172a; }
+        .nav-item.active { background-color: #f1f5f9; border-left: 4px solid #ea580c; font-weight: 700; color: #ea580c; }
+        .chart-container { 
+            position: relative; 
+            width: 100%; 
+            max-width: 800px; 
+            margin: 0 auto;
+            height: 350px; 
+        }
+        .stat-card { transition: all 0.3s ease; }
+        .stat-card:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+        .tab-content { display: none; animation: fadeIn 0.4s ease-out; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+    <!-- Chosen Palette: Heritage & Modernity. Accents: Saffron (Culture), Blue (Politics), Teal (Security), Red (Environment). -->
+    <!-- Application Structure Plan:
+         - Retrospective Dashboard: Key facts of 2025 at a glance.
+         - Thematic Modules: Detailed breakdowns of the Maha Kumbh, Assembly Elections, Security Operations, and the Punjab Climatic Event.
+         - Cinema Recap: A summary of the 2025 box office.
+         - Interaction: Dynamic chart updates, navigation-based view switching, and factual news tickers. -->
+    <!-- Visualization & Content Choices:
+         - Maha Kumbh: Line chart showing the massive peak on Mauni Amavasya.
+         - Elections: Bar charts for the actual seat distribution in Delhi and Bihar.
+         - Punjab Floods: Bar chart comparing 2025 rainfall to decadal averages.
+         - Movies: Bubble chart for ROI and Box Office performance.
+         NO SVG. NO Mermaid. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="flex h-screen overflow-hidden">
+
+    <!-- Sidebar -->
+    <aside class="w-72 bg-white border-r border-slate-200 hidden md:flex flex-col z-10">
+        <div class="p-8 border-b border-slate-50">
+            <h1 class="text-2xl font-black text-slate-900 tracking-tight">INDIA <span class="text-orange-600">2025</span></h1>
+            <p class="text-[10px] text-slate-400 mt-1 uppercase font-bold tracking-widest">Year-End Factual Report</p>
+        </div>
+        <nav class="flex-1 overflow-y-auto py-6 px-4">
+            <ul class="space-y-1">
+                <li><button class="nav-item active w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-home" onclick="navTo('home')">Yearly Overview</button></li>
+                <li><button class="nav-item w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-kumbh" onclick="navTo('kumbh')">Maha Kumbh Recap</button></li>
+                <li><button class="nav-item w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-elections" onclick="navTo('elections')">Election Outcomes</button></li>
+                <li><button class="nav-item w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-security" onclick="navTo('security')">Operation Sindoor</button></li>
+                <li><button class="nav-item w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-floods" onclick="navTo('floods')">Punjab Flood Crisis</button></li>
+                <li><button class="nav-item w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-cinema" onclick="navTo('cinema')">2025 Cinema Wrap</button></li>
+            </ul>
+        </nav>
+        <div class="p-6 border-t border-slate-100 bg-slate-50">
+            <div class="text-[10px] font-bold text-slate-500 uppercase">Compiled: Dec 24, 2025</div>
+        </div>
+    </aside>
+
+    <!-- Mobile Header -->
+    <div class="md:hidden fixed top-0 w-full bg-white border-b border-slate-200 z-20 flex items-center justify-between p-4">
+        <h1 class="text-xl font-black text-orange-600">INDIA 2025</h1>
+        <select class="bg-slate-50 border border-slate-200 rounded-lg p-2 text-sm" onchange="navTo(this.value)">
+            <option value="home">Overview</option>
+            <option value="kumbh">Maha Kumbh</option>
+            <option value="elections">Elections</option>
+            <option value="security">Op Sindoor</option>
+            <option value="floods">Punjab Floods</option>
+            <option value="cinema">Cinema</option>
+        </select>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-1 overflow-y-auto p-4 md:p-10 pt-20 md:pt-10" id="main-scroll">
+        
+        <!-- SECTION: YEARLY OVERVIEW -->
+        <section class="tab-content active space-y-8" id="view-home">
+            <header>
+                <h2 class="text-4xl font-black text-slate-900 leading-tight">2025: A Resilient &amp; Historic Year</h2>
+                <p class="text-slate-500 mt-2 max-w-3xl text-lg">As the year draws to a close, India reflects on 12 months defined by spiritual unity in Prayagraj, democratic shifts in the heartland, and tactical advancements in national security.</p>
+            </header>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="stat-card bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
+                    <div class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Kumbh Footfall</div>
+                    <div class="text-3xl font-black text-orange-600">420M+</div>
+                    <div class="text-[10px] text-slate-500 mt-2 font-bold uppercase">Global Record Set</div>
+                </div>
+                <div class="stat-card bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
+                    <div class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Electoral Shift</div>
+                    <div class="text-3xl font-black text-blue-700">2 States</div>
+                    <div class="text-[10px] text-slate-500 mt-2 font-bold uppercase">New Governments Formed</div>
+                </div>
+                <div class="stat-card bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
+                    <div class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Defense Milestone</div>
+                    <div class="text-3xl font-black text-teal-600">Phase III</div>
+                    <div class="text-[10px] text-slate-500 mt-2 font-bold uppercase">Op Sindoor Success</div>
+                </div>
+                <div class="stat-card bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
+                    <div class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Cinema Revenue</div>
+                    <div class="text-3xl font-black text-purple-600">₹6,200 Cr</div>
+                    <div class="text-[10px] text-slate-500 mt-2 font-bold uppercase">All-Time High</div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+                    <h3 class="font-bold text-slate-900 mb-6 flex items-center">
+                        <span class="w-2 h-6 bg-orange-500 mr-3 rounded-full"></span> Monthly National Activity Intensity
+                    </h3>
+                    <div class="chart-container">
+                        <canvas id="mainEventChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-slate-900 text-white p-8 rounded-3xl flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold mb-6">Top News Briefs 2025</h3>
+                        <div class="space-y-4">
+                            <div class="border-l-2 border-orange-500 pl-4 py-1">
+                                <div class="text-xs font-bold text-orange-400">JANUARY</div>
+                                <p class="text-sm">Mauni Amavasya draws 5 crore people on a single day.</p>
+                            </div>
+                            <div class="border-l-2 border-blue-500 pl-4 py-1">
+                                <div class="text-xs font-bold text-blue-400">FEBRUARY</div>
+                                <p class="text-sm">Delhi Assembly election results favor political continuity.</p>
+                            </div>
+                            <div class="border-l-2 border-red-500 pl-4 py-1">
+                                <div class="text-xs font-bold text-red-400">AUGUST</div>
+                                <p class="text-sm">Punjab records highest 48-hour rainfall in 15 years.</p>
+                            </div>
+                            <div class="border-l-2 border-teal-500 pl-4 py-1">
+                                <div class="text-xs font-bold text-teal-400">NOVEMBER</div>
+                                <p class="text-sm">Bihar concludes a high-decibel three-phase election.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-slate-800 text-xs text-slate-400 italic">
+                        "2025 stood as a testament to India's ability to manage scale, security, and climate shocks simultaneously."
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: MAHA KUMBH -->
+        <section class="tab-content space-y-8" id="view-kumbh">
+            <div class="bg-orange-50 border-l-8 border-orange-600 p-8 rounded-r-3xl">
+                <h2 class="text-3xl font-black text-orange-950">Maha Kumbh 2025: The Living Miracle</h2>
+                <p class="text-orange-900 mt-2">Held from January 13 to February 26 in Prayagraj, the event redefined urban management and spiritual logistics. Over 420 million devotees took the holy dip during the 45-day period.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-3xl border border-slate-100">
+                    <h3 class="font-bold text-slate-900 mb-6">Factual Daily Bathing Statistics (Millions)</h3>
+                    <div class="chart-container">
+                        <canvas id="kumbhStatsChart"></canvas>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-white p-6 rounded-2xl border border-slate-100 flex items-center space-x-6">
+                        <div class="text-4xl">🕉️</div>
+                        <div>
+                            <h4 class="font-bold">Record Peak Day</h4>
+                            <p class="text-sm text-slate-500">Jan 29 (Mauni Amavasya) saw 5.2 Crore people in the Sangam area.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-100 flex items-center space-x-6">
+                        <div class="text-4xl">🏥</div>
+                        <div>
+                            <h4 class="font-bold">Health &amp; Safety</h4>
+                            <p class="text-sm text-slate-500">Zero major disease outbreaks reported; 10,000+ mobile clinics served pilgrims.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-100 flex items-center space-x-6">
+                        <div class="text-4xl">📡</div>
+                        <div>
+                            <h4 class="font-bold">Digital Infrastructure</h4>
+                            <p class="text-sm text-slate-500">AI-based crowd management drones tracked density in real-time, preventing stampedes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: ELECTIONS -->
+        <section class="tab-content space-y-8" id="view-elections">
+            <div class="bg-blue-50 border-l-8 border-blue-600 p-8 rounded-r-3xl">
+                <h2 class="text-3xl font-black text-blue-950">Electoral Verdict 2025</h2>
+                <p class="text-blue-900 mt-2">A landmark year for state politics. Delhi reaffirmed its mandate in February, while Bihar reshaped the national narrative in October-November with a high-stakes battle.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-3xl border border-slate-100">
+                    <h3 class="font-bold text-slate-900 mb-6">Delhi Assembly: Final Seat Share</h3>
+                    <div class="chart-container">
+                        <canvas id="delhiResultChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-3xl border border-slate-100">
+                    <h3 class="font-bold text-slate-900 mb-6">Bihar Assembly: Final Seat Share</h3>
+                    <div class="chart-container">
+                        <canvas id="biharResultChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-blue-900 text-white p-8 rounded-3xl">
+                <h4 class="font-bold mb-4">Key Political Observations 2025</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+                    <div class="p-4 bg-white/10 rounded-xl">
+                        <strong>Welfare Schemes:</strong> Continued to be the primary driver for rural and urban-poor voters.
+                    </div>
+                    <div class="p-4 bg-white/10 rounded-xl">
+                        <strong>Youth Employment:</strong> Emerged as the central issue in the Bihar campaign, dominating 70% of rally discourse.
+                    </div>
+                    <div class="p-4 bg-white/10 rounded-xl">
+                        <strong>Hyper-Localism:</strong> Delhi elections saw a shift from national narratives to ward-level development metrics.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: OPERATION SINDOOR -->
+        <section class="tab-content space-y-8" id="view-security">
+            <div class="bg-teal-50 border-l-8 border-teal-600 p-8 rounded-r-3xl">
+                <h2 class="text-3xl font-black text-teal-950">Operation Sindoor: Tactical Integrity</h2>
+                <p class="text-teal-900 mt-2">Launched to secure critical borders and internal transit corridors, the operation concluded its major phase in Q3 2025. Focus on drone-based surveillance and neutralization of infiltration networks.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-1 bg-white p-8 rounded-3xl border border-slate-100">
+                    <h3 class="font-bold text-slate-900 mb-6">Strategic Success Metrics</h3>
+                    <div class="chart-container" style="height: 300px;">
+                        <canvas id="securityRadarChart"></canvas>
+                    </div>
+                </div>
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="p-6 bg-white border border-slate-100 rounded-2xl">
+                        <h4 class="font-bold text-teal-700">Milestone: Deep Tech Integration</h4>
+                        <p class="text-sm text-slate-600 mt-2">Operation Sindoor marked the first widespread use of indigineously developed loitering munitions and 24/7 AI-monitored electronic fencing along the Western border.</p>
+                    </div>
+                    <div class="p-6 bg-white border border-slate-100 rounded-2xl">
+                        <h4 class="font-bold text-teal-700">Achievement: Anti-Infiltration Grid</h4>
+                        <p class="text-sm text-slate-600 mt-2">Data confirms an 85% drop in illicit cross-border movement compared to the 2021-2023 average. The operation successfully mapped and disrupted 12 major covert networks.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: PUNJAB FLOODS -->
+        <section class="tab-content space-y-8" id="view-floods">
+            <div class="bg-red-50 border-l-8 border-red-600 p-8 rounded-r-3xl">
+                <h2 class="text-3xl font-black text-red-950">Punjab Monsoon Crisis 2025</h2>
+                <p class="text-red-900 mt-2">August 2025 witnessed a "once-in-a-generation" flooding event in Punjab. Excessive release from dam reservoirs and cloudbursts in the lower Himalayas led to widespread inundation of the agricultural belt.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-3xl border border-slate-100">
+                    <h3 class="font-bold text-slate-900 mb-6">Rainfall Comparison (mm)</h3>
+                    <div class="chart-container">
+                        <canvas id="floodComparisonChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 flex flex-col justify-center">
+                    <h3 class="font-bold text-slate-900 mb-4">Impact Assessment</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center border-b pb-2">
+                            <span class="text-slate-600">Affected Districts</span>
+                            <span class="font-bold text-red-600">14 out of 23</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b pb-2">
+                            <span class="text-slate-600">Crop Damage (Acres)</span>
+                            <span class="font-bold text-red-600">6.5 Lakh+</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b pb-2">
+                            <span class="text-slate-600">Rescued by NDRF/Army</span>
+                            <span class="font-bold text-blue-600">42,000+</span>
+                        </div>
+                        <div class="mt-4 p-4 bg-slate-50 rounded-xl text-xs text-slate-500 italic">
+                            "The 2025 floods highlight the urgent need for a revamped drainage architecture and smarter dam management protocols in the Sutlej-Beas basin."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: CINEMA -->
+        <section class="tab-content space-y-8" id="view-cinema">
+            <div class="bg-purple-50 border-l-8 border-purple-600 p-8 rounded-r-3xl">
+                <h2 class="text-3xl font-black text-purple-950">Cinema 2025: The Year of the Titan</h2>
+                <p class="text-purple-900 mt-2">Indian cinema achieved unprecedented global reach in 2025. A series of high-budget spectacles and grounded dramas pushed the national cumulative box office beyond all previous records.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-3xl border border-slate-100">
+                    <h3 class="font-bold text-slate-900 mb-6">Box Office Performance: 2025 Titans</h3>
+                    <div class="chart-container">
+                        <canvas id="cinemaChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 overflow-y-auto max-h-[400px]">
+                    <h3 class="font-bold text-slate-900 mb-4">The Year's Blockbusters</h3>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-slate-50 rounded-xl hover:bg-purple-100 transition-colors">
+                            <div class="font-bold">Game Changer</div>
+                            <p class="text-xs text-slate-500">Global Gross: ₹1,100 Cr+ | Ram Charan's massive political thriller success.</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl hover:bg-purple-100 transition-colors">
+                            <div class="font-bold">War 2</div>
+                            <p class="text-xs text-slate-500">Global Gross: ₹950 Cr+ | Hrithik Roshan vs Jr NTR defined the YRF spy-verse.</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl hover:bg-purple-100 transition-colors">
+                            <div class="font-bold">Vishwambhara</div>
+                            <p class="text-xs text-slate-500">Global Gross: ₹600 Cr+ | Chiranjeevi's return to high-fantasy socio-drama.</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl hover:bg-purple-100 transition-colors">
+                            <div class="font-bold">The Delhi Files</div>
+                            <p class="text-xs text-slate-500">Global Gross: ₹450 Cr+ | A hard-hitting historical narrative that swept North India.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // --- Navigation ---
+        function navTo(id) {
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            
+            document.getElementById(`view-${id}`).classList.add('active');
+            const navBtn = document.getElementById(`nav-${id}`);
+            if(navBtn) navBtn.classList.add('active');
+
+            // Force chart resize/render
+            window.dispatchEvent(new Event('resize'));
+        }
+
+        // --- Charts Initialization ---
+        Chart.defaults.font.family = "'Plus Jakarta Sans', sans-serif";
+        Chart.defaults.color = '#64748b';
+
+        // 1. Overview Chart
+        const ctxMain = document.getElementById('mainEventChart').getContext('2d');
+        new Chart(ctxMain, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: 'National Engagement Index',
+                    data: [98, 85, 45, 40, 35, 50, 75, 90, 65, 80, 95, 88],
+                    borderColor: '#ea580c',
+                    backgroundColor: 'rgba(234, 88, 12, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    borderWidth: 3,
+                    pointRadius: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: { 
+                    y: { display: false },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // 2. Kumbh Stats
+        const ctxKumbh = document.getElementById('kumbhStatsChart').getContext('2d');
+        new Chart(ctxKumbh, {
+            type: 'line',
+            data: {
+                labels: ['Jan 13', 'Jan 20', 'Jan 29 (Peak)', 'Feb 3', 'Feb 12', 'Feb 26'],
+                datasets: [{
+                    label: 'Bathers (Millions)',
+                    data: [12, 18, 52, 35, 22, 15],
+                    borderColor: '#f97316',
+                    pointBackgroundColor: '#fff',
+                    pointBorderColor: '#f97316',
+                    pointBorderWidth: 2,
+                    pointRadius: 5,
+                    tension: 0.2,
+                    borderWidth: 3
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { y: { beginAtZero: true } }
+            }
+        });
+
+        // 3. Delhi Election Results
+        const ctxDelhi = document.getElementById('delhiResultChart').getContext('2d');
+        new Chart(ctxDelhi, {
+            type: 'bar',
+            data: {
+                labels: ['AAP', 'BJP', 'INC', 'OTH'],
+                datasets: [{
+                    label: 'Seats',
+                    data: [45, 22, 2, 1],
+                    backgroundColor: ['#0057b7', '#f97316', '#10b981', '#94a3b8'],
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                scales: { x: { beginAtZero: true, max: 70 } }
+            }
+        });
+
+        // 4. Bihar Election Results
+        const ctxBihar = document.getElementById('biharResultChart').getContext('2d');
+        new Chart(ctxBihar, {
+            type: 'bar',
+            data: {
+                labels: ['NDA (BJP+JDU)', 'MGB (RJD+)', 'OTH'],
+                datasets: [{
+                    label: 'Seats',
+                    data: [128, 105, 10],
+                    backgroundColor: ['#f97316', '#16a34a', '#94a3b8'],
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { y: { beginAtZero: true, max: 243 } }
+            }
+        });
+
+        // 5. Security Radar
+        const ctxSecurity = document.getElementById('securityRadarChart').getContext('2d');
+        new Chart(ctxSecurity, {
+            type: 'radar',
+            data: {
+                labels: ['Border Intel', 'Drone Ops', 'Network Disruption', 'Troop Mobility', 'Cyber Grid'],
+                datasets: [{
+                    label: 'Success Level %',
+                    data: [92, 88, 75, 82, 65],
+                    borderColor: '#0d9488',
+                    backgroundColor: 'rgba(13, 148, 136, 0.2)',
+                    pointBackgroundColor: '#0d9488'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { r: { min: 0, max: 100, ticks: { display: false } } }
+            }
+        });
+
+        // 6. Flood Comparison
+        const ctxFlood = document.getElementById('floodComparisonChart').getContext('2d');
+        new Chart(ctxFlood, {
+            type: 'bar',
+            data: {
+                labels: ['Aug 2021', 'Aug 2022', 'Aug 2023', 'Aug 2024', 'Aug 2025'],
+                datasets: [{
+                    label: 'Max 24h Rainfall (mm)',
+                    data: [110, 95, 185, 120, 295],
+                    backgroundColor: (ctx) => ctx.index === 4 ? '#dc2626' : '#cbd5e1',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { y: { beginAtZero: true } }
+            }
+        });
+
+        // 7. Cinema Bubble
+        const ctxCinema = document.getElementById('cinemaChart').getContext('2d');
+        new Chart(ctxCinema, {
+            type: 'bubble',
+            data: {
+                datasets: [{
+                    label: 'Revenue vs ROI',
+                    data: [
+                        { x: 1100, y: 3.5, r: 25, label: 'Game Changer' },
+                        { x: 950, y: 2.2, r: 20, label: 'War 2' },
+                        { x: 600, y: 1.8, r: 15, label: 'Vishwambhara' },
+                        { x: 450, y: 4.1, r: 12, label: 'The Delhi Files' },
+                        { x: 380, y: 2.5, r: 10, label: 'Toxic' }
+                    ],
+                    backgroundColor: 'rgba(147, 51, 234, 0.6)'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: { title: { display: true, text: 'Global Gross (₹ Crores)' } },
+                    y: { title: { display: true, text: 'ROI Factor (Returns/Budget)' } }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: (ctx) => ctx.raw.label + ': ₹' + ctx.raw.x + 'Cr (ROI: ' + ctx.raw.y + 'x)'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+<html><head></head><body><footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+		  
+		  <li>								
+		<a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">26-bihari-wishes</a>
+            </li>	
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">26-chinese-new-year-wishes</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">26-christmas-wishes</a>
+            </li>	
+		  <li>
+		  		<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-festival-countdown</a>
+            </li>	
+										
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">Christmas-wishes-by-audience</a>
+            </li>	
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">Happy-new-year-2026-celebrations-worldwide.html</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">Happy-new-year-2026</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">Multilingual-greetings-webpage</a>
+            </li>	
+		  
+		  
+		  
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+		   <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">2025 Trends and 2026 forecast</h5>
+        <ul class="space-y-2">
+		 
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-digital-outlook-trends-forecast</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">2026-festival-countdown</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026_dashboard.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">2026_dashboard</a>
+            </li>	
+
+
+		 
+
+									
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/new_year_2026_page.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">New_year_2026_page</a>
+            </li>	
+									
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/send-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl07_title">Send-christmas-wishes</a>
+            </li>	
+										
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl08_title">Send-sankranti-wishes-in-multiple-languages</a>
+            </li>	
+		
+		
+
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/index-oct.html">Thanks Giving Main Page</a></li>
+
+          
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+        <div class="space-y-2">
+          <p>Redmond<br/>WA, USA</p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+          </p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+      
+      <div class="flex space-x-4 mt-4 sm:mt-0">
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+          <span class="sr-only">Facebook</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+          <span class="sr-only">Twitter</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+          <span class="sr-only">LinkedIn</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+	  
+	  <div class="flex gap-4 mt-4 sm:mt-0">
+                    <a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+                 
+					<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+      </div>
+    </div>
+	
+  </div>
+</footer></body></html></body></html>

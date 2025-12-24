@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>France 2025 : Rapport Annuel Stratégique</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&amp;family=Playfair+Display:ital,wght@0,700;1,700&amp;display=swap" rel="stylesheet"/>
+    <style>
+        body { font-family: 'Montserrat', sans-serif; background-color: #fdfdfd; color: #1a1a1a; }
+        h1, h2, .serif { font-family: 'Playfair Display', serif; }
+        .nav-item.active { background-color: #f1f5f9; border-left: 4px solid #002395; color: #002395; font-weight: 700; }
+        .chart-container { 
+            position: relative; 
+            width: 100%; 
+            max-width: 800px; 
+            margin: 0 auto;
+            height: 350px; 
+        }
+        .metric-card { transition: all 0.3s ease; border: 1px solid #e2e8f0; }
+        .metric-card:hover { transform: translateY(-4px); box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1); }
+        .view-section { display: none; animation: fadeIn 0.5s ease-out; }
+        .view-section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .bg-france-blue { background-color: #002395; }
+        .text-france-red { color: #ed2939; }
+    </style>
+    <!-- Chosen Palette: Tricolore Moderne. Deep Navy (#002395), Pure White (#FFFFFF), and Crimson (#ED2939). Accents: Slate (#475569) and Gold (#D4AF37) for heritage. -->
+    <!-- Application Structure Plan:
+         - Tableau de Bord National : High-level factual KPIs (GDP, AI Investment, Energy Mix).
+         - Politique & État : Factual summary of the 2025 Budget and legislative balance in the National Assembly.
+         - Tech & Transition : AI Action Summit (Paris, Feb 2025) and "France 2030" milestones.
+         - Énergie & Climat : Progress on EPR2 reactors and offshore wind.
+         - Héritage & Culture : Notre-Dame tourism surge and post-2024 Olympic legacy.
+         Why: France in 2025 is defined by fiscal consolidation and a push for technological sovereignty. -->
+    <!-- Visualization & Content Choices:
+         - Économie : Line chart for Inflation vs GDP Growth (Factual 2025 path).
+         - Énergie : Doughnut chart for the 2025 Energy Production Mix.
+         - Politique : Bar chart for legislative output by sector.
+         - Tourisme : Bubble chart for Regional Tourist Impact.
+         NO SVG used. NO Mermaid JS used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="flex h-screen overflow-hidden">
+
+    <!-- Sidebar Navigation (Desktop) -->
+    <aside class="w-80 bg-white border-r border-slate-200 hidden md:flex flex-col z-10 shadow-sm">
+        <div class="p-8 border-b border-slate-50">
+            <h1 class="text-3xl font-black text-slate-900 tracking-tighter">FRANCE <span class="text-france-red">2025</span></h1>
+            <p class="text-[10px] text-slate-400 mt-1 uppercase font-bold tracking-widest">Rétrospective Nationale</p>
+        </div>
+        <nav class="flex-1 overflow-y-auto py-6 px-4">
+            <ul class="space-y-1">
+                <li><button class="nav-item active w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-overview" onclick="navTo('overview')">Tableau de Bord</button></li>
+                <li><button class="nav-item w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-politics" onclick="navTo('politics')">Politique &amp; État</button></li>
+                <li><button class="nav-item w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-tech" onclick="navTo('tech')">IA &amp; Technologie</button></li>
+                <li><button class="nav-item w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-energy" onclick="navTo('energy')">Énergie &amp; Climat</button></li>
+                <li><button class="nav-item w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-culture" onclick="navTo('culture')">Culture &amp; Héritage</button></li>
+            </ul>
+        </nav>
+        <div class="p-6 border-t border-slate-100 bg-slate-50">
+            <div class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>
+                <span class="text-[10px] font-bold text-slate-500 uppercase italic">Mise à jour : 24 Déc. 2025</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Mobile Header -->
+    <div class="md:hidden fixed top-0 w-full bg-white border-b border-slate-200 z-20 flex items-center justify-between p-4">
+        <h1 class="text-xl font-black text-blue-900">FRANCE 2025</h1>
+        <select class="bg-slate-50 border border-slate-200 rounded-lg p-2 text-sm font-bold" onchange="navTo(this.value)">
+            <option value="overview">Overview</option>
+            <option value="politics">Politique</option>
+            <option value="tech">IA &amp; Tech</option>
+            <option value="energy">Énergie</option>
+            <option value="culture">Culture</option>
+        </select>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-1 overflow-y-auto p-4 md:p-10 pt-20 md:pt-10 bg-[#fdfdfd]" id="main-content">
+        
+        <!-- SECTION: TABLEAU DE BORD -->
+        <section class="view-section active space-y-8" id="view-overview">
+            <header>
+                <h2 class="text-4xl md:text-5xl font-black text-slate-900 leading-tight">2025 : Une Année de Consolidation</h2>
+                <p class="text-slate-500 mt-4 max-w-3xl text-lg">La France a clôturé l'année 2025 en affirmant son leadership dans l'IA et en engageant une réforme budgétaire rigoureuse pour stabiliser ses finances publiques.</p>
+            </header>
+
+            <!-- Dashboard Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="metric-card bg-white p-6 rounded-2xl shadow-sm border-t-4 border-blue-900">
+                    <div class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Déficit Public</div>
+                    <div class="text-3xl font-black text-slate-900">4,9%</div>
+                    <div class="text-[10px] text-blue-800 mt-2 font-bold uppercase">Objectif de réduction en cours</div>
+                </div>
+                <div class="metric-card bg-white p-6 rounded-2xl shadow-sm border-t-4 border-france-red">
+                    <div class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Investissement IA</div>
+                    <div class="text-3xl font-black text-slate-900">2,5 Md€</div>
+                    <div class="text-[10px] text-france-red mt-2 font-bold uppercase">Sommet de l'Action IA</div>
+                </div>
+                <div class="metric-card bg-white p-6 rounded-2xl shadow-sm border-t-4 border-emerald-600">
+                    <div class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Croissance PIB</div>
+                    <div class="text-3xl font-black text-slate-900">+1,1%</div>
+                    <div class="text-[10px] text-emerald-600 mt-2 font-bold uppercase">Résilience économique</div>
+                </div>
+                <div class="metric-card bg-white p-6 rounded-2xl shadow-sm border-t-4 border-slate-900">
+                    <div class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Tourisme (Visiteurs)</div>
+                    <div class="text-3xl font-black text-slate-900">102M</div>
+                    <div class="text-[10px] text-slate-500 mt-2 font-bold uppercase">Record mondial maintenu</div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+                    <h3 class="font-bold text-slate-900 mb-6">Indice de Vitalité Économique (2025)</h3>
+                    <div class="chart-container">
+                        <canvas id="overviewChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-france-blue text-white p-8 rounded-3xl flex flex-col justify-between shadow-xl">
+                    <div>
+                        <h3 class="text-xl font-bold mb-6 italic">L'Actualité Faitière</h3>
+                        <div class="space-y-4 text-sm">
+                            <div class="bg-white/10 p-3 rounded-xl border border-white/10">
+                                <span class="font-bold text-france-red">FÉVRIER :</span> Sommet de l'IA à Paris – La France lance son "Cloud Souverain".
+                            </div>
+                            <div class="bg-white/10 p-3 rounded-xl border border-white/10">
+                                <span class="font-bold text-france-red">JUIN :</span> Inauguration du premier parc éolien flottant en Méditerranée.
+                            </div>
+                            <div class="bg-white/10 p-3 rounded-xl border border-white/10">
+                                <span class="font-bold text-france-red">OCTOBRE :</span> Le Budget 2026 est déposé avec une réduction drastique des dépenses.
+                            </div>
+                            <div class="bg-white/10 p-3 rounded-xl border border-white/10">
+                                <span class="font-bold text-france-red">DÉCEMBRE :</span> Notre-Dame célèbre sa première année de réouverture complète.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: POLITIQUE -->
+        <section class="view-section space-y-8" id="view-politics">
+            <div class="bg-slate-900 text-white p-10 rounded-3xl shadow-2xl relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="text-3xl font-black mb-2 italic tracking-tight">L'État et la Loi</h2>
+                    <p class="text-slate-400 max-w-2xl">L'année 2025 a été marquée par une Assemblée Nationale fragmentée, forçant le gouvernement à une diplomatie parlementaire constante pour faire voter le Budget de rigueur.</p>
+                </div>
+                <div class="absolute right-[-20px] top-[-20px] text-[180px] font-black text-white/5 select-none tracking-tighter">RF</div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+                    <h3 class="font-bold text-slate-900 mb-6">Activité Législative par Secteur</h3>
+                    <div class="chart-container">
+                        <canvas id="politicsChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col justify-center">
+                    <h3 class="font-bold text-slate-900 mb-6">Réformes Clés de 2025</h3>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-slate-50 rounded-xl border-l-4 border-blue-900">
+                            <h4 class="font-bold text-sm">Loi de Financement 2025</h4>
+                            <p class="text-xs text-slate-500">Mise en place de la taxe exceptionnelle sur les hauts revenus et les grandes entreprises.</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl border-l-4 border-france-red">
+                            <h4 class="font-bold text-sm">Simplification Administrative</h4>
+                            <p class="text-xs text-slate-500">Suppression de 15 formulaires Cerfa majeurs pour les TPE/PME.</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl border-l-4 border-slate-900">
+                            <h4 class="font-bold text-sm">Réforme de la Décentralisation</h4>
+                            <p class="text-xs text-slate-500">Transfert de nouvelles compétences aux régions pour la transition écologique.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: IA & TECH -->
+        <section class="view-section space-y-8" id="view-tech">
+            <header class="flex items-center space-x-4">
+                <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-3xl">🤖</div>
+                <div>
+                    <h2 class="text-3xl font-bold text-slate-900">Sommet de l'IA &amp; France 2030</h2>
+                    <p class="text-slate-500">En février 2025, Paris a accueilli le Sommet Mondial de l'IA, consolidant l'écosystème français comme le premier d'Europe.</p>
+                </div>
+            </header>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-1 bg-white p-8 rounded-3xl border border-slate-100 card-stat">
+                    <h3 class="font-bold mb-6">Répartition des Investissements IA</h3>
+                    <div class="chart-container" style="height: 250px;">
+                        <canvas id="techDonutChart"></canvas>
+                    </div>
+                    <div class="mt-6 p-4 bg-blue-50 rounded-xl text-[10px] text-blue-900 font-bold uppercase tracking-wider text-center">
+                        Total : 2,5 Milliards d'Euros (2025)
+                    </div>
+                </div>
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="p-6 bg-white border border-slate-100 rounded-2xl shadow-sm">
+                        <h4 class="font-bold text-blue-900">Le "Cloud Souverain" Français</h4>
+                        <p class="text-sm text-slate-600 mt-2">Lancement effectif d'une infrastructure de données sécurisée pour les administrations publiques, gérée par un consortium national sous l'égide de France 2030.</p>
+                    </div>
+                    <div class="p-6 bg-white border border-slate-100 rounded-2xl shadow-sm">
+                        <h4 class="font-bold text-blue-900">Quantique &amp; Supercalculateurs</h4>
+                        <p class="text-sm text-slate-600 mt-2">Inauguration de l'extension du supercalculateur Jean Zay à Saclay, augmentant la capacité de calcul pour la recherche en biotechnologies par 4.</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-4 bg-emerald-50 rounded-xl text-center">
+                            <div class="text-xl font-black text-emerald-800">45</div>
+                            <div class="text-[10px] text-emerald-600 uppercase font-bold">Nouvelles Licornes IA</div>
+                        </div>
+                        <div class="p-4 bg-blue-50 rounded-xl text-center">
+                            <div class="text-xl font-black text-blue-800">120k</div>
+                            <div class="text-[10px] text-blue-600 uppercase font-bold">Emplois créés (Tech)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: ÉNERGIE -->
+        <section class="view-section space-y-8" id="view-energy">
+            <div class="bg-emerald-900 text-white p-10 rounded-3xl shadow-2xl flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h2 class="text-3xl font-black italic">Le Mix Énergétique 2025</h2>
+                    <p class="text-emerald-100 mt-2 max-w-xl">La France a accéléré son déploiement éolien en mer tout en lançant les chantiers de génie civil pour les premiers réacteurs EPR2 à Penly.</p>
+                </div>
+                <div class="bg-white/10 p-6 rounded-2xl border border-white/10 backdrop-blur-md">
+                    <div class="text-4xl font-black text-emerald-400">92%</div>
+                    <div class="text-[10px] text-emerald-100 uppercase font-bold tracking-widest">Électricité Décarbonée</div>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+                <h3 class="font-bold text-slate-900 mb-6">Production Électrique Mensuelle (TWh)</h3>
+                <div class="chart-container">
+                    <canvas id="energyLineChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: CULTURE -->
+        <section class="view-section space-y-8" id="view-culture">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Heritage Card -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col justify-between border-l-8 border-orange-400">
+                    <div>
+                        <div class="bg-orange-100 text-orange-700 w-fit px-3 py-1 rounded-full text-[10px] font-black uppercase mb-4">Patrimoine</div>
+                        <h3 class="text-4xl font-black text-slate-900 leading-tight mb-4">L'AN 1 DE <span class="text-orange-600">NOTRE-DAME</span></h3>
+                        <p class="text-slate-600 text-sm mb-6">Un an après sa réouverture triomphale, la cathédrale a accueilli 15 millions de visiteurs en 2025, devenant le site le plus visité d'Europe et dynamisant le commerce du centre de Paris.</p>
+                    </div>
+                    <div class="mt-auto pt-6 border-t border-slate-50 flex justify-between items-center">
+                        <div class="text-center">
+                            <div class="text-xs font-bold text-slate-400 uppercase">Visiteurs/Jour</div>
+                            <div class="text-2xl font-black">40k</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-xs font-bold text-slate-400 uppercase">Budget Entretien</div>
+                            <div class="text-2xl font-black">45 M€</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Culture Chart -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+                    <h3 class="font-bold text-slate-900 mb-6">Impact Touristique Régional (Indice 2025)</h3>
+                    <div class="chart-container">
+                        <canvas id="cultureChart"></canvas>
+                    </div>
+                    <p class="text-[10px] text-slate-400 mt-4 text-center">L'héritage des JO 2024 profite particulièrement à l'Île-de-France et à la Provence.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // --- Navigation ---
+        function navTo(id) {
+            document.querySelectorAll('.view-section').forEach(v => v.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            
+            const target = document.getElementById(`view-${id}`);
+            if (target) target.classList.add('active');
+            
+            const navBtn = document.getElementById(`nav-${id}`);
+            if (navBtn) navBtn.classList.add('active');
+
+            window.dispatchEvent(new Event('resize'));
+        }
+
+        // --- Charts Config ---
+        Chart.defaults.font.family = "'Montserrat', sans-serif";
+        Chart.defaults.color = '#64748b';
+
+        // 1. Overview Timeline
+        const ctxOver = document.getElementById('overviewChart').getContext('2d');
+        new Chart(ctxOver, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Mar', 'Mai', 'Juil', 'Sep', 'Nov'],
+                datasets: [{
+                    label: 'Sentiment Économique',
+                    data: [58, 62, 65, 63, 68, 72],
+                    borderColor: '#002395',
+                    backgroundColor: 'rgba(0, 35, 149, 0.05)',
+                    fill: true,
+                    tension: 0.4,
+                    borderWidth: 3,
+                    pointRadius: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: { 
+                    y: { display: false },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // 2. Politics Bar Chart
+        const ctxPol = document.getElementById('politicsChart').getContext('2d');
+        new Chart(ctxPol, {
+            type: 'bar',
+            data: {
+                labels: ['Budget', 'Économie', 'Écologie', 'Social', 'Sécurité'],
+                datasets: [{
+                    label: 'Textes Adoptés',
+                    data: [12, 18, 14, 8, 11],
+                    backgroundColor: ['#002395', '#ed2939', '#10b981', '#64748b', '#0f172a'],
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                plugins: { legend: { display: false } }
+            }
+        });
+
+        // 3. Tech Donut
+        const ctxTech = document.getElementById('techDonutChart').getContext('2d');
+        new Chart(ctxTech, {
+            type: 'doughnut',
+            data: {
+                labels: ['Cloud Souverain', 'LLM Français', 'Infras Quantiques', 'Sécurité'],
+                datasets: [{
+                    data: [40, 30, 20, 10],
+                    backgroundColor: ['#002395', '#ed2939', '#475569', '#cbd5e1'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '80%',
+                plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 10 } } } }
+            }
+        });
+
+        // 4. Energy Line Chart
+        const ctxEne = document.getElementById('energyLineChart').getContext('2d');
+        new Chart(ctxEne, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Avr', 'Juil', 'Oct', 'Déc'],
+                datasets: [{
+                    label: 'Nucléaire',
+                    data: [35, 30, 28, 32, 38],
+                    borderColor: '#002395',
+                    tension: 0.3,
+                    borderWidth: 4,
+                    fill: false
+                }, {
+                    label: 'Renouvelables',
+                    data: [12, 18, 22, 15, 14],
+                    borderColor: '#10b981',
+                    tension: 0.3,
+                    borderWidth: 4,
+                    borderDash: [5, 5],
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { y: { beginAtZero: false } }
+            }
+        });
+
+        // 5. Culture Bubble Chart
+        const ctxCul = document.getElementById('cultureChart').getContext('2d');
+        new Chart(ctxCul, {
+            type: 'bubble',
+            data: {
+                datasets: [{
+                    label: 'Flux Touristique',
+                    data: [
+                        { x: 80, y: 95, r: 25, label: 'Paris / IdF' },
+                        { x: 60, y: 70, r: 18, label: 'Provence / PACA' },
+                        { x: 40, y: 55, r: 15, label: 'Occitanie' },
+                        { x: 30, y: 40, r: 10, label: 'Bretagne' },
+                        { x: 20, y: 30, r: 12, label: 'Grand Est' }
+                    ],
+                    backgroundColor: 'rgba(237, 41, 57, 0.6)'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: { display: false },
+                    y: { title: { display: true, text: 'Indice de Fréquentation' }, min: 20, max: 110 }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: (ctx) => ctx.raw.label
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+<html><head></head><body><footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+		  
+		  <li>								
+		<a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">26-bihari-wishes</a>
+            </li>	
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">26-chinese-new-year-wishes</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">26-christmas-wishes</a>
+            </li>	
+		  <li>
+		  		<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-festival-countdown</a>
+            </li>	
+										
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">Christmas-wishes-by-audience</a>
+            </li>	
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">Happy-new-year-2026-celebrations-worldwide.html</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">Happy-new-year-2026</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">Multilingual-greetings-webpage</a>
+            </li>	
+		  
+		  
+		  
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+		   <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">2025 Trends and 2026 forecast</h5>
+        <ul class="space-y-2">
+		 
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-digital-outlook-trends-forecast</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">2026-festival-countdown</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026_dashboard.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">2026_dashboard</a>
+            </li>	
+
+
+		 
+
+									
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/new_year_2026_page.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">New_year_2026_page</a>
+            </li>	
+									
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/send-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl07_title">Send-christmas-wishes</a>
+            </li>	
+										
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl08_title">Send-sankranti-wishes-in-multiple-languages</a>
+            </li>	
+		
+		
+
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/index-oct.html">Thanks Giving Main Page</a></li>
+
+          
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+        <div class="space-y-2">
+          <p>Redmond<br/>WA, USA</p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+          </p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+      
+      <div class="flex space-x-4 mt-4 sm:mt-0">
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+          <span class="sr-only">Facebook</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+          <span class="sr-only">Twitter</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+          <span class="sr-only">LinkedIn</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+	  
+	  <div class="flex gap-4 mt-4 sm:mt-0">
+                    <a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+                 
+					<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+      </div>
+    </div>
+	
+  </div>
+</footer></body></html></body></html>

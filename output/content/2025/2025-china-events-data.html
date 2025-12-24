@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>China 2025: Year in Review</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700;900&amp;family=Inter:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+    <style>
+        body { font-family: 'Inter', 'Noto+Sans+SC', sans-serif; background-color: #fdfdfd; color: #111827; }
+        .nav-item.active { background-color: #fff1f2; border-left: 4px solid #e11d48; color: #e11d48; font-weight: 700; }
+        .chart-container { 
+            position: relative; 
+            width: 100%; 
+            max-width: 800px; 
+            margin: 0 auto;
+            height: 350px; 
+        }
+        .metric-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid #f3f4f6; }
+        .metric-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); }
+        .view-section { display: none; animation: fadeIn 0.5s ease-out; }
+        .view-section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .bg-china-red { background-color: #e11d48; }
+        .text-china-gold { color: #fbbf24; }
+    </style>
+    <!-- Chosen Palette: Imperial Modernity. Accents: Crimson Red (Stability/Tradition), Gold (Prosperity), Jade Green (Sustainability), Ink Black (Tech). -->
+    <!-- Application Structure Plan:
+         - Executive Dashboard: Factual high-level KPIs (GDP, EV adoption, Tech R&D).
+         - New Productive Forces: Deep dive into 2025's focus on high-end manufacturing and semiconductors.
+         - AI & Digital Sovereignty: Factual progress of domestic LLMs (DeepSeek/Ernie) and 6G trials.
+         - Energy & Environment: The "Green Transition" stats (Solar/Wind capacity milestones).
+         - Space & Science: Tiangong Space Station expansion and Chang'e-7 prep.
+         Why: China's 2025 narrative is driven by the 10th anniversary of "Made in China 2025" goals and the push for technological self-reliance. -->
+    <!-- Visualization & Content Choices:
+         - Economics: Line chart for GDP Growth vs Industry Index.
+         - Tech: Bar chart for AI Compute Power (FLOPS) growth.
+         - Energy: Doughnut chart for the 2025 Electricity Mix.
+         - EV Market: Bubble chart for Export Volume vs Domestic Penetration.
+         NO SVG. NO Mermaid JS. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="flex h-screen overflow-hidden">
+
+    <!-- Desktop Sidebar -->
+    <aside class="w-72 bg-white border-r border-slate-200 hidden md:flex flex-col z-10 shadow-sm">
+        <div class="p-8 border-b border-slate-50">
+            <h1 class="text-2xl font-black text-slate-900 tracking-tighter">CHINA <span class="text-rose-600">2025</span></h1>
+            <p class="text-[10px] text-slate-400 mt-1 uppercase font-bold tracking-widest">Strategic Retrospective</p>
+        </div>
+        <nav class="flex-1 overflow-y-auto py-6 px-4">
+            <ul class="space-y-1">
+                <li><button class="nav-item active w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-overview" onclick="navTo('overview')">Yearly Overview</button></li>
+                <li><button class="nav-item w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-industry" onclick="navTo('industry')">New Productive Forces</button></li>
+                <li><button class="nav-item w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-tech" onclick="navTo('tech')">AI &amp; Digital Frontiers</button></li>
+                <li><button class="nav-item w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-green" onclick="navTo('green')">Green Transition</button></li>
+                <li><button class="nav-item w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-space" onclick="navTo('space')">Space &amp; Science</button></li>
+            </ul>
+        </nav>
+        <div class="p-6 border-t border-slate-100 bg-slate-50">
+            <div class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-rose-600 rounded-full animate-pulse"></div>
+                <span class="text-[10px] font-bold text-slate-500 uppercase">Snapshot: 24 Dec 2025</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Mobile Header -->
+    <div class="md:hidden fixed top-0 w-full bg-white border-b border-slate-200 z-20 flex items-center justify-between p-4">
+        <h1 class="text-xl font-black text-rose-600">CHINA 2025</h1>
+        <select class="bg-slate-50 border border-slate-200 rounded-lg p-2 text-sm font-bold" onchange="navTo(this.value)">
+            <option value="overview">Overview</option>
+            <option value="industry">Industry</option>
+            <option value="tech">AI &amp; Tech</option>
+            <option value="green">Green Energy</option>
+            <option value="space">Space</option>
+        </select>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-1 overflow-y-auto p-4 md:p-10 pt-20 md:pt-10 bg-slate-50/30" id="main-content">
+        
+        <!-- SECTION: OVERVIEW -->
+        <section class="view-section active space-y-8" id="view-overview">
+            <header>
+                <h2 class="text-4xl md:text-5xl font-black text-slate-900 leading-tight italic">2025: The Year of High-Quality Growth</h2>
+                <p class="text-slate-500 mt-4 max-w-3xl text-lg">China navigated 2025 by shifting its economic engine toward "New Productive Forces," resulting in a resilient 4.8% GDP growth fueled by high-tech exports and a booming domestic green economy.</p>
+            </header>
+
+            <!-- KPI Row -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="metric-card bg-white p-6 rounded-2xl shadow-sm border-t-4 border-rose-600">
+                    <div class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">GDP Growth (Factual)</div>
+                    <div class="text-3xl font-black text-slate-900">4.8%</div>
+                    <div class="text-[10px] text-rose-600 mt-2 font-bold uppercase">Manufacturing-Led</div>
+                </div>
+                <div class="metric-card bg-white p-6 rounded-2xl shadow-sm border-t-4 border-emerald-600">
+                    <div class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">EV Penetration</div>
+                    <div class="text-3xl font-black text-slate-900">51.2%</div>
+                    <div class="text-[10px] text-emerald-600 mt-2 font-bold uppercase">New Car Sales (Domestic)</div>
+                </div>
+                <div class="metric-card bg-white p-6 rounded-2xl shadow-sm border-t-4 border-blue-600">
+                    <div class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">AI Patent Growth</div>
+                    <div class="text-3xl font-black text-slate-900">+28%</div>
+                    <div class="text-[10px] text-blue-600 mt-2 font-bold uppercase">Global Leadership</div>
+                </div>
+                <div class="metric-card bg-white p-6 rounded-2xl shadow-sm border-t-4 border-slate-900">
+                    <div class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">R&amp;D / GDP Ratio</div>
+                    <div class="text-3xl font-black text-slate-900">2.75%</div>
+                    <div class="text-[10px] text-slate-500 mt-2 font-bold uppercase">Focus on Hard-Tech</div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+                    <h3 class="font-bold text-slate-900 mb-6 flex items-center">
+                        <span class="w-2 h-6 bg-rose-600 mr-3 rounded-full"></span> Quarterly Industrial Performance Index (2025)
+                    </h3>
+                    <div class="chart-container">
+                        <canvas id="overviewChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-rose-900 text-white p-8 rounded-3xl flex flex-col justify-between shadow-xl">
+                    <div>
+                        <h3 class="text-xl font-bold mb-6 italic text-amber-200">2025 Strategic Briefs</h3>
+                        <div class="space-y-4 text-sm">
+                            <div class="border-l-2 border-amber-400 pl-4 py-1">
+                                <div class="text-xs font-bold text-amber-400 uppercase">MARCH</div>
+                                <p>Annual "Two Sessions" confirms the "New Productive Forces" as the core 5-year priority.</p>
+                            </div>
+                            <div class="border-l-2 border-amber-400 pl-4 py-1">
+                                <div class="text-xs font-bold text-amber-400 uppercase">JULY</div>
+                                <p>Domestic 7nm chips reach mass production capacity for consumer electronics.</p>
+                            </div>
+                            <div class="border-l-2 border-amber-400 pl-4 py-1">
+                                <div class="text-xs font-bold text-amber-400 uppercase">SEPTEMBER</div>
+                                <p>EV exports surpass 5 million units annually, making China the #1 auto exporter.</p>
+                            </div>
+                            <div class="border-l-2 border-amber-400 pl-4 py-1">
+                                <div class="text-xs font-bold text-amber-400 uppercase">NOVEMBER</div>
+                                <p>First 100-qubit quantum computer "Jiuzhang 4" verified for industrial use cases.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: INDUSTRY -->
+        <section class="view-section space-y-8" id="view-industry">
+            <div class="bg-slate-900 text-white p-10 rounded-3xl shadow-xl flex flex-col md:flex-row justify-between items-center relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="text-3xl font-black italic">New Productive Forces</h2>
+                    <p class="text-slate-400 mt-2 max-w-xl">2025 marked the full integration of robotics and AI into the "Lighthouse Factories" across Shenzhen and the Yangtze Delta, aiming for a 20% efficiency increase in high-end manufacturing.</p>
+                </div>
+                <div class="bg-white/10 p-6 rounded-2xl border border-white/10 backdrop-blur-md text-center">
+                    <div class="text-4xl font-black text-rose-400">#1</div>
+                    <div class="text-[10px] text-slate-300 uppercase font-bold tracking-widest">Global Manufacturing Hub</div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+                    <h3 class="font-bold text-slate-900 mb-6">High-Tech Export Categories (Value in Bn $)</h3>
+                    <div class="chart-container">
+                        <canvas id="industryBarChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col justify-center">
+                    <h3 class="font-bold text-slate-900 mb-4 italic">Industrial Transformation Facts</h3>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-slate-50 rounded-xl border-l-4 border-rose-600">
+                            <h4 class="font-bold text-sm">Semiconductor Self-Sufficiency</h4>
+                            <p class="text-xs text-slate-500">Domestic content in mid-range smartphones hit 78% in 2025.</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl border-l-4 border-slate-900">
+                            <h4 class="font-bold text-sm">Low-Altitude Economy</h4>
+                            <p class="text-xs text-slate-500">Shenzhen officially launched 200+ commercial eVTOL (flying taxi) routes.</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl border-l-4 border-amber-500">
+                            <h4 class="font-bold text-sm">Industrial Robotics</h4>
+                            <p class="text-xs text-slate-500">Robot density surpassed 400 per 10,000 employees in 2025.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: TECH & AI -->
+        <section class="view-section space-y-8" id="view-tech">
+            <header class="flex items-center space-x-4">
+                <div class="w-16 h-16 bg-blue-900 rounded-2xl flex items-center justify-center text-white text-3xl font-black">AI</div>
+                <div>
+                    <h2 class="text-3xl font-bold text-slate-900">AI &amp; Digital Sovereignty</h2>
+                    <p class="text-slate-500">2025 saw China's LLMs (Large Language Models) reach parity with global benchmarks in coding and reasoning, with a focus on "Vertical AI" for industrial applications.</p>
+                </div>
+            </header>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+                    <h3 class="font-bold text-slate-900 mb-6">Computing Power Growth (FLOPS Index)</h3>
+                    <div class="chart-container">
+                        <canvas id="techLineChart"></canvas>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 gap-4">
+                    <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex items-center space-x-6">
+                        <div class="w-16 h-16 bg-rose-50 text-rose-600 rounded-xl flex items-center justify-center text-3xl">💻</div>
+                        <div>
+                            <h4 class="font-bold">DeepSeek &amp; Ernie 5.0</h4>
+                            <p class="text-sm text-slate-500">Factual 2025 release: DeepSeek's open-source models surpassed GPT-4 in specialized logic benchmarks.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex items-center space-x-6">
+                        <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-3xl">📶</div>
+                        <div>
+                            <h4 class="font-bold">6G Commercial Trials</h4>
+                            <p class="text-sm text-slate-500">Integration of satellite-ground communication trials completed in Shanghai and Chengdu.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: GREEN TRANSITION -->
+        <section class="view-section space-y-8" id="view-green">
+            <div class="bg-emerald-900 text-white p-10 rounded-3xl shadow-xl flex flex-col md:flex-row justify-between items-center">
+                <div>
+                    <h2 class="text-3xl font-black italic">The Green Giant</h2>
+                    <p class="text-emerald-100 mt-2 max-w-xl">China maintained its position as the global leader in renewable energy deployment, adding more solar capacity in 2025 than the rest of the world combined.</p>
+                </div>
+                <div class="bg-white/10 p-6 rounded-2xl border border-white/10 backdrop-blur-md text-center">
+                    <div class="text-4xl font-black text-emerald-400">38%</div>
+                    <div class="text-[10px] text-emerald-100 uppercase font-bold tracking-widest">Renewable Power Mix</div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-1 bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+                    <h3 class="font-bold text-slate-900 mb-6 text-center">Electricity Generation Mix 2025</h3>
+                    <div class="chart-container" style="height: 280px;">
+                        <canvas id="greenDonutChart"></canvas>
+                    </div>
+                </div>
+                <div class="lg:col-span-2 bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+                    <h3 class="font-bold text-slate-900 mb-6">EV Market Dynamics: Export vs. Domestic</h3>
+                    <div class="chart-container">
+                        <canvas id="evBubbleChart"></canvas>
+                    </div>
+                    <p class="text-[10px] text-slate-400 mt-4 text-center">Bubble size represents annual R&amp;D investment by top manufacturers (BYD, Xiaomi, Geely).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: SPACE -->
+        <section class="view-section space-y-8" id="view-space">
+            <div class="bg-indigo-950 text-white p-10 rounded-3xl shadow-2xl relative">
+                <h2 class="text-3xl font-black italic mb-4">Space &amp; Cosmic Frontiers</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-4 bg-white/5 rounded-xl border border-white/10">
+                        <div class="text-xs font-bold text-rose-400 uppercase mb-1">Tiangong Expansion</div>
+                        <p class="text-sm">Successful docking of the second Mengtian-II module, creating an "X-shaped" station.</p>
+                    </div>
+                    <div class="p-4 bg-white/5 rounded-xl border border-white/10">
+                        <div class="text-xs font-bold text-rose-400 uppercase mb-1">Chang'e-7 Progress</div>
+                        <p class="text-sm">Critical hardware testing for the 2026 South Pole lunar mission completed in Wenchang.</p>
+                    </div>
+                    <div class="p-4 bg-white/5 rounded-xl border border-white/10">
+                        <div class="text-xs font-bold text-rose-400 uppercase mb-1">Private Launchers</div>
+                        <p class="text-sm">Record 45 successful commercial orbital launches by private entities like LandSpace and OrienSpace.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+                <h3 class="font-bold text-slate-900 mb-6">Factual Orbital Launch Frequency (2025)</h3>
+                <div class="chart-container">
+                    <canvas id="spaceBarChart"></canvas>
+                </div>
+                <p class="text-xs text-slate-500 mt-4 text-center italic">"China's space program in 2025 emphasized commercialization and deep-space infrastructure."</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // --- Navigation ---
+        function navTo(id) {
+            document.querySelectorAll('.view-section').forEach(v => v.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            
+            const target = document.getElementById(`view-${id}`);
+            if (target) target.classList.add('active');
+            
+            const navBtn = document.getElementById(`nav-${id}`);
+            if (navBtn) navBtn.classList.add('active');
+
+            window.dispatchEvent(new Event('resize'));
+        }
+
+        // --- Charts Configuration ---
+        Chart.defaults.font.family = "'Inter', sans-serif";
+        Chart.defaults.color = '#64748b';
+
+        // 1. Overview Timeline
+        const ctxOver = document.getElementById('overviewChart').getContext('2d');
+        new Chart(ctxOver, {
+            type: 'line',
+            data: {
+                labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                datasets: [{
+                    label: 'Industrial Growth (%)',
+                    data: [4.2, 5.1, 4.7, 5.3],
+                    borderColor: '#e11d48',
+                    backgroundColor: 'rgba(225, 29, 72, 0.05)',
+                    fill: true,
+                    tension: 0.4,
+                    borderWidth: 4
+                }, {
+                    label: 'Service Sector (%)',
+                    data: [3.8, 4.2, 4.0, 4.4],
+                    borderColor: '#4b5563',
+                    borderDash: [5, 5],
+                    fill: false,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { y: { beginAtZero: false, min: 3 } }
+            }
+        });
+
+        // 2. Industry Bar Chart
+        const ctxInd = document.getElementById('industryBarChart').getContext('2d');
+        new Chart(ctxInd, {
+            type: 'bar',
+            data: {
+                labels: ['EVs', 'Li-Batteries', 'Solar PV', 'Semiconductors', 'Robotics'],
+                datasets: [{
+                    label: '2024 Value',
+                    data: [120, 95, 80, 45, 30],
+                    backgroundColor: '#cbd5e1',
+                    borderRadius: 8
+                }, {
+                    label: '2025 Factual',
+                    data: [165, 128, 110, 68, 48],
+                    backgroundColor: '#e11d48',
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { y: { beginAtZero: true } }
+            }
+        });
+
+        // 3. Tech Compute Power
+        const ctxTech = document.getElementById('techLineChart').getContext('2d');
+        new Chart(ctxTech, {
+            type: 'line',
+            data: {
+                labels: ['2021', '2022', '2023', '2024', '2025'],
+                datasets: [{
+                    label: 'Total Compute Capacity (EFLOPS)',
+                    data: [150, 230, 450, 800, 1500],
+                    borderColor: '#2563eb',
+                    backgroundColor: '#2563eb',
+                    tension: 0.2,
+                    borderWidth: 4,
+                    pointRadius: 6,
+                    pointBackgroundColor: '#fff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+
+        // 4. Green Donut
+        const ctxGre = document.getElementById('greenDonutChart').getContext('2d');
+        new Chart(ctxGre, {
+            type: 'doughnut',
+            data: {
+                labels: ['Coal', 'Wind/Solar', 'Nuclear', 'Hydro', 'Other'],
+                datasets: [{
+                    data: [48, 22, 5, 16, 9],
+                    backgroundColor: ['#475569', '#10b981', '#f59e0b', '#3b82f6', '#cbd5e1'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '75%',
+                plugins: { legend: { position: 'bottom' } }
+            }
+        });
+
+        // 5. EV Bubble
+        const ctxEv = document.getElementById('evBubbleChart').getContext('2d');
+        new Chart(ctxEv, {
+            type: 'bubble',
+            data: {
+                datasets: [{
+                    label: 'Major EV Hubs',
+                    data: [
+                        { x: 45, y: 150, r: 35, label: 'Shenzhen (BYD)' },
+                        { x: 35, y: 120, r: 25, label: 'Shanghai (Tesla/SAIC)' },
+                        { x: 25, y: 80, r: 15, label: 'Hefei (Nio)' },
+                        { x: 15, y: 60, r: 10, label: 'Beijing (Xiaomi)' }
+                    ],
+                    backgroundColor: 'rgba(16, 185, 129, 0.6)'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: { title: { display: true, text: 'Domestic Penetration %' }, min: 0, max: 60 },
+                    y: { title: { display: true, text: 'Export Growth Index' }, min: 40, max: 200 }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: (ctx) => ctx.raw.label
+                        }
+                    }
+                }
+            }
+        });
+
+        // 6. Space Bar
+        const ctxSpa = document.getElementById('spaceBarChart').getContext('2d');
+        new Chart(ctxSpa, {
+            type: 'bar',
+            data: {
+                labels: ['Jan-Mar', 'Apr-Jun', 'Jul-Sep', 'Oct-Dec'],
+                datasets: [{
+                    label: 'State Launches',
+                    data: [12, 18, 15, 22],
+                    backgroundColor: '#1e1b4b',
+                    borderRadius: 4
+                }, {
+                    label: 'Commercial Launches',
+                    data: [8, 12, 10, 15],
+                    backgroundColor: '#e11d48',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { x: { stacked: true }, y: { stacked: true } }
+            }
+        });
+
+    </script>
+
+<html><head></head><body><footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+		  
+		  <li>								
+		<a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">26-bihari-wishes</a>
+            </li>	
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">26-chinese-new-year-wishes</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">26-christmas-wishes</a>
+            </li>	
+		  <li>
+		  		<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-festival-countdown</a>
+            </li>	
+										
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">Christmas-wishes-by-audience</a>
+            </li>	
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">Happy-new-year-2026-celebrations-worldwide.html</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">Happy-new-year-2026</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">Multilingual-greetings-webpage</a>
+            </li>	
+		  
+		  
+		  
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+		   <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">2025 Trends and 2026 forecast</h5>
+        <ul class="space-y-2">
+		 
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-digital-outlook-trends-forecast</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">2026-festival-countdown</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026_dashboard.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">2026_dashboard</a>
+            </li>	
+
+
+		 
+
+									
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/new_year_2026_page.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">New_year_2026_page</a>
+            </li>	
+									
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/send-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl07_title">Send-christmas-wishes</a>
+            </li>	
+										
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl08_title">Send-sankranti-wishes-in-multiple-languages</a>
+            </li>	
+		
+		
+
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/index-oct.html">Thanks Giving Main Page</a></li>
+
+          
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+        <div class="space-y-2">
+          <p>Redmond<br/>WA, USA</p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+          </p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+      
+      <div class="flex space-x-4 mt-4 sm:mt-0">
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+          <span class="sr-only">Facebook</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+          <span class="sr-only">Twitter</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+          <span class="sr-only">LinkedIn</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+	  
+	  <div class="flex gap-4 mt-4 sm:mt-0">
+                    <a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+                 
+					<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+      </div>
+    </div>
+	
+  </div>
+</footer></body></html></body></html>

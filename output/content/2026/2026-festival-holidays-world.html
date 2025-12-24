@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en"><head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="A comprehensive planner for 2026 festivals and holidays across the US, India, and GCC." name="description"/>
+  <title>2026 Festivals &amp; Holidays | World Planner</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- FontAwesome CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  
+  <!-- Vollkorn Font -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+
+  <style>
+    body {
+        font-family: 'Vollkorn', serif;
+        background-color: #fff1f2; /* bg-rose-50 */
+        color: #292524; /* text-stone-800 */
+        background-image: linear-gradient(rgba(255, 241, 242, 0.92), rgba(255, 241, 242, 0.92)), url('https://storage.googleapis.com/kreatewebsite/banner_all/Happy-New-Year-Photos.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    h1, h2, h3 {
+        font-weight: 700;
+    }
+
+    /* Navigation Bar */
+    .nav-glass {
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid #ffe4e6;
+    }
+
+    .nav-link {
+        color: #57534e;
+        transition: color 0.2s;
+    }
+    .nav-link:hover {
+        color: #9f1239;
+    }
+
+    /* Interactive Elements (Chips, Inputs) */
+    .chip {
+        cursor: pointer;
+        border: 1px solid #e7e5e4;
+        background-color: rgba(255, 255, 255, 0.6);
+        color: #57534e;
+        padding: 8px 16px;
+        border-radius: 999px;
+        font-weight: 600;
+        transition: all 0.2s ease;
+        font-size: 0.9rem;
+    }
+    .chip:hover {
+        background-color: #fff1f2;
+        border-color: #fecdd3;
+        color: #be123c;
+    }
+    .chip[aria-pressed="true"] {
+        background-color: #be123c; /* rose-700 */
+        color: white;
+        border-color: #be123c;
+        box-shadow: 0 4px 6px -1px rgba(190, 18, 60, 0.2);
+    }
+
+    input[type="search"], select {
+        border: 1px solid #e7e5e4;
+        background-color: rgba(255, 255, 255, 0.8);
+        color: #292524;
+        border-radius: 0.5rem;
+        padding: 10px 12px;
+        outline: none;
+        transition: all 0.2s;
+    }
+    input[type="search"]:focus, select:focus {
+        border-color: #fda4af;
+        box-shadow: 0 0 0 3px rgba(253, 164, 175, 0.2);
+    }
+
+    /* Cards */
+    .card {
+        background-color: rgba(255, 255, 255, 0.7);
+        border: 1px solid #ffe4e6;
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        backdrop-filter: blur(4px);
+        margin-bottom: 1.5rem;
+    }
+    .card-header {
+        background-color: rgba(255, 255, 255, 0.5);
+        padding: 1rem;
+        border-bottom: 1px solid #ffe4e6;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .badge {
+        font-size: 0.75rem;
+        color: #881337;
+        background-color: #ffe4e6;
+        padding: 2px 8px;
+        border-radius: 999px;
+        font-weight: 600;
+    }
+
+    /* Table Styles */
+    table { width: 100%; border-collapse: collapse; }
+    th { 
+        text-align: left; 
+        padding: 12px 16px; 
+        color: #be123c; 
+        font-size: 0.8rem; 
+        text-transform: uppercase; 
+        letter-spacing: 0.05em;
+        border-bottom: 1px solid #ffe4e6;
+    }
+    td { 
+        padding: 12px 16px; 
+        border-bottom: 1px solid #fce7f3; 
+        vertical-align: top;
+        font-size: 0.95rem;
+    }
+    tr:last-child td { border-bottom: none; }
+    
+    .date-badge {
+        display: inline-block;
+        font-size: 0.75rem;
+        color: #78716c;
+        margin-top: 2px;
+    }
+
+    .pill {
+        display: inline-block;
+        padding: 2px 8px;
+        border-radius: 999px;
+        background-color: #f5f5f4;
+        border: 1px solid #e7e5e4;
+        color: #57534e;
+        font-size: 0.75rem;
+        margin-left: 8px;
+    }
+
+    /* Mobile Menu */
+    #mobile-menu { background: rgba(255, 255, 255, 0.95); }
+  </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col overflow-x-hidden text-stone-800">
+
+    <!-- Navigation -->
+    <nav class="w-full nav-glass sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <a class="flex items-center gap-2 group" href="index.html">
+                        <span class="text-2xl text-rose-600 group-hover:scale-110 transition-transform">✨</span>
+                        <span class="text-xl font-bold tracking-wide uppercase text-rose-900 group-hover:text-rose-700">Happy New Year</span>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="index.html">Home</a>
+                        <a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="index.html#resolutions">Resolutions</a>
+                        <a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="new-year-cards.html">Cards</a>
+                        <a class="nav-link px-3 py-2 rounded-md text-base font-semibold text-rose-800 border-b-2 border-rose-800" href="#">Festivals</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-stone-600 hover:text-rose-800" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden border-t border-rose-100" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a class="text-stone-600 hover:text-rose-800 block px-3 py-2 rounded-md text-base font-medium" href="index.html">Home</a>
+                <a class="text-stone-600 hover:text-rose-800 block px-3 py-2 rounded-md text-base font-medium" href="new-year-cards.html">Cards</a>
+                <a class="text-rose-900 font-bold block px-3 py-2 rounded-md text-base" href="#">Festivals</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-6">
+        <h1 class="text-3xl md:text-5xl font-bold text-rose-900 mb-3 tracking-tight">2026 Festivals &amp; Holidays</h1>
+        <p class="text-stone-600 text-lg max-w-3xl">
+            A combined quick-reference planner for key global regions. Use the filters below to explore dates for the United States, India, and GCC nations.
+        </p>
+
+        <!-- Controls -->
+        <div class="mt-8 flex flex-col md:flex-row gap-4 flex-wrap items-center bg-white/50 p-4 rounded-xl border border-rose-100 backdrop-blur-sm">
+            <div aria-label="Region chips" class="flex gap-2 flex-wrap">
+                <button aria-pressed="true" class="chip" data-region="all">All Regions</button>
+                <button class="chip" data-region="us">United States</button>
+                <button class="chip" data-region="india">India</button>
+                <button class="chip" data-region="gcc">UAE / GCC</button>
+            </div>
+
+            <div class="flex-grow flex gap-4 w-full md:w-auto">
+                <input aria-label="Search holidays" class="flex-grow md:w-64" id="q" placeholder="Search (e.g., Diwali, Eid)…" type="search"/>
+                <select aria-label="Filter by month" class="w-40" id="month">
+                    <option value="all">All months</option>
+                    <option value="01">January</option>
+                    <option value="02">February</option>
+                    <option value="03">March</option>
+                    <option value="04">April</option>
+                    <option value="05">May</option>
+                    <option value="06">June</option>
+                    <option value="07">July</option>
+                    <option value="08">August</option>
+                    <option value="09">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+            </div>
+
+            <button class="chip bg-stone-100 hover:bg-stone-200 border-stone-300 text-stone-700" id="download" title="Download as CSV">
+                <i class="fa-solid fa-download mr-2"></i> CSV
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 w-full">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="cards">
+            <!-- Cards injected via JS -->
+        </div>
+
+        <div class="mt-8 p-4 bg-white/60 border border-rose-200 rounded-lg text-stone-600 text-sm text-center italic" id="count">
+            <!-- Count injected via JS -->
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <html><head></head><body><footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+		  
+		  <li>								
+		<a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">26-bihari-wishes</a>
+            </li>	
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">26-chinese-new-year-wishes</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">26-christmas-wishes</a>
+            </li>	
+		  <li>
+		  		<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-festival-countdown</a>
+            </li>	
+										
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">Christmas-wishes-by-audience</a>
+            </li>	
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">Happy-new-year-2026-celebrations-worldwide.html</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">Happy-new-year-2026</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">Multilingual-greetings-webpage</a>
+            </li>	
+		  
+		  
+		  
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+		   <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">2025 Trends and 2026 forecast</h5>
+        <ul class="space-y-2">
+		 
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-digital-outlook-trends-forecast</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">2026-festival-countdown</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026_dashboard.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">2026_dashboard</a>
+            </li>	
+
+
+		 
+
+									
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/new_year_2026_page.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">New_year_2026_page</a>
+            </li>	
+									
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/send-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl07_title">Send-christmas-wishes</a>
+            </li>	
+										
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl08_title">Send-sankranti-wishes-in-multiple-languages</a>
+            </li>	
+		
+		
+
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/index-oct.html">Thanks Giving Main Page</a></li>
+
+          
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+        <div class="space-y-2">
+          <p>Redmond<br/>WA, USA</p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+          </p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+      
+      <div class="flex space-x-4 mt-4 sm:mt-0">
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+          <span class="sr-only">Facebook</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+          <span class="sr-only">Twitter</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+          <span class="sr-only">LinkedIn</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+	  
+	  <div class="flex gap-4 mt-4 sm:mt-0">
+                    <a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+                 
+					<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+      </div>
+    </div>
+	
+  </div>
+</footer></body></html>
+
+<script>
+  // --- Data ---
+  const holidays = [
+    // UNITED STATES
+    { date:'2026-01-01', name:"New Year’s Day", region:'us', country:'USA', notes:'Federal holiday' },
+    { date:'2026-01-19', name:'Martin Luther King Jr. Day', region:'us', country:'USA', notes:'Federal holiday' },
+    { date:'2026-02-16', name:"Washington’s Birthday", region:'us', country:'USA', notes:'Federal holiday' },
+    { date:'2026-05-25', name:'Memorial Day', region:'us', country:'USA', notes:'Federal holiday' },
+    { date:'2026-06-19', name:'Juneteenth', region:'us', country:'USA', notes:'Federal holiday' },
+    { date:'2026-07-04', name:'Independence Day', region:'us', country:'USA', notes:'Federal holiday' },
+    { date:'2026-09-07', name:'Labor Day', region:'us', country:'USA', notes:'Federal holiday' },
+    { date:'2026-10-12', name:'Columbus Day', region:'us', country:'USA', notes:'Federal holiday' },
+    { date:'2026-11-11', name:'Veterans Day', region:'us', country:'USA', notes:'Federal holiday' },
+    { date:'2026-11-26', name:'Thanksgiving Day', region:'us', country:'USA', notes:'Federal holiday' },
+    { date:'2026-12-25', name:'Christmas Day', region:'us', country:'USA', notes:'Federal holiday' },
+    { date:'2026-10-31', name:'Halloween', region:'us', country:'USA', notes:'Observance' },
+
+    // INDIA
+    { date:'2026-01-14', name:'Makar Sankranti / Pongal', region:'india', country:'India' },
+    { date:'2026-01-26', name:'Republic Day', region:'india', country:'India', notes:'National holiday' },
+    { date:'2026-02-15', name:'Maha Shivaratri', region:'india', country:'India' },
+    { date:'2026-03-04', name:'Holi', region:'india', country:'India' },
+    { date:'2026-03-19', name:'Ugadi / Gudi Padwa', region:'india', country:'India', notes:'Regional New Year' },
+    { date:'2026-03-20', name:'Eid al-Fitr (expected)', region:'india', country:'India', notes:'Moon sighting dependent' },
+    { date:'2026-04-14', name:'Ambedkar Jayanti', region:'india', country:'India' },
+    { date:'2026-05-01', name:'Buddha Purnima', region:'india', country:'India' },
+    { date:'2026-08-15', name:'Independence Day', region:'india', country:'India', notes:'National holiday' },
+    { date:'2026-08-28', name:'Raksha Bandhan', region:'india', country:'India' },
+    { date:'2026-09-04', name:'Krishna Janmashtami', region:'india', country:'India' },
+    { date:'2026-09-14', name:'Ganesh Chaturthi', region:'india', country:'India' },
+    { date:'2026-10-20', name:'Dussehra', region:'india', country:'India' },
+    { date:'2026-11-08', name:'Diwali', region:'india', country:'India' },
+    { date:'2026-11-24', name:'Guru Nanak Jayanti', region:'india', country:'India' },
+    { date:'2026-12-25', name:'Christmas', region:'india', country:'India' },
+
+    // GCC
+    { date:'2026-01-01', name:"New Year’s Day", region:'gcc', country:'UAE' },
+    { date:'2026-03-20', name:'Eid al-Fitr (expected)', region:'gcc', country:'UAE', notes:'Dates vary' },
+    { date:'2026-05-26', name:'Arafat Day (expected)', region:'gcc', country:'UAE' },
+    { date:'2026-05-27', name:'Eid al-Adha (expected)', region:'gcc', country:'UAE', notes:'Dates vary' },
+    { date:'2026-12-02', name:'UAE National Day', region:'gcc', country:'UAE' },
+    { date:'2026-02-22', name:'Founding Day', region:'gcc', country:'Saudi Arabia' },
+    { date:'2026-09-23', name:'Saudi National Day', region:'gcc', country:'Saudi Arabia' },
+    { date:'2026-12-18', name:'National Day', region:'gcc', country:'Qatar' },
+    { date:'2026-11-18', name:'National Day', region:'gcc', country:'Oman' },
+    { date:'2026-02-25', name:'National Day', region:'gcc', country:'Kuwait' },
+    { date:'2026-12-16', name:'National Day', region:'gcc', country:'Bahrain' },
+  ];
+
+  const regionLabels = {
+    us: 'United States',
+    india: 'India',
+    gcc: 'UAE / Saudi / GCC',
+  };
+
+  // --- Helpers ---
+  const fmt = new Intl.DateTimeFormat(undefined, { year:'numeric', month:'short', day:'2-digit', weekday:'short' });
+  const byDate = (a,b) => a.date.localeCompare(b.date);
+
+  function monthOf(iso){ return iso.slice(5,7); }
+  function includesCI(h, q){
+    if(!q) return true;
+    const hay = `${h.name} ${h.country} ${h.notes||''} ${h.date}`.toLowerCase();
+    return hay.includes(q.toLowerCase());
+  }
+
+  // --- Rendering ---
+  const cardsEl = document.getElementById('cards');
+  const qEl = document.getElementById('q');
+  const monthEl = document.getElementById('month');
+  const countEl = document.getElementById('count');
+  const chips = Array.from(document.querySelectorAll('button.chip[data-region]'));
+
+  let activeRegion = 'all';
+
+  function filtered(){
+    const q = qEl.value.trim();
+    const m = monthEl.value;
+    return holidays
+      .filter(h => activeRegion === 'all' ? true : h.region === activeRegion)
+      .filter(h => (m === 'all' ? true : monthOf(h.date) === m))
+      .filter(h => includesCI(h, q))
+      .slice()
+      .sort(byDate);
+  }
+
+  function groupByRegion(list){
+    const map = new Map();
+    for(const h of list){
+      const key = h.region;
+      if(!map.has(key)) map.set(key, []);
+      map.get(key).push(h);
+    }
+    const order = ['us','india','gcc'];
+    return order
+      .filter(k => map.has(k))
+      .map(k => [k, map.get(k).sort(byDate)]);
+  }
+
+  function render(){
+    const list = filtered();
+    const groups = groupByRegion(list);
+
+    cardsEl.innerHTML = '';
+
+    for(const [region, items] of groups){
+      const card = document.createElement('section');
+      card.className = 'card';
+
+      const header = document.createElement('div');
+      header.className = 'card-header';
+
+      const title = document.createElement('div');
+      title.innerHTML = `<h2 class="text-xl text-rose-900">${regionLabels[region]}</h2>`;
+      
+      const badge = document.createElement('span');
+      badge.className = 'badge';
+      badge.textContent = `${items.length} Events`;
+
+      header.appendChild(title);
+      header.appendChild(badge);
+      card.appendChild(header);
+
+      const tableWrapper = document.createElement('div');
+      tableWrapper.className = 'overflow-x-auto'; // Make table responsive
+
+      const table = document.createElement('table');
+      table.innerHTML = `
+        <thead>
+          <tr>
+            <th class="w-1/3">Date</th>
+            <th class="w-1/3">Festival / Holiday</th>
+            <th class="w-1/3">Country</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${items.map(h => {
+            const d = new Date(h.date + 'T00:00:00');
+            const dateLabel = fmt.format(d);
+            const note = h.notes ? `<span class="pill">${escapeHtml(h.notes)}</span>` : '';
+            return `
+              <tr class="hover:bg-rose-50/50 transition-colors">
+                <td>
+                    <strong class="text-stone-800">${escapeHtml(dateLabel)}</strong>
+                    <br/><span class="date-badge">${escapeHtml(h.date)}</span>
+                </td>
+                <td class="font-medium text-stone-700">${escapeHtml(h.name)} ${note}</td>
+                <td class="text-stone-500">${escapeHtml(h.country)}</td>
+              </tr>
+            `;
+          }).join('')}
+        </tbody>
+      `;
+
+      tableWrapper.appendChild(table);
+      card.appendChild(tableWrapper);
+      cardsEl.appendChild(card);
+    }
+
+    if(groups.length === 0){
+      const empty = document.createElement('div');
+      empty.className = 'col-span-2 text-center p-8 bg-white/50 rounded-xl border border-dashed border-rose-200 text-stone-500';
+      empty.innerHTML = '<i class="fa-regular fa-calendar-xmark text-4xl mb-3 text-rose-300"></i><br/>No matches found. Try clearing filters.';
+      cardsEl.appendChild(empty);
+    }
+
+    countEl.innerHTML = `<strong>${list.length}</strong> total date(s) shown.`;
+  }
+
+  function escapeHtml(str){
+    return String(str)
+      .replaceAll('&','&amp;')
+      .replaceAll('<','&lt;')
+      .replaceAll('>','&gt;')
+      .replaceAll('"','&quot;')
+      .replaceAll("'",'&#039;');
+  }
+
+  // --- Interactions ---
+  chips.forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeRegion = btn.dataset.region;
+      chips.forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+      render();
+    });
+  });
+
+  qEl.addEventListener('input', render);
+  monthEl.addEventListener('change', render);
+
+  // Download CSV
+  document.getElementById('download').addEventListener('click', () => {
+    const rows = filtered();
+    const header = ['date','name','region','country','notes'];
+    const csv = [header.join(',')]
+      .concat(rows.map(r => header.map(k => csvCell(r[k] || '')).join(',')))
+      .join('\n');
+
+    const blob = new Blob([csv], { type:'text/csv;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'holidays_2026_filtered.csv';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  });
+
+  function csvCell(v){
+    const s = String(v).replaceAll('"','""');
+    return `"${s}"`;
+  }
+
+  // Initial render
+  render();
+</script>
+
+</body></html>

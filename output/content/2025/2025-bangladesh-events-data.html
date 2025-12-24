@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Bangladesh 2025: Year in Review</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&amp;family=Inter:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet"/>
+    <style>
+        body { font-family: 'Inter', 'Hind Siliguri', sans-serif; background-color: #f3f4f6; color: #1f2937; }
+        .nav-item.active { background-color: #ecfdf5; border-left: 4px solid #059669; color: #065f46; font-weight: 700; }
+        .chart-container { 
+            position: relative; 
+            width: 100%; 
+            max-width: 100%; 
+            height: 350px; 
+            margin: 0 auto;
+        }
+        .metric-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid #e5e7eb; }
+        .metric-card:hover { transform: translateY(-4px); box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.1); }
+        .view-section { display: none; animation: fadeIn 0.5s ease-out; }
+        .view-section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        .bg-bengal-green { background-color: #006a4e; }
+        .text-bengal-red { color: #f42a41; }
+    </style>
+    <!-- Chosen Palette: Bengal Resilience. Accents: Deep Green (#006a4e), Sun Red (#f42a41), Earth Gold (#d97706), Water Teal (#0d9488). -->
+    <!-- Application Structure Plan:
+         - State of the Nation Dashboard: High-level factual KPIs for 2025 (Forex reserves, Inflation, Remittance).
+         - Governance & Reforms: Factual summary of the six major Reform Commissions (Constitution, Election, Judiciary, etc.).
+         - Economic Overhaul: Banking sector cleanup and the stabilization of the RMG (Garment) industry.
+         - Infrastructure & Energy: Update on Rooppur Nuclear Plant and the Matarbari Deep Sea Port progress.
+         - Climate & Disaster: Factual summary of the 2025 monsoon floods and relief efforts.
+         Why: 2025 is the "Year of Reform" for Bangladesh, focusing on rebuilding institutions after the August 2024 uprising. -->
+    <!-- Visualization & Content Choices:
+         - Economy: Line chart for Remittance Growth (Factual 2025 surge).
+         - Governance: Bar chart for Reform Commission completion status.
+         - Banking: Doughnut chart for NPL (Non-Performing Loan) recovery progress.
+         - Climate: Bar chart comparing 2025 flood levels to the 10-year average.
+         NO SVG used. NO Mermaid JS used. -->
+</head>
+<body class="flex h-screen overflow-hidden">
+
+    <!-- Desktop Sidebar -->
+    <aside class="w-72 bg-white border-r border-gray-200 hidden md:flex flex-col z-10 shadow-sm">
+        <div class="p-8 border-b border-gray-50">
+            <h1 class="text-2xl font-extrabold text-emerald-800 tracking-tighter">BD<span class="text-red-600">2025</span></h1>
+            <p class="text-[10px] text-gray-400 mt-1 uppercase font-bold tracking-widest">Reform &amp; Reconstruction</p>
+        </div>
+        <nav class="flex-1 overflow-y-auto py-6 px-4">
+            <ul class="space-y-1">
+                <li><button class="nav-item active w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-overview" onclick="navTo('overview')">Yearly Overview</button></li>
+                <li><button class="nav-item w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-governance" onclick="navTo('governance')">State Reforms</button></li>
+                <li><button class="nav-item w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-economy" onclick="navTo('economy')">Banking &amp; Economy</button></li>
+                <li><button class="nav-item w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-infrastructure" onclick="navTo('infrastructure')">Infra &amp; Power</button></li>
+                <li><button class="nav-item w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-climate" onclick="navTo('climate')">Climate &amp; Floods</button></li>
+            </ul>
+        </nav>
+        <div class="p-6 border-t border-gray-100 bg-gray-50">
+            <div class="flex items-center space-x-2">
+                <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+                <span class="text-[10px] font-bold text-gray-500 uppercase">Snapshot: Dec 24, 2025</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Mobile Header -->
+    <div class="md:hidden fixed top-0 w-full bg-white border-b border-gray-200 z-20 flex items-center justify-between p-4">
+        <h1 class="text-xl font-black text-emerald-800">BD 2025</h1>
+        <select class="bg-gray-50 border border-gray-200 rounded-lg p-2 text-sm font-bold" onchange="navTo(this.value)">
+            <option value="overview">Overview</option>
+            <option value="governance">Reforms</option>
+            <option value="economy">Economy</option>
+            <option value="infrastructure">Infrastructure</option>
+            <option value="climate">Climate</option>
+        </select>
+    </div>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 overflow-y-auto p-4 md:p-10 pt-20 md:pt-10 bg-gray-50" id="content-area">
+
+        <!-- SECTION: YEARLY OVERVIEW -->
+        <section class="view-section active space-y-8" id="view-overview">
+            <header>
+                <h2 class="text-4xl font-black text-gray-900 leading-none">The Year of Institutional Rebirth</h2>
+                <p class="text-gray-500 mt-4 max-w-3xl text-lg">2025 marked the stabilization of Bangladesh under the Interim Government. Focus shifted from the immediate aftermath of the July-August uprising to deep-seated systemic reforms in the judiciary, police, and election commission.</p>
+            </header>
+
+            <!-- Dashboard KPIs -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="metric-card bg-white p-6 rounded-2xl border-t-4 border-emerald-600 shadow-sm">
+                    <div class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-1">Forex Reserves</div>
+                    <div class="text-3xl font-black text-gray-900">$21.4B</div>
+                    <div class="text-[10px] text-emerald-600 mt-2 font-bold uppercase">Stabilized Growth</div>
+                </div>
+                <div class="metric-card bg-white p-6 rounded-2xl border-t-4 border-amber-600 shadow-sm">
+                    <div class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-1">Avg. Inflation</div>
+                    <div class="text-3xl font-black text-gray-900">9.2%</div>
+                    <div class="text-[10px] text-amber-600 mt-2 font-bold uppercase">Easing from Peak</div>
+                </div>
+                <div class="metric-card bg-white p-6 rounded-2xl border-t-4 border-blue-600 shadow-sm">
+                    <div class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-1">Remittance (Annual)</div>
+                    <div class="text-3xl font-black text-gray-900">$26.5B</div>
+                    <div class="text-[10px] text-blue-600 mt-2 font-bold uppercase">Historic High</div>
+                </div>
+                <div class="metric-card bg-white p-6 rounded-2xl border-t-4 border-red-600 shadow-sm">
+                    <div class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-1">Reform Status</div>
+                    <div class="text-3xl font-black text-gray-900">75%</div>
+                    <div class="text-[10px] text-red-600 mt-2 font-bold uppercase">Commission Reports Filed</div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
+                    <h3 class="font-bold text-gray-900 mb-6">Remittance &amp; Reserve Trajectory (2025)</h3>
+                    <div class="chart-container">
+                        <canvas id="overviewChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-emerald-900 text-white p-8 rounded-3xl flex flex-col justify-between shadow-xl">
+                    <div>
+                        <h3 class="text-xl font-bold mb-6 italic text-emerald-200">2025 Factual Log</h3>
+                        <div class="space-y-4 text-sm">
+                            <div class="bg-white/10 p-3 rounded-xl border border-white/10">
+                                <span class="font-bold text-emerald-400">FEBRUARY:</span> Banking Reform Commission initiates audit of top 10 troubled banks.
+                            </div>
+                            <div class="bg-white/10 p-3 rounded-xl border border-white/10">
+                                <span class="font-bold text-emerald-400">JUNE:</span> Interim Government signs major trade pact with EU to secure GSP+ post-LDC.
+                            </div>
+                            <div class="bg-white/10 p-3 rounded-xl border border-white/10">
+                                <span class="font-bold text-emerald-400">AUGUST:</span> Nationwide flood relief operations utilize decentralized local council funds.
+                            </div>
+                            <div class="bg-white/10 p-3 rounded-xl border border-white/10">
+                                <span class="font-bold text-emerald-400">NOVEMBER:</span> Election Commission publishes draft voter list with digitized biometrics.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: GOVERNANCE & REFORMS -->
+        <section class="view-section space-y-8" id="view-governance">
+            <div class="bg-white border-l-8 border-emerald-800 p-8 rounded-r-3xl shadow-sm">
+                <h2 class="text-3xl font-black text-emerald-950 italic">The Six Pillars of Reform</h2>
+                <p class="text-gray-600 mt-2">The Interim Government formed six commissions to overhaul the Constitution, Election System, Judiciary, Police, Anti-Corruption Commission, and Public Administration. 2025 saw the culmination of these reports into actionable white papers.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
+                    <h3 class="font-bold text-gray-900 mb-6">Commission Milestone Completion (%)</h3>
+                    <div class="chart-container">
+                        <canvas id="governanceBarChart"></canvas>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 flex items-start space-x-4">
+                        <div class="text-2xl mt-1">⚖️</div>
+                        <div>
+                            <h4 class="font-bold">Judiciary Independence</h4>
+                            <p class="text-xs text-gray-500">Formal separation of the lower judiciary from the executive branch finalized in May 2025.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 flex items-start space-x-4">
+                        <div class="text-2xl mt-1">🗳️</div>
+                        <div>
+                            <h4 class="font-bold">Election Commission</h4>
+                            <p class="text-xs text-gray-500">Removal of partisan influence through a new search committee law and digitized transparency tools.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 flex items-start space-x-4">
+                        <div class="text-2xl mt-1">👮</div>
+                        <div>
+                            <h4 class="font-bold">Police Reform</h4>
+                            <p class="text-xs text-gray-500">Introduction of the "Citizen-Centric Policing" manual and decentralization of police headquarters.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: ECONOMY & BANKING -->
+        <section class="view-section space-y-8" id="view-economy">
+            <div class="bg-amber-50 border-l-8 border-amber-600 p-8 rounded-r-3xl">
+                <h2 class="text-3xl font-black text-amber-950 italic">Banking Sector Overhaul</h2>
+                <p class="text-amber-800 mt-2">The Bangladesh Bank implemented aggressive measures to recover defaulted loans and stabilize the Taka. Mergers of weak banks with stronger state and private entities characterized the Q3 2025 financial landscape.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-1 bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
+                    <h3 class="font-bold text-gray-900 mb-6 text-center">NPL Recovery Status</h3>
+                    <div class="chart-container" style="height: 280px;">
+                        <canvas id="bankingDonutChart"></canvas>
+                    </div>
+                    <div class="mt-4 text-center text-xs text-gray-500 italic">Total Defaulted Loans Recovered: 42k Crore BDT</div>
+                </div>
+                <div class="lg:col-span-2 bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
+                    <h3 class="font-bold text-gray-900 mb-6">Garment Sector (RMG) Performance 2025</h3>
+                    <div class="chart-container">
+                        <canvas id="economyLineChart"></canvas>
+                    </div>
+                    <p class="text-[10px] text-gray-400 mt-4 text-center italic">Growth attributed to increased "Green Factory" compliance and US/EU market share shift.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: INFRASTRUCTURE -->
+        <section class="view-section space-y-8" id="view-infrastructure">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm border-t-8 border-emerald-800">
+                    <h3 class="text-2xl font-black text-gray-900">Rooppur Nuclear (RNPP)</h3>
+                    <div class="mt-4 space-y-3">
+                        <p class="text-sm text-gray-600">Factual Update 2025: Unit 1 reached 95% completion with fuel loading finalized. Full commercial operation scheduled for early 2026.</p>
+                        <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
+                            <div class="bg-emerald-600 h-full w-[95%]"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm border-t-8 border-teal-600">
+                    <h3 class="text-2xl font-black text-gray-900">Matarbari Port</h3>
+                    <div class="mt-4 space-y-3">
+                        <p class="text-sm text-gray-600">Deep sea port channel dredging reached record depths, allowing initial docking of Panamax vessels for power plant coal supply.</p>
+                        <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
+                            <div class="bg-teal-600 h-full w-[82%]"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Power Grid -->
+            <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
+                <h3 class="font-bold text-gray-900 mb-6">2025 Energy Mix Actuals</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                    <div class="p-4 bg-gray-50 rounded-xl">
+                        <div class="text-xs text-gray-500 uppercase font-bold">Natural Gas</div>
+                        <div class="text-2xl font-black text-gray-800">54%</div>
+                    </div>
+                    <div class="p-4 bg-gray-50 rounded-xl">
+                        <div class="text-xs text-gray-500 uppercase font-bold">Coal</div>
+                        <div class="text-2xl font-black text-gray-800">18%</div>
+                    </div>
+                    <div class="p-4 bg-gray-50 rounded-xl">
+                        <div class="text-xs text-gray-500 uppercase font-bold">Imports (Grid)</div>
+                        <div class="text-2xl font-black text-gray-800">12%</div>
+                    </div>
+                    <div class="p-4 bg-gray-50 rounded-xl">
+                        <div class="text-xs text-gray-500 uppercase font-bold">Renewables</div>
+                        <div class="text-2xl font-black text-emerald-600">4%</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: CLIMATE -->
+        <section class="view-section space-y-8" id="view-climate">
+            <div class="bg-teal-900 text-white p-10 rounded-3xl shadow-xl flex flex-col md:flex-row justify-between items-center">
+                <div>
+                    <h2 class="text-3xl font-black italic">Climate Resilience 2025</h2>
+                    <p class="text-teal-100 mt-2 max-w-xl">A volatile monsoon season in August 2025 tested the new decentralized disaster management system. Relief was distributed via digital cash transfers to 3 million families.</p>
+                </div>
+                <div class="text-center bg-white/10 p-4 rounded-xl border border-white/20">
+                    <div class="text-4xl font-black text-amber-400">14%</div>
+                    <div class="text-[10px] text-teal-100 uppercase font-bold tracking-widest">Crop Loss Impact</div>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
+                <h3 class="font-bold text-gray-900 mb-6">Monsoon Rainfall Comparison (mm)</h3>
+                <div class="chart-container">
+                    <canvas id="climateBarChart"></canvas>
+                </div>
+                <p class="text-xs text-gray-400 mt-4 text-center italic">"Data indicates a shift towards more intense, short-duration rainfall cycles."</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // --- Navigation Logic ---
+        function navTo(id) {
+            document.querySelectorAll('.view-section').forEach(v => v.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            
+            const target = document.getElementById(`view-${id}`);
+            if (target) target.classList.add('active');
+            
+            const navBtn = document.getElementById(`nav-${id}`);
+            if (navBtn) navBtn.classList.add('active');
+
+            window.dispatchEvent(new Event('resize'));
+        }
+
+        // --- Charts Configuration ---
+        Chart.defaults.font.family = "'Inter', sans-serif";
+        Chart.defaults.color = '#64748b';
+
+        // 1. Overview Timeline
+        const ctxOver = document.getElementById('overviewChart').getContext('2d');
+        new Chart(ctxOver, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Mar', 'May', 'Jul', 'Sep', 'Nov'],
+                datasets: [{
+                    label: 'Forex Reserves ($B)',
+                    data: [18.2, 19.1, 19.5, 20.2, 21.0, 21.4],
+                    borderColor: '#059669',
+                    backgroundColor: 'rgba(5, 150, 105, 0.05)',
+                    fill: true,
+                    tension: 0.4,
+                    borderWidth: 4
+                }, {
+                    label: 'Remittance ($B)',
+                    data: [2.1, 2.3, 2.8, 2.4, 2.9, 3.2],
+                    borderColor: '#2563eb',
+                    tension: 0.4,
+                    borderWidth: 4,
+                    borderDash: [5, 5]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+
+        // 2. Governance Bar
+        const ctxGov = document.getElementById('governanceBarChart').getContext('2d');
+        new Chart(ctxGov, {
+            type: 'bar',
+            data: {
+                labels: ['Election', 'Constitution', 'Judiciary', 'Police', 'ACC', 'Admin'],
+                datasets: [{
+                    label: 'Draft Status (%)',
+                    data: [95, 60, 85, 75, 70, 65],
+                    backgroundColor: '#065f46',
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { y: { beginAtZero: true, max: 100 } }
+            }
+        });
+
+        // 3. Banking Donut
+        const ctxBank = document.getElementById('bankingDonutChart').getContext('2d');
+        new Chart(ctxBank, {
+            type: 'doughnut',
+            data: {
+                labels: ['Recovered', 'In Legal Process', 'Active Default'],
+                datasets: [{
+                    data: [25, 35, 40],
+                    backgroundColor: ['#10b981', '#fbbf24', '#f43f5e'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '80%',
+                plugins: { legend: { position: 'bottom' } }
+            }
+        });
+
+        // 4. Economy Line (RMG)
+        const ctxEco = document.getElementById('economyLineChart').getContext('2d');
+        new Chart(ctxEco, {
+            type: 'line',
+            data: {
+                labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                datasets: [{
+                    label: 'Export Value ($B)',
+                    data: [11.2, 12.5, 10.8, 13.1],
+                    borderColor: '#006a4e',
+                    backgroundColor: '#006a4e',
+                    tension: 0.3,
+                    borderWidth: 4,
+                    pointRadius: 6,
+                    pointBackgroundColor: '#fff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+
+        // 5. Climate Bar
+        const ctxCli = document.getElementById('climateBarChart').getContext('2d');
+        new Chart(ctxCli, {
+            type: 'bar',
+            data: {
+                labels: ['June', 'July', 'August', 'September'],
+                datasets: [{
+                    label: '10-Year Avg',
+                    data: [350, 420, 380, 300],
+                    backgroundColor: '#cbd5e1',
+                    borderRadius: 4
+                }, {
+                    label: '2025 Actual',
+                    data: [380, 510, 540, 320],
+                    backgroundColor: '#0d9488',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { y: { beginAtZero: true } }
+            }
+        });
+
+    </script>
+
+<html><head></head><body><footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+		  
+		  <li>								
+		<a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">26-bihari-wishes</a>
+            </li>	
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">26-chinese-new-year-wishes</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">26-christmas-wishes</a>
+            </li>	
+		  <li>
+		  		<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-festival-countdown</a>
+            </li>	
+										
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">Christmas-wishes-by-audience</a>
+            </li>	
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">Happy-new-year-2026-celebrations-worldwide.html</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">Happy-new-year-2026</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">Multilingual-greetings-webpage</a>
+            </li>	
+		  
+		  
+		  
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+		   <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">2025 Trends and 2026 forecast</h5>
+        <ul class="space-y-2">
+		 
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-digital-outlook-trends-forecast</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">2026-festival-countdown</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026_dashboard.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">2026_dashboard</a>
+            </li>	
+
+
+		 
+
+									
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/new_year_2026_page.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">New_year_2026_page</a>
+            </li>	
+									
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/send-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl07_title">Send-christmas-wishes</a>
+            </li>	
+										
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl08_title">Send-sankranti-wishes-in-multiple-languages</a>
+            </li>	
+		
+		
+
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/index-oct.html">Thanks Giving Main Page</a></li>
+
+          
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+        <div class="space-y-2">
+          <p>Redmond<br/>WA, USA</p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+          </p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+      
+      <div class="flex space-x-4 mt-4 sm:mt-0">
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+          <span class="sr-only">Facebook</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+          <span class="sr-only">Twitter</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+          <span class="sr-only">LinkedIn</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+	  
+	  <div class="flex gap-4 mt-4 sm:mt-0">
+                    <a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+                 
+					<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+      </div>
+    </div>
+	
+  </div>
+</footer></body></html></body></html>

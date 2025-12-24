@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>2025 Global Forecast</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<!-- Chosen Palette: Warm Neutrals with Teal Accent -->
-<!-- Application Structure Plan: The application is designed as a single-page thematic dashboard. It avoids a linear, report-like structure in favor of a non-linear, exploratory experience. The structure consists of a main 'Overview' section with a high-level impact matrix, followed by three distinct thematic deep-dive sections: 'Global Tensions,' 'Bright Spots,' and 'Societal Shifts.' Navigation is handled by a sticky top bar. This design was chosen because it allows users to immediately grasp the most significant potential events in the overview, and then self-direct their exploration based on interest. This user-centric flow is more engaging and digestible than a static document, facilitating better understanding of complex, multi-faceted forecast data. -->
-<!-- Visualization & Content Choices: 
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>2025 Global Forecast</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <!-- Chosen Palette: Warm Neutrals with Teal Accent -->
+    <!-- Application Structure Plan: The application is designed as a single-page thematic dashboard. It avoids a linear, report-like structure in favor of a non-linear, exploratory experience. The structure consists of a main 'Overview' section with a high-level impact matrix, followed by three distinct thematic deep-dive sections: 'Global Tensions,' 'Bright Spots,' and 'Societal Shifts.' Navigation is handled by a sticky top bar. This design was chosen because it allows users to immediately grasp the most significant potential events in the overview, and then self-direct their exploration based on interest. This user-centric flow is more engaging and digestible than a static document, facilitating better understanding of complex, multi-faceted forecast data. -->
+    <!-- Visualization & Content Choices: 
     - Report Info: Key forecasted events of 2025. Goal: Provide a quick, high-level synthesis of events based on their potential impact and likelihood. Viz/Presentation Method: Scatter Plot. Interaction: Hover tooltips provide event details. Justification: A scatter plot effectively visualizes the relationship between two key metrics for all events at once, offering a powerful initial overview. Library/Method: Chart.js/Canvas.
     - Report Info: Geopolitical and domain-specific conflicts. Goal: Compare the intensity of tensions across different global domains. Viz/Presentation Method: Vertical Bar Chart. Interaction: Hover tooltips show the tension index score. Justification: Bar charts are optimal for direct, unambiguous comparison of categorical data. Library/Method: Chart.js/Canvas.
     - Report Info: Positive global developments. Goal: Show the proportional distribution of good news across categories. Viz/Presentation Method: Donut Chart. Interaction: Hover tooltips show percentages. Justification: A donut chart provides a clear, aesthetically pleasing visualization of part-to-whole relationships. Library/Method: Chart.js/Canvas.
     - Report Info: Evolution of societal metrics. Goal: Compare key societal indicators at the start versus the end of 2025. Viz/Presentation Method: Radar Chart. Interaction: Hover tooltips compare 'Before' and 'After' values. Justification: Radar charts excel at comparing multiple variables for one or two subjects, making changes in the societal landscape easy to discern. Library/Method: Chart.js/Canvas.
     - Report Info: Detailed descriptions of events, conflicts, and trends. Goal: Organize and progressively disclose textual information. Viz/Presentation Method: Interactive cards and list items. Interaction: Click to show/hide details. Justification: This prevents overwhelming users with text and allows for focused, user-driven discovery. Library/Method: HTML/CSS/JS.
     -->
-<!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-<style>
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
         body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         .nav-button { transition: all 0.2s ease-in-out; }
         .nav-button.active { color: #0d9488; border-bottom-color: #0d9488; }
@@ -40,99 +40,108 @@
   gtag('config', 'G-JJ6LGZB34T');
 </script><script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9804321536688475"></script></head>
 <body class="bg-gray-50 text-gray-800">
-<header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 border-b border-gray-200">
-<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-<div class="flex flex-col sm:flex-row items-center justify-between py-4">
-<div class="text-center sm:text-left mb-4 sm:mb-0">
-<h1 class="text-2xl font-bold text-gray-900">2025 Global Forecast</h1>
-<p class="text-sm text-gray-600">An Interactive Outlook on the Year Ahead</p>
-</div>
-<nav class="flex flex-wrap justify-center space-x-4 sm:space-x-6 text-sm font-medium" id="main-nav">
-<button class="nav-button py-2 border-b-2 border-transparent" data-section="overview">Overview</button>
-<button class="nav-button py-2 border-b-2 border-transparent" data-section="tensions">Global Tensions</button>
-<button class="nav-button py-2 border-b-2 border-transparent" data-section="bright-spots">Bright Spots</button>
-<button class="nav-button py-2 border-b-2 border-transparent" data-section="shifts">Societal Shifts</button>
-</nav>
-</div>
-</div>
-</header>
-<main class="container mx-auto p-4 sm:p-6 lg:p-8">
-<section class="content-section space-y-8" id="overview">
-<div class="text-center fade-in">
-<h2 class="text-3xl font-bold tracking-tight text-gray-900">Year at a Glance</h2>
-<p class="mt-3 max-w-2xl mx-auto text-lg text-gray-600">This section provides a high-level forecast of key global events, plotted by their potential impact and likelihood. Use this interactive matrix to understand the major forces expected to shape <a href="https://www.happy-new-year.org/2025/">2025</a>. Hover over any point to explore a specific event and its potential consequences.</p>
-</div>
-<div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 fade-in">
-<h3 class="text-xl font-semibold mb-4 text-center">Global Impact &amp; Likelihood Matrix</h3>
-<div class="chart-container">
-<canvas id="impactMatrixChart"></canvas>
-</div>
-</div>
-</section>
-<section class="content-section space-y-8" id="tensions">
-<div class="text-center fade-in">
-<h2 class="text-3xl font-bold tracking-tight text-gray-900">Global Tensions</h2>
-<p class="mt-3 max-w-2xl mx-auto text-lg text-gray-600">Here we explore potential sources of conflict and instability across various domains. The chart visualizes a forecasted "Tension Index" for key areas, while the cards below offer deeper insight into specific regional and thematic challenges. Click on a region to learn more about its specific outlook.</p>
-</div>
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 fade-in">
-<div class="lg:col-span-1 bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-<h3 class="text-xl font-semibold mb-4 text-center">Tension Index by Domain</h3>
-<div class="chart-container h-96">
-<canvas id="tensionIndexChart"></canvas>
-</div>
-</div>
-<div class="lg:col-span-2 space-y-4">
-<div class="space-y-4" id="tension-cards-container">
-<!-- JS will populate this -->
-</div>
-<div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 min-h-[150px]" id="tension-details">
-<p class="text-gray-500 italic">Select a region above to view detailed information.</p>
-</div>
-</div>
-</div>
-</section>
-<section class="content-section space-y-8" id="bright-spots">
-<div class="text-center fade-in">
-<h2 class="text-3xl font-bold tracking-tight text-gray-900">Bright Spots &amp; Progress</h2>
-<p class="mt-3 max-w-2xl mx-auto text-lg text-gray-600">Amidst challenges, 2025 is also forecasted to bring significant progress. This section highlights positive developments in technology, health, and society. The chart shows the distribution of this positive news, and the interactive cards below provide details on specific breakthroughs and milestones.</p>
-</div>
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 fade-in">
-<div class="lg:col-span-2 order-2 lg:order-1">
-<h3 class="text-xl font-semibold mb-4">Key Areas of Advancement</h3>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="bright-spots-container">
-<!-- JS will populate this -->
-</div>
-</div>
-<div class="lg:col-span-1 order-1 lg:order-2 bg-white p-6 rounded-xl shadow-lg border border-gray-200 flex flex-col items-center">
-<h3 class="text-xl font-semibold mb-4 text-center">Positive News Distribution</h3>
-<div class="chart-container w-full max-w-xs">
-<canvas id="brightSpotsChart"></canvas>
-</div>
-</div>
-</div>
-</section>
-<section class="content-section space-y-8" id="shifts">
-<div class="text-center fade-in">
-<h2 class="text-3xl font-bold tracking-tight text-gray-900">Societal Shifts</h2>
-<p class="mt-3 max-w-2xl mx-auto text-lg text-gray-600">This section examines the evolution of key societal fabrics through 2025. The radar chart below offers a comparative snapshot of crucial metrics from the beginning to the end of the year. The interactive list highlights major policy changes and cultural trends expected to emerge, shaping how we live, work, and connect.</p>
-</div>
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 fade-in">
-<div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-<h3 class="text-xl font-semibold mb-4 text-center">Societal Metrics: Start vs. End of 2025</h3>
-<div class="chart-container h-96">
-<canvas id="societalShiftsChart"></canvas>
-</div>
-</div>
-<div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-<h3 class="text-xl font-semibold mb-4">Key Trends &amp; Policy Changes</h3>
-<ul class="space-y-3" id="shifts-list-container">
-<!-- JS will populate this -->
-</ul>
-</div>
-</div>
-</section>
-</main>
-<script>
+
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 border-b border-gray-200">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row items-center justify-between py-4">
+                <div class="text-center sm:text-left mb-4 sm:mb-0">
+                    <h1 class="text-2xl font-bold text-gray-900">2025 Global Forecast</h1>
+                    <p class="text-sm text-gray-600">An Interactive Outlook on the Year Ahead</p>
+                </div>
+                <nav class="flex flex-wrap justify-center space-x-4 sm:space-x-6 text-sm font-medium" id="main-nav">
+                    <button class="nav-button py-2 border-b-2 border-transparent" data-section="overview">Overview</button>
+                    <button class="nav-button py-2 border-b-2 border-transparent" data-section="tensions">Global Tensions</button>
+                    <button class="nav-button py-2 border-b-2 border-transparent" data-section="bright-spots">Bright Spots</button>
+                    <button class="nav-button py-2 border-b-2 border-transparent" data-section="shifts">Societal Shifts</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 sm:p-6 lg:p-8">
+        
+        <section class="content-section space-y-8" id="overview">
+            <div class="text-center fade-in">
+                <h2 class="text-3xl font-bold tracking-tight text-gray-900">Year at a Glance</h2>
+                <p class="mt-3 max-w-2xl mx-auto text-lg text-gray-600">This section provides a high-level forecast of key global events, plotted by their potential impact and likelihood. Use this interactive matrix to understand the major forces expected to shape 2025. Hover over any point to explore a specific event and its potential consequences.</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 fade-in">
+                <h3 class="text-xl font-semibold mb-4 text-center">Global Impact &amp; Likelihood Matrix</h3>
+                <div class="chart-container">
+                    <canvas id="impactMatrixChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section space-y-8" id="tensions">
+             <div class="text-center fade-in">
+                <h2 class="text-3xl font-bold tracking-tight text-gray-900">Global Tensions</h2>
+                <p class="mt-3 max-w-2xl mx-auto text-lg text-gray-600">Here we explore potential sources of conflict and instability across various domains. The chart visualizes a forecasted "Tension Index" for key areas, while the cards below offer deeper insight into specific regional and thematic challenges. Click on a region to learn more about its specific outlook.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 fade-in">
+                <div class="lg:col-span-1 bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+                    <h3 class="text-xl font-semibold mb-4 text-center">Tension Index by Domain</h3>
+                    <div class="chart-container h-96">
+                        <canvas id="tensionIndexChart"></canvas>
+                    </div>
+                </div>
+                <div class="lg:col-span-2 space-y-4">
+                     <div class="space-y-4" id="tension-cards-container">
+                        <!-- JS will populate this -->
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 min-h-[150px]" id="tension-details">
+                        <p class="text-gray-500 italic">Select a region above to view detailed information.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section space-y-8" id="bright-spots">
+            <div class="text-center fade-in">
+                <h2 class="text-3xl font-bold tracking-tight text-gray-900">Bright Spots &amp; Progress</h2>
+                <p class="mt-3 max-w-2xl mx-auto text-lg text-gray-600">Amidst challenges, 2025 is also forecasted to bring significant progress. This section highlights positive developments in technology, health, and society. The chart shows the distribution of this positive news, and the interactive cards below provide details on specific breakthroughs and milestones.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 fade-in">
+                <div class="lg:col-span-2 order-2 lg:order-1">
+                    <h3 class="text-xl font-semibold mb-4">Key Areas of Advancement</h3>
+                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="bright-spots-container">
+                        <!-- JS will populate this -->
+                    </div>
+                </div>
+                <div class="lg:col-span-1 order-1 lg:order-2 bg-white p-6 rounded-xl shadow-lg border border-gray-200 flex flex-col items-center">
+                    <h3 class="text-xl font-semibold mb-4 text-center">Positive News Distribution</h3>
+                    <div class="chart-container w-full max-w-xs">
+                        <canvas id="brightSpotsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section space-y-8" id="shifts">
+            <div class="text-center fade-in">
+                <h2 class="text-3xl font-bold tracking-tight text-gray-900">Societal Shifts</h2>
+                <p class="mt-3 max-w-2xl mx-auto text-lg text-gray-600">This section examines the evolution of key societal fabrics through 2025. The radar chart below offers a comparative snapshot of crucial metrics from the beginning to the end of the year. The interactive list highlights major policy changes and cultural trends expected to emerge, shaping how we live, work, and connect.</p>
+            </div>
+             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 fade-in">
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+                    <h3 class="text-xl font-semibold mb-4 text-center">Societal Metrics: Start vs. End of 2025</h3>
+                    <div class="chart-container h-96">
+                        <canvas id="societalShiftsChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+                    <h3 class="text-xl font-semibold mb-4">Key Trends &amp; Policy Changes</h3>
+                    <ul class="space-y-3" id="shifts-list-container">
+                       <!-- JS will populate this -->
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <script>
         document.addEventListener('DOMContentLoaded', () => {
 
             const forecastData = {
@@ -424,121 +433,175 @@
             populateShiftsList();
         });
     </script>
-<footer class="bg-gray-800 text-gray-300">
-<div class="container mx-auto px-6 py-12 lg:px-8">
-<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-<div>
-<h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
-<ul class="space-y-2">
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
-<li>
-<a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">26-bihari-wishes</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">26-chinese-new-year-wishes</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">26-christmas-wishes</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-festival-countdown</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">Christmas-wishes-by-audience</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">Happy-new-year-2026-celebrations-worldwide.html</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">Happy-new-year-2026</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">Multilingual-greetings-webpage</a>
-</li>
-</ul>
-</div>
-<div>
-<h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
-<ul class="space-y-2">
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
-</ul>
-</div>
-<div>
-<h5 class="text-lg font-semibold text-white mb-4">2025 Trends and 2026 forecast</h5>
-<ul class="space-y-2">
-<li>
-<a href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-digital-outlook-trends-forecast</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">2026-festival-countdown</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/2026_dashboard.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">2026_dashboard</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/new_year_2026_page.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">New_year_2026_page</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/send-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl07_title">Send-christmas-wishes</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl08_title">Send-sankranti-wishes-in-multiple-languages</a>
-</li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
-</ul>
-</div>
-<div>
-<h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
-<div class="space-y-2">
-<p>Redmond<br/>WA, USA</p>
-<p>
-<a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
-</p>
-<p>
-<a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
-</p>
-</div>
-</div>
-</div>
-<div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
-<p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
-<div class="flex space-x-4 mt-4 sm:mt-0">
-<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
-<span class="sr-only">Facebook</span>
-<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
-<path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
-</svg>
-</a>
-<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
-<span class="sr-only">Twitter</span>
-<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
-<path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
-</svg>
-</a>
-<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
-<span class="sr-only">LinkedIn</span>
-<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
-<path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
-</svg>
-</a>
-</div>
-<div class="flex gap-4 mt-4 sm:mt-0">
-<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
-<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
-</div>
-</div>
-</div>
-</footer></body></html>
+
+
+<html><head></head><body><footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+		  
+		  <li>								
+		<a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">26-bihari-wishes</a>
+            </li>	
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">26-chinese-new-year-wishes</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">26-christmas-wishes</a>
+            </li>	
+		  <li>
+		  		<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-festival-countdown</a>
+            </li>	
+										
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">Christmas-wishes-by-audience</a>
+            </li>	
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">Happy-new-year-2026-celebrations-worldwide.html</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">Happy-new-year-2026</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">Multilingual-greetings-webpage</a>
+            </li>	
+		  
+		  
+		  
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+		   <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">2025 Trends and 2026 forecast</h5>
+        <ul class="space-y-2">
+		 
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-digital-outlook-trends-forecast</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">2026-festival-countdown</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026_dashboard.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">2026_dashboard</a>
+            </li>	
+
+
+		 
+
+									
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/new_year_2026_page.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">New_year_2026_page</a>
+            </li>	
+									
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/send-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl07_title">Send-christmas-wishes</a>
+            </li>	
+										
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl08_title">Send-sankranti-wishes-in-multiple-languages</a>
+            </li>	
+		
+		
+
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+
+          
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+        <div class="space-y-2">
+          <p>Redmond<br/>WA, USA</p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+          </p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+      
+      <div class="flex space-x-4 mt-4 sm:mt-0">
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+          <span class="sr-only">Facebook</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+          <span class="sr-only">Twitter</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+          <span class="sr-only">LinkedIn</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+	  
+	  <div class="flex gap-4 mt-4 sm:mt-0">
+                    <a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+                 
+					<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+      </div>
+    </div>
+	
+  </div>
+</footer></body></html></body></html>

@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Interactive strategic intelligence report on Technology Evolution in 2025. Explore key trends including the rise of Agentic AI, Sustainable Computing, Quantum Utility, and the Cybersecurity Mesh through dynamic visualizations and data analysis." name="description"/>
-<meta content="Technology Trends 2025, Agentic AI, Sustainable IT, Green Computing, Cybersecurity Mesh, Quantum Computing, Tech Vision, Interactive Report, Data Visualization, Strategic Intelligence" name="keywords"/>
-<title>Technology Evolution 2025: Interactive Report</title>
-<!-- Tailwind CSS -->
-<script src="https://cdn.tailwindcss.com"></script>
-<!-- Chart.js -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<!-- Font Awesome for Icons (Unicode usage) -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-<!-- Chosen Palette: "Warm Future" 
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Interactive strategic intelligence report on Technology Evolution in 2025. Explore key trends including the rise of Agentic AI, Sustainable Computing, Quantum Utility, and the Cybersecurity Mesh through dynamic visualizations and data analysis." name="description"/>
+    <meta content="Technology Trends 2025, Agentic AI, Sustainable IT, Green Computing, Cybersecurity Mesh, Quantum Computing, Tech Vision, Interactive Report, Data Visualization, Strategic Intelligence" name="keywords"/>
+    <title>Technology Evolution 2025: Interactive Report</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Font Awesome for Icons (Unicode usage) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    
+    <!-- Chosen Palette: "Warm Future" 
          Background: Warm Grey/Slate (#F8FAFC)
          Cards: White (#FFFFFF)
          Primary: Deep Teal (#0D9488 - teal-600) for trust/growth
          Secondary: Muted Indigo (#6366F1 - indigo-500) for tech/data
          Accent: Soft Coral (#FB7185 - rose-400) for highlights
     -->
-<style>
+
+    <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
         body {
@@ -84,7 +86,8 @@
   gtag('config', 'G-JJ6LGZB34T');
 </script><script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9804321536688475"></script></head>
 <body class="flex flex-col md:flex-row h-screen overflow-hidden">
-<!-- Application Structure Plan: 
+
+    <!-- Application Structure Plan: 
          Structure: Dashboard / Sidebar Navigation Layout.
          Rationale: 
          1. A dashboard layout allows immediate access to high-level metrics (The 'Pulse').
@@ -97,351 +100,377 @@
          3. Green Computing: Bar Chart analyzing energy efficiency.
          4. Trend Explorer: A filterable grid of qualitative insights cards.
     -->
-<!-- Sidebar Navigation -->
-<nav class="w-full md:w-64 bg-white border-r border-slate-200 flex-shrink-0 flex flex-col h-auto md:h-full z-20 shadow-sm">
-<div class="p-6 border-b border-slate-100 flex items-center justify-between md:block">
-<div>
-<h1 class="text-xl font-bold text-slate-800 tracking-tight">TechVision <span class="text-teal-600">2025</span></h1>
-<p class="text-xs text-slate-500 mt-1">Strategic Intelligence Report</p>
-</div>
-<button class="md:hidden text-slate-600 focus:outline-none" id="mobile-menu-btn">
-<i class="fas fa-bars text-xl"></i>
-</button>
-</div>
-<div class="hidden md:flex flex-col flex-1 overflow-y-auto py-4 space-y-1" id="nav-links">
-<button class="nav-item active w-full text-left px-6 py-3 text-sm font-medium text-slate-600 hover:bg-slate-50 transition-colors flex items-center gap-3" onclick="navigateTo('dashboard')">
-<i class="fas fa-chart-pie w-5 text-center"></i> Executive Pulse
+
+    <!-- Sidebar Navigation -->
+    <nav class="w-full md:w-64 bg-white border-r border-slate-200 flex-shrink-0 flex flex-col h-auto md:h-full z-20 shadow-sm">
+        <div class="p-6 border-b border-slate-100 flex items-center justify-between md:block">
+            <div>
+                <h1 class="text-xl font-bold text-slate-800 tracking-tight">TechVision <span class="text-teal-600">2025</span></h1>
+                <p class="text-xs text-slate-500 mt-1">Strategic Intelligence Report</p>
+            </div>
+            <button class="md:hidden text-slate-600 focus:outline-none" id="mobile-menu-btn">
+                <i class="fas fa-bars text-xl"></i>
             </button>
-<button class="nav-item w-full text-left px-6 py-3 text-sm font-medium text-slate-600 hover:bg-slate-50 transition-colors flex items-center gap-3" onclick="navigateTo('ai-section')">
-<i class="fas fa-robot w-5 text-center"></i> Agentic AI Rise
+        </div>
+        
+        <div class="hidden md:flex flex-col flex-1 overflow-y-auto py-4 space-y-1" id="nav-links">
+            <button class="nav-item active w-full text-left px-6 py-3 text-sm font-medium text-slate-600 hover:bg-slate-50 transition-colors flex items-center gap-3" onclick="navigateTo('dashboard')">
+                <i class="fas fa-chart-pie w-5 text-center"></i> Executive Pulse
             </button>
-<button class="nav-item w-full text-left px-6 py-3 text-sm font-medium text-slate-600 hover:bg-slate-50 transition-colors flex items-center gap-3" onclick="navigateTo('green-section')">
-<i class="fas fa-leaf w-5 text-center"></i> Sustainable IT
+            <button class="nav-item w-full text-left px-6 py-3 text-sm font-medium text-slate-600 hover:bg-slate-50 transition-colors flex items-center gap-3" onclick="navigateTo('ai-section')">
+                <i class="fas fa-robot w-5 text-center"></i> Agentic AI Rise
             </button>
-<button class="nav-item w-full text-left px-6 py-3 text-sm font-medium text-slate-600 hover:bg-slate-50 transition-colors flex items-center gap-3" onclick="navigateTo('security-section')">
-<i class="fas fa-shield-halved w-5 text-center"></i> Cyber Mesh
+            <button class="nav-item w-full text-left px-6 py-3 text-sm font-medium text-slate-600 hover:bg-slate-50 transition-colors flex items-center gap-3" onclick="navigateTo('green-section')">
+                <i class="fas fa-leaf w-5 text-center"></i> Sustainable IT
             </button>
-<button class="nav-item w-full text-left px-6 py-3 text-sm font-medium text-slate-600 hover:bg-slate-50 transition-colors flex items-center gap-3" onclick="navigateTo('insights-section')">
-<i class="fas fa-lightbulb w-5 text-center"></i> Insight Explorer
+            <button class="nav-item w-full text-left px-6 py-3 text-sm font-medium text-slate-600 hover:bg-slate-50 transition-colors flex items-center gap-3" onclick="navigateTo('security-section')">
+                <i class="fas fa-shield-halved w-5 text-center"></i> Cyber Mesh
             </button>
-</div>
-</nav>
-<!-- Main Content Area -->
-<main class="flex-1 overflow-y-auto bg-slate-50 custom-scroll p-4 md:p-8" id="main-content">
-<!-- SECTION 1: Executive Pulse (Dashboard) -->
-<div class="section-view animate-fade-in" id="dashboard">
-<header class="mb-8">
-<h2 class="text-2xl font-bold text-slate-800">Executive Pulse: The 2025 Landscape</h2>
-<p class="text-slate-600 mt-2 max-w-3xl">
+            <button class="nav-item w-full text-left px-6 py-3 text-sm font-medium text-slate-600 hover:bg-slate-50 transition-colors flex items-center gap-3" onclick="navigateTo('insights-section')">
+                <i class="fas fa-lightbulb w-5 text-center"></i> Insight Explorer
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 overflow-y-auto bg-slate-50 custom-scroll p-4 md:p-8" id="main-content">
+        
+        <!-- SECTION 1: Executive Pulse (Dashboard) -->
+        <div class="section-view animate-fade-in" id="dashboard">
+            <header class="mb-8">
+                <h2 class="text-2xl font-bold text-slate-800">Executive Pulse: The 2025 Landscape</h2>
+                <p class="text-slate-600 mt-2 max-w-3xl">
                     Step into the future with the 2025 Technology Evolution interactive report, where you'll explore the changing technological landscape from generative models to autonomous agents and sustainable infrastructure. Dive deeper into specific domains using the sidebar menu.
                 </p>
-</header>
-<!-- KPI Cards -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-<div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 card-hover">
-<div class="flex items-center justify-between mb-4">
-<span class="text-sm font-semibold text-slate-400 uppercase">AI Adoption</span>
-<div class="p-2 bg-teal-50 rounded-lg text-teal-600"><i class="fas fa-arrow-trend-up"></i></div>
-</div>
-<h3 class="text-3xl font-bold text-slate-800">42%</h3>
-<p class="text-sm text-slate-500 mt-1">Enterprise workflows fully autonomous</p>
-</div>
-<div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 card-hover">
-<div class="flex items-center justify-between mb-4">
-<span class="text-sm font-semibold text-slate-400 uppercase">Energy Efficiency</span>
-<div class="p-2 bg-emerald-50 rounded-lg text-emerald-600"><i class="fas fa-bolt"></i></div>
-</div>
-<h3 class="text-3xl font-bold text-slate-800">1.18</h3>
-<p class="text-sm text-slate-500 mt-1">Avg PUE for new Hyperscale Centers</p>
-</div>
-<div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 card-hover">
-<div class="flex items-center justify-between mb-4">
-<span class="text-sm font-semibold text-slate-400 uppercase">Quantum Utility</span>
-<div class="p-2 bg-indigo-50 rounded-lg text-indigo-600"><i class="fas fa-atom"></i></div>
-</div>
-<h3 class="text-3xl font-bold text-slate-800">150+</h3>
-<p class="text-sm text-slate-500 mt-1">Commercial pilots in production</p>
-</div>
-<div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 card-hover">
-<div class="flex items-center justify-between mb-4">
-<span class="text-sm font-semibold text-slate-400 uppercase">Security</span>
-<div class="p-2 bg-rose-50 rounded-lg text-rose-600"><i class="fas fa-lock"></i></div>
-</div>
-<h3 class="text-3xl font-bold text-slate-800">$2.4T</h3>
-<p class="text-sm text-slate-500 mt-1">Projected cost of AI-driven breaches</p>
-</div>
-</div>
-<!-- Dashboard Charts -->
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-<!-- Tech Maturity Radar -->
-<div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-<div class="flex justify-between items-start mb-6">
-<div>
-<h3 class="text-lg font-bold text-slate-800">2025 Technology Maturity Index</h3>
-<p class="text-sm text-slate-500">Comparing adoption vs. business impact.</p>
-</div>
-</div>
-<!-- Visualization & Content Choice: Radar Chart 
+            </header>
+
+            <!-- KPI Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 card-hover">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-sm font-semibold text-slate-400 uppercase">AI Adoption</span>
+                        <div class="p-2 bg-teal-50 rounded-lg text-teal-600"><i class="fas fa-arrow-trend-up"></i></div>
+                    </div>
+                    <h3 class="text-3xl font-bold text-slate-800">42%</h3>
+                    <p class="text-sm text-slate-500 mt-1">Enterprise workflows fully autonomous</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 card-hover">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-sm font-semibold text-slate-400 uppercase">Energy Efficiency</span>
+                        <div class="p-2 bg-emerald-50 rounded-lg text-emerald-600"><i class="fas fa-bolt"></i></div>
+                    </div>
+                    <h3 class="text-3xl font-bold text-slate-800">1.18</h3>
+                    <p class="text-sm text-slate-500 mt-1">Avg PUE for new Hyperscale Centers</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 card-hover">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-sm font-semibold text-slate-400 uppercase">Quantum Utility</span>
+                        <div class="p-2 bg-indigo-50 rounded-lg text-indigo-600"><i class="fas fa-atom"></i></div>
+                    </div>
+                    <h3 class="text-3xl font-bold text-slate-800">150+</h3>
+                    <p class="text-sm text-slate-500 mt-1">Commercial pilots in production</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 card-hover">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-sm font-semibold text-slate-400 uppercase">Security</span>
+                        <div class="p-2 bg-rose-50 rounded-lg text-rose-600"><i class="fas fa-lock"></i></div>
+                    </div>
+                    <h3 class="text-3xl font-bold text-slate-800">$2.4T</h3>
+                    <p class="text-sm text-slate-500 mt-1">Projected cost of AI-driven breaches</p>
+                </div>
+            </div>
+
+            <!-- Dashboard Charts -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Tech Maturity Radar -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-800">2025 Technology Maturity Index</h3>
+                            <p class="text-sm text-slate-500">Comparing adoption vs. business impact.</p>
+                        </div>
+                    </div>
+                    <!-- Visualization & Content Choice: Radar Chart 
                          Goal: Compare multiple variables (tech domains) on two axes (Impact vs Adoption).
                          Justification: Radar charts are excellent for visualizing "profiles" of different technologies simultaneously.
                     -->
-<div class="chart-wrapper">
-<canvas id="maturityRadar"></canvas>
-</div>
-<div class="mt-4 p-4 bg-slate-50 rounded-lg text-sm text-slate-600">
-<p><strong>Analysis:</strong> While <span class="font-semibold text-teal-700">Agentic AI</span> leads in immediate business impact, <span class="font-semibold text-indigo-600">Quantum Computing</span> is rapidly closing the gap in specialized sectors like Pharma.</p>
-</div>
-</div>
-<!-- Strategic Priority List -->
-<div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex flex-col">
-<h3 class="text-lg font-bold text-slate-800 mb-4">Strategic Priorities for 2025</h3>
-<div class="space-y-4 flex-1 overflow-y-auto">
-<div class="flex items-start gap-4 p-3 hover:bg-slate-50 rounded-lg transition-colors cursor-pointer border-l-4 border-teal-500">
-<div class="bg-teal-100 text-teal-600 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">1</div>
-<div>
-<h4 class="font-semibold text-slate-800">Workforce Reskilling</h4>
-<p class="text-sm text-slate-500">Transitioning staff from "Creators" to "Editors" of AI output.</p>
-</div>
-</div>
-<div class="flex items-start gap-4 p-3 hover:bg-slate-50 rounded-lg transition-colors cursor-pointer border-l-4 border-emerald-500">
-<div class="bg-emerald-100 text-emerald-600 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">2</div>
-<div>
-<h4 class="font-semibold text-slate-800">Carbon-Aware Software</h4>
-<p class="text-sm text-slate-500">Implementing code that runs when energy is cleanest.</p>
-</div>
-</div>
-<div class="flex items-start gap-4 p-3 hover:bg-slate-50 rounded-lg transition-colors cursor-pointer border-l-4 border-indigo-500">
-<div class="bg-indigo-100 text-indigo-600 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">3</div>
-<div>
-<h4 class="font-semibold text-slate-800">Zero-Trust Mesh</h4>
-<p class="text-sm text-slate-500">Decentralizing identity verification across all IoT endpoints.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- SECTION 2: Agentic AI (Detailed View) -->
-<div class="section-view hidden animate-fade-in" id="ai-section">
-<header class="mb-8">
-<span class="text-xs font-bold tracking-wider text-teal-600 uppercase mb-1 block">Trend Focus</span>
-<h2 class="text-2xl font-bold text-slate-800">The Rise of Agentic AI</h2>
-<p class="text-slate-600 mt-2 max-w-3xl">
+                    <div class="chart-wrapper">
+                        <canvas id="maturityRadar"></canvas>
+                    </div>
+                    <div class="mt-4 p-4 bg-slate-50 rounded-lg text-sm text-slate-600">
+                        <p><strong>Analysis:</strong> While <span class="font-semibold text-teal-700">Agentic AI</span> leads in immediate business impact, <span class="font-semibold text-indigo-600">Quantum Computing</span> is rapidly closing the gap in specialized sectors like Pharma.</p>
+                    </div>
+                </div>
+
+                <!-- Strategic Priority List -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex flex-col">
+                    <h3 class="text-lg font-bold text-slate-800 mb-4">Strategic Priorities for 2025</h3>
+                    <div class="space-y-4 flex-1 overflow-y-auto">
+                        <div class="flex items-start gap-4 p-3 hover:bg-slate-50 rounded-lg transition-colors cursor-pointer border-l-4 border-teal-500">
+                            <div class="bg-teal-100 text-teal-600 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">1</div>
+                            <div>
+                                <h4 class="font-semibold text-slate-800">Workforce Reskilling</h4>
+                                <p class="text-sm text-slate-500">Transitioning staff from "Creators" to "Editors" of AI output.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-3 hover:bg-slate-50 rounded-lg transition-colors cursor-pointer border-l-4 border-emerald-500">
+                            <div class="bg-emerald-100 text-emerald-600 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">2</div>
+                            <div>
+                                <h4 class="font-semibold text-slate-800">Carbon-Aware Software</h4>
+                                <p class="text-sm text-slate-500">Implementing code that runs when energy is cleanest.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-3 hover:bg-slate-50 rounded-lg transition-colors cursor-pointer border-l-4 border-indigo-500">
+                            <div class="bg-indigo-100 text-indigo-600 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">3</div>
+                            <div>
+                                <h4 class="font-semibold text-slate-800">Zero-Trust Mesh</h4>
+                                <p class="text-sm text-slate-500">Decentralizing identity verification across all IoT endpoints.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 2: Agentic AI (Detailed View) -->
+        <div class="section-view hidden animate-fade-in" id="ai-section">
+            <header class="mb-8">
+                <span class="text-xs font-bold tracking-wider text-teal-600 uppercase mb-1 block">Trend Focus</span>
+                <h2 class="text-2xl font-bold text-slate-800">The Rise of Agentic AI</h2>
+                <p class="text-slate-600 mt-2 max-w-3xl">
                     We are currently observing a significant transition from Generative AI (producing text/images) to <strong>Agentic AI</strong> By 2025, AI has evolved beyond basic tasks and is now a fully functional employee proficient in negotiation, coding, and intricate decision-making, all while requiring minimal human intervention.
                 </p>
-</header>
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-<!-- Main Chart Col -->
-<div class="lg:col-span-2 bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-<div class="flex justify-between items-center mb-6">
-<h3 class="text-lg font-bold text-slate-800">Evolution of Model Capabilities</h3>
-<div class="flex gap-2">
-<button class="px-3 py-1 text-xs font-medium rounded-full bg-teal-100 text-teal-700">Global</button>
-</div>
-</div>
-<!-- Visualization & Content Choice: Line Chart
+            </header>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Main Chart Col -->
+                <div class="lg:col-span-2 bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-lg font-bold text-slate-800">Evolution of Model Capabilities</h3>
+                        <div class="flex gap-2">
+                            <button class="px-3 py-1 text-xs font-medium rounded-full bg-teal-100 text-teal-700">Global</button>
+                        </div>
+                    </div>
+                    <!-- Visualization & Content Choice: Line Chart
                          Goal: Show change over time.
                          Justification: Line charts are the standard for temporal evolution. Interaction allows users to inspect specific years.
                     -->
-<div class="chart-wrapper">
-<canvas id="aiTrendChart"></canvas>
-</div>
-</div>
-<!-- Context/Interactive Side Col -->
-<div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex flex-col justify-center">
-<div class="text-center" id="ai-insight-box">
-<div class="inline-block p-4 rounded-full bg-teal-50 text-teal-600 text-2xl mb-4">
-<i class="fas fa-robot"></i>
-</div>
-<h4 class="text-xl font-bold text-slate-800 mb-2">The "Doer" Era</h4>
-<p class="text-slate-600 mb-6">
-                            By <a href="https://www.happy-new-year.org/2025/">2025</a>, 40% of interactions with generative models will involve <strong>autonomous execution</strong> of a multi-step workflow, up from 5% in 2023.
+                    <div class="chart-wrapper">
+                        <canvas id="aiTrendChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Context/Interactive Side Col -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex flex-col justify-center">
+                    <div class="text-center" id="ai-insight-box">
+                        <div class="inline-block p-4 rounded-full bg-teal-50 text-teal-600 text-2xl mb-4">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-800 mb-2">The "Doer" Era</h4>
+                        <p class="text-slate-600 mb-6">
+                            By 2025, 40% of interactions with generative models will involve <strong>autonomous execution</strong> of a multi-step workflow, up from 5% in 2023.
                         </p>
-<div class="bg-slate-50 p-4 rounded-lg text-left border-l-4 border-teal-500">
-<p class="text-sm text-slate-500 italic">In 2025, the main challenge is not intelligence but rather authority, with giving AI control over the API being the crucial hurdle.</p>
-<p class="text-xs text-slate-400 mt-2 font-bold">- CTO Survey 2025</p>
-</div>
-</div>
-</div>
-</div>
-<!-- Comparison Table -->
-<div class="mt-8 bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden">
-<div class="p-6 border-b border-slate-100">
-<h3 class="text-lg font-bold text-slate-800">Generative vs. Agentic: The Capability Gap</h3>
-</div>
-<div class="overflow-x-auto">
-<table class="w-full text-left border-collapse">
-<thead>
-<tr class="bg-slate-50 text-slate-500 text-sm uppercase tracking-wider">
-<th class="p-4 font-semibold">Feature</th>
-<th class="p-4 font-semibold">Generative AI (2023)</th>
-<th class="p-4 font-semibold text-teal-700">Agentic AI (2025)</th>
-</tr>
-</thead>
-<tbody class="text-sm text-slate-700 divide-y divide-slate-100">
-<tr class="hover:bg-slate-50">
-<td class="p-4 font-medium">Core Function</td>
-<td class="p-4">Content Creation</td>
-<td class="p-4 font-bold text-teal-700">Task Execution</td>
-</tr>
-<tr class="hover:bg-slate-50">
-<td class="p-4 font-medium">Interaction</td>
-<td class="p-4">Chat / Prompt</td>
-<td class="p-4">Goal / Outcome Setting</td>
-</tr>
-<tr class="hover:bg-slate-50">
-<td class="p-4 font-medium">Memory</td>
-<td class="p-4">Session-based</td>
-<td class="p-4">Persistent / Contextual</td>
-</tr>
-<tr class="hover:bg-slate-50">
-<td class="p-4 font-medium">Tools</td>
-<td class="p-4">Read-only</td>
-<td class="p-4">Full API Access (Write/Edit)</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<!-- SECTION 3: Sustainable IT (Green Tech) -->
-<div class="section-view hidden animate-fade-in" id="green-section">
-<header class="mb-8">
-<span class="text-xs font-bold tracking-wider text-emerald-600 uppercase mb-1 block">Trend Focus</span>
-<h2 class="text-2xl font-bold text-slate-800">Sustainable Computing</h2>
-<p class="text-slate-600 mt-2 max-w-3xl">
+                        <div class="bg-slate-50 p-4 rounded-lg text-left border-l-4 border-teal-500">
+                            <p class="text-sm text-slate-500 italic">In 2025, the main challenge is not intelligence but rather authority, with giving AI control over the API being the crucial hurdle.</p>
+                            <p class="text-xs text-slate-400 mt-2 font-bold">- CTO Survey 2025</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Comparison Table -->
+            <div class="mt-8 bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden">
+                <div class="p-6 border-b border-slate-100">
+                    <h3 class="text-lg font-bold text-slate-800">Generative vs. Agentic: The Capability Gap</h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-50 text-slate-500 text-sm uppercase tracking-wider">
+                                <th class="p-4 font-semibold">Feature</th>
+                                <th class="p-4 font-semibold">Generative AI (2023)</th>
+                                <th class="p-4 font-semibold text-teal-700">Agentic AI (2025)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm text-slate-700 divide-y divide-slate-100">
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-4 font-medium">Core Function</td>
+                                <td class="p-4">Content Creation</td>
+                                <td class="p-4 font-bold text-teal-700">Task Execution</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-4 font-medium">Interaction</td>
+                                <td class="p-4">Chat / Prompt</td>
+                                <td class="p-4">Goal / Outcome Setting</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-4 font-medium">Memory</td>
+                                <td class="p-4">Session-based</td>
+                                <td class="p-4">Persistent / Contextual</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-4 font-medium">Tools</td>
+                                <td class="p-4">Read-only</td>
+                                <td class="p-4">Full API Access (Write/Edit)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 3: Sustainable IT (Green Tech) -->
+        <div class="section-view hidden animate-fade-in" id="green-section">
+             <header class="mb-8">
+                <span class="text-xs font-bold tracking-wider text-emerald-600 uppercase mb-1 block">Trend Focus</span>
+                <h2 class="text-2xl font-bold text-slate-800">Sustainable Computing</h2>
+                <p class="text-slate-600 mt-2 max-w-3xl">
                     As AI models expand, their carbon footprint also increases. The 'Energy Wall' will be the main limiting factor for growth by 2025, prompting a focus on Green IT, liquid cooling, and carbon-conscious scheduling.
                 </p>
-</header>
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-<div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-<h3 class="text-lg font-bold text-slate-800 mb-2">Energy Consumption vs. Efficiency</h3>
-<p class="text-sm text-slate-500 mb-6">Contrasting the energy consumption (TWh) with the efficiency improvements (PUE) in contemporary data centers.</p>
-<!-- Visualization & Content Choice: Bar Chart (Grouped)
+            </header>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">Energy Consumption vs. Efficiency</h3>
+                    <p class="text-sm text-slate-500 mb-6">Contrasting the energy consumption (TWh) with the efficiency improvements (PUE) in contemporary data centers.</p>
+                    
+                    <!-- Visualization & Content Choice: Bar Chart (Grouped)
                          Goal: Compare two metrics side-by-side per year.
                          Justification: Clearly shows that while total consumption rises, efficiency (PUE) is improving (lower is better).
                     -->
-<div class="chart-wrapper">
-<canvas id="greenChart"></canvas>
-</div>
-</div>
-<div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-<h3 class="text-lg font-bold text-slate-800 mb-4">The Green Stack Checklist</h3>
-<p class="text-sm text-slate-500 mb-4">Core technologies driving reduction in 2025.</p>
-<div class="space-y-4">
-<div class="flex items-center gap-4 p-4 border border-slate-200 rounded-lg">
-<div class="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 text-xl">
-<i class="fas fa-water"></i>
-</div>
-<div>
-<h4 class="font-bold text-slate-800">Direct-to-Chip Liquid Cooling</h4>
-<p class="text-xs text-slate-500">Reduces cooling energy overhead by 90%.</p>
-<div class="w-full bg-slate-200 h-1.5 rounded-full mt-2">
-<div class="bg-emerald-500 h-1.5 rounded-full" style="width: 75%"></div>
-</div>
-<span class="text-xs text-emerald-600 font-semibold">75% Adoption in Hyperscale</span>
-</div>
-</div>
-<div class="flex items-center gap-4 p-4 border border-slate-200 rounded-lg">
-<div class="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 text-xl">
-<i class="fas fa-microchip"></i>
-</div>
-<div>
-<h4 class="font-bold text-slate-800">Neuromorphic Hardware</h4>
-<p class="text-xs text-slate-500">Chips mimicking brain structure for low-power AI.</p>
-<div class="w-full bg-slate-200 h-1.5 rounded-full mt-2">
-<div class="bg-emerald-500 h-1.5 rounded-full" style="width: 30%"></div>
-</div>
-<span class="text-xs text-emerald-600 font-semibold">30% Adoption in Edge Devices</span>
-</div>
-</div>
-<div class="flex items-center gap-4 p-4 border border-slate-200 rounded-lg">
-<div class="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 text-xl">
-<i class="fas fa-clock"></i>
-</div>
-<div>
-<h4 class="font-bold text-slate-800">Carbon-Aware Scheduling</h4>
-<p class="text-xs text-slate-500">Delaying non-urgent workloads for green grid hours.</p>
-<div class="w-full bg-slate-200 h-1.5 rounded-full mt-2">
-<div class="bg-emerald-500 h-1.5 rounded-full" style="width: 55%"></div>
-</div>
-<span class="text-xs text-emerald-600 font-semibold">55% Adoption in Enterprise</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- SECTION 4: Security (Cyber Mesh) -->
-<div class="section-view hidden animate-fade-in" id="security-section">
-<header class="mb-8">
-<span class="text-xs font-bold tracking-wider text-rose-600 uppercase mb-1 block">Trend Focus</span>
-<h2 class="text-2xl font-bold text-slate-800">Cybersecurity Mesh Architecture</h2>
-<p class="text-slate-600 mt-2 max-w-3xl">
+                    <div class="chart-wrapper">
+                        <canvas id="greenChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                    <h3 class="text-lg font-bold text-slate-800 mb-4">The Green Stack Checklist</h3>
+                    <p class="text-sm text-slate-500 mb-4">Core technologies driving reduction in 2025.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 p-4 border border-slate-200 rounded-lg">
+                            <div class="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 text-xl">
+                                <i class="fas fa-water"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Direct-to-Chip Liquid Cooling</h4>
+                                <p class="text-xs text-slate-500">Reduces cooling energy overhead by 90%.</p>
+                                <div class="w-full bg-slate-200 h-1.5 rounded-full mt-2">
+                                    <div class="bg-emerald-500 h-1.5 rounded-full" style="width: 75%"></div>
+                                </div>
+                                <span class="text-xs text-emerald-600 font-semibold">75% Adoption in Hyperscale</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 p-4 border border-slate-200 rounded-lg">
+                            <div class="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 text-xl">
+                                <i class="fas fa-microchip"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Neuromorphic Hardware</h4>
+                                <p class="text-xs text-slate-500">Chips mimicking brain structure for low-power AI.</p>
+                                <div class="w-full bg-slate-200 h-1.5 rounded-full mt-2">
+                                    <div class="bg-emerald-500 h-1.5 rounded-full" style="width: 30%"></div>
+                                </div>
+                                <span class="text-xs text-emerald-600 font-semibold">30% Adoption in Edge Devices</span>
+                            </div>
+                        </div>
+                        
+                         <div class="flex items-center gap-4 p-4 border border-slate-200 rounded-lg">
+                            <div class="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 text-xl">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Carbon-Aware Scheduling</h4>
+                                <p class="text-xs text-slate-500">Delaying non-urgent workloads for green grid hours.</p>
+                                <div class="w-full bg-slate-200 h-1.5 rounded-full mt-2">
+                                    <div class="bg-emerald-500 h-1.5 rounded-full" style="width: 55%"></div>
+                                </div>
+                                <span class="text-xs text-emerald-600 font-semibold">55% Adoption in Enterprise</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECTION 4: Security (Cyber Mesh) -->
+        <div class="section-view hidden animate-fade-in" id="security-section">
+             <header class="mb-8">
+                <span class="text-xs font-bold tracking-wider text-rose-600 uppercase mb-1 block">Trend Focus</span>
+                <h2 class="text-2xl font-bold text-slate-800">Cybersecurity Mesh Architecture</h2>
+                <p class="text-slate-600 mt-2 max-w-3xl">
                     By 2025, the concept of a traditional 'perimeter' is obsolete as AI agents function independently. Instead, the 'Cybersecurity Mesh' is embraced, promoting a decentralized, identity-focused strategy where each device and node safeguards itself.
                 </p>
-</header>
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-<!-- Visualization & Content Choice: Doughnut Chart
+            </header>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                 <!-- Visualization & Content Choice: Doughnut Chart
                      Goal: Show part-to-whole relationship (Budget allocation).
                      Justification: Effective for visualizing where the money is going in the security budget.
                 -->
-<div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-<h3 class="text-lg font-bold text-slate-800 mb-6">2025 Security Budget Allocation</h3>
-<div class="chart-wrapper">
-<canvas id="securityChart"></canvas>
-</div>
-<div class="mt-6 text-center text-sm text-slate-500">
-<p>Investment has shifted from Perimeter Firewalls to <span class="text-rose-600 font-semibold">Identity &amp; AI Defense</span>.</p>
-</div>
-</div>
-<div class="space-y-6">
-<div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 border-l-4 border-rose-500">
-<h4 class="font-bold text-slate-800 text-lg mb-2">The AI vs. AI War</h4>
-<p class="text-slate-600 text-sm leading-relaxed">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                    <h3 class="text-lg font-bold text-slate-800 mb-6">2025 Security Budget Allocation</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="securityChart"></canvas>
+                    </div>
+                    <div class="mt-6 text-center text-sm text-slate-500">
+                        <p>Investment has shifted from Perimeter Firewalls to <span class="text-rose-600 font-semibold">Identity &amp; AI Defense</span>.</p>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 border-l-4 border-rose-500">
+                        <h4 class="font-bold text-slate-800 text-lg mb-2">The AI vs. AI War</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed">
                             Defensive AI algorithms now outnumber human analysts in real-time threat detection, marking a shift in the balance. Adversarial AI has the ability to corrupt training data, highlighting the need for 'Immunology AI' systems to verify data integrity before it is used in the model.
                         </p>
-</div>
-<div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-<h4 class="font-bold text-slate-800 text-lg mb-4">Key Threat Vectors 2025</h4>
-<ul class="space-y-3">
-<li class="flex items-start gap-3 text-sm text-slate-600">
-<i class="fas fa-bug text-rose-400 mt-1"></i>
-<span><strong>Deepfake C-Suite Fraud:</strong> Real-time video/audio impersonation in finance meetings.</span>
-</li>
-<li class="flex items-start gap-3 text-sm text-slate-600">
-<i class="fas fa-bug text-rose-400 mt-1"></i>
-<span><strong>Agent Hijacking:</strong> Introducing harmful prompts into self-governing agents to divert funds or steal data.</span>
-</li>
-<li class="flex items-start gap-3 text-sm text-slate-600">
-<i class="fas fa-bug text-rose-400 mt-1"></i>
-<span><strong>Quantum Decryption (Harvest Now, Decrypt Later):</strong> State actors storing encrypted data anticipating 2027 quantum breakthroughs.</span>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<!-- SECTION 5: Insights Explorer (Grid) -->
-<div class="section-view hidden animate-fade-in" id="insights-section">
-<header class="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
-<div>
-<h2 class="text-2xl font-bold text-slate-800">Insight Explorer</h2>
-<p class="text-slate-600 mt-1">Qualitative findings and future signals.</p>
-</div>
-<div class="flex gap-2">
-<button class="filter-btn px-4 py-2 text-sm bg-slate-200 hover:bg-slate-300 rounded-full text-slate-700 font-medium active-filter" data-filter="all" onclick="filterInsights('all')">All</button>
-<button class="filter-btn px-4 py-2 text-sm bg-white border border-slate-200 hover:bg-slate-50 rounded-full text-slate-600 font-medium" data-filter="social" onclick="filterInsights('social')">Social Impact</button>
-<button class="filter-btn px-4 py-2 text-sm bg-white border border-slate-200 hover:bg-slate-50 rounded-full text-slate-600 font-medium" data-filter="tech" onclick="filterInsights('tech')">Deep Tech</button>
-</div>
-</header>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="insights-grid">
-<!-- Cards populated by JS -->
-</div>
-</div>
-</main>
-<!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-<script>
+                    </div>
+                     <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                        <h4 class="font-bold text-slate-800 text-lg mb-4">Key Threat Vectors 2025</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3 text-sm text-slate-600">
+                                <i class="fas fa-bug text-rose-400 mt-1"></i>
+                                <span><strong>Deepfake C-Suite Fraud:</strong> Real-time video/audio impersonation in finance meetings.</span>
+                            </li>
+                             <li class="flex items-start gap-3 text-sm text-slate-600">
+                                <i class="fas fa-bug text-rose-400 mt-1"></i>
+                                <span><strong>Agent Hijacking:</strong> Introducing harmful prompts into self-governing agents to divert funds or steal data.</span>
+                            </li>
+                             <li class="flex items-start gap-3 text-sm text-slate-600">
+                                <i class="fas fa-bug text-rose-400 mt-1"></i>
+                                <span><strong>Quantum Decryption (Harvest Now, Decrypt Later):</strong> State actors storing encrypted data anticipating 2027 quantum breakthroughs.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 5: Insights Explorer (Grid) -->
+        <div class="section-view hidden animate-fade-in" id="insights-section">
+            <header class="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-800">Insight Explorer</h2>
+                    <p class="text-slate-600 mt-1">Qualitative findings and future signals.</p>
+                </div>
+                <div class="flex gap-2">
+                    <button class="filter-btn px-4 py-2 text-sm bg-slate-200 hover:bg-slate-300 rounded-full text-slate-700 font-medium active-filter" data-filter="all" onclick="filterInsights('all')">All</button>
+                    <button class="filter-btn px-4 py-2 text-sm bg-white border border-slate-200 hover:bg-slate-50 rounded-full text-slate-600 font-medium" data-filter="social" onclick="filterInsights('social')">Social Impact</button>
+                    <button class="filter-btn px-4 py-2 text-sm bg-white border border-slate-200 hover:bg-slate-50 rounded-full text-slate-600 font-medium" data-filter="tech" onclick="filterInsights('tech')">Deep Tech</button>
+                </div>
+            </header>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="insights-grid">
+                <!-- Cards populated by JS -->
+            </div>
+        </div>
+
+    </main>
+
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <script>
         // --- State Management ---
         const state = {
             currentSection: 'dashboard',
@@ -709,121 +738,174 @@
         });
 
     </script>
-<footer class="bg-gray-800 text-gray-300">
-<div class="container mx-auto px-6 py-12 lg:px-8">
-<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-<div>
-<h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
-<ul class="space-y-2">
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
-<li>
-<a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">26-bihari-wishes</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">26-chinese-new-year-wishes</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">26-christmas-wishes</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-festival-countdown</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">Christmas-wishes-by-audience</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">Happy-new-year-2026-celebrations-worldwide.html</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">Happy-new-year-2026</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">Multilingual-greetings-webpage</a>
-</li>
-</ul>
-</div>
-<div>
-<h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
-<ul class="space-y-2">
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
-</ul>
-</div>
-<div>
-<h5 class="text-lg font-semibold text-white mb-4">2025 Trends and 2026 forecast</h5>
-<ul class="space-y-2">
-<li>
-<a href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-digital-outlook-trends-forecast</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">2026-festival-countdown</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/2026_dashboard.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">2026_dashboard</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/new_year_2026_page.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">New_year_2026_page</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/send-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl07_title">Send-christmas-wishes</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl08_title">Send-sankranti-wishes-in-multiple-languages</a>
-</li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
-</ul>
-</div>
-<div>
-<h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
-<div class="space-y-2">
-<p>Redmond<br/>WA, USA</p>
-<p>
-<a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
-</p>
-<p>
-<a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
-</p>
-</div>
-</div>
-</div>
-<div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
-<p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
-<div class="flex space-x-4 mt-4 sm:mt-0">
-<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
-<span class="sr-only">Facebook</span>
-<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
-<path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
-</svg>
-</a>
-<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
-<span class="sr-only">Twitter</span>
-<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
-<path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
-</svg>
-</a>
-<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
-<span class="sr-only">LinkedIn</span>
-<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
-<path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
-</svg>
-</a>
-</div>
-<div class="flex gap-4 mt-4 sm:mt-0">
-<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
-<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
-</div>
-</div>
-</div>
-</footer></body></html>
+
+<html><head></head><body><footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+		  
+		  <li>								
+		<a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">26-bihari-wishes</a>
+            </li>	
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">26-chinese-new-year-wishes</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">26-christmas-wishes</a>
+            </li>	
+		  <li>
+		  		<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-festival-countdown</a>
+            </li>	
+										
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">Christmas-wishes-by-audience</a>
+            </li>	
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">Happy-new-year-2026-celebrations-worldwide.html</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">Happy-new-year-2026</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">Multilingual-greetings-webpage</a>
+            </li>	
+		  
+		  
+		  
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+		   <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">2025 Trends and 2026 forecast</h5>
+        <ul class="space-y-2">
+		 
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-digital-outlook-trends-forecast</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">2026-festival-countdown</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026_dashboard.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">2026_dashboard</a>
+            </li>	
+
+
+		 
+
+									
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/new_year_2026_page.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">New_year_2026_page</a>
+            </li>	
+									
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/send-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl07_title">Send-christmas-wishes</a>
+            </li>	
+										
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl08_title">Send-sankranti-wishes-in-multiple-languages</a>
+            </li>	
+		
+		
+
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+
+          
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+        <div class="space-y-2">
+          <p>Redmond<br/>WA, USA</p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+          </p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+      
+      <div class="flex space-x-4 mt-4 sm:mt-0">
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+          <span class="sr-only">Facebook</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+          <span class="sr-only">Twitter</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+          <span class="sr-only">LinkedIn</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+	  
+	  <div class="flex gap-4 mt-4 sm:mt-0">
+                    <a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+                 
+					<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+      </div>
+    </div>
+	
+  </div>
+</footer></body></html></body></html>

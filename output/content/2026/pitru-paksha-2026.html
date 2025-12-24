@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <!-- Meta Tags Added -->
+    <meta content="A comprehensive interactive guide to Hindu Pitru Paksh rituals, including a Tithi calendar, step-by-step Tarpan procedures, ritual checklists, and ancestral significance for the sacred fortnight." name="description"/>
+    <meta content="Pitru Paksh, Shraddh Guide, Hindu Ancestor Rituals, Tithi Calendar, Pind Daan, Tarpan Procedure, Sarvapitri Amavasya, Vedic Traditions, Hindu Heritage" name="keywords"/>
+    
+    <title>Pitru Paksh: The Ancestral Fortnight Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Lato:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #fdfbf7;
+            color: #4a4a4a;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Noto Serif', serif;
+        }
+        .tab-active {
+            border-bottom: 3px solid #d97706;
+            color: #b45309;
+            font-weight: bold;
+        }
+        .tab-inactive {
+            color: #78716c;
+        }
+        .tab-inactive:hover {
+            color: #d97706;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (max-width: 640px) {
+            .chart-container {
+                height: 300px;
+            }
+        }
+        .ritual-step::after {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 40px;
+            bottom: -20px;
+            width: 2px;
+            background-color: #e5e7eb;
+            z-index: 0;
+        }
+        .ritual-step:last-child::after {
+            display: none;
+        }
+    </style>
+    <!-- Chosen Palette: Warm Neutrals & Saffron - #fdfbf7 (Background), #d97706 (Amber Accent), #78716c (Stone Text), #fff7ed (Highlight) -->
+    <!-- Application Structure Plan: 
+         1. Hero Section: Cultural context and immediate tone setting with SEO meta data integration.
+         2. Navigation: Tab-based system for 'Overview', 'Tithi Calendar', 'Rituals', and 'Rules'.
+         3. Dynamic Tithi Calculator: Interactive filtering for specific death circumstances.
+         4. Ritual Guide: Visual timeline of ceremony steps.
+         5. Analytics: Visualization of the balance between physical offerings, mental devotion, and charity.
+         6. Utility: A persistence-capable (session-based) checklist for ceremonial items.
+    -->
+    <!-- Visualization & Content Choices:
+         1. Intro -> Inform -> Typography-led layout for readability.
+         2. Ritual Balance -> Goal: Inform -> Chart.js Doughnut -> Displays the split between Tarpan, Pind, and Charity.
+         3. Calendar -> Goal: Organize -> Card Grid with Filter JS -> Allows users to find specific days like Navami or Chaturdashi.
+         4. Ritual Steps -> Goal: Process Flow -> Vertical Timeline via CSS -> Clear hierarchical instruction.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-[#fff7ed] border-b border-orange-100 py-8 px-4 text-center">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-amber-600 text-sm font-bold uppercase tracking-widest mb-2">Heritage &amp; Spirituality</div>
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Pitru Paksh Guide</h1>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto italic">
+                A digital guide to honoring ancestors, understanding sacred timings, and performing Shraddh with devotion.
+            </p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex overflow-x-auto space-x-8 justify-center py-4" id="nav-container">
+                <button class="tab-active whitespace-nowrap pb-2 text-lg transition-colors" id="tab-overview" onclick="switchTab('overview')">Overview</button>
+                <button class="tab-inactive whitespace-nowrap pb-2 text-lg transition-colors" id="tab-calendar" onclick="switchTab('calendar')">Tithi Calendar</button>
+                <button class="tab-inactive whitespace-nowrap pb-2 text-lg transition-colors" id="tab-rituals" onclick="switchTab('rituals')">Rituals &amp; Checklist</button>
+                <button class="tab-inactive whitespace-nowrap pb-2 text-lg transition-colors" id="tab-guidelines" onclick="switchTab('guidelines')">Do's &amp; Don'ts</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow container mx-auto px-4 py-8 max-w-5xl">
+
+        <!-- SECTION: OVERVIEW -->
+        <section class="space-y-12 animate-fade-in" id="section-overview">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">The Fortnight of Remembrance</h2>
+                <p class="text-gray-600 leading-relaxed">
+                    Pitru Paksh is a period dedicated to the Pitrs (ancestors). It is a time when the veil between worlds is believed to be thin, allowing us to express gratitude and help the souls of our forefathers find peace through the act of Shraddh.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-stone-100 card-hover">
+                    <div class="text-4xl mb-4 text-amber-600">⚋</div>
+                    <h3 class="text-xl font-bold mb-2">Pitri Rina</h3>
+                    <p class="text-sm text-gray-600">The debt we owe our ancestors for our existence. Rituals performed now are believed to liberate the souls of three generations of ancestors.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-stone-100 card-hover">
+                    <div class="text-4xl mb-4 text-amber-600">✼</div>
+                    <h3 class="text-xl font-bold mb-2">Universal Peace</h3>
+                    <p class="text-sm text-gray-600">While specific days are for lineage, the period concludes with Sarvapitri Amavasya, where offerings are made for all souls, even those with no living descendants.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-stone-100 card-hover">
+                    <div class="text-4xl mb-4 text-amber-600">🌙</div>
+                    <h3 class="text-xl font-bold mb-2">The Lunar Cycle</h3>
+                    <p class="text-sm text-gray-600">Observance follows the Krishna Paksha (waning phase) of the moon. This descent of light signifies the transition of energy toward ancestral realms.</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-md border border-stone-100 mt-8">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="w-full md:w-1/2 pr-0 md:pr-8 mb-6 md:mb-0">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Dimensions of the Ceremony</h3>
+                        <p class="text-gray-600 mb-4">A complete Shraddh is more than just a ritual; it is a spiritual ecosystem combining food, water, and social charity. The chart below visualizes the essential balance of a traditional observance.</p>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li><span class="inline-block w-3 h-3 rounded-full bg-[#d97706] mr-2"></span><strong>Pind Daan:</strong> The physical offering (nourishment).</li>
+                            <li><span class="inline-block w-3 h-3 rounded-full bg-[#78716c] mr-2"></span><strong>Tarpan:</strong> The energetic offering (libation).</li>
+                            <li><span class="inline-block w-3 h-3 rounded-full bg-[#fcd34d] mr-2"></span><strong>Seva &amp; Charity:</strong> The social offering (merit).</li>
+                        </ul>
+                    </div>
+                    <div class="w-full md:w-1/2 flex justify-center">
+                        <div class="chart-container">
+                            <canvas id="componentsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: CALENDAR -->
+        <section class="hidden space-y-8 animate-fade-in" id="section-calendar">
+            <div class="text-center max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Tithi Identification Guide</h2>
+                <p class="text-gray-600">
+                    Find the appropriate day for rituals based on the ancestor's relationship or the specific circumstances of their passing.
+                </p>
+            </div>
+
+            <div class="bg-[#fff7ed] p-6 rounded-lg border border-orange-200 shadow-inner">
+                <label class="block text-sm font-bold text-gray-700 mb-2">Filter by Circumstance:</label>
+                <div class="flex flex-wrap gap-2" id="filter-buttons">
+                    <button class="filter-btn bg-amber-600 text-white px-4 py-2 rounded-full text-sm transition" onclick="filterTithi('all')">All Tithis</button>
+                    <button class="filter-btn bg-white text-gray-600 px-4 py-2 rounded-full text-sm border hover:bg-orange-50 transition" onclick="filterTithi('parent')">Parents/Elders</button>
+                    <button class="filter-btn bg-white text-gray-600 px-4 py-2 rounded-full text-sm border hover:bg-orange-50 transition" onclick="filterTithi('accident')">Unnatural Death</button>
+                    <button class="filter-btn bg-white text-gray-600 px-4 py-2 rounded-full text-sm border hover:bg-orange-50 transition" onclick="filterTithi('woman')">Matriarchs</button>
+                    <button class="filter-btn bg-white text-gray-600 px-4 py-2 rounded-full text-sm border hover:bg-orange-50 transition" onclick="filterTithi('unknown')">Unknown/Forgotten</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="tithi-grid">
+                <!-- Content Populated by JS -->
+            </div>
+        </section>
+
+        <!-- SECTION: RITUALS -->
+        <section class="hidden space-y-10 animate-fade-in" id="section-rituals">
+            <div class="text-center max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Ritual Procedure</h2>
+                <p class="text-gray-600">
+                    Preparation is key to a successful Shraddh. Use the checklist to gather materials and follow the sequence for a standard household Tarpan.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-1 bg-white p-6 rounded-xl shadow-md h-fit border border-stone-100">
+                    <h3 class="text-xl font-bold text-amber-700 mb-4 border-b pb-2">Preparation Checklist</h3>
+                    <ul class="space-y-3" id="checklist-container"></ul>
+                </div>
+
+                <div class="lg:col-span-2 space-y-0">
+                    <div class="ritual-step relative pl-12 pb-8">
+                        <div class="absolute left-0 top-0 w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center border-2 border-amber-500 font-bold text-amber-700 z-10">1</div>
+                        <h4 class="text-lg font-bold text-gray-800 mb-2">Setting the Space</h4>
+                        <p class="text-gray-600 text-sm">Place a wooden platform facing <strong>South</strong>. Spread a clean white cloth. Arrange the sesame, barley, and kusha grass. Wash your hands and perform Aachman (purification).</p>
+                    </div>
+
+                    <div class="ritual-step relative pl-12 pb-8">
+                        <div class="absolute left-0 top-0 w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center border-2 border-amber-500 font-bold text-amber-700 z-10">2</div>
+                        <h4 class="text-lg font-bold text-gray-800 mb-2">The Invocations</h4>
+                        <p class="text-gray-600 text-sm">Face East for Gods, North for Sages. Offer water and white sesame. Focus your mind on the lineage of light that preceded your birth.</p>
+                    </div>
+
+                    <div class="ritual-step relative pl-12 pb-8">
+                        <div class="absolute left-0 top-0 w-10 h-10 bg-amber-600 text-white rounded-full flex items-center justify-center border-2 border-amber-800 font-bold z-10">3</div>
+                        <h4 class="text-lg font-bold text-amber-800 mb-2">Pitri Tarpan</h4>
+                        <p class="text-gray-600 text-sm">Face South. Use the 'Pitri Teerth' (the space between thumb and index finger) to pour water mixed with black sesame. Mentally invite your ancestors by name and gotra.</p>
+                        <div class="mt-2 bg-amber-50 p-3 rounded text-sm border-l-4 border-amber-500 font-serif">
+                            "May this water satisfy my ancestors for eternity. May they bless this lineage with wisdom and health."
+                        </div>
+                    </div>
+
+                    <div class="ritual-step relative pl-12 pb-4">
+                        <div class="absolute left-0 top-0 w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center border-2 border-amber-500 font-bold text-amber-700 z-10">4</div>
+                        <h4 class="text-lg font-bold text-gray-800 mb-2">Pancha Bali (The 5 Offerings)</h4>
+                        <p class="text-gray-600 text-sm">Prepare five portions of food for: Cow (Go Bali), Dog (Shwan Bali), Crow (Kaka Bali), Ants (Devadi Bali), and the Brahmin/Priest.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: GUIDELINES -->
+        <section class="hidden space-y-12 animate-fade-in" id="section-guidelines">
+            <div class="text-center max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Code of Conduct</h2>
+                <p class="text-gray-600">Essential guidelines to maintain the sanctity of the Pitru Paksh period.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-green-50 p-6 rounded-xl border border-green-200">
+                    <h3 class="text-xl font-bold text-green-800 mb-4 flex items-center">
+                        <span class="mr-2">✔</span> Observances
+                    </h3>
+                    <ul class="space-y-3 text-gray-700 text-sm">
+                        <li>Perform Tarpan during the 'Kutupa Muhurta' (noon time).</li>
+                        <li>Observe austerity in speech, action, and diet.</li>
+                        <li>Show kindness to animals and the elderly.</li>
+                        <li>Practice silent meditation or read sacred texts like Garuda Purana.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-red-50 p-6 rounded-xl border border-red-200">
+                    <h3 class="text-xl font-bold text-red-800 mb-4 flex items-center">
+                        <span class="mr-2">✖</span> Restrictions
+                    </h3>
+                    <ul class="space-y-3 text-gray-700 text-sm">
+                        <li>Avoid starting new business ventures or major purchases.</li>
+                        <li>Refrain from consuming 'Tamasic' items (meat, alcohol).</li>
+                        <li>Postpone celebratory events like engagements or housewarmings.</li>
+                        <li>Avoid conflict or harsh arguments within the family.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <html><head></head><body><footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+		  
+		  <li>								
+		<a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">26-bihari-wishes</a>
+            </li>	
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">26-chinese-new-year-wishes</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">26-christmas-wishes</a>
+            </li>	
+		  <li>
+		  		<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-festival-countdown</a>
+            </li>	
+										
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">Christmas-wishes-by-audience</a>
+            </li>	
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">Happy-new-year-2026-celebrations-worldwide.html</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">Happy-new-year-2026</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">Multilingual-greetings-webpage</a>
+            </li>	
+		  
+		  
+		  
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+		   <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">2025 Trends and 2026 forecast</h5>
+        <ul class="space-y-2">
+		 
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-digital-outlook-trends-forecast</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">2026-festival-countdown</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026_dashboard.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">2026_dashboard</a>
+            </li>	
+
+
+		 
+
+									
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/new_year_2026_page.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">New_year_2026_page</a>
+            </li>	
+									
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/send-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl07_title">Send-christmas-wishes</a>
+            </li>	
+										
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl08_title">Send-sankranti-wishes-in-multiple-languages</a>
+            </li>	
+		
+		
+
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+
+          
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+        <div class="space-y-2">
+          <p>Redmond<br/>WA, USA</p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+          </p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+      
+      <div class="flex space-x-4 mt-4 sm:mt-0">
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+          <span class="sr-only">Facebook</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+          <span class="sr-only">Twitter</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+          <span class="sr-only">LinkedIn</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+	  
+	  <div class="flex gap-4 mt-4 sm:mt-0">
+                    <a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+                 
+					<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+      </div>
+    </div>
+	
+  </div>
+</footer></body></html>
+
+    <script>
+        const tithiData = [
+            { day: 1, name: "Pratipada", category: ["all", "parent"], desc: "For ancestors who passed on the first day of the lunar cycle." },
+            { day: 2, name: "Dwitiya", category: ["all", "parent"], desc: "Second day rituals. Focus on grandparents." },
+            { day: 4, name: "Bharani Shraddh", category: ["all", "parent", "accident"], desc: "Performed on Chaturthi or Panchami when Bharani Nakshatra prevails." },
+            { day: 9, name: "Avidhwa Navami", category: ["all", "woman"], desc: "Specifically for mothers and women who died while their husbands were alive." },
+            { day: 12, name: "Dwadashi", category: ["all", "parent"], desc: "For those who took Sanyasa (ascetics)." },
+            { day: 13, name: "Magha Shraddh", category: ["all", "accident"], desc: "A powerful day for rituals when Magha Nakshatra is present." },
+            { day: 14, name: "Ghatachaturdashi", category: ["all", "accident"], desc: "For those who died due to weapons, poison, or accidents." },
+            { day: 15, name: "Sarvapitri Amavasya", category: ["all", "unknown", "parent", "woman"], desc: "The ultimate day. For all ancestors, known or unknown, regardless of their death tithi." }
+        ];
+
+        const checklistItems = [
+            { id: "c1", text: "Black Sesame Seeds" },
+            { id: "c2", text: "Dried Kusha Grass" },
+            { id: "c3", text: "Copper Pot (Lota)" },
+            { id: "c4", text: "Barley Flour / Rice" },
+            { id: "c5", text: "White Flowers" },
+            { id: "c6", text: "Sandalwood Paste" },
+            { id: "c7", text: "Pure Water/Gangajal" }
+        ];
+
+        let currentTab = 'overview';
+        let checklistState = {};
+
+        function switchTab(tabId) {
+            const section = document.getElementById(`section-${tabId}`);
+            if (!section) return;
+
+            document.querySelectorAll('section').forEach(el => el.classList.add('hidden'));
+            section.classList.remove('hidden');
+            
+            const tabs = ['overview', 'calendar', 'rituals', 'guidelines'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`tab-${t}`);
+                if (btn) {
+                    if (t === tabId) {
+                        btn.classList.remove('tab-inactive');
+                        btn.classList.add('tab-active');
+                    } else {
+                        btn.classList.add('tab-inactive');
+                        btn.classList.remove('tab-active');
+                    }
+                }
+            });
+            if (tabId === 'overview') renderChart();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function filterTithi(category) {
+            const grid = document.getElementById('tithi-grid');
+            if (!grid) return;
+            
+            grid.innerHTML = '';
+            
+            // Reset all buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('bg-amber-600', 'text-white');
+                btn.classList.add('bg-white', 'text-gray-600');
+            });
+
+            // Safely identify the triggering element
+            const event = window.event;
+            if (event && event.target && event.target.classList && event.target.classList.contains('filter-btn')) {
+                event.target.classList.remove('bg-white', 'text-gray-600');
+                event.target.classList.add('bg-amber-600', 'text-white');
+            } else {
+                // If no event (e.g. onload), find the button manually based on category
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    if (btn.getAttribute('onclick')?.includes(`'${category}'`)) {
+                        btn.classList.remove('bg-white', 'text-gray-600');
+                        btn.classList.add('bg-amber-600', 'text-white');
+                    }
+                });
+            }
+
+            const filtered = tithiData.filter(item => item.category.includes(category));
+            filtered.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "bg-white p-4 rounded-lg border border-stone-200 shadow-sm hover:border-amber-400 transition cursor-default";
+                card.innerHTML = `<div class="flex justify-between items-start mb-2"><h4 class="font-bold text-gray-800">${item.name}</h4><span class="text-xs font-mono text-stone-400">Day ${item.day}</span></div><p class="text-xs text-gray-500">${item.desc}</p>`;
+                grid.appendChild(card);
+            });
+        }
+
+        function renderChecklist() {
+            const container = document.getElementById('checklist-container');
+            if (!container) return;
+            
+            container.innerHTML = '';
+            checklistItems.forEach(item => {
+                const isChecked = checklistState[item.id] || false;
+                const li = document.createElement('li');
+                li.className = "flex items-center cursor-pointer group py-1";
+                li.onclick = () => { checklistState[item.id] = !checklistState[item.id]; renderChecklist(); };
+                li.innerHTML = `<div class="w-5 h-5 rounded border ${isChecked ? 'bg-amber-600 border-amber-600' : 'border-gray-300'} flex items-center justify-center mr-3 transition-colors">${isChecked ? '<span class="text-white text-[10px]">&#10003;</span>' : ''}</div><span class="text-sm ${isChecked ? 'text-gray-400 line-through' : 'text-gray-700'}">${item.text}</span>`;
+                container.appendChild(li);
+            });
+        }
+
+        let myChart = null;
+        function renderChart() {
+            const canvas = document.getElementById('componentsChart');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            if (myChart) myChart.destroy();
+            myChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Pind Daan', 'Tarpan', 'Seva'],
+                    datasets: [{
+                        data: [33, 33, 34],
+                        backgroundColor: ['#d97706', '#78716c', '#fcd34d'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { usePointStyle: true, font: { size: 11 } } },
+                        tooltip: { enabled: true }
+                    },
+                    cutout: '70%'
+                }
+            });
+        }
+
+        window.onload = () => {
+            renderChart();
+            filterTithi('all');
+            renderChecklist();
+        };
+    </script>
+
+</body></html>

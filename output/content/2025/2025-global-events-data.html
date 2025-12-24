@@ -2,8 +2,8 @@
 <html class="scroll-smooth" lang="en"><head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <meta content="Beautiful collection of Happy New Year 2026 greetings and cards to share with loved ones." name="description"/>
-    <title>New Year Cards 2026 | Share the Joy</title>
+    <meta content="Global Year in Review 2025. Comprehensive reports for USA, India, China, UK, France, Canada, Ukraine, and Bangladesh." name="description"/>
+    <title>2025 Global Year in Review | World Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- FontAwesome CSS -->
@@ -19,7 +19,7 @@
             font-family: 'Vollkorn', serif;
             background-color: #fff1f2; /* bg-rose-50 */
             color: #292524; /* text-stone-800 */
-            background-image: linear-gradient(rgba(255, 241, 242, 0.9), rgba(255, 241, 242, 0.9)), url('https://storage.googleapis.com/kreatewebsite/banner_all/Happy-New-Year-Photos.jpg');
+            background-image: linear-gradient(rgba(255, 241, 242, 0.95), rgba(255, 241, 242, 0.95)), url('https://storage.googleapis.com/kreatewebsite/banner_all/Happy-New-Year-Photos.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -29,20 +29,11 @@
             font-weight: 700;
         }
 
-        /* Card Style matching index.html */
-        .card-container {
+        /* Navigation Bar */
+        .nav-glass {
             background-color: rgba(255, 255, 255, 0.8);
-            border: 1px solid #ffe4e6;
-            border-radius: 0.75rem;
-            overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-container:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 20px -5px rgba(244, 63, 94, 0.2);
-            border-color: #fda4af;
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid #ffe4e6;
         }
 
         .nav-link {
@@ -53,16 +44,46 @@
             color: #9f1239;
         }
 
-        /* Mobile menu fix */
-        #mobile-menu {
-            background: rgba(255, 255, 255, 0.95);
+        /* Country Cards */
+        .country-card {
+            background-color: rgba(255, 255, 255, 0.7);
+            border: 1px solid #ffe4e6;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
         }
+
+        .country-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(244, 63, 94, 0.15), 0 8px 10px -6px rgba(244, 63, 94, 0.1);
+            border-color: #fda4af;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+
+        .card-header {
+            height: 100px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .card-header::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+        }
+
+        /* Mobile Menu */
+        #mobile-menu { background: rgba(255, 255, 255, 0.95); }
     </style>
 </head>
 <body class="antialiased min-h-screen flex flex-col overflow-x-hidden text-stone-800">
 
     <!-- Navigation -->
-    <nav class="w-full bg-white/80 backdrop-blur-sm sticky top-0 z-50 border-b border-rose-100">
+    <nav class="w-full nav-glass sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex-shrink-0 flex items-center gap-3">
@@ -73,9 +94,11 @@
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="index.html">Home</a>
-                        <a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="index.html#resolutions">Resolutions</a>
-                        <a class="nav-link px-3 py-2 rounded-md text-base font-semibold text-rose-800 border-b-2 border-rose-800" href="#">Cards</a>
+                        <a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="/">Home</a>
+                        <a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="/resolutions/">Resolutions</a>
+                        <a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="/celebrations/">Celebrations</a>
+                        <a class="nav-link px-3 py-2 rounded-md text-base font-semibold text-rose-800 border-b-2 border-rose-800" href="/2025/">2025 Review</a>
+						<a class="nav-link px-3 py-2 rounded-md text-base font-semibold text-rose-800 border-b-2 border-rose-800" href="/2026/">2025 Review</a>
                     </div>
                 </div>
                 <div class="md:hidden">
@@ -88,32 +111,161 @@
         <!-- Mobile Menu -->
         <div class="hidden md:hidden border-t border-rose-100" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a class="text-stone-600 hover:text-rose-800 block px-3 py-2 rounded-md text-base font-medium" href="index.html">Home</a>
-                <a class="text-rose-900 font-bold block px-3 py-2 rounded-md text-base" href="#">Cards</a>
+                <a class="text-stone-600 hover:text-rose-800 block px-3 py-2 rounded-md text-base font-medium" href="/">Home</a>
+				<a class="text-stone-600 hover:text-rose-800 block px-3 py-2 rounded-md text-base font-medium" href="/resolutions/">Resolutions</a>
+                <a class="text-stone-600 hover:text-rose-800 block px-3 py-2 rounded-md text-base font-medium" href="/celebrations/">Celebrations</a>
+                <a class="text-rose-900 font-bold block px-3 py-2 rounded-md text-base" href="/2025/">2025 Review</a>
+				<a class="text-rose-900 font-bold block px-3 py-2 rounded-md text-base" href="/2026/">2026</a>
             </div>
         </div>
     </nav>
 
     <!-- Header -->
-    <header class="relative pt-16 pb-12 text-center">
-        <div class="max-w-4xl mx-auto px-4">
-            <div class="inline-block px-4 py-1 rounded-full border border-rose-200 bg-white/60 text-rose-800 text-xs font-bold tracking-[0.2em] uppercase mb-4 backdrop-blur-sm">
-                Share the Love
-            </div>
-            <h1 class="text-4xl md:text-6xl font-bold text-rose-900 mb-4 tracking-tight">
-                New Year Greetings
-            </h1>
-            <p class="text-lg md:text-xl text-stone-600 max-w-2xl mx-auto">
-                A curated collection of beautiful cards to wish your friends and family a prosperous 2026.
-            </p>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8 text-center">
+        <div class="inline-block px-4 py-1 rounded-full border border-rose-200 bg-white/60 text-rose-800 text-xs font-bold tracking-[0.2em] uppercase mb-4 backdrop-blur-sm">
+            Global Retrospective
         </div>
-    </header>
+        <h1 class="text-4xl md:text-6xl font-bold text-rose-900 mb-4 tracking-tight">
+            2025 Year in Review
+        </h1>
+        <p class="text-lg text-stone-600 max-w-2xl mx-auto italic">
+            Explore the political, economic, and cultural milestones that defined the year across eight key nations.
+        </p>
+    </div>
 
-    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+    <!-- Main Content -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 w-full">
         
-        <!-- Gallery Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="gallery-grid">
-            <!-- Cards will be injected here via JS -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+            <!-- USA -->
+            <a class="country-card group" href="2025-usa-events-data.html">
+                <div class="card-header bg-blue-900 flex items-end p-4">
+                    <h3 class="text-white text-2xl font-bold relative z-10 flex items-center gap-2">
+                        <span class="text-3xl">🇺🇸</span> USA
+                    </h3>
+                </div>
+                <div class="p-6 pt-4">
+                    <h4 class="font-bold text-rose-900 text-sm uppercase tracking-wide mb-2">The 47th Presidency</h4>
+                    <p class="text-stone-600 text-sm mb-4 line-clamp-3">
+                        A pivotal year marked by a new administration, Artemis II lunar success, and economic stabilization.
+                    </p>
+                    <span class="text-rose-600 text-sm font-bold group-hover:underline">View Report →</span>
+                </div>
+            </a>
+
+            <!-- India -->
+            <a class="country-card group" href="2025-india-events-data.html">
+                <div class="card-header bg-orange-600 flex items-end p-4">
+                    <h3 class="text-white text-2xl font-bold relative z-10 flex items-center gap-2">
+                        <span class="text-3xl">🇮🇳</span> India
+                    </h3>
+                </div>
+                <div class="p-6 pt-4">
+                    <h4 class="font-bold text-rose-900 text-sm uppercase tracking-wide mb-2">Resilience &amp; Scale</h4>
+                    <p class="text-stone-600 text-sm mb-4 line-clamp-3">
+                        From the Maha Kumbh gathering of 420M people to state election shifts and record cinema revenues.
+                    </p>
+                    <span class="text-rose-600 text-sm font-bold group-hover:underline">View Report →</span>
+                </div>
+            </a>
+
+            <!-- China -->
+            <a class="country-card group" href="2025-china-events-data.html">
+                <div class="card-header bg-red-700 flex items-end p-4">
+                    <h3 class="text-white text-2xl font-bold relative z-10 flex items-center gap-2">
+                        <span class="text-3xl">🇨🇳</span> China
+                    </h3>
+                </div>
+                <div class="p-6 pt-4">
+                    <h4 class="font-bold text-rose-900 text-sm uppercase tracking-wide mb-2">New Productive Forces</h4>
+                    <p class="text-stone-600 text-sm mb-4 line-clamp-3">
+                        A shift toward high-tech manufacturing, AI dominance, and a massive green energy transition.
+                    </p>
+                    <span class="text-rose-600 text-sm font-bold group-hover:underline">View Report →</span>
+                </div>
+            </a>
+
+            <!-- UK -->
+            <a class="country-card group" href="2025-uk-events-data.html">
+                <div class="card-header bg-blue-800 flex items-end p-4">
+                    <h3 class="text-white text-2xl font-bold relative z-10 flex items-center gap-2">
+                        <span class="text-3xl">🇬🇧</span> UK
+                    </h3>
+                </div>
+                <div class="p-6 pt-4">
+                    <h4 class="font-bold text-rose-900 text-sm uppercase tracking-wide mb-2">Year of the Reset</h4>
+                    <p class="text-stone-600 text-sm mb-4 line-clamp-3">
+                        A new government agenda, economic pivots, and a cultural "Golden Summer" featuring the Oasis reunion.
+                    </p>
+                    <span class="text-rose-600 text-sm font-bold group-hover:underline">View Report →</span>
+                </div>
+            </a>
+
+            <!-- France -->
+            <a class="country-card group" href="2025-france-events-data.html">
+                <div class="card-header bg-blue-700 flex items-end p-4">
+                    <h3 class="text-white text-2xl font-bold relative z-10 flex items-center gap-2">
+                        <span class="text-3xl">🇫🇷</span> France
+                    </h3>
+                </div>
+                <div class="p-6 pt-4">
+                    <h4 class="font-bold text-rose-900 text-sm uppercase tracking-wide mb-2">Consolidation</h4>
+                    <p class="text-stone-600 text-sm mb-4 line-clamp-3">
+                        Leadership in global AI summits, fiscal reforms, and the triumphant full reopening of Notre-Dame.
+                    </p>
+                    <span class="text-rose-600 text-sm font-bold group-hover:underline">View Report →</span>
+                </div>
+            </a>
+
+            <!-- Canada -->
+            <a class="country-card group" href="2025-canada-events-data.html">
+                <div class="card-header bg-red-600 flex items-end p-4">
+                    <h3 class="text-white text-2xl font-bold relative z-10 flex items-center gap-2">
+                        <span class="text-3xl">🇨🇦</span> Canada
+                    </h3>
+                </div>
+                <div class="p-6 pt-4">
+                    <h4 class="font-bold text-rose-900 text-sm uppercase tracking-wide mb-2">A Defining Year</h4>
+                    <p class="text-stone-600 text-sm mb-4 line-clamp-3">
+                        The 45th Federal Election results, interest rate relief, and hosting the first winter hybrid Invictus Games.
+                    </p>
+                    <span class="text-rose-600 text-sm font-bold group-hover:underline">View Report →</span>
+                </div>
+            </a>
+
+            <!-- Ukraine -->
+            <a class="country-card group" href="2025-ukraine-events-data.html">
+                <div class="card-header bg-blue-500 flex items-end p-4">
+                    <h3 class="text-white text-2xl font-bold relative z-10 flex items-center gap-2">
+                        <span class="text-3xl">🇺🇦</span> Ukraine
+                    </h3>
+                </div>
+                <div class="p-6 pt-4">
+                    <h4 class="font-bold text-rose-900 text-sm uppercase tracking-wide mb-2">Strategic Autonomy</h4>
+                    <p class="text-stone-600 text-sm mb-4 line-clamp-3">
+                        Growth of domestic defense production, energy grid decentralization, and progress in EU accession.
+                    </p>
+                    <span class="text-rose-600 text-sm font-bold group-hover:underline">View Report →</span>
+                </div>
+            </a>
+
+            <!-- Bangladesh -->
+            <a class="country-card group" href="2025-bangladesh-events-data.html">
+                <div class="card-header bg-emerald-700 flex items-end p-4">
+                    <h3 class="text-white text-2xl font-bold relative z-10 flex items-center gap-2">
+                        <span class="text-3xl">🇧🇩</span> Bangladesh
+                    </h3>
+                </div>
+                <div class="p-6 pt-4">
+                    <h4 class="font-bold text-rose-900 text-sm uppercase tracking-wide mb-2">Reform &amp; Rebirth</h4>
+                    <p class="text-stone-600 text-sm mb-4 line-clamp-3">
+                        Institutional overhauls under the Interim Government, banking reforms, and record remittance inflows.
+                    </p>
+                    <span class="text-rose-600 text-sm font-bold group-hover:underline">View Report →</span>
+                </div>
+            </a>
+
         </div>
 
     </main>
@@ -291,111 +443,5 @@
   </div>
 </footer></body></html>
 
-    <script>
-        // List of Image URLs extracted from the user's file
-        const imageUrls = [
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/1.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/2.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/3.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/4.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/5.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/6.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/7.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/Boats.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/Cheese.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/Clean New Year.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/Crochet for food.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/Doc pictures.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/Dog Treat.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/Freshness.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/Fullsize card.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/Fun Music.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/Greetings for Christmas and New Year.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/Happy Christmas and New Year.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/Happy New Year Beautiful Card.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/Happy New Year Colors.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/Happy New Year Splash.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/Happy New Year with Love.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/Happy New Year.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/Happy new year color.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/Happy-New-Year.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/Hardwork Luck Happiness will come together this year.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/Heartful wishes.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/Licorice.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/Lots of Love.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/Love and Kisses for Happy New Year.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/May Happy New Year Strengthen Our Friendship.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/May New Year bring Luck.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/May New Year bring sunshine.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/May all your dream come true.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/May new year open door to successs.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/May new year spread happiness all around.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/Music all around.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/New Year Wishes.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/Pasta.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/Peace and prosperity.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/Peanuts.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/Pumpkins.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/Rainbow colors.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/Rasberries.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/Sending wishes from heart.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/Sphere of influence.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/Strawberries and kiwi.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/Wire Design.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/circle-design.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/have a lovely new year.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/puzzle.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/have a lovely new year/spread01.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/have a lovely new year/spread02.jpg",
-            "https://storage.googleapis.com/kreatewebsite/festival/cards/NewYear/have a lovely new year/spread03.jpg"
-        ];
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const grid = document.getElementById('gallery-grid');
-            
-            imageUrls.forEach((url, index) => {
-                // Encode spaces in URLs to avoid breakages
-                const safeUrl = url.replace(/ /g, '%20');
-                
-                // Extract filename for Alt text (simple clean up)
-                const filename = url.split('/').pop().replace('.jpg', '').replace(/%20/g, ' ').replace(/-/g, ' ');
-
-                const card = document.createElement('div');
-                card.className = 'card-container flex flex-col group';
-                
-                card.innerHTML = `
-                    <div class="relative overflow-hidden aspect-[4/3] bg-rose-50 cursor-pointer">
-                        <img src="${safeUrl}" 
-                             alt="${filename}" 
-                             loading="lazy"
-                             class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
-                             onerror="this.parentElement.style.display='none'"
-                        >
-                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
-                    </div>
-                    <div class="p-4 flex justify-between items-center bg-white/90">
-                        <span class="text-sm font-semibold text-stone-700 truncate pr-2">${filename}</span>
-                        <div class="flex space-x-2">
-                            <a href="${safeUrl}" download target="_blank" class="p-2 text-rose-500 hover:text-rose-700 hover:bg-rose-50 rounded-full transition-colors" title="View Full Size">
-                                <i class="fa-solid fa-expand"></i>
-                            </a>
-                            <button onclick="shareImage('${safeUrl}')" class="p-2 text-rose-500 hover:text-rose-700 hover:bg-rose-50 rounded-full transition-colors" title="Copy Link">
-                                <i class="fa-solid fa-share-nodes"></i>
-                            </button>
-                        </div>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
-        });
-
-        function shareImage(url) {
-            navigator.clipboard.writeText(url).then(() => {
-                alert('Image link copied to clipboard!');
-            }).catch(err => {
-                console.error('Failed to copy: ', err);
-            });
-        }
-    </script>
 
 </body></html>

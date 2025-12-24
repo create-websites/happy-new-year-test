@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>New Year Around the World</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com" rel="preconnect"/>
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
-    <!-- Chosen Palette: Warm Neutrals -->
-    <!-- Application Structure Plan: The application is designed as a single-page exploratory experience with three main thematic sections, enabling users to engage with the content in a non-linear way. The structure is: 1) A dynamic hero section to grab attention. 2) An interactive map for geographical exploration of greetings and traditions. 3) A "Cultural Deep Dive" section using an accordion layout for detailed information on specific non-Gregorian new year celebrations. This layered approach was chosen to cater to different levels of user interest, moving from a broad, visual overview (the map) to specific, detailed content (the accordion). This is more engaging than a simple list and encourages discovery. -->
-    <!-- Visualization & Content Choices: Report Info: New Year greetings and traditions worldwide. -> Goal: Organize, Compare, Inform. -> Viz/Presentation Method: An interactive HTML-based map for geographic data, an HTML accordion for structured textual deep-dives, and a Chart.js Donut chart to categorize celebrations by calendar type (Gregorian, Lunar, etc.). -> Interaction: Clicking map points reveals info cards. Accordion headers expand to show detailed text. The chart provides a quick visual summary with tooltips. -> Justification: This multi-faceted approach presents diverse information types (geographic, textual, quantitative) in their most effective formats, enhancing user understanding and engagement. The map provides spatial context, the accordion organizes dense text cleanly, and the chart offers a high-level quantitative insight. -> Library/Method: Vanilla JS, Tailwind CSS, Chart.js. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>New Year Around the World</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Chosen Palette: Warm Neutrals -->
+<!-- Application Structure Plan: The application is designed as a single-page exploratory experience with three main thematic sections, enabling users to engage with the content in a non-linear way. The structure is: 1) A dynamic hero section to grab attention. 2) An interactive map for geographical exploration of greetings and traditions. 3) A "Cultural Deep Dive" section using an accordion layout for detailed information on specific non-Gregorian new year celebrations. This layered approach was chosen to cater to different levels of user interest, moving from a broad, visual overview (the map) to specific, detailed content (the accordion). This is more engaging than a simple list and encourages discovery. -->
+<!-- Visualization & Content Choices: Report Info: New Year greetings and traditions worldwide. -> Goal: Organize, Compare, Inform. -> Viz/Presentation Method: An interactive HTML-based map for geographic data, an HTML accordion for structured textual deep-dives, and a Chart.js Donut chart to categorize celebrations by calendar type (Gregorian, Lunar, etc.). -> Interaction: Clicking map points reveals info cards. Accordion headers expand to show detailed text. The chart provides a quick visual summary with tooltips. -> Justification: This multi-faceted approach presents diverse information types (geographic, textual, quantitative) in their most effective formats, enhancing user understanding and engagement. The map provides spatial context, the accordion organizes dense text cleanly, and the chart offers a high-level quantitative insight. -> Library/Method: Vanilla JS, Tailwind CSS, Chart.js. -->
+<!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+<style>
         body {
             font-family: 'Inter', sans-serif;
             background-color: #FDFBF8;
@@ -78,75 +78,67 @@
   gtag('config', 'G-JJ6LGZB34T');
 </script><script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9804321536688475"></script></head>
 <body class="antialiased">
-
-    <header class="bg-warm-beige py-6">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold text-accent-teal">New Year Around the World</h1>
-            <p class="mt-2 text-lg text-gray-600">Explore how cultures celebrate the start of a new year</p>
-        </div>
-    </header>
-
-    <main class="container mx-auto p-4 md:p-8">
-        <section class="text-center mb-12" id="greeting-carousel">
-            <div class="p-6 bg-white rounded-lg shadow-md border border-gray-200">
-                <p class="text-2xl font-semibold transition-opacity duration-500" id="dynamic-greeting">Happy New Year!</p>
-                <p class="text-gray-500" id="dynamic-language">English</p>
-            </div>
-        </section>
-
-        <section class="mb-12" id="interactive-map">
-             <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-                <h2 class="text-3xl font-bold text-center mb-2 text-accent-teal">Global Greetings Map</h2>
-                <p class="text-center text-gray-600 mb-6 max-w-3xl mx-auto">
+<header class="bg-warm-beige py-6">
+<div class="container mx-auto px-4 text-center">
+<h1 class="text-4xl md:text-5xl font-bold text-accent-teal">New Year Around the World</h1>
+<p class="mt-2 text-lg text-gray-600">Explore how cultures celebrate the start of a new year</p>
+</div>
+</header>
+<main class="container mx-auto p-4 md:p-8">
+<section class="text-center mb-12" id="greeting-carousel">
+<div class="p-6 bg-white rounded-lg shadow-md border border-gray-200">
+<p class="text-2xl font-semibold transition-opacity duration-500" id="dynamic-greeting">Happy New Year!</p>
+<p class="text-gray-500" id="dynamic-language">English</p>
+</div>
+</section>
+<section class="mb-12" id="interactive-map">
+<div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+<h2 class="text-3xl font-bold text-center mb-2 text-accent-teal">Global Greetings Map</h2>
+<p class="text-center text-gray-600 mb-6 max-w-3xl mx-auto">
                     Discover the Global Greetings Map! Dive into New Year traditions worldwide through this interactive feature. Tap the red dots on the map to reveal how various cultures and countries celebrate and share 'Happy New Year,' along with an interesting fact. Explore the world’s festivities right from your screen!
                 </p>
-                <div class="flex flex-col md:flex-row gap-6 items-center">
-                    <div class="map-container w-full md:w-2/3 rounded-lg overflow-hidden">
-                        <div class="map-dot" data-region="spain" style="top: 35%; left: 20%;"></div>
-                        <div class="map-dot" data-region="usa" style="top: 25%; left: 15%;"></div>
-                        <div class="map-dot" data-region="brazil" style="top: 65%; left: 30%;"></div>
-                        <div class="map-dot" data-region="japan" style="top: 30%; left: 78%;"></div>
-                        <div class="map-dot" data-region="china" style="top: 40%; left: 70%;"></div>
-                        <div class="map-dot" data-region="india" style="top: 45%; left: 55%;"></div>
-                        <div class="map-dot" data-region="russia" style="top: 30%; left: 40%;"></div>
-                        <div class="map-dot" data-region="kenya" style="top: 55%; left: 52%;"></div>
-                    </div>
-                    <div class="w-full md:w-1/3 p-4 bg-accent-teal-light rounded-lg" id="map-info-panel">
-                        <h3 class="text-xl font-bold text-accent-teal" id="info-title">Select a location</h3>
-                        <p class="text-lg font-semibold mt-2" id="info-greeting"> </p>
-                        <p class="text-gray-700 mt-1" id="info-fact"> </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="mb-12" id="cultural-celebrations">
-            <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-                <h2 class="text-3xl font-bold text-center mb-2 text-accent-teal">Cultural Deep Dive</h2>
-                 <p class="text-center text-gray-600 mb-6 max-w-3xl mx-auto">
+<div class="flex flex-col md:flex-row gap-6 items-center">
+<div class="map-container w-full md:w-2/3 rounded-lg overflow-hidden">
+<div class="map-dot" data-region="spain" style="top: 35%; left: 20%;"></div>
+<div class="map-dot" data-region="usa" style="top: 25%; left: 15%;"></div>
+<div class="map-dot" data-region="brazil" style="top: 65%; left: 30%;"></div>
+<div class="map-dot" data-region="japan" style="top: 30%; left: 78%;"></div>
+<div class="map-dot" data-region="china" style="top: 40%; left: 70%;"></div>
+<div class="map-dot" data-region="india" style="top: 45%; left: 55%;"></div>
+<div class="map-dot" data-region="russia" style="top: 30%; left: 40%;"></div>
+<div class="map-dot" data-region="kenya" style="top: 55%; left: 52%;"></div>
+</div>
+<div class="w-full md:w-1/3 p-4 bg-accent-teal-light rounded-lg" id="map-info-panel">
+<h3 class="text-xl font-bold text-accent-teal" id="info-title">Select a location</h3>
+<p class="text-lg font-semibold mt-2" id="info-greeting"> </p>
+<p class="text-gray-700 mt-1" id="info-fact"> </p>
+</div>
+</div>
+</div>
+</section>
+<section class="mb-12" id="cultural-celebrations">
+<div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+<h2 class="text-3xl font-bold text-center mb-2 text-accent-teal">Cultural Deep Dive</h2>
+<p class="text-center text-gray-600 mb-6 max-w-3xl mx-auto">
                     Beyond January 1st in the Gregorian calendar, various cultures mark the new year at different times, guided by lunar, solar, or lunisolar systems. Dive into this section for insights into these rich celebrations. Click a card below to explore their unique histories, traditions, and meanings.
                 </p>
-                <div class="space-y-4" id="accordion-container">
-                </div>
-            </div>
-        </section>
-
-        <section class="mb-12" id="calendar-viz">
-            <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-                <h2 class="text-3xl font-bold text-center mb-2 text-accent-teal">Celebration Calendar Types</h2>
-                <p class="text-center text-gray-600 mb-6 max-w-3xl mx-auto">
-                    New Year celebrations vary based on distinct calendar systems. This chart visually outlines the calendar types tied to the cultural events featured here. Hover over a segment to discover which system—such as Gregorian, Lunar, or Lunisolar—shapes each tradition, showcasing the rich diversity in how cultures track time.
+<div class="space-y-4" id="accordion-container">
+</div>
+</div>
+</section>
+<section class="mb-12" id="calendar-viz">
+<div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+<h2 class="text-3xl font-bold text-center mb-2 text-accent-teal">Celebration Calendar Types</h2>
+<p class="text-center text-gray-600 mb-6 max-w-3xl mx-auto">
+                    <a href="https://www.happy-new-year.org/celebrations/">New Year celebrations</a> vary based on distinct calendar systems. This chart visually outlines the calendar types tied to the cultural events featured here. Hover over a segment to discover which system—such as Gregorian, Lunar, or Lunisolar—shapes each tradition, showcasing the rich diversity in how cultures track time.
                 </p>
-                <div class="chart-container">
-                    <canvas id="calendarChart"></canvas>
-                </div>
-            </div>
-        </section>
-
-    </main>
- 
-
-    <script>
+<div class="chart-container">
+<canvas id="calendarChart"></canvas>
+</div>
+</div>
+</section>
+</main>
+<script>
         document.addEventListener('DOMContentLoaded', () => {
             const greetings = [
                 { lang: 'Spanish', text: '¡Feliz Año Nuevo!' },
@@ -333,8 +325,6 @@
             });
         });
     </script>
-
-
 <footer class="bg-gray-800 text-gray-300">
 <div class="container mx-auto px-6 py-12 lg:px-8">
 <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">

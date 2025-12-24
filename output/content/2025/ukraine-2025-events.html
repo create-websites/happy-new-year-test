@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Ukraine 2025: Strategic Resilience Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcfcfd; color: #101828; }
+        .nav-item.active { background-color: #f1f7ff; border-left: 4px solid #0057b7; color: #0057b7; font-weight: 700; }
+        .chart-container { 
+            position: relative; 
+            width: 100%; 
+            max-width: 100%; 
+            height: 300px; 
+            max-height: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @media (min-width: 768px) { .chart-container { height: 350px; } }
+        .card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid #eaecf0; }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+        .gradient-ukraine { background: linear-gradient(135deg, #0057b7 0%, #003d80 100%); }
+    </style>
+    <!-- Chosen Palette: Trident Resilience. Background: Sky-50. Main Accents: Blue (Trust/Stability), Yellow (Energy/Growth), Slate (Security). -->
+    <!-- Application Structure Plan:
+         1. Executive Dashboard: Immediate visualization of war-time recovery metrics.
+         2. Defense Tech: Focus on the "Brave1" ecosystem.
+         3. Reconstruction: The energy grid decentralization project.
+         4. EU Roadmap: Status of the 35 chapters of accession.
+         Why: This structure prioritizes the three pillars of 2025: Self-defense, Sustainability, and Integration. -->
+    <!-- Visualization & Content Choices:
+         - GDP/Recovery: Area chart showing projected growth vs. support levels.
+         - Drone Production: Bar chart comparing 2024 vs 2025 targets.
+         - Energy Grid: Doughnut chart showing current vs. target capacity.
+         - Integration: Radar chart for reform milestones.
+         NO SVG. NO Mermaid. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="flex h-screen overflow-hidden">
+
+    <!-- Desktop Sidebar -->
+    <aside class="w-72 bg-white border-r border-slate-200 hidden md:flex flex-col z-10">
+        <div class="p-8 border-b border-slate-50">
+            <h1 class="text-2xl font-black tracking-tight text-blue-800">UA<span class="text-yellow-500">2025</span></h1>
+            <p class="text-[10px] text-slate-400 mt-1 uppercase font-bold tracking-widest">Resilience &amp; Recovery</p>
+        </div>
+        <nav class="flex-1 overflow-y-auto py-6 px-4">
+            <ul class="space-y-2">
+                <li><button class="nav-item w-full text-left px-4 py-3 rounded-lg transition-all active" id="nav-dashboard" onclick="navTo('dashboard')">Dashboard Overview</button></li>
+                <li><button class="nav-item w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-defense" onclick="navTo('defense')">Defense Tech (Brave1)</button></li>
+                <li><button class="nav-item w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-energy" onclick="navTo('energy')">Energy &amp; Rebuild</button></li>
+                <li><button class="nav-item w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-accession" onclick="navTo('accession')">EU Integration</button></li>
+                <li><button class="nav-item w-full text-left px-4 py-3 rounded-lg transition-all" id="nav-social" onclick="navTo('social')">Social Capital</button></li>
+            </ul>
+        </nav>
+        <div class="p-6 bg-slate-50 border-t border-slate-100">
+            <div class="flex items-center space-x-2">
+                <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                <span class="text-xs font-bold text-slate-500 uppercase">System Status: Active</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Mobile Navigation -->
+    <div class="md:hidden fixed top-0 w-full bg-white border-b border-slate-200 z-20 flex items-center justify-between p-4">
+        <h1 class="text-xl font-black text-blue-800">UA<span class="text-yellow-500">2025</span></h1>
+        <select class="bg-slate-50 border border-slate-200 rounded-lg p-2 text-sm font-semibold" onchange="navTo(this.value)">
+            <option value="dashboard">Overview</option>
+            <option value="defense">Defense Tech</option>
+            <option value="energy">Energy</option>
+            <option value="accession">EU Roadmap</option>
+            <option value="social">Social Capital</option>
+        </select>
+    </div>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 overflow-y-auto p-4 md:p-10 pt-20 md:pt-10 bg-[#fcfcfd]" id="main-view">
+
+        <!-- SECTION: DASHBOARD -->
+        <section class="space-y-8 animate-in" id="view-dashboard">
+            <header>
+                <h2 class="text-3xl font-bold text-slate-900">2025 Strategic Outlook</h2>
+                <p class="text-slate-500 mt-2 max-w-3xl">Ukraine enters 2025 with a focus on deep economic resilience and military-industrial autonomy. This dashboard tracks the primary indicators of national stability.</p>
+            </header>
+
+            <!-- KPI Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="card bg-white p-6 rounded-2xl">
+                    <div class="text-slate-400 text-xs font-bold uppercase mb-2">Projected GDP Growth</div>
+                    <div class="text-3xl font-bold text-blue-700">+3.2%</div>
+                    <div class="text-xs text-green-600 mt-2">Recovery Trend Sustained</div>
+                </div>
+                <div class="card bg-white p-6 rounded-2xl">
+                    <div class="text-slate-400 text-xs font-bold uppercase mb-2">Domestic Drone Goal</div>
+                    <div class="text-3xl font-bold text-yellow-600">2.0M Units</div>
+                    <div class="text-xs text-blue-600 mt-2">Brave1 Expansion</div>
+                </div>
+                <div class="card bg-white p-6 rounded-2xl">
+                    <div class="text-slate-400 text-xs font-bold uppercase mb-2">EU Reform Alignment</div>
+                    <div class="text-3xl font-bold text-slate-900">68%</div>
+                    <div class="text-xs text-slate-500 mt-2">Negotiation Phase</div>
+                </div>
+                <div class="card bg-white p-6 rounded-2xl">
+                    <div class="text-slate-400 text-xs font-bold uppercase mb-2">Energy Stability</div>
+                    <div class="text-3xl font-bold text-slate-900">14.5 GW</div>
+                    <div class="text-xs text-orange-600 mt-2">Decentralized Backup</div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-2xl card">
+                    <h3 class="font-bold text-slate-900 mb-6 flex justify-between items-center">
+                        Economy: Aid vs. Domestic Revenue
+                    </h3>
+                    <div class="chart-container">
+                        <canvas id="economyChart"></canvas>
+                    </div>
+                </div>
+                <div class="gradient-ukraine p-8 rounded-2xl text-white flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">2025 Strategic Pillars</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <div class="bg-yellow-400 text-blue-900 w-6 h-6 rounded-full flex items-center justify-center font-bold text-xs shrink-0">1</div>
+                                <p class="text-sm">Transitioning from aid dependency to a "Defense-Centric Economy."</p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="bg-yellow-400 text-blue-900 w-6 h-6 rounded-full flex items-center justify-center font-bold text-xs shrink-0">2</div>
+                                <p class="text-sm">Total digitalization of government services through Diia 2025.</p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="bg-yellow-400 text-blue-900 w-6 h-6 rounded-full flex items-center justify-center font-bold text-xs shrink-0">3</div>
+                                <p class="text-sm">Aggressive decentralization of the energy grid via small-scale modular reactors and solar hubs.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 p-4 bg-white/10 rounded-xl border border-white/20">
+                        <p class="text-xs font-medium text-blue-100 italic">"Resilience is not just surviving the winter, but building the spring within the storm."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: DEFENSE TECH -->
+        <section class="hidden space-y-8 animate-in" id="view-defense">
+            <div class="bg-blue-50 border border-blue-100 p-8 rounded-2xl">
+                <h2 class="text-2xl font-bold text-blue-900">Brave1: Defense Industry Autonomy</h2>
+                <p class="text-blue-800 mt-2">In 2025, Ukraine scales its domestic production of UAVs, maritime drones, and electronic warfare (EW) systems. The goal is to provide 70% of frontline tech requirements internally.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-2xl card">
+                    <h3 class="font-bold text-slate-900 mb-6">Drone Production Targets (Millions)</h3>
+                    <div class="chart-container">
+                        <canvas id="droneChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl card flex flex-col">
+                    <h3 class="font-bold text-slate-900 mb-4">Tech Innovation Funnel</h3>
+                    <div class="space-y-6 flex-1">
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                            <div class="flex justify-between font-bold text-sm mb-1">
+                                <span>AI-Powered Targeting</span>
+                                <span class="text-blue-600">Testing Phase</span>
+                            </div>
+                            <div class="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-blue-600 h-full w-[85%]"></div>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                            <div class="flex justify-between font-bold text-sm mb-1">
+                                <span>Naval Drone Mk IV</span>
+                                <span class="text-green-600">Deployed</span>
+                            </div>
+                            <div class="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-green-600 h-full w-full"></div>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                            <div class="flex justify-between font-bold text-sm mb-1">
+                                <span>Domestic Ballistics</span>
+                                <span class="text-orange-600">R&amp;D</span>
+                            </div>
+                            <div class="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-orange-600 h-full w-[40%]"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: ENERGY -->
+        <section class="hidden space-y-8 animate-in" id="view-energy">
+            <div class="bg-yellow-50 border border-yellow-200 p-8 rounded-2xl">
+                <h2 class="text-2xl font-bold text-yellow-900">Energy Resilience: The Grid Reconstruction</h2>
+                <p class="text-yellow-800 mt-2">Shifting from centralized Soviet-era plants to a resilient, modular, and green network. 2025 focuses on distributed generation and hardening of existing substations.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-1 bg-white p-8 rounded-2xl card">
+                    <h3 class="font-bold mb-6">Capacity Restoration Status</h3>
+                    <div class="chart-container" style="height: 300px;">
+                        <canvas id="energyDonutChart"></canvas>
+                    </div>
+                </div>
+                <div class="lg:col-span-2 bg-white p-8 rounded-2xl card">
+                    <h3 class="font-bold mb-6">Investment in Modular Assets</h3>
+                    <div class="space-y-8">
+                        <div class="flex items-center space-x-6 p-4 hover:bg-slate-50 rounded-xl transition-colors">
+                            <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-2xl">⚡</div>
+                            <div class="flex-1">
+                                <h4 class="font-bold">Gas-Turbine Mobile Units</h4>
+                                <p class="text-sm text-slate-500">Fast deployment for regional outages. Target: 2.2 GW total.</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="px-2 py-1 bg-green-100 text-green-700 text-xs font-bold rounded">Active</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-6 p-4 hover:bg-slate-50 rounded-xl transition-colors">
+                            <div class="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center text-2xl">☀️</div>
+                            <div class="flex-1">
+                                <h4 class="font-bold">Community Solar Hubs</h4>
+                                <p class="text-sm text-slate-500">Decentralized power for 500+ small municipalities.</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded">Scaling</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-6 p-4 hover:bg-slate-50 rounded-xl transition-colors">
+                            <div class="w-16 h-16 bg-slate-100 rounded-2xl flex items-center justify-center text-2xl">🏗️</div>
+                            <div class="flex-1">
+                                <h4 class="font-bold">Substation Fortification</h4>
+                                <p class="text-sm text-slate-500">Concrete and iron domes for 150 critical nodes.</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="px-2 py-1 bg-orange-100 text-orange-700 text-xs font-bold rounded">Ongoing</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: ACCESSION -->
+        <section class="hidden space-y-8 animate-in" id="view-accession">
+            <div class="bg-blue-900 text-white p-10 rounded-2xl shadow-lg flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h2 class="text-3xl font-bold">EU Accession Roadmap</h2>
+                    <p class="text-blue-200 mt-2 max-w-xl">Ukraine is currently working through the 35 chapters of the acquis communautaire. 2025 is the "Harmonization Year."</p>
+                </div>
+                <div class="text-center bg-white/10 px-6 py-4 rounded-2xl backdrop-blur-sm border border-white/20">
+                    <div class="text-4xl font-black text-yellow-400">2030</div>
+                    <div class="text-xs font-bold uppercase tracking-widest text-blue-100">Target Entry Year</div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-2xl card">
+                    <h3 class="font-bold text-slate-900 mb-6">Reform Implementation Index</h3>
+                    <div class="chart-container">
+                        <canvas id="accessionRadarChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl card">
+                    <h3 class="font-bold text-slate-900 mb-6">Critical Chapter Status</h3>
+                    <div class="space-y-4">
+                        <div class="p-4 border border-slate-100 rounded-xl hover:shadow-md transition-shadow">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-bold">Judicial Reform</span>
+                                <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">Advanced</span>
+                            </div>
+                            <p class="text-xs text-slate-500">Restructuring of Supreme Court and anti-corruption vetting.</p>
+                        </div>
+                        <div class="p-4 border border-slate-100 rounded-xl hover:shadow-md transition-shadow">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-bold">Digital Governance</span>
+                                <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">Completed</span>
+                            </div>
+                            <p class="text-xs text-slate-500">Diia platform integration with EU digital standards.</p>
+                        </div>
+                        <div class="p-4 border border-slate-100 rounded-xl hover:shadow-md transition-shadow">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-bold">Agriculture Standards</span>
+                                <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">Negotiating</span>
+                            </div>
+                            <p class="text-xs text-slate-500">Aligning subsidy and export quotas with CAP policy.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: SOCIAL -->
+        <section class="hidden space-y-8 animate-in" id="view-social">
+            <div class="bg-emerald-50 border border-emerald-100 p-8 rounded-2xl">
+                <h2 class="text-2xl font-bold text-emerald-900">Demographics &amp; Repatriation</h2>
+                <p class="text-emerald-800 mt-2">The return of human capital is the engine of the 2025 economy. 2025 focuses on the "Return &amp; Rebuild" initiative for skilled workers and young families.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-2xl card">
+                    <h3 class="font-bold text-slate-900 mb-6">Refugee Return Sentiment (2025 Projection)</h3>
+                    <div class="chart-container">
+                        <canvas id="repatriationChart"></canvas>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-white p-6 rounded-2xl card text-center flex flex-col justify-center">
+                        <div class="text-2xl font-bold text-blue-700">1.2M</div>
+                        <div class="text-[10px] text-slate-500 uppercase font-bold mt-1">Projected Returns</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl card text-center flex flex-col justify-center">
+                        <div class="text-2xl font-bold text-yellow-600">82%</div>
+                        <div class="text-[10px] text-slate-500 uppercase font-bold mt-1">Digital Literacy</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl card text-center flex flex-col justify-center">
+                        <div class="text-2xl font-bold text-emerald-600">450k</div>
+                        <div class="text-[10px] text-slate-500 uppercase font-bold mt-1">New Tech Jobs</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl card text-center flex flex-col justify-center">
+                        <div class="text-2xl font-bold text-slate-900">15.5M</div>
+                        <div class="text-[10px] text-slate-500 uppercase font-bold mt-1">Diia Active Users</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // --- Navigation Logic ---
+        function navTo(viewId) {
+            // Update Navigation Menu
+            document.querySelectorAll('.nav-item').forEach(btn => btn.classList.remove('active'));
+            const activeNav = document.getElementById(`nav-${viewId}`);
+            if(activeNav) activeNav.classList.add('active');
+
+            // Toggle Section Visibility
+            document.querySelectorAll('section').forEach(sec => sec.classList.add('hidden'));
+            const targetView = document.getElementById(`view-${viewId}`);
+            if(targetView) targetView.classList.remove('hidden');
+
+            // Force Chart Update
+            window.dispatchEvent(new Event('resize'));
+        }
+
+        // --- Chart Configuration ---
+        Chart.defaults.font.family = "'Plus Jakarta Sans', sans-serif";
+        Chart.defaults.color = '#64748b';
+
+        // 1. Economy Chart (Dashboard)
+        const ctxEco = document.getElementById('economyChart').getContext('2d');
+        new Chart(ctxEco, {
+            type: 'line',
+            data: {
+                labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                datasets: [{
+                    label: 'Domestic Revenue (Bn $)',
+                    data: [12, 14.5, 18, 22],
+                    borderColor: '#0057b7',
+                    backgroundColor: 'rgba(0, 87, 183, 0.1)',
+                    fill: true,
+                    tension: 0.3
+                }, {
+                    label: 'International Support (Bn $)',
+                    data: [35, 32, 30, 25],
+                    borderColor: '#94a3b8',
+                    borderDash: [5, 5],
+                    fill: false,
+                    tension: 0.3
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { y: { beginAtZero: true } }
+            }
+        });
+
+        // 2. Drone Production (Defense)
+        const ctxDrone = document.getElementById('droneChart').getContext('2d');
+        new Chart(ctxDrone, {
+            type: 'bar',
+            data: {
+                labels: ['FPV Drones', 'Recon UAVs', 'Maritime Drones', 'Long-range Drones'],
+                datasets: [{
+                    label: '2024 Actual',
+                    data: [0.8, 0.1, 0.02, 0.05],
+                    backgroundColor: '#e2e8f0'
+                }, {
+                    label: '2025 Target',
+                    data: [1.5, 0.3, 0.1, 0.2],
+                    backgroundColor: '#0057b7'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { y: { beginAtZero: true } }
+            }
+        });
+
+        // 3. Energy Donut
+        const ctxEnergy = document.getElementById('energyDonutChart').getContext('2d');
+        new Chart(ctxEnergy, {
+            type: 'doughnut',
+            data: {
+                labels: ['Operational', 'Damaged/Offline', 'Newly Built (Modular)'],
+                datasets: [{
+                    data: [60, 25, 15],
+                    backgroundColor: ['#eab308', '#f87171', '#3b82f6'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '80%',
+                plugins: { legend: { position: 'bottom' } }
+            }
+        });
+
+        // 4. Accession Radar
+        const ctxAcc = document.getElementById('accessionRadarChart').getContext('2d');
+        new Chart(ctxAcc, {
+            type: 'radar',
+            data: {
+                labels: ['Anti-Corruption', 'Judicial Indep.', 'Market Freedom', 'Free Press', 'Military Standard'],
+                datasets: [{
+                    label: 'Alignment Level %',
+                    data: [72, 65, 55, 80, 92],
+                    borderColor: '#0057b7',
+                    backgroundColor: 'rgba(0, 87, 183, 0.2)',
+                    pointBackgroundColor: '#0057b7'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { r: { min: 0, max: 100 } }
+            }
+        });
+
+        // 5. Repatriation (Social)
+        const ctxSocial = document.getElementById('repatriationChart').getContext('2d');
+        new Chart(ctxSocial, {
+            type: 'bubble',
+            data: {
+                datasets: [{
+                    label: 'Return Intensity',
+                    data: [
+                        { x: 20, y: 70, r: 15, label: 'Kyiv' },
+                        { x: 10, y: 40, r: 25, label: 'Lviv' },
+                        { x: 40, y: 30, r: 10, label: 'Kharkiv' },
+                        { x: 30, y: 80, r: 20, label: 'Dnipro' }
+                    ],
+                    backgroundColor: '#10b981'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: { title: { display: true, text: 'Distance from Border (km x10)' } },
+                    y: { title: { display: true, text: 'Safety Index' } }
+                }
+            }
+        });
+    </script>
+
+<html><head></head><body><footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+		  
+		  <li>								
+		<a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">26-bihari-wishes</a>
+            </li>	
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">26-chinese-new-year-wishes</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">26-christmas-wishes</a>
+            </li>	
+		  <li>
+		  		<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-festival-countdown</a>
+            </li>	
+										
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">Christmas-wishes-by-audience</a>
+            </li>	
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">Happy-new-year-2026-celebrations-worldwide.html</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">Happy-new-year-2026</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">Multilingual-greetings-webpage</a>
+            </li>	
+		  
+		  
+		  
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+		   <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">2025 Trends and 2026 forecast</h5>
+        <ul class="space-y-2">
+		 
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-digital-outlook-trends-forecast</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">2026-festival-countdown</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026_dashboard.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">2026_dashboard</a>
+            </li>	
+
+
+		 
+
+									
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/new_year_2026_page.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">New_year_2026_page</a>
+            </li>	
+									
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/send-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl07_title">Send-christmas-wishes</a>
+            </li>	
+										
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl08_title">Send-sankranti-wishes-in-multiple-languages</a>
+            </li>	
+		
+		
+
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+
+          
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+        <div class="space-y-2">
+          <p>Redmond<br/>WA, USA</p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+          </p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+      
+      <div class="flex space-x-4 mt-4 sm:mt-0">
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+          <span class="sr-only">Facebook</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+          <span class="sr-only">Twitter</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+          <span class="sr-only">LinkedIn</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+	  
+	  <div class="flex gap-4 mt-4 sm:mt-0">
+                    <a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+                 
+					<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+      </div>
+    </div>
+	
+  </div>
+</footer></body></html></body></html>

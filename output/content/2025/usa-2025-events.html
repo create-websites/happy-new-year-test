@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>USA 2025: National Event Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet"/>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #0f172a; }
+        h1, h2, .serif { font-family: 'Playfair Display', serif; }
+        .nav-item.active { background-color: #f1f5f9; border-left: 4px solid #0f172a; font-weight: 600; }
+        .chart-container { 
+            position: relative; 
+            width: 100%; 
+            max-width: 100%; 
+            height: 300px; 
+            max-height: 400px;
+        }
+        @media (min-width: 768px) { .chart-container { height: 350px; } }
+        .card { transition: all 0.2s ease-in-out; }
+        .card:hover { transform: translateY(-3px); box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.1); }
+        .usa-gradient { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+    </style>
+    <!-- Chosen Palette: Midnight Liberty. Main background: Slate-50. Accents: Navy (Authority), Crimson (Energy), Silver (Tech). -->
+    <!-- Application Structure Plan: 
+         - Vertical Sidebar Navigation for desktop, Dropdown for mobile.
+         - Dashboard Overview for rapid synthesis.
+         - Thematic drill-downs for Space, Politics, and Economy.
+         - Interaction: Tabbed navigation, hovered chart tooltips, and dynamic status bars. -->
+    <!-- Visualization & Content Choices:
+         - Economy: Dual-axis Line Chart (Interest Rates vs Inflation).
+         - Artemis: Progress Ring (Mission readiness).
+         - Politics: Horizontal Bar (Legislative priorities).
+         - Entertainment: Bubble Chart (Marketing Spend vs Audience Hype).
+         NO SVG. NO Mermaid. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="flex h-screen overflow-hidden">
+
+    <!-- Sidebar Navigation -->
+    <aside class="w-72 usa-gradient text-white hidden md:flex flex-col z-10">
+        <div class="p-8">
+            <h1 class="text-3xl font-bold tracking-tighter">USA <span class="text-blue-400">2025</span></h1>
+            <p class="text-xs text-slate-400 mt-1 uppercase tracking-widest font-semibold">Strategic Outlook Report</p>
+        </div>
+        <nav class="flex-1 overflow-y-auto px-4">
+            <ul class="space-y-2">
+                <li><button class="nav-item w-full text-left px-6 py-3 rounded-lg hover:bg-slate-800 transition-colors active" id="nav-summary" onclick="navTo('summary')">Executive Summary</button></li>
+                <li><button class="nav-item w-full text-left px-6 py-3 rounded-lg hover:bg-slate-800 transition-colors" id="nav-politics" onclick="navTo('politics')">The 47th Presidency</button></li>
+                <li><button class="nav-item w-full text-left px-6 py-3 rounded-lg hover:bg-slate-800 transition-colors" id="nav-space" onclick="navTo('space')">Artemis II: Lunar Return</button></li>
+                <li><button class="nav-item w-full text-left px-6 py-3 rounded-lg hover:bg-slate-800 transition-colors" id="nav-economy" onclick="navTo('economy')">Economic Outlook</button></li>
+                <li><button class="nav-item w-full text-left px-6 py-3 rounded-lg hover:bg-slate-800 transition-colors" id="nav-culture" onclick="navTo('culture')">Sports &amp; Entertainment</button></li>
+            </ul>
+        </nav>
+        <div class="p-8 opacity-50">
+            <div class="text-[10px] uppercase font-bold border-t border-slate-700 pt-4">© 2025 Federal Planning Group</div>
+        </div>
+    </aside>
+
+    <!-- Mobile Header -->
+    <div class="md:hidden fixed top-0 w-full bg-white border-b border-slate-200 z-20 flex items-center justify-between p-4">
+        <h1 class="text-xl font-bold tracking-tight">USA <span class="text-blue-600">2025</span></h1>
+        <select class="bg-slate-100 border-none rounded-md p-2 text-sm font-semibold" onchange="navTo(this.value)">
+            <option value="summary">Summary</option>
+            <option value="politics">Politics</option>
+            <option value="space">Space Race</option>
+            <option value="economy">Economy</option>
+            <option value="culture">Culture</option>
+        </select>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-1 overflow-y-auto p-4 md:p-10 pt-20 md:pt-10 bg-slate-50" id="content-viewport">
+
+        <!-- SECTION: EXECUTIVE SUMMARY -->
+        <section class="space-y-8 animate-in" id="view-summary">
+            <header>
+                <h2 class="text-4xl font-bold text-slate-900">National Executive Dashboard</h2>
+                <p class="text-slate-600 mt-3 max-w-2xl text-lg">
+                    A comprehensive overview of the United States in 2025, a year marked by executive transition, generational leaps in aerospace technology, and a critical pivot toward economic stabilization.
+                </p>
+            </header>
+
+            <!-- Metrics -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="card bg-white p-6 rounded-xl shadow-sm border-t-4 border-blue-900">
+                    <div class="text-slate-400 text-xs font-bold uppercase tracking-widest">Artemis Readiness</div>
+                    <div class="text-3xl font-bold text-slate-900 mt-1">94%</div>
+                    <div class="text-xs text-blue-600 mt-2 font-semibold">Mission Target: Q4 2025</div>
+                </div>
+                <div class="card bg-white p-6 rounded-xl shadow-sm border-t-4 border-red-600">
+                    <div class="text-slate-400 text-xs font-bold uppercase tracking-widest">GDP Growth Est.</div>
+                    <div class="text-3xl font-bold text-slate-900 mt-1">+2.4%</div>
+                    <div class="text-xs text-red-600 mt-2 font-semibold">"Soft Landing" Scenario</div>
+                </div>
+                <div class="card bg-white p-6 rounded-xl shadow-sm border-t-4 border-slate-900">
+                    <div class="text-slate-400 text-xs font-bold uppercase tracking-widest">Inauguration Impact</div>
+                    <div class="text-3xl font-bold text-slate-900 mt-1">Jan 20</div>
+                    <div class="text-xs text-slate-500 mt-2 font-semibold">Peaceful Transition</div>
+                </div>
+                <div class="card bg-white p-6 rounded-xl shadow-sm border-t-4 border-emerald-600">
+                    <div class="text-slate-400 text-xs font-bold uppercase tracking-widest">AI Adoption Index</div>
+                    <div class="text-3xl font-bold text-slate-900 mt-1">72.1</div>
+                    <div class="text-xs text-emerald-600 mt-2 font-semibold">Industrial Integration</div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-xl font-bold">Annual National Sentiment Trend</h3>
+                        <span class="text-xs font-mono bg-slate-100 px-2 py-1 rounded">2025 Fiscal Projections</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="summaryChart"></canvas>
+                    </div>
+                    <p class="text-sm text-slate-500 mt-4 leading-relaxed">
+                        Data reflects a stabilization of public confidence following the Jan 20 inauguration, with a secondary peak projected for the Artemis lunar launch window in late Q4.
+                    </p>
+                </div>
+                <div class="bg-slate-900 text-white p-8 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Top Legislative Priorities</h3>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between text-xs mb-1 font-bold uppercase text-slate-400">
+                                    <span>Energy Infrastructure</span>
+                                    <span>85% Focus</span>
+                                </div>
+                                <div class="w-full bg-slate-800 rounded-full h-1.5">
+                                    <div class="bg-blue-400 h-1.5 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs mb-1 font-bold uppercase text-slate-400">
+                                    <span>Tax Reform 2025</span>
+                                    <span>70% Focus</span>
+                                </div>
+                                <div class="w-full bg-slate-800 rounded-full h-1.5">
+                                    <div class="bg-red-400 h-1.5 rounded-full" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs mb-1 font-bold uppercase text-slate-400">
+                                    <span>AI Regulation</span>
+                                    <span>60% Focus</span>
+                                </div>
+                                <div class="w-full bg-slate-800 rounded-full h-1.5">
+                                    <div class="bg-emerald-400 h-1.5 rounded-full" style="width: 60%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-slate-800">
+                        <p class="text-xs text-slate-400 italic">"The 2025 agenda shifts from campaign rhetoric to industrial pragmatism, prioritizing domestic manufacturing and energy independence."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: POLITICS -->
+        <section class="hidden space-y-8 animate-in" id="view-politics">
+            <div class="bg-blue-900 text-white p-10 rounded-3xl shadow-xl">
+                <h2 class="text-3xl font-bold mb-4">The 47th Presidency: Inauguration &amp; Beyond</h2>
+                <p class="text-blue-100 max-w-2xl">Analysis of the January 20th transition, the first 100 days of the new administration, and the projected legislative roadmap for 2025.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                    <h3 class="font-bold text-slate-900 mb-6 flex items-center">
+                        <span class="w-2 h-6 bg-red-600 mr-3"></span> Cabinet Confirmation Progress
+                    </h3>
+                    <div class="chart-container" style="height: 300px;">
+                        <canvas id="politicsChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                    <h3 class="font-bold text-slate-900 mb-6">Inauguration Timeline: Jan 20, 2025</h3>
+                    <div class="space-y-6 relative border-l-2 border-slate-100 pl-6 ml-4">
+                        <div class="relative">
+                            <div class="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-blue-900"></div>
+                            <div class="font-bold">11:30 AM — Swearing-In</div>
+                            <p class="text-sm text-slate-500">Chief Justice administers the Oath of Office at the U.S. Capitol West Front.</p>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-slate-300"></div>
+                            <div class="font-bold">12:15 PM — Inaugural Address</div>
+                            <p class="text-sm text-slate-500">The 47th President outlines the "2025 National Renewal" policy framework.</p>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-slate-300"></div>
+                            <div class="font-bold">2:30 PM — Pass in Review</div>
+                            <p class="text-sm text-slate-500">Traditional military ceremony followed by the parade to the White House.</p>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-red-600"></div>
+                            <div class="font-bold">7:00 PM — Executive Action 001</div>
+                            <p class="text-sm text-slate-500">Signing of first executive orders regarding energy and border security.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: SPACE -->
+        <section class="hidden space-y-8 animate-in" id="view-space">
+            <header class="flex items-center space-x-4">
+                <div class="w-12 h-12 bg-slate-900 rounded-full flex items-center justify-center text-white font-bold">AII</div>
+                <div>
+                    <h2 class="text-3xl font-bold text-slate-900">Artemis II: Humanity's Lunar Return</h2>
+                    <p class="text-slate-500">The first crewed mission to the Moon since 1972, scheduled for Q4 2025.</p>
+                </div>
+            </header>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-1 bg-white p-8 rounded-2xl shadow-sm">
+                    <h3 class="font-bold mb-6">Mission Readiness Checklist</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-3 bg-emerald-50 text-emerald-700 rounded-lg">
+                            <span class="text-sm font-semibold">SLS Core Stage Complete</span>
+                            <span>✓</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-emerald-50 text-emerald-700 rounded-lg">
+                            <span class="text-sm font-semibold">Orion Crew Capsule Ready</span>
+                            <span>✓</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-blue-50 text-blue-700 rounded-lg">
+                            <span class="text-sm font-semibold">Crew Training (Phase 4)</span>
+                            <span class="animate-pulse">...</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-slate-50 text-slate-500 rounded-lg">
+                            <span class="text-sm font-semibold">Wet Dress Rehearsal</span>
+                            <span class="text-xs uppercase font-bold tracking-tighter">Pending</span>
+                        </div>
+                    </div>
+                    <div class="mt-8 chart-container" style="height: 200px;">
+                        <canvas id="spaceDonutChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2 bg-slate-50 p-8 rounded-2xl border-2 border-dashed border-slate-200">
+                    <h3 class="font-bold text-slate-900 mb-6">Mission Trajectory Phase Detail</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                            <div class="text-blue-600 font-bold text-xs uppercase mb-2">Phase 1: Launch</div>
+                            <p class="text-sm text-slate-600">SLS lifts Orion from Pad 39B at Kennedy Space Center into a High Earth Orbit.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                            <div class="text-blue-600 font-bold text-xs uppercase mb-2">Phase 2: TLI</div>
+                            <p class="text-sm text-slate-600">Trans-Lunar Injection burn sends the 4-person crew toward the Moon.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                            <div class="text-blue-600 font-bold text-xs uppercase mb-2">Phase 3: Lunar Flyby</div>
+                            <p class="text-sm text-slate-600">Orion swings 4,600 miles behind the lunar far side to test life support systems.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                            <div class="text-red-600 font-bold text-xs uppercase mb-2">Phase 4: Return</div>
+                            <p class="text-sm text-slate-600">High-speed atmospheric re-entry and splashdown in the Pacific Ocean.</p>
+                        </div>
+                    </div>
+                    <div class="mt-8 p-6 bg-slate-900 text-white rounded-xl">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <div class="text-xs font-bold uppercase text-slate-400">Total Mission Duration</div>
+                                <div class="text-xl font-bold">10 Days, 6 Hours</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-xs font-bold uppercase text-slate-400">Crew Size</div>
+                                <div class="text-xl font-bold">4 Astronauts</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: ECONOMY -->
+        <section class="hidden space-y-8 animate-in" id="view-economy">
+            <div class="bg-emerald-50 border-l-8 border-emerald-600 p-8 rounded-r-2xl">
+                <h2 class="text-3xl font-bold text-emerald-900">Economic Outlook: The Soft Landing</h2>
+                <p class="text-emerald-800 mt-2">Monitoring the pivot from inflation fighting to growth stabilization. Fiscal 2025 focuses on lowering interest rates and boosting housing inventory.</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+                    <h3 class="font-bold text-slate-900">Inflation vs. Fed Funds Rate (2025 Projection)</h3>
+                    <div class="flex space-x-3 mt-2 md:mt-0">
+                        <div class="flex items-center space-x-1"><span class="w-3 h-3 bg-red-500 rounded-full"></span> <span class="text-xs font-bold">Fed Rate</span></div>
+                        <div class="flex items-center space-x-1"><span class="w-3 h-3 bg-blue-500 rounded-full"></span> <span class="text-xs font-bold">CPI (Inflation)</span></div>
+                    </div>
+                </div>
+                <div class="chart-container" style="height: 400px;">
+                    <canvas id="economyChart"></canvas>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-6 bg-white rounded-xl border border-slate-100 shadow-sm text-center">
+                    <div class="text-xs font-bold text-slate-400 uppercase mb-2">Unemployment Floor</div>
+                    <div class="text-3xl font-bold text-slate-900">4.1%</div>
+                    <p class="text-xs text-slate-500 mt-1">Historically tight labor market</p>
+                </div>
+                <div class="p-6 bg-white rounded-xl border border-slate-100 shadow-sm text-center">
+                    <div class="text-xs font-bold text-slate-400 uppercase mb-2">Housing Start Est.</div>
+                    <div class="text-3xl font-bold text-slate-900">1.6M</div>
+                    <p class="text-xs text-slate-500 mt-1">Annualized new constructions</p>
+                </div>
+                <div class="p-6 bg-white rounded-xl border border-slate-100 shadow-sm text-center">
+                    <div class="text-xs font-bold text-slate-400 uppercase mb-2">S&amp;P 500 Target</div>
+                    <div class="text-3xl font-bold text-slate-900">6,100</div>
+                    <p class="text-xs text-slate-500 mt-1">Reflecting tech earnings growth</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: CULTURE -->
+        <section class="hidden space-y-8 animate-in" id="view-culture">
+            <div class="flex flex-col md:flex-row gap-8">
+                <!-- Super Bowl Card -->
+                <div class="flex-1 bg-white p-8 rounded-3xl shadow-sm border border-slate-100 flex flex-col justify-between">
+                    <div>
+                        <div class="bg-red-100 text-red-700 w-fit px-3 py-1 rounded-full text-[10px] font-black uppercase mb-4">Live Event</div>
+                        <h3 class="text-4xl font-black text-slate-900 leading-none">SUPER BOWL <span class="text-blue-700">LIX</span></h3>
+                        <p class="text-slate-500 mt-4 text-sm">Date: Feb 9, 2025 | Location: Caesars Superdome, New Orleans</p>
+                    </div>
+                    <div class="mt-10 p-4 bg-slate-50 rounded-xl">
+                        <div class="flex justify-between items-center text-xs font-bold mb-2">
+                            <span>Projected Viewership</span>
+                            <span class="text-blue-600">128M</span>
+                        </div>
+                        <div class="w-full bg-slate-200 h-2 rounded-full">
+                            <div class="bg-blue-600 h-2 rounded-full" style="width: 95%"></div>
+                        </div>
+                        <p class="text-[10px] text-slate-400 mt-2 uppercase tracking-tight">Projected record for digital streaming audience</p>
+                    </div>
+                </div>
+
+                <!-- Cinema Chart -->
+                <div class="flex-1 bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                    <h3 class="font-bold text-slate-900 mb-6">2025 Blockbuster Hype Index</h3>
+                    <div class="chart-container">
+                        <canvas id="cultureChart"></canvas>
+                    </div>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-slate-100 text-[10px] font-bold rounded">Superman (July)</span>
+                        <span class="px-2 py-1 bg-slate-100 text-[10px] font-bold rounded">Fantastic Four</span>
+                        <span class="px-2 py-1 bg-slate-100 text-[10px] font-bold rounded">GTA VI Trailer 2</span>
+                        <span class="px-2 py-1 bg-slate-100 text-[10px] font-bold rounded">Avatar 3</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- News Ticker Placeholder -->
+            <div class="bg-slate-900 text-white p-4 rounded-xl flex items-center space-x-6 overflow-hidden">
+                <div class="bg-red-600 px-2 py-1 text-[10px] font-bold rounded animate-pulse">FLASH</div>
+                <div class="text-sm whitespace-nowrap opacity-80">
+                    Broadway records highest spring attendance in 5 years — Netflix announces shift toward live sports integration — Museum of Modern Art (MoMA) launches 2025 AI-Art retrospective...
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Navigation Control
+        function navTo(sectionId) {
+            // Update Active Link UI
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active', 'bg-slate-800'));
+            const activeNav = document.getElementById(`nav-${sectionId}`);
+            if(activeNav) activeNav.classList.add('active');
+
+            // Toggle Section Visibility
+            document.querySelectorAll('section').forEach(sec => sec.classList.add('hidden'));
+            const target = document.getElementById(`view-${sectionId}`);
+            if(target) target.classList.remove('hidden');
+
+            // Force Chart Refreshes
+            window.dispatchEvent(new Event('resize'));
+        }
+
+        // Global Chart Defaults
+        Chart.defaults.font.family = "'Inter', sans-serif";
+        Chart.defaults.color = '#64748b';
+
+        // 1. Summary Chart (Sentiment)
+        const ctxSum = document.getElementById('summaryChart').getContext('2d');
+        new Chart(ctxSum, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: 'Consumer Sentiment Index',
+                    data: [68, 72, 75, 74, 78, 80, 82, 81, 84, 86, 90, 92],
+                    borderColor: '#0f172a',
+                    backgroundColor: 'rgba(15, 23, 42, 0.05)',
+                    fill: true,
+                    tension: 0.4,
+                    borderWidth: 3,
+                    pointRadius: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: { 
+                    y: { display: false, beginAtZero: false },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // 2. Politics Chart (Confirmations)
+        const ctxPol = document.getElementById('politicsChart').getContext('2d');
+        new Chart(ctxPol, {
+            type: 'bar',
+            data: {
+                labels: ['State', 'Treasury', 'Defense', 'Justice', 'HHS', 'Energy'],
+                datasets: [{
+                    label: 'Days to Confirmation (Est)',
+                    data: [12, 18, 14, 25, 30, 22],
+                    backgroundColor: ['#0f172a', '#1e293b', '#334155', '#475569', '#64748b', '#94a3b8'],
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                plugins: { legend: { display: false } }
+            }
+        });
+
+        // 3. Artemis Donut
+        const ctxSpa = document.getElementById('spaceDonutChart').getContext('2d');
+        new Chart(ctxSpa, {
+            type: 'doughnut',
+            data: {
+                labels: ['Completed', 'Testing', 'Remaining'],
+                datasets: [{
+                    data: [75, 20, 5],
+                    backgroundColor: ['#10b981', '#3b82f6', '#e2e8f0'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '80%',
+                plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 10 } } } }
+            }
+        });
+
+        // 4. Economy Chart
+        const ctxEco = document.getElementById('economyChart').getContext('2d');
+        new Chart(ctxEco, {
+            type: 'line',
+            data: {
+                labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                datasets: [{
+                    label: 'Fed Rate (%)',
+                    data: [5.25, 4.75, 4.25, 4.00],
+                    borderColor: '#ef4444',
+                    borderWidth: 4,
+                    tension: 0.2
+                }, {
+                    label: 'CPI Inflation (%)',
+                    data: [3.1, 2.8, 2.4, 2.1],
+                    borderColor: '#3b82f6',
+                    borderWidth: 4,
+                    tension: 0.2,
+                    borderDash: [5, 5]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: { beginAtZero: false, ticks: { callback: (v) => v + '%' } }
+                }
+            }
+        });
+
+        // 5. Culture Bubble
+        const ctxCul = document.getElementById('cultureChart').getContext('2d');
+        new Chart(ctxCul, {
+            type: 'bubble',
+            data: {
+                datasets: [{
+                    label: 'Movie Anticipation',
+                    data: [
+                        { x: 200, y: 95, r: 25, label: 'Superman' },
+                        { x: 150, y: 80, r: 15, label: 'Mickey 17' },
+                        { x: 300, y: 100, r: 35, label: 'Avatar 3' },
+                        { x: 180, y: 70, r: 12, label: 'Minecraft' }
+                    ],
+                    backgroundColor: 'rgba(59, 130, 246, 0.6)'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: { title: { display: true, text: 'Budget ($M)' } },
+                    y: { title: { display: true, text: 'Hype Score' }, min: 50, max: 110 }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: (ctx) => ctx.raw.label + ': Budget $' + ctx.raw.x + 'M'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+<html><head></head><body><footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+		  
+		  <li>								
+		<a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">26-bihari-wishes</a>
+            </li>	
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">26-chinese-new-year-wishes</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">26-christmas-wishes</a>
+            </li>	
+		  <li>
+		  		<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-festival-countdown</a>
+            </li>	
+										
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">Christmas-wishes-by-audience</a>
+            </li>	
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">Happy-new-year-2026-celebrations-worldwide.html</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">Happy-new-year-2026</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">Multilingual-greetings-webpage</a>
+            </li>	
+		  
+		  
+		  
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+		   <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">2025 Trends and 2026 forecast</h5>
+        <ul class="space-y-2">
+		 
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-digital-outlook-trends-forecast</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">2026-festival-countdown</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026_dashboard.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">2026_dashboard</a>
+            </li>	
+
+
+		 
+
+									
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/new_year_2026_page.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">New_year_2026_page</a>
+            </li>	
+									
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/send-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl07_title">Send-christmas-wishes</a>
+            </li>	
+										
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl08_title">Send-sankranti-wishes-in-multiple-languages</a>
+            </li>	
+		
+		
+
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+
+          
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+        <div class="space-y-2">
+          <p>Redmond<br/>WA, USA</p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+          </p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+      
+      <div class="flex space-x-4 mt-4 sm:mt-0">
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+          <span class="sr-only">Facebook</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+          <span class="sr-only">Twitter</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+          <span class="sr-only">LinkedIn</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+	  
+	  <div class="flex gap-4 mt-4 sm:mt-0">
+                    <a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+                 
+					<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+      </div>
+    </div>
+	
+  </div>
+</footer></body></html></body></html>

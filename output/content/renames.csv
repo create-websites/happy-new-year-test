@@ -1,7 +1,9 @@
 original_path,output_path,articleurl,status
 different-new-year-celebrations-around-the-world-and-images.html,different-new-year-celebrations-around-the-world-and-images.html,yes,merged
-index - Copy.html,index-copy.html,yes,merged
-index-main.html,index-main.html,yes,merged
+global-celebration.html,global-celebration.html,yes,merged
+new-year-card-gallery.html,new-year-card-gallery.html,yes,merged
+new-year-slideshow.html,new-year-slideshow.html,yes,merged
+newyear-hub-main-image.html,index.html,yes,merged
 2025\2025-conflict-report.html,2025\2025-conflict-report.html,yes,merged
 2025\2025-conflict-wars.html,2025\2025-conflict-wars.html,yes,merged
 2025\2025-index.html,2025\2025-index.html,yes,merged
@@ -9,11 +11,11 @@ index-main.html,index-main.html,yes,merged
 2025\2025-technology-evolution.html,2025\2025-technology-evolution.html,yes,merged
 2025\career-business-resolutions.html,2025\career-business-resolutions.html,yes,merged
 2025\closing-2025.html,2025\closing-2025.html,yes,merged
-2025\india-2025-events.html,2025\india-2025-events.html,no,merged
+2025\india-2025-events.html,2025\india-2025-events.html,yes,merged
 2025\new-year-digital-behavior-trends-report-2025.html,2025\new-year-digital-behavior-trends-report-2025.html,yes,merged
 2025\reslutions-financial-freedom.html,2025\reslutions-financial-freedom.html,yes,merged
-2025\ukraine-2025-events.html,2025\ukraine-2025-events.html,no,merged
-2025\usa-2025-events.html,2025\usa-2025-events.html,no,merged
+2025\ukraine-2025-events.html,2025\ukraine-2025-events.html,yes,merged
+2025\usa-2025-events.html,2025\usa-2025-events.html,yes,merged
 2026\2026-digital-outlook-trends-forecast.html,2026\2026-digital-outlook-trends-forecast.html,yes,merged
 2026\2026-festival-countdown.html,2026\2026-festival-countdown.html,yes,merged
 2026\2026_dashboard.html,2026\2026_dashboard.html,yes,merged
@@ -37,9 +39,9 @@ index-main.html,index-main.html,yes,merged
 2026\a-z-thanks-giving.html,2026\26-thanks-giving-wishes.html,yes,merged
 2026\a-z-wishes-fathers-day.html,2026\26-fathers-day-wishes.html,yes,merged
 2026\happy-new-year-2026.html,2026\happy-new-year-2026.html,yes,merged
-2026\hindu-festivals-2026.html,2026\hindu-festivals-2026.html,no,merged
+2026\hindu-festivals-2026.html,2026\hindu-festivals-2026.html,yes,merged
 2026\newyear-26-wishes.html,2026\newyear-26-wishes.html,yes,merged
-2026\pitru-paksha-2026.html,2026\pitru-paksha-2026.html,no,merged
+2026\pitru-paksha-2026.html,2026\pitru-paksha-2026.html,yes,merged
 2027\2027-festivals-countdown.html,2027\2027-festivals-countdown.html,yes,merged
 chinese-new-year\2013.html,chinese-new-year\2013.html,yes,merged
 chinese-new-year\2014.html,chinese-new-year\2014.html,yes,merged
@@ -50,8 +52,8 @@ chinese-new-year\2018.html,chinese-new-year\2018.html,yes,merged
 chinese-new-year\2019.html,chinese-new-year\2019.html,yes,merged
 chinese-new-year\chinese-new-year-2026-info.html,chinese-new-year\chinese-new-year-2026-info.html,yes,merged
 chinese-new-year\chinese-new-year-guide.html,chinese-new-year\chinese-new-year-guide.html,yes,merged
+chinese-new-year\chinese-new-year-index.html,chinese-new-year\index.html,yes,merged
 chinese-new-year\chinese-new-year-with-header.html,chinese-new-year\chinese-new-year-with-header.html,yes,merged
-chinese-new-year\index.html,chinese-new-year\index.html,yes,merged
 festivals\christmas\christmas-dinner-info.html,festivals\christmas\christmas-dinner-info.html,yes,merged
 festivals\christmas\christmas-dinner.html,festivals\christmas\christmas-dinner.html,yes,merged
 festivals\christmas\christmas-general-info.html,festivals\christmas\christmas-general-info.html,yes,merged

@@ -9,7 +9,7 @@ newyear-hub-main-image.html,index.html,yes,merged
 2025\2025-conflict-report.html,2025\2025-conflict-report.html,yes,merged
 2025\2025-conflict-wars.html,2025\2025-conflict-wars.html,yes,merged
 2025\2025-france-events-data.html,2025\2025-france-events-data.html,no,merged
-2025\2025-global-events-data.html,2025\2025-global-events-data.html,no,merged
+2025\2025-global-events-data.html,2025\index.html,yes,merged
 2025\2025-index.html,2025\2025-summary.html,yes,merged
 2025\2025-india-events-data.html,2025\2025-india-events-data.html,no,merged
 2025\2025-israel-events-data.html,2025\2025-israel-events-data.html,no,merged
@@ -67,6 +67,8 @@ chinese-new-year\chinese-new-year-2026-info.html,chinese-new-year\chinese-new-ye
 chinese-new-year\chinese-new-year-guide.html,chinese-new-year\chinese-new-year-guide.html,yes,merged
 chinese-new-year\chinese-new-year-index.html,chinese-new-year\index.html,yes,merged
 chinese-new-year\chinese-new-year-with-header.html,chinese-new-year\chinese-new-year-with-header.html,yes,merged
+festivals\100-festivals-around-world.html,festivals\100-festivals-around-world.html,no,merged
+festivals\festivals-list.html,festivals\festivals-list.html,no,merged
 festivals\christmas\christmas-dinner-info.html,festivals\christmas\christmas-dinner-info.html,yes,merged
 festivals\christmas\christmas-dinner.html,festivals\christmas\christmas-dinner.html,yes,merged
 festivals\christmas\christmas-general-info.html,festivals\christmas\christmas-general-info.html,yes,merged

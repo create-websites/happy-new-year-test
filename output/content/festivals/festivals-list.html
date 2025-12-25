@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    
+    <!-- Meta Tags -->
+    <meta content="Explore a diverse collection of cultural festivals from around the world. From Diwali and Lunar New Year to Carnival and Oktoberfest, discover how humanity celebrates." name="description"/>
+    <meta content="global festivals, cultural holidays, Lunar New Year, Diwali, Christmas, Hanukkah, Ramadan, Carnival, world celebrations, traditions" name="keywords"/>
+
+    <title>Festivals of the World | Cultural Calendar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    
+    <!-- Vollkorn Font -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+
+    <style>
+        body {
+            font-family: 'Vollkorn', serif;
+            background-color: #fff1f2; /* bg-rose-50 */
+            color: #292524; /* text-stone-800 */
+            background-image: linear-gradient(rgba(255, 241, 242, 0.93), rgba(255, 241, 242, 0.93)), url('https://storage.googleapis.com/kreatewebsite/banner_all/Happy-New-Year-Photos.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+        }
+
+        /* Navigation Bar */
+        .nav-glass {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid #ffe4e6;
+        }
+
+        .nav-link {
+            color: #57534e;
+            transition: color 0.2s;
+        }
+        .nav-link:hover {
+            color: #9f1239;
+        }
+
+        /* Card Styling */
+        .festival-card {
+            background-color: rgba(255, 255, 255, 0.7);
+            border: 1px solid #ffe4e6;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(4px);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .festival-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px -5px rgba(244, 63, 94, 0.15);
+            border-color: #fda4af;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+
+        /* Search Input */
+        .search-input {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid #e7e5e4;
+            border-radius: 999px;
+            padding: 12px 24px;
+            width: 100%;
+            max-width: 500px;
+            transition: all 0.2s;
+            outline: none;
+            color: #44403c;
+        }
+        .search-input:focus {
+            border-color: #be123c;
+            box-shadow: 0 0 0 4px rgba(253, 164, 175, 0.3);
+        }
+
+        /* Tags */
+        .region-tag {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background-color: #fff1f2;
+            color: #be123c;
+            border: 1px solid #fecdd3;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Mobile Menu */
+        #mobile-menu { background: rgba(255, 255, 255, 0.95); }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col overflow-x-hidden text-stone-800">
+
+    <!-- Navigation -->
+    <nav class="w-full nav-glass sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <a class="flex items-center gap-2 group" href="index.html">
+                        <span class="text-2xl text-rose-600 group-hover:scale-110 transition-transform">✨</span>
+                        <span class="text-xl font-bold tracking-wide uppercase text-rose-900 group-hover:text-rose-700">Happy New Year</span>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="index.html">Home</a>
+                        <a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="index.html#resolutions">Resolutions</a>
+                        <a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="new-year-celebrations.html">Celebrations</a>
+                        <a class="nav-link px-3 py-2 rounded-md text-base font-semibold text-rose-800 border-b-2 border-rose-800" href="#">Festivals</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-stone-600 hover:text-rose-800" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden border-t border-rose-100" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a class="text-stone-600 hover:text-rose-800 block px-3 py-2 rounded-md text-base font-medium" href="index.html">Home</a>
+                <a class="text-stone-600 hover:text-rose-800 block px-3 py-2 rounded-md text-base font-medium" href="new-year-celebrations.html">Celebrations</a>
+                <a class="text-rose-900 font-bold block px-3 py-2 rounded-md text-base" href="#">Festivals</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8 text-center">
+        <div class="inline-block px-4 py-1 rounded-full border border-rose-200 bg-white/60 text-rose-800 text-xs font-bold tracking-[0.2em] uppercase mb-4 backdrop-blur-sm">
+            Cultural Heritage
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold text-rose-900 mb-4 tracking-tight">
+            Festivals of the World
+        </h1>
+        <p class="text-lg text-stone-600 max-w-2xl mx-auto italic mb-8">
+            A tapestry of tradition, joy, and community. Discover how the world celebrates life's milestones.
+        </p>
+        
+        <!-- Search Bar -->
+        <div class="flex justify-center">
+            <div class="relative w-full max-w-lg">
+                <input class="search-input" id="search-input" placeholder="Search festivals, countries, or traditions..." type="text"/>
+                <i class="fa-solid fa-search absolute right-5 top-1/2 transform -translate-y-1/2 text-stone-400"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 w-full">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="festival-grid">
+            <!-- Cards injected here -->
+        </div>
+        
+        <div class="hidden text-center py-12 text-stone-500 italic" id="no-results">
+            No festivals found. Try a different search term.
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <html><head></head><body><footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+		  
+		  <li>								
+		<a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">26-bihari-wishes</a>
+            </li>	
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">26-chinese-new-year-wishes</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">26-christmas-wishes</a>
+            </li>	
+		  <li>
+		  		<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-festival-countdown</a>
+            </li>	
+										
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">Christmas-wishes-by-audience</a>
+            </li>	
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">Happy-new-year-2026-celebrations-worldwide.html</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">Happy-new-year-2026</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">Multilingual-greetings-webpage</a>
+            </li>	
+		  
+		  
+		  
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+		   <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">2025 Trends and 2026 forecast</h5>
+        <ul class="space-y-2">
+		 
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-digital-outlook-trends-forecast</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">2026-festival-countdown</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026_dashboard.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">2026_dashboard</a>
+            </li>	
+
+
+		 
+
+									
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/new_year_2026_page.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">New_year_2026_page</a>
+            </li>	
+									
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/send-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl07_title">Send-christmas-wishes</a>
+            </li>	
+										
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl08_title">Send-sankranti-wishes-in-multiple-languages</a>
+            </li>	
+		
+		
+
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/index-oct.html">Thanks Giving Main Page</a></li>
+
+          
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+        <div class="space-y-2">
+          <p>Redmond<br/>WA, USA</p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+          </p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+      
+      <div class="flex space-x-4 mt-4 sm:mt-0">
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+          <span class="sr-only">Facebook</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+          <span class="sr-only">Twitter</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+          <span class="sr-only">LinkedIn</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+	  
+	  <div class="flex gap-4 mt-4 sm:mt-0">
+                    <a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+                 
+					<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+      </div>
+    </div>
+	
+  </div>
+</footer></body></html>
+
+    <script>
+        // Data derived from user's document
+        const festivals = [
+            "Lunar New Year (East Asia + global diaspora) — Family reunions, red envelopes, lanterns, and new-year rituals across many cultures.",
+            "Diwali (India + global diaspora) — Festival of lights marking renewal and the triumph of good over evil.",
+            "Holi (India + diaspora) — Spring festival of colors celebrating joy, love, and community.",
+            "Eid al-Fitr (global Muslim communities) — Feast marking the end of Ramadan with prayers, charity, and family meals.",
+            "Eid al-Adha (global Muslim communities) — Festival of sacrifice and generosity with communal prayers and giving.",
+            "Ramadan (global Muslim communities) — Month of fasting and reflection with nightly communal meals.",
+            "Christmas (global) — Christian holiday widely celebrated with music, lights, giving, and gatherings.",
+            "Easter (global Christian communities) — Holy week traditions, services, and springtime customs.",
+            "Hanukkah (Jewish communities worldwide) — Festival of lights with menorah candles, food, and family traditions.",
+            "Rosh Hashanah (Jewish communities worldwide) — Jewish New Year marked by reflection, prayer, and symbolic foods.",
+            "Yom Kippur (Jewish communities worldwide) — Day of atonement focused on fasting and introspection.",
+            "Passover / Pesach (Jewish communities worldwide) — Seder meals retell liberation story through ritual foods and readings.",
+            "Vesak (Buddhist world) — Celebrates the Buddha’s life events with temple ceremonies and acts of compassion.",
+            "Songkran (Thailand) — Thai New Year famous for water celebrations and temple visits.",
+            "Thingyan (Myanmar) — Burmese New Year water festival blending rituals and street celebrations.",
+            "Pchum Ben (Cambodia) — Ancestor-honoring season with temple offerings and family visits.",
+            "Chuseok (Korea) — Harvest holiday with ancestral rites and traditional foods.",
+            "Seollal (Korea) — Korean Lunar New Year with bows to elders, rituals, and games.",
+            "Mid-Autumn Festival (China + East Asia) — Mooncakes and lanterns celebrate harvest and family unity.",
+            "Dragon Boat Festival (China + diaspora) — Boat races and zongzi commemorate tradition and community pride.",
+            "Qingming / Tomb-Sweeping Day (China) — Families honor ancestors by cleaning graves and offering food.",
+            "Lantern Festival (China + diaspora) — Marks the end of Lunar New Year with lantern displays and sweet tangyuan.",
+            "Hungry Ghost Festival (East/Southeast Asia) — Offerings and rituals honoring wandering spirits and ancestors.",
+            "Obon (Japan) — Ancestral remembrance with lanterns, dances, and homecomings.",
+            "Hanami / Cherry Blossom Festivals (Japan) — Picnics under blossoms celebrating spring and fleeting beauty.",
+            "Tanabata (Japan) — Wish-making festival with colorful paper strips and bamboo decorations.",
+            "Setsubun (Japan) — Bean-throwing ritual to chase away bad luck and welcome spring.",
+            "Gion Matsuri (Kyoto, Japan) — Historic summer festival with grand floats and traditional processions.",
+            "Awa Odori (Tokushima, Japan) — Massive dance festival known for lively street performances.",
+            "Kanda Matsuri (Tokyo, Japan) — Shinto procession with portable shrines and citywide celebration.",
+            "Sapporo Snow Festival (Japan) — Giant snow sculptures and winter festivities.",
+            "Harbin Ice & Snow Festival (China) — Monumental illuminated ice architecture and winter spectacle.",
+            "Nowruz (Iran + Central Asia + diaspora) — Persian New Year welcoming spring with symbolic “Haft-Seen” tables.",
+            "Yalda Night (Iran + diaspora) — Winter solstice gathering with poetry, fruit, and family time.",
+            "Haj (Saudi Arabia; global Muslim pilgrimage) — Major pilgrimage season with deep spiritual and cultural importance.",
+            "Mawlid (varies by country) — Commemorations of the Prophet Muhammad’s birth with gatherings and recitations.",
+            "Thaipusam (Tamil communities worldwide) — Devotional processions marked by vows, music, and intense rituals.",
+            "Pongal (Tamil Nadu + diaspora) — Harvest thanksgiving with cooking new rice and honoring nature.",
+            "Makar Sankranti (India; regional names) — Solar harvest festival with kites, sweets, and river rituals.",
+            "Lohri (Punjab + diaspora) — Bonfires, folk songs, and winter harvest celebrations.",
+            "Baisakhi / Vaisakhi (Punjab + Sikh communities worldwide) — Harvest festival and major Sikh religious observance.",
+            "Onam (Kerala + diaspora) — Feasts, boat races, and cultural performances celebrating abundance.",
+            "Navratri (India + diaspora) — Nine nights of dance and devotion, famous for garba and dandiya.",
+            "Durga Puja (India + diaspora) — Grand pandals and artistry honoring Goddess Durga.",
+            "Ganesh Chaturthi (India + diaspora) — Public idols and processions culminating in river/sea immersions.",
+            "Janmashtami (India + diaspora) — Celebrates Krishna’s birth with midnight prayers and reenactments.",
+            "Raksha Bandhan (India + diaspora) — Sibling festival centered on tying rakhis and exchanging gifts.",
+            "Karva Chauth (North India + diaspora) — Fasting tradition with evening rituals and family gatherings.",
+            "Maha Shivaratri (India + diaspora) — Night-long worship and fasting honoring Shiva.",
+            "Guru Nanak Gurpurab (Sikh communities worldwide) — Nagar kirtans, prayers, and community meals.",
+            "Buddha Purnima (South Asia) — Devotional day tied to Buddha’s birth/enlightenment in many traditions.",
+            "Kumbh Mela (India) — Enormous pilgrimage gathering on sacred rivers and bathing rituals.",
+            "Dussehra / Vijayadashami (India + diaspora) — Celebrates victory of good over evil with effigies and performances.",
+            "Rath Yatra (Odisha, India + diaspora) — Iconic chariot procession for Jagannath.",
+            "Bihu (Assam, India) — Seasonal festivals with dance, music, and community feasts.",
+            "Chhath Puja (India + diaspora) — Riverbank sunrise/sunset worship honoring the Sun.",
+            "Pohela Boishakh (Bangladesh; Bengali communities) — Bengali New Year with parades, music, and festive meals.",
+            "Sinhalese & Tamil New Year (Sri Lanka) — Astrological new year with rituals, sweets, and games.",
+            "Vesak Lantern Festivals (Sri Lanka) — Streets glow with lanterns and devotional displays.",
+            "Timkat (Ethiopia) — Ethiopian Orthodox Epiphany with vibrant processions and blessings.",
+            "Meskel (Ethiopia/Eritrea) — Bonfire festival commemorating the finding of the True Cross.",
+            "Ashura (Shia Muslim communities) — Day of remembrance and mourning with processions and rituals.",
+            "Ethiopian New Year / Enkutatash (Ethiopia) — Spring new year celebrated with flowers and family gatherings.",
+            "Fes Festival of World Sacred Music (Morocco) — Celebrates spiritual music traditions from many cultures.",
+            "Mawazine (Rabat, Morocco) — Massive music festival blending international and regional acts.",
+            "Cape Town Minstrel Carnival (South Africa) — Colorful parade tradition with music and costumes.",
+            "Gerewol (Wodaabe, Niger) — Courtship festival featuring dance, beauty display, and song.",
+            "Durbar Festival (Nigeria) — Horse parades and royal pageantry tied to Eid in parts of Nigeria.",
+            "Oshun-Osogbo Festival (Nigeria) — Sacred river festival blending Yoruba spirituality and art.",
+            "Aboakyir Festival (Ghana) — Traditional hunt festival with communal celebration.",
+            "Homowo (Ghana) — Harvest festival with drumming, dancing, and ritual meals.",
+            "Carnival (Brazil, Trinidad, etc.) — Parade season of music, costumes, and street celebrations.",
+            "Rio Carnival (Brazil) — Samba school parades and all-night street parties.",
+            "Trinidad & Tobago Carnival — Soca, calypso, and exuberant masquerade bands.",
+            "Mardi Gras (New Orleans, USA) — Krewes, parades, beads, and brass-band culture.",
+            "Notting Hill Carnival (London, UK) — Caribbean culture celebration with sound systems and costume parades.",
+            "Caribana / Toronto Caribbean Carnival (Canada) — Caribbean music and costume parade week.",
+            "Junkanoo (Bahamas) — Boxing Day/New Year parades with drums, horns, and elaborate costumes.",
+            "Crop Over (Barbados) — Harvest-rooted carnival with calypso and street parties.",
+            "Carnaval de Oruro (Bolivia) — Andean dance spectacle with deep religious and indigenous roots.",
+            "Fiesta de la Candelaria (Peru) — Major folk dance and music celebration in Puno.",
+            "Inti Raymi (Cusco, Peru) — Incan-inspired sun festival with ceremonial reenactments.",
+            "Día de los Muertos (Mexico) — Altars, marigolds, and remembrance of ancestors.",
+            "Guelaguetza (Oaxaca, Mexico) — Indigenous dance and cultural festival showcasing regional traditions.",
+            "Semana Santa (Spain/Latin America) — Holy Week processions and solemn ritual drama.",
+            "San Fermín / Running of the Bulls (Pamplona, Spain) — Iconic street runs, parades, and citywide fiesta.",
+            "La Tomatina (Buñol, Spain) — Tomato-throwing street spectacle.",
+            "Fallas (Valencia, Spain) — Giant satirical sculptures burned in a dramatic finale.",
+            "Feria de Abril (Seville, Spain) — Flamenco, fairground tents, and Andalusian celebration.",
+            "Venice Carnival (Italy) — Masked pageantry and historic elegance.",
+            "Oktoberfest (Munich, Germany) — Giant beer tents, Bavarian music, and food traditions.",
+            "St. Patrick’s Day (Ireland + diaspora) — Parades and Irish cultural celebration worldwide.",
+            "Up Helly Aa (Shetland, Scotland) — Torchlit Viking-themed procession ending with a longship burn.",
+            "King’s Day (Netherlands) — Nationwide orange-themed street parties and markets.",
+            "La Mercè (Barcelona, Spain) — City festival with giants, fireworks, and human towers.",
+            "Midsummer (Nordic countries) — Solstice celebrations with bonfires, dancing, and flower crowns.",
+            "St. Lucia Day (Sweden) — Candlelit processions and winter songs.",
+            "Hogmanay (Scotland) — New Year celebrations with music, fireworks, and traditions.",
+            "Burning Man (USA) — Temporary desert city for art, self-expression, and community ritual.",
+            "Thanksgiving (USA/Canada) — Family feasts and travel tied to gratitude traditions.",
+            "Halloween (globalized, strongest in US/Ireland roots) — Costumes, trick-or-treating, and spooky season festivities.",
+            "Día de la Independencia (Mexico, Sept 16) — “Grito” celebrations with parades, fireworks, and music.",
+            "Bastille Day (France) — National day with parades, fireworks, and public festivities.",
+            "Canada Day (Canada) — National celebrations with fireworks and community events.",
+            "Australia Day (Australia) — National day marked by events, debates, and summer gatherings.",
+            "Anzac Day (Australia/New Zealand) — Dawn services and remembrance traditions.",
+            "Guy Fawkes / Bonfire Night (UK) — Fireworks and bonfires commemorating historic events.",
+            "Chaharshanbe Suri (Iran) — Fire-jumping festival on the eve of Nowruz.",
+            "Kupala Night (Slavic regions) — Summer-night bonfires and folk rituals tied to water and fire.",
+            "Yi Peng / Lantern Festivals (Thailand) — Sky lantern releases alongside temple celebrations.",
+            "Loi Krathong (Thailand) — Floating offerings on waterways to honor renewal and gratitude.",
+            "Naadam (Mongolia) — “Three manly sports” festival: wrestling, horse racing, archery.",
+            "Tsagaan Sar (Mongolia) — Lunar New Year with family visits and traditional foods.",
+            "Pushkar Camel Fair (India) — Famous desert fair mixing livestock trading and cultural events.",
+            "Albuquerque International Balloon Fiesta (USA) — Mass hot-air balloon ascensions and night glows.",
+            "Glastonbury Festival (UK) — Landmark music and arts festival with huge cultural influence.",
+            "Edinburgh Festival Fringe (Scotland) — World’s largest arts festival with comedy, theatre, and experimental shows.",
+            "Coachella (USA) — Pop-culture-defining music festival with art installations and fashion."
+        ];
+
+        // Parse Data
+        const festivalData = festivals.map(line => {
+            const parts = line.split('—');
+            const desc = parts[1] ? parts[1].trim() : '';
+            
+            const titlePart = parts[0].trim();
+            const openParenIndex = titlePart.indexOf('(');
+            
+            let name = titlePart;
+            let region = 'Global';
+
+            if (openParenIndex > -1) {
+                name = titlePart.substring(0, openParenIndex).trim();
+                region = titlePart.substring(openParenIndex + 1, titlePart.length - 1).trim();
+            }
+
+            return { name, region, desc };
+        });
+
+        // Render Cards
+        function renderFestivals(filterText = '') {
+            const grid = document.getElementById('festival-grid');
+            const noResults = document.getElementById('no-results');
+            grid.innerHTML = '';
+            
+            const filtered = festivalData.filter(f => 
+                f.name.toLowerCase().includes(filterText.toLowerCase()) || 
+                f.region.toLowerCase().includes(filterText.toLowerCase()) ||
+                f.desc.toLowerCase().includes(filterText.toLowerCase())
+            );
+
+            if (filtered.length === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+                filtered.forEach(f => {
+                    const card = document.createElement('div');
+                    card.className = 'festival-card group';
+                    card.innerHTML = `
+                        <div class="mb-auto">
+                            <span class="region-tag">${f.region}</span>
+                            <h3 class="text-xl font-bold text-slate-800 mb-2 group-hover:text-rose-700 transition-colors">${f.name}</h3>
+                            <p class="text-stone-600 text-sm leading-relaxed">${f.desc}</p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-rose-100 flex justify-between items-center text-rose-400 text-sm">
+                            <span><i class="fa-solid fa-earth-americas"></i> Culture</span>
+                            <i class="fa-solid fa-arrow-right opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:translate-x-1"></i>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+            }
+        }
+
+        // Init
+        document.addEventListener('DOMContentLoaded', () => {
+            renderFestivals();
+            
+            document.getElementById('search-input').addEventListener('input', (e) => {
+                renderFestivals(e.target.value);
+            });
+        });
+    </script>
+
+</body></html>

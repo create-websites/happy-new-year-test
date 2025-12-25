@@ -1,449 +1,277 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html class="scroll-smooth" lang="en"><head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>2025 Global Forecast</title>
+    <meta content="Global Year in Review 2025. Comprehensive reports for USA, India, China, UK, France, Canada, Ukraine, and Bangladesh." name="description"/>
+    <title>2025 Global Year in Review | World Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- FontAwesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    
+    <!-- Vollkorn Font -->
     <link href="https://fonts.googleapis.com" rel="preconnect"/>
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-    <!-- Chosen Palette: Warm Neutrals with Teal Accent -->
-    <!-- Application Structure Plan: The application is designed as a single-page thematic dashboard. It avoids a linear, report-like structure in favor of a non-linear, exploratory experience. The structure consists of a main 'Overview' section with a high-level impact matrix, followed by three distinct thematic deep-dive sections: 'Global Tensions,' 'Bright Spots,' and 'Societal Shifts.' Navigation is handled by a sticky top bar. This design was chosen because it allows users to immediately grasp the most significant potential events in the overview, and then self-direct their exploration based on interest. This user-centric flow is more engaging and digestible than a static document, facilitating better understanding of complex, multi-faceted forecast data. -->
-    <!-- Visualization & Content Choices: 
-    - Report Info: Key forecasted events of 2025. Goal: Provide a quick, high-level synthesis of events based on their potential impact and likelihood. Viz/Presentation Method: Scatter Plot. Interaction: Hover tooltips provide event details. Justification: A scatter plot effectively visualizes the relationship between two key metrics for all events at once, offering a powerful initial overview. Library/Method: Chart.js/Canvas.
-    - Report Info: Geopolitical and domain-specific conflicts. Goal: Compare the intensity of tensions across different global domains. Viz/Presentation Method: Vertical Bar Chart. Interaction: Hover tooltips show the tension index score. Justification: Bar charts are optimal for direct, unambiguous comparison of categorical data. Library/Method: Chart.js/Canvas.
-    - Report Info: Positive global developments. Goal: Show the proportional distribution of good news across categories. Viz/Presentation Method: Donut Chart. Interaction: Hover tooltips show percentages. Justification: A donut chart provides a clear, aesthetically pleasing visualization of part-to-whole relationships. Library/Method: Chart.js/Canvas.
-    - Report Info: Evolution of societal metrics. Goal: Compare key societal indicators at the start versus the end of 2025. Viz/Presentation Method: Radar Chart. Interaction: Hover tooltips compare 'Before' and 'After' values. Justification: Radar charts excel at comparing multiple variables for one or two subjects, making changes in the societal landscape easy to discern. Library/Method: Chart.js/Canvas.
-    - Report Info: Detailed descriptions of events, conflicts, and trends. Goal: Organize and progressively disclose textual information. Viz/Presentation Method: Interactive cards and list items. Interaction: Click to show/hide details. Justification: This prevents overwhelming users with text and allows for focused, user-driven discovery. Library/Method: HTML/CSS/JS.
-    -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+
     <style>
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .nav-button { transition: all 0.2s ease-in-out; }
-        .nav-button.active { color: #0d9488; border-bottom-color: #0d9488; }
-        .nav-button:not(.active):hover { color: #0d9488; border-bottom-color: #ccfbf1; }
-        .content-section { display: none; }
-        .content-section.active { display: block; }
-        .chart-container { position: relative; width: 100%; max-width: 700px; margin-left: auto; margin-right: auto; height: 320px; max-height: 400px; }
-        @media (min-width: 768px) { .chart-container { height: 400px; } }
-        .interactive-card { transition: all 0.2s ease-in-out; }
-        .interactive-card.active { border-color: #0d9488; background-color: #f0fdfa; }
-        .fade-in { animation: fadeIn 0.5s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        body {
+            font-family: 'Vollkorn', serif;
+            background-color: #fff1f2; /* bg-rose-50 */
+            color: #292524; /* text-stone-800 */
+            background-image: linear-gradient(rgba(255, 241, 242, 0.95), rgba(255, 241, 242, 0.95)), url('https://storage.googleapis.com/kreatewebsite/banner_all/Happy-New-Year-Photos.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+        }
+
+        /* Navigation Bar */
+        .nav-glass {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid #ffe4e6;
+        }
+
+        .nav-link {
+            color: #57534e;
+            transition: color 0.2s;
+        }
+        .nav-link:hover {
+            color: #9f1239;
+        }
+
+        /* Country Cards */
+        .country-card {
+            background-color: rgba(255, 255, 255, 0.7);
+            border: 1px solid #ffe4e6;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .country-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(244, 63, 94, 0.15), 0 8px 10px -6px rgba(244, 63, 94, 0.1);
+            border-color: #fda4af;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+
+        .card-header {
+            height: 100px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .card-header::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+        }
+
+        /* Mobile Menu */
+        #mobile-menu { background: rgba(255, 255, 255, 0.95); }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="antialiased min-h-screen flex flex-col overflow-x-hidden text-stone-800">
 
-    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 border-b border-gray-200">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col sm:flex-row items-center justify-between py-4">
-                <div class="text-center sm:text-left mb-4 sm:mb-0">
-                    <h1 class="text-2xl font-bold text-gray-900">2025 Global Forecast</h1>
-                    <p class="text-sm text-gray-600">An Interactive Outlook on the Year Ahead</p>
+    <!-- Navigation -->
+    <nav class="w-full nav-glass sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <a class="flex items-center gap-2 group" href="index.html">
+                        <span class="text-2xl text-rose-600 group-hover:scale-110 transition-transform">✨</span>
+                        <span class="text-xl font-bold tracking-wide uppercase text-rose-900 group-hover:text-rose-700">Happy New Year</span>
+                    </a>
                 </div>
-                <nav class="flex flex-wrap justify-center space-x-4 sm:space-x-6 text-sm font-medium" id="main-nav">
-                    <button class="nav-button py-2 border-b-2 border-transparent" data-section="overview">Overview</button>
-                    <button class="nav-button py-2 border-b-2 border-transparent" data-section="tensions">Global Tensions</button>
-                    <button class="nav-button py-2 border-b-2 border-transparent" data-section="bright-spots">Bright Spots</button>
-                    <button class="nav-button py-2 border-b-2 border-transparent" data-section="shifts">Societal Shifts</button>
-                </nav>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="/">Home</a>
+                        <a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="/resolutions/">Resolutions</a>
+                        <a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="/celebrations/">Celebrations</a>
+                        <a class="nav-link px-3 py-2 rounded-md text-base font-semibold text-rose-800 border-b-2 border-rose-800" href="/2025/">2025 Review</a>
+						<a class="nav-link px-3 py-2 rounded-md text-base font-semibold text-rose-800 border-b-2 border-rose-800" href="/2026/">2025 Review</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-stone-600 hover:text-rose-800" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
             </div>
         </div>
-    </header>
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden border-t border-rose-100" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a class="text-stone-600 hover:text-rose-800 block px-3 py-2 rounded-md text-base font-medium" href="/">Home</a>
+				<a class="text-stone-600 hover:text-rose-800 block px-3 py-2 rounded-md text-base font-medium" href="/resolutions/">Resolutions</a>
+                <a class="text-stone-600 hover:text-rose-800 block px-3 py-2 rounded-md text-base font-medium" href="/celebrations/">Celebrations</a>
+                <a class="text-rose-900 font-bold block px-3 py-2 rounded-md text-base" href="/2025/">2025 Review</a>
+				<a class="text-rose-900 font-bold block px-3 py-2 rounded-md text-base" href="/2026/">2026</a>
+            </div>
+        </div>
+    </nav>
 
-    <main class="container mx-auto p-4 sm:p-6 lg:p-8">
+    <!-- Header -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8 text-center">
+        <div class="inline-block px-4 py-1 rounded-full border border-rose-200 bg-white/60 text-rose-800 text-xs font-bold tracking-[0.2em] uppercase mb-4 backdrop-blur-sm">
+            Global Retrospective
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold text-rose-900 mb-4 tracking-tight">
+            2025 Year in Review
+        </h1>
+        <p class="text-lg text-stone-600 max-w-2xl mx-auto italic">
+            Explore the political, economic, and cultural milestones that defined the year across eight key nations.
+        </p>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 w-full">
         
-        <section class="content-section space-y-8" id="overview">
-            <div class="text-center fade-in">
-                <h2 class="text-3xl font-bold tracking-tight text-gray-900">Year at a Glance</h2>
-                <p class="mt-3 max-w-2xl mx-auto text-lg text-gray-600">Here's a rewritten version of similar length:
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 
-This section forecasts major global events, visualizing impact and likelihood. Explore this interactive matrix to grasp key 2025 drivers. Click a point to examine events and their possible outcomes.</p>
-            </div>
-            <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 fade-in">
-                <h3 class="text-xl font-semibold mb-4 text-center">Global Impact &amp; Likelihood Matrix</h3>
-                <div class="chart-container">
-                    <canvas id="impactMatrixChart"></canvas>
+            <!-- USA -->
+            <a class="country-card group" href="2025-usa-events-data.html">
+                <div class="card-header bg-blue-900 flex items-end p-4">
+                    <h3 class="text-white text-2xl font-bold relative z-10 flex items-center gap-2">
+                        <span class="text-3xl">🇺🇸</span> USA
+                    </h3>
                 </div>
-            </div>
-        </section>
-
-        <section class="content-section space-y-8" id="tensions">
-             <div class="text-center fade-in">
-                <h2 class="text-3xl font-bold tracking-tight text-gray-900">Global Tensions</h2>
-                <p class="mt-3 max-w-2xl mx-auto text-lg text-gray-600">This analysis examines potential conflict drivers across multiple sectors. A 'Tension Index' chart forecasts key area risks, and detailed cards below offer specific regional and thematic perspectives. Select a region to view its outlook.</p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 fade-in">
-                <div class="lg:col-span-1 bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-                    <h3 class="text-xl font-semibold mb-4 text-center">Tension Index by Domain</h3>
-                    <div class="chart-container h-96">
-                        <canvas id="tensionIndexChart"></canvas>
-                    </div>
+                <div class="p-6 pt-4">
+                    <h4 class="font-bold text-rose-900 text-sm uppercase tracking-wide mb-2">The 47th Presidency</h4>
+                    <p class="text-stone-600 text-sm mb-4 line-clamp-3">
+                        A pivotal year marked by a new administration, Artemis II lunar success, and economic stabilization.
+                    </p>
+                    <span class="text-rose-600 text-sm font-bold group-hover:underline">View Report →</span>
                 </div>
-                <div class="lg:col-span-2 space-y-4">
-                     <div class="space-y-4" id="tension-cards-container">
-                        <!-- JS will populate this -->
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 min-h-[150px]" id="tension-details">
-                        <p class="text-gray-500 italic">Select a region above to view detailed information.</p>
-                    </div>
+            </a>
+
+            <!-- India -->
+            <a class="country-card group" href="2025-india-events-data.html">
+                <div class="card-header bg-orange-600 flex items-end p-4">
+                    <h3 class="text-white text-2xl font-bold relative z-10 flex items-center gap-2">
+                        <span class="text-3xl">🇮🇳</span> India
+                    </h3>
                 </div>
-            </div>
-        </section>
-
-        <section class="content-section space-y-8" id="bright-spots">
-            <div class="text-center fade-in">
-                <h2 class="text-3xl font-bold tracking-tight text-gray-900">Bright Spots &amp; Progress</h2>
-                <p class="mt-3 max-w-2xl mx-auto text-lg text-gray-600">Despite hurdles, 2025 anticipates notable advancements. This segment spotlights tech, health, and societal gains. The chart visualizes this optimism, and interactive cards below offer specific achievement details.</p>
-            </div>
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 fade-in">
-                <div class="lg:col-span-2 order-2 lg:order-1">
-                    <h3 class="text-xl font-semibold mb-4">Key Areas of Advancement</h3>
-                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="bright-spots-container">
-                        <!-- JS will populate this -->
-                    </div>
+                <div class="p-6 pt-4">
+                    <h4 class="font-bold text-rose-900 text-sm uppercase tracking-wide mb-2">Resilience &amp; Scale</h4>
+                    <p class="text-stone-600 text-sm mb-4 line-clamp-3">
+                        From the Maha Kumbh gathering of 420M people to state election shifts and record cinema revenues.
+                    </p>
+                    <span class="text-rose-600 text-sm font-bold group-hover:underline">View Report →</span>
                 </div>
-                <div class="lg:col-span-1 order-1 lg:order-2 bg-white p-6 rounded-xl shadow-lg border border-gray-200 flex flex-col items-center">
-                    <h3 class="text-xl font-semibold mb-4 text-center">Positive News Distribution</h3>
-                    <div class="chart-container w-full max-w-xs">
-                        <canvas id="brightSpotsChart"></canvas>
-                    </div>
+            </a>
+
+            <!-- China -->
+            <a class="country-card group" href="2025-china-events-data.html">
+                <div class="card-header bg-red-700 flex items-end p-4">
+                    <h3 class="text-white text-2xl font-bold relative z-10 flex items-center gap-2">
+                        <span class="text-3xl">🇨🇳</span> China
+                    </h3>
                 </div>
-            </div>
-        </section>
-
-        <section class="content-section space-y-8" id="shifts">
-            <div class="text-center fade-in">
-                <h2 class="text-3xl font-bold tracking-tight text-gray-900">Societal Shifts</h2>
-                <p class="mt-3 max-w-2xl mx-auto text-lg text-gray-600">Here are a few options, aiming for a similar length and conveying the same information:
-
-**Option 1 (Concise):**
-
-&gt; This section explores societal trends through 2025. The radar chart visualizes key metrics, comparing beginning- and end-of-year data. An interactive list details anticipated policy shifts and cultural changes influencing our lives.
-
-**Option 2 (Slightly More Descriptive):**
-
-&gt; We analyze the development of key societal structures to 2025. The radar chart provides a comparative view of essential metrics across the year. The interactive list then spotlights impactful policy changes and cultural shifts.
-
-**Option 3 (Emphasis on Interaction):**
-
-&gt; This analysis investigates evolving societal aspects up to 2025. A radar chart compares crucial metrics, showcasing year-over-year changes. Explore the interactive list to see expected policy impacts and cultural trends.</p>
-            </div>
-             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 fade-in">
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-                    <h3 class="text-xl font-semibold mb-4 text-center">Societal Metrics: Start vs. End of 2025</h3>
-                    <div class="chart-container h-96">
-                        <canvas id="societalShiftsChart"></canvas>
-                    </div>
+                <div class="p-6 pt-4">
+                    <h4 class="font-bold text-rose-900 text-sm uppercase tracking-wide mb-2">New Productive Forces</h4>
+                    <p class="text-stone-600 text-sm mb-4 line-clamp-3">
+                        A shift toward high-tech manufacturing, AI dominance, and a massive green energy transition.
+                    </p>
+                    <span class="text-rose-600 text-sm font-bold group-hover:underline">View Report →</span>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-                    <h3 class="text-xl font-semibold mb-4">Key Trends &amp; Policy Changes</h3>
-                    <ul class="space-y-3" id="shifts-list-container">
-                       <!-- JS will populate this -->
-                    </ul>
+            </a>
+
+            <!-- UK -->
+            <a class="country-card group" href="2025-uk-events-data.html">
+                <div class="card-header bg-blue-800 flex items-end p-4">
+                    <h3 class="text-white text-2xl font-bold relative z-10 flex items-center gap-2">
+                        <span class="text-3xl">🇬🇧</span> UK
+                    </h3>
                 </div>
-            </div>
-        </section>
+                <div class="p-6 pt-4">
+                    <h4 class="font-bold text-rose-900 text-sm uppercase tracking-wide mb-2">Year of the Reset</h4>
+                    <p class="text-stone-600 text-sm mb-4 line-clamp-3">
+                        A new government agenda, economic pivots, and a cultural "Golden Summer" featuring the Oasis reunion.
+                    </p>
+                    <span class="text-rose-600 text-sm font-bold group-hover:underline">View Report →</span>
+                </div>
+            </a>
+
+            <!-- France -->
+            <a class="country-card group" href="2025-france-events-data.html">
+                <div class="card-header bg-blue-700 flex items-end p-4">
+                    <h3 class="text-white text-2xl font-bold relative z-10 flex items-center gap-2">
+                        <span class="text-3xl">🇫🇷</span> France
+                    </h3>
+                </div>
+                <div class="p-6 pt-4">
+                    <h4 class="font-bold text-rose-900 text-sm uppercase tracking-wide mb-2">Consolidation</h4>
+                    <p class="text-stone-600 text-sm mb-4 line-clamp-3">
+                        Leadership in global AI summits, fiscal reforms, and the triumphant full reopening of Notre-Dame.
+                    </p>
+                    <span class="text-rose-600 text-sm font-bold group-hover:underline">View Report →</span>
+                </div>
+            </a>
+
+            <!-- Canada -->
+            <a class="country-card group" href="2025-canada-events-data.html">
+                <div class="card-header bg-red-600 flex items-end p-4">
+                    <h3 class="text-white text-2xl font-bold relative z-10 flex items-center gap-2">
+                        <span class="text-3xl">🇨🇦</span> Canada
+                    </h3>
+                </div>
+                <div class="p-6 pt-4">
+                    <h4 class="font-bold text-rose-900 text-sm uppercase tracking-wide mb-2">A Defining Year</h4>
+                    <p class="text-stone-600 text-sm mb-4 line-clamp-3">
+                        The 45th Federal Election results, interest rate relief, and hosting the first winter hybrid Invictus Games.
+                    </p>
+                    <span class="text-rose-600 text-sm font-bold group-hover:underline">View Report →</span>
+                </div>
+            </a>
+
+            <!-- Ukraine -->
+            <a class="country-card group" href="2025-ukraine-events-data.html">
+                <div class="card-header bg-blue-500 flex items-end p-4">
+                    <h3 class="text-white text-2xl font-bold relative z-10 flex items-center gap-2">
+                        <span class="text-3xl">🇺🇦</span> Ukraine
+                    </h3>
+                </div>
+                <div class="p-6 pt-4">
+                    <h4 class="font-bold text-rose-900 text-sm uppercase tracking-wide mb-2">Strategic Autonomy</h4>
+                    <p class="text-stone-600 text-sm mb-4 line-clamp-3">
+                        Growth of domestic defense production, energy grid decentralization, and progress in EU accession.
+                    </p>
+                    <span class="text-rose-600 text-sm font-bold group-hover:underline">View Report →</span>
+                </div>
+            </a>
+
+            <!-- Bangladesh -->
+            <a class="country-card group" href="2025-bangladesh-events-data.html">
+                <div class="card-header bg-emerald-700 flex items-end p-4">
+                    <h3 class="text-white text-2xl font-bold relative z-10 flex items-center gap-2">
+                        <span class="text-3xl">🇧🇩</span> Bangladesh
+                    </h3>
+                </div>
+                <div class="p-6 pt-4">
+                    <h4 class="font-bold text-rose-900 text-sm uppercase tracking-wide mb-2">Reform &amp; Rebirth</h4>
+                    <p class="text-stone-600 text-sm mb-4 line-clamp-3">
+                        Institutional overhauls under the Interim Government, banking reforms, and record remittance inflows.
+                    </p>
+                    <span class="text-rose-600 text-sm font-bold group-hover:underline">View Report →</span>
+                </div>
+            </a>
+
+        </div>
 
     </main>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
 
-            const forecastData = {
-                overview: [
-                    { x: 8.5, y: 7.0, label: 'AI Regulation Frameworks', description: 'Major economies establish the first comprehensive international AI governance and ethics frameworks.' },
-                    { x: 7.0, y: 8.0, label: 'Escalated Cyber Conflicts', description: 'State-sponsored cyber-attacks on critical infrastructure become more frequent and sophisticated.' },
-                    { x: 9.0, y: 5.0, label: 'Breakthrough in Fusion Energy', description: 'A major lab achieves a sustained net-positive energy reaction, accelerating commercial fusion timelines.' },
-                    { x: 6.0, y: 9.0, label: 'Intensified Climate Events', description: 'Record-breaking weather events drive new, urgent climate policy and adaptation measures.' },
-                    { x: 5.0, y: 6.0, label: 'Global Supply Chain Realignment', description: 'Nations continue to diversify supply chains away from single points of failure, increasing regional manufacturing.' },
-                    { x: 7.5, y: 7.5, label: 'Personalized Medicine Advances', description: 'CRISPR-based therapies for genetic disorders receive wider approval and application.' },
-                    { x: 4.0, y: 8.5, label: 'Economic Volatility', description: 'Inflationary pressures and interest rate adjustments lead to market uncertainty in the first half of the year.' },
-                    { x: 3.0, y: 4.0, label: 'Manned Mission to Lunar Orbit', description: 'A successful manned mission orbits the Moon, laying groundwork for future surface missions.' }
-                ],
-                tensions: {
-                    index: [
-                        { domain: 'Economic', value: 8 },
-                        { domain: 'Geopolitical', value: 7 },
-                        { domain: 'Cyber', value: 9 },
-                        { domain: 'Environmental', value: 6 },
-                        { domain: 'Social', value: 5 }
-                    ],
-                    details: [
-                        { id: 'asia', title: 'Asia-Pacific', content: 'Tensions center on strategic maritime passages and technological competition. Economic frictions arise from competing trade blocs and disputes over semiconductor supply chains. Cybersecurity remains a primary concern, with risks of espionage and infrastructure disruption.' },
-                        { id: 'europe', title: 'Europe', content: 'Challenges include energy security, managing refugee flows, and countering disinformation campaigns. Economic strain from post-pandemic recovery and ongoing regional instability tests political cohesion. Efforts focus on strengthening internal supply chains and digital sovereignty.' },
-                        { id: 'americas', title: 'The Americas', content: 'Focus on managing migration, combating transnational organized crime, and addressing political polarization. Economic challenges include controlling inflation without stifling growth. Cross-border cooperation on climate change and digital trade are key diplomatic areas.' },
-                         { id: 'cyber', title: 'Global Cyber Domain', content: 'The primary battleground for non-military conflict. Increased use of AI in both offensive and defensive cyber operations. Critical infrastructure, including financial systems and power grids, are primary targets. International norms for cyber warfare remain underdeveloped and contested.' },
-                    ]
-                },
-                brightSpots: {
-                    distribution: {
-                        labels: ['Technology', 'Health', 'Environment', 'Social'],
-                        data: [40, 30, 20, 10]
-                    },
-                    items: [
-                        { title: 'AI in Drug Discovery', category: 'Health', description: 'AI models significantly shorten the time to identify promising drug candidates, leading to faster development cycles for treatments of complex diseases.' },
-                        { title: 'Renewable Energy Milestone', category: 'Environment', description: 'For the first time, global investment in renewable energy generation surpasses that of fossil fuels, driven by falling costs and government incentives.' },
-                        { title: 'Open-Source Science', category: 'Technology', description: 'A major collaborative platform for sharing scientific research and data gains widespread adoption, accelerating the pace of discovery across disciplines.' },
-                        { title: 'Global Literacy Gains', category: 'Social', description: 'Several developing nations report significant increases in youth literacy rates, thanks to targeted educational programs and digital learning tools.' }
-                    ]
-                },
-                shifts: {
-                    metrics: {
-                        labels: ['Digital Connectivity', 'Remote Work Adoption', 'Mental Health Awareness', 'Sustainable Consumption', 'Local Community Engagement'],
-                        startOfYear: [70, 65, 50, 40, 55],
-                        endOfYear: [75, 60, 65, 50, 60]
-                    },
-                    items: [
-                        { title: 'The 4-Day Work Week Trials', content: 'Several multinational corporations begin large-scale trials of a 4-day work week, citing goals of improved productivity and employee well-being.' },
-                        { title: 'Right to Disconnect Laws', content: 'More countries enact legislation giving employees the legal right to not engage in work-related communications outside of office hours.' },
-                        { title: 'AI in Education Standards', content: 'Educational bodies introduce standards for the ethical use of AI tutors and assessment tools in primary and secondary education.' },
-                        { title: 'Urban Greening Mandates', content: 'Major cities implement new regulations requiring green roofs and vertical gardens on new commercial buildings to combat urban heat island effects.' }
-                    ]
-                }
-            };
-
-            const sections = document.querySelectorAll('.content-section');
-            const navButtons = document.querySelectorAll('.nav-button');
-
-            function showSection(sectionId) {
-                sections.forEach(section => {
-                    if (section.id === sectionId) {
-                        section.classList.add('active');
-                    } else {
-                        section.classList.remove('active');
-                    }
-                });
-                navButtons.forEach(button => {
-                    if (button.dataset.section === sectionId) {
-                        button.classList.add('active');
-                    } else {
-                        button.classList.remove('active');
-                    }
-                });
-            }
-
-            document.getElementById('main-nav').addEventListener('click', (e) => {
-                if (e.target.matches('.nav-button')) {
-                    const sectionId = e.target.dataset.section;
-                    showSection(sectionId);
-                }
-            });
-
-            showSection('overview');
-
-            function createImpactMatrixChart() {
-                const ctx = document.getElementById('impactMatrixChart').getContext('2d');
-                new Chart(ctx, {
-                    type: 'scatter',
-                    data: {
-                        datasets: [{
-                            label: 'Forecasted Events',
-                            data: forecastData.overview,
-                            backgroundColor: 'rgba(13, 148, 136, 0.7)',
-                            pointRadius: 8,
-                            pointHoverRadius: 12,
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        scales: {
-                            x: {
-                                title: { display: true, text: 'Impact (1-10)', font: { size: 14 } },
-                                min: 0, max: 10,
-                            },
-                            y: {
-                                title: { display: true, text: 'Likelihood (1-10)', font: { size: 14 } },
-                                min: 0, max: 10,
-                            }
-                        },
-                        plugins: {
-                            legend: { display: false },
-                            tooltip: {
-                                callbacks: {
-                                    label: function(context) {
-                                        const item = context.raw;
-                                        return [item.label, `Impact: ${item.x}`, `Likelihood: ${item.y}`];
-                                    }
-                                }
-                            }
-                        }
-                    }
-                });
-            }
-            
-            function createTensionIndexChart() {
-                const ctx = document.getElementById('tensionIndexChart').getContext('2d');
-                new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: forecastData.tensions.index.map(d => d.domain),
-                        datasets: [{
-                            label: 'Tension Index',
-                            data: forecastData.tensions.index.map(d => d.value),
-                            backgroundColor: ['#14b8a6', '#f97316', '#ef4444', '#3b82f6', '#8b5cf6'],
-                            borderColor: '#ffffff',
-                            borderWidth: 2
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        indexAxis: 'y',
-                        scales: {
-                           x: { beginAtZero: true, max: 10, title: { display: true, text: 'Index (1-10)' } },
-                        },
-                        plugins: {
-                            legend: { display: false }
-                        }
-                    }
-                });
-            }
-            
-            function createBrightSpotsChart() {
-                const ctx = document.getElementById('brightSpotsChart').getContext('2d');
-                new Chart(ctx, {
-                    type: 'doughnut',
-                    data: {
-                        labels: forecastData.brightSpots.distribution.labels,
-                        datasets: [{
-                            data: forecastData.brightSpots.distribution.data,
-                            backgroundColor: ['#0d9488', '#0ea5e9', '#16a34a', '#d946ef'],
-                            hoverOffset: 4
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: { position: 'bottom' }
-                        }
-                    }
-                });
-            }
-
-            function createSocietalShiftsChart() {
-                const ctx = document.getElementById('societalShiftsChart').getContext('2d');
-                new Chart(ctx, {
-                    type: 'radar',
-                    data: {
-                        labels: forecastData.shifts.metrics.labels,
-                        datasets: [
-                            {
-                                label: 'Start of 2025',
-                                data: forecastData.shifts.metrics.startOfYear,
-                                fill: true,
-                                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                                borderColor: 'rgb(54, 162, 235)',
-                                pointBackgroundColor: 'rgb(54, 162, 235)',
-                            }, {
-                                label: 'End of 2025',
-                                data: forecastData.shifts.metrics.endOfYear,
-                                fill: true,
-                                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                                borderColor: 'rgb(255, 99, 132)',
-                                pointBackgroundColor: 'rgb(255, 99, 132)',
-                            }
-                        ]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: { position: 'top' }
-                        },
-                        scales: {
-                            r: {
-                                beginAtZero: true,
-                                max: 100
-                            }
-                        }
-                    }
-                });
-            }
-
-            function populateTensionCards() {
-                const container = document.getElementById('tension-cards-container');
-                const detailsDisplay = document.getElementById('tension-details');
-                container.innerHTML = forecastData.tensions.details.map(item => `
-                    <button data-id="${item.id}" class="interactive-card w-full text-left p-4 rounded-lg border-2 border-gray-200 hover:border-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500">
-                        <h4 class="font-semibold text-gray-800">${item.title}</h4>
-                    </button>
-                `).join('');
-
-                container.addEventListener('click', e => {
-                    const card = e.target.closest('.interactive-card');
-                    if (card) {
-                        const activeCard = container.querySelector('.interactive-card.active');
-                        if(activeCard) activeCard.classList.remove('active');
-                        card.classList.add('active');
-                        
-                        const detailData = forecastData.tensions.details.find(d => d.id === card.dataset.id);
-                        detailsDisplay.innerHTML = `<h4 class="font-bold text-lg mb-2">${detailData.title}</h4><p class="text-gray-700">${detailData.content}</p>`;
-                    }
-                });
-            }
-            
-            function populateBrightSpots() {
-                const container = document.getElementById('bright-spots-container');
-                container.innerHTML = forecastData.brightSpots.items.map(item => `
-                    <div class="bg-white p-5 rounded-lg shadow border border-gray-200">
-                        <span class="text-xs font-semibold uppercase px-2 py-1 rounded-full bg-teal-100 text-teal-800">${item.category}</span>
-                        <h4 class="font-semibold mt-3 mb-1 text-gray-900">${item.title}</h4>
-                        <p class="text-sm text-gray-600">${item.description}</p>
-                    </div>
-                `).join('');
-            }
-            
-            function populateShiftsList() {
-                 const container = document.getElementById('shifts-list-container');
-                 const detailsMap = new Map();
-
-                 forecastData.shifts.items.forEach((item, index) => {
-                     const li = document.createElement('li');
-                     const button = document.createElement('button');
-                     button.className = 'w-full text-left p-3 rounded-md hover:bg-gray-100 flex justify-between items-center';
-                     button.innerHTML = `<span>${item.title}</span><span class="text-gray-400 text-xl transition-transform duration-200 transform">+</span>`;
-                     li.appendChild(button);
-                     container.appendChild(li);
-
-                     const detailDiv = document.createElement('div');
-                     detailDiv.className = 'px-3 pb-3 text-sm text-gray-600 hidden';
-                     detailDiv.textContent = item.content;
-                     li.appendChild(detailDiv);
-
-                     detailsMap.set(button, { detail: detailDiv, open: false });
-
-                     button.addEventListener('click', () => {
-                         const state = detailsMap.get(button);
-                         state.open = !state.open;
-
-                         if (state.open) {
-                             state.detail.classList.remove('hidden');
-                             button.querySelector('span:last-child').classList.add('rotate-45');
-                         } else {
-                             state.detail.classList.add('hidden');
-                              button.querySelector('span:last-child').classList.remove('rotate-45');
-                         }
-                     });
-                 });
-            }
-
-            createImpactMatrixChart();
-            createTensionIndexChart();
-            createBrightSpotsChart();
-            createSocietalShiftsChart();
-            populateTensionCards();
-            populateBrightSpots();
-            populateShiftsList();
-        });
-    </script>
-
-
-<html><head></head><body><footer class="bg-gray-800 text-gray-300">
+    <!-- Footer -->
+    <html><head></head><body><footer class="bg-gray-800 text-gray-300">
   <div class="container mx-auto px-6 py-12 lg:px-8">
     <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
       
@@ -455,6 +283,42 @@ This section forecasts major global events, visualizing impact and likelihood. E
           <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
           <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
           <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+		  
+		  <li>								
+		<a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">26-bihari-wishes</a>
+            </li>	
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">26-chinese-new-year-wishes</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">26-christmas-wishes</a>
+            </li>	
+		  <li>
+		  		<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-festival-countdown</a>
+            </li>	
+										
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">Christmas-wishes-by-audience</a>
+            </li>	
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">Happy-new-year-2026-celebrations-worldwide.html</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">Happy-new-year-2026</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">Multilingual-greetings-webpage</a>
+            </li>	
+		  
+		  
+		  
         </ul>
       </div>
 
@@ -466,18 +330,66 @@ This section forecasts major global events, visualizing impact and likelihood. E
           <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
           <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
 		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+		   <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
         </ul>
       </div>
 
       <div>
-        <h5 class="text-lg font-semibold text-white mb-4">Thanks giving and Christmas</h5>
+        <h5 class="text-lg font-semibold text-white mb-4">2025 Trends and 2026 forecast</h5>
         <ul class="space-y-2">
+		 
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-digital-outlook-trends-forecast</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">2026-festival-countdown</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026_dashboard.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">2026_dashboard</a>
+            </li>	
+
+
+		 
+
+									
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/new_year_2026_page.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">New_year_2026_page</a>
+            </li>	
+									
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/send-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl07_title">Send-christmas-wishes</a>
+            </li>	
+										
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl08_title">Send-sankranti-wishes-in-multiple-languages</a>
+            </li>	
+		
+		
+
           <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
           <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
           <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
           <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
           <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
           <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/index-oct.html">Thanks Giving Main Page</a></li>
 
           
         </ul>
@@ -529,4 +441,7 @@ This section forecasts major global events, visualizing impact and likelihood. E
     </div>
 	
   </div>
-</footer></body></html></body></html>
+</footer></body></html>
+
+
+</body></html>

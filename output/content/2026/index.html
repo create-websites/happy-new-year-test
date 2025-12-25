@@ -6,20 +6,18 @@
     <!-- SEO Meta Tags -->
     <meta content="Discover 26 heartfelt and thoughtful New Year wishes for 2026, from A to Z. Find the perfect warm, positive, and inspiring message for your loved ones." name="description"/>
     <meta content="New Year wishes, Happy New Year 2026, 2026 wishes, inspirational new year messages, thoughtful greetings, A to Z wishes" name="keywords"/>
-    <meta content="Heartfelt Greetings" name="author"/>
-    <meta content="26 Heartfelt New Year Wishes for 2026: An A-Z Guide" property="og:title"/>
-    <meta content="Discover 26 heartfelt and thoughtful New Year wishes for 2026, from A to Z." property="og:description"/>
-    <meta content="website" property="og:type"/>
-
     <title>26 Heartfelt New Year Wishes | A-Z Guide for 2026</title>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <!-- FontAwesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect"/>
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Lato:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;600;700&amp;family=Inter:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
 
     <!-- React and ReactDOM -->
     <script crossorigin="" src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
@@ -30,419 +28,96 @@
 
     <style>
         body {
-            font-family: 'Lato', sans-serif;
+            font-family: 'Inter', sans-serif;
+            background-color: #fff1f2; /* bg-rose-50 */
+            color: #292524; /* text-stone-800 */
+            background-image: linear-gradient(rgba(255, 241, 242, 0.95), rgba(255, 241, 242, 0.95)), url('https://storage.googleapis.com/kreatewebsite/banner_all/Happy-New-Year-Photos.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
-        h1, h2, h3, .font-serif {
-            font-family: 'Playfair Display', serif;
+        h1, h2, h3, .serif {
+            font-family: 'Vollkorn', serif;
         }
+        
+        /* Navigation Bar */
+        .nav-glass {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid #ffe4e6;
+        }
+
+        .nav-link {
+            color: #57534e;
+            transition: color 0.2s;
+        }
+        .nav-link:hover {
+            color: #9f1239;
+        }
+
+        /* Wish Card Styling */
+        .wish-card {
+            background-color: rgba(255, 255, 255, 0.7);
+            border: 1px solid #ffe4e6;
+            border-radius: 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(4px);
+        }
+
+        .wish-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px -5px rgba(244, 63, 94, 0.15);
+            border-color: #fda4af;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+
         .animate-spin-slow {
             animation: spin 60s linear infinite;
-        }
-        .animate-bounce-slow {
-            animation: bounce 3s infinite;
         }
         @keyframes spin {
             from { transform: translate(-50%, -50%) rotate(0deg); }
             to { transform: translate(-50%, -50%) rotate(360deg); }
         }
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f0f9ff;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #0ea5e9;
-            border-radius: 5px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #0284c7;
-        }
     </style>
-<!-- Google tag (gtag.js) --><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JJ6LGZB34T"></script><script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+</head>
+<body class="antialiased min-h-screen flex flex-col">
 
-  gtag('config', 'G-JJ6LGZB34T');
-</script><script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9804321536688475"></script></head>
-<body class="bg-slate-50 text-slate-800">
-    <div id="root"></div>
-
-    <script type="text/babel">
-        const { useState, useEffect } = React;
-
-        // --- Icons ---
-        const IconSparkles = ({ className }) => (
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
-        );
-        const IconMoon = ({ className, size=24 }) => (
-            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-        );
-        const IconStar = ({ className, size=24 }) => (
-            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        );
-        const IconCopy = ({ className, size=24 }) => (
-            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
-        );
-        const IconCheck = ({ className, size=24 }) => (
-            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M20 6 9 17l-5-5"/></svg>
-        );
-
-        // --- Data: 26 Wishes (A-Z) ---
-        const wishes = [
-            {
-                letter: "A",
-                title: "Abundance and Adventure",
-                body: "May 2026 overflow with abundance, adventure, and awe-inspiring moments. May every sunrise fill you with renewed hope, and every sunset remind you how far you’ve come. Wishing you a year of exploration, joy, and limitless blessings."
-            },
-            {
-                letter: "B",
-                title: "Brighter Beginnings",
-                body: "Here’s to brighter beginnings and beautiful journeys in 2026! May your dreams unfold one by one, and your heart be filled with peace, love, and laughter. Cheers to a year that’s even better than you imagined."
-            },
-            {
-                letter: "C",
-                title: "Courage and Clarity",
-                body: "May this New Year give you the courage to chase your biggest dreams and the clarity to know what truly matters. Step into 2026 with faith, purpose, and unstoppable energy."
-            },
-            {
-                letter: "D",
-                title: "Dreams and Determination",
-                body: "As 2026 unfolds, may your dreams find direction and your determination open doors you never knew existed. Wishing you a year full of small victories, lasting happiness, and boundless success."
-            },
-            {
-                letter: "E",
-                title: "Energy and Enthusiasm",
-                body: "May every day of 2026 begin with enthusiasm and end with gratitude. Fill your journey with kindness, laughter, and moments that remind you how extraordinary life can be."
-            },
-            {
-                letter: "F",
-                title: "Family and Friendship",
-                body: "May 2026 surround you with family warmth and friendships that last a lifetime. May every gathering be filled with joy, every conversation with love, and every heart with contentment."
-            },
-            {
-                letter: "G",
-                title: "Growth and Gratitude",
-                body: "In 2026, may you grow stronger through challenges, wiser through reflection, and happier through gratitude. Celebrate your milestones, no matter how small—they are proof of your progress."
-            },
-            {
-                letter: "H",
-                title: "Hope and Harmony",
-                body: "May the new year bring harmony to your heart and hope to your days. Let 2026 be a year where you find peace in every step and beauty in every season of life."
-            },
-            {
-                letter: "I",
-                title: "Inspiration and Impact",
-                body: "May you inspire others as much as you are inspired. May your work, words, and wisdom make a lasting impact in 2026. Keep shining your light—it’s needed more than ever."
-            },
-            {
-                letter: "J",
-                title: "Joy and Journey",
-                body: "Here’s to a joyful journey through 2026! May laughter be your constant companion, and love your guiding star. Let every day bring a reason to smile and celebrate."
-            },
-            {
-                letter: "K",
-                title: "Kindness and Knowledge",
-                body: "May you fill 2026 with acts of kindness and endless learning. Share your wisdom, embrace new experiences, and discover how fulfilling giving can truly be."
-            },
-            {
-                letter: "L",
-                title: "Love and Light",
-                body: "May love light your way in 2026 and guide you toward everything you’ve ever wished for. Be surrounded by those who uplift your spirit and believe in your dreams."
-            },
-            {
-                letter: "M",
-                title: "Magic and Meaning",
-                body: "May 2026 be sprinkled with magic and meaning. Chase moments that make your heart race and memories that make you smile for years to come."
-            },
-            {
-                letter: "N",
-                title: "New Horizons",
-                body: "Step into 2026 with open arms and a fearless heart. May new horizons appear before you, filled with opportunities that lead to growth, happiness, and fulfillment."
-            },
-            {
-                letter: "O",
-                title: "Optimism and Opportunities",
-                body: "Let 2026 be a year where optimism fuels your actions and opportunities find their way to you naturally. Believe in yourself, because you are capable of amazing things."
-            },
-            {
-                letter: "P",
-                title: "Peace and Prosperity",
-                body: "May peace surround your home, prosperity follow your path, and happiness fill your heart all through 2026. Wishing you serenity and success in equal measure."
-            },
-            {
-                letter: "Q",
-                title: "Quiet Confidence",
-                body: "Walk into 2026 with quiet confidence, knowing you have what it takes to succeed. Trust your journey, embrace your pace, and celebrate how far you’ve already come."
-            },
-            {
-                letter: "R",
-                title: "Renewal and Radiance",
-                body: "Let this new year renew your spirit and ignite your inner radiance. May every challenge turn into a blessing, and every goal bring you closer to your purpose."
-            },
-            {
-                letter: "S",
-                title: "Strength and Serenity",
-                body: "May 2026 give you the strength to overcome challenges and the serenity to accept what cannot be changed. You are stronger, wiser, and more resilient than you realize."
-            },
-            {
-                letter: "T",
-                title: "Triumph and Togetherness",
-                body: "Celebrate every triumph, big or small, in 2026. Treasure the people who stand by your side and make every moment of togetherness a memory to cherish."
-            },
-            {
-                letter: "U",
-                title: "Unfolding Possibilities",
-                body: "May 2026 unfold countless possibilities before you. Take bold steps, follow your instincts, and trust that the universe is guiding you toward something beautiful."
-            },
-            {
-                letter: "V",
-                title: "Vision and Victory",
-                body: "Have a clear vision for your future and the courage to pursue it. May 2026 be your year of victory—where everything you’ve worked for begins to bloom."
-            },
-            {
-                letter: "W",
-                title: "Wellness and Wonder",
-                body: "Wishing you wellness in body, peace in mind, and wonder in spirit. Let 2026 be filled with laughter, self-care, and heartfelt moments that make life truly special."
-            },
-            {
-                letter: "X",
-                title: "eXtraordinary Experiences",
-                body: "Make 2026 extraordinary by living fully, loving deeply, and dreaming boldly. May every experience shape you into the best version of yourself."
-            },
-            {
-                letter: "Y",
-                title: "Youthful Spirit",
-                body: "Keep your spirit young, your heart open, and your dreams alive in 2026. The best years aren’t behind you—they’re just beginning."
-            },
-            {
-                letter: "Z",
-                title: "Zeal for Life",
-                body: "May you live 2026 with unshakable zeal, embracing every twist and turn with joy. Let passion fuel your purpose and positivity light your path."
-            }
-        ];
-
-        // --- Sub-component ---
-        const WishCard = ({ wish }) => {
-            const [copied, setCopied] = useState(false);
-
-            const copyToClipboard = () => {
-                const textToCopy = `${wish.title}\n\n${wish.body}`;
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                    navigator.clipboard.writeText(textToCopy).then(() => {
-                        setCopied(true);
-                        setTimeout(() => setCopied(false), 2000);
-                    });
-                } else {
-                    const textArea = document.createElement("textarea");
-                    textArea.value = textToCopy;
-                    document.body.appendChild(textArea);
-                    textArea.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(textArea);
-                    setCopied(true);
-                    setTimeout(() => setCopied(false), 2000);
-                }
-            };
-
-            return (
-                <div className="group bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-sky-100 hover:border-sky-400 relative overflow-hidden h-full flex flex-col justify-between">
-                    <div className="absolute top-0 right-0 w-20 h-20 bg-sky-50 rounded-bl-full -mr-8 -mt-8 transition-colors group-hover:bg-sky-100"></div>
-                    <div className="absolute top-3 right-4 text-xl font-bold text-sky-700 opacity-30 font-serif">{wish.letter}</div>
-
-                    <div className="mb-4 relative z-10">
-                        <h3 className="text-xl font-bold text-sky-900 mb-3 font-serif border-b-2 border-sky-100 pb-2 inline-block">
-                            {wish.title}
-                        </h3>
-                        <p className="text-base text-slate-600 leading-relaxed">
-                            {wish.body}
-                        </p>
-                    </div>
-
-                    <div className="flex justify-between items-center mt-4 pt-4 border-t border-slate-100">
-                        <span className="text-xs text-sky-600 font-semibold uppercase tracking-wider">
-                            2026 Wishes
-                        </span>
-                        <button 
-                            onClick={copyToClipboard}
-                            className="text-slate-400 hover:text-sky-600 transition-colors p-2 rounded-full hover:bg-sky-50"
-                            title="Copy to clipboard"
-                        >
-                            {copied ? <span className="text-green-600 text-xs font-bold flex items-center gap-1">Copied <IconCheck size={14}/></span> : <IconCopy size={18} />}
-                        </button>
+    <!-- Navigation (Static HTML for SEO/Consistency) -->
+    <nav class="w-full nav-glass sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <a class="flex items-center gap-2 group" href="index.html">
+                        <span class="text-2xl text-rose-600 group-hover:scale-110 transition-transform">✨</span>
+                        <span class="text-xl font-bold tracking-wide uppercase text-rose-900 group-hover:text-rose-700 serif">Happy New Year</span>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+						<a class="text-stone-600 hover:text-rose-800 block px-3 py-2 rounded-md text-base font-medium" href="/#resolutions">Resolutions</a>
+						<a class="text-stone-600 hover:text-rose-800 block px-3 py-2 rounded-md text-base font-medium" href="/#culture">Culture</a>
+						<a class="text-stone-600 hover:text-rose-800 block px-3 py-2 rounded-md text-base font-medium" href="/#trends">Trends</a>
+						<a class="text-stone-600 hover:text-rose-800 block px-3 py-2 rounded-md text-base font-medium" href="/2025/">2025</a>
+						<a class="text-stone-600 hover:text-rose-800 block px-3 py-2 rounded-md text-base font-medium" href="/celebrations/">Best Celebrations</a>
+                        <a class="nav-link px-3 py-2 rounded-md text-base font-semibold text-rose-800 border-b-2 border-rose-800" href="/wishes/">26 Wishes</a>
+						
+						
                     </div>
                 </div>
-            );
-        };
-
-        // --- Main Component ---
-        const NewYear2026 = () => {
-            const [currentWishIndex, setCurrentWishIndex] = useState(0);
-            const [isCopied, setIsCopied] = useState(false);
-
-            const handleCopy = (wish) => {
-                const textToCopy = `${wish.title}\n\n${wish.body}`;
-                 if (navigator.clipboard && navigator.clipboard.writeText) {
-                    navigator.clipboard.writeText(textToCopy).then(() => {
-                        setIsCopied(true);
-                        setTimeout(() => setIsCopied(false), 2000);
-                    });
-                } else {
-                    const textArea = document.createElement("textarea");
-                    textArea.value = textToCopy;
-                    document.body.appendChild(textArea);
-                    textArea.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(textArea);
-                    setIsCopied(true);
-                    setTimeout(() => setIsCopied(false), 2000);
-                }
-            };
-
-            const nextWish = () => {
-                setCurrentWishIndex((prev) => (prev + 1) % wishes.length);
-            };
-
-            const prevWish = () => {
-                setCurrentWishIndex((prev) => (prev - 1 + wishes.length) % wishes.length);
-            };
-            
-            const currentWish = wishes[currentWishIndex];
-
-            return (
-                <div className="min-h-screen bg-slate-50 font-sans text-slate-800 overflow-x-hidden selection:bg-sky-500 selection:text-white pb-12">
-                {/* --- Decorative Background Elements --- */}
-                <div className="fixed inset-0 pointer-events-none opacity-20 z-0">
-                    <div className="absolute top-0 left-0 w-96 h-96 bg-sky-300 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 mix-blend-multiply"></div>
-                    <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-300 rounded-full blur-3xl translate-x-1/3 translate-y-1/3 mix-blend-multiply"></div>
-                    <div className="absolute top-1/2 left-1/2 w-[900px] h-[900px] border-[1px] border-slate-200 rounded-full opacity-30 -translate-x-1/2 -translate-y-1/2 animate-spin-slow"></div>
+                <!-- Mobile menu button placeholder -->
+                <div class="md:hidden">
+                    <button class="text-stone-600 hover:text-rose-800"><i class="fa-solid fa-bars text-2xl"></i></button>
                 </div>
+            </div>
+        </div>
+    </nav>
 
-                {/* --- Header / Hero Section --- */}
-                <header className="relative z-10 bg-gradient-to-r from-sky-900 via-blue-800 to-indigo-900 text-white shadow-xl border-b-4 border-sky-400">
-                    <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
-                    
-                    <div className="container mx-auto px-4 py-16 text-center relative">
-                    <div className="inline-block mb-6 animate-bounce-slow">
-                        <IconMoon className="text-sky-300 mx-auto" size={56} />
-                    </div>
-                    <h1 className="text-5xl md:text-7xl font-bold mb-4 drop-shadow-lg font-serif tracking-wide">
-                        2026
-                    </h1>
-                    <h2 className="text-2xl md:text-4xl font-light mb-6 text-sky-100 font-serif">
-                        Heartfelt New Year Wishes
-                    </h2>
-                    <p className="text-lg md:text-xl font-light italic text-sky-200 max-w-2xl mx-auto">
-                        "Discover 26 thoughtful greetings for the New Year, from A to Z."
-                    </p>
-                    <div className="mt-8 flex justify-center gap-2">
-                        <div className="h-1 w-24 bg-sky-400 rounded-full"></div>
-                        <div className="h-1 w-4 bg-sky-400 rounded-full"></div>
-                        <div className="h-1 w-24 bg-sky-400 rounded-full"></div>
-                    </div>
-                    </div>
-                    
-                    <div className="absolute -bottom-1 left-0 right-0 h-8 bg-slate-50" style={{ clipPath: 'polygon(0 100%, 0 0, 5% 80%, 10% 0, 15% 80%, 20% 0, 25% 80%, 30% 0, 35% 80%, 40% 0, 45% 80%, 50% 0, 55% 80%, 60% 0, 65% 80%, 70% 0, 75% 80%, 80% 0, 85% 80%, 90% 0, 95% 80%, 100% 0, 100% 100%)' }}></div>
-                </header>
+    <!-- React Root -->
+    <div class="flex-grow" id="root"></div>
 
-                <main className="relative z-10 container mx-auto px-4 py-12">
-                    
-                    {/* --- Featured Wish Card (Carousel) --- */}
-                    <section className="mb-20 max-w-4xl mx-auto">
-                    <div className="text-center mb-10">
-                        <h3 className="text-3xl font-bold text-slate-800 mb-3 font-serif">Featured Wish</h3>
-                        <p className="text-slate-500 uppercase tracking-widest text-sm">Start the year with positivity</p>
-                    </div>
-
-                    <div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-200 transform transition-all hover:scale-[1.01]">
-                        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-sky-500 via-indigo-500 to-sky-500"></div>
-                        
-                        <div className="p-8 md:p-12 flex flex-col items-center justify-center min-h-[350px] text-center relative">
-                            {/* Background letter */}
-                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[200px] font-bold text-slate-50 font-serif select-none -z-10">
-                                {currentWish.letter}
-                            </div>
-
-                            <IconSparkles className="text-sky-500 mb-6 w-12 h-12" />
-                            
-                            <h4 className="text-2xl md:text-3xl font-bold text-slate-800 mb-4 font-serif">
-                                {currentWish.title}
-                            </h4>
-                            
-                            <p className="text-lg md:text-xl font-light leading-relaxed text-slate-600 mb-10 max-w-2xl">
-                                "{currentWish.body}"
-                            </p>
-                            
-                            <div className="flex flex-wrap gap-4 justify-center mt-2">
-                                <button 
-                                onClick={() => handleCopy(currentWish)}
-                                className="flex items-center gap-2 px-8 py-3 bg-sky-600 hover:bg-sky-700 text-white rounded-full font-medium transition-colors shadow-lg hover:shadow-sky-200/50"
-                                >
-                                {isCopied ? "Copied!" : "Copy Wish"} <IconCopy size={18} />
-                                </button>
-                                <button 
-                                onClick={nextWish}
-                                className="flex items-center gap-2 px-8 py-3 border border-slate-300 text-slate-600 hover:bg-slate-50 hover:border-slate-400 rounded-full font-medium transition-colors"
-                                >
-                                Next Letter
-                                </button>
-                            </div>
-                        </div>
-
-                        <button onClick={prevWish} className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white hover:bg-slate-50 border border-slate-200 rounded-full text-slate-600 transition-colors shadow-md hidden md:flex">←</button>
-                        <button onClick={nextWish} className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white hover:bg-slate-50 border border-slate-200 rounded-full text-slate-600 transition-colors shadow-md hidden md:flex">→</button>
-                    </div>
-                    </section>
-
-                    {/* --- Grid of Wishes --- */}
-                    <section>
-                    <div className="flex items-center justify-center mb-12 gap-4">
-                        <div className="h-px bg-slate-300 w-12 md:w-24"></div>
-                        <h3 className="text-2xl md:text-3xl font-bold text-slate-800 font-serif text-center">A to Z Collection</h3>
-                        <div className="h-px bg-slate-300 w-12 md:w-24"></div>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                        {wishes.map((wish, index) => (
-                        <WishCard key={index} wish={wish} />
-                        ))}
-                    </div>
-                    </section>
-
-                </main>
-
-                {/* --- Footer --- */}
-                <footer className="relative z-10 bg-slate-900 text-sky-100 py-16 mt-16">
-                    <div className="container mx-auto px-4 text-center">
-                    <div className="flex justify-center items-center gap-4 mb-8">
-                        <IconStar className="text-sky-500" size={20} />
-                        <h2 className="text-3xl font-serif text-white">Happy 2026</h2>
-                        <IconStar className="text-sky-500" size={20} />
-                    </div>
-                    <p className="max-w-xl mx-auto text-slate-400 mb-8 font-light text-lg">
-                        May this year bring you joy, success, and prosperity in every step you take.
-                    </p>
-                    <div className="flex justify-center gap-6 mb-8 text-slate-500">
-                        <span className="cursor-pointer hover:text-white transition-colors">Home</span>
-                        <span className="cursor-pointer hover:text-white transition-colors">About</span>
-                        <span className="cursor-pointer hover:text-white transition-colors">Share</span>
-                    </div>
-                    <div className="text-sm text-slate-600 pt-8 border-t border-slate-800">
-                        © {new Date().getFullYear() + 1} Heartfelt Greetings Collection. All rights reserved.
-                    </div>
-                    </div>
-                </footer>
-                </div>
-            );
-        };
-
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<NewYear2026 />);
-    </script>
-
-<html><head></head><body><footer class="bg-gray-800 text-gray-300">
+    <!-- Footer (Static) -->
+    <html><head></head><body><footer class="bg-gray-800 text-gray-300">
   <div class="container mx-auto px-6 py-12 lg:px-8">
     <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
       
@@ -612,4 +287,140 @@
     </div>
 	
   </div>
-</footer></body></html></body></html>
+</footer></body></html>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // --- Data: 26 Wishes (A-Z) ---
+        const wishes = [
+            { letter: "A", title: "Abundance and Adventure", body: "May 2026 overflow with abundance, adventure, and awe-inspiring moments. May every sunrise fill you with renewed hope." },
+            { letter: "B", title: "Brighter Beginnings", body: "Here’s to brighter beginnings and beautiful journeys in 2026! May your dreams unfold one by one." },
+            { letter: "C", title: "Courage and Clarity", body: "May this New Year give you the courage to chase your biggest dreams and the clarity to know what truly matters." },
+            { letter: "D", title: "Dreams and Determination", body: "As 2026 unfolds, may your dreams find direction and your determination open doors you never knew existed." },
+            { letter: "E", title: "Energy and Enthusiasm", body: "May every day of 2026 begin with enthusiasm and end with gratitude. Fill your journey with kindness." },
+            { letter: "F", title: "Family and Friendship", body: "May 2026 surround you with family warmth and friendships that last a lifetime. May every gathering be filled with joy." },
+            { letter: "G", title: "Growth and Gratitude", body: "In 2026, may you grow stronger through challenges, wiser through reflection, and happier through gratitude." },
+            { letter: "H", title: "Hope and Harmony", body: "May the new year bring harmony to your heart and hope to your days. Let 2026 be a year where you find peace." },
+            { letter: "I", title: "Inspiration and Impact", body: "May you inspire others as much as you are inspired. May your work, words, and wisdom make a lasting impact." },
+            { letter: "J", title: "Joy and Journey", body: "Here’s to a joyful journey through 2026! May laughter be your constant companion, and love your guiding star." },
+            { letter: "K", title: "Kindness and Knowledge", body: "May you fill 2026 with acts of kindness and endless learning. Share your wisdom and embrace new experiences." },
+            { letter: "L", title: "Love and Light", body: "May love light your way in 2026 and guide you toward everything you’ve ever wished for." },
+            { letter: "M", title: "Magic and Meaning", body: "May 2026 be sprinkled with magic and meaning. Chase moments that make your heart race." },
+            { letter: "N", title: "New Horizons", body: "Step into 2026 with open arms. May new horizons appear before you, filled with opportunities." },
+            { letter: "O", title: "Optimism and Opportunities", body: "Let 2026 be a year where optimism fuels your actions and opportunities find their way to you naturally." },
+            { letter: "P", title: "Peace and Prosperity", body: "May peace surround your home, prosperity follow your path, and happiness fill your heart all through 2026." },
+            { letter: "Q", title: "Quiet Confidence", body: "Walk into 2026 with quiet confidence. Trust your journey, embrace your pace, and celebrate how far you’ve come." },
+            { letter: "R", title: "Renewal and Radiance", body: "Let this new year renew your spirit. May every challenge turn into a blessing, and every goal bring you closer to purpose." },
+            { letter: "S", title: "Strength and Serenity", body: "May 2026 give you the strength to overcome challenges and the serenity to accept what cannot be changed." },
+            { letter: "T", title: "Triumph and Togetherness", body: "Celebrate every triumph in 2026. Treasure the people who stand by your side." },
+            { letter: "U", title: "Unfolding Possibilities", body: "May 2026 unfold countless possibilities. Take bold steps and trust that the universe is guiding you." },
+            { letter: "V", title: "Vision and Victory", body: "Have a clear vision for your future. May 2026 be your year of victory where your work begins to bloom." },
+            { letter: "W", title: "Wellness and Wonder", body: "Wishing you wellness in body, peace in mind, and wonder in spirit. Let 2026 be filled with laughter." },
+            { letter: "X", title: "eXtraordinary Experiences", body: "Make 2026 extraordinary by living fully. May every experience shape you into the best version of yourself." },
+            { letter: "Y", title: "Youthful Spirit", body: "Keep your spirit young and your dreams alive. The best years aren’t behind you—they’re just beginning." },
+            { letter: "Z", title: "Zeal for Life", body: "May you live 2026 with unshakable zeal. Let passion fuel your purpose and positivity light your path." }
+        ];
+
+        const WishCard = ({ wish }) => {
+            const [copied, setCopied] = useState(false);
+
+            const copyToClipboard = () => {
+                const textToCopy = `${wish.title}\n\n${wish.body}`;
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    setCopied(true);
+                    setTimeout(() => setCopied(false), 2000);
+                });
+            };
+
+            return (
+                <div className="wish-card p-6 h-full flex flex-col justify-between group relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-16 h-16 bg-rose-100 rounded-bl-full -mr-6 -mt-6 transition-colors group-hover:bg-rose-200"></div>
+                    <div className="absolute top-2 right-3 text-lg font-bold text-rose-300 font-serif">{wish.letter}</div>
+
+                    <div>
+                        <h3 className="text-xl font-bold text-rose-900 mb-3 serif border-b border-rose-100 pb-2 inline-block">
+                            {wish.title}
+                        </h3>
+                        <p className="text-stone-600 text-sm leading-relaxed">
+                            {wish.body}
+                        </p>
+                    </div>
+
+                    <div className="mt-6 pt-4 border-t border-rose-50 flex justify-between items-center">
+                        <span className="text-[10px] font-bold text-rose-400 uppercase tracking-wider">2026 Wishes</span>
+                        <button 
+                            onClick={copyToClipboard}
+                            className="text-stone-400 hover:text-rose-600 transition-colors p-2 rounded-full hover:bg-rose-50"
+                            title="Copy"
+                        >
+                            {copied ? <i className="fa-solid fa-check"></i> : <i className="fa-regular fa-copy"></i>}
+                        </button>
+                    </div>
+                </div>
+            );
+        };
+
+        const App = () => {
+            const [featuredIndex, setFeaturedIndex] = useState(0);
+            const featuredWish = wishes[featuredIndex];
+
+            return (
+                <div className="w-full">
+                    {/* Hero Header */}
+                    <div className="relative pt-12 pb-8 text-center">
+                        <div className="inline-block px-4 py-1 rounded-full border border-rose-200 bg-white/60 text-rose-800 text-xs font-bold tracking-[0.2em] uppercase mb-4 backdrop-blur-sm">
+                            A to Z Collection
+                        </div>
+                        <h1 className="text-4xl md:text-6xl font-bold text-rose-900 mb-4 tracking-tight serif">
+                            Heartfelt Wishes
+                        </h1>
+                        <p className="text-lg text-stone-600 max-w-2xl mx-auto italic mb-12">
+                            "Discover 26 thoughtful greetings for the New Year, from A to Z."
+                        </p>
+                    </div>
+
+                    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+                        
+                        {/* Featured Carousel */}
+                        <div className="mb-16 max-w-3xl mx-auto">
+                            <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-rose-100 relative">
+                                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-rose-300 to-rose-500"></div>
+                                <div className="p-10 text-center min-h-[300px] flex flex-col items-center justify-center">
+                                    <div className="text-[150px] font-bold text-rose-50 absolute opacity-50 select-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 serif">
+                                        {featuredWish.letter}
+                                    </div>
+                                    
+                                    <div className="relative z-10">
+                                        <i className="fa-solid fa-wand-magic-sparkles text-rose-400 text-3xl mb-4"></i>
+                                        <h2 className="text-3xl font-bold text-stone-800 mb-4 serif">{featuredWish.title}</h2>
+                                        <p className="text-xl text-stone-600 italic leading-relaxed max-w-lg mx-auto">
+                                            "{featuredWish.body}"
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="bg-rose-50 p-4 flex justify-between items-center px-8">
+                                    <button onClick={() => setFeaturedIndex((i) => (i - 1 + wishes.length) % wishes.length)} className="text-stone-500 hover:text-rose-700 font-bold"><i className="fa-solid fa-arrow-left mr-2"></i> Prev</button>
+                                    <span className="text-xs font-bold text-rose-400 uppercase tracking-widest">{featuredIndex + 1} / {wishes.length}</span>
+                                    <button onClick={() => setFeaturedIndex((i) => (i + 1) % wishes.length)} className="text-stone-500 hover:text-rose-700 font-bold">Next <i className="fa-solid fa-arrow-right ml-2"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                            {wishes.map((wish, idx) => (
+                                <WishCard key={idx} wish={wish} />
+                            ))}
+                        </div>
+                    </main>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+
+
+</body></html>

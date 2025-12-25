@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Daily Horoscope</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 24px; line-height: 1.45; }
+    .shell { max-width: 1100px; border: 1px solid #ddd; border-radius: 14px; padding: 16px; }
+    .title { font-size: 18px; font-weight: 900; margin-bottom: 6px; }
+    .muted { color: #666; font-size: 13px; }
+    code { background:#f7f7f7; padding: 2px 6px; border-radius: 8px; }
+
+    .row { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0; }
+    label { display: block; font-size: 12px; color: #444; margin-bottom: 4px; }
+    input, select, button { padding: 10px; border: 1px solid #ccc; border-radius: 10px; font-size: 14px; }
+    button { cursor: pointer; }
+    .pillBar { display:flex; gap:8px; flex-wrap:wrap; margin: 10px 0 0; }
+    .pill {
+      display:inline-flex; align-items:center; gap:8px;
+      border: 1px solid #e6e6e6; border-radius: 999px;
+      padding: 8px 10px; background:#fff;
+    }
+    .pill a { text-decoration: none; color:#111; font-size: 13px; }
+    .pill a:hover { text-decoration: underline; }
+    .divider { border:none; border-top:1px solid #eee; margin: 14px 0; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 12px;
+    }
+    .card {
+      border: 1px solid #eee;
+      border-radius: 14px;
+      padding: 14px;
+      background: #fff;
+      min-height: 120px;
+    }
+    .cardHeader { display:flex; align-items:baseline; justify-content:space-between; gap:12px; }
+    .sign { font-weight: 900; font-size: 16px; }
+    .date { font-size: 12px; color:#666; }
+    .text { margin-top: 10px; white-space: pre-wrap; }
+    .error { color: #b00020; white-space: pre-wrap; }
+
+    .section { margin-top: 18px; }
+    .sectionHeader { display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin: 8px 0; }
+    .sectionTitle { font-weight: 900; font-size: 16px; }
+    .sectionMeta { font-size: 12px; color:#666; }
+
+    /* Skeleton loader */
+    .skeleton {
+      position: relative;
+      overflow: hidden;
+      background: #f2f2f2;
+    }
+    .skeleton::after {
+      content: "";
+      position: absolute;
+      top: 0; left: -60%;
+      width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.65), transparent);
+      animation: shimmer 1.2s infinite;
+    }
+    @keyframes shimmer { 100% { left: 120%; } }
+    .skLine { height: 12px; border-radius: 8px; margin-top: 10px; }
+    .skLine.short { width: 55%; }
+    .skLine.med { width: 80%; }
+    .skLine.long { width: 100%; }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="title">Daily Horoscope</div>
+    <div class="muted">
+      Source: <code>https://storage.googleapis.com/dayhoroscope/{date}/{sunsign}.json</code>
+    </div>
+
+    <form id="controls">
+      <div class="row">
+        <div>
+          <label for="date">Date</label>
+          <input id="date" name="date" type="date" />
+        </div>
+
+        <div>
+          <label for="sunsign">Sun sign (optional)</label>
+          <select id="sunsign" name="sunsign">
+            <option value="">(All signs)</option>
+            <option value="aries">Aries</option>
+            <option value="taurus">Taurus</option>
+            <option value="gemini">Gemini</option>
+            <option value="cancer">Cancer</option>
+            <option value="leo">Leo</option>
+            <option value="virgo">Virgo</option>
+            <option value="libra">Libra</option>
+            <option value="scorpio">Scorpio</option>
+            <option value="sagittarius">Sagittarius</option>
+            <option value="capricorn">Capricorn</option>
+            <option value="aquarius">Aquarius</option>
+            <option value="pisces">Pisces</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="viewMode">View (when showing all)</label>
+          <select id="viewMode" name="viewMode">
+            <option value="element" selected>Grouped by element</option>
+            <option value="flat">All signs (flat)</option>
+          </select>
+        </div>
+
+        <div style="align-self:end;">
+          <button type="submit">Load</button>
+        </div>
+      </div>
+
+      <div id="jumpBar" class="pillBar" style="display:none;">
+        <span class="pill"><a href="#fire">🔥 Fire</a></span>
+        <span class="pill"><a href="#earth">🌿 Earth</a></span>
+        <span class="pill"><a href="#air">💨 Air</a></span>
+        <span class="pill"><a href="#water">💧 Water</a></span>
+      </div>
+    </form>
+
+    <hr class="divider" />
+
+    <div id="status" class="muted"></div>
+    <div id="content"></div>
+  </div>
+
+  <script>
+    const BUCKET_BASE = "https://storage.googleapis.com/dayhoroscope";
+
+    const ELEMENTS = [
+      { id: "fire",  label: "Fire",  emoji: "🔥", signs: ["aries", "leo", "sagittarius"] },
+      { id: "earth", label: "Earth", emoji: "🌿", signs: ["taurus", "virgo", "capricorn"] },
+      { id: "air",   label: "Air",   emoji: "💨", signs: ["gemini", "libra", "aquarius"] },
+      { id: "water", label: "Water", emoji: "💧", signs: ["cancer", "scorpio", "pisces"] },
+    ];
+    const ALL_SIGNS = ELEMENTS.flatMap(e => e.signs);
+
+    function qs() { return new URLSearchParams(window.location.search); }
+
+    function isoTodayLocal() {
+      const d = new Date();
+      const yyyy = d.getFullYear();
+      const mm = String(d.getMonth() + 1).padStart(2, "0");
+      const dd = String(d.getDate()).padStart(2, "0");
+      return `${yyyy}-${mm}-${dd}`;
+    }
+
+    function normalizeSign(s) {
+      const v = (s || "").toLowerCase().trim();
+      return ALL_SIGNS.includes(v) ? v : "";
+    }
+
+    function buildUrl(date, sunsign) {
+      return `${BUCKET_BASE}/${encodeURIComponent(date)}/${encodeURIComponent(sunsign)}.json`;
+    }
+
+    function setQueryParams(date, sunsignOrEmpty, viewMode) {
+      const u = new URL(window.location.href);
+      u.searchParams.set("date", date);
+      if (sunsignOrEmpty) u.searchParams.set("sunsign", sunsignOrEmpty);
+      else u.searchParams.delete("sunsign");
+
+      // view only matters when no sunsign, but it’s harmless to keep
+      u.searchParams.set("view", viewMode || "element");
+
+      window.history.replaceState({}, "", u.toString());
+    }
+
+    async function fetchJson(url) {
+      const res = await fetch(url, { cache: "no-store" });
+      if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`);
+      return await res.json();
+    }
+
+    function renderHoroscopeCard(json, fallbackSign, fallbackDate) {
+      // Your schema: { date, sign, horoscope }
+      const sign = (json && json.sign) ? json.sign : fallbackSign;
+      const date = (json && json.date) ? json.date : fallbackDate;
+      const horoscope = (json && json.horoscope) ? json.horoscope : "";
+
+      const card = document.createElement("div");
+      card.className = "card";
+
+      const header = document.createElement("div");
+      header.className = "cardHeader";
+
+      const signEl = document.createElement("div");
+      signEl.className = "sign";
+      signEl.textContent = sign || "(Unknown sign)";
+
+      const dateEl = document.createElement("div");
+      dateEl.className = "date";
+      dateEl.textContent = date || "";
+
+      header.appendChild(signEl);
+      header.appendChild(dateEl);
+
+      const textEl = document.createElement("div");
+      textEl.className = "text";
+      textEl.textContent = horoscope || "(No horoscope field found)";
+
+      card.appendChild(header);
+      card.appendChild(textEl);
+      return card;
+    }
+
+    function renderSkeletonCard(label, date) {
+      const card = document.createElement("div");
+      card.className = "card";
+
+      const header = document.createElement("div");
+      header.className = "cardHeader";
+
+      const signEl = document.createElement("div");
+      signEl.className = "sign";
+      signEl.textContent = label;
+
+      const dateEl = document.createElement("div");
+      dateEl.className = "date";
+      dateEl.textContent = date;
+
+      header.appendChild(signEl);
+      header.appendChild(dateEl);
+
+      const line1 = document.createElement("div");
+      line1.className = "skLine skeleton long";
+      const line2 = document.createElement("div");
+      line2.className = "skLine skeleton med";
+      const line3 = document.createElement("div");
+      line3.className = "skLine skeleton short";
+
+      card.appendChild(header);
+      card.appendChild(line1);
+      card.appendChild(line2);
+      card.appendChild(line3);
+      return card;
+    }
+
+    function showJumpBar(show) {
+      document.getElementById("jumpBar").style.display = show ? "flex" : "none";
+    }
+
+    // -------- Rendering layouts --------
+
+    function renderFlatSkeletons(date) {
+      const content = document.getElementById("content");
+      content.innerHTML = "";
+      showJumpBar(false);
+
+      const grid = document.createElement("div");
+      grid.className = "grid";
+
+      const placeholderBySign = {};
+      ALL_SIGNS.forEach(sign => {
+        const sk = renderSkeletonCard(sign, date);
+        placeholderBySign[sign] = sk;
+        grid.appendChild(sk);
+      });
+
+      content.appendChild(grid);
+      return placeholderBySign; // map sign -> node to replace
+    }
+
+    function renderElementSkeletons(date) {
+      const content = document.getElementById("content");
+      content.innerHTML = "";
+      showJumpBar(true);
+
+      const placeholderBySign = {};
+
+      ELEMENTS.forEach(el => {
+        const section = document.createElement("div");
+        section.className = "section";
+        section.id = el.id;
+
+        const header = document.createElement("div");
+        header.className = "sectionHeader";
+
+        const title = document.createElement("div");
+        title.className = "sectionTitle";
+        title.textContent = `${el.emoji} ${el.label}`;
+
+        const meta = document.createElement("div");
+        meta.className = "sectionMeta";
+        meta.textContent = `0/${el.signs.length} loaded`;
+        meta.dataset.metaFor = el.id;
+
+        header.appendChild(title);
+        header.appendChild(meta);
+
+        const grid = document.createElement("div");
+        grid.className = "grid";
+
+        el.signs.forEach(sign => {
+          const sk = renderSkeletonCard(sign, date);
+          placeholderBySign[sign] = sk;
+          grid.appendChild(sk);
+        });
+
+        section.appendChild(header);
+        section.appendChild(grid);
+        content.appendChild(section);
+      });
+
+      return placeholderBySign;
+    }
+
+    function updateSectionMeta(sectionId, loadedCount, total) {
+      const meta = document.querySelector(`[data-meta-for="${sectionId}"]`);
+      if (meta) meta.textContent = `${loadedCount}/${total} loaded`;
+    }
+
+    // -------- Loading logic (progressive) --------
+
+    async function loadAll(date, viewMode) {
+      const status = document.getElementById("status");
+      status.textContent = `Loading all signs for ${date}...`;
+
+      const placeholders =
+        viewMode === "flat" ? renderFlatSkeletons(date) : renderElementSkeletons(date);
+
+      // Track per-element counts for meta updates
+      const elementBySign = {};
+      ELEMENTS.forEach(el => el.signs.forEach(s => elementBySign[s] = el.id));
+      const loadedByElement = { fire: 0, earth: 0, air: 0, water: 0 };
+      const totalByElement = {
+        fire: ELEMENTS.find(e => e.id === "fire").signs.length,
+        earth: ELEMENTS.find(e => e.id === "earth").signs.length,
+        air: ELEMENTS.find(e => e.id === "air").signs.length,
+        water: ELEMENTS.find(e => e.id === "water").signs.length,
+      };
+
+      let okCount = 0;
+
+      // Fetch in parallel, but render as each finishes
+      await Promise.all(ALL_SIGNS.map(async (signKey) => {
+        const url = buildUrl(date, signKey);
+        try {
+          const json = await fetchJson(url);
+          okCount += 1;
+
+          // Replace skeleton with real card
+          const card = renderHoroscopeCard(json, signKey, date);
+          const sk = placeholders[signKey];
+          if (sk && sk.parentNode) sk.parentNode.replaceChild(card, sk);
+
+        } catch (e) {
+          const err = document.createElement("div");
+          err.className = "card";
+          err.innerHTML = `
+            <div class="cardHeader">
+              <div class="sign">${signKey}</div>
+              <div class="date">${date}</div>
+            </div>
+            <div class="error">Failed to load: ${String(e)}</div>
+          `;
+          const sk = placeholders[signKey];
+          if (sk && sk.parentNode) sk.parentNode.replaceChild(err, sk);
+        } finally {
+          // Update status + per-section meta
+          status.textContent = `Loaded ${okCount}/${ALL_SIGNS.length} signs for ${date}`;
+
+          if (viewMode !== "flat") {
+            const elId = elementBySign[signKey];
+            if (elId) {
+              // Count it as "loaded" if placeholder is replaced (either success or error).
+              // If you only want success counts, move this into success block.
+              loadedByElement[elId] += 1;
+              updateSectionMeta(elId, loadedByElement[elId], totalByElement[elId]);
+            }
+          }
+        }
+      }));
+    }
+
+    async function loadSingle(date, signKey) {
+      const status = document.getElementById("status");
+      const content = document.getElementById("content");
+      showJumpBar(false);
+
+      const url = buildUrl(date, signKey);
+      status.textContent = `Fetching: ${url}`;
+
+      content.innerHTML = "";
+      const grid = document.createElement("div");
+      grid.className = "grid";
+      const sk = renderSkeletonCard(signKey, date);
+      grid.appendChild(sk);
+      content.appendChild(grid);
+
+      try {
+        const json = await fetchJson(url);
+        status.textContent = `Loaded ${signKey} for ${date}`;
+        const card = renderHoroscopeCard(json, signKey, date);
+        if (sk.parentNode) sk.parentNode.replaceChild(card, sk);
+      } catch (err) {
+        status.textContent = "";
+        content.innerHTML = `<div class="error">Failed to load.\n\n${String(err)}\n\nCheck object exists and is publicly readable.</div>`;
+      }
+    }
+
+    async function load(date, sunsignOrEmpty, viewMode) {
+      setQueryParams(date, sunsignOrEmpty, viewMode);
+      if (!sunsignOrEmpty) return loadAll(date, viewMode);
+      return loadSingle(date, sunsignOrEmpty);
+    }
+
+    // -------- Init from query string --------
+
+    const params = qs();
+    const initialDate = params.get("date") || isoTodayLocal();
+    const initialSign = normalizeSign(params.get("sunsign") || "");
+    const initialView = (params.get("view") === "flat") ? "flat" : "element";
+
+    document.getElementById("date").value = initialDate;
+    document.getElementById("sunsign").value = initialSign; // "" => all
+    document.getElementById("viewMode").value = initialView;
+
+    // Hide viewMode when a specific sign is chosen (since it doesn't apply)
+    function syncViewModeVisibility() {
+      const signVal = normalizeSign(document.getElementById("sunsign").value || "");
+      document.getElementById("viewMode").disabled = !!signVal;
+      // Jump bar only makes sense when grouped
+      showJumpBar(!signVal && document.getElementById("viewMode").value === "element");
+    }
+    document.getElementById("sunsign").addEventListener("change", syncViewModeVisibility);
+    document.getElementById("viewMode").addEventListener("change", syncViewModeVisibility);
+
+    document.getElementById("controls").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const date = document.getElementById("date").value || isoTodayLocal();
+      const sign = normalizeSign(document.getElementById("sunsign").value || "");
+      const view = document.getElementById("viewMode").value || "element";
+      syncViewModeVisibility();
+      load(date, sign, view);
+    });
+
+    syncViewModeVisibility();
+    load(initialDate, initialSign, initialView);
+  </script>
+</body>
+</html>

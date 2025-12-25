@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Daily Horoscope</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 24px; line-height: 1.4; }
+    .card { max-width: 760px; border: 1px solid #ddd; border-radius: 12px; padding: 16px; }
+    .row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+    label { display: block; font-size: 12px; color: #444; margin-bottom: 4px; }
+    input, select, button { padding: 10px; border: 1px solid #ccc; border-radius: 10px; font-size: 14px; }
+    button { cursor: pointer; }
+    .muted { color: #666; font-size: 13px; }
+    pre { background: #f7f7f7; padding: 12px; border-radius: 10px; overflow: auto; }
+    .error { color: #b00020; white-space: pre-wrap; }
+    .title { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="title">Daily Horoscope</div>
+    <div class="muted">
+      Uses your public bucket: <code>https://storage.googleapis.com/dayhoroscope/{date}/{sunsign}.json</code>
+    </div>
+
+    <hr style="border:none;border-top:1px solid #eee;margin:14px 0;" />
+
+    <form id="controls">
+      <div class="row">
+        <div>
+          <label for="date">Date</label>
+          <input id="date" name="date" type="date" />
+        </div>
+
+        <div>
+          <label for="sunsign">Sun sign</label>
+          <select id="sunsign" name="sunsign">
+            <option value="aries">Aries</option>
+            <option value="taurus">Taurus</option>
+            <option value="gemini">Gemini</option>
+            <option value="cancer">Cancer</option>
+            <option value="leo">Leo</option>
+            <option value="virgo">Virgo</option>
+            <option value="libra">Libra</option>
+            <option value="scorpio">Scorpio</option>
+            <option value="sagittarius">Sagittarius</option>
+            <option value="capricorn">Capricorn</option>
+            <option value="aquarius">Aquarius</option>
+            <option value="pisces">Pisces</option>
+          </select>
+        </div>
+
+        <div style="align-self:end;">
+          <button type="submit">Load</button>
+        </div>
+      </div>
+    </form>
+
+    <div id="status" class="muted"></div>
+    <div id="content"></div>
+
+    <hr style="border:none;border-top:1px solid #eee;margin:14px 0;" />
+
+    <details>
+      <summary class="muted">Debug (raw JSON)</summary>
+      <pre id="raw"></pre>
+    </details>
+  </div>
+
+  <script>
+    const BUCKET_BASE = "https://storage.googleapis.com/dayhoroscope";
+
+    function qs() {
+      return new URLSearchParams(window.location.search);
+    }
+
+    function isoTodayLocal() {
+      // produces YYYY-MM-DD in the user's local timezone
+      const d = new Date();
+      const yyyy = d.getFullYear();
+      const mm = String(d.getMonth() + 1).padStart(2, "0");
+      const dd = String(d.getDate()).padStart(2, "0");
+      return `${yyyy}-${mm}-${dd}`;
+    }
+
+    function normalizeSign(s) {
+      return (s || "").toLowerCase().trim();
+    }
+
+    function buildUrl(date, sunsign) {
+      return `${BUCKET_BASE}/${encodeURIComponent(date)}/${encodeURIComponent(sunsign)}.json`;
+    }
+
+    function setQueryParams(date, sunsign) {
+      const u = new URL(window.location.href);
+      u.searchParams.set("date", date);
+      u.searchParams.set("sunsign", sunsign);
+      // Don’t create extra history entries while user presses Load repeatedly
+      window.history.replaceState({}, "", u.toString());
+    }
+
+    function renderPretty(json) {
+      // Try common field names; also show a fallback if unknown.
+      const container = document.getElementById("content");
+      container.innerHTML = "";
+
+      const title = document.createElement("div");
+      title.style.fontWeight = "700";
+      title.style.margin = "10px 0 6px";
+      title.textContent = json.title || json.sign || json.sunsign || "Horoscope";
+      container.appendChild(title);
+
+      const dateLine = document.createElement("div");
+      dateLine.className = "muted";
+      dateLine.textContent = json.date || "";
+      container.appendChild(dateLine);
+
+      const text =
+        json.horoscope ||
+        json.text ||
+        json.description ||
+        json.prediction ||
+        json.content ||
+        "";
+
+      if (text) {
+        const p = document.createElement("div");
+        p.style.marginTop = "10px";
+        p.textContent = text;
+        container.appendChild(p);
+      } else {
+        const p = document.createElement("div");
+        p.style.marginTop = "10px";
+        p.className = "muted";
+        p.textContent = "Loaded JSON, but couldn't find a recognized text field (horoscope/text/description/etc). See Debug.";
+        container.appendChild(p);
+      }
+    }
+
+    async function loadHoroscope(date, sunsign) {
+      const status = document.getElementById("status");
+      const raw = document.getElementById("raw");
+      const content = document.getElementById("content");
+
+      const url = buildUrl(date, sunsign);
+      status.textContent = `Fetching: ${url}`;
+      content.innerHTML = "";
+      raw.textContent = "";
+
+      try {
+        const res = await fetch(url, { cache: "no-store" });
+        if (!res.ok) {
+          throw new Error(`HTTP ${res.status} ${res.statusText}`);
+        }
+        const json = await res.json();
+
+        setQueryParams(date, sunsign);
+        status.textContent = `Loaded ${sunsign} for ${date}`;
+        renderPretty(json);
+        raw.textContent = JSON.stringify(json, null, 2);
+      } catch (err) {
+        status.textContent = "";
+        content.innerHTML = `<div class="error">Failed to load.\n\n${String(err)}\n\nCheck that the object exists and is publicly readable.</div>`;
+      }
+    }
+
+    // Initialize from query params (or default to today + aquarius)
+    const params = qs();
+    const initialDate = params.get("date") || isoTodayLocal();
+    const initialSign = normalizeSign(params.get("sunsign") || "aquarius");
+
+    document.getElementById("date").value = initialDate;
+    document.getElementById("sunsign").value = initialSign;
+
+    document.getElementById("controls").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const date = document.getElementById("date").value || isoTodayLocal();
+      const sign = normalizeSign(document.getElementById("sunsign").value);
+      loadHoroscope(date, sign);
+    });
+
+    // Auto-load on first visit
+    loadHoroscope(initialDate, initialSign);
+  </script>
+</body>
+</html>

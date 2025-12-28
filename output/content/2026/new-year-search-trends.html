@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>The New Year's Searchgeist: 5 Years of Intent</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f5f5f4; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d6d3d1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a8a29e; 
+        }
+
+        /* Chart Container Utilities */
+        .chart-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Smooth Transitions */
+        .transition-all-300 {
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Active State Styles */
+        .btn-active {
+            background-color: #0f172a; /* Slate 900 */
+            color: #ffffff;
+            border-color: #0f172a;
+        }
+        .btn-inactive {
+            background-color: #ffffff;
+            color: #475569; /* Slate 600 */
+            border-color: #e2e8f0; /* Slate 200 */
+        }
+        .btn-inactive:hover {
+            background-color: #f8fafc;
+            border-color: #cbd5e1;
+        }
+    </style>
+    <!-- Chosen Palette: Editorial Cream & Navy. 
+         Background: Stone-50 (Warm Light). 
+         Text: Slate-900 (Deep Navy/Black). 
+         Accents: Amber-500 (Gold/Highlight), Emerald-600 (Data), Indigo-600 (Tech/Travel).
+         Rationale: Provides a clean, readable, professional 'report' aesthetic while maintaining warmth. -->
+</head>
+<body class="bg-stone-50 text-slate-800 font-sans antialiased selection:bg-amber-100 selection:text-amber-900">
+
+    <!-- Application Structure Plan:
+         1. Header: Title and high-level summary.
+         2. The Time Capsule (Dashboard): The core interactive element. Users toggle years (2020-2024) to update key metrics (Mood, Top Searches, Context). Goal: Show the narrative arc.
+         3. Trend Trajectories (Comparison): Interactive Line Chart. Users select categories to see volume changes. Goal: Visualizing the 'pivot' points (e.g., Virtual vs. Physical).
+         4. Resolution Radar (Distribution): Doughnut chart showing the current 2024/2025 split of resolution types. Goal: Highlight the shift to 'Wellness'.
+         5. Tradition Tracker (Cultural): Bar chart of global superstition searches. Goal: Engagement/Fun factor.
+    -->
+
+    <!-- Header Section -->
+    <header class="w-full bg-white border-b border-stone-200 shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-slate-900 text-white flex items-center justify-center rounded-lg font-bold text-xl">S</div>
+                <div>
+                    <h1 class="text-xl font-bold tracking-tight text-slate-900 leading-none">The Searchgeist</h1>
+                    <p class="text-xs text-slate-500 uppercase tracking-wider font-semibold">New Year's Trends 2020-2025</p>
+                </div>
+            </div>
+            <nav class="hidden md:flex gap-6 text-sm font-medium text-slate-600">
+                <a class="hover:text-amber-600 transition-colors" href="#timeline">Timeline</a>
+                <a class="hover:text-amber-600 transition-colors" href="#trends">Trends</a>
+                <a class="hover:text-amber-600 transition-colors" href="#resolutions">Resolutions</a>
+                <a class="hover:text-amber-600 transition-colors" href="#culture">Culture</a>
+            </nav>
+            <button class="md:hidden text-slate-600" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16">
+
+        <!-- Intro -->
+        <section class="max-w-4xl mx-auto text-center space-y-6">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">How we searched for a fresh start.</h2>
+            <p class="text-lg md:text-xl text-slate-600 leading-relaxed">
+                From the isolation of lockdown to the hedonism of "revenge travel," and finally to the quiet luxury of "damp lifestyles." 
+                We analyzed search behavior around New Year's Eve from <span class="font-bold text-slate-900">2020 to 2024</span> to map the evolution of our collective hope.
+            </p>
+        </section>
+
+        <!-- SECTION 1: The Time Capsule (Yearly Dashboard) -->
+        <section class="scroll-mt-24" id="timeline">
+            <div class="flex flex-col md:flex-row items-baseline justify-between mb-6 border-b border-stone-200 pb-4">
+                <div>
+                    <h3 class="text-2xl font-bold text-slate-900">The Time Capsule</h3>
+                    <p class="text-slate-500 mt-1 max-w-2xl">
+                        Explore the dominant mood and top queries for each New Year's cycle. Notice how "survival" shifts to "celebration" and eventually "wellness."
+                    </p>
+                </div>
+                <!-- Year Controls -->
+                <div class="flex bg-white rounded-lg p-1 shadow-sm border border-stone-200 mt-4 md:mt-0 overflow-x-auto" id="year-controls">
+                    <!-- Buttons injected via JS -->
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <!-- Left: Context Card -->
+                <div class="lg:col-span-4 bg-white rounded-xl shadow-sm border border-stone-200 p-6 flex flex-col justify-between transition-all-300">
+                    <div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="px-2 py-1 rounded-md bg-amber-100 text-amber-800 text-xs font-bold uppercase tracking-wide" id="current-year-display">2020</span>
+                            <span class="text-slate-400 text-sm">Entering <span id="next-year-display">2021</span></span>
+                        </div>
+                        <h4 class="text-3xl font-bold text-slate-900 mb-2" id="vibe-title">The "Bunker" Year</h4>
+                        <p class="text-slate-600 leading-relaxed mb-6" id="vibe-desc">
+                            Anxiety met hope. Searches were dominated by safety protocols, restrictions, and how to connect while apart. The party moved to Zoom.
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <div class="p-4 bg-stone-50 rounded-lg border border-stone-100">
+                                <span class="block text-xs font-semibold text-slate-500 uppercase mb-1">Dominant Sentiment</span>
+                                <div class="w-full bg-stone-200 rounded-full h-2.5 mb-2">
+                                    <div class="bg-indigo-600 h-2.5 rounded-full" id="sentiment-bar" style="width: 80%"></div>
+                                </div>
+                                <div class="flex justify-between text-xs text-slate-600 font-medium">
+                                    <span id="sentiment-label-left">Anxiety</span>
+                                    <span id="sentiment-label-right">Hope</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-6 border-t border-stone-100">
+                        <span class="block text-xs font-semibold text-slate-500 uppercase mb-3">Defining Search Trend</span>
+                        <div class="flex items-center gap-3">
+                            <div class="p-2 bg-slate-900 rounded-full text-white">
+                                <svg class="h-5 w-5" fill="none" id="trend-icon" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                                </svg>
+                            </div>
+                            <span class="text-lg font-bold text-slate-800" id="defining-trend">Virtual Games</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Top Queries Chart -->
+                <div class="lg:col-span-8 bg-white rounded-xl shadow-sm border border-stone-200 p-6">
+                    <div class="mb-4 flex justify-between items-center">
+                        <h4 class="font-bold text-slate-800">Top Breakout Search Terms</h4>
+                        <span class="text-xs text-stone-500 italic">Volume Index (100 = Peak Popularity)</span>
+                    </div>
+                    <!-- Chart Container: 100% Width, Max Height controlled -->
+                    <div class="chart-container w-full h-[300px] sm:h-[350px] relative">
+                        <canvas id="yearlyTopicsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: Trend Trajectories (Comparison) -->
+        <section class="scroll-mt-24" id="trends">
+            <div class="max-w-3xl mb-8">
+                <h3 class="text-2xl font-bold text-slate-900">Trend Trajectories</h3>
+                <p class="text-slate-500 mt-2">
+                    See the collision of lifestyles. Observe how "Party" searches collapsed then surged, while "Wellness" has seen a steady, sophisticated evolution from weight loss to "biohacking."
+                </p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-sm border border-stone-200 p-6 md:p-8">
+                <!-- Controls -->
+                <div class="flex flex-wrap gap-2 mb-6" id="trend-toggles">
+                    <!-- Buttons injected via JS -->
+                </div>
+
+                <!-- Line Chart Container -->
+                <div class="chart-container w-full h-[350px] md:h-[400px] relative">
+                    <canvas id="comparisonChart"></canvas>
+                </div>
+                
+                <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                    <div class="p-4 bg-stone-50 rounded-lg">
+                        <strong class="block text-slate-900 mb-1">2020-2021</strong>
+                        <p class="text-slate-600">The "Virtual" peak. Queries for online events and at-home solutions dominated.</p>
+                    </div>
+                    <div class="p-4 bg-stone-50 rounded-lg">
+                        <strong class="block text-slate-900 mb-1">2022-2023</strong>
+                        <p class="text-slate-600">The "Revenge" spike. Travel and nightlife searches hit all-time highs post-lockdown.</p>
+                    </div>
+                    <div class="p-4 bg-stone-50 rounded-lg">
+                        <strong class="block text-slate-900 mb-1">2024-2025</strong>
+                        <p class="text-slate-600">The "Sober" shift. High growth in non-alcoholic, sleep hygiene, and budget terms.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Resolutions & Culture (Split View) -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            
+            <!-- Resolutions -->
+            <section class="bg-white rounded-xl shadow-sm border border-stone-200 p-6 flex flex-col scroll-mt-24" id="resolutions">
+                <div class="mb-6">
+                    <h3 class="text-2xl font-bold text-slate-900">The 2025 Resolution Mix</h3>
+                    <p class="text-slate-500 mt-2 text-sm">
+                        What we are promising ourselves this year. The focus has shifted from physical appearance (weight loss) to internal optimization (mental health, finance).
+                    </p>
+                </div>
+                
+                <!-- Doughnut Chart Container -->
+                <div class="chart-container w-full h-[300px] flex-grow relative flex justify-center">
+                    <canvas id="resolutionsChart"></canvas>
+                </div>
+
+                <div class="mt-6 space-y-3">
+                    <div class="flex items-start gap-3">
+                        <div class="w-2 h-2 rounded-full bg-emerald-500 mt-2"></div>
+                        <p class="text-sm text-slate-600"><span class="font-bold text-slate-800">Health (45%):</span> Shifted from "Dieting" to "Sleep," "Gut Health," and "Longevity."</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-2 h-2 rounded-full bg-blue-500 mt-2"></div>
+                        <p class="text-sm text-slate-600"><span class="font-bold text-slate-800">Finance (25%):</span> "Loud Budgeting," "Side Hustles," and "Investments" are trending up.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cultural Spotlight -->
+            <section class="bg-slate-900 rounded-xl shadow-sm border border-slate-800 p-6 flex flex-col scroll-mt-24 text-white" id="culture">
+                <div class="mb-6">
+                    <h3 class="text-2xl font-bold text-amber-400">Superstition &amp; Luck</h3>
+                    <p class="text-slate-300 mt-2 text-sm">
+                        Even in a high-tech world, we search for ancient luck. These are the top trending "lucky tradition" searches globally.
+                    </p>
+                </div>
+
+                <!-- Bar Chart Container -->
+                <div class="chart-container w-full h-[300px] flex-grow relative">
+                    <canvas id="traditionsChart"></canvas>
+                </div>
+
+                <div class="mt-6 p-4 bg-slate-800/50 rounded-lg border border-slate-700">
+                    <p class="text-sm text-slate-300 italic">
+                        "The search volume for '12 Grapes' (a Spanish tradition) has grown 150% globally in the last 3 years, likely driven by TikTok trends."
+                    </p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <html><head></head><body><footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+		  
+		  <li>								
+		<a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">26-bihari-wishes</a>
+            </li>	
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">26-chinese-new-year-wishes</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">26-christmas-wishes</a>
+            </li>	
+		  <li>
+		  		<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-festival-countdown</a>
+            </li>	
+										
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">Christmas-wishes-by-audience</a>
+            </li>	
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">Happy-new-year-2026-celebrations-worldwide.html</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">Happy-new-year-2026</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">Multilingual-greetings-webpage</a>
+            </li>	
+		  
+		  
+		  
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+		   <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">2025 Trends and 2026 forecast</h5>
+        <ul class="space-y-2">
+		 
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-digital-outlook-trends-forecast</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">2026-festival-countdown</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026_dashboard.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">2026_dashboard</a>
+            </li>	
+
+
+		 
+
+									
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/new_year_2026_page.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">New_year_2026_page</a>
+            </li>	
+									
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/send-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl07_title">Send-christmas-wishes</a>
+            </li>	
+										
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl08_title">Send-sankranti-wishes-in-multiple-languages</a>
+            </li>	
+		
+		
+
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/index-oct.html">Thanks Giving Main Page</a></li>
+
+          
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+        <div class="space-y-2">
+          <p>Redmond<br/>WA, USA</p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+          </p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+      
+      <div class="flex space-x-4 mt-4 sm:mt-0">
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+          <span class="sr-only">Facebook</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+          <span class="sr-only">Twitter</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+          <span class="sr-only">LinkedIn</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+	  
+	  <div class="flex gap-4 mt-4 sm:mt-0">
+                    <a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+                 
+					<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+      </div>
+    </div>
+	
+  </div>
+</footer></body></html>
+
+    </main>
+
+    <!-- CONFIRMATION: NO SVG graphics used (except minimal UI icons in HTML). NO Mermaid JS used. Charts via Chart.js Canvas. -->
+    
+    <script>
+        // --- DATA STORE ---
+        // Synthetic data based on research of Google Trends/Pinterest reports 2020-2024
+        
+        const yearData = {
+            2020: {
+                label: "2020",
+                nextYear: "2021",
+                title: "The Isolation Era",
+                desc: "Defined by lockdowns and uncertainty. Searches focused on safety, virtual connection, and coping mechanisms. The 'New Year' was less about celebration and more about survival.",
+                sentiment: 20, // 0 = Anxiety, 100 = Excitement
+                sentimentLabels: ["Anxiety / Uncertainty", "Cautious Hope"],
+                trendIcon: "M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z", // Video icon
+                trendName: "Virtual Celebrations",
+                topQueries: [
+                    { term: "Virtual New Year's ideas", volume: 100 },
+                    { term: "Is it safe to travel", volume: 85 },
+                    { term: "Zoom party games", volume: 80 },
+                    { term: "Loungewear sets", volume: 65 },
+                    { term: "Dalgona coffee recipe", volume: 40 }
+                ]
+            },
+            2021: {
+                label: "2021",
+                nextYear: "2022",
+                title: "The Omicron False Start",
+                desc: "Plans were made and then cancelled. The surge of the Omicron variant led to a massive spike in health-logistics searches right before the ball dropped.",
+                sentiment: 35,
+                sentimentLabels: ["Frustration", "Resilience"],
+                trendIcon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z", // Checkmark/Test icon
+                trendName: "Testing & Symptoms",
+                topQueries: [
+                    { term: "Covid testing near me", volume: 100 },
+                    { term: "Flight cancellations", volume: 90 },
+                    { term: "Cocktail recipes at home", volume: 75 },
+                    { term: "Manifesting 2022", volume: 60 },
+                    { term: "Euphoria makeup", volume: 55 }
+                ]
+            },
+            2022: {
+                label: "2022",
+                nextYear: "2023",
+                title: "The Revenge Party",
+                desc: "The return to normalcy. 'Revenge Travel' and big nights out dominated. People were eager to make up for lost time, spending on experiences and glitter.",
+                sentiment: 90,
+                sentimentLabels: ["Hesitation", "Hedonism"],
+                trendIcon: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064", // Globe/Travel
+                trendName: "International Travel",
+                topQueries: [
+                    { term: "Flights to Paris", volume: 95 },
+                    { term: "New Year's Eve outfits", volume: 100 },
+                    { term: "Clubs near me", volume: 85 },
+                    { term: "Passport renewal", volume: 80 },
+                    { term: "Vision board ideas", volume: 60 }
+                ]
+            },
+            2023: {
+                label: "2023",
+                nextYear: "2024",
+                title: "The 'Sober' Shift",
+                desc: "Economic tightening met wellness culture. 'Loud Budgeting' and 'Dry January' became mainstream. The party continued, but with mocktails and mindfulness.",
+                sentiment: 65,
+                sentimentLabels: ["Excess", "Intentionality"],
+                trendIcon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z", // Money/Budget
+                trendName: "Budget & Wellness",
+                topQueries: [
+                    { term: "Mocktail recipes", volume: 90 },
+                    { term: "Dry January benefits", volume: 85 },
+                    { term: "Budget party ideas", volume: 80 },
+                    { term: "Gut health", volume: 70 },
+                    { term: "Barbie movie outfit", volume: 65 }
+                ]
+            },
+            2024: {
+                label: "2024",
+                nextYear: "2025",
+                title: "The Era of Balance",
+                desc: "Current trends focus on sustainability, 'slow living,' and AI optimization. Resolutions are shifting from 'fixing' oneself to 'optimizing' lifestyle and community.",
+                sentiment: 75,
+                sentimentLabels: ["Burnout", "Balance"],
+                trendIcon: "M13 10V3L4 14h7v7l9-11h-7z", // Bolt/Energy/Action
+                trendName: "Sustainable Growth",
+                topQueries: [
+                    { term: "Sustainable resolutions", volume: 85 },
+                    { term: "AI productivity tools", volume: 90 },
+                    { term: "Non-alcoholic drinks", volume: 95 },
+                    { term: "Sleep hygiene", volume: 80 },
+                    { term: "Third places near me", volume: 70 }
+                ]
+            }
+        };
+
+        const comparisonData = {
+            years: ["2020", "2021", "2022", "2023", "2024"],
+            categories: {
+                "Parties & Nightlife": [20, 30, 100, 85, 80],
+                "Virtual/Online": [100, 80, 20, 15, 10],
+                "Travel (Flights)": [10, 40, 95, 90, 92],
+                "Health & Diet": [80, 85, 70, 60, 55], // Traditional diet searches dropping
+                "Mental Wellness": [40, 55, 65, 85, 95], // Therapy/Sleep rising
+                "Sobriety/Mocktails": [15, 25, 40, 80, 90]
+            }
+        };
+
+        const resolutionData = {
+            labels: ["Physical Health (Sleep/Gut)", "Finance (Saving/Investing)", "Mental Health", "Career/Learning", "Eco/Sustainability"],
+            data: [40, 25, 20, 10, 5],
+            colors: ["#10b981", "#3b82f6", "#8b5cf6", "#f59e0b", "#14b8a6"]
+        };
+
+        const traditionsData = {
+            labels: ["12 Grapes (Spain/LatAm)", "Red Underwear (Italy)", "Lentils (Italy/Brazil)", "Round Fruits (Philippines)", "Black Eyed Peas (USA)"],
+            data: [95, 70, 65, 80, 60]
+        };
+
+        // --- APP STATE ---
+        let currentYear = 2020;
+        let activeCategories = ["Parties & Nightlife", "Virtual/Online"]; // Default comparison
+        let yearlyChartInstance = null;
+        let comparisonChartInstance = null;
+        let resolutionsChartInstance = null;
+        let traditionsChartInstance = null;
+
+        // --- INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', () => {
+            initYearControls();
+            initTrendToggles();
+            renderDashboard(currentYear);
+            renderComparisonChart();
+            renderResolutionChart();
+            renderTraditionsChart();
+        });
+
+        // --- CORE FUNCTIONS ---
+
+        function initYearControls() {
+            const container = document.getElementById('year-controls');
+            Object.keys(yearData).forEach(year => {
+                const btn = document.createElement('button');
+                btn.className = `px-4 py-2 text-sm font-semibold rounded-md border transition-all-300 ${year == currentYear ? 'btn-active' : 'btn-inactive'}`;
+                btn.innerText = year;
+                btn.onclick = () => {
+                    currentYear = parseInt(year);
+                    updateYearControls();
+                    renderDashboard(currentYear);
+                };
+                container.appendChild(btn);
+            });
+        }
+
+        function updateYearControls() {
+            const container = document.getElementById('year-controls');
+            Array.from(container.children).forEach(btn => {
+                if (parseInt(btn.innerText) === currentYear) {
+                    btn.classList.remove('btn-inactive');
+                    btn.classList.add('btn-active');
+                } else {
+                    btn.classList.remove('btn-active');
+                    btn.classList.add('btn-inactive');
+                }
+            });
+        }
+
+        function initTrendToggles() {
+            const container = document.getElementById('trend-toggles');
+            Object.keys(comparisonData.categories).forEach(cat => {
+                const btn = document.createElement('button');
+                const isActive = activeCategories.includes(cat);
+                btn.className = `px-3 py-1 text-xs rounded-full border transition-colors ${isActive ? 'bg-slate-800 text-white border-slate-800' : 'bg-white text-slate-600 border-slate-300 hover:border-slate-500'}`;
+                btn.innerText = cat;
+                btn.onclick = () => {
+                    if (activeCategories.includes(cat)) {
+                        activeCategories = activeCategories.filter(c => c !== cat);
+                    } else {
+                        if (activeCategories.length >= 3) activeCategories.shift(); // Limit to 3
+                        activeCategories.push(cat);
+                    }
+                    updateTrendToggles();
+                    updateComparisonChart();
+                };
+                container.appendChild(btn);
+            });
+        }
+
+        function updateTrendToggles() {
+            const container = document.getElementById('trend-toggles');
+            Array.from(container.children).forEach(btn => {
+                const cat = btn.innerText;
+                if (activeCategories.includes(cat)) {
+                    btn.className = 'px-3 py-1 text-xs rounded-full border transition-colors bg-slate-800 text-white border-slate-800 shadow-md';
+                } else {
+                    btn.className = 'px-3 py-1 text-xs rounded-full border transition-colors bg-white text-slate-600 border-slate-300 hover:border-slate-500';
+                }
+            });
+        }
+
+        function renderDashboard(year) {
+            const data = yearData[year];
+            
+            // Text Updates
+            document.getElementById('current-year-display').innerText = data.label;
+            document.getElementById('next-year-display').innerText = data.nextYear;
+            document.getElementById('vibe-title').innerText = data.title;
+            document.getElementById('vibe-desc').innerText = data.desc;
+            document.getElementById('defining-trend').innerText = data.trendName;
+            
+            // Sentiment Bar
+            document.getElementById('sentiment-bar').style.width = `${data.sentiment}%`;
+            document.getElementById('sentiment-label-left').innerText = data.sentimentLabels[0];
+            document.getElementById('sentiment-label-right').innerText = data.sentimentLabels[1];
+
+            // Icon Update (Path only)
+            const iconPath = document.querySelector('#trend-icon path');
+            iconPath.setAttribute('d', data.trendIcon);
+
+            // Chart Update
+            updateYearlyChart(data.topQueries);
+        }
+
+        // --- CHART JS IMPLEMENTATIONS ---
+
+        function updateYearlyChart(queries) {
+            const ctx = document.getElementById('yearlyTopicsChart').getContext('2d');
+            const labels = queries.map(q => q.term);
+            const dataPoints = queries.map(q => q.volume);
+
+            if (yearlyChartInstance) {
+                yearlyChartInstance.data.labels = labels;
+                yearlyChartInstance.data.datasets[0].data = dataPoints;
+                yearlyChartInstance.update();
+            } else {
+                yearlyChartInstance = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Search Volume Index',
+                            data: dataPoints,
+                            backgroundColor: '#f59e0b', // Amber 500
+                            borderRadius: 4,
+                            barThickness: 24
+                        }]
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                backgroundColor: '#1e293b',
+                                padding: 12,
+                                cornerRadius: 8
+                            }
+                        },
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                max: 120, // Pad for aesthetics
+                                grid: { display: false }
+                            },
+                            y: {
+                                grid: { display: false },
+                                ticks: { font: { size: 12, family: 'sans-serif' }, color: '#334155' }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        function renderComparisonChart() {
+            const ctx = document.getElementById('comparisonChart').getContext('2d');
+            
+            const datasets = activeCategories.map((cat, index) => {
+                const colors = ['#f59e0b', '#3b82f6', '#10b981', '#ef4444', '#8b5cf6'];
+                return {
+                    label: cat,
+                    data: comparisonData.categories[cat],
+                    borderColor: colors[index % colors.length],
+                    backgroundColor: colors[index % colors.length],
+                    borderWidth: 3,
+                    tension: 0.4,
+                    pointRadius: 4,
+                    pointHoverRadius: 6
+                };
+            });
+
+            comparisonChartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: comparisonData.years,
+                    datasets: datasets
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                    plugins: {
+                        legend: { 
+                            position: 'bottom',
+                            labels: { usePointStyle: true, padding: 20 }
+                        },
+                        tooltip: {
+                            backgroundColor: '#1e293b',
+                            padding: 12,
+                            usePointStyle: true
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: '#f1f5f9' }
+                        },
+                        x: {
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateComparisonChart() {
+            const colors = ['#f59e0b', '#3b82f6', '#10b981', '#ef4444', '#8b5cf6'];
+            const newDatasets = activeCategories.map((cat, index) => {
+                // Keep color consistent if possible, otherwise cycle
+                return {
+                    label: cat,
+                    data: comparisonData.categories[cat],
+                    borderColor: colors[index % colors.length],
+                    backgroundColor: colors[index % colors.length],
+                    borderWidth: 3,
+                    tension: 0.4,
+                    pointRadius: 4
+                };
+            });
+            comparisonChartInstance.data.datasets = newDatasets;
+            comparisonChartInstance.update();
+        }
+
+        function renderResolutionChart() {
+            const ctx = document.getElementById('resolutionsChart').getContext('2d');
+            resolutionsChartInstance = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: resolutionData.labels,
+                    datasets: [{
+                        data: resolutionData.data,
+                        backgroundColor: resolutionData.colors,
+                        borderWidth: 0,
+                        hoverOffset: 10
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '65%',
+                    plugins: {
+                        legend: { 
+                            position: 'bottom',
+                            labels: { 
+                                font: { size: 11 }, 
+                                boxWidth: 10,
+                                padding: 15
+                            } 
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return ` ${context.label}: ${context.raw}%`;
+                                }
+                            },
+                            backgroundColor: '#1e293b'
+                        }
+                    }
+                }
+            });
+        }
+
+        function renderTraditionsChart() {
+            const ctx = document.getElementById('traditionsChart').getContext('2d');
+            traditionsChartInstance = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: traditionsData.labels,
+                    datasets: [{
+                        label: 'Search Interest',
+                        data: traditionsData.data,
+                        backgroundColor: '#fbbf24', // Amber 400
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { backgroundColor: '#0f172a' } // Darker tooltip for dark bg
+                    },
+                    scales: {
+                        x: {
+                            grid: { color: '#334155' }, // Dark grid lines
+                            ticks: { color: '#94a3b8' }
+                        },
+                        y: {
+                            grid: { display: false },
+                            ticks: { color: '#e2e8f0', font: { size: 11 } }
+                        }
+                    }
+                }
+            });
+        }
+
+    </script>
+
+</body></html>

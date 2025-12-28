@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Your Daily Horoscope for 2026. Insights for Aries, Taurus, Gemini, and all zodiac signs." name="description"/>
+    <title>Daily Horoscope | New Year 2026</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;600;700&amp;family=Inter:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+
+    <style>
+        body {
+            font-family: 'Vollkorn', serif;
+            background-color: #fff1f2; /* bg-rose-50 */
+            color: #292524; /* text-stone-800 */
+            background-image: linear-gradient(rgba(255, 241, 242, 0.95), rgba(255, 241, 242, 0.95)), url('https://storage.googleapis.com/kreatewebsite/banner_all/Happy-New-Year-Photos.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        h1, h2, h3 { font-weight: 700; }
+
+        /* Navigation Bar */
+        .nav-glass {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid #ffe4e6;
+        }
+
+        .nav-link { color: #57534e; transition: color 0.2s; }
+        .nav-link:hover { color: #9f1239; }
+
+        /* Card Styling */
+        .horoscope-card {
+            background-color: rgba(255, 255, 255, 0.7);
+            border: 1px solid #ffe4e6;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(4px);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .horoscope-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px -5px rgba(244, 63, 94, 0.15);
+            border-color: #fda4af;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+
+        /* Form Elements */
+        .input-rose {
+            border: 1px solid #e7e5e4;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #292524;
+            border-radius: 999px;
+            padding: 10px 20px;
+            outline: none;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+        .input-rose:focus {
+            border-color: #be123c;
+            box-shadow: 0 0 0 3px rgba(253, 164, 175, 0.3);
+        }
+
+        .btn-rose {
+            background-color: #be123c;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 999px;
+            font-weight: 600;
+            transition: all 0.2s;
+            box-shadow: 0 4px 6px rgba(190, 18, 60, 0.2);
+        }
+        .btn-rose:hover {
+            background-color: #9f1239;
+            transform: translateY(-1px);
+        }
+
+        /* Pill Navigation */
+        .pill {
+            display: inline-flex; align-items: center; gap: 8px;
+            border: 1px solid #fecdd3; border-radius: 999px;
+            padding: 6px 14px; background: rgba(255, 255, 255, 0.6);
+            color: #881337; font-size: 0.85rem; font-weight: 600;
+            text-decoration: none; transition: all 0.2s;
+        }
+        .pill:hover { background: #fff1f2; border-color: #be123c; }
+
+        /* Skeleton Loader */
+        .skeleton {
+            background: #f3f4f6;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+        }
+        .skeleton::after {
+            content: "";
+            position: absolute;
+            top: 0; left: -60%;
+            width: 60%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+            animation: shimmer 1.5s infinite;
+        }
+        @keyframes shimmer { 100% { left: 120%; } }
+
+        /* Mobile Menu */
+        #mobile-menu { background: rgba(255, 255, 255, 0.95); }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col overflow-x-hidden text-stone-800">
+
+    <!-- Navigation -->
+    <nav class="w-full nav-glass sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <a class="flex items-center gap-2 group" href="index.html">
+                        <span class="text-2xl text-rose-600 group-hover:scale-110 transition-transform">✨</span>
+                        <span class="text-xl font-bold tracking-wide uppercase text-rose-900 group-hover:text-rose-700">Happy New Year</span>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="index.html">Home</a>
+                        <a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="index.html#resolutions">Resolutions</a>
+                        <a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="2025-global-events-hub.html">2025 Review</a>
+                        <a class="nav-link px-3 py-2 rounded-md text-base font-semibold text-rose-800 border-b-2 border-rose-800" href="#">Horoscope</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-stone-600 hover:text-rose-800" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden border-t border-rose-100" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a class="text-stone-600 hover:text-rose-800 block px-3 py-2 rounded-md text-base font-medium" href="index.html">Home</a>
+                <a class="text-stone-600 hover:text-rose-800 block px-3 py-2 rounded-md text-base font-medium" href="2025-global-events-hub.html">2025 Review</a>
+                <a class="text-rose-900 font-bold block px-3 py-2 rounded-md text-base" href="#">Horoscope</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8 text-center">
+        <div class="inline-block px-4 py-1 rounded-full border border-rose-200 bg-white/60 text-rose-800 text-xs font-bold tracking-[0.2em] uppercase mb-4 backdrop-blur-sm">
+            Daily Guidance
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold text-rose-900 mb-4 tracking-tight">
+            Daily Horoscope
+        </h1>
+        <p class="text-lg text-stone-600 max-w-2xl mx-auto italic mb-8">
+            Align your day with the stars. Select a date and sign below.
+        </p>
+
+        <!-- Controls Form -->
+        <form class="bg-white/50 backdrop-blur-sm p-6 rounded-2xl border border-rose-100 shadow-sm max-w-4xl mx-auto" id="controls">
+            <div class="flex flex-col md:flex-row gap-4 items-end justify-center">
+                <div class="w-full md:w-auto text-left">
+                    <label class="block text-xs font-bold text-rose-900 uppercase tracking-wider mb-2 ml-2" for="date">Date</label>
+                    <input class="input-rose w-full" id="date" name="date" type="date"/>
+                </div>
+
+                <div class="w-full md:w-auto text-left">
+                    <label class="block text-xs font-bold text-rose-900 uppercase tracking-wider mb-2 ml-2" for="sunsign">Sign (Optional)</label>
+                    <select class="input-rose w-full" id="sunsign" name="sunsign">
+                        <option value="">All Signs</option>
+                        <option value="aries">Aries</option>
+                        <option value="taurus">Taurus</option>
+                        <option value="gemini">Gemini</option>
+                        <option value="cancer">Cancer</option>
+                        <option value="leo">Leo</option>
+                        <option value="virgo">Virgo</option>
+                        <option value="libra">Libra</option>
+                        <option value="scorpio">Scorpio</option>
+                        <option value="sagittarius">Sagittarius</option>
+                        <option value="capricorn">Capricorn</option>
+                        <option value="aquarius">Aquarius</option>
+                        <option value="pisces">Pisces</option>
+                    </select>
+                </div>
+
+                <div class="w-full md:w-auto text-left">
+                    <label class="block text-xs font-bold text-rose-900 uppercase tracking-wider mb-2 ml-2" for="viewMode">View Mode</label>
+                    <select class="input-rose w-full" id="viewMode" name="viewMode">
+                        <option selected="" value="element">By Element</option>
+                        <option value="flat">Grid View</option>
+                    </select>
+                </div>
+
+                <div class="w-full md:w-auto">
+                    <button class="btn-rose w-full md:w-auto" type="submit">
+                        <i class="fa-solid fa-sparkles mr-2"></i> Reveal
+                    </button>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-3 mt-6 border-t border-rose-100 pt-4" id="jumpBar" style="display:none;">
+                <a class="pill" href="#fire">🔥 Fire</a>
+                <a class="pill" href="#earth">🌿 Earth</a>
+                <a class="pill" href="#air">💨 Air</a>
+                <a class="pill" href="#water">💧 Water</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 w-full">
+        
+        <div class="text-center text-sm text-stone-500 mb-6 italic" id="status"></div>
+        <div id="content"></div>
+
+    </main>
+
+    <!-- Footer -->
+    <html><head></head><body><footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+		  
+		  <li>								
+		<a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">26-bihari-wishes</a>
+            </li>	
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">26-chinese-new-year-wishes</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">26-christmas-wishes</a>
+            </li>	
+		  <li>
+		  		<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-festival-countdown</a>
+            </li>	
+										
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">Christmas-wishes-by-audience</a>
+            </li>	
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">Happy-new-year-2026-celebrations-worldwide.html</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">Happy-new-year-2026</a>
+            </li>	
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">Multilingual-greetings-webpage</a>
+            </li>	
+		  
+		  
+		  
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+		   <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">2025 Trends and 2026 forecast</h5>
+        <ul class="space-y-2">
+		 
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-digital-outlook-trends-forecast</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">2026-festival-countdown</a>
+            </li>	
+
+
+
+
+
+												
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/2026_dashboard.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">2026_dashboard</a>
+            </li>	
+
+
+		 
+
+									
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/new_year_2026_page.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">New_year_2026_page</a>
+            </li>	
+									
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/send-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl07_title">Send-christmas-wishes</a>
+            </li>	
+										
+		<li>								
+		<a href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl08_title">Send-sankranti-wishes-in-multiple-languages</a>
+            </li>	
+		
+		
+
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+          <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+		  <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/index-oct.html">Thanks Giving Main Page</a></li>
+
+          
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+        <div class="space-y-2">
+          <p>Redmond<br/>WA, USA</p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+          </p>
+          <p>
+            <a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+      
+      <div class="flex space-x-4 mt-4 sm:mt-0">
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+          <span class="sr-only">Facebook</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+          <span class="sr-only">Twitter</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+          </svg>
+        </a>
+        <a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+          <span class="sr-only">LinkedIn</span>
+          <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+	  
+	  <div class="flex gap-4 mt-4 sm:mt-0">
+                    <a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+                 
+					<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+      </div>
+    </div>
+	
+  </div>
+</footer></body></html>
+
+    <script>
+        const BUCKET_BASE = "https://storage.googleapis.com/dayhoroscope";
+
+        const ELEMENTS = [
+            { id: "fire",  label: "Fire Signs",  emoji: "🔥", signs: ["aries", "leo", "sagittarius"] },
+            { id: "earth", label: "Earth Signs", emoji: "🌿", signs: ["taurus", "virgo", "capricorn"] },
+            { id: "air",   label: "Air Signs",   emoji: "💨", signs: ["gemini", "libra", "aquarius"] },
+            { id: "water", label: "Water Signs", emoji: "💧", signs: ["cancer", "scorpio", "pisces"] },
+        ];
+        const ALL_SIGNS = ELEMENTS.flatMap(e => e.signs);
+
+        function qs() { return new URLSearchParams(window.location.search); }
+
+        function isoTodayLocal() {
+            const d = new Date();
+            const yyyy = d.getFullYear();
+            const mm = String(d.getMonth() + 1).padStart(2, "0");
+            const dd = String(d.getDate()).padStart(2, "0");
+            return `${yyyy}-${mm}-${dd}`;
+        }
+
+        function normalizeSign(s) {
+            const v = (s || "").toLowerCase().trim();
+            return ALL_SIGNS.includes(v) ? v : "";
+        }
+
+        function buildUrl(date, sunsign) {
+            return `${BUCKET_BASE}/${encodeURIComponent(date)}/${encodeURIComponent(sunsign)}.json`;
+        }
+
+        function setQueryParams(date, sunsignOrEmpty, viewMode) {
+            const u = new URL(window.location.href);
+            u.searchParams.set("date", date);
+            if (sunsignOrEmpty) u.searchParams.set("sunsign", sunsignOrEmpty);
+            else u.searchParams.delete("sunsign");
+            u.searchParams.set("view", viewMode || "element");
+            window.history.replaceState({}, "", u.toString());
+        }
+
+        async function fetchJson(url) {
+            const res = await fetch(url, { cache: "no-store" });
+            if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`);
+            return await res.json();
+        }
+
+        function renderHoroscopeCard(json, fallbackSign, fallbackDate) {
+            const sign = (json && json.sign) ? json.sign : fallbackSign;
+            const date = (json && json.date) ? json.date : fallbackDate;
+            const horoscope = (json && json.horoscope) ? json.horoscope : "";
+
+            // Capitalize Sign
+            const displaySign = sign.charAt(0).toUpperCase() + sign.slice(1);
+
+            const card = document.createElement("div");
+            card.className = "horoscope-card group";
+
+            card.innerHTML = `
+                <div class="flex justify-between items-center mb-4 pb-4 border-b border-rose-100">
+                    <h3 class="text-xl font-bold text-rose-900 group-hover:text-rose-700 transition-colors">${displaySign}</h3>
+                    <span class="text-xs text-stone-500 font-mono">${date}</span>
+                </div>
+                <div class="text-stone-700 leading-relaxed font-sans text-sm flex-grow">
+                    ${horoscope || '<span class="text-stone-400 italic">No forecast available.</span>'}
+                </div>
+                <div class="mt-4 pt-2 text-right">
+                    <i class="fa-solid fa-star text-rose-200 group-hover:text-rose-400 transition-colors"></i>
+                </div>
+            `;
+            return card;
+        }
+
+        function renderSkeletonCard(label, date) {
+            const displaySign = label.charAt(0).toUpperCase() + label.slice(1);
+            
+            const card = document.createElement("div");
+            card.className = "horoscope-card opacity-80";
+
+            card.innerHTML = `
+                <div class="flex justify-between items-center mb-4 pb-4 border-b border-rose-100">
+                    <h3 class="text-xl font-bold text-stone-400">${displaySign}</h3>
+                    <span class="text-xs text-stone-300 font-mono">${date}</span>
+                </div>
+                <div class="space-y-3">
+                    <div class="skeleton h-4 w-full"></div>
+                    <div class="skeleton h-4 w-5/6"></div>
+                    <div class="skeleton h-4 w-4/6"></div>
+                </div>
+            `;
+            return card;
+        }
+
+        function showJumpBar(show) {
+            document.getElementById("jumpBar").style.display = show ? "flex" : "none";
+        }
+
+        // --- Rendering Layouts ---
+
+        function renderFlatSkeletons(date) {
+            const content = document.getElementById("content");
+            content.innerHTML = "";
+            showJumpBar(false);
+
+            const grid = document.createElement("div");
+            grid.className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6";
+
+            const placeholderBySign = {};
+            ALL_SIGNS.forEach(sign => {
+                const sk = renderSkeletonCard(sign, date);
+                placeholderBySign[sign] = sk;
+                grid.appendChild(sk);
+            });
+
+            content.appendChild(grid);
+            return placeholderBySign;
+        }
+
+        function renderElementSkeletons(date) {
+            const content = document.getElementById("content");
+            content.innerHTML = "";
+            showJumpBar(true);
+
+            const placeholderBySign = {};
+
+            ELEMENTS.forEach(el => {
+                const section = document.createElement("section");
+                section.className = "mb-12 scroll-mt-24";
+                section.id = el.id;
+
+                const header = document.createElement("div");
+                header.className = "flex items-center gap-3 mb-6 pb-2 border-b-2 border-rose-200";
+                
+                header.innerHTML = `
+                    <span class="text-3xl">${el.emoji}</span>
+                    <h2 class="text-2xl font-bold text-rose-900">${el.label}</h2>
+                    <span class="ml-auto text-xs font-bold text-stone-400 uppercase tracking-widest" data-meta-for="${el.id}">Loading...</span>
+                `;
+
+                const grid = document.createElement("div");
+                grid.className = "grid grid-cols-1 md:grid-cols-3 gap-6";
+
+                el.signs.forEach(sign => {
+                    const sk = renderSkeletonCard(sign, date);
+                    placeholderBySign[sign] = sk;
+                    grid.appendChild(sk);
+                });
+
+                section.appendChild(header);
+                section.appendChild(grid);
+                content.appendChild(section);
+            });
+
+            return placeholderBySign;
+        }
+
+        function updateSectionMeta(sectionId, loadedCount, total) {
+            const meta = document.querySelector(`[data-meta-for="${sectionId}"]`);
+            if (meta) meta.textContent = `${loadedCount}/${total} Ready`;
+        }
+
+        // --- Loading Logic ---
+
+        async function loadAll(date, viewMode) {
+            const status = document.getElementById("status");
+            status.textContent = `Connecting to stars for ${date}...`;
+
+            const placeholders = viewMode === "flat" ? renderFlatSkeletons(date) : renderElementSkeletons(date);
+
+            const elementBySign = {};
+            ELEMENTS.forEach(el => el.signs.forEach(s => elementBySign[s] = el.id));
+            const loadedByElement = { fire: 0, earth: 0, air: 0, water: 0 };
+            const totalByElement = {
+                fire: ELEMENTS.find(e => e.id === "fire").signs.length,
+                earth: ELEMENTS.find(e => e.id === "earth").signs.length,
+                air: ELEMENTS.find(e => e.id === "air").signs.length,
+                water: ELEMENTS.find(e => e.id === "water").signs.length,
+            };
+
+            let okCount = 0;
+
+            await Promise.all(ALL_SIGNS.map(async (signKey) => {
+                const url = buildUrl(date, signKey);
+                try {
+                    const json = await fetchJson(url);
+                    okCount += 1;
+                    const card = renderHoroscopeCard(json, signKey, date);
+                    const sk = placeholders[signKey];
+                    if (sk && sk.parentNode) sk.parentNode.replaceChild(card, sk);
+                } catch (e) {
+                    const errCard = document.createElement("div");
+                    errCard.className = "horoscope-card bg-red-50 border-red-200";
+                    errCard.innerHTML = `
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold text-red-800 capitalize">${signKey}</h3>
+                        </div>
+                        <div class="text-red-600 text-sm">Failed to load forecast.</div>
+                    `;
+                    const sk = placeholders[signKey];
+                    if (sk && sk.parentNode) sk.parentNode.replaceChild(errCard, sk);
+                } finally {
+                    status.textContent = `Manifested ${okCount}/${ALL_SIGNS.length} signs`;
+                    if (viewMode !== "flat") {
+                        const elId = elementBySign[signKey];
+                        if (elId) {
+                            loadedByElement[elId] += 1;
+                            updateSectionMeta(elId, loadedByElement[elId], totalByElement[elId]);
+                        }
+                    }
+                }
+            }));
+        }
+
+        async function loadSingle(date, signKey) {
+            const status = document.getElementById("status");
+            const content = document.getElementById("content");
+            showJumpBar(false);
+
+            const url = buildUrl(date, signKey);
+            status.textContent = `Consulting the stars...`;
+
+            content.innerHTML = "";
+            const grid = document.createElement("div");
+            grid.className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto";
+            const sk = renderSkeletonCard(signKey, date);
+            grid.appendChild(sk);
+            content.appendChild(grid);
+
+            try {
+                const json = await fetchJson(url);
+                status.textContent = `Forecast ready for ${signKey}`;
+                const card = renderHoroscopeCard(json, signKey, date);
+                if (sk.parentNode) sk.parentNode.replaceChild(card, sk);
+            } catch (err) {
+                status.textContent = "Alignment error.";
+                sk.innerHTML = `<div class="p-4 text-red-600">Failed to load data. Please try another date.</div>`;
+            }
+        }
+
+        async function load(date, sunsignOrEmpty, viewMode) {
+            setQueryParams(date, sunsignOrEmpty, viewMode);
+            if (!sunsignOrEmpty) return loadAll(date, viewMode);
+            return loadSingle(date, sunsignOrEmpty);
+        }
+
+        // --- Init ---
+
+        const params = qs();
+        const initialDate = params.get("date") || isoTodayLocal();
+        const initialSign = normalizeSign(params.get("sunsign") || "");
+        const initialView = (params.get("view") === "flat") ? "flat" : "element";
+
+        document.getElementById("date").value = initialDate;
+        document.getElementById("sunsign").value = initialSign;
+        document.getElementById("viewMode").value = initialView;
+
+        function syncViewModeVisibility() {
+            const signVal = normalizeSign(document.getElementById("sunsign").value || "");
+            document.getElementById("viewMode").disabled = !!signVal;
+            showJumpBar(!signVal && document.getElementById("viewMode").value === "element");
+        }
+        
+        document.getElementById("sunsign").addEventListener("change", syncViewModeVisibility);
+        document.getElementById("viewMode").addEventListener("change", syncViewModeVisibility);
+
+        document.getElementById("controls").addEventListener("submit", (e) => {
+            e.preventDefault();
+            const date = document.getElementById("date").value || isoTodayLocal();
+            const sign = normalizeSign(document.getElementById("sunsign").value || "");
+            const view = document.getElementById("viewMode").value || "element";
+            syncViewModeVisibility();
+            load(date, sign, view);
+        });
+
+        syncViewModeVisibility();
+        load(initialDate, initialSign, initialView);
+    </script>
+
+</body></html>

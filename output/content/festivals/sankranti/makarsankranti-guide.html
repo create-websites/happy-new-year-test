@@ -1,30 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html class="scroll-smooth" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Makar Sankranti: A Hands-On Guide to the Harvest and Solar Celebration</title>
-    
-    <!-- Meta Description and Keywords for SEO -->
-    <meta name="description" content="Explore the astronomical and cultural significance of Makar Sankranti, celebrating the Sun's transition, the harvest, and traditions like kite flying and feasting across India.">
-    <meta name="keywords" content="Makar Sankranti, Kite Festival, Uttarayan, Surya, Makara, harvest, Pongal, Maghi, Khichdi, Til Gul, India festival">
-
-    <!-- Open Graph (OG) / Social Media Tags -->
-    <meta property="og:title" content="Makar Sankranti: A Hands-On Guide to the Harvest and Solar Celebration">
-    <meta property="og:description" content="Discover the meaning, rituals, and diverse regional celebrations of this important solar holiday across North, South, and West India.">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://example.com/makarsankranti-guide">
-    <meta property="og:image" content="https://placehold.co/1200x630/FFD700/8B0000?text=Makar+Sankranti+Guide">
-    <meta property="og:site_name" content="Cultural Festival Explorer">
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
-    
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Makar Sankranti: A Hands-On Guide to the Harvest and Solar Celebration</title>
+<!-- Meta Description and Keywords for SEO -->
+<meta content="Explore the astronomical and cultural significance of Makar Sankranti, celebrating the Sun's transition, the harvest, and traditions like kite flying and feasting across India." name="description"/>
+<meta content="Makar Sankranti, Kite Festival, Uttarayan, Surya, Makara, harvest, Pongal, Maghi, Khichdi, Til Gul, India festival" name="keywords"/>
+<!-- Open Graph (OG) / Social Media Tags -->
+<meta content="Makar Sankranti: A Hands-On Guide to the Harvest and Solar Celebration" property="og:title"/>
+<meta content="Discover the meaning, rituals, and diverse regional celebrations of this important solar holiday across North, South, and West India." property="og:description"/>
+<meta content="article" property="og:type"/>
+<meta content="https://example.com/makarsankranti-guide" property="og:url"/>
+<meta content="https://placehold.co/1200x630/FFD700/8B0000?text=Makar+Sankranti+Guide" property="og:image"/>
+<meta content="Cultural Festival Explorer" property="og:site_name"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Lora:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Event",
@@ -38,17 +34,16 @@
       }
     }
     </script>
-    
-    <!-- Chosen Palette: Deep Red/Maroon, Gold/Yellow, and Earthy Brown (Sun, Harvest, and Earth Theme) -->
-    <!-- Application Structure Plan: A thematic, single-page application with a sticky top navigation. The flow covers: 'Significance' (date/meaning/solar transition), 'Core Rituals' (holy dips, charity), 'Regional Diversity' (Pongal, Uttarayan, Khichdi), 'Kite Flying Fun' (focused tradition), 'Festive Foods' chart (key ingredients), and 'Wishes & Greetings'. This structure emphasizes the astrological importance and regional variety of the festival. -->
-    <!-- Visualization & Content Choices: 
+<!-- Chosen Palette: Deep Red/Maroon, Gold/Yellow, and Earthy Brown (Sun, Harvest, and Earth Theme) -->
+<!-- Application Structure Plan: A thematic, single-page application with a sticky top navigation. The flow covers: 'Significance' (date/meaning/solar transition), 'Core Rituals' (holy dips, charity), 'Regional Diversity' (Pongal, Uttarayan, Khichdi), 'Kite Flying Fun' (focused tradition), 'Festive Foods' chart (key ingredients), and 'Wishes & Greetings'. This structure emphasizes the astrological importance and regional variety of the festival. -->
+<!-- Visualization & Content Choices: 
         - Significance: Inform -> Text block & Two Image Cards (Placeholders) -> Static -> Justification: Provides contextual meaning alongside visual representations of the two core elements (Sun/Temple, Kite). Method: HTML/Tailwind.
         - Core Rituals: Inform -> Detailed Story Block -> Static -> Justification: Explains the spiritual practices like charity and holy bathing. Method: HTML/Tailwind.
         - Regional Diversity: Organize/Inform -> Step-by-step card flow -> Scroll/Click -> Justification: Highlights how the festival changes names and customs across India (e.g., Pongal, Maghi, Khichdi). Method: HTML/Tailwind.
         - Festive Foods: Inform/Compare -> Pie Chart -> Interactive Tooltips -> Justification: Visually represents the key ingredients used in Sankranti foods, emphasizing sesame and jaggery. Library: Chart.js/Canvas.
         - Wishes/Quotes: Inform -> Grid of Text Cards -> Static -> Justification: Provides appropriate, festive messages. Method: HTML/Tailwind. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-    <style>
+<!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+<style>
         body {
             font-family: 'Inter', sans-serif;
             background-color: #FAFAF0; /* Floral White */
@@ -75,148 +70,137 @@
     </style>
 </head>
 <body class="text-gray-800">
-
-    <header class="bg-white/90 backdrop-blur-sm sticky top-0 z-50 shadow-md">
-        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <h1 class="text-2xl font-bold text-red-800">Makar Sankranti Guide</h1>
-                <div class="hidden sm:flex sm:space-x-8" id="nav-links">
-                    <a href="#significance" class="nav-link text-gray-600 hover:text-yellow-600 border-b-2 border-transparent pb-1">Solar Meaning</a>
-                    <a href="#rituals" class="nav-link text-gray-600 hover:text-yellow-600 border-b-2 border-transparent pb-1">Rituals</a>
-                    <a href="#regional" class="nav-link text-gray-600 hover:text-yellow-600 border-b-2 border-transparent pb-1">Regional Forms</a>
-                    <a href="#food" class="nav-link text-gray-600 hover:text-yellow-600 border-b-2 border-transparent pb-1">Food Chart</a>
-                    <a href="#quotes" class="nav-link text-gray-600 hover:text-yellow-600 border-b-2 border-transparent pb-1">Wishes & Quotes</a>
-                </div>
-                <div class="sm:hidden">
-                    <select id="mobile-nav" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500">
-                        <option value="#significance">Solar Meaning</option>
-                        <option value="#rituals">Rituals</option>
-                        <option value="#regional">Regional Forms</option>
-                        <option value="#food">Food Chart</option>
-                        <option value="#quotes">Wishes & Quotes</option>
-                    </select>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-
-        <section id="hero" class="text-center mb-16">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-red-600 tracking-tight">Makar Sankranti: The Grand Solar Transition</h1>
-            <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">A deep dive into the sole Hindu festival tied to the solar calendar.</p>
-        </section>
-
-        <section id="significance" class="mb-16 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-8 text-red-800">The Sun's Journey into Capricorn</h2>
-            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-                <!-- Text Content -->
-                <div class="md:col-span-2 bg-white p-8 rounded-xl shadow-lg border border-yellow-100">
-                    <h3 class="text-2xl font-semibold text-yellow-700 mb-4">Date and Solar Significance</h3>
-                    <p class="text-lg text-gray-700 leading-relaxed">
+<header class="bg-white/90 backdrop-blur-sm sticky top-0 z-50 shadow-md">
+<nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<h1 class="text-2xl font-bold text-red-800">Makar Sankranti Guide</h1>
+<div class="hidden sm:flex sm:space-x-8" id="nav-links">
+<a class="nav-link text-gray-600 hover:text-yellow-600 border-b-2 border-transparent pb-1" href="#significance">Solar Meaning</a>
+<a class="nav-link text-gray-600 hover:text-yellow-600 border-b-2 border-transparent pb-1" href="#rituals">Rituals</a>
+<a class="nav-link text-gray-600 hover:text-yellow-600 border-b-2 border-transparent pb-1" href="#regional">Regional Forms</a>
+<a class="nav-link text-gray-600 hover:text-yellow-600 border-b-2 border-transparent pb-1" href="#food">Food Chart</a>
+<a class="nav-link text-gray-600 hover:text-yellow-600 border-b-2 border-transparent pb-1" href="#quotes">Wishes &amp; Quotes</a>
+</div>
+<div class="sm:hidden">
+<select class="block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500" id="mobile-nav">
+<option value="#significance">Solar Meaning</option>
+<option value="#rituals">Rituals</option>
+<option value="#regional">Regional Forms</option>
+<option value="#food">Food Chart</option>
+<option value="#quotes">Wishes &amp; Quotes</option>
+</select>
+</div>
+</div>
+</nav>
+</header>
+<main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+<section class="text-center mb-16" id="hero">
+<h1 class="text-4xl md:text-5xl font-extrabold text-red-600 tracking-tight">Makar Sankranti: The Grand Solar Transition</h1>
+<p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">A deep dive into the sole Hindu festival tied to the solar calendar.</p>
+</section>
+<section class="mb-16 scroll-mt-20" id="significance">
+<h2 class="text-3xl font-bold text-center mb-8 text-red-800">The Sun's Journey into Capricorn</h2>
+<div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+<!-- Text Content -->
+<div class="md:col-span-2 bg-white p-8 rounded-xl shadow-lg border border-yellow-100">
+<h3 class="text-2xl font-semibold text-yellow-700 mb-4">Date and Solar Significance</h3>
+<p class="text-lg text-gray-700 leading-relaxed">
                         **Makar Sankranti** stands out as it is celebrated on a fixed Gregorian date: **January 14th** (occasionally 15th). It signifies the Sun's (**Surya**) entry into the zodiac sign of **Makara** (Capricorn). This marks the end of the inauspicious month and the start of **'Uttarayan'**, a six-month phase of the Sun's northward journey. This journey is seen as divine, symbolizing growth, light, and auspiciousness. The festival also celebrates the winter harvest (Rabi crops), marking the season of abundance and gratitude.
                     </p>
-                </div>
-                <!-- Image Cards (Placeholders) -->
-                <div class="md:col-span-1 space-y-4">
-                    <div class="rounded-xl overflow-hidden shadow-xl border border-red-600 bg-red-50">
-                        <img src="https://placehold.co/400x250/FFD700/8B0000?text=Sun+in+Makara" alt="Placeholder image of a rising sun over a temple or body of water." class="w-full h-auto object-cover">
-                        <p class="p-3 text-sm text-center font-medium text-red-900">The Sun's Auspicious Northward Journey</p>
-                    </div>
-                    <div class="rounded-xl overflow-hidden shadow-xl border border-red-600 bg-red-50">
-                        <img src="https://placehold.co/400x250/B8860B/FFFFFF?text=Kite+Flying+Day" alt="Placeholder image of colorful kites in the sky." class="w-full h-auto object-cover">
-                         <p class="p-3 text-sm text-center font-medium text-yellow-800">Kite Flying: A Key Tradition in the West</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="rituals" class="mb-16 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-8 text-red-800">Core Rituals: Bathing, Charity, and Thanks</h2>
-            <div class="bg-white p-8 rounded-xl shadow-2xl max-w-4xl mx-auto border-t-4 border-yellow-600">
-                <h3 class="text-2xl font-bold text-yellow-700 mb-4">Holy Dip (Snan) and Offering (Daan)</h3>
-                <p class="text-gray-700 leading-relaxed">
+</div>
+<!-- Image Cards (Placeholders) -->
+<div class="md:col-span-1 space-y-4">
+<div class="rounded-xl overflow-hidden shadow-xl border border-red-600 bg-red-50">
+<img alt="Placeholder image of a rising sun over a temple or body of water." class="w-full h-auto object-cover" src="https://placehold.co/400x250/FFD700/8B0000?text=Sun+in+Makara"/>
+<p class="p-3 text-sm text-center font-medium text-red-900">The Sun's Auspicious Northward Journey</p>
+</div>
+<div class="rounded-xl overflow-hidden shadow-xl border border-red-600 bg-red-50">
+<img alt="Placeholder image of colorful kites in the sky." class="w-full h-auto object-cover" src="https://placehold.co/400x250/B8860B/FFFFFF?text=Kite+Flying+Day"/>
+<p class="p-3 text-sm text-center font-medium text-yellow-800">Kite Flying: A Key Tradition in the West</p>
+</div>
+</div>
+</div>
+</section>
+<section class="mb-16 scroll-mt-20" id="rituals">
+<h2 class="text-3xl font-bold text-center mb-8 text-red-800">Core Rituals: Bathing, Charity, and Thanks</h2>
+<div class="bg-white p-8 rounded-xl shadow-2xl max-w-4xl mx-auto border-t-4 border-yellow-600">
+<h3 class="text-2xl font-bold text-yellow-700 mb-4">Holy Dip (Snan) and Offering (Daan)</h3>
+<p class="text-gray-700 leading-relaxed">
                     A key tradition is the **'Snan'**, a sacred bath in rivers like the Ganges, Yamuna, Godavari, and Kaveri. It is believed that this act purifies past sins and offers spiritual liberation. After bathing, the ritual of **'Daan'** (charity) follows, where people give newly harvested foods, such as **Til** (sesame seeds), **Gur** (jaggery), blankets, and clothes to the needy. Donating sesame and jaggery, known for their warming properties, symbolizes aiding others in enduring the harsh winter cold.
                 </p>
-            </div>
-        </section>
-
-        <section id="regional" class="mb-16 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-8 text-red-800">Regional Diversity: Same Festival, Different Names</h2>
-             <p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
+</div>
+</section>
+<section class="mb-16 scroll-mt-20" id="regional">
+<h2 class="text-3xl font-bold text-center mb-8 text-red-800">Regional Diversity: Same Festival, Different Names</h2>
+<p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
                 Makar Sankranti is observed uniquely across regions, tied to the solar cycle and known by various names.
             </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-red-100 transition-transform transform hover:scale-105 border-b-4 border-yellow-500">
-                    <h3 class="text-xl font-semibold text-yellow-700 mb-3"><span class="font-mono text-3xl text-red-600 mr-2">1.</span> Pongal (South India)</h3>
-                    <p class="text-gray-600">A four-day Tamil Nadu harvest festival, where the key ritual is boiling fresh rice with milk and jaggery outdoors until it overflows, symbolizing abundance.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-red-100 transition-transform transform hover:scale-105 border-b-4 border-yellow-500">
-                    <h3 class="text-xl font-semibold text-yellow-700 mb-3"><span class="font-mono text-3xl text-red-600 mr-2">2.</span> Uttarayan (Gujarat/Rajasthan)</h3>
-                    <p class="text-gray-600">Widely known as a **Kite Flying Festival**, the event sees skies adorned with countless kites, sparking lively community contests.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-red-100 transition-transform transform hover:scale-105 border-b-4 border-yellow-500">
-                    <h3 class="text-xl font-semibold text-yellow-700 mb-3"><span class="font-mono text-3xl text-red-600 mr-2">3.</span> Maghi (Punjab/Himachal)</h3>
-                    <p class="text-gray-600">The day following Lohri, people purify with a holy dip, enjoying **Khichdi** (rice and lentils) and sweets, marking spiritual renewal and shared joy.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-red-100 transition-transform transform hover:scale-105 border-b-4 border-yellow-500">
-                    <h3 class="text-xl font-semibold text-yellow-700 mb-3"><span class="font-mono text-3xl text-red-600 mr-2">4.</span> Til Gul (Maharashtra)</h3>
-                    <p class="text-gray-600">People share **Til Gul** (sesame-jaggery sweets) and say, "Til Gul ghya, aani god god bola" (Have Til Gul and talk sweetly).</p>
-                </div>
-            </div>
-        </section>
-        
-        <section id="food" class="mb-16 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-8 text-red-800">Visualizing the Core Sankranti Ingredients</h2>
-            <p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="bg-white p-6 rounded-xl shadow-lg border border-red-100 transition-transform transform hover:scale-105 border-b-4 border-yellow-500">
+<h3 class="text-xl font-semibold text-yellow-700 mb-3"><span class="font-mono text-3xl text-red-600 mr-2">1.</span> Pongal (South India)</h3>
+<p class="text-gray-600">A four-day Tamil Nadu harvest festival, where the key ritual is boiling fresh rice with milk and jaggery outdoors until it overflows, symbolizing abundance.</p>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-lg border border-red-100 transition-transform transform hover:scale-105 border-b-4 border-yellow-500">
+<h3 class="text-xl font-semibold text-yellow-700 mb-3"><span class="font-mono text-3xl text-red-600 mr-2">2.</span> Uttarayan (Gujarat/Rajasthan)</h3>
+<p class="text-gray-600">Widely known as a **Kite Flying Festival**, the event sees skies adorned with countless kites, sparking lively community contests.</p>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-lg border border-red-100 transition-transform transform hover:scale-105 border-b-4 border-yellow-500">
+<h3 class="text-xl font-semibold text-yellow-700 mb-3"><span class="font-mono text-3xl text-red-600 mr-2">3.</span> Maghi (Punjab/Himachal)</h3>
+<p class="text-gray-600">The day following Lohri, people purify with a holy dip, enjoying **Khichdi** (rice and lentils) and sweets, marking spiritual renewal and shared joy.</p>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-lg border border-red-100 transition-transform transform hover:scale-105 border-b-4 border-yellow-500">
+<h3 class="text-xl font-semibold text-yellow-700 mb-3"><span class="font-mono text-3xl text-red-600 mr-2">4.</span> Til Gul (Maharashtra)</h3>
+<p class="text-gray-600">People share **Til Gul** (sesame-jaggery sweets) and say, "Til Gul ghya, aani god god bola" (Have Til Gul and talk sweetly).</p>
+</div>
+</div>
+</section>
+<section class="mb-16 scroll-mt-20" id="food">
+<h2 class="text-3xl font-bold text-center mb-8 text-red-800">Visualizing the Core Sankranti Ingredients</h2>
+<p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
                 Sankranti dishes are made with warming, nourishing ingredients, ideal for the winter's end.
             </p>
-            <div class="bg-white p-4 sm:p-8 rounded-xl shadow-lg">
-                <div class="chart-container">
-                    <canvas id="foodChart"></canvas>
-                </div>
-                <div class="text-center mt-4 text-sm text-gray-500">Hover on the sections to explore the role of each key ingredient in festive treats.</div>
-            </div>
-        </section>
-        
-        <section id="quotes" class="mb-16 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-8 text-red-800">20 Makar Sankranti Wishes & Greetings</h2>
-            <p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
-                Joyful and heartfelt wishes for the harvest festival, solar shift, and kind expressions.
+<div class="bg-white p-4 sm:p-8 rounded-xl shadow-lg">
+<div class="chart-container">
+<canvas id="foodChart"></canvas>
+</div>
+<div class="text-center mt-4 text-sm text-gray-500">Hover on the sections to explore the role of each key ingredient in festive treats.</div>
+</div>
+</section>
+<section class="mb-16 scroll-mt-20" id="quotes">
+<h2 class="text-3xl font-bold text-center mb-8 text-red-800">20 Makar Sankranti Wishes &amp; Greetings</h2>
+<p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
+                Joyful and heartfelt <a href="https://www.happy-new-year.org/wishes/">wishes</a> for the harvest festival, solar shift, and kind expressions.
             </p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Happy Makar Sankranti! May the sun bring warmth and wisdom.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">May your life be as delightful as Til Gul. Happy Sankranti!</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">May your kites fly high, and your joys be numerous.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Wishing you a prosperous harvest and a happy Uttarayan.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">May the festival fill your life with sweet moments.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Happy Pongal! May your pot overflow with happiness.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Let the festival of kites mark your flight to success.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">May Surya Dev bless you with light and new beginnings.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Warm wishes on Makar Sankranti. Enjoy the sweets!</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Til Gul ghya, aani madhur bol bola! (Eat Til Gul, and talk sweetly!)</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Wishing you wellness and meaningful growth throughout this year.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">May the sacred dip cleanse all your worries. Happy Sankranti!</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">A very happy Maghi to you and your family.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">May the kites of your destiny soar high.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Sending you warmth and festive blessings on this day.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">May your home be blessed with joy and good fortune.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Happy Uttarayan! Enjoy the vibrant skies.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Celebrate the change in seasons with a grateful heart.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Wishing you success in all your endeavors this Uttarayan period.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Embrace the warmth and light. Happy Makar Sankranti!</div>
-            </div>
-        </section>
-
-    </main>
-    
-    <footer class="bg-red-100 mt-16">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-gray-500">
-            <p>&copy; 2025 Makar Sankranti Interactive Guide. Celebrating the Sun and Harvest.</p>
-        </div>
-    </footer>
-
-    <script>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Happy Makar Sankranti! May the sun bring warmth and wisdom.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">May your life be as delightful as Til Gul. Happy Sankranti!</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">May your kites fly high, and your joys be numerous.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Wishing you a prosperous harvest and a happy Uttarayan.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">May the festival fill your life with sweet moments.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Happy Pongal! May your pot overflow with happiness.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Let the festival of kites mark your flight to success.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">May Surya Dev bless you with light and new beginnings.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Warm wishes on Makar Sankranti. Enjoy the sweets!</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Til Gul ghya, aani madhur bol bola! (Eat Til Gul, and talk sweetly!)</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Wishing you wellness and meaningful growth throughout this year.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">May the sacred dip cleanse all your worries. Happy Sankranti!</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">A very happy Maghi to you and your family.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">May the kites of your destiny soar high.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Sending you warmth and festive blessings on this day.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">May your home be blessed with joy and good fortune.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Happy Uttarayan! Enjoy the vibrant skies.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Celebrate the change in seasons with a grateful heart.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Wishing you success in all your endeavors this Uttarayan period.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-600 text-gray-700">Embrace the warmth and light. Happy Makar Sankranti!</div>
+</div>
+</section>
+</main>
+<footer class="bg-red-100 mt-16">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-gray-500">
+<p>© 2025 Makar Sankranti Interactive Guide. Celebrating the Sun and Harvest.</p>
+</div>
+</footer>
+<script>
         document.addEventListener('DOMContentLoaded', () => {
             
             const navLinks = document.querySelectorAll('.nav-link');
@@ -297,6 +281,5 @@
 
         });
     </script>
-
 </body>
 </html>

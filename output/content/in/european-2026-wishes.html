@@ -2,10 +2,10 @@
 <html class="scroll-smooth" lang="en"><head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <meta content="Say Happy New Year in 51 languages. Explore translations and search for favorite language such as Spanish, French, Chinese, Hindi, and more with our interactive global wishes guide." name="description"/>
-    <meta content="Happy New Year in 51 languages, new year wishes translation, say happy new year in spanish, say happy new year in french, global new year greetings, international new year wishes" name="keywords"/>
+    <meta content="Send Happy New Year 2026 wishes in major European languages. French, German, Spanish, Italian, and more with translations." name="description"/>
+    <meta content="Happy New Year 2026 in European languages, European new year wishes, French new year 2026, German new year 2026, Spanish new year 2026" name="keywords"/>
     
-    <title>Happy New Year in 100 Languages | Global Wishes 2026</title>
+    <title>Happy New Year 2026 | European Wishes</title>
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- FontAwesome CSS -->
@@ -21,7 +21,7 @@
             font-family: 'Vollkorn', serif;
             background-color: #fff1f2; /* bg-rose-50 */
             color: #292524; /* text-stone-800 */
-            background-image: linear-gradient(rgba(255, 241, 242, 0.9), rgba(255, 241, 242, 0.9)), url('https://storage.googleapis.com/kreatewebsite/banner_all/Happy-New-Year-Photos.jpg');
+            background-image: linear-gradient(rgba(255, 241, 242, 0.95), rgba(255, 241, 242, 0.95)), url('https://storage.googleapis.com/kreatewebsite/banner_all/Happy-New-Year-Photos.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -45,8 +45,8 @@
             color: #9f1239;
         }
 
-        .language-card {
-            background-color: rgba(255, 255, 255, 0.8);
+        .wish-card {
+            background-color: rgba(255, 255, 255, 0.9);
             border: 1px solid #ffe4e6;
             border-radius: 0.75rem;
             padding: 1.5rem;
@@ -54,10 +54,10 @@
             position: relative;
             overflow: hidden;
             backdrop-filter: blur(4px);
-            cursor: pointer;
+            cursor: default;
         }
 
-        .language-card:hover {
+        .wish-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 10px 15px -3px rgba(244, 63, 94, 0.1), 0 4px 6px -2px rgba(244, 63, 94, 0.05);
             border-color: #fda4af;
@@ -65,18 +65,14 @@
         }
 
         .copy-btn {
-            opacity: 0;
-            transition: opacity 0.2s ease;
+            opacity: 0.6;
+            transition: all 0.2s ease;
         }
         
-        /* Show copy button on hover */
-        .language-card:hover .copy-btn {
+        .wish-card:hover .copy-btn {
             opacity: 1;
-        }
-        
-        /* On mobile, always show copy button */
-        @media (max-width: 768px) {
-            .copy-btn { opacity: 1; }
+            background-color: #ffe4e6;
+            color: #be123c;
         }
 
         /* Search Input */
@@ -103,7 +99,6 @@
 <body class="antialiased min-h-screen flex flex-col overflow-x-hidden text-stone-800">
 
     <!-- Navigation -->
-   <!-- Navigation -->
     <nav class="w-full bg-white/80 backdrop-blur-sm sticky top-0 z-50 border-b border-rose-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
@@ -142,72 +137,37 @@
         </div>
     </nav>
 
-
-
-
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex-shrink-0 flex items-center gap-3">
-                    <a class="flex items-center gap-2 group" href="index.html">
-                        <span class="text-2xl text-rose-600 group-hover:scale-110 transition-transform">✨</span>
-                        <span class="text-xl font-bold tracking-wide uppercase text-rose-900 group-hover:text-rose-700">Happy New Year</span>
-                    </a>
-                </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="https://www.happy-new-year.org/">Home</a>
-                        <a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="https://www.happy-new-year.org//resolutions/">Resolutions</a>
-                        <a class="nav-link px-3 py-2 rounded-md text-base font-semibold text-rose-800 border-b-2 border-rose-800" href="https://www.happy-new-year.org/in/">Global Wishes</a>
-                        <a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="https://www.happy-new-year.org/2025/">2025 Review</a>
-                    </div>
-                </div>
-                <div class="md:hidden">
-                    <button class="text-stone-600 hover:text-rose-800" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
-                        <i class="fa-solid fa-bars text-2xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="hidden md:hidden border-t border-rose-100" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a class="text-stone-600 block px-3 py-2 rounded-md text-base font-medium" href="https://www.happy-new-year.org/">Home</a>
-                <a class="text-stone-600 block px-3 py-2 rounded-md text-base font-medium" href="https://www.happy-new-year.org//resolutions/">Resolutions</a>
-                <a class="text-rose-900 font-bold block px-3 py-2 rounded-md text-base" href="https://www.happy-new-year.org/in/">Global Wishes</a>
-            </div>
-        </div>
-    
-
     <!-- Header -->
     <header class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8 text-center">
         <div class="inline-block px-4 py-1 rounded-full border border-rose-200 bg-white/60 text-rose-800 text-xs font-bold tracking-[0.2em] uppercase mb-4 backdrop-blur-sm">
-            Global Connections
+            Hello Europe
         </div>
         <h1 class="text-4xl md:text-6xl font-bold text-rose-900 mb-6 tracking-tight">
-            Happy New Year in <span class="text-rose-600">100 Languages</span>
+            Happy New Year <span class="text-rose-600">2026</span>
         </h1>
         <p class="text-lg text-stone-600 max-w-2xl mx-auto italic mb-10">
-            Impress your friends, connect with international colleagues, and spread joy across the globe. Click any card to view detailed traditions for that language.
+            Send your warmest wishes across the continent. Complete sentences for a happy, healthy, and successful 2026.
         </p>
 
         <!-- Search Bar -->
         <div class="max-w-xl mx-auto relative mb-12">
             <i class="fa-solid fa-search absolute left-5 top-1/2 transform -translate-y-1/2 text-rose-400 text-lg"></i>
-            <input class="search-input pl-12" id="searchInput" placeholder="Search for a language (e.g., Spanish, Hindi, Korean)..." type="text"/>
+            <input class="search-input pl-12" id="searchInput" placeholder="Search language (e.g., French, German, Spanish)..." type="text"/>
         </div>
     </header>
 
     <!-- Main Content -->
     <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 w-full">
         
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="languagesGrid">
-            <!-- Cards will be injected here via JavaScript -->
+        <!-- Wishes Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="wishesGrid">
+            <!-- Cards injected via JS -->
         </div>
 
         <div class="hidden text-center py-12" id="noResults">
-            <div class="text-6xl mb-4">🌍</div>
+            <div class="text-6xl mb-4 text-rose-300">🌍</div>
             <h3 class="text-xl font-bold text-stone-600">No language found</h3>
-            <p class="text-stone-500">Try searching for a different country or language name.</p>
+            <p class="text-stone-500">Try searching for a different European language.</p>
         </div>
 
     </main>
@@ -402,163 +362,61 @@
     </div>
 
     <script>
-        // Data Source
-        const languages = [
-            { name: "Afrikaans", wish: "Gelukkige Nuwe Jaar" },
-            { name: "Albanian", wish: "Gëzuar Vitin e Ri" },
-            { name: "Amharic", wish: "Melkam Addis Amet" },
-            { name: "Arabic", wish: "Sana Jadida Saida" },
-            { name: "Armenian", wish: "Shnorhavor Nor Tari" },
-            { name: "Azerbaijani", wish: "Yeni İlınız Mübarək" },
-            { name: "Basque", wish: "Urte Berri On" },
-            { name: "Belarusian", wish: "Z Novym hodam" },
-            { name: "Bengali", wish: "Shubho Noboborsho" },
-            { name: "Bosnian", wish: "Sretna Nova Godina" },
-            { name: "Bulgarian", wish: "Chestita Nova Godina" },
-            { name: "Burmese", wish: "Hnyin Thit Ku Par" },
-            { name: "Cantonese", wish: "San Nin Fai Lok" },
-            { name: "Catalan", wish: "Feliç Any Nou" },
-            { name: "Cherokee", wish: "Ulihelisdi Detkanogi" },
-            { name: "Chinese (Mandarin)", wish: "Xīnnián Kuàilè" },
-            { name: "Corsican", wish: "Pace e Salute" },
-            { name: "Croatian", wish: "Sretna Nova Godina" },
-            { name: "Czech", wish: "Šťastný Nový Rok" },
-            { name: "Danish", wish: "Godt Nytår" },
-            { name: "Dari", wish: "Sale No Mobarak" },
-            { name: "Dhivehi", wish: "Ufaaveri Aa Aharakah Edhen" },
-            { name: "Dutch", wish: "Gelukkig Nieuwjaar" },
-            { name: "English", wish: "Happy New Year" },
-            { name: "Esperanto", wish: "Feliĉan Novjaron" },
-            { name: "Estonian", wish: "Head Uut Aastat" },
-            { name: "Fijian", wish: "Sa Sucu na Yabaki Vou" },
-            { name: "Filipino", wish: "Manigong Bagong Taon" },
-            { name: "Finnish", wish: "Hyvää Uutta Vuotta" },
-            { name: "French", wish: "Bonne Année" },
-            { name: "Georgian", wish: "Gilotsavt Akhal Tselts" },
-            { name: "German", wish: "Frohes Neues Jahr" },
-            { name: "Greek", wish: "Kalí Chroniá" },
-            { name: "Gujarati", wish: "Navu Varsh Mubarak" },
-            { name: "Haitian Creole", wish: "Bòn Ane" },
-            { name: "Hausa", wish: "Barka da Sabuwar Shekara" },
-            { name: "Hawaiian", wish: "Hauʻoli Makahiki Hou" },
-            { name: "Hebrew", wish: "Shana Tova" },
-            { name: "Hindi", wish: "Naya Saal Mubarak Ho" },
-            { name: "Hungarian", wish: "Boldog Új Évet" },
-            { name: "Icelandic", wish: "Gleðilegt nýtt ár" },
-            { name: "Igbo", wish: "Afọ Ọhụrụ ọma" },
-            { name: "Indonesian", wish: "Selamat Tahun Baru" },
-            { name: "Inuktitut", wish: "Ukiortaami Pilluaritsi" },
-            { name: "Irish", wish: "Athbhliain faoi mhaise duit" },
-            { name: "Italian", wish: "Felice Anno Nuovo" },
-            { name: "Jamaican Patois", wish: "Av a Appi Nyoo Yiea" },
-            { name: "Japanese", wish: "Akemashite Omedetou Gozaimasu" },
-            { name: "Kannada", wish: "Hosa Varushadha Shubhashayagalu" },
-            { name: "Kazakh", wish: "Zhana zhylynyzben" },
-            { name: "Khmer", wish: "Soursdey Chhnam Thmei" },
-            { name: "Korean", wish: "Saehae Bok Mani Badeuseyo" },
-            { name: "Kurdish", wish: "Newroz Pirozbe" },
-            { name: "Kyrgyz", wish: "Zhany zhylynyz menen" },
-            { name: "Lao", wish: "Sabaidee Pi Mai" },
-            { name: "Latin", wish: "Felix Annus Novus" },
-            { name: "Latvian", wish: "Laimīgu Jauno Gadu" },
-            { name: "Lithuanian", wish: "Laimingų Naujųjų Metų" },
-            { name: "Macedonian", wish: "Srekjna Nova Godina" },
-            { name: "Malagasy", wish: "Tratry ny Taona" },
-            { name: "Malay", wish: "Selamat Tahun Baru" },
-            { name: "Malayalam", wish: "Puthuvatsara Aashamsakal" },
-            { name: "Maltese", wish: "Is-Sena t-Tajba" },
-            { name: "Maori", wish: "Hari Tau Hou" },
-            { name: "Māori Cook Islands", wish: "Kia orana i te mataiti ou" },
-            { name: "Marathi", wish: "Naveen Varshachya Shubhechha" },
-            { name: "Mongolian", wish: "Shine Jiliin Mend Hurgeye" },
-            { name: "Navajo", wish: "Nizhónígo Nináánááhai Dooleeł" },
-            { name: "Nepali", wish: "Naya Barsha ko Subhakamana" },
-            { name: "Norwegian", wish: "Godt Nyttår" },
-            { name: "Pashto", wish: "Nawai Kall Mo Mubarak Shah" },
-            { name: "Persian", wish: "Sale No Mobarak" },
-            { name: "Polish", wish: "Szczęśliwego Nowego Roku" },
-            { name: "Portuguese", wish: "Feliz Ano Novo" },
-            { name: "Punjabi", wish: "Nava Saal Mubarak" },
-            { name: "Quechua", wish: "Sumaq wata muskuykuyki" },
-            { name: "Romanian", wish: "La Mulți Ani" },
-            { name: "Russian", wish: "S Novym Godom" },
-            { name: "Samoan", wish: "Manuia le Tausaga Fou" },
-            { name: "Scottish Gaelic", wish: "Bliadhna Mhath Ùr" },
-            { name: "Serbian", wish: "Srećna Nova Godina" },
-            { name: "Sindhi", wish: "Nayo Saal Mubarak Hoje" },
-            { name: "Sinhala", wish: "Subha Nawa Wasarak Weva" },
-            { name: "Slovak", wish: "Šťastný Nový Rok" },
-            { name: "Slovenian", wish: "Srečno Novo Leto" },
-            { name: "Somali", wish: "Sanad Cusub oo Wanaagsan" },
-            { name: "Spanish", wish: "Feliz Año Nuevo" },
-            { name: "Swahili", wish: "Heri ya Mwaka Mpya" },
-            { name: "Swedish", wish: "Gott Nytt År" },
-            { name: "Tahitian", wish: "Ia ora na i te matahiti api" },
-            { name: "Tajik", wish: "Soli Nav Muborak" },
-            { name: "Tamil", wish: "Iniya Puthandu Nalvazhthukkal" },
-            { name: "Telugu", wish: "Noothana Samvatsara Shubhakankshalu" },
-            { name: "Thai", wish: "Sawasdee Pee Mai" },
-            { name: "Tibetan", wish: "Lo Sar Zang Mo" },
-            { name: "Tongan", wish: "Monu’ia e Ta’u Fo’ou" },
-            { name: "Turkish", wish: "Mutlu Yıllar" },
-            { name: "Ukrainian", wish: "Z Novym Rokom" },
-            { name: "Urdu", wish: "Naya Saal Mubarak" },
-            { name: "Uzbek", wish: "Yangi Yilingiz Bilan" },
-            { name: "Vietnamese", wish: "Chúc Mừng Năm Mới" },
-            { name: "Welsh", wish: "Blwyddyn Newydd Dda" },
-            { name: "Xhosa", wish: "Unyaka Omnandi Omtsha" },
-            { name: "Yoruba", wish: "E ku odun, e ku iyedun" },
-            { name: "Zulu", wish: "Unyaka Omusha Ojabulisayo" }
+        // Data Source: 21 European Languages
+        const europeanWishes = [
+            { lang: "English", script: "Wishing you a happy, healthy, and successful 2026!" },
+            { lang: "French", script: "Je vous souhaite une excellente année 2026, pleine de bonheur et de réussite." },
+            { lang: "German", script: "Ich wünsche dir ein glückliches, gesundes und erfolgreiches Jahr 2026." },
+            { lang: "Spanish", script: "Te deseo un Año Nuevo 2026 lleno de salud, felicidad y éxito." },
+            { lang: "Italian", script: "Ti auguro un felice Anno Nuovo 2026, pieno di salute e prosperità." },
+            { lang: "Portuguese", script: "Desejo-lhe um Ano Novo 2026 repleto de felicidade, saúde e sucesso." },
+            { lang: "Dutch", script: "Ik wens je een gelukkig, gezond en voorspoedig 2026." },
+            { lang: "Swedish", script: "Jag önskar dig ett gott nytt år 2026, fyllt av glädje och framgång." },
+            { lang: "Danish", script: "Jeg ønsker dig et godt nytår 2026 med lykke og succes." },
+            { lang: "Norwegian", script: "Jeg ønsker deg et godt nytt år 2026, fylt med glede og helse." },
+            { lang: "Finnish", script: "Toivotan sinulle onnellista ja menestyksekästä uutta vuotta 2026." },
+            { lang: "Polish", script: "Życzę Ci szczęśliwego Nowego Roku 2026, pełnego zdrowia i sukcesów." },
+            { lang: "Czech", script: "Přeji ti šťastný nový rok 2026, plný zdraví a úspěchů." },
+            { lang: "Slovak", script: "Prajem ti šťastný nový rok 2026, plný zdravia a radosti." },
+            { lang: "Hungarian", script: "Boldog, egészséges és sikeres 2026-ot kívánok." },
+            { lang: "Romanian", script: "Îți doresc un An Nou 2026 fericit, plin de sănătate și succes." },
+            { lang: "Greek", script: "Σου εύχομαι μια ευτυχισμένη και επιτυχημένη χρονιά 2026." },
+            { lang: "Bulgarian", script: "Пожелавам ти щастлива, здрава и успешна 2026 година." },
+            { lang: "Serbian", script: "Želim ti srećnu i uspešnu 2026." },
+            { lang: "Croatian", script: "Želim ti sretnu i uspješnu 2026." },
+            { lang: "Russian", script: "Желаю вам счастливого, здорового и успешного 2026 года." }
         ];
 
-        // Slugify Helper: Creates filenames like 'arabic.html' or 'chinese-mandarin.html'
-        function getFileName(name) {
-            return name.toLowerCase()
-                .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // remove accents
-                .replace(/[()]/g, '') // remove parens
-                .replace(/\s+/g, '-') // spaces to dashes
-                .replace(/[^a-z0-9\-]/g, '') // remove special chars
-                + '.html';
-        }
-
         // Functions
-        function renderLanguages(filter = "") {
-            const grid = document.getElementById('languagesGrid');
+        function renderWishes(filter = "") {
+            const grid = document.getElementById('wishesGrid');
             const noResults = document.getElementById('noResults');
             
             grid.innerHTML = "";
             const searchTerm = filter.toLowerCase();
             
-            const filteredLanguages = languages.filter(lang => 
-                lang.name.toLowerCase().includes(searchTerm) || 
-                lang.wish.toLowerCase().includes(searchTerm)
+            const filtered = europeanWishes.filter(item => 
+                item.lang.toLowerCase().includes(searchTerm)
             );
 
-            if (filteredLanguages.length === 0) {
+            if (filtered.length === 0) {
                 noResults.classList.remove('hidden');
             } else {
                 noResults.classList.add('hidden');
-                filteredLanguages.forEach(lang => {
-                    const filename = getFileName(lang.name);
-                    
+                filtered.forEach(item => {
                     const card = document.createElement('div');
-                    card.className = "language-card group";
-                    // Navigate logic
-                    card.onclick = (e) => {
-                        window.location.href = filename;
-                    };
-                    
+                    card.className = "wish-card group";
                     card.innerHTML = `
-                        <div class="flex justify-between items-start mb-2">
-                            <span class="text-xs font-bold uppercase tracking-widest text-rose-400 bg-rose-50 px-2 py-1 rounded">${lang.name}</span>
-                            <button onclick="event.stopPropagation(); copyToClipboard('${lang.wish}')" class="copy-btn text-rose-500 hover:text-rose-700 bg-white p-2 rounded-full shadow-sm hover:shadow-md transition-all z-10 relative" title="Copy to clipboard">
+                        <div class="flex justify-between items-start mb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                                <span class="text-sm font-bold uppercase tracking-wider text-rose-700">${item.lang}</span>
+                            </div>
+                            <button onclick="copyToClipboard('${item.script}')" class="copy-btn rounded-full p-2 hover:bg-rose-100 text-stone-400" title="Copy Wish">
                                 <i class="fa-regular fa-copy"></i>
                             </button>
                         </div>
-                        <p class="text-xl md:text-2xl font-bold text-rose-900 mt-2 group-hover:text-rose-700 transition-colors">${lang.wish}</p>
-                        <div class="mt-4 text-xs font-bold text-rose-400 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-end">
-                            Open Page <i class="fa-solid fa-arrow-right ml-1"></i>
-                        </div>
+                        <p class="text-lg font-serif text-stone-800 leading-relaxed border-t border-rose-50 pt-3">${item.script}</p>
                     `;
                     grid.appendChild(card);
                 });
@@ -566,7 +424,6 @@
         }
 
         function copyToClipboard(text) {
-            // Modern copy approach
             if (navigator.clipboard && window.isSecureContext) {
                 navigator.clipboard.writeText(text);
             } else {
@@ -585,7 +442,6 @@
                 }
                 document.body.removeChild(textArea);
             }
-            
             showToast();
         }
 
@@ -599,12 +455,9 @@
 
         // Init
         document.addEventListener('DOMContentLoaded', () => {
-            // Initial render
-            renderLanguages();
-
-            // Search listener
+            renderWishes();
             document.getElementById('searchInput').addEventListener('input', (e) => {
-                renderLanguages(e.target.value);
+                renderWishes(e.target.value);
             });
         });
     </script>

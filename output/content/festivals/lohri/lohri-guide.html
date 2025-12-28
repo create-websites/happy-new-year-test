@@ -1,30 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html class="scroll-smooth" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lohri: A Vibrant Celebration of Fire, Harvest, and Happiness</title>
-    
-    <!-- Meta Description and Keywords for SEO -->
-    <meta name="description" content="Explore the history, core traditions, and cultural significance of Lohri, the vibrant Punjabi harvest festival celebrated with bonfires, dancing, and traditional foods.">
-    <meta name="keywords" content="Lohri, harvest festival, bonfire, Punjab, Winter Solstice, Dulla Bhatti, Gidda, Bhangra, Til, Rewari, Sunder Mundriye">
-
-    <!-- Open Graph (OG) / Social Media Tags -->
-    <meta property="og:title" content="Lohri: A Vibrant Celebration of Fire, Harvest, and Happiness">
-    <meta property="og:description" content="Discover the joyous rituals and famous folklore surrounding Lohri, marking the end of the winter cold in North India.">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://example.com/lohri-guide">
-    <meta property="og:image" content="https://placehold.co/1200x630/FF8C00/800000?text=Lohri+Guide">
-    <meta property="og:site_name" content="Cultural Festival Explorer">
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
-    
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lohri: A Vibrant Celebration of Fire, Harvest, and Happiness</title>
+<!-- Meta Description and Keywords for SEO -->
+<meta content="Explore the history, core traditions, and cultural significance of Lohri, the vibrant Punjabi harvest festival celebrated with bonfires, dancing, and traditional foods." name="description"/>
+<meta content="Lohri, harvest festival, bonfire, Punjab, Winter Solstice, Dulla Bhatti, Gidda, Bhangra, Til, Rewari, Sunder Mundriye" name="keywords"/>
+<!-- Open Graph (OG) / Social Media Tags -->
+<meta content="Lohri: A Vibrant Celebration of Fire, Harvest, and Happiness" property="og:title"/>
+<meta content="Discover the joyous rituals and famous folklore surrounding Lohri, marking the end of the winter cold in North India." property="og:description"/>
+<meta content="article" property="og:type"/>
+<meta content="https://example.com/lohri-guide" property="og:url"/>
+<meta content="https://placehold.co/1200x630/FF8C00/800000?text=Lohri+Guide" property="og:image"/>
+<meta content="Cultural Festival Explorer" property="og:site_name"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Lora:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Event",
@@ -38,17 +34,16 @@
       }
     }
     </script>
-    
-    <!-- Chosen Palette: Fiery Orange, Deep Red/Maroon, and Warm Gold (Fire and Harvest Theme) -->
-    <!-- Application Structure Plan: A thematic, single-page application with a sticky top navigation. The flow covers: 'Significance' (date/meaning/fire focus), 'The Bonfire Ritual' (purpose and offerings), 'Core Traditions' (dancing, songs, Dulla Bhatti story), 'Festive Foods' chart (distribution of traditional treats), and 'Wishes & Greetings'. This structure emphasizes the cultural vibrancy and the agricultural roots of the festival. -->
-    <!-- Visualization & Content Choices: 
+<!-- Chosen Palette: Fiery Orange, Deep Red/Maroon, and Warm Gold (Fire and Harvest Theme) -->
+<!-- Application Structure Plan: A thematic, single-page application with a sticky top navigation. The flow covers: 'Significance' (date/meaning/fire focus), 'The Bonfire Ritual' (purpose and offerings), 'Core Traditions' (dancing, songs, Dulla Bhatti story), 'Festive Foods' chart (distribution of traditional treats), and 'Wishes & Greetings'. This structure emphasizes the cultural vibrancy and the agricultural roots of the festival. -->
+<!-- Visualization & Content Choices: 
         - Significance: Inform -> Text block & Two Image Cards (Placeholders) -> Static -> Justification: Provides contextual meaning alongside visual representations of the two core elements (Bonfire, Dancing). Method: HTML/Tailwind.
         - The Bonfire Ritual: Inform -> Detailed Story Block -> Static -> Justification: Explains the ritualistic importance of fire and the offerings made to it (sesame, jaggery). Method: HTML/Tailwind.
         - Core Traditions: Organize/Inform -> Step-by-step card flow -> Scroll/Click -> Justification: Breaks down customs (Bhangra/Gidda, singing folk songs, collecting wood). Method: HTML/Tailwind.
         - Festive Foods: Inform/Compare -> Pie Chart -> Interactive Tooltips -> Justification: Visually represents the common components of Lohri treats, emphasizing the harvest elements (sesame, corn). Library: Chart.js/Canvas.
         - Wishes/Quotes: Inform -> Grid of Text Cards -> Static -> Justification: Provides appropriate, festive Punjabi messages. Method: HTML/Tailwind. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-    <style>
+<!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+<style>
         body {
             font-family: 'Inter', sans-serif;
             background-color: #FFFBEB; /* Very Light Yellow/Cream */
@@ -75,148 +70,137 @@
     </style>
 </head>
 <body class="text-gray-800">
-
-    <header class="bg-white/90 backdrop-blur-sm sticky top-0 z-50 shadow-md">
-        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <h1 class="text-2xl font-bold text-red-700">Lohri Guide</h1>
-                <div class="hidden sm:flex sm:space-x-8" id="nav-links">
-                    <a href="#significance" class="nav-link text-gray-600 hover:text-orange-600 border-b-2 border-transparent pb-1">Meaning</a>
-                    <a href="#bonfire" class="nav-link text-gray-600 hover:text-orange-600 border-b-2 border-transparent pb-1">Bonfire Ritual</a>
-                    <a href="#traditions" class="nav-link text-gray-600 hover:text-orange-600 border-b-2 border-transparent pb-1">Traditions</a>
-                    <a href="#food" class="nav-link text-gray-600 hover:text-orange-600 border-b-2 border-transparent pb-1">Treats Chart</a>
-                    <a href="#quotes" class="nav-link text-gray-600 hover:text-orange-600 border-b-2 border-transparent pb-1">Wishes & Quotes</a>
-                </div>
-                <div class="sm:hidden">
-                    <select id="mobile-nav" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500">
-                        <option value="#significance">Meaning</option>
-                        <option value="#bonfire">Bonfire Ritual</option>
-                        <option value="#traditions">Traditions</option>
-                        <option value="#food">Treats Chart</option>
-                        <option value="#quotes">Wishes & Quotes</option>
-                    </select>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-
-        <section id="hero" class="text-center mb-16">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-orange-600 tracking-tight">Lohri: The Festival of Winter Harvest</h1>
-            <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">A lively guide to the Punjabi festival marking winter's end, the harvest, and the fire's strength.</p>
-        </section>
-
-        <section id="significance" class="mb-16 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-8 text-red-700">Marking the End of the Coldest Month</h2>
-            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-                <!-- Text Content -->
-                <div class="md:col-span-2 bg-white p-8 rounded-xl shadow-lg border border-orange-100">
-                    <h3 class="text-2xl font-semibold text-orange-700 mb-4">Date and Meaning</h3>
-                    <p class="text-lg text-gray-700 leading-relaxed">
+<header class="bg-white/90 backdrop-blur-sm sticky top-0 z-50 shadow-md">
+<nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<h1 class="text-2xl font-bold text-red-700">Lohri Guide</h1>
+<div class="hidden sm:flex sm:space-x-8" id="nav-links">
+<a class="nav-link text-gray-600 hover:text-orange-600 border-b-2 border-transparent pb-1" href="#significance">Meaning</a>
+<a class="nav-link text-gray-600 hover:text-orange-600 border-b-2 border-transparent pb-1" href="#bonfire">Bonfire Ritual</a>
+<a class="nav-link text-gray-600 hover:text-orange-600 border-b-2 border-transparent pb-1" href="#traditions">Traditions</a>
+<a class="nav-link text-gray-600 hover:text-orange-600 border-b-2 border-transparent pb-1" href="#food">Treats Chart</a>
+<a class="nav-link text-gray-600 hover:text-orange-600 border-b-2 border-transparent pb-1" href="#quotes">Wishes &amp; Quotes</a>
+</div>
+<div class="sm:hidden">
+<select class="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500" id="mobile-nav">
+<option value="#significance">Meaning</option>
+<option value="#bonfire">Bonfire Ritual</option>
+<option value="#traditions">Traditions</option>
+<option value="#food">Treats Chart</option>
+<option value="#quotes">Wishes &amp; Quotes</option>
+</select>
+</div>
+</div>
+</nav>
+</header>
+<main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+<section class="text-center mb-16" id="hero">
+<h1 class="text-4xl md:text-5xl font-extrabold text-orange-600 tracking-tight">Lohri: The Festival of Winter Harvest</h1>
+<p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">A lively guide to the Punjabi festival marking winter's end, the harvest, and the fire's strength.</p>
+</section>
+<section class="mb-16 scroll-mt-20" id="significance">
+<h2 class="text-3xl font-bold text-center mb-8 text-red-700">Marking the End of the Coldest Month</h2>
+<div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+<!-- Text Content -->
+<div class="md:col-span-2 bg-white p-8 rounded-xl shadow-lg border border-orange-100">
+<h3 class="text-2xl font-semibold text-orange-700 mb-4">Date and Meaning</h3>
+<p class="text-lg text-gray-700 leading-relaxed">
                         **Lohri**, celebrated every year on **January 13th**, marks the end of winter and the passing of the **Winter Solstice**. It signals the harvest of Rabi crops and the beginning of a new financial year for farmers in Punjab and North India. The highlight is the **bonfire**, symbolizing the sun's return, warmth, and the clearing of winter's remnants for spring. Lohri holds special importance for newborns and new brides, celebrated with family gatherings, gifts, and joyful traditions.
                     </p>
-                </div>
-                <!-- Image Cards (Placeholders) -->
-                <div class="md:col-span-1 space-y-4">
-                    <div class="rounded-xl overflow-hidden shadow-xl border border-red-600 bg-red-50">
-                        <img src="https://placehold.co/400x250/FF8C00/800000?text=Lohri+Bonfire" alt="Placeholder image of a Lohri bonfire at night." class="w-full h-auto object-cover">
-                        <p class="p-3 text-sm text-center font-medium text-red-900">The Power of the Bonfire</p>
-                    </div>
-                    <div class="rounded-xl overflow-hidden shadow-xl border border-red-600 bg-red-50">
-                        <img src="https://placehold.co/400x250/800000/FF8C00?text=Bhangra+Dance" alt="Placeholder image of people performing Bhangra." class="w-full h-auto object-cover">
-                         <p class="p-3 text-sm text-center font-medium text-orange-800">Joyful Traditional Dancing</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="bonfire" class="mb-16 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-8 text-red-700">The Ritual of the Fire and Offerings</h2>
-            <div class="bg-white p-8 rounded-xl shadow-2xl max-w-4xl mx-auto border-t-4 border-orange-600">
-                <h3 class="text-2xl font-bold text-orange-700 mb-4">Praying for Prosperity</h3>
-                <p class="text-gray-700 leading-relaxed">
+</div>
+<!-- Image Cards (Placeholders) -->
+<div class="md:col-span-1 space-y-4">
+<div class="rounded-xl overflow-hidden shadow-xl border border-red-600 bg-red-50">
+<img alt="Placeholder image of a Lohri bonfire at night." class="w-full h-auto object-cover" src="https://placehold.co/400x250/FF8C00/800000?text=Lohri+Bonfire"/>
+<p class="p-3 text-sm text-center font-medium text-red-900">The Power of the Bonfire</p>
+</div>
+<div class="rounded-xl overflow-hidden shadow-xl border border-red-600 bg-red-50">
+<img alt="Placeholder image of people performing Bhangra." class="w-full h-auto object-cover" src="https://placehold.co/400x250/800000/FF8C00?text=Bhangra+Dance"/>
+<p class="p-3 text-sm text-center font-medium text-orange-800">Joyful Traditional Dancing</p>
+</div>
+</div>
+</div>
+</section>
+<section class="mb-16 scroll-mt-20" id="bonfire">
+<h2 class="text-3xl font-bold text-center mb-8 text-red-700">The Ritual of the Fire and Offerings</h2>
+<div class="bg-white p-8 rounded-xl shadow-2xl max-w-4xl mx-auto border-t-4 border-orange-600">
+<h3 class="text-2xl font-bold text-orange-700 mb-4">Praying for Prosperity</h3>
+<p class="text-gray-700 leading-relaxed">
                     The bonfire is the essence of Lohri. After dusk, a fire is kindled in an open space. People gather around, tossing offerings like **rewari** (sesame and jaggery), **gajak** (sugar and sesame), **popcorn**, and **groundnuts** into the flames. This act symbolizes a prayer for prosperity, abundance, and fertile lands. As the fire blazes, people perform **parikrama** (circling the fire), expressing gratitude to the sun god and seeking blessings for a bountiful harvest. The sacred ashes are later taken home as a token of blessing.
                 </p>
-            </div>
-        </section>
-
-        <section id="traditions" class="mb-16 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-8 text-red-700">Core Traditions: Dance, Music, and Folklore</h2>
-             <p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
+</div>
+</section>
+<section class="mb-16 scroll-mt-20" id="traditions">
+<h2 class="text-3xl font-bold text-center mb-8 text-red-700">Core Traditions: Dance, Music, and Folklore</h2>
+<p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
                 Lohri is a lively and vibrant festival enjoyed with immense joy by families and communities.
             </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-red-100 transition-transform transform hover:scale-105 border-b-4 border-orange-500">
-                    <h3 class="text-xl font-semibold text-orange-700 mb-3"><span class="font-mono text-3xl text-red-600 mr-2">1.</span> Bhangra and Gidda</h3>
-                    <p class="text-gray-600">Men showcase the lively **Bhangra**, while women dance the elegant **Gidda** by the bonfire, honoring the harvest and seasonal change.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-red-100 transition-transform transform hover:scale-105 border-b-4 border-orange-500">
-                    <h3 class="text-xl font-semibold text-orange-700 mb-3"><span class="font-mono text-3xl text-red-600 mr-2">2.</span> Lohri Songs</h3>
-                    <p class="text-gray-600">Children go door-to-door singing traditional folk songs, most famously '**Sunder Mundriye**,' and are rewarded with treats, jaggery, and money.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-red-100 transition-transform transform hover:scale-105 border-b-4 border-orange-500">
-                    <h3 class="text-xl font-semibold text-orange-700 mb-3"><span class="font-mono text-3xl text-red-600 mr-2">3.</span> Dulla Bhatti Story</h3>
-                    <p class="text-gray-600">The songs often tell the story of **Dulla Bhatti**, a Punjabi hero who saved poor girls from slavery and arranged their marriages, symbolizing justice and care.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-red-100 transition-transform transform hover:scale-105 border-b-4 border-orange-500">
-                    <h3 class="text-xl font-semibold text-orange-700 mb-3"><span class="font-mono text-3xl text-red-600 mr-2">4.</span> Festive Feasting</h3>
-                    <p class="text-gray-600">The evening ends with a lavish feast highlighting classic winter delicacies such as **Sarson da Saag** (spiced mustard greens) and **Makki di Roti** (cornbread).</p>
-                </div>
-            </div>
-        </section>
-        
-        <section id="food" class="mb-16 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-8 text-red-700">Visualizing Traditional Lohri Treats</h2>
-            <p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="bg-white p-6 rounded-xl shadow-lg border border-red-100 transition-transform transform hover:scale-105 border-b-4 border-orange-500">
+<h3 class="text-xl font-semibold text-orange-700 mb-3"><span class="font-mono text-3xl text-red-600 mr-2">1.</span> Bhangra and Gidda</h3>
+<p class="text-gray-600">Men showcase the lively **Bhangra**, while women dance the elegant **Gidda** by the bonfire, honoring the harvest and seasonal change.</p>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-lg border border-red-100 transition-transform transform hover:scale-105 border-b-4 border-orange-500">
+<h3 class="text-xl font-semibold text-orange-700 mb-3"><span class="font-mono text-3xl text-red-600 mr-2">2.</span> Lohri Songs</h3>
+<p class="text-gray-600">Children go door-to-door singing traditional folk songs, most famously '**Sunder Mundriye**,' and are rewarded with treats, jaggery, and money.</p>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-lg border border-red-100 transition-transform transform hover:scale-105 border-b-4 border-orange-500">
+<h3 class="text-xl font-semibold text-orange-700 mb-3"><span class="font-mono text-3xl text-red-600 mr-2">3.</span> Dulla Bhatti Story</h3>
+<p class="text-gray-600">The songs often tell the story of **Dulla Bhatti**, a Punjabi hero who saved poor girls from slavery and arranged their marriages, symbolizing justice and care.</p>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-lg border border-red-100 transition-transform transform hover:scale-105 border-b-4 border-orange-500">
+<h3 class="text-xl font-semibold text-orange-700 mb-3"><span class="font-mono text-3xl text-red-600 mr-2">4.</span> Festive Feasting</h3>
+<p class="text-gray-600">The evening ends with a lavish feast highlighting classic winter delicacies such as **Sarson da Saag** (spiced mustard greens) and **Makki di Roti** (cornbread).</p>
+</div>
+</div>
+</section>
+<section class="mb-16 scroll-mt-20" id="food">
+<h2 class="text-3xl font-bold text-center mb-8 text-red-700">Visualizing Traditional Lohri Treats</h2>
+<p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
                 This pie chart symbolically shows the share of key ingredients and treats exchanged during Lohri, celebrating the harvest.
             </p>
-            <div class="bg-white p-4 sm:p-8 rounded-xl shadow-lg">
-                <div class="chart-container">
-                    <canvas id="treatsChart"></canvas>
-                </div>
-                <div class="text-center mt-4 text-sm text-gray-500">Hover on the sections to view each traditional food item's relative significance.</div>
-            </div>
-        </section>
-        
-        <section id="quotes" class="mb-16 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-8 text-red-700">20 Lohri Wishes & Greetings</h2>
-            <p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
-                Bright and heartfelt wishes to spread the cheer of the fire and the harvest time.
+<div class="bg-white p-4 sm:p-8 rounded-xl shadow-lg">
+<div class="chart-container">
+<canvas id="treatsChart"></canvas>
+</div>
+<div class="text-center mt-4 text-sm text-gray-500">Hover on the sections to view each traditional food item's relative significance.</div>
+</div>
+</section>
+<section class="mb-16 scroll-mt-20" id="quotes">
+<h2 class="text-3xl font-bold text-center mb-8 text-red-700">20 Lohri Wishes &amp; Greetings</h2>
+<p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
+                Bright and heartfelt <a href="https://www.happy-new-year.org/wishes/">wishes</a> to spread the cheer of the fire and the harvest time.
             </p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">Happy Lohri! May the fire burn all your worries away.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">Wishing you a harvest of joy and prosperity this year.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">May the glow of the fire bring joy to your heart.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">Enjoy the Rewari, Gajak, and the festive dance. Happy Lohri!</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">Wishing you endless love and joy on this special day.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">Lohri diyan lakh lakh vadhaiyan! (Many congratulations on Lohri!)</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">Wishing you a life as sweet as jaggery. Happy Lohri!</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">May you be blessed with the biggest, brightest harvest.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">New beginnings, new hopes, and a happy Lohri to you.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">Wishing your family good health and fortune.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">Time for Bhangra, Gidda, and celebrating the new season!</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">May the bonfire lighten your path to success.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">Happy Lohri to the new bride and the new baby!</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">May your dreams ignite and flourish with the fire's grace.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">Popcorn, peanuts, and celebration—let the festivities begin!</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">Sending lots of festive cheer and warmth your way.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">May the Lord Sun shower you with warmth and happiness.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">Welcome the close of winter and the bloom of lively spring.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">Keep dancing around the fire! Happy Lohri!</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">Enjoy the Makki di Roti and Sarson da Saag!</div>
-            </div>
-        </section>
-
-    </main>
-    
-    <footer class="bg-orange-100 mt-16">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-gray-500">
-            <p>&copy; 2025 Lohri Interactive Guide. Celebrating the Harvest.</p>
-        </div>
-    </footer>
-
-    <script>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">Happy Lohri! May the fire burn all your worries away.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">Wishing you a harvest of joy and prosperity this year.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">May the glow of the fire bring joy to your heart.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">Enjoy the Rewari, Gajak, and the festive dance. Happy Lohri!</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">Wishing you endless love and joy on this special day.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">Lohri diyan lakh lakh vadhaiyan! (Many congratulations on Lohri!)</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">Wishing you a life as sweet as jaggery. Happy Lohri!</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">May you be blessed with the biggest, brightest harvest.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">New beginnings, new hopes, and a happy Lohri to you.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">Wishing your family good health and fortune.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">Time for Bhangra, Gidda, and celebrating the new season!</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">May the bonfire lighten your path to success.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">Happy Lohri to the new bride and the new baby!</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">May your dreams ignite and flourish with the fire's grace.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">Popcorn, peanuts, and celebration—let the festivities begin!</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">Sending lots of festive cheer and warmth your way.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">May the Lord Sun shower you with warmth and happiness.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">Welcome the close of winter and the bloom of lively spring.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">Keep dancing around the fire! Happy Lohri!</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-600 text-gray-700">Enjoy the Makki di Roti and Sarson da Saag!</div>
+</div>
+</section>
+</main>
+<footer class="bg-orange-100 mt-16">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-gray-500">
+<p>© 2025 Lohri Interactive Guide. Celebrating the Harvest.</p>
+</div>
+</footer>
+<script>
         document.addEventListener('DOMContentLoaded', () => {
             
             const navLinks = document.querySelectorAll('.nav-link');
@@ -297,6 +281,5 @@
 
         });
     </script>
-
 </body>
 </html>

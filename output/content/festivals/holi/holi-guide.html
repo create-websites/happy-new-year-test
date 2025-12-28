@@ -1,30 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html class="scroll-smooth" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Holi: A Vibrant Guide to the Festival of Spring and Colors</title>
-    
-    <!-- Meta Description and Keywords for SEO -->
-    <meta name="description" content="Explore the history, mythology (Holika), and vibrant traditions of Holi, the Hindu 'Festival of Colors,' celebrated with gulal, water, and community feasting.">
-    <meta name="keywords" content="Holi, Festival of Colors, Spring festival, Holika Dahan, Gulal, Rang, Bhang, Prahlada, triumph of good, India festival">
-
-    <!-- Open Graph (OG) / Social Media Tags -->
-    <meta property="og:title" content="Holi: A Vibrant Guide to the Festival of Spring and Colors">
-    <meta property="og:description" content="Discover the joyous rituals, famous legends, and significance of Holi, marking the start of spring and the victory of devotion.">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://example.com/holi-guide">
-    <meta property="og:image" content="https://placehold.co/1200x630/FF4500/FFFFFF?text=Holi+Festival+Guide">
-    <meta property="og:site_name" content="Cultural Festival Explorer">
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
-    
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Holi: A Vibrant Guide to the Festival of Spring and Colors</title>
+<!-- Meta Description and Keywords for SEO -->
+<meta content="Explore the history, mythology (Holika), and vibrant traditions of Holi, the Hindu 'Festival of Colors,' celebrated with gulal, water, and community feasting." name="description"/>
+<meta content="Holi, Festival of Colors, Spring festival, Holika Dahan, Gulal, Rang, Bhang, Prahlada, triumph of good, India festival" name="keywords"/>
+<!-- Open Graph (OG) / Social Media Tags -->
+<meta content="Holi: A Vibrant Guide to the Festival of Spring and Colors" property="og:title"/>
+<meta content="Discover the joyous rituals, famous legends, and significance of Holi, marking the start of spring and the victory of devotion." property="og:description"/>
+<meta content="article" property="og:type"/>
+<meta content="https://example.com/holi-guide" property="og:url"/>
+<meta content="https://placehold.co/1200x630/FF4500/FFFFFF?text=Holi+Festival+Guide" property="og:image"/>
+<meta content="Cultural Festival Explorer" property="og:site_name"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Lora:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Event",
@@ -38,17 +34,16 @@
       }
     }
     </script>
-    
-    <!-- Chosen Palette: Red-Orange (Fire/Energy), Turquoise (Water/Play), and Bright Pink/Yellow (Colors/Joy) -->
-    <!-- Application Structure Plan: A thematic, single-page application with a sticky top navigation. The flow covers: 'Significance' (spring arrival/two-day structure), 'Holika Dahan Mythology' (the central legend and moral), 'The Play of Colors' (Rang/Gulal/water), 'Color Material Breakdown' chart (visualizing types of colors used), and 'Wishes & Greetings'. This structure separates the sacred, preparatory day (Dahan) from the main celebratory day (Rangwali Holi). -->
-    <!-- Visualization & Content Choices: 
+<!-- Chosen Palette: Red-Orange (Fire/Energy), Turquoise (Water/Play), and Bright Pink/Yellow (Colors/Joy) -->
+<!-- Application Structure Plan: A thematic, single-page application with a sticky top navigation. The flow covers: 'Significance' (spring arrival/two-day structure), 'Holika Dahan Mythology' (the central legend and moral), 'The Play of Colors' (Rang/Gulal/water), 'Color Material Breakdown' chart (visualizing types of colors used), and 'Wishes & Greetings'. This structure separates the sacred, preparatory day (Dahan) from the main celebratory day (Rangwali Holi). -->
+<!-- Visualization & Content Choices: 
         - Significance: Inform -> Text block & Two Image Cards (Placeholders) -> Static -> Justification: Provides contextual meaning alongside visual representations of the two core elements (Bonfire, Gulal). Method: HTML/Tailwind.
         - Holika Dahan Mythology: Inform -> Detailed Story Block -> Static -> Justification: Explains the central legend of Holika and Prahlada, providing the moral foundation. Method: HTML/Tailwind.
         - The Play of Colors: Organize/Inform -> Step-by-step card flow -> Scroll/Click -> Justification: Breaks down the modern customs of playing with colors, including Bura Na Mano Holi Hai. Method: HTML/Tailwind.
         - Color Material Breakdown: Inform/Compare -> Bar Chart -> Interactive Tooltips -> Justification: Visually represents the common types of color media used during the festival (powder vs. water). Library: Chart.js/Canvas.
         - Wishes/Quotes: Inform -> Grid of Text Cards -> Static -> Justification: Provides appropriate, vibrant messages. Method: HTML/Tailwind. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-    <style>
+<!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+<style>
         body {
             font-family: 'Inter', sans-serif;
             background-color: #F7F7F7; /* Light Gray */
@@ -75,152 +70,141 @@
     </style>
 </head>
 <body class="text-gray-800">
-
-    <header class="bg-white/90 backdrop-blur-sm sticky top-0 z-50 shadow-md">
-        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <h1 class="text-2xl font-bold text-pink-600">Holi Guide</h1>
-                <div class="hidden sm:flex sm:space-x-8" id="nav-links">
-                    <a href="#significance" class="nav-link text-gray-600 hover:text-red-500 border-b-2 border-transparent pb-1">Meaning</a>
-                    <a href="#mythology" class="nav-link text-gray-600 hover:text-red-500 border-b-2 border-transparent pb-1">Holika Dahan</a>
-                    <a href="#play" class="nav-link text-gray-600 hover:text-red-500 border-b-2 border-transparent pb-1">The Play</a>
-                    <a href="#colors" class="nav-link text-gray-600 hover:text-red-500 border-b-2 border-transparent pb-1">Color Chart</a>
-                    <a href="#quotes" class="nav-link text-gray-600 hover:text-red-500 border-b-2 border-transparent pb-1">Wishes & Quotes</a>
-                </div>
-                <div class="sm:hidden">
-                    <select id="mobile-nav" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring-pink-500">
-                        <option value="#significance">Meaning</option>
-                        <option value="#mythology">Holika Dahan</option>
-                        <option value="#play">The Play</option>
-                        <option value="#colors">Color Chart</option>
-                        <option value="#quotes">Wishes & Quotes</option>
-                    </select>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-
-        <section id="hero" class="text-center mb-16">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-orange-500 tracking-tight">Holi: The Festival of Colors</h1>
-            <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">A vibrant look at the spring festival honoring life, love, and the triumph of good over evil.</p>
-        </section>
-
-        <section id="significance" class="mb-16 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-8 text-pink-600">Welcoming Spring and Renewal</h2>
-            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-                <!-- Text Content -->
-                <div class="md:col-span-2 bg-white p-8 rounded-xl shadow-lg border border-red-100">
-                    <h3 class="text-2xl font-semibold text-red-600 mb-4">A Two-Day Celebration</h3>
-                    <p class="text-lg text-gray-700 leading-relaxed">
+<header class="bg-white/90 backdrop-blur-sm sticky top-0 z-50 shadow-md">
+<nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<h1 class="text-2xl font-bold text-pink-600">Holi Guide</h1>
+<div class="hidden sm:flex sm:space-x-8" id="nav-links">
+<a class="nav-link text-gray-600 hover:text-red-500 border-b-2 border-transparent pb-1" href="#significance">Meaning</a>
+<a class="nav-link text-gray-600 hover:text-red-500 border-b-2 border-transparent pb-1" href="#mythology">Holika Dahan</a>
+<a class="nav-link text-gray-600 hover:text-red-500 border-b-2 border-transparent pb-1" href="#play">The Play</a>
+<a class="nav-link text-gray-600 hover:text-red-500 border-b-2 border-transparent pb-1" href="#colors">Color Chart</a>
+<a class="nav-link text-gray-600 hover:text-red-500 border-b-2 border-transparent pb-1" href="#quotes">Wishes &amp; Quotes</a>
+</div>
+<div class="sm:hidden">
+<select class="block w-full rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring-pink-500" id="mobile-nav">
+<option value="#significance">Meaning</option>
+<option value="#mythology">Holika Dahan</option>
+<option value="#play">The Play</option>
+<option value="#colors">Color Chart</option>
+<option value="#quotes">Wishes &amp; Quotes</option>
+</select>
+</div>
+</div>
+</nav>
+</header>
+<main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+<section class="text-center mb-16" id="hero">
+<h1 class="text-4xl md:text-5xl font-extrabold text-orange-500 tracking-tight">Holi: The Festival of Colors</h1>
+<p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">A vibrant look at the spring festival honoring life, love, and the triumph of good over evil.</p>
+</section>
+<section class="mb-16 scroll-mt-20" id="significance">
+<h2 class="text-3xl font-bold text-center mb-8 text-pink-600">Welcoming Spring and Renewal</h2>
+<div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+<!-- Text Content -->
+<div class="md:col-span-2 bg-white p-8 rounded-xl shadow-lg border border-red-100">
+<h3 class="text-2xl font-semibold text-red-600 mb-4">A Two-Day Celebration</h3>
+<p class="text-lg text-gray-700 leading-relaxed">
                         Holi spans two days in March, aligning with the Phalgun month's full moon (**Purnima**). This vibrant festival honors **Spring's arrival**, winter's end, and the victory of **devotion (Bhakti)** over arrogance and evil. 
-                        <br><br>
+                        <br/><br/>
                         The first night is **Holika Dahan**, marked by bonfires symbolizing the defeat of evil and negativity. The second day, **Rangwali Holi** (or Dhulandi), is celebrated with joy as people throw colored powders (**Gulal**/**Abeer**) and water, breaking social barriers of caste, age, and status.
                     </p>
-                </div>
-                <!-- Image Cards (Placeholders) -->
-                <div class="md:col-span-1 space-y-4">
-                    <div class="rounded-xl overflow-hidden shadow-xl border border-red-500 bg-red-50">
-                        <img src="https://placehold.co/400x250/FF4500/FFFFFF?text=Holika+Bonfire" alt="Placeholder image of a Holika Dahan bonfire." class="w-full h-auto object-cover">
-                        <p class="p-3 text-sm text-center font-medium text-red-900">Holika Dahan: Burning Evil</p>
-                    </div>
-                    <div class="rounded-xl overflow-hidden shadow-xl border border-blue-500 bg-blue-50">
-                        <img src="https://placehold.co/400x250/00CED1/FFFFFF?text=Playing+with+Colors" alt="Placeholder image of colorful gulal powder being thrown." class="w-full h-auto object-cover">
-                         <p class="p-3 text-sm text-center font-medium text-blue-800">Rangwali Holi: Joy and Colors</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="mythology" class="mb-16 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-8 text-pink-600">The Legend of Holika and Prahlada</h2>
-            <div class="bg-white p-8 rounded-xl shadow-2xl max-w-4xl mx-auto border-t-4 border-orange-500">
-                <h3 class="text-2xl font-bold text-orange-600 mb-4">The Triumph of Devotion</h3>
-                <p class="text-gray-700 leading-relaxed">
+</div>
+<!-- Image Cards (Placeholders) -->
+<div class="md:col-span-1 space-y-4">
+<div class="rounded-xl overflow-hidden shadow-xl border border-red-500 bg-red-50">
+<img alt="Placeholder image of a Holika Dahan bonfire." class="w-full h-auto object-cover" src="https://placehold.co/400x250/FF4500/FFFFFF?text=Holika+Bonfire"/>
+<p class="p-3 text-sm text-center font-medium text-red-900">Holika Dahan: Burning Evil</p>
+</div>
+<div class="rounded-xl overflow-hidden shadow-xl border border-blue-500 bg-blue-50">
+<img alt="Placeholder image of colorful gulal powder being thrown." class="w-full h-auto object-cover" src="https://placehold.co/400x250/00CED1/FFFFFF?text=Playing+with+Colors"/>
+<p class="p-3 text-sm text-center font-medium text-blue-800">Rangwali Holi: Joy and Colors</p>
+</div>
+</div>
+</div>
+</section>
+<section class="mb-16 scroll-mt-20" id="mythology">
+<h2 class="text-3xl font-bold text-center mb-8 text-pink-600">The Legend of Holika and Prahlada</h2>
+<div class="bg-white p-8 rounded-xl shadow-2xl max-w-4xl mx-auto border-t-4 border-orange-500">
+<h3 class="text-2xl font-bold text-orange-600 mb-4">The Triumph of Devotion</h3>
+<p class="text-gray-700 leading-relaxed">
                     The well-known tale tied to Holi is about the demon king **Hiranyakashipu**, who ordered all to worship him. However, his son, **Prahlada**, stayed devoted to Lord Vishnu. The king's sister, **Holika**, with her fireproof magical cloak, plotted to kill Prahlada by sitting with him on a burning pyre. 
-                    <br><br>
+                    <br/><br/>
                     Through divine will, the cloak left Holika and shielded Prahlada, saving him while Holika perished in the flames. **Holika Dahan** celebrates this moment: the triumph of true devotion (Prahlada) over evil (Holika), signifying that unwavering faith protects against malice.
                 </p>
-            </div>
-        </section>
-
-        <section id="play" class="mb-16 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-8 text-pink-600">The Play of Colors: Rangwali Holi</h2>
-             <p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
+</div>
+</section>
+<section class="mb-16 scroll-mt-20" id="play">
+<h2 class="text-3xl font-bold text-center mb-8 text-pink-600">The Play of Colors: Rangwali Holi</h2>
+<p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
                 The big day bursts with merry mayhem, shared treats, and the chant: 'Bura Na Mano, Holi Hai!' (Don't mind, it's Holi!).
             </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-pink-100 transition-transform transform hover:scale-105 border-b-4 border-yellow-500">
-                    <h3 class="text-xl font-semibold text-yellow-600 mb-3"><span class="font-mono text-3xl text-pink-600 mr-2">1.</span> Gulal and Pichkaris</h3>
-                    <p class="text-gray-600">Folks toss vibrant powders (**Gulal**/**Abeer**) and splash tinted water with squirt guns (**Pichkaris**), creating a lively, colorful chaos.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-pink-100 transition-transform transform hover:scale-105 border-b-4 border-yellow-500">
-                    <h3 class="text-xl font-semibold text-yellow-600 mb-3"><span class="font-mono text-3xl text-pink-600 mr-2">2.</span> Sweets and Delicacies</h3>
-                    <p class="text-gray-600">No celebration feels whole without treats! Classic delights like **Gujiya** and festive drinks such as **Thandai** (sometimes infused with *bhang*, a cannabis extract) are enjoyed widely.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-pink-100 transition-transform transform hover:scale-105 border-b-4 border-yellow-500">
-                    <h3 class="text-xl font-semibold text-yellow-600 mb-3"><span class="font-mono text-3xl text-pink-600 mr-2">3.</span> Communal Feasting</h3>
-                    <p class="text-gray-600">Once the color festivities conclude, individuals clean up, dress in fresh attire, and visit loved ones to exchange wishes and enjoy festive meals and drinks.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-pink-100 transition-transform transform hover:scale-105 border-b-4 border-yellow-500">
-                    <h3 class="text-xl font-semibold text-yellow-600 mb-3"><span class="font-mono text-3xl text-pink-600 mr-2">4.</span> Lord Krishna Connection</h3>
-                    <p class="text-gray-600">Holi is deeply tied to Lord Krishna and Radha's playful color traditions, adding romantic charm to the festival, especially in Braj (Mathura/Vrindavan).</p>
-                </div>
-            </div>
-        </section>
-        
-        <section id="colors" class="mb-16 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-8 text-pink-600">Visualizing Color Material Usage</h2>
-            <p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="bg-white p-6 rounded-xl shadow-lg border border-pink-100 transition-transform transform hover:scale-105 border-b-4 border-yellow-500">
+<h3 class="text-xl font-semibold text-yellow-600 mb-3"><span class="font-mono text-3xl text-pink-600 mr-2">1.</span> Gulal and Pichkaris</h3>
+<p class="text-gray-600">Folks toss vibrant powders (**Gulal**/**Abeer**) and splash tinted water with squirt guns (**Pichkaris**), creating a lively, colorful chaos.</p>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-lg border border-pink-100 transition-transform transform hover:scale-105 border-b-4 border-yellow-500">
+<h3 class="text-xl font-semibold text-yellow-600 mb-3"><span class="font-mono text-3xl text-pink-600 mr-2">2.</span> Sweets and Delicacies</h3>
+<p class="text-gray-600">No celebration feels whole without treats! Classic delights like **Gujiya** and festive drinks such as **Thandai** (sometimes infused with *bhang*, a cannabis extract) are enjoyed widely.</p>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-lg border border-pink-100 transition-transform transform hover:scale-105 border-b-4 border-yellow-500">
+<h3 class="text-xl font-semibold text-yellow-600 mb-3"><span class="font-mono text-3xl text-pink-600 mr-2">3.</span> Communal Feasting</h3>
+<p class="text-gray-600">Once the color festivities conclude, individuals clean up, dress in fresh attire, and visit loved ones to exchange <a href="https://www.happy-new-year.org/wishes/">wishes</a> and enjoy festive meals and drinks.</p>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-lg border border-pink-100 transition-transform transform hover:scale-105 border-b-4 border-yellow-500">
+<h3 class="text-xl font-semibold text-yellow-600 mb-3"><span class="font-mono text-3xl text-pink-600 mr-2">4.</span> Lord Krishna Connection</h3>
+<p class="text-gray-600">Holi is deeply tied to Lord Krishna and Radha's playful color traditions, adding romantic charm to the festival, especially in Braj (Mathura/Vrindavan).</p>
+</div>
+</div>
+</section>
+<section class="mb-16 scroll-mt-20" id="colors">
+<h2 class="text-3xl font-bold text-center mb-8 text-pink-600">Visualizing Color Material Usage</h2>
+<p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
                 An overview of the main methods colors are embraced in the vibrant festivities of Rangwali Holi.
             </p>
-            <div class="bg-white p-4 sm:p-8 rounded-xl shadow-lg">
-                <div class="chart-container">
-                    <canvas id="colorChart"></canvas>
-                </div>
-                <div class="text-center mt-4 text-sm text-gray-500">Hover on the bars to view the estimated usage frequency for each coloring type.</div>
-            </div>
-        </section>
-        
-        <section id="quotes" class="mb-16 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-8 text-pink-600">20 Vibrant Holi Wishes & Greetings</h2>
-            <p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
+<div class="bg-white p-4 sm:p-8 rounded-xl shadow-lg">
+<div class="chart-container">
+<canvas id="colorChart"></canvas>
+</div>
+<div class="text-center mt-4 text-sm text-gray-500">Hover on the bars to view the estimated usage frequency for each coloring type.</div>
+</div>
+</section>
+<section class="mb-16 scroll-mt-20" id="quotes">
+<h2 class="text-3xl font-bold text-center mb-8 text-pink-600">20 Vibrant Holi Wishes &amp; Greetings</h2>
+<p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">
                 Bright and cheerful words to spread on a festive and happy occasion.
             </p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-red-500 text-gray-700">Joyful Holi! Wishing your life blooms in vibrant colors of happiness.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-500 text-gray-700">Bura Na Mano, Holi Hai! Have a truly colorful day.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-500 text-gray-700">Wishing you a life full of Gulal, love, and laughter.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-green-500 text-gray-700">May your days be filled with joy and your heart with sweetness.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-blue-500 text-gray-700">Sending you the vibrant colors of Holi!</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-purple-500 text-gray-700">Let Holika's flames cleanse your life of all negativity.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-red-500 text-gray-700">Happy Holika Dahan! May the good always prevail.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-500 text-gray-700">Wishing you a happy and safe festival of colors!</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-500 text-gray-700">May the colors of Holi bring harmony and prosperity.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-green-500 text-gray-700">Let’s celebrate the end of winter with a splash!</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-blue-500 text-gray-700">May Lord Krishna bless you this Holi season.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-purple-500 text-gray-700">Wishing you moments of joy and beautiful memories.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-red-500 text-gray-700">Happy Holi! Let the colors of friendship shine bright.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-500 text-gray-700">May the joyous spirit of Holi brighten your every step.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-500 text-gray-700">Sending you buckets of love and color!</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-green-500 text-gray-700">Happy Holi to all your family members!</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-blue-500 text-gray-700">Let’s forget all differences and celebrate togetherness.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-purple-500 text-gray-700">May the festival inject new energy into your life.</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-red-500 text-gray-700">Embrace the colorful spirit of spring in your life. Happy Holi!</div>
-                <div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-500 text-gray-700">Savor the delight of Gujiya and the joy of vibrant hues!</div>
-            </div>
-        </section>
-
-    </main>
-    
-    <footer class="bg-pink-100 mt-16">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-gray-500">
-            <p>&copy; 2025 Holi Interactive Guide. Bura Na Mano, Holi Hai!</p>
-        </div>
-    </footer>
-
-    <script>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-red-500 text-gray-700">Joyful Holi! Wishing your life blooms in vibrant colors of happiness.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-500 text-gray-700">Bura Na Mano, Holi Hai! Have a truly colorful day.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-500 text-gray-700">Wishing you a life full of Gulal, love, and laughter.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-green-500 text-gray-700">May your days be filled with joy and your heart with sweetness.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-blue-500 text-gray-700">Sending you the vibrant colors of Holi!</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-purple-500 text-gray-700">Let Holika's flames cleanse your life of all negativity.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-red-500 text-gray-700">Happy Holika Dahan! May the good always prevail.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-500 text-gray-700">Wishing you a happy and safe festival of colors!</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-500 text-gray-700">May the colors of Holi bring harmony and prosperity.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-green-500 text-gray-700">Let’s celebrate the end of winter with a splash!</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-blue-500 text-gray-700">May Lord Krishna bless you this Holi season.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-purple-500 text-gray-700">Wishing you moments of joy and beautiful memories.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-red-500 text-gray-700">Happy Holi! Let the colors of friendship shine bright.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-500 text-gray-700">May the joyous spirit of Holi brighten your every step.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-yellow-500 text-gray-700">Sending you buckets of love and color!</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-green-500 text-gray-700">Happy Holi to all your family members!</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-blue-500 text-gray-700">Let’s forget all differences and celebrate togetherness.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-purple-500 text-gray-700">May the festival inject new energy into your life.</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-red-500 text-gray-700">Embrace the colorful spirit of spring in your life. Happy Holi!</div>
+<div class="bg-white p-4 rounded-lg shadow-md border-l-2 border-orange-500 text-gray-700">Savor the delight of Gujiya and the joy of vibrant hues!</div>
+</div>
+</section>
+</main>
+<footer class="bg-pink-100 mt-16">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-gray-500">
+<p>© 2025 Holi Interactive Guide. Bura Na Mano, Holi Hai!</p>
+</div>
+</footer>
+<script>
         document.addEventListener('DOMContentLoaded', () => {
             
             const navLinks = document.querySelectorAll('.nav-link');
@@ -313,6 +297,5 @@
 
         });
     </script>
-
 </body>
 </html>

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="26 Beautiful Makar Sankranti wishes in Hindi. Share these festive greetings, shayaris, and messages with your friends and family." name="description"/>
+<title>26 Makar Sankranti Wishes in Hindi</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&amp;family=Poppins:wght@300;400;600&amp;family=Gotu&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FFFAF0;
+            background-image: linear-gradient(to bottom, #FFFAF0 0%, #FFF5E1 100%);
+        }
+        h1, h2, h3, .hindi-text {
+            font-family: 'Gotu', sans-serif; /* Great font for Hindi */
+        }
+        .sun-gradient {
+            background: linear-gradient(135deg, #FF9966 0%, #FF5E62 100%);
+        }
+        .kite-pattern {
+            background-color: #ffffff;
+            opacity: 0.1;
+            background-image:  radial-gradient(#FF9966 0.5px, transparent 0.5px), radial-gradient(#FF9966 0.5px, #ffffff 0.5px);
+            background-size: 20px 20px;
+        }
+        .wish-card {
+            transition: all 0.3s ease;
+        }
+        .wish-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 100, 50, 0.15);
+            border-color: #FDBA74;
+        }
+        .copy-btn:active {
+            transform: scale(0.95);
+        }
+        /* Floating Kite Animation */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        .floating-icon {
+            animation: float 4s ease-in-out infinite;
+        }
+        /* Notification Toast */
+        #toast {
+            visibility: hidden;
+            min-width: 250px; 
+            background-color: #333; 
+            color: #fff; 
+            text-align: center; 
+            border-radius: 8px; 
+            padding: 16px; 
+            position: fixed; 
+            z-index: 50; 
+            left: 50%; 
+            bottom: 30px; 
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s, bottom 0.3s;
+        }
+        #toast.show {
+            visibility: visible;
+            opacity: 1;
+            bottom: 50px;
+        }
+    </style>
+</head>
+<body class="text-gray-800 min-h-screen flex flex-col">
+<!-- Hero Section -->
+<header class="relative sun-gradient text-white overflow-hidden shadow-lg">
+<div class="absolute inset-0 kite-pattern"></div>
+<div class="container mx-auto px-6 py-12 relative z-10 text-center">
+<div class="inline-block p-3 rounded-full bg-white/20 backdrop-blur-sm mb-4 floating-icon">
+<i class="fas fa-sun text-4xl text-yellow-300"></i>
+</div>
+<h1 class="text-4xl md:text-5xl font-bold mb-4 text-shadow leading-tight">
+                मकर संक्रांति की शुभकामनाएं
+            </h1>
+<p class="text-lg md:text-xl font-light opacity-90 max-w-2xl mx-auto font-poppins">
+                Share happiness with these 26 lovely Hindi wishes celebrating kites, sweets, and sunshine.
+            </p>
+</div>
+<!-- Decorative Kites -->
+<div class="absolute top-5 left-5 opacity-20 text-5xl transform -rotate-12"><i class="fas fa-paper-plane"></i></div>
+<div class="absolute bottom-5 right-10 opacity-20 text-7xl transform rotate-12"><i class="fas fa-leaf"></i></div>
+</header>
+<main class="container mx-auto px-4 py-8 flex-grow">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-2xl font-bold text-orange-800 border-l-4 border-orange-500 pl-3">Greetings Collection</h2>
+<span class="text-sm text-gray-500 bg-orange-100 px-3 py-1 rounded-full">26 Wishes</span>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="wishes-container">
+ <a href="https://www.happy-new-year.org/wishes/">Wishes</a> will be inserted here via JS for cleaner HTML structure 
+</div>
+</main>
+<!-- Notification Toast -->
+<div id="toast"><i class="fas fa-check-circle text-green-400 mr-2"></i> Message Copied!</div>
+<footer class="bg-gray-800 text-gray-300">
+<div class="container mx-auto px-6 py-12 lg:px-8">
+<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">26-bihari-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">26-chinese-new-year-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">26-christmas-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-festival-countdown</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">Christmas-wishes-by-audience</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">Happy-new-year-2026-celebrations-worldwide.html</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">Happy-new-year-2026</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">Multilingual-greetings-webpage</a>
+</li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+</ul>
+<h5 class="text-lg font-semibold text-white mb-4">Wishes and Wallpapers</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes-and-wallpapers.html">Wishes and Wallpapers</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/welcome-new-year.html">Welcome New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wallpapers">Festival Wallpaper for Desktop and Mobile</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards for  New Year</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">2025 Trends and 2026 forecast</h5>
+<ul class="space-y-2">
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-digital-outlook-trends-forecast</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">2026-festival-countdown</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026_dashboard.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">2026_dashboard</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/new_year_2026_page.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">New_year_2026_page</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/send-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl07_title">Send-christmas-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl08_title">Send-sankranti-wishes-in-multiple-languages</a>
+</li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/index-oct.html">Thanks Giving Main Page</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+<div class="space-y-2">
+<p>Redmond<br/>WA, USA</p>
+<p>
+<a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+</p>
+<p>
+<a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+</p>
+</div>
+</div>
+</div>
+<div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+<p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+<div class="flex space-x-4 mt-4 sm:mt-0">
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+<span class="sr-only">Facebook</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+</svg>
+</a>
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+<span class="sr-only">Twitter</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+</svg>
+</a>
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+<span class="sr-only">LinkedIn</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+</svg>
+</a>
+</div>
+<div class="flex gap-4 mt-4 sm:mt-0">
+<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Data: 26 Hindi Wishes
+        const wishes = [
+            {
+                text: "मीठे गुड़ में मिल गया तिल,\nउड़ी पतंग और खिल गया दिल,\nहर पल सुख और हर दिन शांति,\nमुबारक हो आपको मकर संक्रांति।"
+            },
+            {
+                text: "सूरज की राशि बदलेगी,\nअपनों का साथ मिलेगा,\nखुशियों की फसल लहलहाएगी,\nमकर संक्रांति हर घर मुस्कुराएगी।"
+            },
+            {
+                text: "तन में मस्ती, मन में उमंग,\nचलो आकाश में डालें रंग,\nहो जाएं सब संग-संग,\nउड़ाएं पतंग और खुशियां रहें अंग-संग।"
+            },
+            {
+                text: "पल-पल सुनहरे फूल खिले,\nकभी न हो कांटों का सामना,\nजिंदगी आपकी खुशियों से भरी रहे,\nयही है हमारी मकर संक्रांति की शुभकामना।"
+            },
+            {
+                text: "मंदिर की घंटी, आरती की थाली,\nनदी के किनारे सूरज की लाली,\nजिंदगी में आए खुशियों की बहार,\nमुबारक हो आपको संक्रांति का त्यौहार।"
+            },
+            {
+                text: "बासमती के चावल, उड़द की दाल,\nघी की महक, आम का अचार,\nदही बड़े की मिठास और अपनों का प्यार,\nमुबारक हो आपको मकर संक्रांति का त्यौहार।"
+            },
+            {
+                text: "काट ना सके कभी कोई पतंग आपकी,\nटूटे ना कभी डोर विश्वास की,\nछू लो आप ज़िन्दगी की सारी कामयाबी,\nजैसे पतंग छूती है ऊंचाइयां आसमान की।"
+            },
+            {
+                text: "तिल हम हैं, और गुड़ आप,\nमिठाई हम हैं, और मिठास आप,\nसाल के पहले त्यौहार से हो रही है शुरूआत,\nआपको हमारी तरफ से ढेर सारी मुराद।"
+            },
+            {
+                text: "हो आपकी ज़िन्दगी में खुशियाली,\nकभी न रहे कोई भी पहेली,\nसदा सुखी रहे आप और आपका परिवार,\nमुबारक हो आपको मकर संक्रांति का त्यौहार।"
+            },
+            {
+                text: "सूरज ने बदला अपना रास्ता,\nचलो अब हम भी बदलें अपना वास्ता,\nभुला दें सारे गम और तकरार,\nमनाएं प्यार से मकर संक्रांति का त्यौहार।"
+            },
+            {
+                text: "ठंड की इस सुबह पड़ेगा हमें नहाना,\nक्योंकि संक्रांति का पर्व है मनाना,\nकहीं पकौड़े तो कहीं गुड़-तिल है खाना,\nशुभ हो मकर संक्रांति, खुशियों का है जमाना।"
+            },
+            {
+                text: "मूंगफली की खुशबू और गुड़ की मिठास,\nदिलों में खुशी और अपनों का प्यार,\nमुबारक हो आपको मकर संक्रांति का त्यौहार।"
+            },
+            {
+                text: "सपनों को लेकर मन में,\nउड़ाएं पतंग कगन में,\nऐसी भरे उड़ान मेरी पतंग,\nकि खुशियां ही खुशियां हो जीवन में।"
+            },
+            {
+                text: "गुड़ और तिल की मिठास,\nआसमान में पतंगों की आस,\nइस संक्रांति आपके जीवन में,\nहो खुशियों का बास।"
+            },
+            {
+                text: "सर्दी की धूप, गन्ने का रस,\nप्यार की डोर, पतंग का जश्न,\nमुबारक हो आपको मकर संक्रांति का पर्व।"
+            },
+            {
+                text: "नये साल का पहला त्यौहार,\nलाए आपके जीवन में बहार,\nमकर संक्रांति की हार्दिक शुभकामनाएं।"
+            },
+            {
+                text: "उगता हुआ सूरज दुआ दे आपको,\nखिलता हुआ फूल खुशबू दे आपको,\nहम तो कुछ देने के काबिल नहीं,\nदेने वाला हज़ार खुशियां दे आपको।"
+            },
+            {
+                text: "पूर्णिमा का चाँद, रंगों की डोली,\nचाँद से उसकी चांदनी बोली,\nखुशियों से भरे आपकी झोली,\nमुबारक हो आपको ये रंग-बिरंगी पतंगों की टोली।"
+            },
+            {
+                text: "दिल को धड़कन से पहले,\nदोस्त को दोस्ती से पहले,\nप्यार को मोहब्बत से पहले,\nखुशी को गम से पहले,\nआपको मकर संक्रांति सबसे पहले!"
+            },
+            {
+                text: "रंग बिरंगी पतंगें, नीला आकाश,\nसूरज की किरणें, खुशियों की आस,\nमुबारक हो आपको मकर संक्रांति ख़ास।"
+            },
+            {
+                text: "आशा है कि मकर संक्रांति की अग्नि,\nदुखों को जलाकर राख कर दे,\nऔर आपके जीवन में,\nसुख-समृद्धि की रोशनी भर दे।"
+            },
+            {
+                text: "रिश्तों में गर्माहट बनी रहे,\nगुड़ जैसी मिठास बनी रहे,\nमकर संक्रांति की ढ़ेरों बधाई।"
+            },
+            {
+                text: "सूरज उत्तरायण हो,\nजीवन में नई उमंग हो,\nहर दिन एक नया रंग हो,\nमकर संक्रांति शुभ हो।"
+            },
+            {
+                text: "खुशियाँ आपके आंगन में आकर झूमे,\nमंजिल खुद आपके कदम चूमे,\nमकर संक्रांति की हार्दिक बधाई।"
+            },
+            {
+                text: "सबके दिलों में हो सबके लिए प्यार,\nआने वाला हर दिन लाए खुशियों का त्यौहार,\nइस उम्मीद के साथ आओ भूल के सारे गम,\nमकर संक्रांति का हम सब करें स्वागत।"
+            },
+            {
+                text: "नयी सुबह, नयी किरण,\nनया जीवन, नई उमंग,\nमुबारक हो आपको मकर संक्रांति का पावन पर्व।"
+            }
+        ];
+
+        const container = document.getElementById('wishes-container');
+
+        // Function to render wishes
+        wishes.forEach((wish, index) => {
+            const card = document.createElement('div');
+            card.className = "wish-card bg-white p-6 rounded-xl border border-orange-100 shadow-sm flex flex-col justify-between h-full relative overflow-hidden";
+            
+            // Decorative background number
+            const number = document.createElement('div');
+            number.className = "absolute -right-2 -bottom-4 text-8xl font-bold text-gray-50 opacity-50 z-0 select-none";
+            number.textContent = index + 1;
+
+            const content = document.createElement('div');
+            content.className = "relative z-10";
+            content.innerHTML = `<p class="hindi-text text-lg text-gray-700 leading-relaxed whitespace-pre-line mb-6">${wish.text}</p>`;
+
+            const footer = document.createElement('div');
+            footer.className = "relative z-10 mt-auto flex justify-between items-center border-t border-gray-100 pt-4";
+            
+            // Share/Copy Button
+            const copyBtn = document.createElement('button');
+            copyBtn.className = "copy-btn flex items-center gap-2 text-sm font-semibold text-orange-600 hover:text-orange-700 hover:bg-orange-50 px-3 py-1.5 rounded-full transition-colors";
+            copyBtn.innerHTML = '<i class="far fa-copy"></i> Copy Text';
+            copyBtn.onclick = () => copyToClipboard(wish.text);
+
+            // WhatsApp Share Link
+            const whatsappBtn = document.createElement('a');
+            whatsappBtn.href = `https://wa.me/?text=${encodeURIComponent(wish.text + "\n- Happy Makar Sankranti!")}`;
+            whatsappBtn.target = "_blank";
+            whatsappBtn.className = "text-green-500 hover:text-green-600 text-xl transition-colors";
+            whatsappBtn.innerHTML = '<i class="fab fa-whatsapp"></i>';
+            whatsappBtn.title = "Share on WhatsApp";
+
+            footer.appendChild(copyBtn);
+            footer.appendChild(whatsappBtn);
+
+            card.appendChild(number);
+            card.appendChild(content);
+            card.appendChild(footer);
+            container.appendChild(card);
+        });
+
+        // Copy Function
+        function copyToClipboard(text) {
+            // Create a temporary textarea element
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed'; // Avoid scrolling to bottom
+            document.body.appendChild(textarea);
+            textarea.select();
+            
+            try {
+                // Execute copy command
+                document.execCommand('copy');
+                showToast();
+            } catch (err) {
+                console.error('Fallback: Oops, unable to copy', err);
+            }
+            
+            document.body.removeChild(textarea);
+        }
+
+        // Toast Notification
+        function showToast() {
+            var x = document.getElementById("toast");
+            x.className = "show";
+            setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        }
+    </script>
+</body></html>

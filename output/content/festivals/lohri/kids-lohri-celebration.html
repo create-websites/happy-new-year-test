@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Kids' Friendly Lohri Activities: Fun &amp; Learning Checklist</title>
+    
+    <!-- Meta Description & Keywords -->
+    <meta content="Engage kids with a fun Lohri Activity Checklist! Discover creative crafts, safe bonfire rituals, storytelling ideas, and games for ages 4-12 to celebrate the festival." name="description"/>
+    <meta content="Kids Lohri Activities, Lohri Crafts for Children, Safe Bonfire Ideas, Lohri Storytelling, Dulla Bhatti Story, Lohri Games, Punjabi Culture for Kids, Lohri 2025" name="keywords"/>
+    <meta content="Lohri Festival Interactive" name="author"/>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&amp;family=Inter:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, .serif-font {
+            font-family: 'Crimson Text', serif;
+        }
+        
+        /* Custom Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        /* Tab Transitions */
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Hero Overlay */
+        .hero-overlay {
+            background: linear-gradient(to right, rgba(124, 45, 18, 0.95), rgba(124, 45, 18, 0.6));
+        }
+
+        /* Checkbox Styling */
+        .custom-checkbox {
+            appearance: none;
+            width: 1.25rem;
+            height: 1.25rem;
+            border: 2px solid #f97316; /* orange-500 */
+            border-radius: 0.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            flex-shrink: 0;
+            background-color: white;
+        }
+        .custom-checkbox:checked {
+            background-color: #f97316;
+        }
+        .custom-checkbox:checked::after {
+            content: '✓';
+            color: white;
+            font-weight: bold;
+            font-size: 0.875rem;
+        }
+        
+        .activity-card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-amber-50 text-gray-800 min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="bg-amber-900 text-white sticky top-0 z-50 shadow-lg border-b-4 border-orange-500">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2 font-bold text-xl cursor-pointer hover:opacity-90 transition" onclick="switchTab('home')">
+                    <i class="text-orange-400" data-lucide="smile"></i>
+                    <span class="serif-font tracking-wide">Lohri for Kids</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-6">
+                    <button class="nav-btn text-orange-400 font-semibold border-b-2 border-orange-400 hover:text-orange-300 transition-colors py-1" data-target="home" onclick="switchTab('home')">Overview</button>
+                    <button class="nav-btn hover:text-orange-300 transition-colors py-1" data-target="activities" onclick="switchTab('activities')">Activity Checklist</button>
+                    <button class="nav-btn hover:text-orange-300 transition-colors py-1" data-target="learning" onclick="switchTab('learning')">Learning &amp; Values</button>
+                </div>
+
+                <!-- Mobile Menu Icon -->
+                <div class="md:hidden flex space-x-4 text-sm">
+                    <button class="hover:text-orange-200 flex items-center gap-1" onclick="switchTab('activities')"><i class="w-4 h-4" data-lucide="check-square"></i> Checklist</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow pb-12">
+        
+        <!-- HOME / OVERVIEW SECTION -->
+        <div class="tab-content active animate-fade-in" id="home">
+            <!-- Hero with Image -->
+            <div class="relative bg-amber-900 text-white py-24 px-4 overflow-hidden">
+                <!-- Background Image with Overlay -->
+                <div class="absolute inset-0 z-0">
+                    <img alt="Kids Celebration Background" class="w-full h-full object-cover opacity-60 mix-blend-overlay" src="https://storage.googleapis.com/imagesg/festivals/karwa-chauth/500w/seviya-kheer.png"/>
+                    <div class="absolute inset-0 hero-overlay"></div>
+                </div>
+
+                <div class="relative max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12 z-10">
+                    <div class="md:w-1/2 text-left">
+                        <div class="inline-block bg-orange-500 text-white px-4 py-1 rounded-full text-sm font-bold mb-4 uppercase tracking-wider">Ages 4–12 Years</div>
+                        <h1 class="text-5xl md:text-6xl font-bold mb-6 text-orange-100 drop-shadow-lg leading-tight serif-font">Fun, Learning &amp; Joy</h1>
+                        <p class="text-xl mb-8 text-amber-100 leading-relaxed font-light">
+                            Celebrate Lohri with children by spreading happiness, bonding, and unity. Discover our fun checklist for creating lasting memories with activities like crafting, storytelling, and playtime.
+                        </p>
+                        <button class="bg-orange-600 text-white px-8 py-3 rounded-full font-bold hover:bg-orange-500 transition transform hover:scale-105 shadow-lg flex items-center gap-2" onclick="switchTab('activities')">
+                            Start Checklist <i class="w-5 h-5" data-lucide="arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <!-- Visual Element -->
+                    <div class="md:w-1/2 flex justify-center">
+                        <div class="bg-white/10 backdrop-blur-md p-8 rounded-full border-4 border-orange-300 shadow-2xl relative">
+                             <i class="w-40 h-40 text-orange-100" data-lucide="puzzle"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Intro Content -->
+            <div class="max-w-4xl mx-auto px-4 py-16 text-center">
+                <h2 class="text-3xl font-bold text-amber-900 mb-6">Connecting Kids to Culture</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-10">
+                    This guide highlights enjoyable activities that provide hands-on cultural learning experiences, from safe bonfires to tasty treats. Each activity fosters cultural appreciation and sparks creativity.
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-8 text-left">
+                    <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-amber-600 hover:shadow-lg transition">
+                        <h3 class="text-xl font-bold text-amber-800 mb-3 flex items-center gap-2"><i class="w-5 h-5" data-lucide="palette"></i> Be Creative</h3>
+                        <p class="text-gray-600">Participate in creative activities such as crafting paper bonfires or designing greeting cards.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-orange-500 hover:shadow-lg transition">
+                        <h3 class="text-xl font-bold text-orange-800 mb-3 flex items-center gap-2"><i class="w-5 h-5" data-lucide="music"></i> Move &amp; Groove</h3>
+                        <p class="text-gray-600">Learn traditional songs and simple Bhangra steps to build confidence.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-yellow-600 hover:shadow-lg transition">
+                        <h3 class="text-xl font-bold text-yellow-800 mb-3 flex items-center gap-2"><i class="w-5 h-5" data-lucide="book-open"></i> Story Time</h3>
+                        <p class="text-gray-600">Build connections with your values by sharing stories, such as the tale of Dulla Bhatti and your family</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ACTIVITIES CHECKLIST SECTION -->
+        <div class="tab-content animate-fade-in" id="activities">
+            <div class="max-w-6xl mx-auto px-4 py-12">
+                <div class="text-center mb-12">
+                    <span class="text-orange-600 font-bold tracking-widest uppercase text-sm">Interactive Guide</span>
+                    <h2 class="text-4xl font-bold text-gray-900 mt-2 serif-font">The Ultimate Kids' Checklist</h2>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Tick off these fun activities as you complete them!</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    
+                    <!-- Category 1: Creative -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-amber-100 activity-card">
+                        <div class="bg-amber-100 p-4 flex items-center gap-3">
+                            <i class="text-amber-600" data-lucide="palette"></i>
+                            <h3 class="text-xl font-bold text-amber-900">Creative Activities</h3>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <label class="flex items-start gap-3 cursor-pointer group">
+                                <input class="custom-checkbox mt-1" type="checkbox"/>
+                                <span class="text-gray-700 group-hover:text-amber-700 transition">Make a <strong>paper bonfire</strong> (red, orange &amp; yellow paper)</span>
+                            </label>
+                            <label class="flex items-start gap-3 cursor-pointer group">
+                                <input class="custom-checkbox mt-1" type="checkbox"/>
+                                <span class="text-gray-700 group-hover:text-amber-700 transition">Color <strong>sun drawings</strong> (Celebrating longer days)</span>
+                            </label>
+                            <label class="flex items-start gap-3 cursor-pointer group">
+                                <input class="custom-checkbox mt-1" type="checkbox"/>
+                                <span class="text-gray-700 group-hover:text-amber-700 transition">Create <strong>Lohri greeting cards</strong> for family</span>
+                            </label>
+                            <label class="flex items-start gap-3 cursor-pointer group">
+                                <input class="custom-checkbox mt-1" type="checkbox"/>
+                                <span class="text-gray-700 group-hover:text-amber-700 transition">Trace <strong>Punjabi words</strong> (ਲੋਹੜੀ, ਤਿੱਲ, ਗੁੜ)</span>
+                            </label>
+                            <div class="mt-2 text-xs text-amber-600 font-semibold bg-amber-50 p-2 rounded">
+                                ✔ Builds creativity &amp; cultural awareness
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 2: Music & Dance -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-pink-100 activity-card">
+                        <div class="bg-pink-100 p-4 flex items-center gap-3">
+                            <i class="text-pink-600" data-lucide="music-2"></i>
+                            <h3 class="text-xl font-bold text-pink-900">Music &amp; Dance</h3>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <label class="flex items-start gap-3 cursor-pointer group">
+                                <input class="custom-checkbox mt-1" type="checkbox"/>
+                                <span class="text-gray-700 group-hover:text-pink-700 transition">Learn the song <strong>“Sundar Mundariye Ho”</strong></span>
+                            </label>
+                            <label class="flex items-start gap-3 cursor-pointer group">
+                                <input class="custom-checkbox mt-1" type="checkbox"/>
+                                <span class="text-gray-700 group-hover:text-pink-700 transition">Practice <strong>clapping rhythms</strong> to the beat</span>
+                            </label>
+                            <label class="flex items-start gap-3 cursor-pointer group">
+                                <input class="custom-checkbox mt-1" type="checkbox"/>
+                                <span class="text-gray-700 group-hover:text-pink-700 transition">Try simple <strong>Bhangra steps</strong></span>
+                            </label>
+                             <label class="flex items-start gap-3 cursor-pointer group">
+                                <input class="custom-checkbox mt-1" type="checkbox"/>
+                                <span class="text-gray-700 group-hover:text-pink-700 transition">Group dance around a (safe) bonfire</span>
+                            </label>
+                            <div class="mt-2 text-xs text-pink-600 font-semibold bg-pink-50 p-2 rounded">
+                                ✔ Encourages confidence &amp; teamwork
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 3: Food & Fun -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-orange-100 activity-card">
+                        <div class="bg-orange-100 p-4 flex items-center gap-3">
+                            <i class="text-orange-600" data-lucide="popcorn"></i>
+                            <h3 class="text-xl font-bold text-orange-900">Food &amp; Fun</h3>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <label class="flex items-start gap-3 cursor-pointer group">
+                                <input class="custom-checkbox mt-1" type="checkbox"/>
+                                <span class="text-gray-700 group-hover:text-orange-700 transition">Pop <strong>popcorn</strong> together</span>
+                            </label>
+                            <label class="flex items-start gap-3 cursor-pointer group">
+                                <input class="custom-checkbox mt-1" type="checkbox"/>
+                                <span class="text-gray-700 group-hover:text-orange-700 transition">Roll <strong>til energy balls</strong> (flame-free cooking)</span>
+                            </label>
+                            <label class="flex items-start gap-3 cursor-pointer group">
+                                <input class="custom-checkbox mt-1" type="checkbox"/>
+                                <span class="text-gray-700 group-hover:text-orange-700 transition">Taste test: Rewari, Gajak &amp; Peanuts</span>
+                            </label>
+                             <label class="flex items-start gap-3 cursor-pointer group">
+                                <input class="custom-checkbox mt-1" type="checkbox"/>
+                                <span class="text-gray-700 group-hover:text-orange-700 transition">Identify traditional foods used in Lohri</span>
+                            </label>
+                            <div class="mt-2 text-xs text-orange-600 font-semibold bg-orange-50 p-2 rounded">
+                                ✔ Teaches tradition through taste
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 4: Safe Rituals -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-red-100 activity-card">
+                        <div class="bg-red-100 p-4 flex items-center gap-3">
+                            <i class="text-red-600" data-lucide="flame"></i>
+                            <h3 class="text-xl font-bold text-red-900">Safe Bonfire Ritual</h3>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <label class="flex items-start gap-3 cursor-pointer group">
+                                <input class="custom-checkbox mt-1" type="checkbox"/>
+                                <span class="text-gray-700 group-hover:text-red-700 transition">Use <strong>LED candles</strong> or lamps (diyas)</span>
+                            </label>
+                            <label class="flex items-start gap-3 cursor-pointer group">
+                                <input class="custom-checkbox mt-1" type="checkbox"/>
+                                <span class="text-gray-700 group-hover:text-red-700 transition">Explain what the bonfire represents (Sun/Warmth)</span>
+                            </label>
+                            <label class="flex items-start gap-3 cursor-pointer group">
+                                <input class="custom-checkbox mt-1" type="checkbox"/>
+                                <span class="text-gray-700 group-hover:text-red-700 transition">Symbolically "offer" peanuts/til to the light</span>
+                            </label>
+                             <label class="flex items-start gap-3 cursor-pointer group">
+                                <input class="custom-checkbox mt-1" type="checkbox"/>
+                                <span class="text-gray-700 group-hover:text-red-700 transition">Say one thing they’re <strong>thankful</strong> for</span>
+                            </label>
+                            <div class="mt-2 text-xs text-red-600 font-semibold bg-red-50 p-2 rounded">
+                                ✔ Builds gratitude &amp; understanding
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- LEARNING & VALUES SECTION -->
+        <div class="tab-content animate-fade-in" id="learning">
+            <div class="max-w-6xl mx-auto px-4 py-12">
+                
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Left Column: Story & Games -->
+                    <div class="space-y-8">
+                        <div class="bg-white p-6 rounded-2xl shadow-lg border-l-4 border-indigo-500">
+                             <h3 class="text-2xl font-bold text-indigo-900 mb-4 flex items-center gap-2"><i class="w-6 h-6" data-lucide="book-open-check"></i> Story Time</h3>
+                             <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-center gap-2"><div class="w-2 h-2 bg-indigo-500 rounded-full"></div> Listen to the story of Dulla Bhatti</li>
+                                <li class="flex items-center gap-2"><div class="w-2 h-2 bg-indigo-500 rounded-full"></div> Look at pictures or illustrations</li>
+                                <li class="flex items-center gap-2"><div class="w-2 h-2 bg-indigo-500 rounded-full"></div> Act out a small scene (optional)</li>
+                             </ul>
+                             <p class="mt-4 text-sm text-indigo-600 italic">✔ Connects festival with values like bravery and helping others.</p>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-2xl shadow-lg border-l-4 border-green-500">
+                             <h3 class="text-2xl font-bold text-green-900 mb-4 flex items-center gap-2"><i class="w-6 h-6" data-lucide="gamepad-2"></i> Games &amp; Learning</h3>
+                             <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-center gap-2"><div class="w-2 h-2 bg-green-500 rounded-full"></div> Lohri Quiz (foods, symbols, songs)</li>
+                                <li class="flex items-center gap-2"><div class="w-2 h-2 bg-green-500 rounded-full"></div> Peanut counting game</li>
+                                <li class="flex items-center gap-2"><div class="w-2 h-2 bg-green-500 rounded-full"></div> Match foods to meanings (til = warmth)</li>
+                                <li class="flex items-center gap-2"><div class="w-2 h-2 bg-green-500 rounded-full"></div> Dress up in Punjabi clothes</li>
+                             </ul>
+                             <p class="mt-4 text-sm text-green-600 italic">✔ Makes learning playful.</p>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Values & Goodies -->
+                    <div class="space-y-8">
+                        <!-- Goodie Bags -->
+                        <div class="bg-amber-100 p-8 rounded-3xl relative overflow-hidden">
+                             <div class="absolute top-0 right-0 -mt-6 -mr-6 w-24 h-24 bg-orange-400 rounded-full opacity-30"></div>
+                             <h3 class="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2 relative z-10"><i class="w-6 h-6" data-lucide="gift"></i> Goodie Bag Ideas</h3>
+                             <div class="bg-white/60 p-4 rounded-xl backdrop-blur-sm">
+                                <ul class="grid grid-cols-2 gap-4">
+                                    <li class="flex items-center gap-2 text-sm font-semibold text-gray-800"><i class="text-orange-500 w-4 h-4" data-lucide="check"></i> Popcorn Packet</li>
+                                    <li class="flex items-center gap-2 text-sm font-semibold text-gray-800"><i class="text-orange-500 w-4 h-4" data-lucide="check"></i> Peanuts/Til Laddoo</li>
+                                    <li class="flex items-center gap-2 text-sm font-semibold text-gray-800"><i class="text-orange-500 w-4 h-4" data-lucide="check"></i> Coloring Sheet</li>
+                                    <li class="flex items-center gap-2 text-sm font-semibold text-gray-800"><i class="text-orange-500 w-4 h-4" data-lucide="check"></i> "Happy Lohri" Tag</li>
+                                </ul>
+                             </div>
+                             <p class="mt-4 text-sm text-amber-800">✔ Reinforces sharing &amp; joy.</p>
+                        </div>
+
+                         <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                             <h3 class="text-2xl font-bold text-gray-800 mb-4">Values to Talk About</h3>
+                             <div class="flex flex-wrap gap-3">
+                                 <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-bold">Sharing</span>
+                                 <span class="px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-bold">Gratitude</span>
+                                 <span class="px-4 py-2 bg-pink-100 text-pink-800 rounded-full text-sm font-bold">Family Bonding</span>
+                                 <span class="px-4 py-2 bg-yellow-100 text-yellow-800 rounded-full text-sm font-bold">Respect for Culture</span>
+                             </div>
+                        </div>
+
+                        <!-- Bonus -->
+                        <div class="bg-gradient-to-r from-orange-500 to-amber-600 p-6 rounded-2xl shadow-lg text-white">
+                            <h3 class="text-xl font-bold mb-2 flex items-center gap-2"><i class="w-5 h-5" data-lucide="star"></i> Bonus Activity</h3>
+                            <p class="text-orange-100 text-sm mb-3">Capture a family moment as children share their own interpretations of Lohri.</p>
+                            <p class="text-xs text-orange-200 italic">"Lohri for kids is about joy, not perfection."</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300">
+<div class="container mx-auto px-6 py-12 lg:px-8">
+<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">26-bihari-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">26-chinese-new-year-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">26-christmas-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-festival-countdown</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">Christmas-wishes-by-audience</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">Happy-new-year-2026-celebrations-worldwide.html</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">Happy-new-year-2026</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">Multilingual-greetings-webpage</a>
+</li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+</ul>
+<h5 class="text-lg font-semibold text-white mb-4">Wishes and Wallpapers</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes-and-wallpapers.html">Wishes and Wallpapers</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/welcome-new-year.html">Welcome New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wallpapers">Festival Wallpaper for Desktop and Mobile</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards for  New Year</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">2025 Trends and 2026 forecast</h5>
+<ul class="space-y-2">
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-digital-outlook-trends-forecast</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">2026-festival-countdown</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026_dashboard.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">2026_dashboard</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/new_year_2026_page.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">New_year_2026_page</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/send-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl07_title">Send-christmas-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl08_title">Send-sankranti-wishes-in-multiple-languages</a>
+</li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/index-oct.html">Thanks Giving Main Page</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+<div class="space-y-2">
+<p>Redmond<br/>WA, USA</p>
+<p>
+<a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+</p>
+<p>
+<a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+</p>
+</div>
+</div>
+</div>
+<div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+<p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+<div class="flex space-x-4 mt-4 sm:mt-0">
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+<span class="sr-only">Facebook</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+</svg>
+</a>
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+<span class="sr-only">Twitter</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+</svg>
+</a>
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+<span class="sr-only">LinkedIn</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+</svg>
+</a>
+</div>
+<div class="flex gap-4 mt-4 sm:mt-0">
+<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+</div>
+</div>
+</div>
+</footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // --- Initialization ---
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+
+        // --- Navigation ---
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                if(btn.dataset.target === tabId) {
+                    btn.classList.add('text-orange-400', 'font-semibold', 'border-b-2', 'border-orange-400');
+                    btn.classList.remove('text-orange-400', 'hover:text-orange-300');
+                } else {
+                    btn.classList.remove('text-orange-400', 'font-semibold', 'border-b-2', 'border-orange-400');
+                    btn.classList.add('hover:text-orange-300');
+                }
+            });
+            window.scrollTo(0,0);
+        }
+    </script>
+
+
+</body></html>

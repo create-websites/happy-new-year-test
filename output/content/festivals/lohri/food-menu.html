@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Lohri Menu Ideas: A Feast for Family Gatherings</title>
+    
+    <!-- Meta Description & Keywords -->
+    <meta content="Explore authentic Lohri menu ideas for family gatherings. From Sarson da Saag and Makki di Roti to traditional sweets like Rewari and Gajak, plan the perfect Punjabi winter feast." name="description"/>
+    <meta content="Lohri Menu Ideas, Punjabi Winter Food, Sarson da Saag Recipe, Lohri Party Menu, Traditional Lohri Food, Rewari Gajak, Family Gathering Dinner, Lohri 2025" name="keywords"/>
+    <meta content="Lohri Festival Interactive" name="author"/>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&amp;family=Inter:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, .serif-font {
+            font-family: 'Crimson Text', serif;
+        }
+        
+        /* Custom Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        /* Tab Transitions */
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Hero Overlay */
+        .hero-overlay {
+            background: linear-gradient(to right, rgba(124, 45, 18, 0.95), rgba(124, 45, 18, 0.7));
+        }
+
+        /* Card Hover Effects */
+        .menu-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="bg-amber-50 text-gray-800 min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="bg-amber-900 text-white sticky top-0 z-50 shadow-lg border-b-4 border-orange-500">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2 font-bold text-xl cursor-pointer hover:opacity-90 transition" onclick="switchTab('home')">
+                    <i class="text-orange-400" data-lucide="utensils-crossed"></i>
+                    <span class="serif-font tracking-wide">Lohri Feast</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-6">
+                    <button class="nav-btn text-orange-400 font-semibold border-b-2 border-orange-400 hover:text-orange-300 transition-colors py-1" data-target="home" onclick="switchTab('home')">Overview</button>
+                    <button class="nav-btn hover:text-orange-300 transition-colors py-1" data-target="menu" onclick="switchTab('menu')">Full Menu</button>
+                    <button class="nav-btn hover:text-orange-300 transition-colors py-1" data-target="tips" onclick="switchTab('tips')">Hosting Tips</button>
+                </div>
+
+                <!-- Mobile Menu Icon -->
+                <div class="md:hidden flex space-x-4 text-sm">
+                    <button class="hover:text-orange-200 flex items-center gap-1" onclick="switchTab('menu')"><i class="w-4 h-4" data-lucide="chef-hat"></i> Menu</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow pb-12">
+        
+        <!-- HOME / OVERVIEW SECTION -->
+        <div class="tab-content active animate-fade-in" id="home">
+            <!-- Hero with Image -->
+            <div class="relative bg-amber-900 text-white py-24 px-4 overflow-hidden">
+                <!-- Background Image with Overlay -->
+                <div class="absolute inset-0 z-0">
+                    <img alt="Festive Feast Background" class="w-full h-full object-cover opacity-60 mix-blend-overlay" src="https://storage.googleapis.com/imagesg/festivals/karwa-chauth/500w/seviya-kheer.png"/>
+                    <div class="absolute inset-0 hero-overlay"></div>
+                </div>
+
+                <div class="relative max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12 z-10">
+                    <div class="md:w-1/2 text-left">
+                        <div class="inline-block bg-orange-500 text-white px-4 py-1 rounded-full text-sm font-bold mb-4 uppercase tracking-wider">Traditional Flavors</div>
+                        <h1 class="text-5xl md:text-6xl font-bold mb-6 text-orange-100 drop-shadow-lg leading-tight serif-font">A Winter Feast</h1>
+                        <p class="text-xl mb-8 text-amber-100 leading-relaxed font-light">
+                            Celebrate Lohri with loved ones, laughter, and a delicious array of Punjabi cuisine. Explore our specially crafted menu that combines traditional favorites with warm winter comfort foods.
+                        </p>
+                        <button class="bg-orange-600 text-white px-8 py-3 rounded-full font-bold hover:bg-orange-500 transition transform hover:scale-105 shadow-lg flex items-center gap-2" onclick="switchTab('menu')">
+                            View Menu Ideas <i class="w-5 h-5" data-lucide="arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <!-- Visual Element -->
+                    <div class="md:w-1/2 flex justify-center">
+                        <div class="bg-white/10 backdrop-blur-md p-8 rounded-full border-4 border-orange-300 shadow-2xl relative">
+                             <i class="w-40 h-40 text-orange-100" data-lucide="soup"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Intro Content -->
+            <div class="max-w-4xl mx-auto px-4 py-16 text-center">
+                <h2 class="text-3xl font-bold text-amber-900 mb-6">The Essence of the Meal</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-10">
+                    A thoughtfully curated Lohri menu goes beyond just the food, embodying feelings of warmth, generosity, and unity. Each dish, from traditional offerings to comforting favorites, carries its own narrative.
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-8 text-left">
+                    <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-amber-600 hover:shadow-lg transition">
+                        <h3 class="text-xl font-bold text-amber-800 mb-3 flex items-center gap-2"><i class="w-5 h-5" data-lucide="flame"></i> Ritual First</h3>
+                        <p class="text-gray-600">Necessary items such as Rewari and Peanuts are presented at the bonfire before being distributed.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-orange-500 hover:shadow-lg transition">
+                        <h3 class="text-xl font-bold text-orange-800 mb-3 flex items-center gap-2"><i class="w-5 h-5" data-lucide="wheat"></i> Winter Comfort</h3>
+                        <p class="text-gray-600">Meals such as Sarson da Saag offer nourishment and comfort during the chilly months.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-yellow-600 hover:shadow-lg transition">
+                        <h3 class="text-xl font-bold text-yellow-800 mb-3 flex items-center gap-2"><i class="w-5 h-5" data-lucide="users"></i> Family Fun</h3>
+                        <p class="text-gray-600">Snacks and beverages perfect for passing around the fire as you sing along.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FULL MENU SECTION -->
+        <div class="tab-content animate-fade-in" id="menu">
+            <div class="max-w-6xl mx-auto px-4 py-12">
+                <div class="text-center mb-12">
+                    <span class="text-orange-600 font-bold tracking-widest uppercase text-sm">Curated Selection</span>
+                    <h2 class="text-4xl font-bold text-gray-900 mt-2 serif-font">The Lohri Menu</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    
+                    <!-- Ritual Foods -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg border border-orange-100 menu-card">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="bg-orange-100 p-3 rounded-full"><i class="w-6 h-6 text-orange-600" data-lucide="sparkles"></i></div>
+                            <h3 class="text-2xl font-bold text-amber-900 serif-font">Ritual Foods (Must-Have)</h3>
+                        </div>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <i class="w-5 h-5 text-orange-500 mt-1" data-lucide="check-circle-2"></i>
+                                <div>
+                                    <span class="font-bold text-gray-800">Rewari &amp; Gajak</span>
+                                    <p class="text-sm text-gray-600">Sesame &amp; jaggery sweets symbolizing warmth.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="w-5 h-5 text-orange-500 mt-1" data-lucide="check-circle-2"></i>
+                                <div>
+                                    <span class="font-bold text-gray-800">Til-Gur Laddoos</span>
+                                    <p class="text-sm text-gray-600">For health and positive energy.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="w-5 h-5 text-orange-500 mt-1" data-lucide="check-circle-2"></i>
+                                <div>
+                                    <span class="font-bold text-gray-800">Peanuts &amp; Popcorn</span>
+                                    <p class="text-sm text-gray-600">Represent abundance and joy.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="w-5 h-5 text-orange-500 mt-1" data-lucide="check-circle-2"></i>
+                                <div>
+                                    <span class="font-bold text-gray-800">Sugarcane Pieces</span>
+                                    <p class="text-sm text-gray-600">Symbol of harvest and sweetness.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Main Course -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg border border-green-100 menu-card">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="bg-green-100 p-3 rounded-full"><i class="w-6 h-6 text-green-600" data-lucide="utensils"></i></div>
+                            <h3 class="text-2xl font-bold text-amber-900 serif-font">Main Course (Vegetarian)</h3>
+                        </div>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <i class="w-5 h-5 text-green-500 mt-1" data-lucide="leaf"></i>
+                                <div>
+                                    <span class="font-bold text-gray-800">Sarson da Saag</span>
+                                    <p class="text-sm text-gray-600">The soul of winter Punjabi cuisine.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="w-5 h-5 text-green-500 mt-1" data-lucide="leaf"></i>
+                                <div>
+                                    <span class="font-bold text-gray-800">Makki di Roti</span>
+                                    <p class="text-sm text-gray-600">Served hot with white butter.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="w-5 h-5 text-green-500 mt-1" data-lucide="leaf"></i>
+                                <div>
+                                    <span class="font-bold text-gray-800">Dal Makhani</span>
+                                    <p class="text-sm text-gray-600">Rich, slow-cooked comfort food.</p>
+                                </div>
+                            </li>
+                             <li class="flex items-start gap-3">
+                                <i class="w-5 h-5 text-green-500 mt-1" data-lucide="leaf"></i>
+                                <div>
+                                    <span class="font-bold text-gray-800">Accompaniments</span>
+                                    <p class="text-sm text-gray-600">Jeera Rice, Fresh Onion-Radish Salad.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Snacks -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg border border-yellow-100 menu-card">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="bg-yellow-100 p-3 rounded-full"><i class="w-6 h-6 text-yellow-600" data-lucide="cookie"></i></div>
+                            <h3 class="text-2xl font-bold text-amber-900 serif-font">Snacks &amp; Starters</h3>
+                        </div>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <i class="w-5 h-5 text-yellow-500 mt-1" data-lucide="check"></i>
+                                <span class="font-bold text-gray-800">Paneer Tikka / Soya Chaap</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="w-5 h-5 text-yellow-500 mt-1" data-lucide="check"></i>
+                                <span class="font-bold text-gray-800">Mix Veg Pakoras</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="w-5 h-5 text-yellow-500 mt-1" data-lucide="check"></i>
+                                <span class="font-bold text-gray-800">Corn Chaat with Butter</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="w-5 h-5 text-yellow-500 mt-1" data-lucide="check"></i>
+                                <span class="font-bold text-gray-800">Roasted Sweet Potatoes</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                     <!-- Desserts & Drinks -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg border border-amber-100 menu-card">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="bg-amber-100 p-3 rounded-full"><i class="w-6 h-6 text-amber-600" data-lucide="coffee"></i></div>
+                            <h3 class="text-2xl font-bold text-amber-900 serif-font">Desserts &amp; Drinks</h3>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <h4 class="font-bold text-orange-800 mb-2">Sweet Endings</h4>
+                                <ul class="text-sm text-gray-600 space-y-2">
+                                    <li>• Gur ki Kheer</li>
+                                    <li>• Moong Dal Halwa</li>
+                                    <li>• Phirni (Chilled)</li>
+                                    <li>• Til Barfi</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-orange-800 mb-2">Beverages</h4>
+                                <ul class="text-sm text-gray-600 space-y-2">
+                                    <li>• Masala Chai</li>
+                                    <li>• Gur Wali Chai</li>
+                                    <li>• Badam Milk</li>
+                                    <li>• Kesar Milk</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <!-- Kid Friendly Section -->
+                <div class="mt-8 bg-blue-50 rounded-2xl p-8 border border-blue-100">
+                     <h3 class="text-xl font-bold text-blue-900 mb-4 flex items-center gap-2"><i class="w-6 h-6" data-lucide="baby"></i> Kid-Friendly Options</h3>
+                     <div class="flex flex-wrap gap-4">
+                        <span class="bg-white px-4 py-2 rounded-full text-blue-800 shadow-sm">Mini Makki Rotis</span>
+                        <span class="bg-white px-4 py-2 rounded-full text-blue-800 shadow-sm">Cheese Corn Balls</span>
+                        <span class="bg-white px-4 py-2 rounded-full text-blue-800 shadow-sm">Chocolate Popcorn</span>
+                        <span class="bg-white px-4 py-2 rounded-full text-blue-800 shadow-sm">Til Energy Balls</span>
+                     </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- HOSTING TIPS SECTION -->
+        <div class="tab-content animate-fade-in" id="tips">
+            <div class="max-w-6xl mx-auto px-4 py-12">
+                
+                <div class="bg-amber-900 text-white rounded-3xl p-8 md:p-12 shadow-xl mb-12">
+                    <h2 class="text-3xl font-bold mb-8 serif-font text-center">Hosting Tips for Lohri</h2>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                         <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/20">
+                             <div class="mb-4"><i class="w-8 h-8 text-orange-300" data-lucide="thermometer-sun"></i></div>
+                             <h4 class="font-bold text-lg mb-2">Keep it Warm</h4>
+                             <p class="text-sm text-orange-100">Ensure food stays warm. Use insulated casseroles or food warmers.</p>
+                         </div>
+                         <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/20">
+                             <div class="mb-4"><i class="w-8 h-8 text-orange-300" data-lucide="sprout"></i></div>
+                             <h4 class="font-bold text-lg mb-2">Seasonal Ingredients</h4>
+                             <p class="text-sm text-orange-100">Highlight winter staples like jaggery, sesame, and maize.</p>
+                         </div>
+                         <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/20">
+                             <div class="mb-4"><i class="w-8 h-8 text-orange-300" data-lucide="scale"></i></div>
+                             <h4 class="font-bold text-lg mb-2">Balance Flavors</h4>
+                             <p class="text-sm text-orange-100">Pair elaborate dishes (such as Dal Makhani) with uncomplicated sides like salad.</p>
+                         </div>
+                         <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/20">
+                             <div class="mb-4"><i class="w-8 h-8 text-orange-300" data-lucide="layout-grid"></i></div>
+                             <h4 class="font-bold text-lg mb-2">Self-Serve</h4>
+                             <p class="text-sm text-orange-100">Encourage self-serve counters for ease during larger gatherings.</p>
+                         </div>
+                    </div>
+                </div>
+
+                <!-- Sample Menu Card -->
+                <div class="bg-white rounded-2xl shadow-lg border-l-8 border-orange-500 p-8 max-w-3xl mx-auto">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6 serif-font flex items-center gap-3">
+                        <i class="text-orange-500" data-lucide="file-text"></i> Sample "All-in-One" Menu
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex flex-col md:flex-row gap-2 md:gap-8 border-b pb-4">
+                            <span class="font-bold text-amber-800 w-32">Starters:</span>
+                            <span class="text-gray-700">Pakoras, Paneer Tikka</span>
+                        </div>
+                        <div class="flex flex-col md:flex-row gap-2 md:gap-8 border-b pb-4">
+                            <span class="font-bold text-amber-800 w-32">Main Course:</span>
+                            <span class="text-gray-700">Sarson da Saag, Makki di Roti, Dal Makhani, Salad</span>
+                        </div>
+                        <div class="flex flex-col md:flex-row gap-2 md:gap-8 border-b pb-4">
+                            <span class="font-bold text-amber-800 w-32">Sides:</span>
+                            <span class="text-gray-700">White Butter, Green Chutney, Pickle</span>
+                        </div>
+                        <div class="flex flex-col md:flex-row gap-2 md:gap-8 border-b pb-4">
+                            <span class="font-bold text-amber-800 w-32">Desserts:</span>
+                            <span class="text-gray-700">Rewari, Gajak, Gur Kheer</span>
+                        </div>
+                        <div class="flex flex-col md:flex-row gap-2 md:gap-8">
+                            <span class="font-bold text-amber-800 w-32">Drinks:</span>
+                            <span class="text-gray-700">Masala Chai, Badam Milk</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300">
+<div class="container mx-auto px-6 py-12 lg:px-8">
+<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">26-bihari-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">26-chinese-new-year-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">26-christmas-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-festival-countdown</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">Christmas-wishes-by-audience</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">Happy-new-year-2026-celebrations-worldwide.html</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">Happy-new-year-2026</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">Multilingual-greetings-webpage</a>
+</li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+</ul>
+<h5 class="text-lg font-semibold text-white mb-4">Wishes and Wallpapers</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes-and-wallpapers.html">Wishes and Wallpapers</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/welcome-new-year.html">Welcome New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wallpapers">Festival Wallpaper for Desktop and Mobile</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards for  New Year</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">2025 Trends and 2026 forecast</h5>
+<ul class="space-y-2">
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-digital-outlook-trends-forecast</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">2026-festival-countdown</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026_dashboard.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">2026_dashboard</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/new_year_2026_page.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">New_year_2026_page</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/send-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl07_title">Send-christmas-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl08_title">Send-sankranti-wishes-in-multiple-languages</a>
+</li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/index-oct.html">Thanks Giving Main Page</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+<div class="space-y-2">
+<p>Redmond<br/>WA, USA</p>
+<p>
+<a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+</p>
+<p>
+<a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+</p>
+</div>
+</div>
+</div>
+<div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+<p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+<div class="flex space-x-4 mt-4 sm:mt-0">
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+<span class="sr-only">Facebook</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+</svg>
+</a>
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+<span class="sr-only">Twitter</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+</svg>
+</a>
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+<span class="sr-only">LinkedIn</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+</svg>
+</a>
+</div>
+<div class="flex gap-4 mt-4 sm:mt-0">
+<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+</div>
+</div>
+</div>
+</footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // --- Initialization ---
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+
+        // --- Navigation ---
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                if(btn.dataset.target === tabId) {
+                    btn.classList.add('text-orange-400', 'font-semibold', 'border-b-2', 'border-orange-400');
+                    btn.classList.remove('text-orange-400', 'hover:text-orange-300');
+                } else {
+                    btn.classList.remove('text-orange-400', 'font-semibold', 'border-b-2', 'border-orange-400');
+                    btn.classList.add('hover:text-orange-300');
+                }
+            });
+            window.scrollTo(0,0);
+        }
+    </script>
+
+
+</body></html>

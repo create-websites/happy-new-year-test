@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Lohri Festival Explained | History, Rituals &amp; Symbolism</title>
+    
+    <!-- Meta Description & Keywords -->
+    <meta content="Discover the deep significance of Lohri, its agricultural roots, the legend of Dulla Bhatti, and its connection to Makar Sankranti. Explore the spiritual symbolism of the sacred bonfire." name="description"/>
+    <meta content="Lohri, Lohri History, Dulla Bhatti, Makar Sankranti, Uttarayan, Agni, Bonfire Rituals, Punjabi Festival, Harvest Festival, Rabi Crops" name="keywords"/>
+    <meta content="Lohri Festival Interactive" name="author"/>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&amp;family=Inter:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, .serif-font {
+            font-family: 'Crimson Text', serif;
+        }
+        
+        /* Custom Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        
+        /* Tab Transitions */
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Bonfire Pulse Customization */
+        .bonfire-glow {
+            filter: drop-shadow(0 0 20px rgba(255, 165, 0, 0.6));
+        }
+
+        /* Image Overlay Gradient */
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(153, 27, 27, 0.85), rgba(153, 27, 27, 0.95));
+        }
+    </style>
+</head>
+<body class="bg-orange-50 text-gray-800 min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="bg-red-800 text-white sticky top-0 z-50 shadow-lg border-b-4 border-yellow-500">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2 font-bold text-xl cursor-pointer hover:opacity-90 transition" onclick="switchTab('home')">
+                    <i class="text-yellow-400" data-lucide="flame"></i>
+                    <span class="serif-font tracking-wide">Lohri Explained</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-6">
+                    <button class="nav-btn text-yellow-400 font-semibold border-b-2 border-yellow-400 hover:text-yellow-300 transition-colors py-1" data-target="home" onclick="switchTab('home')">Overview</button>
+                    <button class="nav-btn hover:text-yellow-300 transition-colors py-1" data-target="roots" onclick="switchTab('roots')">Origins &amp; Legends</button>
+                    <button class="nav-btn hover:text-yellow-300 transition-colors py-1" data-target="comparison" onclick="switchTab('comparison')">Lohri vs Sankranti</button>
+                    <button class="nav-btn hover:text-yellow-300 transition-colors py-1" data-target="symbolism" onclick="switchTab('symbolism')">Symbolism of Fire</button>
+                </div>
+
+                <!-- Mobile Menu Icon -->
+                <div class="md:hidden flex space-x-4 text-sm">
+                    <button class="hover:text-yellow-200 flex items-center gap-1" onclick="switchTab('roots')"><i class="w-4 h-4" data-lucide="book-open"></i> Legends</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow pb-12">
+        
+        <!-- HOME SECTION -->
+        <div class="tab-content active animate-fade-in" id="home">
+            <!-- Hero with Image -->
+            <div class="relative bg-red-900 text-white py-24 px-4 overflow-hidden">
+                <!-- Background Image with Overlay -->
+                <div class="absolute inset-0 z-0">
+                    <img alt="Lohri Celebration" class="w-full h-full object-cover opacity-40 mix-blend-overlay" src="https://storage.googleapis.com/kreatewebsite/photos600/lohri-2.jpg"/>
+                    <div class="absolute inset-0 hero-overlay"></div>
+                </div>
+
+                <div class="relative max-w-4xl mx-auto text-center z-10">
+                    <div class="inline-block bg-yellow-500 text-red-900 px-4 py-1 rounded-full text-sm font-bold mb-4 uppercase tracking-wider">January 13</div>
+                    <h1 class="text-5xl md:text-7xl font-bold mb-6 text-yellow-100 drop-shadow-lg">The Bonfire Festival</h1>
+                    <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto text-red-100 leading-relaxed font-light">
+                        Symbolizing the conclusion of a brutal winter and the onset of extended daylight hours. A joyous acknowledgment of appreciation, unity, and the anticipation of the coming spring season.
+                    </p>
+
+                    <!-- Interactive Bonfire -->
+                    <div class="mt-8 flex flex-col items-center bg-black/20 p-8 rounded-3xl backdrop-blur-sm border border-red-700/50 inline-block">
+                        <div class="relative w-48 h-48 flex items-center justify-center mb-4">
+                            <!-- Lit State -->
+                            <div class="hidden relative w-full h-full flex justify-center items-center" id="bonfire-lit-view">
+                                <i class="w-40 h-40 text-orange-500 animate-pulse bonfire-glow absolute" data-lucide="flame"></i>
+                                <i class="w-24 h-24 text-yellow-300 absolute bottom-2 animate-bounce" data-lucide="flame" style="animation-duration: 0.8s;"></i>
+                                <div class="absolute -bottom-2 w-32 h-6 bg-black opacity-40 blur-lg rounded-full"></div>
+                            </div>
+                            <!-- Unlit State -->
+                            <div class="text-red-200 flex flex-col items-center opacity-80" id="bonfire-unlit-view">
+                                <div class="w-24 h-8 bg-amber-900 rounded-lg transform rotate-12 mb-[-8px] shadow-lg border border-amber-950"></div>
+                                <div class="w-24 h-8 bg-amber-900 rounded-lg transform -rotate-12 shadow-lg border border-amber-950"></div>
+                                <div class="w-32 h-8 bg-amber-900 rounded-lg mt-[-12px] shadow-lg border border-amber-950"></div>
+                                <p class="mt-3 text-xs uppercase tracking-widest">Wood Stacked</p>
+                            </div>
+                        </div>
+
+                        <button class="px-8 py-3 rounded-full text-lg font-bold shadow-xl transition-all transform hover:scale-105 active:scale-95 flex items-center gap-2 bg-orange-600 text-white hover:bg-orange-500 border-2 border-orange-400" id="bonfire-btn" onclick="toggleBonfire()">
+                            <i class="w-5 h-5" data-lucide="flame"></i> Light the Fire
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Intro Content -->
+            <div class="max-w-4xl mx-auto px-4 py-16 text-center">
+                <h2 class="text-3xl font-bold text-red-800 mb-6">Why We Celebrate</h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-8">
+                    Lohri is one of the most vibrant festivals of North India, especially in Punjab, Haryana, and Himachal Pradesh. 
+                    At its heart burns a bonfire, around which communities gather to sing, dance, and offer gratitude to nature.
+                    It signals the transition from winter's peak to the promise of spring.
+                </p>
+                <div class="grid md:grid-cols-2 gap-4 text-left">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-red-500">
+                        <h3 class="text-lg font-bold text-red-900 mb-2 flex items-center gap-2"><i class="w-5 h-5" data-lucide="wheat"></i> Agricultural Roots</h3>
+                        <p class="text-gray-600">Traditionally celebrated by farmers to mark the harvesting of the <strong>Rabi crop</strong> (especially wheat). It's a prayer for a good harvest.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-orange-500">
+                        <h3 class="text-lg font-bold text-orange-900 mb-2 flex items-center gap-2"><i class="w-5 h-5" data-lucide="users"></i> Social Bond</h3>
+                        <p class="text-gray-600">A major event for <strong>newborns and newlyweds</strong>representing fresh starts, reproduction, and the perpetuation of the familial line.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ORIGINS & LEGENDS SECTION -->
+        <div class="tab-content animate-fade-in" id="roots">
+            <div class="max-w-5xl mx-auto px-4 py-12">
+                <div class="flex flex-col md:flex-row gap-12 items-center mb-16">
+                    <div class="md:w-1/2">
+                        <img alt="Lohri Rituals" class="rounded-2xl shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500 border-4 border-white" src="https://storage.googleapis.com/kreatewebsite/photos600/lohri-2.jpg"/>
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="inline-block bg-orange-100 text-orange-800 px-3 py-1 rounded-lg text-sm font-semibold mb-4">Folklore</div>
+                        <h2 class="text-4xl font-bold text-red-900 mb-6">The Legend of Dulla Bhatti</h2>
+                        <p class="text-gray-700 text-lg leading-relaxed mb-6">
+                            Often called the <strong>"Robin Hood of Punjab,"</strong> Dulla Bhatti, a prominent figure in Lohri folklore, lived in the Mughal era and was renowned for rescuing girls from slavery, organizing their weddings, and safeguarding their dignity.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed italic border-l-4 border-red-400 pl-4 bg-red-50 py-2 rounded-r-lg">
+                            "Sundri-Mundri hoye! Tera kaun vicharaa! Dulla Bhatti wala!"
+                        </p>
+                        <p class="text-sm text-gray-500 mt-2">
+                            Lohri is celebrated with a traditional song that praises his bravery and kindness, imbuing the festival with a strong sense of justice and safeguarding.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mb-4 text-yellow-600"><i class="w-6 h-6" data-lucide="sun"></i></div>
+                        <h3 class="text-xl font-bold mb-2">Seasonal Marker</h3>
+                        <p class="text-gray-600 text-sm">Marking the conclusion of the chilliest days, the sun begins its ascent northward as the days lengthen ahead.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4 text-red-600"><i class="w-6 h-6" data-lucide="heart-handshake"></i></div>
+                        <h3 class="text-xl font-bold mb-2">Community</h3>
+                        <p class="text-gray-600 text-sm">Neighbors come together to exchange treats such as rewri, gajak, and peanuts, fostering important social connections crucial in rural communities.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-4 text-orange-600"><i class="w-6 h-6" data-lucide="baby"></i></div>
+                        <h3 class="text-xl font-bold mb-2">New Beginnings</h3>
+                        <p class="text-gray-600 text-sm">The initial Lohri for a bride or a baby is marked with great enthusiasm, presents, and special songs of blessings.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- COMPARISON SECTION -->
+        <div class="tab-content animate-fade-in" id="comparison">
+            <div class="max-w-5xl mx-auto px-4 py-16 bg-gradient-to-br from-orange-50 to-red-50">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-red-900 mb-4">Lohri &amp; Makar Sankranti</h2>
+                <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Lohri is seen as the precursor to Makar Sankranti, each holding importance in the realms of astronomy and agriculture with varying regional traditions.</p>
+
+                <div class="grid md:grid-cols-2 gap-8 items-start">
+                    <!-- Lohri Card -->
+                    <div class="bg-white rounded-2xl shadow-xl overflow-hidden border-t-8 border-red-600">
+                        <div class="bg-red-50 p-6 border-b border-red-100">
+                            <h3 class="text-2xl font-bold text-red-800 flex items-center gap-2"><i class="w-6 h-6" data-lucide="flame"></i> Lohri</h3>
+                            <p class="text-red-600 text-sm font-semibold">January 13 • North India</p>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-start gap-3"><i class="w-5 h-5 text-red-500 mt-1" data-lucide="check"></i> <span><strong>Focus:</strong> Fire-centered ritual celebration.</span></li>
+                                <li class="flex items-start gap-3"><i class="w-5 h-5 text-red-500 mt-1" data-lucide="check"></i> <span><strong>Core Region:</strong> Punjab, Haryana, Himachal.</span></li>
+                                <li class="flex items-start gap-3"><i class="w-5 h-5 text-red-500 mt-1" data-lucide="check"></i> <span><strong>Key Action:</strong> Bonfire, Folk Dance (Bhangra/Gidda).</span></li>
+                                <li class="flex items-start gap-3"><i class="w-5 h-5 text-red-500 mt-1" data-lucide="check"></i> <span><strong>Legend:</strong> Dulla Bhatti &amp; Folk heroes.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Sankranti Card -->
+                    <div class="bg-white rounded-2xl shadow-xl overflow-hidden border-t-8 border-yellow-500">
+                        <div class="bg-yellow-50 p-6 border-b border-yellow-100">
+                            <h3 class="text-2xl font-bold text-yellow-800 flex items-center gap-2"><i class="w-6 h-6" data-lucide="sun"></i> Makar Sankranti</h3>
+                            <p class="text-yellow-600 text-sm font-semibold">January 14 • Pan-India</p>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-start gap-3"><i class="w-5 h-5 text-yellow-500 mt-1" data-lucide="check"></i> <span><strong>Focus:</strong> Cosmic/Astronomical event (Uttarayan).</span></li>
+                                <li class="flex items-start gap-3"><i class="w-5 h-5 text-yellow-500 mt-1" data-lucide="check"></i> <span><strong>Core Region:</strong> All India (known as Pongal, Bihu, Uttarayan).</span></li>
+                                <li class="flex items-start gap-3"><i class="w-5 h-5 text-yellow-500 mt-1" data-lucide="check"></i> <span><strong>Key Action:</strong> Holy dips, Kite flying, Worship of Sun God.</span></li>
+                                <li class="flex items-start gap-3"><i class="w-5 h-5 text-yellow-500 mt-1" data-lucide="check"></i> <span><strong>Significance:</strong> Sun entering Capricorn (Makar).</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 text-center bg-white p-6 rounded-xl shadow-sm">
+                    <h4 class="font-bold text-gray-800 mb-2">Regional Variations</h4>
+                    <div class="flex flex-wrap justify-center gap-4 text-sm text-gray-600">
+                        <span class="bg-gray-100 px-3 py-1 rounded-full">Gujarat: <strong>Uttarayan</strong> (Kites)</span>
+                        <span class="bg-gray-100 px-3 py-1 rounded-full">Tamil Nadu: <strong>Pongal</strong></span>
+                        <span class="bg-gray-100 px-3 py-1 rounded-full">Assam: <strong>Magh Bihu</strong></span>
+                        <span class="bg-gray-100 px-3 py-1 rounded-full">Maharashtra: <strong>Tilgul Exchange</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SYMBOLISM SECTION -->
+        <div class="tab-content animate-fade-in" id="symbolism">
+            <div class="max-w-4xl mx-auto px-4 py-16">
+                <div class="text-center mb-12">
+                    <span class="text-orange-600 font-bold tracking-widest uppercase text-sm">Spiritual Meaning</span>
+                    <h2 class="text-4xl font-bold text-gray-900 mt-2">Agni: The Sacred Fire</h2>
+                </div>
+
+                <div class="space-y-8">
+                    <!-- Concept 1 -->
+                    <div class="flex gap-6 items-start">
+                        <div class="bg-orange-100 p-3 rounded-full shrink-0">
+                            <i class="w-6 h-6 text-orange-600" data-lucide="send"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Divine Messenger</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                In Hindu philosophy, <strong>Agni</strong> Acts as a mediator between mortals and deities, offerings of sesame, jaggery, and peanuts tossed into the fire symbolize prayers that transcend to the spiritual plane.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Concept 2 -->
+                    <div class="flex gap-6 items-start">
+                        <div class="bg-red-100 p-3 rounded-full shrink-0">
+                            <i class="w-6 h-6 text-red-600" data-lucide="sparkles"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Purification &amp; Renewal</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                The bonfire symbolizes the destruction of negativity, illness, and winter despair, serving as a communal source of physical warmth and spiritual rejuvenation.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Concept 3 -->
+                    <div class="flex gap-6 items-start">
+                        <div class="bg-yellow-100 p-3 rounded-full shrink-0">
+                            <i class="w-6 h-6 text-yellow-600" data-lucide="shield-check"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Protection</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                In the past, winter was seen as a time of vulnerability. Lighting a bonfire was thought to protect against evil spirits and misfortune, with the flames symbolizing the growing power of the Sun.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-16 bg-gray-900 text-orange-50 p-8 rounded-2xl text-center">
+                    <i class="w-8 h-8 mx-auto mb-4 text-orange-400 opacity-50" data-lucide="quote"></i>
+                    <p class="text-xl serif-font italic">
+                        The fire at the heart of Lohri bridges the earthly and cosmic realms, the past and present, and individuals with their community.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300">
+<div class="container mx-auto px-6 py-12 lg:px-8">
+<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">26-bihari-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">26-chinese-new-year-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">26-christmas-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-festival-countdown</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">Christmas-wishes-by-audience</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">Happy-new-year-2026-celebrations-worldwide.html</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">Happy-new-year-2026</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">Multilingual-greetings-webpage</a>
+</li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+</ul>
+<h5 class="text-lg font-semibold text-white mb-4">Wishes and Wallpapers</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes-and-wallpapers.html">Wishes and Wallpapers</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/welcome-new-year.html">Welcome New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wallpapers">Festival Wallpaper for Desktop and Mobile</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards for  New Year</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">2025 Trends and 2026 forecast</h5>
+<ul class="space-y-2">
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-digital-outlook-trends-forecast</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">2026-festival-countdown</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026_dashboard.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">2026_dashboard</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/new_year_2026_page.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">New_year_2026_page</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/send-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl07_title">Send-christmas-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl08_title">Send-sankranti-wishes-in-multiple-languages</a>
+</li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/index-oct.html">Thanks Giving Main Page</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+<div class="space-y-2">
+<p>Redmond<br/>WA, USA</p>
+<p>
+<a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+</p>
+<p>
+<a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+</p>
+</div>
+</div>
+</div>
+<div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+<p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+<div class="flex space-x-4 mt-4 sm:mt-0">
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+<span class="sr-only">Facebook</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+</svg>
+</a>
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+<span class="sr-only">Twitter</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+</svg>
+</a>
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+<span class="sr-only">LinkedIn</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+</svg>
+</a>
+</div>
+<div class="flex gap-4 mt-4 sm:mt-0">
+<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+</div>
+</div>
+</div>
+</footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // --- Initialization ---
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+
+        // --- Navigation ---
+        function switchTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            // Show target tab
+            document.getElementById(tabId).classList.add('active');
+            
+            // Update Nav Buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                if(btn.dataset.target === tabId) {
+                    btn.classList.add('text-yellow-400', 'font-semibold', 'border-b-2', 'border-yellow-400');
+                    btn.classList.remove('text-white', 'hover:text-yellow-300');
+                } else {
+                    btn.classList.remove('text-yellow-400', 'font-semibold', 'border-b-2', 'border-yellow-400');
+                    btn.classList.add('text-white', 'hover:text-yellow-300');
+                }
+            });
+            window.scrollTo(0,0);
+        }
+
+        // --- Bonfire Functionality ---
+        let isBonfireLit = false;
+        
+        function toggleBonfire() {
+            const litView = document.getElementById('bonfire-lit-view');
+            const unlitView = document.getElementById('bonfire-unlit-view');
+            const btn = document.getElementById('bonfire-btn');
+
+            isBonfireLit = !isBonfireLit;
+
+            if (isBonfireLit) {
+                litView.classList.remove('hidden');
+                unlitView.classList.add('hidden');
+                btn.innerHTML = '<i data-lucide="sparkles" class="w-5 h-5"></i> Celebrate Warmth';
+                btn.classList.remove('bg-orange-600', 'hover:bg-orange-500');
+                btn.classList.add('bg-yellow-600', 'hover:bg-yellow-500');
+            } else {
+                litView.classList.add('hidden');
+                unlitView.classList.remove('hidden');
+                btn.innerHTML = '<i data-lucide="flame" class="w-5 h-5"></i> Light the Fire';
+                btn.classList.remove('bg-yellow-600', 'hover:bg-yellow-500');
+                btn.classList.add('bg-orange-600', 'hover:bg-orange-500');
+            }
+            lucide.createIcons();
+        }
+    </script>
+
+</body></html>

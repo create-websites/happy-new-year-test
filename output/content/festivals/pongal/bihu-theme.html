@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="An interactive exploration of the three Bihu festivals of Assam: Bohag (Rongali), Kati (Kongali), and Magh (Bhogali). Discover the agricultural cycles, rituals, food, and cultural significance of Assamese heritage." name="description"/>
+    <meta content="Bihu, Assam, Assamese Culture, Bohag Bihu, Rongali Bihu, Kati Bihu, Kongali Bihu, Magh Bihu, Bhogali Bihu, Harvest Festival, Indian Festivals, Agriculture Cycle" name="keywords"/>
+    <title>The Rhythm of Assam: Interactive Bihu Cycle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;600;700&amp;family=Playfair+Display:wght@400;700&amp;display=swap" rel="stylesheet"/>
+    <style>
+        /* Festive Theme Overrides */
+        body { 
+            font-family: 'Noto Sans', sans-serif; 
+            background-color: #fffbf2; /* Warm Cream */
+            color: #431407; /* Dark reddish-brown text */
+        }
+        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+        .transition-all-300 { transition: all 0.3s ease-in-out; }
+        
+        /* Custom Scrollbar - Gold/Red theme */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #fff7ed; }
+        ::-webkit-scrollbar-thumb { background: #b45309; border-radius: 4px; } /* Amber-700 */
+        ::-webkit-scrollbar-thumb:hover { background: #9a3412; }
+
+        /* Chart Container styling per requirements */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (max-width: 640px) {
+            .chart-container { height: 300px; }
+        }
+
+        /* Festive Tab Styling */
+        .active-tab { 
+            background-color: #991b1b; /* Red-800 */
+            color: #fff;
+            font-weight: 700;
+            border-radius: 9999px;
+            box-shadow: 0 4px 6px -1px rgba(153, 27, 27, 0.3);
+        }
+        .inactive-tab { 
+            color: #78350f; /* Amber-900 */
+            background-color: transparent;
+            border: 1px solid #fed7aa; /* Orange-200 */
+            border-radius: 9999px;
+        }
+        .inactive-tab:hover { 
+            background-color: #ffedd5; /* Orange-100 */
+            color: #991b1b; 
+        }
+
+        .bihu-card:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(180, 83, 9, 0.15), 0 4px 6px -2px rgba(180, 83, 9, 0.1); }
+        
+        /* Decorative Pattern for Hero */
+        .hero-pattern {
+            background-image: radial-gradient(#fee2e2 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <!-- Header Section - Rich Red for Festival Feel -->
+    <header class="bg-[#991b1b] border-b-4 border-amber-400 sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-amber-400 flex items-center justify-center text-[#991b1b] font-bold serif text-xl shadow-inner border-2 border-white">B</div>
+                <h1 class="text-xl md:text-2xl font-bold text-white tracking-wide serif">The Bihu Cycle</h1>
+            </div>
+            <nav class="hidden md:flex space-x-6 text-sm font-medium text-amber-50">
+                <a class="hover:text-amber-300 transition-colors" href="#overview">Overview</a>
+                <a class="hover:text-amber-300 transition-colors" href="#dashboard">Festival Dashboard</a>
+                <a class="hover:text-amber-300 transition-colors" href="#comparison">Comparison</a>
+                <a class="hover:text-amber-300 transition-colors" href="#artifacts">Culture</a>
+            </nav>
+            <button class="md:hidden text-amber-100 focus:outline-none text-2xl" id="mobile-menu-btn">
+                ☰
+            </button>
+        </div>
+        <!-- Mobile Nav -->
+        <div class="hidden md:hidden bg-[#7f1d1d] border-t border-red-800 px-4 py-2 shadow-lg text-amber-50" id="mobile-menu">
+            <a class="block py-3 border-b border-red-800 hover:text-amber-300" href="#overview">Overview</a>
+            <a class="block py-3 border-b border-red-800 hover:text-amber-300" href="#dashboard">Festival Dashboard</a>
+            <a class="block py-3 border-b border-red-800 hover:text-amber-300" href="#comparison">Comparison</a>
+            <a class="block py-3 hover:text-amber-300" href="#artifacts">Culture</a>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Hero Section - Warm Gradient -->
+        <section class="py-12 md:py-20 bg-gradient-to-b from-orange-50 to-[#fffbf2] hero-pattern" id="overview">
+            <div class="container mx-auto px-4 text-center max-w-4xl">
+                <div class="inline-block mb-6 relative">
+                    <span class="absolute inset-0 bg-red-100 transform -rotate-2 rounded-lg opacity-50"></span>
+                    <span class="relative inline-block px-4 py-1 text-xs font-bold tracking-widest text-red-800 uppercase bg-white border border-red-200 rounded-lg shadow-sm">Culture &amp; Agriculture</span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-bold text-[#7f1d1d] mb-6 leading-tight serif drop-shadow-sm">The Soul of Assam</h2>
+                <p class="text-lg md:text-xl text-amber-900/80 leading-relaxed mb-10 max-w-2xl mx-auto">
+                    Bihu pulsates through three unique phases, serving as the lifeblood of Assamese culture. <strong class="text-red-700">Seeding</strong>, <strong class="text-amber-600">Protection</strong>, and <strong class="text-orange-700">Harvest</strong>.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+                    <div class="p-6 bg-white rounded-xl shadow-md border-t-4 border-red-500 hover:shadow-lg transition-shadow">
+                        <div class="text-4xl mb-3">🌱</div>
+                        <h3 class="text-xl font-bold mb-2 text-red-900 serif">Bohag Bihu</h3>
+                        <p class="text-sm text-stone-500">Seed &amp; New Year (April)</p>
+                    </div>
+                    <div class="p-6 bg-white rounded-xl shadow-md border-t-4 border-yellow-500 hover:shadow-lg transition-shadow">
+                        <div class="text-4xl mb-3">🙏</div>
+                        <h3 class="text-xl font-bold mb-2 text-yellow-900 serif">Kati Bihu</h3>
+                        <p class="text-sm text-stone-500">Protection &amp; Prayer (October)</p>
+                    </div>
+                    <div class="p-6 bg-white rounded-xl shadow-md border-t-4 border-orange-500 hover:shadow-lg transition-shadow">
+                        <div class="text-4xl mb-3">🔥</div>
+                        <h3 class="text-xl font-bold mb-2 text-orange-900 serif">Magh Bihu</h3>
+                        <p class="text-sm text-stone-500">Harvest &amp; Feast (January)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Dashboard Section -->
+        <section class="py-16 relative" id="dashboard">
+            <!-- Decorative background element -->
+            <div class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 pointer-events-none"></div>
+
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="mb-10 text-center">
+                    <h2 class="text-3xl font-bold mb-3 serif text-[#7f1d1d]">Explore the Festivals</h2>
+                    <p class="text-amber-900/70 max-w-2xl mx-auto">
+                        Toggle between the tabs below to experience the three festivals and feel the change in atmosphere from celebration to austerity to feasting.
+                    </p>
+                </div>
+
+                <!-- Navigation Tabs - Centered Pills -->
+                <div class="flex flex-wrap justify-center gap-4 mb-10">
+                    <button class="active-tab px-8 py-3 text-lg transition-all-300 focus:outline-none" id="tab-bohag" onclick="updateDashboard('bohag')">Rongali (Bohag)</button>
+                    <button class="inactive-tab px-8 py-3 text-lg transition-all-300 focus:outline-none" id="tab-kati" onclick="updateDashboard('kati')">Kongali (Kati)</button>
+                    <button class="inactive-tab px-8 py-3 text-lg transition-all-300 focus:outline-none" id="tab-magh" onclick="updateDashboard('magh')">Bhogali (Magh)</button>
+                </div>
+
+                <!-- Dynamic Content Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    
+                    <!-- Left Column: Key Info & Narrative -->
+                    <div class="lg:col-span-4 space-y-6">
+                        <div class="bg-white p-6 rounded-2xl border-l-4 border-red-700 shadow-sm h-full ring-1 ring-black/5">
+                            <h3 class="text-3xl font-bold text-red-800 mb-2 serif" id="dash-title">Bohag Bihu</h3>
+                            <p class="text-sm font-bold text-amber-600 uppercase tracking-wide mb-4" id="dash-subtitle">The Festival of Joy • Mid-April</p>
+                            <p class="text-stone-700 leading-relaxed mb-6" id="dash-desc">
+                                Rongali Bihu, also known as the Assamese New Year, celebrates the arrival of spring with music, dance, and the tradition of sowing seeds. This festival is known for its vibrant energy.
+                            </p>
+                            
+                            <div class="space-y-5">
+                                <div class="bg-red-50 p-4 rounded-lg">
+                                    <h4 class="font-bold text-red-900 text-sm uppercase mb-1 border-b border-red-200 pb-1 inline-block">Key Focus</h4>
+                                    <p class="text-red-800/80 mt-1 font-medium" id="dash-focus">Celebration, Fertility, Agriculture start.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-stone-900 text-sm uppercase mb-2">Rituals</h4>
+                                    <ul class="list-disc list-inside text-stone-600 space-y-2 marker:text-red-500" id="dash-rituals">
+                                        <li>Goru Bihu (Cattle worship)</li>
+                                        <li>Husori (Carol singing)</li>
+                                        <li>Wearing new clothes</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Middle Column: Visual Mood & Activities -->
+                    <div class="lg:col-span-4 space-y-6">
+                        <div class="bg-white p-6 rounded-2xl border border-amber-100 shadow-lg shadow-orange-100/50 h-full flex flex-col">
+                            <h4 class="font-bold text-lg mb-4 text-center serif text-amber-900">Festival Mood Map</h4>
+                            <div class="flex-grow flex items-center justify-center">
+                                <!-- Chart Container for Radar Chart -->
+                                <div class="chart-container">
+                                    <canvas id="attributeChart"></canvas>
+                                </div>
+                            </div>
+                            <p class="text-xs text-center text-stone-400 mt-2 bg-stone-50 py-1 rounded">Visualizing energy, community, and solemnity levels.</p>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Food & Artifacts -->
+                    <div class="lg:col-span-4 space-y-6">
+                        <div class="bihu-card bg-orange-50 p-6 rounded-xl border border-orange-200 transition-all-300 relative overflow-hidden" id="card-food">
+                            <div class="absolute top-0 right-0 w-16 h-16 bg-white/20 rounded-bl-full"></div>
+                            <div class="flex items-center gap-3 mb-3 relative z-10">
+                                <span class="text-2xl p-2 bg-white rounded-full shadow-sm">🍛</span>
+                                <h4 class="font-bold text-stone-800">Seasonal Delicacies</h4>
+                            </div>
+                            <p class="text-stone-700 text-sm relative z-10" id="dash-food">
+                                Pitha, Laru, and Doi-Chira are indispensable traditional treats.
+                            </p>
+                        </div>
+
+                        <div class="bihu-card bg-red-50 p-6 rounded-xl border border-red-200 transition-all-300 relative overflow-hidden" id="card-symbol">
+                            <div class="absolute top-0 right-0 w-16 h-16 bg-white/20 rounded-bl-full"></div>
+                            <div class="flex items-center gap-3 mb-3 relative z-10">
+                                <span class="text-2xl p-2 bg-white rounded-full shadow-sm" id="symbol-icon">🧣</span>
+                                <h4 class="font-bold text-stone-800">Cultural Symbol</h4>
+                            </div>
+                            <p class="text-stone-700 text-sm relative z-10" id="dash-symbol">
+                                <span class="font-bold">Gamosa:</span> The classic red and white towel given to seniors as a sign of honor.
+                            </p>
+                        </div>
+                        
+                        <!-- Interactive Fact Box -->
+                        <div class="bg-stone-900 text-amber-50 p-6 rounded-xl border-t-4 border-amber-500 shadow-lg">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="text-amber-400 text-xl">💡</span>
+                                <h4 class="font-bold text-amber-400 text-sm uppercase tracking-wider">Did You Know?</h4>
+                            </div>
+                            <p class="text-sm leading-relaxed opacity-90 font-light" id="dash-fact">
+                                Bohag Bihu, also known as 'Xaat Bihu', spans seven days, each day celebrating a unique facet of nature or society.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparative Analysis Section -->
+        <section class="py-16 bg-white" id="comparison">
+            <div class="container mx-auto px-4">
+                <div class="mb-10 border-l-4 border-amber-500 pl-4">
+                    <h2 class="text-3xl font-bold mb-2 serif text-[#7f1d1d]">The Agricultural Cycle</h2>
+                    <p class="text-stone-600 max-w-3xl">
+                        Bihu is closely connected to the cultivation of paddy. The agricultural setting sets the tone for each festival.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Agricultural Timeline Chart -->
+                    <div class="bg-[#fffbf2] p-6 rounded-xl shadow-md border border-amber-100">
+                        <h3 class="font-bold text-lg mb-4 text-center serif text-amber-900">Significance vs. Time of Year</h3>
+                        <div class="chart-container">
+                            <canvas id="cycleChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Comparison Table -->
+                    <div class="bg-[#fffbf2] p-6 rounded-xl shadow-md border border-amber-100 flex flex-col justify-center">
+                        <h3 class="font-bold text-lg mb-4 text-center serif text-amber-900">Quick Comparison</h3>
+                        <div class="overflow-x-auto rounded-lg border border-amber-200">
+                            <table class="w-full text-left text-sm text-stone-600">
+                                <thead class="bg-[#991b1b] text-white uppercase text-xs">
+                                    <tr>
+                                        <th class="px-4 py-3">Feature</th>
+                                        <th class="px-4 py-3 bg-red-800">Rongali (Bohag)</th>
+                                        <th class="px-4 py-3 bg-yellow-700">Kongali (Kati)</th>
+                                        <th class="px-4 py-3 bg-orange-700">Bhogali (Magh)</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-amber-200 bg-white">
+                                    <tr class="hover:bg-amber-50 transition-colors">
+                                        <td class="px-4 py-3 font-bold text-stone-800 bg-stone-50">Meaning</td>
+                                        <td class="px-4 py-3">Joy/Color</td>
+                                        <td class="px-4 py-3">Poor/Empty</td>
+                                        <td class="px-4 py-3">Enjoyment/Food</td>
+                                    </tr>
+                                    <tr class="hover:bg-amber-50 transition-colors">
+                                        <td class="px-4 py-3 font-bold text-stone-800 bg-stone-50">Season</td>
+                                        <td class="px-4 py-3">Spring</td>
+                                        <td class="px-4 py-3">Autumn</td>
+                                        <td class="px-4 py-3">Winter</td>
+                                    </tr>
+                                    <tr class="hover:bg-amber-50 transition-colors">
+                                        <td class="px-4 py-3 font-bold text-stone-800 bg-stone-50">Farming Status</td>
+                                        <td class="px-4 py-3">Seeding Prep</td>
+                                        <td class="px-4 py-3">Crop Protection</td>
+                                        <td class="px-4 py-3">Harvest Done</td>
+                                    </tr>
+                                    <tr class="hover:bg-amber-50 transition-colors">
+                                        <td class="px-4 py-3 font-bold text-stone-800 bg-stone-50">Primary Symbol</td>
+                                        <td class="px-4 py-3">Kopou Phool (Orchid)</td>
+                                        <td class="px-4 py-3">Saki (Earthen Lamp)</td>
+                                        <td class="px-4 py-3">Meji (Bonfire)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cultural Artifacts Section -->
+        <section class="py-16 bg-amber-50/50" id="artifacts">
+            <div class="container mx-auto px-4">
+                <div class="mb-10 text-center">
+                    <span class="text-amber-600 font-bold uppercase tracking-wider text-xs">Traditions</span>
+                    <h2 class="text-3xl font-bold mb-3 serif text-[#7f1d1d]">Cultural Artifacts</h2>
+                    <p class="text-stone-600">Essential elements that define the Bihu aesthetics and traditions.</p>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <!-- Item 1 -->
+                    <div class="group relative bg-white rounded-xl p-6 text-center hover:bg-red-50 transition-colors cursor-pointer border border-amber-100 hover:border-red-200 shadow-sm hover:shadow-md">
+                        <div class="text-5xl mb-4 group-hover:scale-110 transition-transform filter drop-shadow-sm">🥁</div>
+                        <h4 class="font-bold text-stone-800 serif text-lg">Dhol</h4>
+                        <p class="text-xs text-stone-500 mt-2 font-medium">Dance Drum</p>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="group relative bg-white rounded-xl p-6 text-center hover:bg-red-50 transition-colors cursor-pointer border border-amber-100 hover:border-red-200 shadow-sm hover:shadow-md">
+                        <div class="text-5xl mb-4 group-hover:scale-110 transition-transform filter drop-shadow-sm">🎺</div>
+                        <h4 class="font-bold text-stone-800 serif text-lg">Pepa</h4>
+                        <p class="text-xs text-stone-500 mt-2 font-medium">Buffalo Hornpipe</p>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="group relative bg-white rounded-xl p-6 text-center hover:bg-yellow-50 transition-colors cursor-pointer border border-amber-100 hover:border-yellow-200 shadow-sm hover:shadow-md">
+                        <div class="text-5xl mb-4 group-hover:scale-110 transition-transform filter drop-shadow-sm">👒</div>
+                        <h4 class="font-bold text-stone-800 serif text-lg">Japi</h4>
+                        <p class="text-xs text-stone-500 mt-2 font-medium">Bamboo Hat</p>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="group relative bg-white rounded-xl p-6 text-center hover:bg-orange-50 transition-colors cursor-pointer border border-amber-100 hover:border-orange-200 shadow-sm hover:shadow-md">
+                        <div class="text-5xl mb-4 group-hover:scale-110 transition-transform filter drop-shadow-sm">🔥</div>
+                        <h4 class="font-bold text-stone-800 serif text-lg">Meji</h4>
+                        <p class="text-xs text-stone-500 mt-2 font-medium">Bonfire Structure</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-gray-300">
+<div class="container mx-auto px-6 py-12 lg:px-8">
+<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">26-bihari-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">26-chinese-new-year-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">26-christmas-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-festival-countdown</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">Christmas-wishes-by-audience</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">Happy-new-year-2026-celebrations-worldwide.html</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">Happy-new-year-2026</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">Multilingual-greetings-webpage</a>
+</li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+</ul>
+<h5 class="text-lg font-semibold text-white mb-4">Wishes and Wallpapers</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes-and-wallpapers.html">Wishes and Wallpapers</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/welcome-new-year.html">Welcome New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wallpapers">Festival Wallpaper for Desktop and Mobile</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards for  New Year</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">2025 Trends and 2026 forecast</h5>
+<ul class="space-y-2">
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-digital-outlook-trends-forecast</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">2026-festival-countdown</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026_dashboard.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">2026_dashboard</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/new_year_2026_page.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">New_year_2026_page</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/send-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl07_title">Send-christmas-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl08_title">Send-sankranti-wishes-in-multiple-languages</a>
+</li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/index-oct.html">Thanks Giving Main Page</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+<div class="space-y-2">
+<p>Redmond<br/>WA, USA</p>
+<p>
+<a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+</p>
+<p>
+<a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+</p>
+</div>
+</div>
+</div>
+<div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+<p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+<div class="flex space-x-4 mt-4 sm:mt-0">
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+<span class="sr-only">Facebook</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+</svg>
+</a>
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+<span class="sr-only">Twitter</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+</svg>
+</a>
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+<span class="sr-only">LinkedIn</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+</svg>
+</a>
+</div>
+<div class="flex gap-4 mt-4 sm:mt-0">
+<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+</div>
+</div>
+</div>
+</footer>
+
+    <!-- Application Logic -->
+    <script>
+        // -- Data State --
+        const bihuData = {
+            bohag: {
+                title: "Bohag Bihu (Rongali)",
+                subtitle: "The Festival of Joy • Mid-April",
+                desc: "Marking the Assamese New Year, Rongali Bihu celebrates the arrival of spring. It is a time of high energy, colorful dances, and the beginning of the sowing season. The atmosphere is vibrant with the sound of the 'Pepa' and 'Dhol'.",
+                focus: "Celebration, Fertility, Sowing Seeds",
+                rituals: ["Goru Bihu (Cattle Worship)", "Husori (Door-to-door caroling)", "Manuh Bihu (Respect to elders)", "Mukoli Bihu (Open field dance)"],
+                food: "Pitha, Laru, Jolpan (traditional snacks). It is a time for visiting households and sharing light meals.",
+                symbol: "Orchid (Kopou Phool) & Gamosa",
+                symbolIcon: "🌸",
+                fact: "Bohag Bihu is celebrated for 7 days, called 'Xaat Bihu'. Each day is dedicated to a specific group, from cattle to gods to friends.",
+                colorTheme: "red", // tailwind class reference logic
+                chartData: [90, 80, 40, 95, 20] // [Joy, Community, Food, Dance, Solemnity]
+            },
+            kati: {
+                title: "Kati Bihu (Kongali)",
+                subtitle: "The Festival of Constraint • Mid-October",
+                desc: "Known as 'Kongali' (meaning poor), this Bihu coincides with the time when granaries are empty and paddy is still growing. It is not a festival of merriment but of solemn prayer for a good harvest.",
+                focus: "Protection, Prayer, Austerity",
+                rituals: ["Lighting 'Saki' (lamps) in paddy fields", "Worshipping the Tulsi plant", "Akash Banti (Sky Lamp)", "Chanting names of ancestors"],
+                food: "No grand feasting. Offerings of 'Prasad' (pulses, fruits) are made to the Tulsi plant.",
+                symbol: "Earthen Lamp (Saki) & Tulsi Plant",
+                symbolIcon: "🕯️",
+                fact: "Farmers light lamps in the paddy fields to attract insects to the fire, protecting the maturing crops from pests—a natural pesticide method.",
+                colorTheme: "yellow",
+                chartData: [20, 40, 10, 10, 95] // [Joy, Community, Food, Dance, Solemnity]
+            },
+            magh: {
+                title: "Magh Bihu (Bhogali)",
+                subtitle: "The Festival of Abundance • Mid-January",
+                desc: "Signifying the end of the harvesting season, 'Bhogali' comes from the word 'Bhog' (eating/enjoyment). Granaries are full, and the community comes together for massive feasts and bonfires.",
+                focus: "Harvest, Community Feast, Fire Worship",
+                rituals: ["Building & Burning Meji/Bhelaghar", "Uruka (Community Feast night)", "Buffalo fighting (Moh Juj)", "Egg fighting"],
+                food: "Extensive feasting. Chira, Pitha, Sandoh, Curd, Fish and Duck meat dishes. The night of Uruka is purely about food.",
+                symbol: "Meji (Bonfire) & Bhelaghar",
+                symbolIcon: "🪵",
+                fact: "Young men build temporary makeshift huts called 'Bhelaghar' to spend the night of Uruka eating and merrymaking, which are burnt the next morning.",
+                colorTheme: "orange",
+                chartData: [85, 95, 100, 30, 40] // [Joy, Community, Food, Dance, Solemnity]
+            }
+        };
+
+        // -- Chart Instances --
+        let attributeChart = null;
+        let cycleChart = null;
+
+        // -- Mobile Menu Toggle --
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // -- Logic: Update Dashboard --
+        function updateDashboard(bihuType) {
+            const data = bihuData[bihuType];
+            
+            // 1. Update Tabs Visual State
+            ['bohag', 'kati', 'magh'].forEach(key => {
+                const tab = document.getElementById(`tab-${key}`);
+                if (key === bihuType) {
+                    tab.className = 'active-tab px-8 py-3 text-lg transition-all-300 focus:outline-none transform scale-105';
+                    // Update tab colors based on type for extra flavor
+                    if(key === 'bohag') tab.style.backgroundColor = '#991b1b'; // Red
+                    if(key === 'kati') tab.style.backgroundColor = '#854d0e'; // Yellow-Brown
+                    if(key === 'magh') tab.style.backgroundColor = '#c2410c'; // Orange
+                    tab.style.color = '#fff';
+                    tab.style.border = 'none';
+
+                } else {
+                    tab.className = 'inactive-tab px-8 py-3 text-lg transition-all-300 focus:outline-none';
+                    tab.style.backgroundColor = 'transparent';
+                    tab.style.color = '#78350f';
+                    tab.style.border = '1px solid #fed7aa';
+                }
+            });
+
+            // 2. Update Text Content with Fade Effect
+            const dashContainer = document.getElementById('dash-title').parentElement.parentElement;
+            dashContainer.style.opacity = '0.5';
+            
+            setTimeout(() => {
+                document.getElementById('dash-title').innerText = data.title;
+                document.getElementById('dash-title').className = `text-3xl font-bold mb-2 serif ${data.colorTheme === 'red' ? 'text-red-800' : data.colorTheme === 'yellow' ? 'text-yellow-800' : 'text-orange-800'}`;
+                
+                document.getElementById('dash-subtitle').innerText = data.subtitle;
+                document.getElementById('dash-desc').innerText = data.desc;
+                document.getElementById('dash-focus').innerText = data.focus;
+                document.getElementById('dash-food').innerText = data.food;
+                
+                const symbolElem = document.getElementById('dash-symbol');
+                symbolElem.innerHTML = `<span class="font-bold">${data.symbol.split('&')[0]}</span> ${data.symbol.substring(data.symbol.indexOf('&') > -1 ? data.symbol.indexOf('&') : data.symbol.length)}`;
+                
+                document.getElementById('symbol-icon').innerText = data.symbolIcon;
+                document.getElementById('dash-fact').innerText = data.fact;
+
+                // Update Ritual List
+                const ritualList = document.getElementById('dash-rituals');
+                ritualList.innerHTML = '';
+                data.rituals.forEach(ritual => {
+                    const li = document.createElement('li');
+                    li.innerText = ritual;
+                    ritualList.appendChild(li);
+                });
+
+                // 3. Update Colors of Cards
+                const foodCard = document.getElementById('card-food');
+                const symbolCard = document.getElementById('card-symbol');
+                const mainCard = document.getElementById('dash-title').parentElement;
+                
+                // Update Main Card Border
+                mainCard.className = `bg-white p-6 rounded-2xl border-l-4 shadow-sm h-full ring-1 ring-black/5 ${data.colorTheme === 'red' ? 'border-red-700' : data.colorTheme === 'yellow' ? 'border-yellow-600' : 'border-orange-600'}`;
+
+                // Reset classes first (simplified approach)
+                foodCard.className = `bihu-card p-6 rounded-xl border transition-all-300 relative overflow-hidden ${data.colorTheme === 'red' ? 'bg-red-50 border-red-200' : data.colorTheme === 'yellow' ? 'bg-yellow-50 border-yellow-200' : 'bg-orange-50 border-orange-200'}`;
+                symbolCard.className = `bihu-card p-6 rounded-xl border transition-all-300 relative overflow-hidden ${data.colorTheme === 'red' ? 'bg-red-50 border-red-200' : data.colorTheme === 'yellow' ? 'bg-yellow-50 border-yellow-200' : 'bg-orange-50 border-orange-200'}`;
+
+                dashContainer.style.opacity = '1';
+            }, 150);
+
+            // 4. Update Radar Chart
+            updateAttributeChart(data.chartData, data.title);
+        }
+
+        // -- Chart Logic: Radar Chart (Attributes) --
+        function initAttributeChart() {
+            const ctx = document.getElementById('attributeChart').getContext('2d');
+            
+            attributeChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Joy/Vibrancy', 'Community Gathering', 'Feasting', 'Dance/Music', 'Solemnity/Prayer'],
+                    datasets: [{
+                        label: 'Bohag Bihu',
+                        data: bihuData.bohag.chartData,
+                        fill: true,
+                        backgroundColor: 'rgba(153, 27, 27, 0.2)', // Red-800
+                        borderColor: 'rgb(153, 27, 27)',
+                        pointBackgroundColor: 'rgb(153, 27, 27)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgb(153, 27, 27)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: 'rgba(120, 53, 15, 0.1)' },
+                            grid: { color: 'rgba(120, 53, 15, 0.1)' },
+                            pointLabels: {
+                                font: { size: 11, family: "'Noto Sans', sans-serif", weight: '600' },
+                                color: '#78350f' // Amber-900
+                            },
+                            suggestedMin: 0,
+                            suggestedMax: 100,
+                            ticks: { display: false, backdropColor: 'transparent' } 
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: 'rgba(67, 20, 7, 0.9)',
+                            titleFont: { family: 'Playfair Display' },
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': ' + context.raw + '% Focus';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateAttributeChart(newData, label) {
+            if(!attributeChart) return;
+            
+            attributeChart.data.datasets[0].data = newData;
+            attributeChart.data.datasets[0].label = label;
+            
+            // Update colors based on label logic roughly
+            let color = '153, 27, 27'; // red default (Bohag)
+            if(label.includes('Kati')) color = '133, 77, 14'; // yellow/brown (Kati)
+            if(label.includes('Magh')) color = '194, 65, 12'; // orange (Magh)
+
+            attributeChart.data.datasets[0].backgroundColor = `rgba(${color}, 0.2)`;
+            attributeChart.data.datasets[0].borderColor = `rgb(${color})`;
+            attributeChart.data.datasets[0].pointBackgroundColor = `rgb(${color})`;
+            attributeChart.data.datasets[0].pointHoverBorderColor = `rgb(${color})`;
+            
+            attributeChart.update();
+        }
+
+        // -- Chart Logic: Bar Chart (Cycle Timeline) --
+        function initCycleChart() {
+            const ctx = document.getElementById('cycleChart').getContext('2d');
+            
+            cycleChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Jan (Magh)', 'Apr (Bohag)', 'Oct (Kati)'],
+                    datasets: [{
+                        label: 'Agricultural Stage',
+                        data: [100, 30, 60], // Represents stage completeness/harvest amount
+                        backgroundColor: [
+                            'rgba(194, 65, 12, 0.8)', // Orange for Harvest
+                            'rgba(153, 27, 27, 0.8)',  // Red for Sowing/New Year
+                            'rgba(161, 98, 7, 0.8)'   // Yellow/Brown for Growing/Protection
+                        ],
+                        borderColor: [
+                            'rgb(194, 65, 12)',
+                            'rgb(153, 27, 27)',
+                            'rgb(161, 98, 7)'
+                        ],
+                        borderWidth: 1,
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            title: { display: true, text: 'Harvest Abundance Level', color: '#78350f' },
+                            ticks: { display: false },
+                            grid: { color: 'rgba(120, 53, 15, 0.1)' }
+                        },
+                        x: {
+                            grid: { display: false },
+                            ticks: { color: '#431407', font: {weight: 'bold'} }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: 'rgba(67, 20, 7, 0.9)',
+                            titleFont: { family: 'Playfair Display' },
+                            callbacks: {
+                                title: (tooltipItems) => {
+                                    const index = tooltipItems[0].dataIndex;
+                                    return ['Harvest Complete', 'Sowing Season', 'Growing Phase'][index];
+                                },
+                                label: (context) => {
+                                    const desc = [
+                                        'Granaries full, time to feast.',
+                                        'Fields plowed, praying for rain.',
+                                        'Granaries empty, praying for crop safety.'
+                                    ];
+                                    return desc[context.dataIndex];
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // -- Init --
+        document.addEventListener('DOMContentLoaded', () => {
+            initAttributeChart();
+            initCycleChart();
+            // Trigger initial state color update for Bohag
+            const bohagTab = document.getElementById('tab-bohag');
+            bohagTab.style.backgroundColor = '#991b1b';
+            bohagTab.style.color = '#fff';
+            bohagTab.style.border = 'none';
+        });
+
+    </script>
+
+</body></html>

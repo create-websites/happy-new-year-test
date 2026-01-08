@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- SEO Meta Tags -->
+<title>Makar Sankranti 2026 | Pongal, Bihu &amp; Uttarayan Festival Guide</title>
+<meta content="Celebrate Makar Sankranti 2026. Explore the story of the Sun God Surya, traditions of Pongal, Magh Bihu, and Uttarayan, and find festive wishes. A complete guide to India's harvest festivals." name="description"/>
+<meta content="Makar Sankranti 2026, Pongal Festival, Magh Bihu, Uttarayan, Kite Festival India, Harvest Festival, Surya God, Hindu Festivals, Winter Solstice, Sankranti Wishes" name="keywords"/>
+<meta content="Festival Guide" name="author"/>
+<!-- Open Graph / Facebook -->
+<meta content="website" property="og:type"/>
+<meta content="Makar Sankranti 2026 - The Festival of Sun &amp; Harvest" property="og:title"/>
+<meta content="Discover the traditions of Makar Sankranti, Pongal, Bihu, and Uttarayan. One story, many festivals." property="og:description"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<!-- Custom Styles for Animations -->
+<style>
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes drift {
+            0% { transform: translateX(-10vw) translateY(10vh) rotate(-10deg); }
+            100% { transform: translateX(110vw) translateY(-20vh) rotate(10deg); }
+        }
+        .animate-spin-slow {
+            animation: spin-slow 20s linear infinite;
+        }
+        .kite {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 30px solid currentColor;
+            opacity: 0.8;
+            filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07));
+        }
+        .kite:after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: -20px;
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 30px solid currentColor;
+        }
+        .kite-tail {
+            width: 4px;
+            height: 50px;
+            background: rgba(255,255,255,0.6);
+            position: absolute;
+            top: 40px;
+            left: -2px;
+            transform: rotate(15deg);
+            transform-origin: top;
+        }
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-orange-50 font-sans text-stone-800">
+<!-- Navigation -->
+<nav class="bg-orange-600 text-white sticky top-0 z-50 shadow-lg">
+<div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+<div class="flex items-center space-x-2 font-bold text-xl">
+<i class="h-6 w-6 animate-pulse" data-lucide="sun"></i>
+<span>Sankranti Festival</span>
+</div>
+<div class="hidden md:flex space-x-6">
+<button class="tab-btn text-yellow-300 font-bold hover:text-yellow-200 transition" id="btn-story" onclick="switchTab('story')">The Story</button>
+<button class="tab-btn hover:text-yellow-200 transition" id="btn-traditions" onclick="switchTab('traditions')">Traditions</button>
+<button class="tab-btn hover:text-yellow-200 transition" id="btn-wishes" onclick="switchTab('wishes')">Wishes</button>
+</div>
+<!-- Mobile Menu Button (Simple) -->
+<div class="md:hidden flex space-x-4 text-sm">
+<button class="hover:text-yellow-200" onclick="switchTab('story')">Story</button>
+<button class="hover:text-yellow-200" onclick="switchTab('traditions')">Traditions</button>
+<button class="hover:text-yellow-200" onclick="switchTab('wishes')">Wishes</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative bg-gradient-to-b from-amber-400 to-orange-500 text-white overflow-hidden h-96 flex items-center justify-center">
+<!-- Animated Sun Background -->
+<div class="absolute top-10 right-10 md:right-20 opacity-30 pointer-events-none">
+<i class="h-64 w-64 text-yellow-300 animate-spin-slow" data-lucide="sun" style="width: 256px; height: 256px;"></i>
+</div>
+<!-- Kite Container (Populated by JS) -->
+<div class="absolute inset-0 pointer-events-none overflow-hidden" id="kite-container"></div>
+<div class="relative z-20 text-center px-4 max-w-4xl">
+<h1 class="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-md">
+                Makar Sankranti
+            </h1>
+<p classname="text-xl md:text-2xl font-light mb-6 text-yellow-100">
+                The Festival of Sun, Harvest, and Hope
+            </p>
+<div class="flex flex-wrap justify-center gap-4 text-sm md:text-base mt-6">
+<span class="bg-white/20 backdrop-blur-sm px-4 py-1 rounded-full border border-white/30">🌞 Uttarayan</span>
+<span class="bg-white/20 backdrop-blur-sm px-4 py-1 rounded-full border border-white/30">🪁 Kites</span>
+<span class="bg-white/20 backdrop-blur-sm px-4 py-1 rounded-full border border-white/30">🔥 Bonfires</span>
+<span class="bg-white/20 backdrop-blur-sm px-4 py-1 rounded-full border border-white/30">🌾 Harvest</span>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="max-w-5xl mx-auto px-4 py-12">
+<!-- Intro -->
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold text-orange-800 mb-6">Celebrating the Sun's Journey</h2>
+<p class="text-lg text-stone-600 max-w-3xl mx-auto leading-relaxed">
+                Makar Sankranti marks the sun's transition into Capricorn (Makara), signaling the end of winter and the beginning of longer days. 
+                It is a unique festival celebrated across India under different names—Pongal, Bihu, Lohri, and Uttarayan—united by the spirit of gratitude to nature.
+            </p>
+</div>
+<!-- Tab 1: The Story -->
+<div class="tab-content active" id="story">
+<div class="bg-white rounded-2xl shadow-xl overflow-hidden border-t-4 border-orange-500">
+<div class="p-8 md:p-12">
+<h3 class="text-2xl font-bold text-orange-700 mb-8 flex items-center">
+<i class="mr-3" data-lucide="book-open"></i> The Journey of the Sun: One Story, Many Festivals
+                    </h3>
+<div class="prose prose-orange max-w-none text-stone-700 space-y-6 text-lg leading-relaxed">
+<p>
+                            In a time far in the past, when the world was in sync with nature, the <strong>Sun God, Surya</strong>Surya, not only a celestial body but also a living force, journeyed southward for months, bringing winter's chill to Earth. Farmers awaited patiently, assured that the Sun would bring back its warmth.
+                        </p>
+<div class="my-8 p-6 bg-yellow-50 rounded-xl border-l-4 border-yellow-400">
+<h4 class="font-bold text-yellow-800 mb-2 flex items-center"><i class="w-5 h-5 mr-2" data-lucide="sun"></i> Makar Sankranti: The Sacred Turning</h4>
+<p>
+                                On a fateful morning, Surya arrived at the edge of Capricorn, marking a significant shift in the world. The Sun altered its course, embarking on the journey northward (Uttarayan). Wise sages hailed it as the triumph of light over darkness. Surya, on this special day, reconciled with his son Shani (Saturn), imparting a valuable lesson on forgiveness to humanity.
+                            </p>
+</div>
+<p>
+                            As Surya continued north, hope filled the air. In <strong>Gujarat</strong>Above, the vibrant kites filled the sky, each holding a wish for the upcoming year. Surya watched from above, amused by the humans' joyful gazes towards the heavens.
+                        </p>
+<p>
+                            The Sun then traveled east to <strong>Assam</strong>. Barns overflowed with grain. Villagers built <em>Meji</em> bonfires blazed as the first harvest was sacrificed to the flames. The crackling fire consumed obstacles and marked the beginning of <strong>Magh Bihu</strong>—a festival of fire, food, and fellowship.
+                        </p>
+<p>
+                            Finally, Surya bathed <strong>Tamil Nadu</strong> in the warm glow of the sun. Farmers cooked rice and milk in clay pots until they bubbled over, shouting <em>"Pongalo Pongal!"</em> the abundance by honoring their cattle, thanking the land, and celebrating. <strong>Pongal</strong> with humility and gratitude.
+                        </p>
+<div class="mt-8 text-center italic text-orange-800 font-medium text-xl">
+                            Despite the varying rituals such as flying kites, lighting bonfires, or boiling pots, they all convey a singular message: Nature supplies, and mankind must strive to maintain harmony.
+                        </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Tab 2: Traditions -->
+<div class="tab-content" id="traditions">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Pongal -->
+<div class="bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden group">
+<div class="h-32 bg-gradient-to-r from-yellow-400 to-orange-400 flex items-center justify-center">
+<i class="w-16 h-16 text-white opacity-90 group-hover:scale-110 transition duration-500" data-lucide="wheat" style="width: 64px; height: 64px;"></i>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold text-gray-800 mb-2">Pongal</h3>
+<p class="text-xs font-semibold text-orange-600 uppercase tracking-wide mb-4">Tamil Nadu</p>
+<p class="text-gray-600 mb-4 text-sm">
+                            A four-day festival celebrating the harvest, with the main ritual of boiling fresh rice, milk, and jaggery in a new clay pot until it overflows to symbolize prosperity.
+                        </p>
+<ul class="text-sm text-gray-500 space-y-2">
+<li class="flex items-center"><i class="w-4 h-4 mr-2 text-green-500" data-lucide="check"></i> Bhogi: Burning old items</li>
+<li class="flex items-center"><i class="w-4 h-4 mr-2 text-green-500" data-lucide="check"></i> Thai Pongal: Solar worship</li>
+<li class="flex items-center"><i class="w-4 h-4 mr-2 text-green-500" data-lucide="check"></i> Mattu Pongal: Cattle worship</li>
+</ul>
+</div>
+</div>
+<!-- Magh Bihu -->
+<div class="bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden group">
+<div class="h-32 bg-gradient-to-r from-red-500 to-orange-600 flex items-center justify-center">
+<i class="w-16 h-16 text-white opacity-90 group-hover:scale-110 transition duration-500" data-lucide="flame" style="width: 64px; height: 64px;"></i>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold text-gray-800 mb-2">Magh Bihu</h3>
+<p class="text-xs font-semibold text-red-600 uppercase tracking-wide mb-4">Assam</p>
+<p class="text-gray-600 mb-4 text-sm">
+                            Also called Bhogali Bihu, this festival celebrates the end of the harvest season with communal meals and bonfires.
+                        </p>
+<ul class="text-sm text-gray-500 space-y-2">
+<li class="flex items-center"><i class="w-4 h-4 mr-2 text-green-500" data-lucide="check"></i> Uruka: Community feast night</li>
+<li class="flex items-center"><i class="w-4 h-4 mr-2 text-green-500" data-lucide="check"></i> Meji: Lighting tall bonfires</li>
+<li class="flex items-center"><i class="w-4 h-4 mr-2 text-green-500" data-lucide="check"></i> Pitha: Rice cakes &amp; sesame sweets</li>
+</ul>
+</div>
+</div>
+<!-- Gangasagar -->
+<div class="bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden group">
+<div class="h-32 bg-gradient-to-r from-blue-400 to-blue-600 flex items-center justify-center">
+<i class="w-16 h-16 text-white opacity-90 group-hover:scale-110 transition duration-500" data-lucide="droplets" style="width: 64px; height: 64px;"></i>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold text-gray-800 mb-2">Gangasagar Mela</h3>
+<p class="text-xs font-semibold text-blue-600 uppercase tracking-wide mb-4">West Bengal</p>
+<p class="text-gray-600 mb-4 text-sm">
+                            The Sagar Island gathering, where the Ganga merges with the Bay of Bengal, is the second largest human congregation after the Kumbh Mela.
+                        </p>
+<ul class="text-sm text-gray-500 space-y-2">
+<li class="flex items-center"><i class="w-4 h-4 mr-2 text-green-500" data-lucide="check"></i> Holy Dip: Washing away sins</li>
+<li class="flex items-center"><i class="w-4 h-4 mr-2 text-green-500" data-lucide="check"></i> Kapil Muni Temple: Worship</li>
+<li class="flex items-center"><i class="w-4 h-4 mr-2 text-green-500" data-lucide="check"></i> Ancestral Rites: Tarpan</li>
+</ul>
+</div>
+</div>
+<!-- Uttarayan -->
+<div class="bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden group">
+<div class="h-32 bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
+<i class="w-16 h-16 text-white opacity-90 group-hover:scale-110 transition duration-500" data-lucide="wind" style="width: 64px; height: 64px;"></i>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold text-gray-800 mb-2">Uttarayan</h3>
+<p class="text-xs font-semibold text-purple-600 uppercase tracking-wide mb-4">Gujarat &amp; Rajasthan</p>
+<p class="text-gray-600 mb-4 text-sm">
+                            Renowned for its annual International Kite Festival, where the sky transforms into a vibrant tapestry of kites representing lofty dreams.
+                        </p>
+<ul class="text-sm text-gray-500 space-y-2">
+<li class="flex items-center"><i class="w-4 h-4 mr-2 text-green-500" data-lucide="check"></i> Patang: Kite flying battles</li>
+<li class="flex items-center"><i class="w-4 h-4 mr-2 text-green-500" data-lucide="check"></i> Undhiyu: Mixed vegetable curry</li>
+<li class="flex items-center"><i class="w-4 h-4 mr-2 text-green-500" data-lucide="check"></i> Chikki: Peanut brittle sweets</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- Tab 3: Wishes -->
+<div class="tab-content" id="wishes">
+<div class="max-w-3xl mx-auto">
+<h3 class="text-center text-2xl font-bold text-orange-800 mb-8">Share the Joy</h3>
+<div class="space-y-4" id="wishes-container">
+ <a href="https://www.happy-new-year.org/wishes/">Wishes</a> injected via JS 
+</div>
+</div>
+</div>
+<!-- Life Lessons (Always Visible) -->
+<div class="mt-20 bg-stone-900 text-stone-300 rounded-3xl p-8 md:p-12 text-center relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-orange-500 via-yellow-500 to-red-500"></div>
+<h3 class="text-2xl font-bold text-white mb-6">Life Lessons from Sankranti</h3>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm">
+<div class="p-4 bg-stone-800 rounded-xl">
+<i class="w-8 h-8 mx-auto text-pink-500 mb-3" data-lucide="heart"></i>
+<h4 class="font-bold text-white mb-2">Sweetness Heals</h4>
+<p>Speak sweetly like Til-Gul (sesame &amp; jaggery) to mend broken relationships.</p>
+</div>
+<div class="p-4 bg-stone-800 rounded-xl">
+<i class="w-8 h-8 mx-auto text-yellow-500 mb-3" data-lucide="sun"></i>
+<h4 class="font-bold text-white mb-2">Change is Good</h4>
+<p>Embrace change as a symbol of fresh starts, just like the sun altering its path.</p>
+</div>
+<div class="p-4 bg-stone-800 rounded-xl">
+<i class="w-8 h-8 mx-auto text-green-500 mb-3" data-lucide="wheat"></i>
+<h4 class="font-bold text-white mb-2">Gratitude</h4>
+<p>Always show gratitude to nature, the earth, and the unseen forces that nourish us.</p>
+</div>
+</div>
+</div>
+<!-- Festive Gallery Section -->
+<div class="mt-20">
+<h3 class="text-center text-2xl font-bold text-orange-800 mb-8">Festive Moments &amp; Greetings</h3>
+<p class="text-center text-stone-600 mb-8 max-w-2xl mx-auto">
+                Embrace the festive vibe with these lovely snapshots of Sankranti festivities. Spread happiness by sharing these wishes with your dear ones.
+            </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+<!-- Image 1 -->
+<div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+<img alt="Happy Pongal and Sankranti" class="w-full h-48 object-cover hover:scale-105 transition-transform duration-500" src="https://storage.googleapis.com/kreatewebsite/festival/Sankranti/Cards/Happy Pongal and Sankranti.jpg"/>
+</div>
+<!-- Image 2 -->
+<div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+<img alt="Happy Sankranti" class="w-full h-48 object-cover hover:scale-105 transition-transform duration-500" src="https://storage.googleapis.com/kreatewebsite/festival/Sankranti/Cards/Happy Sankranti.jpg"/>
+</div>
+<!-- Image 3 -->
+<div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+<img alt="Happy and Prosperous" class="w-full h-48 object-cover hover:scale-105 transition-transform duration-500" src="https://storage.googleapis.com/kreatewebsite/festival/Sankranti/Cards/Happy and Prosperous.jpg"/>
+</div>
+<!-- Image 4 -->
+<div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+<img alt="Love and Affection" class="w-full h-48 object-cover hover:scale-105 transition-transform duration-500" src="https://storage.googleapis.com/kreatewebsite/festival/Sankranti/Cards/Love and Affection.jpg"/>
+</div>
+<!-- Image 5 -->
+<div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+<img alt="Sankranti Prasad" class="w-full h-48 object-cover hover:scale-105 transition-transform duration-500" src="https://storage.googleapis.com/kreatewebsite/festival/Sankranti/Cards/Sankranti Prasad.jpg"/>
+</div>
+<!-- Image 6 -->
+<div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+<img alt="Sankranti Wishes" class="w-full h-48 object-cover hover:scale-105 transition-transform duration-500" src="https://storage.googleapis.com/kreatewebsite/festival/Sankranti/Cards/Sankranti Wishes.jpg"/>
+</div>
+<!-- Image 7 -->
+<div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+<img alt="Sankranti Prosperity" class="w-full h-48 object-cover hover:scale-105 transition-transform duration-500" src="https://storage.googleapis.com/kreatewebsite/festival/Sankranti/Cards/Sankranti prosperity.jpg"/>
+</div>
+<!-- Image 8 -->
+<div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+<img alt="Sankranti Celebration" class="w-full h-48 object-cover hover:scale-105 transition-transform duration-500" src="https://storage.googleapis.com/kreatewebsite/festival/Sankranti/Cards/Sankranti.jpg"/>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-gray-800 text-gray-300">
+<div class="container mx-auto px-6 py-12 lg:px-8">
+<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">26-bihari-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">26-chinese-new-year-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">26-christmas-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-festival-countdown</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">Christmas-wishes-by-audience</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">Happy-new-year-2026-celebrations-worldwide.html</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">Happy-new-year-2026</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">Multilingual-greetings-webpage</a>
+</li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+</ul>
+<h5 class="text-lg font-semibold text-white mb-4">Wishes and Wallpapers</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes-and-wallpapers.html">Wishes and Wallpapers</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/welcome-new-year.html">Welcome New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wallpapers">Festival Wallpaper for Desktop and Mobile</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards for  New Year</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">2025 Trends and 2026 forecast</h5>
+<ul class="space-y-2">
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-digital-outlook-trends-forecast</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">2026-festival-countdown</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026_dashboard.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">2026_dashboard</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/new_year_2026_page.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">New_year_2026_page</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/send-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl07_title">Send-christmas-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl08_title">Send-sankranti-wishes-in-multiple-languages</a>
+</li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/index-oct.html">Thanks Giving Main Page</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+<div class="space-y-2">
+<p>Redmond<br/>WA, USA</p>
+<p>
+<a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+</p>
+<p>
+<a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+</p>
+</div>
+</div>
+</div>
+<div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+<p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+<div class="flex space-x-4 mt-4 sm:mt-0">
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+<span class="sr-only">Facebook</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+</svg>
+</a>
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+<span class="sr-only">Twitter</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+</svg>
+</a>
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+<span class="sr-only">LinkedIn</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+</svg>
+</a>
+</div>
+<div class="flex gap-4 mt-4 sm:mt-0">
+<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+</div>
+</div>
+</div>
+</footer>
+<!-- Scripts -->
+<script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Data
+        const wishesData = [
+            { title: "Makar Sankranti", text: "May the Sun bless your life with new energy, good health, and success. Happy Makar Sankranti!" },
+            { title: "Uttarayan", text: "May your dreams soar as high as colorful kites in the sky. Wishing you health, warmth, and endless optimism." },
+            { title: "Pongal", text: "May your life overflow with happiness and prosperity, just like the Pongal pot. Pongalo Pongal!" },
+            { title: "Magh Bihu", text: "May the sacred fire burn away worries and light your path forward. Wishing you abundance and contentment." },
+        ];
+
+        // Render Wishes
+        const wishesContainer = document.getElementById('wishes-container');
+        wishesData.forEach((wish, index) => {
+            const div = document.createElement('div');
+            div.className = "bg-white p-6 rounded-lg shadow border-l-4 border-orange-400 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4";
+            div.innerHTML = `
+                <div class="flex-1">
+                    <h4 class="font-bold text-orange-900 mb-1">${wish.title}</h4>
+                    <p class="text-stone-600 italic">"${wish.text}"</p>
+                </div>
+                <button onclick="copyToClipboard('${wish.text}', this)" 
+                    class="flex items-center px-4 py-2 bg-orange-100 text-orange-700 rounded-full hover:bg-orange-200 transition text-sm font-medium whitespace-nowrap">
+                    <i data-lucide="copy" class="w-4 h-4 mr-2"></i> Copy
+                </button>
+            `;
+            wishesContainer.appendChild(div);
+        });
+        lucide.createIcons(); // Re-run for dynamic content
+
+        // Tabs Logic
+        function switchTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            // Show selected tab
+            document.getElementById(tabId).classList.add('active');
+            
+            // Update buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('text-yellow-300', 'font-bold');
+            });
+            document.getElementById(`btn-${tabId}`).classList.add('text-yellow-300', 'font-bold');
+        }
+
+        // Copy Function
+        function copyToClipboard(text, btnElement) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            const originalHTML = btnElement.innerHTML;
+            btnElement.innerHTML = `<i data-lucide="check" class="w-4 h-4 mr-2"></i> Copied`;
+            lucide.createIcons();
+            
+            setTimeout(() => {
+                btnElement.innerHTML = originalHTML;
+                lucide.createIcons();
+            }, 2000);
+        }
+
+        // Kite Animation Generator
+        const kiteContainer = document.getElementById('kite-container');
+        const colors = ['#FF5733', '#33FF57', '#3357FF', '#F3FF33', '#FF33F3'];
+
+        for (let i = 0; i < 8; i++) {
+            const kite = document.createElement('div');
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            const left = Math.random() * 100;
+            const delay = Math.random() * 5;
+            const duration = 15 + Math.random() * 10;
+            
+            kite.className = 'kite';
+            kite.style.color = color;
+            kite.style.left = `${left}%`;
+            kite.style.top = '100%';
+            kite.style.animation = `drift ${duration}s linear infinite`;
+            kite.style.animationDelay = `-${delay}s`;
+
+            const tail = document.createElement('div');
+            tail.className = 'kite-tail';
+            
+            kite.appendChild(tail);
+            kiteContainer.appendChild(kite);
+        }
+    </script>
+</body></html>

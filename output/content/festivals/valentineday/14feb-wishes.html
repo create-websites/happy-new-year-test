@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- SEO Meta Tags -->
+<meta content="20 heartfelt and romantic Valentine’s Day wishes for your partner or spouse. Deep, meaningful messages perfect for cards, letters, and social media." name="description"/>
+<meta content="Valentine's Day wishes, romantic messages, love quotes for husband, love quotes for wife, heartfelt valentine greetings, long valentine messages, partner appreciation" name="keywords"/>
+<meta content="Heartfelt Wishes Guide" name="author"/>
+<title>20 Heartfelt Valentine’s Day Wishes | Meaningful Messages</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,600;1,600&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        .fade-in { animation: fadeIn 0.3s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-rose-50 text-slate-900 selection:bg-rose-200 selection:text-rose-900 min-h-screen flex flex-col">
+<!-- Header -->
+<header class="relative py-20 px-6 text-center overflow-hidden bg-white/50 border-b border-rose-100">
+<div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none select-none">
+<i class="absolute top-10 left-10 w-24 h-24 transform -rotate-12 text-rose-900" data-lucide="feather"></i>
+<i class="absolute bottom-10 right-10 w-36 h-36 transform rotate-6 text-rose-900" data-lucide="mail-heart"></i>
+</div>
+<div class="relative z-10 max-w-3xl mx-auto">
+<h1 class="text-4xl md:text-6xl font-bold text-slate-900 mb-6 tracking-tight">
+                Heartfelt <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-pink-600">Wishes</span>
+</h1>
+<p class="text-lg md:text-xl text-slate-600 leading-relaxed mb-4 font-light">
+                Finding the perfect words can be a challenge. Here are 20 heartfelt messages to show your person how much they mean to you.
+            </p>
+<div class="inline-block px-4 py-1 bg-white rounded-full border border-rose-200 text-rose-600 text-sm font-medium">
+                Perfect for Cards &amp; Letters
+            </div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="max-w-7xl mx-auto px-6 -mt-8 relative z-20 flex-grow w-full">
+<!-- Controls Bar -->
+<div class="bg-white rounded-2xl shadow-lg p-4 mb-10 flex flex-col md:flex-row items-center justify-between gap-4 border border-slate-100">
+<!-- Filters -->
+<div class="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-hide" id="category-filters">
+<i class="text-slate-400 mr-2 flex-shrink-0 w-5 h-5" data-lucide="filter"></i>
+<!-- Buttons injected by JS -->
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-3 w-full md:w-auto">
+<button class="flex-1 md:flex-none flex items-center justify-center gap-2 px-5 py-2.5 bg-rose-50 text-rose-600 rounded-xl hover:bg-rose-100 font-medium transition-colors" onclick="pickRandom()">
+<i class="w-4 h-4" data-lucide="sparkles"></i>
+<span>Inspire Me</span>
+</button>
+<button class="flex-1 md:flex-none flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-medium transition-colors bg-white border border-slate-200 text-slate-600 hover:border-rose-300 hover:text-rose-600" id="btn-saved-view" onclick="toggleSavedView()">
+<i class="w-4 h-4" data-lucide="bookmark"></i>
+<span id="saved-count-text">Saved (0)</span>
+</button>
+</div>
+</div>
+<!-- Saved View (Hidden by default) -->
+<div class="hidden mb-12 fade-in" id="saved-view">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-2xl font-bold text-slate-800 font-serif">Your Favorite Words</h2>
+<button class="text-sm text-rose-500 hover:text-rose-700 underline decoration-dotted" onclick="clearFavorites()">Clear all</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="saved-grid">
+<!-- Saved items injected here -->
+</div>
+<div class="h-px bg-slate-200 w-full my-10"></div>
+</div>
+<!-- Empty State for Saved View -->
+<div class="hidden text-center py-12 bg-white rounded-2xl border-2 border-dashed border-slate-200 mb-12" id="saved-empty">
+<div class="flex justify-center mb-4"><i class="w-12 h-12 text-slate-200" data-lucide="bookmark"></i></div>
+<p class="text-slate-500">Save the <a href="https://www.happy-new-year.org/wishes/">wishes</a> that speak to your heart.</p>
+<div class="h-px bg-slate-200 w-full mt-10"></div>
+</div>
+<!-- Main Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="ideas-grid">
+<!-- Cards injected by JS -->
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-gray-800 text-gray-300">
+<div class="container mx-auto px-6 py-12 lg:px-8">
+<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">26-bihari-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">26-chinese-new-year-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">26-christmas-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-festival-countdown</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">Christmas-wishes-by-audience</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">Happy-new-year-2026-celebrations-worldwide.html</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">Happy-new-year-2026</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">Multilingual-greetings-webpage</a>
+</li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+</ul>
+<h5 class="text-lg font-semibold text-white mb-4">Wishes and Wallpapers</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes-and-wallpapers.html">Wishes and Wallpapers</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/welcome-new-year.html">Welcome New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wallpapers">Festival Wallpaper for Desktop and Mobile</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards for  New Year</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">2025 Trends and 2026 forecast</h5>
+<ul class="space-y-2">
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-digital-outlook-trends-forecast</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">2026-festival-countdown</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026_dashboard.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">2026_dashboard</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/new_year_2026_page.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">New_year_2026_page</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/send-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl07_title">Send-christmas-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl08_title">Send-sankranti-wishes-in-multiple-languages</a>
+</li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/index-oct.html">Thanks Giving Main Page</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+<div class="space-y-2">
+<p>Redmond<br/>WA, USA</p>
+<p>
+<a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+</p>
+<p>
+<a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+</p>
+</div>
+</div>
+</div>
+<div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+<p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+<div class="flex space-x-4 mt-4 sm:mt-0">
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+<span class="sr-only">Facebook</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+</svg>
+</a>
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+<span class="sr-only">Twitter</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+</svg>
+</a>
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+<span class="sr-only">LinkedIn</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+</svg>
+</a>
+</div>
+<div class="flex gap-4 mt-4 sm:mt-0">
+<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+</div>
+</div>
+</div>
+</footer>
+<!-- Toast Notification -->
+<div class="fixed bottom-6 right-6 bg-slate-800 text-white px-6 py-3 rounded-xl shadow-2xl transform translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3 z-50" id="toast">
+<i class="text-green-400 w-5 h-5" data-lucide="check-circle"></i>
+<span id="toast-message">Copied to clipboard!</span>
+</div>
+<script>
+        // --- Data ---
+        const ideas = [
+            { id: 1, text: "On this Valentine’s Day, I want you to know that loving you has been the most beautiful journey of my life. Every day with you feels like a quiet miracle—your presence brings peace to my chaos, warmth to my heart, and meaning to my dreams. I am endlessly grateful for you.", category: "Deep Love" },
+            { id: 2, text: "Happy Valentine’s Day to the person who makes ordinary moments feel extraordinary. Your love has taught me patience, kindness, and what it truly means to care for someone beyond myself. I cherish you more deeply than words can ever express.", category: "Appreciation" },
+            { id: 3, text: "This Valentine’s Day, I celebrate not just our love, but everything we have grown through together. The laughter, the challenges, the late-night talks, and the silent understandings have all shaped a bond I will protect forever.", category: "Growth" },
+            { id: 4, text: "Loving you feels like coming home after a long journey. Your heart is my safest place, and your love is my greatest comfort. On this Valentine’s Day, I promise to continue choosing you, every single day.", category: "Comfort" },
+            { id: 5, text: "Happy Valentine’s Day to the one who knows me better than anyone else and loves me anyway. Your acceptance, support, and unwavering belief in me make me a better person, and I am so thankful to walk this life with you.", category: "Support" },
+            { id: 6, text: "On this day of love, I want to remind you how deeply you are cherished. Your smile brightens my darkest days, your words calm my fears, and your love gives my life a purpose I never knew I was missing.", category: "Deep Love" },
+            { id: 7, text: "Valentine’s Day is special because it gives me a reason to pause and appreciate the gift that is you. Loving you has changed my life in ways I never imagined, and I look forward to building countless memories together.", category: "Appreciation" },
+            { id: 8, text: "Happy Valentine’s Day to my favorite person, my closest friend, and my greatest love. Through every season of life, you remain my constant, and I am endlessly grateful for the love we share.", category: "Friendship & Love" },
+            { id: 9, text: "Every heartbeat of mine carries gratitude for you. On this Valentine’s Day, I want you to know that your love is not taken for granted—it is treasured, honored, and held close to my heart.", category: "Gratitude" },
+            { id: 10, text: "Loving you has taught me that true love is not just about romance, but about trust, respect, and choosing each other even on the hardest days. Happy Valentine’s Day to the one I choose, always.", category: "Commitment" },
+            { id: 11, text: "This Valentine’s Day, I celebrate the quiet moments we share just as much as the grand ones. Your love lives in the details, and that is what makes it so powerful and enduring.", category: "Deep Love" },
+            { id: 12, text: "Happy Valentine’s Day to the person who makes my world brighter simply by being in it. Your kindness, strength, and love inspire me every day, and I am proud to love you.", category: "Appreciation" },
+            { id: 13, text: "On this day dedicated to love, I want to thank you for loving me with patience and sincerity. Your heart has been my greatest gift, and I promise to cherish it for all the days to come.", category: "Gratitude" },
+            { id: 14, text: "Valentine’s Day reminds me how fortunate I am to have a love that feels both exciting and safe. With you, I have found passion, comfort, and a deep sense of belonging.", category: "Comfort" },
+            { id: 15, text: "Happy Valentine’s Day to the one who stands by me through every high and low. Your unwavering support and love give me courage, and I am forever grateful for your presence in my life.", category: "Support" },
+            { id: 16, text: "Loving you is not just something I feel—it is something I choose with intention and joy. On this Valentine’s Day, I reaffirm my commitment to growing, dreaming, and loving alongside you.", category: "Commitment" },
+            { id: 17, text: "This Valentine’s Day, I want you to know that my love for you goes far beyond words or gestures. It lives in my actions, my loyalty, and my desire to build a future with you.", category: "Future" },
+            { id: 18, text: "Happy Valentine’s Day to the person who makes love feel effortless and genuine. With you, I have learned that the best love is built on understanding, patience, and shared dreams.", category: "Deep Love" },
+            { id: 19, text: "On this special day, I celebrate the love that continues to evolve and deepen with time. Thank you for walking beside me, believing in us, and loving me so completely.", category: "Growth" },
+            { id: 20, text: "Valentine’s Day is simply a reminder of what I feel every day—that my heart is happiest when it is with you. I am grateful for your love, your trust, and the beautiful life we are creating together.", category: "Happiness" }
+        ];
+
+        const categories = ["All", "Deep Love", "Appreciation", "Commitment", "Gratitude", "Support"];
+        
+        // --- State ---
+        let activeCategory = "All";
+        let favorites = JSON.parse(localStorage.getItem('wishesFavorites')) || [];
+        let showSavedView = false;
+
+        // --- Init ---
+        function init() {
+            renderCategories();
+            renderGrid();
+            updateSavedButton();
+            lucide.createIcons();
+        }
+
+        // --- Rendering ---
+        function renderCategories() {
+            const container = document.getElementById('category-filters');
+            container.innerHTML = '<i data-lucide="filter" class="text-slate-400 mr-2 flex-shrink-0 w-5 h-5"></i>';
+            
+            categories.forEach(cat => {
+                const btn = document.createElement('button');
+                const isActive = activeCategory === cat;
+                btn.className = `px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${isActive ? 'bg-rose-600 text-white shadow-md' : 'bg-white text-slate-600 hover:bg-rose-50 hover:text-rose-600 border border-slate-200'}`;
+                btn.textContent = cat;
+                btn.onclick = () => {
+                    activeCategory = cat;
+                    renderCategories();
+                    renderGrid();
+                };
+                container.appendChild(btn);
+            });
+            lucide.createIcons();
+        }
+
+        function createCardHTML(item, isFav) {
+            return `
+            <div class="group relative bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-rose-100 hover:border-rose-300 flex flex-col h-full fade-in ${isFav ? 'ring-2 ring-rose-400' : ''}">
+                <div class="absolute top-4 right-4 z-10 flex gap-2">
+                    <button onclick="copyToClipboard('${item.text.replace(/'/g, "\\'")}')" 
+                        class="p-2 rounded-full bg-slate-50 text-slate-400 hover:bg-rose-50 hover:text-rose-600 transition-colors" title="Copy Text">
+                        <i data-lucide="copy" class="w-4 h-4"></i>
+                    </button>
+                    <button onclick="toggleFavorite(${item.id})" 
+                        class="p-2 rounded-full transition-all ${isFav ? 'bg-rose-100 text-rose-600' : 'bg-slate-50 text-slate-400 hover:bg-rose-50 hover:text-rose-400'}" title="Save Wish">
+                        <i data-lucide="bookmark" class="w-4 h-4 ${isFav ? 'fill-current' : ''}"></i>
+                    </button>
+                </div>
+                
+                <div class="mb-4">
+                    <span class="text-xs font-bold uppercase tracking-wider text-rose-400 bg-rose-50 px-2 py-1 rounded-md">${item.category}</span>
+                </div>
+                
+                <p class="text-slate-700 leading-relaxed font-serif text-lg italic mb-4">
+                    "${item.text}"
+                </p>
+            </div>`;
+        }
+
+        function renderGrid() {
+            const grid = document.getElementById('ideas-grid');
+            grid.innerHTML = '';
+            
+            const filtered = activeCategory === "All" ? ideas : ideas.filter(i => i.category === activeCategory);
+            
+            filtered.forEach(item => {
+                grid.innerHTML += createCardHTML(item, favorites.includes(item.id));
+            });
+            lucide.createIcons();
+        }
+
+        function renderSaved() {
+            const savedGrid = document.getElementById('saved-grid');
+            const emptyState = document.getElementById('saved-empty');
+            savedGrid.innerHTML = '';
+            
+            const savedItems = ideas.filter(i => favorites.includes(i.id));
+
+            if (savedItems.length === 0) {
+                savedGrid.parentElement.classList.add('hidden');
+                emptyState.classList.remove('hidden');
+            } else {
+                savedGrid.parentElement.classList.remove('hidden');
+                emptyState.classList.add('hidden');
+                savedItems.forEach(item => {
+                    savedGrid.innerHTML += createCardHTML(item, true);
+                });
+            }
+            lucide.createIcons();
+        }
+
+        // --- Logic ---
+        function toggleFavorite(id) {
+            if (favorites.includes(id)) {
+                favorites = favorites.filter(fid => fid !== id);
+            } else {
+                favorites.push(id);
+            }
+            localStorage.setItem('wishesFavorites', JSON.stringify(favorites));
+            
+            updateSavedButton();
+            renderGrid();
+            if (showSavedView) renderSaved();
+        }
+
+        function updateSavedButton() {
+            const btn = document.getElementById('btn-saved-view');
+            const text = document.getElementById('saved-count-text');
+            const icon = btn.querySelector('i');
+            
+            text.textContent = `Saved (${favorites.length})`;
+            
+            if (showSavedView) {
+                btn.className = "flex-1 md:flex-none flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-medium transition-colors bg-rose-100 border border-rose-200 text-rose-700";
+                icon.classList.add('fill-current');
+            } else {
+                btn.className = "flex-1 md:flex-none flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-medium transition-colors bg-white border border-slate-200 text-slate-600 hover:border-rose-300 hover:text-rose-600";
+                icon.classList.remove('fill-current');
+            }
+            lucide.createIcons();
+        }
+
+        function toggleSavedView() {
+            showSavedView = !showSavedView;
+            const savedView = document.getElementById('saved-view');
+            const savedEmpty = document.getElementById('saved-empty');
+            
+            updateSavedButton();
+            
+            if (showSavedView) {
+                renderSaved();
+                if(favorites.length === 0) {
+                   savedView.classList.add('hidden');
+                   savedEmpty.classList.remove('hidden');
+                } else {
+                   savedView.classList.remove('hidden');
+                   savedEmpty.classList.add('hidden');
+                }
+            } else {
+                savedView.classList.add('hidden');
+                savedEmpty.classList.add('hidden');
+            }
+        }
+
+        function clearFavorites() {
+            favorites = [];
+            localStorage.setItem('wishesFavorites', JSON.stringify(favorites));
+            updateSavedButton();
+            renderGrid();
+            renderSaved();
+        }
+
+        function pickRandom() {
+            const randomItem = ideas[Math.floor(Math.random() * ideas.length)];
+            // Scroll to the random item if possible, or just copy it
+            copyToClipboard(randomItem.text);
+            showToast("Copied a random wish for you!");
+        }
+
+        function copyToClipboard(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            
+            showToast("Wish copied to clipboard!");
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = message;
+            
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        init();
+    </script>
+</body></html>

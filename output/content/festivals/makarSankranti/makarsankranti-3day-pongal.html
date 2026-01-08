@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Guide to Celebrating Makar Sankranti and 3-Day Pongal Festival (Bhogi, Surya</title>
+
+  <meta content="A Makar Sankranti themed webpage with a 3-day Pongal guide, regional traditions, foods, and Marathi quotes you can copy &amp; share." name="description"/>
+  <meta content="Makar Sankranti, Pongal, Bhogi, Surya Pongal, Mattu Pongal, Kanuma, Sankranti celebration, Marathi quotes" name="keywords"/>
+
+  <!-- Theme base (Tailwind + fonts + icons) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&amp;family=Gotu&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+
+  <style>
+    body { font-family: 'Poppins', sans-serif; background-color:#FFFAF0; background-image: linear-gradient(to bottom, #FFFAF0 0%, #FFF5E1 100%); }
+    h1, h2, h3, .headline { font-family: 'Gotu', serif; }
+    .sun-gradient { background: linear-gradient(135deg, #FF9966 0%, #FF5E62 100%); }
+    .gold-gradient { background: linear-gradient(135deg, #FDE68A 0%, #FDBA74 40%, #FB7185 100%); }
+    .kite-pattern { background-color:#ffffff; opacity:0.12;
+      background-image: radial-gradient(#FF9966 0.6px, transparent 0.6px),
+                        radial-gradient(#FF9966 0.6px, #ffffff 0.6px);
+      background-size: 22px 22px; background-position: 0 0, 11px 11px;
+    }
+    .card-hover { transition: all .25s ease; }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(255,100,50,.14); border-color:#FDBA74; }
+    @keyframes float { 0%{transform:translateY(0) rotate(0)} 50%{transform:translateY(-10px) rotate(2deg)} 100%{transform:translateY(0) rotate(0)} }
+    .floating-icon { animation: float 4s ease-in-out infinite; }
+    .toast { position: fixed; right: 1rem; bottom: 1rem; z-index: 60; }
+    .kbd { border:1px solid #e5e7eb; border-bottom-width:2px; padding:.1rem .35rem; border-radius:.5rem; background:#fff; font-size:.75rem; }
+    @media print {
+      nav.sticky, .no-print { display: none !important; }
+      body { background: white !important; }
+    }
+  </style>
+</head>
+
+<body class="text-gray-800 min-h-screen flex flex-col">
+  <!-- Top strip -->
+  <div class="bg-orange-50 border-b border-orange-100">
+    <div class="container mx-auto px-4 py-2 text-sm text-orange-900 flex flex-col sm:flex-row gap-2 sm:items-center sm:justify-between">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-sun text-orange-600"></i>
+        <span><strong>Makar Sankranti</strong> — collect happiness, flying kites, and kind words (तिळगुळ)</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <a class="hover:underline" href="#guide">3‑Day Guide</a>
+        <span class="text-orange-200">|</span>
+        <a class="hover:underline" href="#food">Food</a>
+        <span class="text-orange-200">|</span>
+        <a class="hover:underline" href="#marathi-quotes">Marathi Quotes</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header class="relative sun-gradient text-white overflow-hidden shadow-lg" id="top">
+    <div class="absolute inset-0 kite-pattern"></div>
+    <div class="container mx-auto px-6 py-12 relative z-10">
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7 text-center lg:text-left">
+          <div class="inline-flex items-center gap-3 bg-white/15 backdrop-blur-sm px-4 py-2 rounded-full mb-5 floating-icon">
+            <i class="fa-solid fa-kite text-2xl text-yellow-200"></i>
+            <span class="text-sm font-semibold tracking-wide">Guide • Traditions • Foods • Copy &amp; Share Quotes</span>
+          </div>
+
+          <h1 class="headline text-4xl md:text-5xl font-bold leading-tight mb-4">
+            Makar Sankranti &amp; 3‑Day Pongal Celebration
+          </h1>
+
+          <p class="text-lg md:text-xl font-light opacity-90 max-w-3xl mx-auto lg:mx-0">
+            A warm, modern page for Sankranti — with a simple 3‑day Pongal guide (Bhogi → Surya Pongal → Kanuma/Mattu),
+            regional traditions, foods, and Marathi quotes ready to copy &amp; share.
+          </p>
+
+          <div class="mt-7 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start no-print">
+            <a class="inline-flex items-center justify-center gap-2 bg-white text-orange-700 px-5 py-3 rounded-xl font-semibold shadow-sm hover:bg-orange-50 transition" href="#guide">
+              <i class="fa-solid fa-calendar-day"></i> Open 3‑Day Guide
+            </a>
+            <button class="inline-flex items-center justify-center gap-2 bg-white/15 border border-white/30 text-white px-5 py-3 rounded-xl font-semibold hover:bg-white/20 transition" id="randomQuoteBtn">
+              <i class="fa-solid fa-shuffle"></i> Random Marathi Quote
+            </button>
+          </div>
+
+          <div class="mt-8 grid sm:grid-cols-3 gap-3 text-left">
+            <div class="bg-white/10 border border-white/20 rounded-2xl p-4">
+              <div class="text-xs uppercase tracking-wide opacity-90">Theme</div>
+              <div class="mt-1 font-semibold">Sun’s transition • new season • gratitude.</div>
+            </div>
+            <div class="bg-white/10 border border-white/20 rounded-2xl p-4">
+              <div class="text-xs uppercase tracking-wide opacity-90">Feels like</div>
+              <div class="mt-1 font-semibold">Kites, harvest, family, and sweetness.</div>
+            </div>
+            <div class="bg-white/10 border border-white/20 rounded-2xl p-4">
+              <div class="text-xs uppercase tracking-wide opacity-90">Built for sharing</div>
+              <div class="mt-1 font-semibold">Copy quotes with one click.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5">
+          <div class="bg-white/10 border border-white/20 rounded-3xl p-3 shadow-lg">
+            <div class="rounded-2xl w-full h-72 flex items-center justify-center bg-white/10">
+              <div class="text-center px-6">
+                <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-white/15 mb-3">
+                  <i class="fa-solid fa-sun text-3xl text-yellow-200"></i>
+                </div>
+                <div class="text-xl font-semibold">Festival Snapshot</div>
+                <div class="text-sm opacity-90 mt-2">North India typically requires one day for travel, while South India usually takes three days, especially during the Pong</div>
+                <div class="mt-4 flex flex-wrap justify-center gap-2">
+                  <span class="px-3 py-1.5 rounded-full bg-white/15 border border-white/20 text-sm">Bhogi</span>
+                  <span class="px-3 py-1.5 rounded-full bg-white/15 border border-white/20 text-sm">Surya Pongal</span>
+                  <span class="px-3 py-1.5 rounded-full bg-white/15 border border-white/20 text-sm">Kanuma/Mattu</span>
+                </div>
+                <div class="mt-4 text-xs opacity-80">Using the 3-day overview from the previous page you provided.</div>
+              </div>
+            </div>
+            <div class="p-4">
+              <p class="text-sm opacity-90">
+                Tip: Use search in Quotes section — try <span class="kbd">तिळगुळ</span> <span class="kbd">पतंग</span> <span class="kbd">सूर्य</span>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Sticky nav -->
+  <nav class="bg-white/80 backdrop-blur border-b border-orange-100 sticky top-0 z-40 no-print">
+    <div class="container mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+      <a class="font-bold text-orange-800 flex items-center gap-2" href="#top">
+        <span class="inline-flex w-9 h-9 items-center justify-center rounded-xl bg-orange-100 text-orange-700">
+          <i class="fa-solid fa-kite"></i>
+        </span>
+        Sankranti • Pongal Guide
+      </a>
+
+      <div class="flex flex-wrap items-center gap-2 sm:gap-3 text-sm font-semibold">
+        <a class="px-3 py-2 rounded-lg hover:bg-orange-50 text-orange-800" href="#guide">3‑Day Guide</a>
+        <a class="px-3 py-2 rounded-lg hover:bg-orange-50 text-orange-800" href="#regions">Regional Traditions</a>
+        <a class="px-3 py-2 rounded-lg hover:bg-orange-50 text-orange-800" href="#food">Food</a>
+        <a class="px-3 py-2 rounded-lg hover:bg-orange-50 text-orange-800" href="#marathi-quotes">Marathi Quotes</a>
+        <a class="px-3 py-2 rounded-lg hover:bg-orange-50 text-orange-800" href="#faq">FAQ</a>
+      </div>
+
+      <div class="flex items-center gap-2 w-full sm:w-auto">
+        <div class="relative w-full sm:w-80">
+          <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-orange-400"></i>
+          <input class="w-full pl-10 pr-4 py-2 rounded-xl border border-orange-200 focus:outline-none focus:ring-2 focus:ring-orange-300" id="searchInput" placeholder="Search Marathi quotes (उदा: तिळगुळ, पतंग, सूर्य)"/>
+        </div>
+        <button class="px-4 py-2 rounded-xl bg-orange-50 hover:bg-orange-100 text-orange-800 font-semibold transition" id="clearBtn">
+          Clear
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container mx-auto px-4 py-10 flex-grow">
+
+    <!-- Quick intro -->
+    <section class="mb-8">
+      <div class="bg-white border border-orange-100 rounded-2xl p-6">
+        <h2 class="text-2xl md:text-3xl font-bold text-orange-900 border-l-4 border-orange-500 pl-3">What this festival celebrates</h2>
+        <div class="mt-4 grid md:grid-cols-3 gap-4">
+          <div class="bg-orange-50 border border-orange-100 rounded-2xl p-5">
+            <div class="font-semibold text-orange-900"><i class="fa-solid fa-sun mr-2 text-orange-500"></i>Sun’s journey</div>
+            <p class="text-sm text-gray-700 mt-2">A symbolic shift towards sunnier days - individuals embrace brightness, warmth, and rejuvenation.</p>
+          </div>
+          <div class="bg-orange-50 border border-orange-100 rounded-2xl p-5">
+            <div class="font-semibold text-orange-900"><i class="fa-solid fa-wheat-awn mr-2 text-orange-500"></i>Harvest gratitude</div>
+            <p class="text-sm text-gray-700 mt-2">Gratitude for the harvest, the rain, and the countless hands (and animals) that contribute to its success.</p>
+          </div>
+          <div class="bg-orange-50 border border-orange-100 rounded-2xl p-5">
+            <div class="font-semibold text-orange-900"><i class="fa-solid fa-kite mr-2 text-orange-500"></i>Community joy</div>
+            <p class="text-sm text-gray-700 mt-2">Flying kites, enjoying sweets, creating rangoli/kolam, visiting temples, having family meals, and</p>
+          </div>
+        </div>
+        <p class="text-xs text-gray-500 mt-4">
+          Please note that the daily summary below is based on the original outline from the "3 days of Sankranti and Pongal celebration" page you shared.
+        </p>
+      </div>
+    </section>
+
+    <!-- 3-day guide -->
+    <section class="mb-8" id="guide">
+      <div class="bg-white border border-orange-100 rounded-2xl p-6">
+        <div class="flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <h2 class="text-2xl md:text-3xl font-bold text-orange-900 border-l-4 border-orange-500 pl-3">3‑Day Pongal Celebration Guide</h2>
+            <p class="mt-2 text-sm text-gray-600">An uncomplicated itinerary for a three-day trip: explaining its significance and outlining common family activities.</p>
+          </div>
+          <div class="text-sm font-semibold text-orange-900">
+            <span class="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-orange-50 border border-orange-100">
+              <i class="fa-solid fa-circle-info text-orange-600"></i>
+              Works for Pongal / Makarsankranti (South India)
+            </span>
+          </div>
+        </div>
+
+        <div class="mt-5 grid lg:grid-cols-3 gap-4">
+          <!-- Day 1 -->
+          <article class="bg-white border border-orange-100 rounded-2xl p-5 card-hover">
+            <div class="flex items-center justify-between">
+              <div class="font-bold text-orange-900 text-lg">Day 1 — Bhogi</div>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-orange-50 border border-orange-100 text-orange-800">Preparation</span>
+            </div>
+            <p class="mt-3 text-sm text-gray-700">
+              Traditionally a day of cleaning and clearing out old items — symbolically making space for a fresh season.
+              Many families also pray for rain and wellbeing.
+            </p>
+            <div class="mt-4 grid gap-2 text-sm">
+              <div class="flex gap-2"><i class="fa-regular fa-square-check mt-0.5 text-orange-600"></i><span><strong>Do:</strong> home cleaning, rangoli/kolam prep, set up festive décor.</span></div>
+              <div class="flex gap-2"><i class="fa-regular fa-square-check mt-0.5 text-orange-600"></i><span><strong>Feel:</strong> reset + gratitude for nature’s support.</span></div>
+            </div>
+          </article>
+
+          <!-- Day 2 -->
+          <article class="bg-white border border-orange-100 rounded-2xl p-5 card-hover">
+            <div class="flex items-center justify-between">
+              <div class="font-bold text-orange-900 text-lg">Day 2 — Surya Pongal</div>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-orange-50 border border-orange-100 text-orange-800">Main Day</span>
+            </div>
+            <p class="mt-3 text-sm text-gray-700">
+              The main celebration day — families thank the Sun (Surya) for helping the harvest.
+              Special food is cooked and offered with prayers.
+            </p>
+            <div class="mt-4 grid gap-2 text-sm">
+              <div class="flex gap-2"><i class="fa-regular fa-square-check mt-0.5 text-orange-600"></i><span><strong>Do:</strong> cook Pongal, offer prayers, share meals with family/neighbors.</span></div>
+              <div class="flex gap-2"><i class="fa-regular fa-square-check mt-0.5 text-orange-600"></i><span><strong>Try:</strong> “Pongalo Pongal!” moment — celebrate abundance.</span></div>
+            </div>
+          </article>
+
+          <!-- Day 3 -->
+          <article class="bg-white border border-orange-100 rounded-2xl p-5 card-hover">
+            <div class="flex items-center justify-between">
+              <div class="font-bold text-orange-900 text-lg">Day 3 — Kanuma / Mattu Pongal</div>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-orange-50 border border-orange-100 text-orange-800">Cattle Day</span>
+            </div>
+            <p class="mt-3 text-sm text-gray-700">
+              A day to thank cattle for their role in farming. People bathe and decorate cattle,
+              adorn horns, and celebrate with village/community activities.
+            </p>
+            <div class="mt-4 grid gap-2 text-sm">
+              <div class="flex gap-2"><i class="fa-regular fa-square-check mt-0.5 text-orange-600"></i><span><strong>Do:</strong> cattle worship/thanks, decorations, community gatherings.</span></div>
+              <div class="flex gap-2"><i class="fa-regular fa-square-check mt-0.5 text-orange-600"></i><span><strong>Seen in some places:</strong> bull cart races and traditional games.</span></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="mt-6 bg-orange-50 border border-orange-100 rounded-2xl p-5">
+          <div class="flex items-start gap-3">
+            <div class="w-10 h-10 rounded-2xl bg-white border border-orange-100 flex items-center justify-center shrink-0">
+              <i class="fa-solid fa-star text-orange-600"></i>
+            </div>
+            <div>
+              <div class="font-semibold text-orange-900">North India (often 1 day)</div>
+              <p class="text-sm text-gray-700 mt-1">
+                Many families mark Makar Sankranti as a one‑day festival with temple visits, prasad,
+                special foods (like khichdi), and kite flying.
+              </p>
+              <p class="text-xs text-gray-500 mt-2">If you'd like, I can also include a list of the "1-Day North Plan" card options.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Regional traditions -->
+    <section class="mb-8" id="regions">
+      <div class="bg-white border border-orange-100 rounded-2xl p-6">
+        <h2 class="text-2xl md:text-3xl font-bold text-orange-900 border-l-4 border-orange-500 pl-3">Regional traditions you can add</h2>
+        <p class="mt-2 text-sm text-gray-600">Several popular add-ons (ideal for enhancing the overall look and feel of the page).</p>
+
+        <div class="mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="bg-white border border-orange-100 rounded-2xl p-5 card-hover">
+            <div class="font-semibold text-orange-900"><i class="fa-solid fa-kite mr-2 text-orange-500"></i>Kite flying (Uttarayan vibe)</div>
+            <p class="text-sm text-gray-700 mt-2">Groups come together on terraces and grounds to fly kites, enjoy music, snacks, and engage in friendly</p>
+            <div class="mt-3 text-xs text-gray-600">Add: safety note + eco‑friendly threads.</div>
+          </div>
+
+          <div class="bg-white border border-orange-100 rounded-2xl p-5 card-hover">
+            <div class="font-semibold text-orange-900"><i class="fa-solid fa-cookie-bite mr-2 text-orange-500"></i>Til‑gud (Maharashtra)</div>
+            <p class="text-sm text-gray-700 mt-2">Enjoy sesame and jaggery treats and say "तिळगुळ घ्या, ग</p>
+            <div class="mt-3 text-xs text-gray-600">Add: sesame laddoo, chikki, gul poli.</div>
+          </div>
+
+          <div class="bg-white border border-orange-100 rounded-2xl p-5 card-hover">
+            <div class="font-semibold text-orange-900"><i class="fa-solid fa-paintbrush mr-2 text-orange-500"></i>Rangoli / Kolam</div>
+            <p class="text-sm text-gray-700 mt-2">Bright patterns at the entrance—welcoming guests, prosperity, and good luck.</p>
+            <div class="mt-3 text-xs text-gray-600">Add: simple kolam design images later if needed.</div>
+          </div>
+
+          <div class="bg-white border border-orange-100 rounded-2xl p-5 card-hover">
+            <div class="font-semibold text-orange-900"><i class="fa-solid fa-fire mr-2 text-orange-500"></i>Bonfire warmth (Lohri neighborhood)</div>
+            <p class="text-sm text-gray-700 mt-2">During this time in certain areas, bonfires, songs, and the sharing of peanuts/rewris help create a cozy atmosphere.</p>
+            <div class="mt-3 text-xs text-gray-600">Optional section if you want cross‑festival coverage.</div>
+          </div>
+
+          <div class="bg-white border border-orange-100 rounded-2xl p-5 card-hover">
+            <div class="font-semibold text-orange-900"><i class="fa-solid fa-hand-holding-heart mr-2 text-orange-500"></i>Charity &amp; sharing</div>
+            <p class="text-sm text-gray-700 mt-2">It is common to donate grains, clothes, or food to those in need—spread warmth to those less fortunate.</p>
+            <div class="mt-3 text-xs text-gray-600">Add: a small checklist for giving.</div>
+          </div>
+
+          <div class="bg-white border border-orange-100 rounded-2xl p-5 card-hover">
+            <div class="font-semibold text-orange-900"><i class="fa-solid fa-people-group mr-2 text-orange-500"></i>Family visit plan</div>
+            <p class="text-sm text-gray-700 mt-2">Develop a brief plan: reach out to elders, stop by neighbors' homes, distribute treats, and capture a family picture.</p>
+            <div class="mt-3 text-xs text-gray-600">Add: “3‑minute greeting script” if you want.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Food -->
+    <section class="mb-8" id="food">
+      <div class="bg-white border border-orange-100 rounded-2xl p-6">
+        <h2 class="text-2xl md:text-3xl font-bold text-orange-900 border-l-4 border-orange-500 pl-3">Food that fits the theme</h2>
+        <p class="mt-2 text-sm text-gray-600">Brief, important items to mention (no need for recipes—just names + significance).</p>
+
+        <div class="mt-5 grid lg:grid-cols-3 gap-4">
+          <div class="bg-orange-50 border border-orange-100 rounded-2xl p-5">
+            <div class="font-semibold text-orange-900">Maharashtra</div>
+            <ul class="mt-2 text-sm text-gray-700 space-y-1 list-disc list-inside">
+              <li>Tilgul / Til laddoo (sesame + jaggery)</li>
+              <li>Chikki (peanut/sesame brittle)</li>
+              <li>Puran poli / Gul poli (sweet flatbread)</li>
+            </ul>
+          </div>
+          <div class="bg-orange-50 border border-orange-100 rounded-2xl p-5">
+            <div class="font-semibold text-orange-900">South India (Pongal)</div>
+            <ul class="mt-2 text-sm text-gray-700 space-y-1 list-disc list-inside">
+              <li>Sakkarai Pongal (sweet pongal)</li>
+              <li>Ven Pongal (savory pongal)</li>
+              <li>Sugarcane (symbol of abundance)</li>
+            </ul>
+          </div>
+          <div class="bg-orange-50 border border-orange-100 rounded-2xl p-5">
+            <div class="font-semibold text-orange-900">North &amp; Central India</div>
+            <ul class="mt-2 text-sm text-gray-700 space-y-1 list-disc list-inside">
+              <li>Khichdi (often offered as prasad)</li>
+              <li>Gajak / Revdi (winter sweets)</li>
+              <li>Peanuts + jaggery snacks</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-6 bg-white border border-orange-100 rounded-2xl p-5">
+          <div class="flex items-start gap-3">
+            <div class="w-10 h-10 rounded-2xl bg-orange-50 border border-orange-100 flex items-center justify-center shrink-0">
+              <i class="fa-solid fa-leaf text-orange-600"></i>
+            </div>
+            <div>
+              <div class="font-semibold text-orange-900">Small modern touch</div>
+              <p class="text-sm text-gray-700 mt-1">Include eco-friendly decorations and steer clear of hazardous kite strings to ensure a bird- and people-friendly celebration.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Marathi Quotes -->
+    <section class="mb-8" id="marathi-quotes">
+      <div class="bg-white border border-orange-100 rounded-2xl p-6">
+        <div class="flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <h2 class="text-2xl md:text-3xl font-bold text-orange-900 border-l-4 border-orange-500 pl-3">Marathi Quotes (कॉपी करा)</h2>
+            <p class="mt-2 text-sm text-gray-600">Search, copy, and share. (Tap “Copy” on any card.)</p>
+          </div>
+          <div class="text-sm font-semibold text-orange-900">
+            <span class="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-orange-50 border border-orange-100">
+              <i class="fa-solid fa-keyboard text-orange-600"></i>
+              Try: <span class="kbd">तिळगुळ</span> <span class="kbd">पतंग</span> <span class="kbd">सूर्य</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="mt-5 grid sm:grid-cols-2 lg:grid-cols-3 gap-4" id="quotesGrid"></div>
+
+        <div class="hidden mt-6 bg-white border border-orange-100 rounded-2xl p-6 text-center" id="emptyState">
+          <div class="text-orange-900 font-bold text-xl">कोट्स सापडले नाहीत</div>
+          <p class="text-gray-600 mt-1">वेगळा शब्द वापरून पाहा (उदा: “सूर्य”, “पतंग”, “तिळगुळ”, “समृद्धी”).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mb-2" id="faq">
+      <div class="bg-white border border-orange-100 rounded-2xl p-6">
+        <h2 class="text-2xl md:text-3xl font-bold text-orange-900 border-l-4 border-orange-500 pl-3">FAQ</h2>
+
+        <div class="mt-4 space-y-3">
+          <details class="bg-orange-50 border border-orange-100 rounded-xl p-4">
+            <summary class="font-semibold text-orange-900 cursor-pointer">Can I add more days or rename them?</summary>
+            <p class="text-sm text-gray-700 mt-2">Yes — edit the <code class="bg-white px-1 rounded">DAYS</code> and <code class="bg-white px-1 rounded">QUOTES</code> lists in the script at the bottom.</p>
+          </details>
+
+          <details class="bg-orange-50 border border-orange-100 rounded-xl p-4">
+            <summary class="font-semibold text-orange-900 cursor-pointer">Is Pongal always 3 days?</summary>
+            <p class="text-sm text-gray-700 mt-2">Several families partake in a 3-day tradition. Certain communities may incorporate extra festivities - feel free to extend the schedule as necessary.</p>
+          </details>
+
+          <details class="bg-orange-50 border border-orange-100 rounded-xl p-4">
+            <summary class="font-semibold text-orange-900 cursor-pointer">How do I print this page?</summary>
+            <p class="text-sm text-gray-700 mt-2">Utilize the Print option in your browser. The sticky navigation will be automatically hidden when printing.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Toast -->
+  <div aria-live="polite" class="toast hidden no-print" id="toast" role="status">
+    <div class="bg-gray-900 text-white px-4 py-3 rounded-xl shadow-lg flex items-center gap-2">
+      <i class="fa-solid fa-check text-green-300"></i>
+      <span class="text-sm" id="toastMsg">Copied!</span>
+    </div>
+  </div>
+
+  <footer class="bg-gray-800 text-gray-300">
+<div class="container mx-auto px-6 py-12 lg:px-8">
+<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">26-bihari-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">26-chinese-new-year-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">26-christmas-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-festival-countdown</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">Christmas-wishes-by-audience</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">Happy-new-year-2026-celebrations-worldwide.html</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">Happy-new-year-2026</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">Multilingual-greetings-webpage</a>
+</li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+</ul>
+<h5 class="text-lg font-semibold text-white mb-4">Wishes and Wallpapers</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes-and-wallpapers.html">Wishes and Wallpapers</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/welcome-new-year.html">Welcome New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wallpapers">Festival Wallpaper for Desktop and Mobile</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards for  New Year</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">2025 Trends and 2026 forecast</h5>
+<ul class="space-y-2">
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-digital-outlook-trends-forecast</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">2026-festival-countdown</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026_dashboard.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">2026_dashboard</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/new_year_2026_page.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">New_year_2026_page</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/send-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl07_title">Send-christmas-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl08_title">Send-sankranti-wishes-in-multiple-languages</a>
+</li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/index-oct.html">Thanks Giving Main Page</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+<div class="space-y-2">
+<p>Redmond<br/>WA, USA</p>
+<p>
+<a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+</p>
+<p>
+<a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+</p>
+</div>
+</div>
+</div>
+<div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+<p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+<div class="flex space-x-4 mt-4 sm:mt-0">
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+<span class="sr-only">Facebook</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+</svg>
+</a>
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+<span class="sr-only">Twitter</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+</svg>
+</a>
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+<span class="sr-only">LinkedIn</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+</svg>
+</a>
+</div>
+<div class="flex gap-4 mt-4 sm:mt-0">
+<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+</div>
+</div>
+</div>
+</footer>
+
+  <script>
+    // Marathi quotes (you can add more)
+    const QUOTES = [
+      { id: 1,  text: "मकर संक्रांतीच्या हार्दिक शुभेच्छा! सूर्याच्या तेजासारखं तुमचं आयुष्य उजळून निघो.", tags: ["featured","सूर्य","शुभेच्छा"], category: "शुभेच्छा" },
+      { id: 2,  text: "तिळगुळ घ्या, गोड गोड बोला — नात्यांत गोडवा वाढू दे. शुभ संक्रांत!", tags: ["featured","तिळगुळ","गोडवा"], category: "तिळगुळ" },
+      { id: 3,  text: "नव्या ऋतूची नवी सुरुवात—आनंद, आरोग्य आणि समृद्धी घेऊन येवो. शुभ संक्रांत!", tags: ["featured","नवीन","समृद्धी"], category: "शुभेच्छा" },
+      { id: 4,  text: "सूर्यनारायणाच्या कृपेने तुमच्या घरात सुख-समाधान नांदो. मकर संक्रांतीच्या शुभेच्छा!", tags: ["सूर्य","कृपा"], category: "शुभेच्छा" },
+
+      { id: 5,  text: "तिळासारखी घट्ट मैत्री आणि गुळासारखा गोडवा सदैव टिकून राहो. शुभ संक्रांत!", tags: ["तिळगुळ","मैत्री"], category: "तिळगुळ" },
+      { id: 6,  text: "गुळाच्या गोडव्यासारखी तुमची वाणी आणि तिळाच्या बळासारखं तुमचं मन मजबूत राहो.", tags: ["तिळगुळ","वाणी","बळ"], category: "तिळगुळ" },
+      { id: 7,  text: "तिळगुळ वाटताना नाती जुळतात — आजपासून प्रेम, आपुलकी वाढू दे. शुभ संक्रांत!", tags: ["तिळगुळ","नाती"], category: "तिळगुळ" },
+
+      { id: 8,  text: "पतंगासारखी स्वप्नं उंच उडू देत आणि यशाच्या धाग्यावर टिकून राहू देत. शुभ उत्तरायण!", tags: ["featured","पतंग","स्वप्न","यश"], category: "पतंग" },
+      { id: 9,  text: "आकाशात रंग, मनात आनंद — पतंग उडवा, हसत राहा! शुभ संक्रांत!", tags: ["पतंग","आनंद"], category: "पतंग" },
+      { id: 10, text: "धागा घट्ट ठेवा, मन हलकं ठेवा — पतंगबाजीसारखं आयुष्य रंगवून घ्या!", tags: ["पतंग","धागा","रंग"], category: "पतंग" },
+
+      { id: 11, text: "घरात हसरा चेहरा, मनात शांत निवारा — हेच संक्रांतीचं खरं दान. शुभेच्छा!", tags: ["कुटुंब","शांतता"], category: "नाती" },
+      { id: 12, text: "नात्यांमध्ये प्रेम वाढो, गैरसमज कमी होवोत — मकर संक्रांतीच्या शुभेच्छा!", tags: ["नाती","प्रेम"], category: "नाती" },
+      { id: 13, text: "आज तिळगुळासोबत हसणंही वाटा — आनंद दुप्पट होतो. शुभ संक्रांत!", tags: ["नाती","आनंद"], category: "नाती" },
+
+      { id: 14, text: "कापणीचा सण आनंदाचा — तुमच्या आयुष्यात समृद्धीचा धान्यसाठा वाढो. शुभ संक्रांत!", tags: ["कापणी","समृद्धी"], category: "समृद्धी" },
+      { id: 15, text: "मेहनतीच्या पिकासारखं तुमचं यश फुलो आणि मेहनतीला योग्य फळ मिळो. शुभेच्छा!", tags: ["मेहनत","यश"], category: "समृद्धी" },
+      { id: 16, text: "नवे दिवस, नवी उर्जा — समृद्धीची दारे उघडू देत. शुभ संक्रांत!", tags: ["नवीन","उर्जा"], category: "समृद्धी" },
+
+      { id: 17, text: "उंच उडूया, उजळूया — शुभ संक्रांत!", tags: ["लहान","पतंग"], category: "लहान" },
+      { id: 18, text: "तिळगुळ आणि गोड बोल — एवढंच पुरे!", tags: ["लहान","तिळगुळ"], category: "लहान" },
+      { id: 19, text: "सूर्य तेजोमय, मन आनंदमय — शुभ संक्रांत!", tags: ["लहान","सूर्य"], category: "लहान" },
+
+      { id: 20, text: "जसं सूर्य उत्तरायणाला वळतो, तसं आपलं आयुष्यही सकारात्मकतेकडे वळो.", tags: ["प्रेरणा","सकारात्मक","सूर्य"], category: "प्रेरणा" },
+      { id: 21, text: "कडूपणा विसरा, गोडवा जपा — आजपासून नव्या सुरुवातीला सुरुवात!", tags: ["प्रेरणा","गोडवा"], category: "प्रेरणा" },
+      { id: 22, text: "पतंग जरी कटला तरी पुन्हा उडतो — हरलात तरी पुन्हा प्रयत्न करा.", tags: ["प्रेरणा","प्रयत्न","पतंग"], category: "प्रेरणा" },
+
+      // more
+      { id: 23, text: "तुमच्या आयुष्यात आरोग्य, संपन्नता आणि समाधान भरभरून नांदो. मकर संक्रांतीच्या हार्दिक शुभेच्छा!", tags: ["आरोग्य","संपन्नता"], category: "शुभेच्छा" },
+      { id: 24, text: "संकटांचा धागा कट होवो आणि आनंदाचा पतंग उंच उडो. शुभ संक्रांत!", tags: ["पतंग","आनंद"], category: "पतंग" },
+      { id: 25, text: "तिळगुळासारखी गोड आठवण आणि पतंगासारखी उंच भरारी — हेच तुमचं वर्ष असो!", tags: ["तिळगुळ","पतंग","वर्ष"], category: "शुभेच्छा" }
+    ];
+
+    const grid = document.getElementById("quotesGrid");
+    const searchInput = document.getElementById("searchInput");
+    const clearBtn = document.getElementById("clearBtn");
+    const toast = document.getElementById("toast");
+    const toastMsg = document.getElementById("toastMsg");
+    const randomQuoteBtn = document.getElementById("randomQuoteBtn");
+    const emptyState = document.getElementById("emptyState");
+    let toastTimer = null;
+
+    function normalize(s) { return (s || "").toLowerCase().trim(); }
+
+    function showToast(msg) {
+      toastMsg.textContent = msg;
+      toast.classList.remove("hidden");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.add("hidden"), 1600);
+    }
+
+    async function copyToClipboard(text) {
+      try {
+        await navigator.clipboard.writeText(text);
+        showToast("Copied!");
+      } catch (e) {
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+        showToast("Copied!");
+      }
+    }
+
+    async function shareQuote(text) {
+      try {
+        if (navigator.share) {
+          await navigator.share({ text });
+          showToast("Shared!");
+        } else {
+          await copyToClipboard(text);
+          showToast("Copied!");
+        }
+      } catch (e) {
+        // ignore cancel
+      }
+    }
+
+    function quoteCard(q) {
+      const card = document.createElement("article");
+      card.className = "bg-white border border-orange-100 rounded-2xl p-5 card-hover flex flex-col";
+
+      const top = document.createElement("div");
+      top.className = "flex items-start justify-between gap-3";
+
+      const badge = document.createElement("div");
+      badge.className = "inline-flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full bg-orange-50 text-orange-800 border border-orange-100";
+      badge.innerHTML = '<i class="fa-solid fa-tag text-orange-500"></i><span>' + q.category + "</span>";
+
+      const fav = document.createElement("div");
+      fav.className = "text-xs font-semibold text-orange-700";
+      fav.textContent = (q.tags || []).includes("featured") ? "★ Featured" : "";
+
+      top.appendChild(badge);
+      top.appendChild(fav);
+
+      const quote = document.createElement("div");
+      quote.className = "mt-4 text-gray-800 leading-relaxed";
+      const safe = (q.text || "").replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
+      quote.innerHTML = '<div class="text-3xl text-orange-300 leading-none">“</div>' +
+                        '<p class="mt-1 text-base">' + safe + "</p>" +
+                        '<div class="text-3xl text-orange-300 leading-none text-right">”</div>';
+
+      const tags = document.createElement("div");
+      tags.className = "mt-3 flex flex-wrap gap-2";
+      (q.tags || []).filter(t => t !== "featured").slice(0, 4).forEach(t => {
+        const pill = document.createElement("span");
+        pill.className = "text-xs px-2.5 py-1 rounded-full bg-gray-50 border border-gray-100 text-gray-700";
+        pill.textContent = "#" + t;
+        tags.appendChild(pill);
+      });
+
+      const actions = document.createElement("div");
+      actions.className = "mt-4 flex gap-2";
+
+      const copyBtn = document.createElement("button");
+      copyBtn.type = "button";
+      copyBtn.className = "flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-semibold transition";
+      copyBtn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy';
+      copyBtn.addEventListener("click", () => copyToClipboard(q.text));
+
+      const shareBtn = document.createElement("button");
+      shareBtn.type = "button";
+      shareBtn.className = "inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-orange-50 hover:bg-orange-100 text-orange-800 font-semibold transition border border-orange-100";
+      shareBtn.innerHTML = '<i class="fa-solid fa-share-nodes"></i> Share';
+      shareBtn.addEventListener("click", () => shareQuote(q.text));
+
+      actions.appendChild(copyBtn);
+      actions.appendChild(shareBtn);
+
+      card.appendChild(top);
+      card.appendChild(quote);
+      card.appendChild(tags);
+      card.appendChild(actions);
+
+      return card;
+    }
+
+    function renderQuotes() {
+      const q = normalize(searchInput.value);
+      const filtered = QUOTES.filter(item => {
+        if (!q) return true;
+        const hay = normalize(item.text + " " + (item.tags || []).join(" ") + " " + item.category);
+        return hay.includes(q);
+      });
+
+      grid.innerHTML = "";
+      if (filtered.length === 0) {
+        emptyState.classList.remove("hidden");
+        return;
+      }
+      emptyState.classList.add("hidden");
+
+      // Featured first
+      filtered.sort((a,b) => {
+        const af = (a.tags || []).includes("featured") ? 0 : 1;
+        const bf = (b.tags || []).includes("featured") ? 0 : 1;
+        if (af !== bf) return af - bf;
+        return a.id - b.id;
+      });
+
+      filtered.forEach(item => grid.appendChild(quoteCard(item)));
+    }
+
+    function randomQuote() {
+      const q = normalize(searchInput.value);
+      const candidates = QUOTES.filter(item => {
+        if (!q) return true;
+        const hay = normalize(item.text + " " + (item.tags || []).join(" ") + " " + item.category);
+        return hay.includes(q);
+      });
+      if (candidates.length === 0) {
+        showToast("No quotes found");
+        return;
+      }
+      const pick = candidates[Math.floor(Math.random() * candidates.length)];
+      copyToClipboard(pick.text);
+      document.getElementById("marathi-quotes").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    clearBtn.addEventListener("click", () => {
+      searchInput.value = "";
+      renderQuotes();
+      searchInput.focus();
+    });
+
+    searchInput.addEventListener("input", renderQuotes);
+    randomQuoteBtn.addEventListener("click", randomQuote);
+
+    renderQuotes();
+  </script>
+
+
+</body></html>

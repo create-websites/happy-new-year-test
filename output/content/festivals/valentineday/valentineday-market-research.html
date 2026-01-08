@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en"><head> <meta charset="utf-8"/> <meta content="width=device-width, initial-scale=1.0" name="viewport"/> <title>The Economics of Affection: Valentine's Day Research</title> <script src="https://cdn.tailwindcss.com"></script> <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Lato:wght@300;400;700&amp;display=swap" rel="stylesheet"/> <script> tailwind.config = { theme: { extend: { fontFamily: { serif: ['"Playfair Display"', 'serif'], sans: ['"Lato"', 'sans-serif'], }, colors: { rose: { 50: '#FFF1F2', 100: '#FFE4E6', 500: '#F43F5E', 600: '#E11D48', 900: '#881337', }, warm: { 50: '#FFFBFB', 800: '#4A403A', } } } } } </script> <style> body { background-color: #FFFBFB; color: #4A403A; } /* Chart Container Styling - MANDATORY */ .chart-container { position: relative; width: 100%; height: 350px; max-height: 400px; margin: 0 auto; } @media (max-width: 640px) { .chart-container { height: 280px; } }
+
+    .nav-active {
+        border-bottom: 2px solid #E11D48;
+        color: #E11D48;
+        font-weight: 700;
+    }
+    
+    .animate-fade {
+        animation: fadeIn 0.4s ease-out;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(5px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .card-hover:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    }
+</style>
+</head> <body class="font-sans antialiased min-h-screen flex flex-col">
+
+<!-- Header / Hero -->
+<header class="bg-white border-b border-rose-100 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-center py-4">
+            <div class="mb-4 md:mb-0 text-center md:text-left">
+                <h1 class="font-serif text-3xl font-bold text-rose-900 tracking-tight">The Economics of Affection</h1>
+                <p class="text-xs text-gray-500 uppercase tracking-widest mt-1">Valentine's Day Consumer Research 2025</p>
+            </div>
+            <!-- Key Metrics Summary -->
+            <div class="flex items-center space-x-8 bg-rose-50 px-6 py-2 rounded-lg border border-rose-100">
+                <div class="text-center">
+                    <p class="text-xs text-gray-500 uppercase font-bold">Total Spend</p>
+                    <p class="text-xl font-serif font-bold text-rose-600">$27.5 Billion</p>
+                </div>
+                <div class="h-8 w-px bg-rose-200"></div>
+                <div class="text-center">
+                    <p class="text-xs text-gray-500 uppercase font-bold">Avg / Person</p>
+                    <p class="text-xl font-serif font-bold text-warm-800">$188.81</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation Tabs -->
+        <nav class="flex space-x-6 md:space-x-12 overflow-x-auto pb-0" id="main-nav">
+            <button class="nav-btn nav-active whitespace-nowrap pb-3 text-sm transition-colors hover:text-rose-500 font-medium" data-tab="wallet" onclick="switchTab('wallet')">The Wallet</button>
+            <button class="nav-btn whitespace-nowrap pb-3 text-sm transition-colors hover:text-rose-500 text-gray-500 font-medium" data-tab="heart" onclick="switchTab('heart')">The Heart (Recipients)</button>
+            <button class="nav-btn whitespace-nowrap pb-3 text-sm transition-colors hover:text-rose-500 text-gray-500 font-medium" data-tab="pulse" onclick="switchTab('pulse')">The Pulse (Trends)</button>
+            <button class="nav-btn whitespace-nowrap pb-3 text-sm transition-colors hover:text-rose-500 text-gray-500 font-medium" data-tab="shopper" onclick="switchTab('shopper')">The Shopper</button>
+        </nav>
+    </div>
+</header>
+
+<!-- Main Content -->
+<main class="flex-grow max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+
+    <!-- VIEW 1: THE WALLET -->
+    <div class="animate-fade block" id="view-wallet">
+        <div class="max-w-3xl mx-auto text-center mb-8">
+            <h2 class="font-serif text-2xl text-warm-800 mb-2">Popularity vs. Profitability</h2>
+            <p class="text-gray-600 leading-relaxed">
+                A critical finding in the research is the disconnect between gift volume and economic value. 
+                While <span class="font-bold text-rose-500">57%</span> While a portion of overall spending goes towards candy, it only makes up a small percentage of consumers' purchases. 
+                <span class="font-bold text-rose-500">Jewelry</span>, which drives $6.4B in revenue despite lower purchase frequency.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Main Chart -->
+            <div class="lg:col-span-2 bg-white p-6 rounded-xl shadow-sm border border-rose-50">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="font-bold text-lg text-warm-800">Category Breakdown</h3>
+                    <!-- Chart Controls -->
+                    <div class="flex bg-gray-100 rounded-lg p-1">
+                        <button class="px-3 py-1 text-xs font-bold rounded-md bg-white text-rose-600 shadow-sm transition-all" id="btn-pop" onclick="updateWalletChart('popularity')">By Popularity (%)</button>
+                        <button class="px-3 py-1 text-xs font-bold rounded-md text-gray-500 hover:text-rose-600 transition-all" id="btn-spend" onclick="updateWalletChart('spend')">By Spend ($B)</button>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="walletChart"></canvas>
+                </div>
+                <div class="mt-2 text-xs text-gray-400 text-center italic">Source: NRF &amp; Prosper Insights Data (2025 Projection)</div>
+            </div>
+
+            <!-- Key Findings Cards -->
+            <div class="space-y-4">
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-rose-50 card-hover transition-transform duration-300">
+                    <div class="flex items-center mb-2">
+                        <span class="text-2xl mr-3">💎</span>
+                        <h4 class="font-bold text-gray-800">The Revenue King</h4>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">Jewelry remains the highest spending category.</p>
+                    <div class="flex justify-between items-end border-b border-rose-100 pb-2">
+                        <span class="text-xs text-gray-400">Total Projection</span>
+                        <span class="font-bold text-lg text-rose-600">$6.4 Billion</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-rose-50 card-hover transition-transform duration-300">
+                    <div class="flex items-center mb-2">
+                        <span class="text-2xl mr-3">🍬</span>
+                        <h4 class="font-bold text-gray-800">The Volume King</h4>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">More than half of all shoppers buy candy as it is the most universally appreciated gift.</p>
+                    <div class="flex justify-between items-end border-b border-rose-100 pb-2">
+                        <span class="text-xs text-gray-400">Participation</span>
+                        <span class="font-bold text-lg text-rose-600">57%</span>
+                    </div>
+                </div>
+
+                <div class="bg-rose-50 p-5 rounded-xl border border-rose-100">
+                    <h4 class="font-bold text-rose-800 text-xs uppercase mb-2">Economic Note</h4>
+                    <p class="text-sm text-gray-700 italic">The rise in cocoa prices has caused "shrinkflation" in chocolate gifts, but consumer demand for this holiday favorite remains unaffected by inflationary pressures.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIEW 2: THE HEART -->
+    <div class="hidden animate-fade" id="view-heart">
+         <div class="max-w-3xl mx-auto text-center mb-8">
+            <h2 class="font-serif text-2xl text-warm-800 mb-2">Who Gets the Love?</h2>
+            <p class="text-gray-600 leading-relaxed">
+                focus is also on including other stakeholders. <span class="font-bold text-rose-600">"Pet Economy"</span> 
+                and <span class="font-bold text-rose-600">"Galentine's"</span> celebrations have turned friends and fur-babies into significant spending categories.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+            <!-- Doughnut Chart Section -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-rose-50">
+                <h3 class="font-bold text-lg text-warm-800 mb-2 text-center">Share of Wallet Breakdown</h3>
+                <p class="text-xs text-gray-400 text-center mb-6">Click segments to see average spend per person</p>
+                <div class="chart-container" style="max-height: 350px; max-width: 400px; margin: 0 auto;">
+                    <canvas id="relationshipsChart"></canvas>
+                </div>
+                <div class="mt-4 text-center p-4 bg-rose-50 rounded-lg transition-all" id="donut-detail">
+                    <p class="text-sm font-bold text-warm-800">Select a segment above for details</p>
+                </div>
+            </div>
+
+            <!-- Trends List -->
+            <div class="space-y-6">
+                <!-- Pet Trend -->
+                <div class="flex flex-col p-6 bg-white rounded-xl shadow-sm border-l-4 border-rose-400 card-hover transition-transform">
+                    <div class="flex justify-between items-start mb-2">
+                        <h4 class="font-serif text-xl font-bold text-warm-800">The "Fur-Baby" Economy</h4>
+                        <span class="text-2xl">🐾</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">Pets are now considered valid recipients for Valentine's Day gifts, as 32% of consumers intend to purchase a present for their furry friends.</p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-50 p-3 rounded">
+                            <span class="block text-xs text-gray-400 uppercase">Total Spend</span>
+                            <span class="block text-lg font-bold text-warm-800">~$1.7B</span>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded">
+                            <span class="block text-xs text-gray-400 uppercase">Per Pet</span>
+                            <span class="block text-lg font-bold text-warm-800">$12.21</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Friends Trend -->
+                <div class="flex flex-col p-6 bg-white rounded-xl shadow-sm border-l-4 border-rose-300 card-hover transition-transform">
+                    <div class="flex justify-between items-start mb-2">
+                        <h4 class="font-serif text-xl font-bold text-warm-800">Friends &amp; Co-workers</h4>
+                        <span class="text-2xl">🥂</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">Treating friends (Galentine's) and co-workers to gifts demonstrates a growing trend of showing platonic gratitude.</p>
+                    <div class="flex items-center text-sm">
+                        <div class="w-full bg-gray-100 rounded-full h-2 mr-3">
+                            <div class="bg-rose-300 h-2 rounded-full" style="width: 28%"></div>
+                        </div>
+                        <span class="text-gray-600 font-bold">28%</span>
+                    </div>
+                    <p class="text-xs text-gray-400 mt-1">of consumers buy for friends/non-romantic peers.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIEW 3: THE PULSE -->
+    <div class="hidden animate-fade" id="view-pulse">
+        <div class="max-w-3xl mx-auto text-center mb-8">
+            <h2 class="font-serif text-2xl text-warm-800 mb-2">Search Trends &amp; Timeline</h2>
+            <p class="text-gray-600 leading-relaxed">
+                Digital behavior reveals the anxiety behind the holiday. From the "Procrastination Curve" spike in February to 
+                specific keyword trends like "Situationships" and "DIY", search data tells the real story.
+            </p>
+        </div>
+
+        <!-- Timeline Chart -->
+        <div class="w-full bg-white p-6 rounded-xl shadow-sm border border-rose-50 mb-8">
+            <h3 class="font-bold text-lg text-warm-800 mb-4">The "Panic Buy" Curve (Search Volume)</h3>
+            <div class="chart-container" style="height: 300px;">
+                <canvas id="timelineChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Interactive Keywords Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+                <h3 class="font-bold text-lg text-warm-800 mb-4">Trending Search Terms</h3>
+                <p class="text-sm text-gray-500 mb-4">Click a term to reveal the context behind the data.</p>
+                <div class="flex flex-wrap gap-3">
+                    <button class="px-4 py-2 rounded-full border border-gray-200 text-sm hover:bg-rose-50 hover:border-rose-300 hover:text-rose-600 transition-colors bg-white font-medium" onclick="showTrend('situationship')">Situationship</button>
+                    <button class="px-4 py-2 rounded-full border border-gray-200 text-sm hover:bg-rose-50 hover:border-rose-300 hover:text-rose-600 transition-colors bg-white font-medium" onclick="showTrend('stanley')">Valentine's Stanley Cup</button>
+                    <button class="px-4 py-2 rounded-full border border-gray-200 text-sm hover:bg-rose-50 hover:border-rose-300 hover:text-rose-600 transition-colors bg-white font-medium" onclick="showTrend('strawberries')">Choc Covered Strawberries</button>
+                    <button class="px-4 py-2 rounded-full border border-gray-200 text-sm hover:bg-rose-50 hover:border-rose-300 hover:text-rose-600 transition-colors bg-white font-medium" onclick="showTrend('diy')">DIY Card</button>
+                    <button class="px-4 py-2 rounded-full border border-gray-200 text-sm hover:bg-rose-50 hover:border-rose-300 hover:text-rose-600 transition-colors bg-white font-medium" onclick="showTrend('outfit')">First Date Outfit</button>
+                    <button class="px-4 py-2 rounded-full border border-gray-200 text-sm hover:bg-rose-50 hover:border-rose-300 hover:text-rose-600 transition-colors bg-white font-medium" onclick="showTrend('selfcare')">Self Care</button>
+                </div>
+            </div>
+
+            <!-- Dynamic Trend Details Card -->
+            <div class="bg-rose-50 rounded-xl p-8 flex flex-col justify-center items-center text-center border border-rose-100 min-h-[200px] transition-all" id="trend-display">
+                <span class="text-4xl mb-4">🔍</span>
+                <h4 class="font-serif text-xl font-bold text-warm-800 mb-2">Select a Trend</h4>
+                <p class="text-gray-600 text-sm">Click the bubbles on the left to uncover the insight.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIEW 4: THE SHOPPER -->
+    <div class="hidden animate-fade" id="view-shopper">
+         <div class="max-w-3xl mx-auto text-center mb-8">
+            <h2 class="font-serif text-2xl text-warm-800 mb-2">Demographics &amp; Behavior</h2>
+            <p class="text-gray-600 leading-relaxed">
+                The <span class="font-bold text-warm-800">35-44 year old</span> demographic drives the economy, likely due to balancing gifts for spouses, children, and pets. 
+                There is also a significant spending gap between men and women.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Age Chart -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-rose-50">
+                <h3 class="font-bold text-lg text-warm-800 mb-6">Average Spending by Age</h3>
+                <div class="chart-container">
+                    <canvas id="ageChart"></canvas>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Gender Stats -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-warm-800 text-white p-5 rounded-xl text-center shadow-lg">
+                        <span class="text-3xl mb-2 block">🤵</span>
+                        <h4 class="text-sm uppercase tracking-widest text-gray-300 mb-1">Men</h4>
+                        <p class="text-xs text-gray-400 mb-2">Avg Spend</p>
+                        <span class="text-3xl font-serif font-bold">$235</span>
+                    </div>
+                    <div class="bg-rose-100 text-rose-900 p-5 rounded-xl text-center shadow-sm border border-rose-200">
+                        <span class="text-3xl mb-2 block">👩</span>
+                        <h4 class="text-sm uppercase tracking-widest text-rose-600 mb-1">Women</h4>
+                        <p class="text-xs text-rose-400 mb-2">Avg Spend</p>
+                        <span class="text-3xl font-serif font-bold">$119</span>
+                    </div>
+                </div>
+
+                <!-- Online vs Offline -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-rose-50">
+                    <h3 class="font-bold text-lg text-warm-800 mb-4">Where They Shop</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="font-semibold text-gray-700">Online</span>
+                                <span class="font-bold text-rose-500">40%</span>
+                            </div>
+                            <div class="w-full bg-gray-100 rounded-full h-3">
+                                <div class="bg-rose-500 h-3 rounded-full" style="width: 40%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="font-semibold text-gray-700">Department Stores</span>
+                                <span class="font-bold text-warm-800">33%</span>
+                            </div>
+                            <div class="w-full bg-gray-100 rounded-full h-3">
+                                <div class="bg-warm-800 h-3 rounded-full" style="width: 33%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="font-semibold text-gray-700">Discount Stores</span>
+                                <span class="font-bold text-gray-500">31%</span>
+                            </div>
+                            <div class="w-full bg-gray-100 rounded-full h-3">
+                                <div class="bg-gray-400 h-3 rounded-full" style="width: 31%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<!-- Footer / Interactive Calculator -->
+<footer class="bg-gray-800 text-gray-300">
+<div class="container mx-auto px-6 py-12 lg:px-8">
+<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">26-bihari-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">26-chinese-new-year-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">26-christmas-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-festival-countdown</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">Christmas-wishes-by-audience</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">Happy-new-year-2026-celebrations-worldwide.html</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">Happy-new-year-2026</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">Multilingual-greetings-webpage</a>
+</li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+</ul>
+<h5 class="text-lg font-semibold text-white mb-4">Wishes and Wallpapers</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes-and-wallpapers.html">Wishes and Wallpapers</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/welcome-new-year.html">Welcome New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wallpapers">Festival Wallpaper for Desktop and Mobile</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards for  New Year</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">2025 Trends and 2026 forecast</h5>
+<ul class="space-y-2">
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-digital-outlook-trends-forecast</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">2026-festival-countdown</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026_dashboard.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">2026_dashboard</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/new_year_2026_page.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">New_year_2026_page</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/send-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl07_title">Send-christmas-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl08_title">Send-sankranti-wishes-in-multiple-languages</a>
+</li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/index-oct.html">Thanks Giving Main Page</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+<div class="space-y-2">
+<p>Redmond<br/>WA, USA</p>
+<p>
+<a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+</p>
+<p>
+<a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+</p>
+</div>
+</div>
+</div>
+<div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+<p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+<div class="flex space-x-4 mt-4 sm:mt-0">
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+<span class="sr-only">Facebook</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+</svg>
+</a>
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+<span class="sr-only">Twitter</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+</svg>
+</a>
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+<span class="sr-only">LinkedIn</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+</svg>
+</a>
+</div>
+<div class="flex gap-4 mt-4 sm:mt-0">
+<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+</div>
+</div>
+</div>
+</footer>
+
+<script>
+    // --- DATA OBJECTS ---
+    const walletData = {
+        spend: {
+            label: 'Total Spending (Billions $)',
+            data: [6.4, 4.9, 3.0, 2.6, 2.2, 1.8],
+            labels: ['Jewelry', 'Evening Out', 'Clothing', 'Flowers', 'Candy', 'Gift Cards'],
+            bg: ['#E11D48', '#881337', '#F43F5E', '#FB7185', '#FECDD3', '#E5E7EB'] // Dark red for high value, light for low
+        },
+        popularity: {
+            label: '% of Shoppers Purchasing',
+            data: [22, 32, 21, 37, 57, 20],
+            labels: ['Jewelry', 'Evening Out', 'Clothing', 'Flowers', 'Candy', 'Gift Cards'],
+            bg: ['#E11D48', '#881337', '#F43F5E', '#FB7185', '#FECDD3', '#E5E7EB'] 
+        }
+    };
+
+    const trendContext = {
+        'situationship': { title: 'The Situationship', icon: '😶‍🌫️', text: 'Searches for "Situationship" and "Sneaky Link" spike +100% in Feb. The ambiguity of dating drives anxiety-based searches.' },
+        'stanley': { title: 'Viral Products', icon: '🥤', text: 'The "Valentine\'s Stanley Cup" represents the "Drop Culture" aspect of the holiday. Limited edition items create artificial scarcity and urgency.' },
+        'strawberries': { title: 'Classic Cravings', icon: '🍓', text: '"Chocolate Covered Strawberries" is the #1 edible search term, consistently outranking boxed chocolates in search intent.' },
+        'diy': { title: 'Handmade Effort', icon: '🧶', text: '"DIY Valentine Card" interest peaks Feb 12-13. Consumers look to save money or add a personal touch at the last minute.' },
+        'outfit': { title: 'Date Night Prep', icon: '👗', text: 'Searches for "Casual first date outfit" peak, indicating many people use the holiday for new romance, not just long-term partners.' },
+        'selfcare': { title: 'Me, Myself & I', icon: '🛁', text: 'Self-care searches are up year-over-year. The "Treat Yourself" narrative is a major commercial pillar for singles.' }
+    };
+
+    // --- CHART INSTANCES ---
+    let chartWallet, chartRelationships, chartTimeline, chartAge;
+
+    // --- INITIALIZATION ---
+    document.addEventListener('DOMContentLoaded', () => {
+        initWalletChart();
+        initRelationshipsChart();
+        initTimelineChart();
+        initAgeChart();
+    });
+
+    // --- VIEW SWITCHING LOGIC ---
+    function switchTab(tabId) {
+        // Hide all views
+        ['wallet', 'heart', 'pulse', 'shopper'].forEach(id => {
+            document.getElementById(`view-${id}`).classList.add('hidden');
+            // Remove nav active class
+            const btn = document.querySelector(`button[data-tab="${id}"]`);
+            btn.classList.remove('nav-active', 'text-rose-500');
+            btn.classList.add('text-gray-500');
+        });
+
+        // Show selected
+        document.getElementById(`view-${tabId}`).classList.remove('hidden');
+        
+        // Set active nav
+        const activeBtn = document.querySelector(`button[data-tab="${tabId}"]`);
+        activeBtn.classList.add('nav-active', 'text-rose-500');
+        activeBtn.classList.remove('text-gray-500');
+
+        // Force chart resize (Canvas limitation fix)
+        setTimeout(() => {
+            if (chartWallet) chartWallet.resize();
+            if (chartRelationships) chartRelationships.resize();
+            if (chartTimeline) chartTimeline.resize();
+            if (chartAge) chartAge.resize();
+        }, 50);
+    }
+
+    // --- CHART 1: WALLET (Bar) ---
+    function initWalletChart() {
+        const ctx = document.getElementById('walletChart').getContext('2d');
+        chartWallet = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: walletData.spend.labels,
+                datasets: [{
+                    label: 'Total Spending ($ Billions)',
+                    data: walletData.spend.data,
+                    backgroundColor: walletData.spend.bg,
+                    borderRadius: 6,
+                    borderSkipped: false
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.raw + (walletData.spend.data.includes(context.raw) ? ' Billion' : '%');
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: '#f3f4f6' }
+                    },
+                    x: {
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+    }
+
+    function updateWalletChart(mode) {
+        const btnPop = document.getElementById('btn-pop');
+        const btnSpend = document.getElementById('btn-spend');
+        
+        if (mode === 'popularity') {
+            chartWallet.data.datasets[0].data = walletData.popularity.data;
+            chartWallet.data.datasets[0].label = '% of Shoppers Buying';
+            // Update buttons
+            btnPop.classList.add('bg-white', 'text-rose-600', 'shadow-sm');
+            btnPop.classList.remove('text-gray-500');
+            btnSpend.classList.remove('bg-white', 'text-rose-600', 'shadow-sm');
+            btnSpend.classList.add('text-gray-500');
+        } else {
+            chartWallet.data.datasets[0].data = walletData.spend.data;
+            chartWallet.data.datasets[0].label = 'Total Spending ($ Billions)';
+            // Update buttons
+            btnSpend.classList.add('bg-white', 'text-rose-600', 'shadow-sm');
+            btnSpend.classList.remove('text-gray-500');
+            btnPop.classList.remove('bg-white', 'text-rose-600', 'shadow-sm');
+            btnPop.classList.add('text-gray-500');
+        }
+        chartWallet.update();
+    }
+
+    // --- CHART 2: RELATIONSHIPS (Doughnut) ---
+    function initRelationshipsChart() {
+        const ctx = document.getElementById('relationshipsChart').getContext('2d');
+        chartRelationships = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Partner', 'Family', 'Friends', 'Children', 'Pets', 'Co-workers', 'Other'],
+                datasets: [{
+                    data: [103, 30, 15, 22, 12, 7, 5], // Avg spend per person breakdown
+                    backgroundColor: [
+                        '#E11D48', // Partner (Dark Rose)
+                        '#F43F5E', 
+                        '#FB7185', 
+                        '#FECDD3', 
+                        '#4A403A', // Pets (Dark brown/Charcoal)
+                        '#E5E7EB',
+                        '#F3F4F6'
+                    ],
+                    hoverOffset: 15,
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { boxWidth: 10, usePointStyle: true, padding: 20 } },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `$${context.raw} avg`;
+                            }
+                        }
+                    }
+                },
+                onClick: (e, elements) => {
+                    if (elements.length > 0) {
+                        const index = elements[0].index;
+                        const label = chartRelationships.data.labels[index];
+                        const value = chartRelationships.data.datasets[0].data[index];
+                        const detailBox = document.getElementById('donut-detail');
+                        
+                        let comment = "";
+                        if(label === "Pets") comment = "32% of people buy for pets, making it a $1.7B economy.";
+                        if(label === "Partner") comment = "Still the core driver of the holiday economy.";
+                        if(label === "Friends") comment = "Galentine's impact is real: spend is up +15% YoY.";
+                        
+                        detailBox.innerHTML = `
+                            <p class="text-rose-600 font-bold uppercase text-xs">${label}</p>
+                            <p class="text-3xl font-serif text-warm-800 font-bold">$${value}</p>
+                            <p class="text-gray-500 text-xs italic mt-1">${comment}</p>
+                        `;
+                    }
+                }
+            }
+        });
+    }
+
+    // --- CHART 3: TIMELINE (Line) ---
+    function initTimelineChart() {
+        const ctx = document.getElementById('timelineChart').getContext('2d');
+        chartTimeline = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan 15', 'Jan 22', 'Jan 29', 'Feb 1', 'Feb 5', 'Feb 8', 'Feb 11', 'Feb 12', 'Feb 13', 'Feb 14'],
+                datasets: [{
+                    label: 'Search Interest Index',
+                    data: [15, 20, 35, 45, 55, 65, 85, 92, 98, 100],
+                    borderColor: '#E11D48',
+                    backgroundColor: (context) => {
+                        const ctx = context.chart.ctx;
+                        const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+                        gradient.addColorStop(0, 'rgba(225, 29, 72, 0.4)');
+                        gradient.addColorStop(1, 'rgba(225, 29, 72, 0.0)');
+                        return gradient;
+                    },
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: '#fff',
+                    pointBorderColor: '#E11D48',
+                    pointRadius: 5,
+                    pointHoverRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            title: (items) => {
+                                if(items[0].label === 'Feb 11') return 'Feb 11: Weekend Before';
+                                if(items[0].label === 'Feb 13') return 'Feb 13: Galentine\'s';
+                                return items[0].label;
+                            },
+                            label: (context) => {
+                                return 'Intensity: ' + context.raw + '/100';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: { display: false },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+    }
+
+    // --- CHART 4: AGE (Bar) ---
+    function initAgeChart() {
+        const ctx = document.getElementById('ageChart').getContext('2d');
+        chartAge = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['18-24', '25-34', '35-44', '45-54', '55-64', '65+'],
+                datasets: [{
+                    label: 'Avg Spend ($)',
+                    data: [140, 260, 335, 250, 110, 85],
+                    backgroundColor: [
+                        '#FECDD3', '#F43F5E', '#E11D48', '#F43F5E', '#FECDD3', '#FECDD3'
+                    ],
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Dollars ($)' }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+    }
+
+    // --- INTERACTIVITY FUNCTIONS ---
+    function showTrend(key) {
+        const data = trendContext[key];
+        const display = document.getElementById('trend-display');
+        
+        // Animate transition
+        display.style.opacity = '0';
+        display.style.transform = 'translateY(5px)';
+        
+        setTimeout(() => {
+            display.innerHTML = `
+                <span class="text-4xl mb-3 animate-bounce">${data.icon}</span>
+                <h4 class="font-serif text-2xl font-bold text-rose-600 mb-2">${data.title}</h4>
+                <p class="text-warm-800 leading-relaxed text-sm">${data.text}</p>
+            `;
+            display.style.opacity = '1';
+            display.style.transform = 'translateY(0)';
+            display.classList.add('bg-white', 'shadow-md');
+            display.classList.remove('bg-rose-50');
+        }, 200);
+    }
+
+    function calculateComparison() {
+        const input = document.getElementById('userSpend').value;
+        const resultDiv = document.getElementById('calcResult');
+        const avg = 188.81;
+
+        if (!input) return;
+
+        const val = parseFloat(input);
+        let msg = "";
+        let color = "";
+
+        if (val < 50) {
+            msg = "You're a <span class='font-bold'>Minimalist Romantic</span>. Well below the $188 average. DIY gifts or cards likely?";
+            color = "text-gray-500";
+        } else if (val < 188) {
+            msg = "You're a <span class='font-bold'>Sensible Shopper</span>. Below the national average, keeping it reasonable.";
+            color = "text-warm-800";
+        } else if (val < 350) {
+            msg = "You're an <span class='font-bold'>Above Average Admirer</span>. Spending more than the typical consumer.";
+            color = "text-rose-500";
+        } else {
+            msg = "You're a <span class='font-bold'>Grand Gesturer</span>! Way above the curve. Jewelry or a big trip?";
+            color = "text-rose-700";
+        }
+
+        resultDiv.innerHTML = `<p class="${color} text-base">${msg}</p>`;
+        resultDiv.classList.remove('hidden');
+    }
+</script>
+ </body></html>

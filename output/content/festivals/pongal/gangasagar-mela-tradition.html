@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Interactive dashboard providing insights into the Gangasagar Mela. Explore data on pilgrim footfall, transport logistics, environmental initiatives, and cultural significance." name="description"/>
+    <meta content="Gangasagar Mela, Makar Sankranti, Sagar Island, Pilgrim Data, Crowd Management, Green Mela, West Bengal, Cultural Heritage, Interactive Dashboard" name="keywords"/>
+    <title>Gangasagar Mela: Interactive Insight Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Festival Fonts: Cinzel for headings (Traditional/Monumental), Merriweather for body (Readability) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&amp;family=Merriweather:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+
+    <style>
+        /* Festival Theme Overrides */
+        body {
+            font-family: 'Merriweather', serif;
+            background-color: #fff7ed; /* Orange-50/Warm Paper */
+            background-image: radial-gradient(#fed7aa 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        h1, h2, h3, h4, .nav-text {
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fff7ed; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ea580c; 
+            border-radius: 5px;
+            border: 2px solid #fff7ed;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #c2410c; 
+        }
+        
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        
+        @media (max-width: 640px) {
+            .chart-container {
+                height: 300px;
+            }
+        }
+
+        .tab-active {
+            background-color: #fff7ed;
+            border-bottom: 3px solid #ea580c;
+            color: #c2410c; /* Deep Orange */
+            font-weight: 700;
+        }
+        
+        .card-festival {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #fed7aa;
+            box-shadow: 0 4px 6px -1px rgba(234, 88, 12, 0.1), 0 2px 4px -1px rgba(234, 88, 12, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        .card-festival:hover {
+            transform: translateY(-3px);
+            border-color: #ea580c;
+            box-shadow: 0 10px 15px -3px rgba(234, 88, 12, 0.2);
+        }
+
+        /* Decorative header pattern */
+        .header-pattern {
+            background-color: #9a3412;
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ea580c' fill-opacity='0.2' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="text-stone-800 antialiased selection:bg-orange-200 selection:text-orange-900">
+
+    <!-- Chosen Palette: "Utsav" (Celebration)
+         Background: Warm Cream with dot pattern
+         Primary: Marigold Orange (#ea580c)
+         Secondary: Kumkum Red (#9a3412)
+         Accent: Turmeric Yellow (#fbbf24) and Ganga Teal (#0f766e)
+    -->
+
+    <!-- Navigation -->
+    <nav class="bg-white/95 backdrop-blur shadow-md sticky top-0 z-50 border-t-4 border-orange-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <span class="text-3xl text-orange-600 mr-2 drop-shadow-sm">🪔</span>
+                    <div class="flex flex-col">
+                        <h1 class="text-2xl font-bold text-red-900 tracking-tight leading-none">Gangasagar</h1>
+                        <span class="text-xs text-orange-600 font-bold uppercase tracking-widest">Mela Dashboard</span>
+                    </div>
+                </div>
+                <div class="hidden sm:flex space-x-1 items-center">
+                    <button class="nav-text tab-active px-4 py-3 text-sm transition-all rounded-t-lg" id="nav-overview" onclick="switchTab('overview')">Overview</button>
+                    <button class="nav-text px-4 py-3 text-sm text-stone-600 hover:text-orange-700 hover:bg-orange-50 transition-all rounded-t-lg" id="nav-logistics" onclick="switchTab('logistics')">Logistics</button>
+                    <button class="nav-text px-4 py-3 text-sm text-stone-600 hover:text-orange-700 hover:bg-orange-50 transition-all rounded-t-lg" id="nav-environment" onclick="switchTab('environment')">Green Mela</button>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center sm:hidden">
+                    <select class="block w-full rounded-md border-orange-200 py-2 pl-3 pr-10 text-base focus:border-orange-500 focus:outline-none focus:ring-orange-500 sm:text-sm bg-orange-50 font-serif" onchange="switchTab(this.value)">
+                        <option value="overview">Overview</option>
+                        <option value="logistics">Logistics</option>
+                        <option value="environment">Environment</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- Header / Hero Context -->
+        <div class="text-center mb-12 space-y-6 relative">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-orange-500 rounded-full opacity-50"></div>
+            <h2 class="text-4xl md:text-5xl font-black text-red-950 drop-shadow-sm mt-4">The Kumbh of the East</h2>
+            <div class="flex justify-center items-center gap-4 text-orange-600 text-xl">
+                <span>〰️〰️</span> <span class="text-2xl">🕉️</span> <span>〰️〰️</span>
+            </div>
+            <p class="max-w-3xl mx-auto text-lg text-stone-700 leading-relaxed font-light">
+                Experience the divine confluence where the holy <span class="font-bold text-teal-700">Ganga</span> meets the vast <span class="font-bold text-teal-700">Bay of Bengal</span>. 
+                A journey of faith, logistics, and sustainability on Sagar Island.
+            </p>
+            
+            <!-- Key Metrics Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+                <div class="card-festival p-4 rounded-xl">
+                    <div class="text-xs font-bold text-orange-800 uppercase tracking-widest mb-1">Pilgrims</div>
+                    <div class="text-2xl md:text-3xl font-black text-red-700">~5 Million</div>
+                    <div class="text-xs text-stone-500 mt-1">Annual Footfall</div>
+                </div>
+                <div class="card-festival p-4 rounded-xl">
+                    <div class="text-xs font-bold text-orange-800 uppercase tracking-widest mb-1">Sacred Area</div>
+                    <div class="text-2xl md:text-3xl font-black text-teal-700">300+ Acres</div>
+                    <div class="text-xs text-stone-500 mt-1">Mela Grounds</div>
+                </div>
+                <div class="card-festival p-4 rounded-xl">
+                    <div class="text-xs font-bold text-orange-800 uppercase tracking-widest mb-1">Guardians</div>
+                    <div class="text-2xl md:text-3xl font-black text-stone-700">14,000+</div>
+                    <div class="text-xs text-stone-500 mt-1">Safety Personnel</div>
+                </div>
+                <div class="card-festival p-4 rounded-xl border-l-4 border-orange-500">
+                    <div class="text-xs font-bold text-orange-800 uppercase tracking-widest mb-1">Ritual</div>
+                    <div class="text-xl md:text-2xl font-black text-orange-600">Makar Sankranti</div>
+                    <div class="text-xs text-stone-500 mt-1">Holy Snan Date</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section: Overview -->
+        <section class="space-y-10 animate-fade-in" id="tab-content-overview">
+            <div class="bg-white rounded-xl shadow-lg border border-orange-100 overflow-hidden">
+                <div class="p-6 border-b border-orange-100 bg-orange-50 flex items-center justify-between">
+                    <div>
+                        <h3 class="text-2xl font-bold text-red-900">Attendance History</h3>
+                        <p class="text-stone-600 mt-1 text-sm italic">The rising tide of devotion</p>
+                    </div>
+                    <span class="text-3xl">📈</span>
+                </div>
+                <div class="p-6 bg-white">
+                    <div class="chart-container">
+                        <canvas id="footfallChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-amber-50 p-4 border-t border-amber-100">
+                    <div class="text-center text-amber-900 font-bold font-serif" id="year-insight">
+                        Hover your cursor over the chart to unveil the narrative behind each year.
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Cultural Significance -->
+                <div class="card-festival rounded-xl p-6 h-full relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-2 opacity-5 text-9xl text-orange-500 pointer-events-none">🏵️</div>
+                    <h3 class="text-xl font-bold text-red-900 mb-6 border-b-2 border-orange-200 pb-2 inline-block">
+                        Rituals of Faith
+                    </h3>
+                    <div class="space-y-4 relative z-10">
+                        <button class="w-full text-left p-4 rounded-lg bg-orange-50 hover:bg-orange-100 border border-orange-200 transition-all group shadow-sm" onclick="updateRitual('dip')">
+                            <div class="flex items-center">
+                                <span class="bg-white text-xl p-2 rounded-full shadow-sm mr-3">🌊</span>
+                                <div>
+                                    <div class="font-bold text-red-900 group-hover:text-red-700 font-serif">The Holy Dip (Snan)</div>
+                                    <p class="text-xs text-stone-600 mt-0.5 italic">Purification at dawn</p>
+                                </div>
+                            </div>
+                        </button>
+                        <button class="w-full text-left p-4 rounded-lg bg-orange-50 hover:bg-orange-100 border border-orange-200 transition-all group shadow-sm" onclick="updateRitual('kapil')">
+                            <div class="flex items-center">
+                                <span class="bg-white text-xl p-2 rounded-full shadow-sm mr-3">🛕</span>
+                                <div>
+                                    <div class="font-bold text-red-900 group-hover:text-red-700 font-serif">Kapil Muni Temple</div>
+                                    <p class="text-xs text-stone-600 mt-0.5 italic">Darshan of the Sage</p>
+                                </div>
+                            </div>
+                        </button>
+                        <button class="w-full text-left p-4 rounded-lg bg-orange-50 hover:bg-orange-100 border border-orange-200 transition-all group shadow-sm" onclick="updateRitual('aarti')">
+                            <div class="flex items-center">
+                                <span class="bg-white text-xl p-2 rounded-full shadow-sm mr-3">🔥</span>
+                                <div>
+                                    <div class="font-bold text-red-900 group-hover:text-red-700 font-serif">Maha Aarti</div>
+                                    <p class="text-xs text-stone-600 mt-0.5 italic">Evening light ceremony</p>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Dynamic Ritual Detail View -->
+                <div class="header-pattern rounded-xl shadow-lg text-white p-8 flex flex-col justify-center relative overflow-hidden border-4 border-orange-800/20">
+                    <div class="absolute inset-0 bg-black/20 backdrop-blur-sm"></div>
+                    <div class="relative z-10">
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="text-3xl font-black text-amber-400 drop-shadow-md" id="ritual-title">The Holy Dip (Snan)</h4>
+                            <span class="text-4xl bg-white/20 p-2 rounded-lg backdrop-blur" id="ritual-icon">🌊</span>
+                        </div>
+                        <p class="text-orange-50 text-lg leading-relaxed font-light border-l-4 border-amber-400 pl-4" id="ritual-desc">
+                            Pilgrims trust that taking a dip in the sacred Gangasagar waters on Makar Sankranti can cleanse a lifetime of sins. This ritual is typically done at sunrise, enduring the chilly winter currents.
+                        </p>
+                        <div class="mt-8 pt-4 border-t border-white/20 flex justify-between items-center text-sm text-amber-200 font-bold tracking-wider">
+                            <span>TIMING: 3:00 AM - 12:00 PM</span>
+                            <span>✦ AUSPICIOUS ✦</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Logistics -->
+        <section class="space-y-10 hidden animate-fade-in" id="tab-content-logistics">
+            <div class="card-festival rounded-xl p-8">
+                <div class="mb-8 border-b border-stone-100 pb-4">
+                    <h3 class="text-2xl font-bold text-red-900 flex items-center">
+                        <span class="mr-2">🚆</span> The Journey to Sagar
+                    </h3>
+                    <p class="text-stone-600 mt-2">
+                        Guiding millions through a variety of transportation options. The chart shows the distribution of modes used by pilgrims arriving at the ferry terminals.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
+                    <div class="md:col-span-1">
+                        <div class="chart-container" style="height: 300px;">
+                            <canvas id="transportChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-blue-50 p-5 rounded-lg border-l-4 border-blue-600 hover:bg-blue-100 transition-colors">
+                            <h4 class="font-bold text-blue-900 font-serif">Trains (Local)</h4>
+                            <p class="text-sm text-stone-600 mt-1">Life-line of Bengal. 120+ special trains run by Sealdah Division.</p>
+                            <div class="mt-2 text-2xl font-black text-blue-700">~60%</div>
+                        </div>
+                        <div class="bg-amber-50 p-5 rounded-lg border-l-4 border-amber-500 hover:bg-amber-100 transition-colors">
+                            <h4 class="font-bold text-amber-900 font-serif">Buses (Road)</h4>
+                            <p class="text-sm text-stone-600 mt-1">Connecting Kolkata to Harwood Point &amp; Namkhana.</p>
+                            <div class="mt-2 text-2xl font-black text-amber-600">~30%</div>
+                        </div>
+                        <div class="bg-teal-50 p-5 rounded-lg border-l-4 border-teal-500 hover:bg-teal-100 transition-colors">
+                            <h4 class="font-bold text-teal-900 font-serif">Vessels (Ferry)</h4>
+                            <p class="text-sm text-stone-600 mt-1">The Muriganga River can only be crossed by over 100 active vessels.</p>
+                            <div class="mt-2 text-2xl font-black text-teal-700">100% Convergence</div>
+                        </div>
+                        <div class="bg-red-50 p-5 rounded-lg border-l-4 border-red-500 hover:bg-red-100 transition-colors">
+                            <h4 class="font-bold text-red-900 font-serif">Surveillance</h4>
+                            <p class="text-sm text-stone-600 mt-1">AI-backed crowd management grid.</p>
+                            <div class="mt-2 text-2xl font-black text-red-600">1,000+ Cams</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Deployment Stats -->
+             <div class="card-festival rounded-xl p-8">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+                    <h3 class="text-2xl font-bold text-red-900">Safety &amp; Infrastructure</h3>
+                    
+                    <div class="flex space-x-2 bg-stone-100 p-1 rounded-full">
+                        <button class="px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider transition active-safety-filter ring-transparent focus:outline-none" onclick="updateSafetyData('personnel')">Personnel</button>
+                        <button class="px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider transition active-safety-filter ring-transparent focus:outline-none" onclick="updateSafetyData('tech')">Tech</button>
+                        <button class="px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider transition active-safety-filter ring-transparent focus:outline-none" onclick="updateSafetyData('health')">Health</button>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="safetyChart"></canvas>
+                </div>
+             </div>
+        </section>
+
+        <!-- Section: Environment -->
+        <section class="space-y-10 hidden animate-fade-in" id="tab-content-environment">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-emerald-900 rounded-xl p-8 text-white relative overflow-hidden border-4 border-emerald-700">
+                    <!-- Background Pattern -->
+                    <div class="absolute inset-0 opacity-10" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, #fff 10px, #fff 12px);"></div>
+                    
+                    <div class="relative z-10">
+                        <h3 class="text-3xl font-black text-emerald-300 mb-6 flex items-center">
+                            <span class="mr-3">🌿</span> Green Mela
+                        </h3>
+                        <p class="text-emerald-100 mb-8 text-lg font-light leading-relaxed">
+                            Embarking on a spiritual journey should not harm the environment. The 'Green Mela' project aims to achieve a Zero-Waste pilgrimage in the delicate Sundarbans ecosystem.
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center text-emerald-900 bg-emerald-100 p-4 rounded-lg shadow-md transform transition hover:scale-105">
+                                <span class="mr-4 text-2xl">♻️</span> 
+                                <span class="font-bold">10,000+ Bio-toilets installed</span>
+                            </li>
+                            <li class="flex items-center text-emerald-900 bg-emerald-100 p-4 rounded-lg shadow-md transform transition hover:scale-105">
+                                <span class="mr-4 text-2xl">🧹</span> 
+                                <span class="font-bold">3,000+ "Green Sathi" Volunteers</span>
+                            </li>
+                            <li class="flex items-center text-emerald-900 bg-emerald-100 p-4 rounded-lg shadow-md transform transition hover:scale-105">
+                                <span class="mr-4 text-2xl">📱</span> 
+                                <span class="font-bold">e-Snan: Virtual Holy Dip App</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card-festival rounded-xl p-8 flex flex-col justify-center">
+                    <h3 class="text-xl font-bold text-stone-800 mb-2 font-serif">Waste Management Efficiency</h3>
+                    <p class="text-sm text-stone-500 mb-6 italic">Tracking the battle against plastic and refuse.</p>
+                    <div class="chart-container" style="height: 300px;">
+                        <canvas id="wasteChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Interactive Fact -->
+            <div class="header-pattern rounded-xl p-8 text-center text-white shadow-xl relative border-t-8 border-orange-400">
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-orange-400 text-red-900 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest shadow-sm">Did you know?</div>
+                <div class="py-4">
+                    <p class="text-2xl md:text-3xl font-serif font-bold text-orange-100 transition-opacity duration-300" id="env-fact">The Gangasagar Mela is frequently referred to as the 'Kumbh of the East'.</p>
+                </div>
+                <button class="mt-4 px-8 py-2 bg-white text-red-800 hover:bg-orange-100 rounded-full text-sm font-bold uppercase tracking-wide transition-colors shadow-lg" onclick="nextFact()">Next Insight ➜</button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300">
+<div class="container mx-auto px-6 py-12 lg:px-8">
+<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">26-bihari-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">26-chinese-new-year-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">26-christmas-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-festival-countdown</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">Christmas-wishes-by-audience</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">Happy-new-year-2026-celebrations-worldwide.html</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">Happy-new-year-2026</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">Multilingual-greetings-webpage</a>
+</li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+</ul>
+<h5 class="text-lg font-semibold text-white mb-4">Wishes and Wallpapers</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes-and-wallpapers.html">Wishes and Wallpapers</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/welcome-new-year.html">Welcome New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wallpapers">Festival Wallpaper for Desktop and Mobile</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards for  New Year</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">2025 Trends and 2026 forecast</h5>
+<ul class="space-y-2">
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-digital-outlook-trends-forecast</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">2026-festival-countdown</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026_dashboard.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">2026_dashboard</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/new_year_2026_page.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">New_year_2026_page</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/send-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl07_title">Send-christmas-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl08_title">Send-sankranti-wishes-in-multiple-languages</a>
+</li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/index-oct.html">Thanks Giving Main Page</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+<div class="space-y-2">
+<p>Redmond<br/>WA, USA</p>
+<p>
+<a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+</p>
+<p>
+<a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+</p>
+</div>
+</div>
+</div>
+<div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+<p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+<div class="flex space-x-4 mt-4 sm:mt-0">
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+<span class="sr-only">Facebook</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+</svg>
+</a>
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+<span class="sr-only">Twitter</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+</svg>
+</a>
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+<span class="sr-only">LinkedIn</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+</svg>
+</a>
+</div>
+<div class="flex gap-4 mt-4 sm:mt-0">
+<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+</div>
+</div>
+</div>
+</footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // --- State Management ---
+        const state = {
+            activeTab: 'overview',
+            currentRitual: 'dip',
+            safetyFilter: 'personnel',
+            factIndex: 0
+        };
+
+        const facts = [
+            "The Mela takes place on the island of Sagar, which is part of the Sundarbans delta system.",
+            "Kapil Muni is one of the few temples where the deity is a sage, not a god.",
+            "The Gangasagar Mela is the second largest congregation of mankind after the Kumbh Mela.",
+            "Over 2,000 boats and vessels are utilized to transport pilgrims across the river Muriganga.",
+            "Drones are used not just for surveillance, but also to spray holy water in crowded zones."
+        ];
+
+        const ritualData = {
+            dip: {
+                title: "The Holy Dip (Snan)",
+                desc: "Pilgrims trust that taking a dip in the sacred Gangasagar waters on Makar Sankranti can cleanse a lifetime of sins. This ritual is typically done at sunrise, enduring the chilly winter currents.",
+                icon: "🌊"
+            },
+            kapil: {
+                title: "Kapil Muni Temple",
+                desc: "After the dip, pilgrims visit the Kapil Muni Temple. Legend says King Sagara's 60,000 sons were turned to ash by the sage's gaze, and only the Ganges could liberate their souls.",
+                icon: "🛕"
+            },
+            aarti: {
+                title: "Maha Aarti",
+                desc: "Similar to Varanasi, a grand Aarti is performed at the Mela grounds in the evening. Thousands of lamps (diyas) are floated in the water, creating a mesmerizing spectacle of light.",
+                icon: "🔥"
+            }
+        };
+
+        const safetyDataSets = {
+            personnel: {
+                labels: ['Police', 'Volunteers', 'Civil Defence', 'Medics'],
+                data: [14000, 6000, 2500, 1200],
+                color: '#ea580c' // Orange
+            },
+            tech: {
+                labels: ['CCTV', 'Drones', 'LED Screens', 'Towers'],
+                data: [1100, 25, 50, 45],
+                color: '#0284c7' // Sky Blue
+            },
+            health: {
+                labels: ['Ambulances', 'First Aid', 'Hospitals', 'Air Amb'],
+                data: [150, 80, 5, 3],
+                color: '#10b981' // Emerald
+            }
+        };
+
+        // --- Chart References ---
+        let footfallChartInstance = null;
+        let transportChartInstance = null;
+        let safetyChartInstance = null;
+        let wasteChartInstance = null;
+
+        // --- Initialization ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Register custom fonts for charts
+            Chart.defaults.font.family = "'Merriweather', serif";
+            Chart.defaults.color = '#78350f'; // Stone-800 approx
+
+            initFootfallChart();
+            initTransportChart();
+            initSafetyChart();
+            initWasteChart();
+            
+            // Set initial highlights
+            highlightTab('overview');
+            updateSafetyFilterStyles('personnel');
+        });
+
+        // --- Navigation Logic ---
+        function switchTab(tabId) {
+            state.activeTab = tabId;
+            
+            // Hide all sections
+            ['overview', 'logistics', 'environment'].forEach(id => {
+                const el = document.getElementById(`tab-content-${id}`);
+                if (el) el.classList.add('hidden');
+                
+                // Reset Nav Styling
+                const navBtn = document.getElementById(`nav-${id}`);
+                if (navBtn) {
+                    navBtn.classList.remove('tab-active', 'bg-white', 'shadow-sm', 'text-orange-700');
+                    navBtn.classList.add('text-stone-600', 'hover:bg-orange-50');
+                }
+            });
+
+            // Show active section
+            const activeEl = document.getElementById(`tab-content-${tabId}`);
+            activeEl.classList.remove('hidden');
+            
+            // Update Nav Styling
+            const activeBtn = document.getElementById(`nav-${tabId}`);
+            if (activeBtn) {
+                activeBtn.classList.add('tab-active', 'text-orange-700');
+                activeBtn.classList.remove('text-stone-600', 'hover:bg-orange-50');
+            }
+
+            // Mobile select sync
+            const select = document.querySelector('select');
+            if (select) select.value = tabId;
+        }
+
+        function highlightTab(tabId) {
+            switchTab(tabId);
+        }
+
+        // --- Interaction Logic ---
+        function updateRitual(key) {
+            const data = ritualData[key];
+            const titleEl = document.getElementById('ritual-title');
+            const descEl = document.getElementById('ritual-desc');
+            const iconEl = document.getElementById('ritual-icon');
+
+            // Simple fade out/in effect using opacity transition
+            titleEl.parentElement.parentElement.style.opacity = 0;
+            
+            setTimeout(() => {
+                titleEl.textContent = data.title;
+                descEl.textContent = data.desc;
+                iconEl.textContent = data.icon;
+                
+                titleEl.parentElement.parentElement.style.opacity = 1;
+            }, 200);
+        }
+
+        function nextFact() {
+            state.factIndex = (state.factIndex + 1) % facts.length;
+            const factEl = document.getElementById('env-fact');
+            factEl.style.opacity = 0;
+            setTimeout(() => {
+                factEl.textContent = facts[state.factIndex];
+                factEl.style.opacity = 1;
+            }, 200);
+        }
+
+        function updateSafetyData(type) {
+            const dataset = safetyDataSets[type];
+            
+            // Update Chart
+            safetyChartInstance.data.labels = dataset.labels;
+            safetyChartInstance.data.datasets[0].data = dataset.data;
+            safetyChartInstance.data.datasets[0].backgroundColor = dataset.color;
+            safetyChartInstance.data.datasets[0].label = type.charAt(0).toUpperCase() + type.slice(1);
+            safetyChartInstance.update();
+
+            updateSafetyFilterStyles(type);
+        }
+
+        function updateSafetyFilterStyles(activeType) {
+             const buttons = document.querySelectorAll('.active-safety-filter');
+             buttons.forEach(btn => {
+                 const type = btn.textContent.toLowerCase().includes('personnel') ? 'personnel' : 
+                              btn.textContent.toLowerCase().includes('tech') ? 'tech' : 'health';
+                 
+                 if(type === activeType) {
+                     btn.className = "px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider transition active-safety-filter ring-transparent focus:outline-none bg-orange-600 text-white shadow-md transform scale-105";
+                 } else {
+                     btn.className = "px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider transition active-safety-filter ring-transparent focus:outline-none text-stone-500 hover:text-stone-800 hover:bg-stone-200";
+                 }
+             });
+        }
+
+        // --- Chart.js Implementations ---
+
+        function initFootfallChart() {
+            const ctx = document.getElementById('footfallChart').getContext('2d');
+            footfallChartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['2018', '2019', '2020', '2021 (Covid)', '2022', '2023', '2024'],
+                    datasets: [{
+                        label: 'Pilgrims (Millions)',
+                        data: [2.0, 3.0, 4.5, 0.5, 1.5, 5.0, 6.5],
+                        borderColor: '#b91c1c', // Deep Red
+                        backgroundColor: 'rgba(234, 88, 12, 0.1)',
+                        borderWidth: 3,
+                        tension: 0.4,
+                        fill: true,
+                        pointBackgroundColor: '#fbbf24', // Gold
+                        pointBorderColor: '#b91c1c',
+                        pointRadius: 6,
+                        pointHoverRadius: 9,
+                        pointHoverBackgroundColor: '#fff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: '#ffffff',
+                            titleColor: '#9a3412',
+                            titleFont: { family: 'Cinzel', size: 14 },
+                            bodyColor: '#44403c',
+                            borderColor: '#fbbf24',
+                            borderWidth: 2,
+                            padding: 12,
+                            callbacks: {
+                                label: function(context) {
+                                    return context.parsed.y + ' Million Devotees';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { borderDash: [4, 4], color: '#fed7aa' } // Orange-200 grid
+                        },
+                        x: {
+                            grid: { display: false }
+                        }
+                    },
+                    onHover: (event, elements) => {
+                        const insightDiv = document.getElementById('year-insight');
+                        if (elements.length > 0) {
+                            const index = elements[0].index;
+                            const msgs = [
+                                "2018: Standard gathering.",
+                                "2019: Increased security measures introduced.",
+                                "2020: Massive surge pre-pandemic.",
+                                "2021: Restricted due to Pandemic (e-Snan focus).",
+                                "2022: Gradual return with testing protocols.",
+                                "2023: Full scale return, new permanent shelter.",
+                                "2024: Record breaking crowds; AI surveillance peak."
+                            ];
+                            insightDiv.textContent = msgs[index];
+                            insightDiv.style.color = "#c2410c";
+                        } else {
+                            insightDiv.textContent = "Hover your cursor over the chart to unveil the narrative behind each year.";
+                            insightDiv.style.color = "#78350f";
+                        }
+                    }
+                }
+            });
+        }
+
+        function initTransportChart() {
+            const ctx = document.getElementById('transportChart').getContext('2d');
+            transportChartInstance = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Trains', 'Bus/Road', 'Private'],
+                    datasets: [{
+                        data: [60, 30, 10],
+                        backgroundColor: ['#1d4ed8', '#f59e0b', '#78716c'], // Blue, Amber, Stone
+                        borderColor: '#ffffff',
+                        borderWidth: 2,
+                        hoverOffset: 10
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { font: { family: 'Cinzel' } } },
+                        tooltip: {
+                            backgroundColor: '#fff',
+                            bodyColor: '#000',
+                            borderColor: '#ccc',
+                            borderWidth: 1
+                        }
+                    },
+                    cutout: '65%'
+                }
+            });
+        }
+
+        function initSafetyChart() {
+            const ctx = document.getElementById('safetyChart').getContext('2d');
+            safetyChartInstance = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: safetyDataSets.personnel.labels,
+                    datasets: [{
+                        label: 'Units',
+                        data: safetyDataSets.personnel.data,
+                        backgroundColor: safetyDataSets.personnel.color,
+                        borderRadius: 4,
+                        barThickness: 'flex',
+                        maxBarThickness: 50
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: '#fff',
+                            bodyColor: '#000',
+                            borderColor: '#ea580c',
+                            borderWidth: 1
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: '#fef3c7' }
+                        },
+                        x: {
+                            grid: { display: false },
+                            ticks: { font: { family: 'Merriweather', size: 11 } }
+                        }
+                    }
+                }
+            });
+        }
+
+        function initWasteChart() {
+            const ctx = document.getElementById('wasteChart').getContext('2d');
+            wasteChartInstance = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Day 1', 'Day 2', 'Sankranti', 'Day 4'],
+                    datasets: [
+                        {
+                            label: 'Generated',
+                            data: [50, 80, 200, 90],
+                            backgroundColor: '#fca5a5' // Red tint
+                        },
+                        {
+                            label: 'Processed',
+                            data: [45, 70, 180, 85],
+                            backgroundColor: '#059669' // Emerald Green
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { stacked: false },
+                        y: { 
+                            stacked: false,
+                            beginAtZero: true,
+                            grid: { color: '#ecfdf5' },
+                            title: { display: true, text: 'Metric Tonnes' }
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            backgroundColor: '#fff',
+                            bodyColor: '#000',
+                            borderColor: '#059669',
+                            borderWidth: 1
+                        },
+                        legend: { labels: { font: { family: 'Cinzel' } } }
+                    }
+                }
+            });
+        }
+    </script>
+
+</body></html>

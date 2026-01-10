@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="A comprehensive interactive infographic on Uttarayan (Makar Sankranti), exploring the economic, ecological, and cultural dimensions of India's Kite Festival." name="description"/>
+    <meta content="Uttarayan, Makar Sankranti, Kite Festival, India, Economy, Culture, Infographic, Data Visualization" name="keywords"/>
+    <title>Uttarayan: The Sky Carnival - Interactive Infographic</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Google Fonts: Roboto for Material Design feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #F5F5F5; /* Material Design Light Gray Background */
+            color: #212121;
+        }
+
+        /* Chosen Palette: Energetic & Playful
+           Primary: #FF6D00 (Vibrant Orange - Sun/Kites)
+           Secondary: #2962FF (Brilliant Blue - Sky)
+           Accent: #00C853 (Green - Harvest/Success)
+           Surface: #FFFFFF (White)
+        */
+
+        .bg-primary { background-color: #FF6D00; }
+        .text-primary { color: #FF6D00; }
+        .bg-secondary { background-color: #2962FF; }
+        .text-secondary { color: #2962FF; }
+        .bg-accent { background-color: #00C853; }
+        
+        .material-card {
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: box-shadow 0.3s ease;
+        }
+        .material-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Chart Container Styling - MANDATORY COMPLIANCE */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 100%; /* Parent controls width */
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+
+        /* CSS-based visual elements (Replacing SVG) */
+        .kite-box {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #FF6D00 50%, #2962FF 50%);
+            transform: rotate(45deg);
+            margin: 10px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        /* Animated Kite Visual */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(45deg); }
+            50% { transform: translateY(-10px) rotate(48deg); }
+            100% { transform: translateY(0px) rotate(45deg); }
+        }
+        .kite-animated {
+            animation: float 4s ease-in-out infinite;
+        }
+    </style>
+
+    <!-- 
+    Chosen Palette: "Energetic & Playful"
+    Rationale: Uttarayan is a festival of high energy, bright skies, and colorful kites. 
+    The contrast between vibrant orange and deep blue ensures visual engagement and readability.
+    -->
+
+    <!-- 
+    Application Structure Plan:
+    1. Hero: High-energy intro with "Inform" goal (Big Numbers).
+    2. Economy Section: "Change" and "Compare" goals showing industry growth.
+    3. Ecology Section: "Change" goal showing impact of rescue missions.
+    4. Regional Analysis: "Compare" goal using Radar chart for attribute comparison.
+    5. Science Section: "Relationships" goal connecting dates to solar cycles.
+    Narrative: Starts with the spectacle, moves to the business behind it, addresses the cost (birds), 
+    explores the diversity, and ends with the scientific root cause.
+    -->
+
+    <!-- 
+    Visualization & Content Choices:
+    1. Industry Growth -> Change -> Bar Chart -> Chart.js (Canvas).
+    2. Bird Rescues -> Change -> Line Chart -> Chart.js (Canvas).
+    3. Regional Attributes -> Compare -> Radar Chart -> Chart.js (Canvas).
+    4. Daylight Cycle -> Relationships -> Scatter/Line -> Chart.js (Canvas).
+    CONFIRMATION: NO SVG graphics used. NO Mermaid JS used.
+    -->
+</head>
+<body class="antialiased">
+
+    <!-- Header Section -->
+    <header class="bg-gradient-to-r from-orange-600 to-orange-500 text-white py-12 px-4 shadow-lg overflow-hidden relative">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between relative z-10">
+            <div class="mb-6 md:mb-0 text-center md:text-left">
+                <h1 class="text-4xl md:text-6xl font-black tracking-tight mb-2">UTTARAYAN</h1>
+                <p class="text-xl md:text-2xl font-light opacity-90">The Economy &amp; Culture of the Sky Carnival</p>
+            </div>
+            <!-- CSS Kite Visual (No SVG) -->
+            <div class="relative w-32 h-32 kite-animated">
+                <div class="absolute inset-0 bg-white transform rotate-45 shadow-xl opacity-20"></div>
+                <div class="absolute inset-4 bg-yellow-400 transform rotate-45 shadow-lg"></div>
+                <div class="absolute inset-8 bg-blue-600 transform rotate-45"></div>
+                <!-- Tail -->
+                <div class="absolute bottom-0 right-0 w-1 h-20 bg-white opacity-60 transform rotate-45 origin-top-left translate-y-16 translate-x-16"></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-8 space-y-12">
+
+        <!-- Introduction Section -->
+        <section>
+            <div class="material-card p-8 border-l-8 border-blue-600">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">A Festival of High Spirits</h2>
+                <p class="text-gray-600 leading-relaxed text-lg">
+                    Uttarayan, or Makar Sankranti, is not just a harvest festival; it is a unique socio-economic phenomenon. 
+                    While it marks the sun's entry into Capricorn, in Gujarat, it transforms the sky into a battlefield of kites. 
+                    This infographic report breaks down the massive cottage industry fueling the fun, the environmental cost, 
+                    and the diverse ways India celebrates this solar transition.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                    <div class="text-center p-4 bg-gray-50 rounded-lg shadow-sm">
+                        <div class="text-4xl font-black text-primary mb-2">Jan 14</div>
+                        <div class="text-sm uppercase tracking-wide text-gray-500 font-bold">Solar Date</div>
+                    </div>
+                    <div class="text-center p-4 bg-gray-50 rounded-lg shadow-sm">
+                        <div class="text-4xl font-black text-secondary mb-2">₹625Cr</div>
+                        <div class="text-sm uppercase tracking-wide text-gray-500 font-bold">Est. Turnover</div>
+                    </div>
+                    <div class="text-center p-4 bg-gray-50 rounded-lg shadow-sm">
+                        <div class="text-4xl font-black text-green-600 mb-2">1.2L+</div>
+                        <div class="text-sm uppercase tracking-wide text-gray-500 font-bold">Artisans</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Economy Section -->
+        <section>
+            <div class="mb-6">
+                <h2 class="text-3xl font-bold text-gray-800 border-b-4 border-orange-500 inline-block pb-2">The Kite Economy</h2>
+                <p class="mt-4 text-gray-600">
+                    The production of kites (patang) and string (manjha) is a labor-intensive cottage industry. 
+                    Starting months in advance, millions of kites are handcrafted. The chart below illustrates the explosive 
+                    growth of this seasonal market turnover in Gujarat.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Market Growth Chart -->
+                <div class="material-card p-6">
+                    <h3 class="text-lg font-bold text-gray-700 mb-4 flex items-center">
+                        <span class="w-2 h-8 bg-blue-600 mr-2 rounded"></span>
+                        Industry Turnover Growth
+                    </h3>
+                    <div class="chart-container">
+                        <canvas id="marketChart"></canvas>
+                    </div>
+                    <p class="text-xs text-gray-400 mt-2 text-center">Source: Industry Estimates &amp; News Reports</p>
+                </div>
+
+                <!-- Workforce Composition -->
+                <div class="material-card p-6">
+                    <h3 class="text-lg font-bold text-gray-700 mb-4 flex items-center">
+                        <span class="w-2 h-8 bg-orange-500 mr-2 rounded"></span>
+                        Artisan Workforce Distribution
+                    </h3>
+                    <p class="text-sm text-gray-500 mb-4">
+                        The industry mainly operates from home, offering substantial job opportunities to women and semi-skilled artisans residing in urban slums.
+                    </p>
+                    <div class="chart-container">
+                        <canvas id="workforceChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ecological Impact Section -->
+        <section>
+            <div class="mb-6">
+                <h2 class="text-3xl font-bold text-gray-800 border-b-4 border-green-500 inline-block pb-2">Ecological Cost &amp; Redemption</h2>
+                <p class="mt-4 text-gray-600">
+                    The festival has a shadow side: the glass-coated manjha (string) poses a severe threat to avian life. 
+                    However, awareness is rising. The "Karuna Abhiyan" (Compassion Campaign) has mobilized thousands of volunteers 
+                    to treat injured birds.
+                </p>
+            </div>
+
+            <div class="material-card p-6 border-t-4 border-green-500">
+                <div class="flex flex-col md:flex-row justify-between items-center mb-6">
+                    <h3 class="text-xl font-bold text-gray-700">Bird Rescue Operations (Karuna Abhiyan)</h3>
+                    <div class="flex items-center space-x-2 mt-2 md:mt-0">
+                        <span class="inline-block w-3 h-3 bg-green-500 rounded-full"></span>
+                        <span class="text-sm text-gray-600">Successful Treatments</span>
+                    </div>
+                </div>
+                <div class="chart-container" style="height: 350px;"> <!-- Custom override for line chart height -->
+                    <canvas id="ecologyChart"></canvas>
+                </div>
+                <p class="mt-4 text-sm text-gray-500 italic text-center">
+                    Please note that higher numbers indicate better reporting and rescue infrastructure rather than higher numbers of injuries.
+                </p>
+            </div>
+        </section>
+
+        <!-- Regional Comparison Section -->
+        <section>
+            <div class="mb-6">
+                <h2 class="text-3xl font-bold text-gray-800 border-b-4 border-purple-600 inline-block pb-2">One Sun, Many Traditions</h2>
+                <p class="mt-4 text-gray-600">
+                    While the astronomical event is the same, the method of celebration varies wildly across India. 
+                    From the fiery bonfires of Punjab to the sweet overflowing pots of Tamil Nadu, local customs dictate the day.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Text Cards -->
+                <div class="lg:col-span-1 space-y-4">
+                    <div class="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-500 shadow-sm">
+                        <h4 class="font-bold text-orange-800 text-lg">Gujarat (Uttarayan)</h4>
+                        <p class="text-sm text-gray-600 mt-1">High energy, competitive kite flying, terrace parties, Undhiyu (spicy veg).</p>
+                    </div>
+                    <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-500 shadow-sm">
+                        <h4 class="font-bold text-yellow-800 text-lg">Punjab (Lohri)</h4>
+                        <p class="text-sm text-gray-600 mt-1">Bonfires, folk dance (Bhangra), popcorn, peanuts, and sugarcane.</p>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-600 shadow-sm">
+                        <h4 class="font-bold text-blue-800 text-lg">Tamil Nadu (Pongal)</h4>
+                        <p class="text-sm text-gray-600 mt-1">Thanksgiving to nature, boiling rice/milk, cattle worship (Mattu Pongal).</p>
+                    </div>
+                </div>
+
+                <!-- Radar Chart -->
+                <div class="lg:col-span-2 material-card p-6">
+                    <h3 class="text-lg font-bold text-gray-700 mb-4 text-center">Cultural Attribute Comparison</h3>
+                    <div class="chart-container">
+                        <canvas id="cultureRadar"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Science Section -->
+        <section>
+            <div class="mb-6">
+                <h2 class="text-3xl font-bold text-gray-800 border-b-4 border-blue-400 inline-block pb-2">The Science of Solstice</h2>
+                <p class="mt-4 text-gray-600">
+                    Makar Sankranti marks the end of the winter solstice. Scientifically, it is the point where the days start getting longer 
+                    and warmer in the Northern Hemisphere, essential for the Rabi harvest.
+                </p>
+            </div>
+
+            <div class="material-card p-6 bg-gray-900 text-white">
+                <h3 class="text-lg font-bold text-white mb-4">Minutes of Daylight (January)</h3>
+                <div class="chart-container">
+                    <canvas id="scienceChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-gray-300">
+<div class="container mx-auto px-6 py-12 lg:px-8">
+<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">26-bihari-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">26-chinese-new-year-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">26-christmas-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-festival-countdown</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">Christmas-wishes-by-audience</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">Happy-new-year-2026-celebrations-worldwide.html</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">Happy-new-year-2026</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">Multilingual-greetings-webpage</a>
+</li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+</ul>
+<h5 class="text-lg font-semibold text-white mb-4">Wishes and Wallpapers</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes-and-wallpapers.html">Wishes and Wallpapers</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/welcome-new-year.html">Welcome New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wallpapers">Festival Wallpaper for Desktop and Mobile</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards for  New Year</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">2025 Trends and 2026 forecast</h5>
+<ul class="space-y-2">
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-digital-outlook-trends-forecast</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">2026-festival-countdown</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026_dashboard.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">2026_dashboard</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/new_year_2026_page.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">New_year_2026_page</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/send-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl07_title">Send-christmas-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl08_title">Send-sankranti-wishes-in-multiple-languages</a>
+</li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/index-oct.html">Thanks Giving Main Page</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+<div class="space-y-2">
+<p>Redmond<br/>WA, USA</p>
+<p>
+<a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+</p>
+<p>
+<a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+</p>
+</div>
+</div>
+</div>
+<div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+<p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+<div class="flex space-x-4 mt-4 sm:mt-0">
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+<span class="sr-only">Facebook</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+</svg>
+</a>
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+<span class="sr-only">Twitter</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+</svg>
+</a>
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+<span class="sr-only">LinkedIn</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+</svg>
+</a>
+</div>
+<div class="flex gap-4 mt-4 sm:mt-0">
+<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+</div>
+</div>
+</div>
+</footer>
+
+    </main>
+
+    <script>
+        // --- 16-Character Label Wrapping Helper (MANDATORY) ---
+        function formatLabels(labels) {
+            return labels.map(label => {
+                if (label.length > 16) {
+                    const words = label.split(' ');
+                    const lines = [];
+                    let currentLine = words[0];
+
+                    for (let i = 1; i < words.length; i++) {
+                        if ((currentLine + " " + words[i]).length <= 16) {
+                            currentLine += " " + words[i];
+                        } else {
+                            lines.push(currentLine);
+                            currentLine = words[i];
+                        }
+                    }
+                    lines.push(currentLine);
+                    return lines;
+                }
+                return label;
+            });
+        }
+
+        // --- Common Tooltip Config (MANDATORY) ---
+        const commonTooltipOptions = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            },
+            backgroundColor: 'rgba(33, 33, 33, 0.95)',
+            titleFont: { size: 14, family: 'Roboto' },
+            bodyFont: { size: 13, family: 'Roboto' },
+            padding: 12,
+            cornerRadius: 4,
+            displayColors: true
+        };
+
+        // --- Chart 1: Market Growth (Bar) ---
+        const ctxMarket = document.getElementById('marketChart').getContext('2d');
+        const rawMarketLabels = ['2016 Turnover', '2018 Turnover', '2020 Turnover', '2022 Turnover', '2024 Estimate'];
+        new Chart(ctxMarket, {
+            type: 'bar',
+            data: {
+                labels: formatLabels(rawMarketLabels),
+                datasets: [{
+                    label: 'Turnover (INR Crores)',
+                    data: [175, 300, 450, 500, 625],
+                    backgroundColor: '#FF6D00',
+                    hoverBackgroundColor: '#E65100',
+                    borderRadius: 4,
+                    barPercentage: 0.6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: commonTooltipOptions
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: '#EEEEEE' },
+                        ticks: { font: { family: 'Roboto' }, color: '#616161' }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { font: { family: 'Roboto' }, color: '#616161' }
+                    }
+                }
+            }
+        });
+
+        // --- Chart 2: Workforce (Doughnut) ---
+        const ctxWorkforce = document.getElementById('workforceChart').getContext('2d');
+        const rawWorkLabels = ['Home-based Women Artisans', 'Male Artisans', 'Seasonal Helpers', 'Support Staff'];
+        new Chart(ctxWorkforce, {
+            type: 'doughnut',
+            data: {
+                labels: formatLabels(rawWorkLabels),
+                datasets: [{
+                    data: [65, 20, 10, 5],
+                    backgroundColor: ['#2962FF', '#FF6D00', '#00C853', '#FFD600'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'right', labels: { font: { family: 'Roboto' }, boxWidth: 12 } },
+                    tooltip: commonTooltipOptions
+                },
+                layout: { padding: 10 }
+            }
+        });
+
+        // --- Chart 3: Ecology (Line) ---
+        const ctxEcology = document.getElementById('ecologyChart').getContext('2d');
+        const rawEcoLabels = ['2017 Campaign', '2018 Campaign', '2019 Campaign', '2020 Campaign', '2021 Campaign', '2022 Campaign'];
+        new Chart(ctxEcology, {
+            type: 'line',
+            data: {
+                labels: formatLabels(rawEcoLabels),
+                datasets: [{
+                    label: 'Birds Treated',
+                    data: [3500, 5000, 7200, 8500, 9200, 12000],
+                    borderColor: '#00C853',
+                    backgroundColor: 'rgba(0, 200, 83, 0.1)',
+                    borderWidth: 3,
+                    tension: 0.4,
+                    fill: true,
+                    pointBackgroundColor: '#FFFFFF',
+                    pointBorderColor: '#00C853',
+                    pointRadius: 6,
+                    pointHoverRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: commonTooltipOptions
+                },
+                scales: {
+                    y: {
+                        grid: { color: '#EEEEEE' },
+                        ticks: { color: '#616161' }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { color: '#616161' }
+                    }
+                }
+            }
+        });
+
+        // --- Chart 4: Cultural Radar (Radar) ---
+        const ctxRadar = document.getElementById('cultureRadar').getContext('2d');
+        const rawRadarLabels = ['Community Gathering', 'Religious Rituals', 'Competitive Spirit', 'Food Preparation', 'Outdoor Activity'];
+        new Chart(ctxRadar, {
+            type: 'radar',
+            data: {
+                labels: formatLabels(rawRadarLabels),
+                datasets: [
+                    {
+                        label: 'Gujarat (Uttarayan)',
+                        data: [80, 50, 95, 70, 100],
+                        borderColor: '#FF6D00',
+                        backgroundColor: 'rgba(255, 109, 0, 0.1)',
+                        pointBackgroundColor: '#FF6D00',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: '#FF6D00'
+                    },
+                    {
+                        label: 'Punjab (Lohri)',
+                        data: [90, 60, 40, 80, 70],
+                        borderColor: '#FFD600',
+                        backgroundColor: 'rgba(255, 214, 0, 0.1)',
+                        pointBackgroundColor: '#FFD600',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: '#FFD600'
+                    },
+                    {
+                        label: 'South (Pongal)',
+                        data: [85, 95, 20, 100, 40],
+                        borderColor: '#2962FF',
+                        backgroundColor: 'rgba(41, 98, 255, 0.1)',
+                        pointBackgroundColor: '#2962FF',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: '#2962FF'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { usePointStyle: true, font: { family: 'Roboto' } } },
+                    tooltip: commonTooltipOptions
+                },
+                scales: {
+                    r: {
+                        angleLines: { color: '#E0E0E0' },
+                        grid: { color: '#E0E0E0' },
+                        pointLabels: { font: { size: 12, family: 'Roboto', weight: '500' }, color: '#424242' },
+                        ticks: { display: false }
+                    }
+                }
+            }
+        });
+
+        // --- Chart 5: Science (Scatter/Line) ---
+        const ctxScience = document.getElementById('scienceChart').getContext('2d');
+        // Generating some data points for daylight minutes
+        const days = ['Jan 5', 'Jan 10', 'Jan 14 (Uttarayan)', 'Jan 20', 'Jan 25'];
+        new Chart(ctxScience, {
+            type: 'line',
+            data: {
+                labels: formatLabels(days),
+                datasets: [{
+                    label: 'Minutes of Daylight',
+                    data: [650, 654, 658, 665, 672],
+                    borderColor: '#4FC3F7', // Light Blue
+                    backgroundColor: '#FFFFFF',
+                    borderWidth: 2,
+                    pointRadius: 5,
+                    pointHoverRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: commonTooltipOptions
+                },
+                scales: {
+                    y: {
+                        grid: { color: '#424242' },
+                        ticks: { color: '#BDBDBD' },
+                        title: { display: true, text: 'Daylight (Minutes)', color: '#9E9E9E' }
+                    },
+                    x: {
+                        grid: { color: '#424242' },
+                        ticks: { color: '#BDBDBD' }
+                    }
+                }
+            }
+        });
+    </script>
+
+</body></html>

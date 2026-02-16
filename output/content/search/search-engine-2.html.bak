@@ -116,7 +116,7 @@
         </div>
 
         <!-- Search Container -->
-        <div class="w-full max-w-4xl bg-white/95 backdrop-blur-sm rounded-xl shadow-2xl p-6 md:p-8 border border-slate-700 min-h-[500px]">
+        <div class="w-full max-w-4xl bg-white/95 backdrop-blur-sm rounded-xl shadow-2xl overflow-hidden p-6 md:p-8 border border-slate-700">
             <!-- Loading indicator for script -->
             <div class="text-center text-slate-500 text-sm mb-2" id="search-loading">
                 <i class="fa-solid fa-circle-notch fa-spin mr-2"></i> Loading Search Engine...
@@ -126,20 +126,7 @@
             <script async src="https://cse.google.com/cse.js?cx=15f62cd40a2954043" 
                 onload="document.getElementById('search-loading').style.display='none';">
             </script>
-            
-            <!-- 
-                Configuration: Split Layout
-                This separates the input from the results so results render 
-                in the page body rather than a small overlay.
-            -->
-            <div class="mb-6">
-                <div class="gcse-searchbox"></div>
-            </div>
-            
-            <div class="results-container">
-                <!-- data-linkTarget="_blank" opens results in a new tab/window -->
-                <div class="gcse-searchresults" data-linkTarget="_blank"></div>
-            </div>
+            <div class="gcse-search"></div>
         </div>
 
         <!-- Quick Links / Suggestions -->

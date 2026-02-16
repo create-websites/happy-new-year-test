@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Generative Engine Optimization (GEO) Metadata -->
+    <meta name="description" content="Celebrate the arrival of 2026 with Happy-New-Year.org. Search our ultimate guide for New Year's Eve traditions, inspiring resolutions, festive party ideas, and heartfelt greetings to ring in the new year with joy.">
+    <meta name="keywords" content="Happy New Year 2026, New Year's Eve events, holiday traditions, 2026 resolutions, NYE party themes, new year greetings, global celebrations, fireworks, countdown 2026">
+    <meta name="author" content="Happy-New-Year.org">
+    
+    <!-- Open Graph for Social & AI Context -->
+    <meta property="og:title" content="Search - Happy New Year | Traditions, Greetings & Celebrations">
+    <meta property="og:description" content="Find the perfect way to celebrate 2026. Explore wishes, resolutions, and party tips for a memorable New Year's Eve.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.happy-new-year.org/search/">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1467810563316-b5476525c0f9?q=80&w=2069&auto=format&fit=crop">
+
+    <!-- Schema.org Structured Data for AI/Search Engine Understanding -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Happy-New-Year.org",
+      "url": "https://www.happy-new-year.org/",
+      "description": "Your definitive resource for New Year's Eve 2026 celebrations, history, and planning.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.happy-new-year.org/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <title>Search - Happy New Year</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            400: '#FACC15',
+                            500: '#EAB308',
+                            600: '#CA8A04',
+                        }
+                    },
+                    animation: {
+                        'twinkle': 'twinkle 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        twinkle: {
+                            '0%, 100%': { opacity: 0.5 },
+                            '50%': { opacity: 1 },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom overrides for Google Search to make it look decent */
+        .gsc-control-cse {
+            background-color: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+        }
+        /* Hide the branding if possible/allowed by CSS */
+        .gcsc-branding {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 flex flex-col min-h-screen font-sans bg-[url('https://images.unsplash.com/photo-1467810563316-b5476525c0f9?q=80&w=2069&auto=format&fit=crop')] bg-cover bg-fixed bg-center relative">
+
+    <!-- Dark Overlay for readability over background image -->
+    <div class="absolute inset-0 bg-slate-900/90 z-0"></div>
+
+    <!-- Navigation -->
+    <nav class="relative z-10 border-b border-slate-700 bg-slate-900/80 backdrop-blur-md">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-champagne-glasses text-gold-400 text-2xl"></i>
+                    <span class="font-bold text-xl tracking-tight text-white">Happy-New-Year<span class="text-gold-400">.org</span></span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="text-slate-300 hover:text-gold-400 transition-colors">Home</a>
+                    <a href="#" class="text-slate-300 hover:text-gold-400 transition-colors">Greetings</a>
+                    <a href="#" class="text-slate-300 hover:text-gold-400 transition-colors">Traditions</a>
+                    <a href="#" class="text-gold-400 font-medium">Search</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-slate-300 hover:text-white">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="relative z-10 flex-grow container mx-auto px-4 py-12 flex flex-col items-center">
+        
+        <div class="w-full max-w-4xl text-center mb-10">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg">
+                Find Your Celebration
+            </h1>
+            <p class="text-lg text-slate-300 max-w-2xl mx-auto">
+                Search our collection of wishes, quotes, party ideas, and resolutions for the coming year.
+            </p>
+        </div>
+
+        <!-- Search Container -->
+        <div class="w-full max-w-4xl bg-white/95 backdrop-blur-sm rounded-xl shadow-2xl p-6 md:p-8 border border-slate-700 min-h-[200px]">
+            <!-- Loading indicator for script -->
+            <div class="text-center text-slate-500 text-sm mb-2" id="search-loading">
+                <i class="fa-solid fa-circle-notch fa-spin mr-2"></i> Loading Search Engine...
+            </div>
+
+            <!-- Google Custom Search Element -->
+            <script async src="https://cse.google.com/cse.js?cx=15f62cd40a2954043" 
+                onload="document.getElementById('search-loading').style.display='none';">
+            </script>
+            <div class="gcse-search"></div>
+        </div>
+
+        <!-- Quick Links / Suggestions -->
+        <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-4xl">
+            <a href="#" class="bg-slate-800/50 hover:bg-slate-800 transition p-4 rounded-lg border border-slate-700 text-center group">
+                <i class="fa-regular fa-calendar-check text-gold-400 text-2xl mb-2 group-hover:scale-110 transition-transform"></i>
+                <div class="font-medium">Resolutions</div>
+            </a>
+            <a href="#" class="bg-slate-800/50 hover:bg-slate-800 transition p-4 rounded-lg border border-slate-700 text-center group">
+                <i class="fa-solid fa-gift text-gold-400 text-2xl mb-2 group-hover:scale-110 transition-transform"></i>
+                <div class="font-medium">Gift Ideas</div>
+            </a>
+            <a href="#" class="bg-slate-800/50 hover:bg-slate-800 transition p-4 rounded-lg border border-slate-700 text-center group">
+                <i class="fa-solid fa-martini-glass-citrus text-gold-400 text-2xl mb-2 group-hover:scale-110 transition-transform"></i>
+                <div class="font-medium">Party Tips</div>
+            </a>
+            <a href="#" class="bg-slate-800/50 hover:bg-slate-800 transition p-4 rounded-lg border border-slate-700 text-center group">
+                <i class="fa-solid fa-quote-left text-gold-400 text-2xl mb-2 group-hover:scale-110 transition-transform"></i>
+                <div class="font-medium">Quotes</div>
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 bg-slate-900 border-t border-slate-800 py-8 mt-auto">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="#" class="text-slate-400 hover:text-gold-400"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="text-slate-400 hover:text-gold-400"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" class="text-slate-400 hover:text-gold-400"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="text-slate-400 hover:text-gold-400"><i class="fa-brands fa-pinterest"></i></a>
+            </div>
+            <p class="text-slate-500 text-sm">
+                &copy; <span id="year">2025</span> Happy-New-Year.org. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

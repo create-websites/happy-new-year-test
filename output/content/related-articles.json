@@ -1,0 +1,83 @@
+[
+  {
+    "id": "easter-celebration-guide",
+    "title": "Easter Celebration Guide",
+    "url": "/easter-celebration-guide.html",
+    "category": "Festival Guide",
+    "description": "Discover the meaning of Easter, traditions, and fun family celebration ideas.",
+    "image": "/images/easter-guide.jpg",
+    "keywords": [
+      "easter",
+      "holy week",
+      "spring",
+      "christian festival",
+      "family",
+      "celebration"
+    ]
+  },
+  {
+    "id": "mothers-day-ideas",
+    "title": "Mother’s Day Gift & Celebration Ideas",
+    "url": "/mothers-day-ideas.html",
+    "category": "Celebration Ideas",
+    "description": "Thoughtful ways to celebrate Mother’s Day and show appreciation.",
+    "image": "/images/mothers-day-ideas.jpg",
+    "keywords": [
+      "mothers day",
+      "mother's day",
+      "mom",
+      "gift",
+      "family",
+      "celebration"
+    ]
+  },
+  {
+    "id": "buddha-purnima-significance",
+    "title": "Buddha Purnima Meaning",
+    "url": "/buddha-purnima-significance.html",
+    "category": "Spiritual Festival",
+    "description": "Learn about the significance of Buddha Purnima and how it is celebrated.",
+    "image": "/images/buddha-purnima.jpg",
+    "keywords": [
+      "buddha purnima",
+      "vesak",
+      "buddha",
+      "spiritual",
+      "festival",
+      "india"
+    ]
+  },
+  {
+    "id": "fathers-day-ideas",
+    "title": "Father’s Day Celebration Ideas",
+    "url": "/fathers-day-ideas.html",
+    "category": "Family Celebration",
+    "description": "Creative ways to celebrate Father’s Day and make it special.",
+    "image": "/images/fathers-day-ideas.jpg",
+    "keywords": [
+      "fathers day",
+      "father's day",
+      "dad",
+      "gift",
+      "family",
+      "celebration"
+    ]
+  },
+  {
+    "id": "upcoming-festivals-2026",
+    "title": "Upcoming Festivals in 2026",
+    "url": "/newyear-hub-main-image.html",
+    "category": "Upcoming Festivals",
+    "description": "Explore upcoming festivals such as Easter, Mother’s Day, Buddha Purnima, and Father’s Day.",
+    "image": "/images/upcoming-festivals.jpg",
+    "keywords": [
+      "upcoming festivals",
+      "festival calendar",
+      "2026",
+      "easter",
+      "mothers day",
+      "fathers day",
+      "buddha purnima"
+    ]
+  }
+]

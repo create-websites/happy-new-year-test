@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html class="scroll-smooth" lang="en"><head>
+
+<html class="scroll-smooth" lang="en"
+      data-related-keywords="festival family celebration"
+      data-related-json="/related-articles.json">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <!-- Updated Meta Description -->
@@ -15,6 +19,9 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<!-- Add to <html> -->
+
+<link rel="stylesheet" href="/related-articles.css">
 <style>
         body {
             font-family: 'Vollkorn', serif;
@@ -353,6 +360,11 @@
 </div>
 </section>
 </main>
+<!-- Add above footer -->
+<div id="related-articles-root"
+     data-limit="4"
+     data-heading="Related Articles"
+     data-intro="Explore more guides and festival articles."></div>
 <!-- Footer -->
 <footer class="bg-gray-800 text-gray-300">
 <div class="container mx-auto px-6 py-12 lg:px-8">
@@ -546,4 +558,5 @@
             }, 250);
         });
     </script>
+	<script src="/related-articles-loader.js"></script>
 </body></html>

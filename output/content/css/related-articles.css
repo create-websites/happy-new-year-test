@@ -1,0 +1,101 @@
+.ra-section {
+  background: #f8fafc;
+  padding: 64px 20px;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.ra-header {
+  text-align: center;
+  margin: 0 auto 36px;
+  max-width: 760px;
+}
+
+.ra-header h2 {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin: 0 0 10px;
+  color: #111827;
+}
+
+.ra-header p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+.ra-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+.ra-card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ra-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.1);
+}
+
+.ra-image-link {
+  display: block;
+}
+
+.ra-card img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  display: block;
+}
+
+.ra-content {
+  padding: 20px;
+}
+
+.ra-category {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #2563eb;
+  margin-bottom: 10px;
+}
+
+.ra-card h3 {
+  font-size: 1.2rem;
+  line-height: 1.35;
+  margin: 0 0 10px;
+}
+
+.ra-card h3 a {
+  color: #111827;
+  text-decoration: none;
+}
+
+.ra-card h3 a:hover,
+.ra-read-more:hover {
+  text-decoration: underline;
+}
+
+.ra-card p {
+  color: #4b5563;
+  font-size: 0.96rem;
+  line-height: 1.6;
+  margin: 0 0 16px;
+}
+
+.ra-read-more {
+  display: inline-block;
+  font-weight: 600;
+  color: #dc2626;
+  text-decoration: none;
+}

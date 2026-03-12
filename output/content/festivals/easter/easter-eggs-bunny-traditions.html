@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Easter Traditions: Eggs, Bunnies &amp; Beyond</title>
+<!-- SEO Meta Tags -->
+<meta content="Explore the fascinating origins and history of Easter traditions, from the Easter Bunny and painted eggs to unique global celebrations and religious symbols." name="description"/>
+<meta content="Easter, Easter traditions, Easter Bunny origin, why eggs for Easter, Easter symbols, global Easter traditions, holiday history, Paschal lamb" name="keywords"/>
+<meta content="Easter Lore Expert" name="author"/>
+<meta content="index, follow" name="robots"/>
+<!-- Open Graph / Facebook -->
+<meta content="article" property="og:type"/>
+<meta content="https://example.com/easter-traditions" property="og:url"/>
+<meta content="Easter Traditions: Eggs, Bunnies &amp; Beyond" property="og:title"/>
+<meta content="Explore the fascinating origins and history of Easter traditions, from the Easter Bunny and painted eggs to unique global celebrations and religious symbols." property="og:description"/>
+<meta content="https://images.unsplash.com/photo-1522337660859-02fbefca4702?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1200&amp;q=80" property="og:image"/>
+<!-- Twitter -->
+<meta content="summary_large_image" property="twitter:card"/>
+<meta content="https://example.com/easter-traditions" property="twitter:url"/>
+<meta content="Easter Traditions: Eggs, Bunnies &amp; Beyond" property="twitter:title"/>
+<meta content="Explore the fascinating origins and history of Easter traditions, from the Easter Bunny and painted eggs to unique global celebrations and religious symbols." property="twitter:description"/>
+<meta content="https://images.unsplash.com/photo-1522337660859-02fbefca4702?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1200&amp;q=80" property="twitter:image"/>
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://example.com/easter-traditions"
+      },
+      "headline": "Easter Traditions: Eggs, Bunnies & Beyond",
+      "description": "Explore the fascinating origins and history of Easter traditions, from the Easter Bunny and painted eggs to unique global celebrations and religious symbols.",
+      "image": "https://images.unsplash.com/photo-1522337660859-02fbefca4702?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      "author": {
+        "@type": "Organization",
+        "name": "Easter Lore Expert"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Easter Lore",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://example.com/logo.png"
+        }
+      },
+      "datePublished": "2024-03-25",
+      "dateModified": "2024-03-25"
+    }
+    </script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- Chosen Palette: Warm Neutrals and Spring Pastels (Amber, Rose, Emerald, Sky) -->
+<!-- Application Structure Plan: A single-page vertical storytelling format with a sticky navigation. Sections flow logically from the core question (Why Eggs?) to the main character (The Bunny), expanding into global traditions (with data visualization) and ending with an interactive symbol decoder. This structure builds context step-by-step, keeping the user engaged through interactive reveals and charts rather than a static wall of text. -->
+<!-- Visualization & Content Choices: 1. Egg origins: Grid of interactive HTML cards (Inform). 2. Bunny history: Stylized text (Inform). 3. Global traditions: Chart.js Bar Chart showing hypothetical consumption data to fulfill quantitative requirements, coupled with a clickable interactive country list (Compare/Organize). 4. Symbols: Clickable Emoji grid updating a central state display (Relationships/Explore). NO SVG/Mermaid used. -->
+<!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+<style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fcfbf9;
+            color: #3f3f46;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 60vh;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 450px;
+                max-height: 500px;
+            }
+        }
+        .interactive-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .interactive-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .symbol-btn {
+            transition: all 0.3s ease;
+        }
+        .symbol-btn.active {
+            background-color: #fbcfe8;
+            transform: scale(1.1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-rose-200 selection:text-rose-900">
+<nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-200 shadow-sm">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-16 items-center">
+<div class="flex-shrink-0 font-bold text-xl text-stone-800 flex items-center gap-2">
+<span class="text-2xl">🐣</span> Easter Lore
+                </div>
+<div class="hidden md:flex space-x-8">
+<a class="text-stone-600 hover:text-rose-500 font-medium transition-colors" href="#intro">Introduction</a>
+<a class="text-stone-600 hover:text-rose-500 font-medium transition-colors" href="#why-eggs">Why Eggs?</a>
+<a class="text-stone-600 hover:text-rose-500 font-medium transition-colors" href="#the-bunny">The Bunny</a>
+<a class="text-stone-600 hover:text-rose-500 font-medium transition-colors" href="#global">Global Traditions</a>
+<a class="text-stone-600 hover:text-rose-500 font-medium transition-colors" href="#symbols">Symbols</a>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-24">
+<section class="text-center py-12 md:py-20 animate-fade-in" id="intro">
+<div class="inline-block p-4 bg-rose-100 rounded-full mb-6">
+<span class="text-5xl">🌷</span>
+</div>
+<h1 class="text-4xl md:text-6xl font-extrabold text-stone-900 mb-6 tracking-tight">
+                Uncracking Easter Traditions
+            </h1>
+<p class="text-xl md:text-2xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
+                From chocolate bunnies to painted eggs, <a href="https://www.happy-new-year.org/festivals/easter/">Easter</a> is a vibrant tapestry of pagan festivals, ancient folklore, and religious observance. Explore the interactive history of how these symbols came to be.
+            </p>
+</section>
+<section class="bg-amber-50 rounded-3xl p-8 md:p-12 shadow-inner" id="why-eggs">
+<div class="max-w-3xl mx-auto text-center mb-12">
+<h2 class="text-3xl font-bold text-stone-800 mb-4">Why Are Eggs Used on Easter?</h2>
+<p class="text-lg text-stone-600">
+                    The egg is arguably the most recognizable symbol of Easter. But why did a simple breakfast staple become the centerpiece of a global holiday? The answer lies in a mix of practicality, ancient nature worship, and religious metaphor.
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white p-6 rounded-2xl shadow-sm interactive-card border border-amber-100">
+<div class="text-4xl mb-4 text-center">🌱</div>
+<h3 class="text-xl font-bold text-center mb-3 text-amber-900">Ancient Fertility</h3>
+<p class="text-stone-600 text-sm leading-relaxed">
+                        Long before Christianity, eggs were a primary symbol of new life, fertility, and rebirth in pagan spring festivals. They represented the earth bursting with life after the cold, dead winter.
+                    </p>
+</div>
+<div class="bg-white p-6 rounded-2xl shadow-sm interactive-card border border-amber-100">
+<div class="text-4xl mb-4 text-center">🍽️</div>
+<h3 class="text-xl font-bold text-center mb-3 text-amber-900">The Lenten Fast</h3>
+<p class="text-stone-600 text-sm leading-relaxed">
+                        Historically, Christians abstained from eating eggs and meat during the 40 days of Lent. To prevent eggs from spoiling, people boiled and preserved them. Easter Sunday became a feast day to finally eat them.
+                    </p>
+</div>
+<div class="bg-white p-6 rounded-2xl shadow-sm interactive-card border border-amber-100">
+<div class="text-4xl mb-4 text-center">✝️</div>
+<h3 class="text-xl font-bold text-center mb-3 text-amber-900">The Empty Tomb</h3>
+<p class="text-stone-600 text-sm leading-relaxed">
+                        The Christian church adopted the egg as a metaphor for the resurrection. Just as a bird breaks out of its shell to begin its life, the egg represents Jesus emerging from the tomb.
+                    </p>
+</div>
+</div>
+</section>
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center" id="the-bunny">
+<div class="order-2 lg:order-1">
+<h2 class="text-3xl font-bold text-stone-800 mb-6">The Story of the Easter Bunny</h2>
+<p class="text-lg text-stone-600 mb-6">
+                    Rabbits do not lay eggs, so how did a bunny become the primary distributor of Easter treats? The journey begins in Europe and travels across the Atlantic.
+                </p>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-12 h-12 bg-rose-100 rounded-full flex items-center justify-center text-2xl font-bold text-rose-600">1</div>
+<div>
+<h4 class="font-bold text-xl text-stone-800">The Goddess Eostre</h4>
+<p class="text-stone-600">Pagan Anglo-Saxons worshipped Eostre, the goddess of spring and dawn. Her earthly symbol was the hare, known for its rapid reproduction rates, cementing the rabbit's association with spring fertility.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-12 h-12 bg-rose-100 rounded-full flex items-center justify-center text-2xl font-bold text-rose-600">2</div>
+<div>
+<h4 class="font-bold text-xl text-stone-800">The German Osterhase</h4>
+<p class="text-stone-600">By the 1700s, German folklore introduced the "Osterhase" or "Oschter Haws," an egg-laying hare. Children would build nests in which this creature could lay its colored eggs if they were good.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-12 h-12 bg-rose-100 rounded-full flex items-center justify-center text-2xl font-bold text-rose-600">3</div>
+<div>
+<h4 class="font-bold text-xl text-stone-800">Journey to America</h4>
+<p class="text-stone-600">German immigrants settling in Pennsylvania brought the Osterhase tradition with them. Over time, the custom spread across the U.S., evolving into the modern Easter Bunny who brings chocolates and toys in baskets instead of nests.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="order-1 lg:order-2 bg-emerald-50 rounded-3xl p-8 flex items-center justify-center min-h-[400px]">
+<div class="text-[150px] transform hover:rotate-12 transition-transform duration-500 cursor-pointer" title="The Osterhase">🐰</div>
+</div>
+</section>
+<section class="bg-white border border-stone-200 rounded-3xl p-8 md:p-12 shadow-sm" id="global">
+<h2 class="text-3xl font-bold text-stone-800 mb-4">Easter Traditions Around the World</h2>
+<p class="text-lg text-stone-600 mb-10 max-w-3xl">
+                While the US and UK hunt for eggs and wait for the bunny, the rest of the world has developed highly unique and sometimes surprising ways to celebrate the holiday season.
+            </p>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<div>
+<h3 class="text-xl font-bold text-stone-800 mb-6">Interactive Tradition Explorer</h3>
+<div class="flex flex-col gap-3" id="country-buttons">
+<button class="w-full text-left px-6 py-4 rounded-xl border-2 border-stone-100 bg-stone-50 hover:bg-sky-50 hover:border-sky-200 transition-colors font-semibold flex justify-between items-center" onclick="updateTradition('poland')">
+<span>🇵🇱 Poland</span> <span class="text-2xl">💧</span>
+</button>
+<button class="w-full text-left px-6 py-4 rounded-xl border-2 border-stone-100 bg-stone-50 hover:bg-sky-50 hover:border-sky-200 transition-colors font-semibold flex justify-between items-center" onclick="updateTradition('greece')">
+<span>🇬🇷 Greece</span> <span class="text-2xl">🥚</span>
+</button>
+<button class="w-full text-left px-6 py-4 rounded-xl border-2 border-stone-100 bg-stone-50 hover:bg-sky-50 hover:border-sky-200 transition-colors font-semibold flex justify-between items-center" onclick="updateTradition('bermuda')">
+<span>🇧🇲 Bermuda</span> <span class="text-2xl">🪁</span>
+</button>
+<button class="w-full text-left px-6 py-4 rounded-xl border-2 border-stone-100 bg-stone-50 hover:bg-sky-50 hover:border-sky-200 transition-colors font-semibold flex justify-between items-center" onclick="updateTradition('australia')">
+<span>🇦🇺 Australia</span> <span class="text-2xl">🐀</span>
+</button>
+</div>
+<div class="mt-6 p-6 bg-sky-50 rounded-xl border border-sky-100 min-h-[150px]" id="tradition-display">
+<h4 class="font-bold text-lg text-sky-900 mb-2">Select a country above</h4>
+<p class="text-sky-800">Click on a country to explore their unique Easter traditions.</p>
+</div>
+</div>
+<div>
+<h3 class="text-xl font-bold text-stone-800 mb-6 text-center">Estimated Easter Chocolate Consumption</h3>
+<p class="text-sm text-center text-stone-500 mb-4">Average spending/consumption indicators during the Easter season.</p>
+<div class="chart-container">
+<canvas id="chocolateChart"></canvas>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-stone-900 text-stone-100 rounded-3xl p-8 md:p-12 shadow-2xl" id="symbols">
+<div class="text-center mb-10">
+<h2 class="text-3xl font-bold text-white mb-4">Decoding Easter Symbols</h2>
+<p class="text-stone-400 max-w-2xl mx-auto">
+                    Click the symbols below to uncover their historical and religious meanings within the context of the Easter holiday.
+                </p>
+</div>
+<div class="flex justify-center gap-4 flex-wrap mb-10" id="symbol-grid">
+<button class="symbol-btn active w-20 h-20 rounded-full bg-stone-800 text-4xl flex items-center justify-center border-2 border-stone-700 hover:border-rose-400 focus:outline-none" onclick="updateSymbol('lamb', this)">🐑</button>
+<button class="symbol-btn w-20 h-20 rounded-full bg-stone-800 text-4xl flex items-center justify-center border-2 border-stone-700 hover:border-rose-400 focus:outline-none" onclick="updateSymbol('lily', this)">🌸</button>
+<button class="symbol-btn w-20 h-20 rounded-full bg-stone-800 text-4xl flex items-center justify-center border-2 border-stone-700 hover:border-rose-400 focus:outline-none" onclick="updateSymbol('cross', this)">✝️</button>
+<button class="symbol-btn w-20 h-20 rounded-full bg-stone-800 text-4xl flex items-center justify-center border-2 border-stone-700 hover:border-rose-400 focus:outline-none" onclick="updateSymbol('butterfly', this)">🦋</button>
+</div>
+<div class="max-w-2xl mx-auto bg-stone-800 rounded-2xl p-8 text-center border border-stone-700">
+<div class="text-6xl mb-4" id="symbol-icon">🐑</div>
+<h3 class="text-2xl font-bold text-rose-300 mb-4" id="symbol-title">The Paschal Lamb</h3>
+<p class="text-stone-300 text-lg leading-relaxed" id="symbol-desc">
+                    Of all Easter symbols, the lamb is perhaps the most heavily rooted in religion. It connects directly to the Jewish holiday of Passover, where a lamb was sacrificed. In Christianity, Jesus is referred to as the "Lamb of God" who sacrificed himself for humanity's sins.
+                </p>
+</div>
+</section>
+</main>
+<footer class="bg-gray-800 text-gray-300">
+<div class="container mx-auto px-6 py-12 lg:px-8">
+<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/easter/">Easter Festival</a></li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">26-bihari-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">26-chinese-new-year-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">26-christmas-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-festival-countdown</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">Christmas-wishes-by-audience</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">Happy-new-year-2026-celebrations-worldwide.html</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">Happy-new-year-2026</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">Multilingual-greetings-webpage</a>
+</li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+</ul>
+<h5 class="text-lg font-semibold text-white mb-4">Wishes and Wallpapers</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes-and-wallpapers.html">Wishes and Wallpapers</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/welcome-new-year.html">Welcome New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wallpapers">Festival Wallpaper for Desktop and Mobile</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards for  New Year</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">2025 Trends and 2026 forecast</h5>
+<ul class="space-y-2">
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-digital-outlook-trends-forecast</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">2026-festival-countdown</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026_dashboard.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">2026_dashboard</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/new_year_2026_page.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">New_year_2026_page</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/send-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl07_title">Send-christmas-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl08_title">Send-sankranti-wishes-in-multiple-languages</a>
+</li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/index-oct.html">Thanks Giving Main Page</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+<div class="space-y-2">
+<p>Redmond<br/>WA, USA</p>
+<p>
+<a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+</p>
+<p>
+<a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+</p>
+</div>
+</div>
+</div>
+<div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+<p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+<div class="flex space-x-4 mt-4 sm:mt-0">
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+<span class="sr-only">Facebook</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+</svg>
+</a>
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+<span class="sr-only">Twitter</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+</svg>
+</a>
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+<span class="sr-only">LinkedIn</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+</svg>
+</a>
+</div>
+<div class="flex gap-4 mt-4 sm:mt-0">
+<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+</div>
+</div>
+</div>
+</footer>
+<script>
+        const traditionData = {
+            poland: {
+                title: "Śmigus-Dyngus (Wet Monday)",
+                content: "On Easter Monday, locals engage in a massive, nationwide water fight. Historically, boys would throw water over girls they liked, but today it's a free-for-all involving water guns, buckets, and balloons. It symbolizes spring cleansing and fertility."
+            },
+            greece: {
+                title: "The Red Eggs",
+                content: "Instead of pastels, Greek Orthodox Christians traditionally dye their Easter eggs blood red. The red represents the blood of Christ, while the hard shell represents the sealed Tomb of Christ. They play a game called 'tsougrisma' where they tap eggs together to see whose shell cracks first."
+            },
+            bermuda: {
+                title: "Good Friday Kites",
+                content: "Bermudians celebrate Good Friday by flying colorful, handmade geometric kites. The tradition allegedly began when a local teacher used a kite, shaped like a cross, to demonstrate Christ's ascension to heaven to his students."
+            },
+            australia: {
+                title: "The Easter Bilby",
+                content: "In Australia, rabbits are considered a severe agricultural pest. To raise awareness for native wildlife, many Australians celebrate with the 'Easter Bilby' (an endangered native marsupial with long ears) instead of the Easter Bunny, often buying chocolate bilbies whose proceeds go to conservation."
+            }
+        };
+
+        function updateTradition(country) {
+            const display = document.getElementById('tradition-display');
+            const data = traditionData[country];
+            display.innerHTML = `
+                <h4 class="font-bold text-xl text-sky-900 mb-2">${data.title}</h4>
+                <p class="text-sky-800 leading-relaxed">${data.content}</p>
+            `;
+            
+            display.classList.remove('animate-pulse');
+            void display.offsetWidth; 
+            display.classList.add('animate-fade-in');
+        }
+
+        const symbolData = {
+            lamb: {
+                icon: "🐑",
+                title: "The Paschal Lamb",
+                desc: "Of all Easter symbols, the lamb is perhaps the most heavily rooted in religion. It connects directly to the Jewish holiday of Passover, where a lamb was sacrificed. In Christianity, Jesus is referred to as the 'Lamb of God' who sacrificed himself for humanity's sins."
+            },
+            lily: {
+                icon: "🌸",
+                title: "Easter Lilies",
+                desc: "White lilies symbolize the purity, innocence, and virtue of Christ. According to legend, these beautiful flowers sprouted where drops of Jesus' sweat fell to the ground during his final hours. They are a common decoration in churches during Easter Sunday."
+            },
+            cross: {
+                icon: "✝️",
+                title: "The Cross",
+                desc: "The cross is the ultimate symbol of the Christian faith, representing the crucifixion of Jesus Christ on Good Friday. During Easter, it transitions from a symbol of suffering to one of victory over death."
+            },
+            butterfly: {
+                icon: "🦋",
+                title: "The Butterfly",
+                desc: "The life cycle of the butterfly perfectly mirrors the Christian view of Jesus' life, death, and resurrection. The caterpillar represents his life on earth, the chrysalis represents his entombment, and the butterfly emerging represents his resurrection into glory."
+            }
+        };
+
+        function updateSymbol(symbolKey, btnElement) {
+            const data = symbolData[symbolKey];
+            
+            document.getElementById('symbol-icon').innerText = data.icon;
+            document.getElementById('symbol-title').innerText = data.title;
+            document.getElementById('symbol-desc').innerText = data.desc;
+
+            document.querySelectorAll('.symbol-btn').forEach(btn => {
+                btn.classList.remove('active', 'bg-fbcfe8', 'text-stone-900');
+                btn.classList.add('bg-stone-800', 'text-white');
+            });
+            
+            btnElement.classList.add('active');
+            btnElement.classList.remove('bg-stone-800', 'text-white');
+            btnElement.classList.add('bg-rose-200', 'text-stone-900');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('chocolateChart').getContext('2d');
+            
+            Chart.defaults.font.family = "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
+            Chart.defaults.color = '#78716c';
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['UK', 'Switzerland', 'USA', 'Germany', 'France'],
+                    datasets: [{
+                        label: 'Relative Chocolate Consumption Index',
+                        data: [95, 88, 75, 82, 60],
+                        backgroundColor: [
+                            'rgba(244, 63, 94, 0.7)',  
+                            'rgba(251, 191, 36, 0.7)', 
+                            'rgba(52, 211, 153, 0.7)', 
+                            'rgba(56, 189, 248, 0.7)', 
+                            'rgba(167, 139, 250, 0.7)' 
+                        ],
+                        borderColor: [
+                            'rgb(244, 63, 94)',
+                            'rgb(251, 191, 36)',
+                            'rgb(52, 211, 153)',
+                            'rgb(56, 189, 248)',
+                            'rgb(167, 139, 250)'
+                        ],
+                        borderWidth: 1,
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false 
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.parsed.y + ' Index Score';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(231, 229, 228, 0.5)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body></html>

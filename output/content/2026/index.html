@@ -1,129 +1,281 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    
-    <!-- SEO Meta Tags -->
-    <meta content="Discover 26 heartfelt and thoughtful New Year wishes for 2026, from A to Z. Find the perfect warm, positive, and inspiring message for your loved ones." name="description"/>
-    <meta content="New Year wishes, Happy New Year 2026, 2026 wishes, inspirational new year messages, thoughtful greetings, A to Z wishes" name="keywords"/>
-    <title>26 Heartfelt New Year Wishes | A-Z Guide for 2026</title>
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- FontAwesome CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com" rel="preconnect"/>
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;600;700&amp;family=Inter:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
-
-    <!-- React and ReactDOM -->
-    <script crossorigin="" src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script crossorigin="" src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    
-    <!-- Babel for JSX -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #fff1f2; /* bg-rose-50 */
-            color: #292524; /* text-stone-800 */
-            background-image: linear-gradient(rgba(255, 241, 242, 0.95), rgba(255, 241, 242, 0.95)), url('https://storage.googleapis.com/kreatewebsite/banner_all/Happy-New-Year-Photos.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-        h1, h2, h3, .serif {
-            font-family: 'Vollkorn', serif;
-        }
-        
-        /* Navigation Bar */
-        .nav-glass {
-            background-color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid #ffe4e6;
-        }
-
-        .nav-link {
-            color: #57534e;
-            transition: color 0.2s;
-        }
-        .nav-link:hover {
-            color: #9f1239;
-        }
-
-        /* Wish Card Styling */
-        .wish-card {
-            background-color: rgba(255, 255, 255, 0.7);
-            border: 1px solid #ffe4e6;
-            border-radius: 1rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            backdrop-filter: blur(4px);
-        }
-
-        .wish-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 20px -5px rgba(244, 63, 94, 0.15);
-            border-color: #fda4af;
-            background-color: rgba(255, 255, 255, 0.95);
-        }
-
-        .animate-spin-slow {
-            animation: spin 60s linear infinite;
-        }
-        @keyframes spin {
-            from { transform: translate(-50%, -50%) rotate(0deg); }
-            to { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-    </style>
-<!-- Google tag (gtag.js) --><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JJ6LGZB34T"></script><script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-JJ6LGZB34T');
-</script><script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9804321536688475"></script></head>
-<body class="antialiased min-h-screen flex flex-col">
-
-    <!-- Navigation (Static HTML for SEO/Consistency) -->
-    <nav class="w-full nav-glass sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex-shrink-0 flex items-center gap-3">
-                    <a class="flex items-center gap-2 group" href="index.html">
-                        <span class="text-2xl text-rose-600 group-hover:scale-110 transition-transform">✨</span>
-                        <span class="text-xl font-bold tracking-wide uppercase text-rose-900 group-hover:text-rose-700 serif">Happy New Year</span>
-                    </a>
-                </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-						<a class="text-stone-600 hover:text-rose-800 block px-3 py-2 rounded-md text-base font-medium" href="/#resolutions">Resolutions</a>
-						<a class="text-stone-600 hover:text-rose-800 block px-3 py-2 rounded-md text-base font-medium" href="/#culture">Culture</a>
-						<a class="text-stone-600 hover:text-rose-800 block px-3 py-2 rounded-md text-base font-medium" href="/#trends">Trends</a>
-						<a class="text-stone-600 hover:text-rose-800 block px-3 py-2 rounded-md text-base font-medium" href="/2025/">2025</a>
-						<a class="text-stone-600 hover:text-rose-800 block px-3 py-2 rounded-md text-base font-medium" href="/celebrations/">Best Celebrations</a>
-                        <a class="nav-link px-3 py-2 rounded-md text-base font-semibold text-rose-800 border-b-2 border-rose-800" href="/wishes/">26 Wishes</a>
-						
-						
-                    </div>
-                </div>
-                <!-- Mobile menu button placeholder -->
-                <div class="md:hidden">
-                    <button class="text-stone-600 hover:text-rose-800"><i class="fa-solid fa-bars text-2xl"></i></button>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- React Root -->
-    <div class="flex-grow" id="root"></div>
-
-    <!-- Footer (Static) -->
-    <footer class="bg-gray-800 text-gray-300">
+<html class="scroll-smooth" data-related-json="https://storage.googleapis.com/create-website/css-scripts/related-articles.json" data-related-keywords="new year wishes festival wishes greetings" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Discover beautiful 2026 wishes for New Year and major festivals including Lohri, Makar Sankranti, Chinese New Year, Holi, Easter, Mother's Day, Father's Day, Diwali, Thanksgiving, and Christmas. Explore themed greeting pages and heartfelt messages for every celebration." name="description"/>
+<meta content="2026 wishes, New Year wishes 2026, festival wishes, Lohri wishes, Makar Sankranti wishes, Chinese New Year wishes, Holi wishes, Easter wishes, Mother's Day wishes, Father's Day wishes, Diwali wishes, Thanksgiving wishes, Christmas wishes" name="keywords"/>
+<title>2026 Wishes Collection: New Year &amp; Festival Greetings</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://storage.googleapis.com/create-website/css-scripts/related-articles-noimage.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<style>
+    body {
+      font-family: 'Vollkorn', serif;
+      background-color: #fff1f2;
+      color: #292524;
+      background-image: linear-gradient(rgba(255, 241, 242, 0.86), rgba(255, 241, 242, 0.86)), url('https://storage.googleapis.com/kreatewebsite/banner_all/Happy-New-Year-Photos.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    h1, h2, h3 { font-weight: 700; }
+    .theme-card {
+      background-color: rgba(255,255,255,0.72);
+      border: 1px solid #ffe4e6;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+      transition: all .3s ease;
+      backdrop-filter: blur(8px);
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 20px -6px rgba(244,63,94,.16), 0 6px 8px -4px rgba(244,63,94,.10);
+      border-color: #fda4af;
+      background-color: rgba(255,255,255,0.9);
+    }
+    .nav-link { color: #57534e; transition: color .2s; }
+    .nav-link:hover, .nav-link.active { color: #9f1239; }
+    #mobile-menu { background: rgba(255,255,255,0.95); }
+    .section-chip {
+      background: rgba(255,255,255,.74);
+      border: 1px solid #fecdd3;
+      color: #9f1239;
+    }
+    .festival-badge {
+      background: #fff1f2;
+      border: 1px solid #fecdd3;
+      color: #be123c;
+    }
+  </style>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JJ6LGZB34T"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    gtag('js', new Date());
+    gtag('config', 'G-JJ6LGZB34T');
+  </script>
+<script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9804321536688475"></script>
+</head>
+<body class="antialiased min-h-screen flex flex-col overflow-x-hidden text-stone-800">
+<nav class="w-full bg-white/80 backdrop-blur-sm sticky top-0 z-50 border-b border-rose-100">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<div class="flex-shrink-0 flex items-center gap-3">
+<span class="text-2xl text-rose-600">💌</span>
+<span class="text-xl font-bold tracking-wide uppercase text-rose-900">Wishes Collection</span>
+</div>
+<div class="hidden md:block">
+<div class="ml-10 flex items-baseline space-x-8">
+<a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="#new-year-wishes">New Year</a>
+<a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="#festival-wishes">Festivals</a>
+<a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="#all-pages">All Pages</a>
+<a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="#related-articles-root">Related</a>
+</div>
+</div>
+<div class="md:hidden">
+<button class="text-stone-600 hover:text-rose-800" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+<i class="fa-solid fa-bars text-2xl"></i>
+</button>
+</div>
+</div>
+</div>
+<div class="hidden md:hidden border-t border-rose-100" id="mobile-menu">
+<div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+<a class="text-stone-600 hover:text-rose-800 block px-3 py-2 rounded-md text-base font-medium" href="#new-year-wishes">New Year</a>
+<a class="text-stone-600 hover:text-rose-800 block px-3 py-2 rounded-md text-base font-medium" href="#festival-wishes">Festivals</a>
+<a class="text-stone-600 hover:text-rose-800 block px-3 py-2 rounded-md text-base font-medium" href="#all-pages">All Pages</a>
+<a class="text-stone-600 hover:text-rose-800 block px-3 py-2 rounded-md text-base font-medium" href="#related-articles-root">Related</a>
+</div>
+</div>
+</nav>
+<header class="relative pt-24 pb-16">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+<div class="inline-block px-4 py-1 rounded-full border border-rose-200 bg-white/70 text-rose-800 text-xs font-bold tracking-[0.2em] uppercase mb-6 backdrop-blur-sm">
+        Warm Words for Every Celebration
+      </div>
+<h1 class="text-4xl md:text-6xl font-bold text-rose-900 mb-4 tracking-tight drop-shadow-sm">
+        2026 Wishes Collection
+      </h1>
+<h2 class="text-2xl md:text-4xl font-bold text-rose-800 italic mb-6 drop-shadow-sm">
+        Start with New Year wishes, then celebrate every festival in style
+      </h2>
+<p class="mt-4 max-w-3xl mx-auto text-xl text-stone-700 leading-relaxed font-medium">
+        Explore heartfelt greeting pages for the biggest celebrations of the year. Begin with New Year wishes, then browse curated pages for Lohri, Makar Sankranti, Chinese New Year, Holi, Easter, Mother's Day, Father's Day, Diwali, Thanksgiving, and Christmas.
+      </p>
+<div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+<a class="px-8 py-3 bg-rose-700 hover:bg-rose-800 text-white font-bold rounded-lg shadow-lg shadow-rose-200/50 transition-all transform hover:scale-105" href="#new-year-wishes">
+          Explore New Year Wishes
+        </a>
+<a class="px-8 py-3 bg-white/80 hover:bg-white text-rose-800 font-bold rounded-lg border border-rose-200 shadow-lg shadow-rose-100/50 transition-all transform hover:scale-105" href="#festival-wishes">
+          Browse Festival Wishes
+        </a>
+</div>
+</div>
+</header>
+<main class="flex-grow">
+<section class="py-8" id="new-year-wishes">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="theme-card p-8 md:p-12 overflow-hidden relative">
+<div class="absolute top-0 right-0 p-6 opacity-[0.06]">
+<i class="fa-solid fa-champagne-glasses text-[9rem] text-rose-900"></i>
+</div>
+<div class="relative z-10 grid lg:grid-cols-[1.2fr_0.8fr] gap-10 items-center">
+<div>
+<span class="section-chip inline-flex items-center rounded-full px-4 py-1 text-xs font-bold uppercase tracking-[0.18em] mb-5">Featured Greeting Page</span>
+<h2 class="text-3xl md:text-5xl text-rose-900 mb-4">New Year Wishes First</h2>
+<p class="text-lg md:text-xl text-stone-700 leading-relaxed mb-6 max-w-2xl">
+                Open the year with uplifting messages, thoughtful <a href="https://www.happy-new-year.org/wishes/">greetings</a>, and cheerful wishes for family, friends, coworkers, and loved ones. This is the starting point of your 2026 wishes hub.
+              </p>
+<div class="flex flex-wrap gap-3 mb-6">
+<span class="festival-badge inline-flex items-center rounded-full px-3 py-1 text-sm font-semibold">Fresh starts</span>
+<span class="festival-badge inline-flex items-center rounded-full px-3 py-1 text-sm font-semibold">Family greetings</span>
+<span class="festival-badge inline-flex items-center rounded-full px-3 py-1 text-sm font-semibold">Professional wishes</span>
+<span class="festival-badge inline-flex items-center rounded-full px-3 py-1 text-sm font-semibold">Inspiring messages</span>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="inline-flex items-center justify-center px-7 py-3 bg-rose-700 hover:bg-rose-800 text-white font-bold rounded-lg shadow-md transition-colors" href="26-new-year-wishes.html">
+                  Visit New Year Wishes
+                </a>
+<a class="inline-flex items-center justify-center px-7 py-3 bg-white/90 hover:bg-white text-rose-800 font-bold rounded-lg border border-rose-200 shadow-sm transition-colors" href="26-wishes.html">
+                  Open Main Wishes Page
+                </a>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white/85 rounded-2xl p-6 border border-rose-100 shadow-sm">
+<div class="text-rose-700 text-3xl mb-2">✨</div>
+<h3 class="text-xl text-rose-900 mb-2">Joyful</h3>
+<p class="text-stone-600 text-sm">Positive wishes for a bright, hopeful start to the year.</p>
+</div>
+<div class="bg-white/85 rounded-2xl p-6 border border-rose-100 shadow-sm">
+<div class="text-rose-700 text-3xl mb-2">🎉</div>
+<h3 class="text-xl text-rose-900 mb-2">Celebratory</h3>
+<p class="text-stone-600 text-sm">Perfect for social sharing, party greetings, and festive notes.</p>
+</div>
+<div class="bg-white/85 rounded-2xl p-6 border border-rose-100 shadow-sm col-span-2">
+<div class="text-rose-700 text-3xl mb-2">💫</div>
+<h3 class="text-xl text-rose-900 mb-2">Meaningful for Every Relationship</h3>
+<p class="text-stone-600 text-sm">Use it as the anchor page of the collection, then guide visitors into each holiday-specific wishes page throughout the year.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 relative" id="festival-wishes">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-14">
+<h2 class="text-3xl md:text-4xl font-bold text-rose-900 mb-4">Wishes for Festivals &amp; Family Celebrations</h2>
+<p class="text-stone-700 max-w-3xl mx-auto text-lg font-medium">After New Year wishes, guide readers to tailored greeting pages for seasonal festivals and special days celebrated across the year.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<a class="theme-card p-7 card-hover group block relative overflow-hidden" href="26-lohri-wishes.html">
+<div class="absolute top-0 right-0 p-4 opacity-[0.06] group-hover:opacity-10 transition-opacity"><i class="fa-solid fa-fire text-8xl text-rose-900"></i></div>
+<div class="flex items-center mb-4"><span class="text-3xl mr-3">🔥</span><h3 class="text-2xl text-rose-900 group-hover:text-rose-700 transition-colors">Lohri Wishes</h3></div>
+<p class="text-sm font-bold text-rose-500 uppercase tracking-wider mb-4">Harvest Festival</p>
+<p class="text-stone-700 leading-relaxed">Warm bonfire greetings, Punjabi celebration messages, and cheerful wishes to mark joy, gratitude, and togetherness.</p>
+<div class="mt-6 flex items-center text-rose-700 text-sm font-bold">Open Page <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i></div>
+</a>
+<a class="theme-card p-7 card-hover group block relative overflow-hidden" href="26-makarsankranti-wishes.html">
+<div class="absolute top-0 right-0 p-4 opacity-[0.06] group-hover:opacity-10 transition-opacity"><i class="fa-solid fa-kite text-8xl text-rose-900"></i></div>
+<div class="flex items-center mb-4"><span class="text-3xl mr-3">🪁</span><h3 class="text-2xl text-rose-900 group-hover:text-rose-700 transition-colors">Makar Sankranti Wishes</h3></div>
+<p class="text-sm font-bold text-rose-500 uppercase tracking-wider mb-4">Sun &amp; Harvest</p>
+<p class="text-stone-700 leading-relaxed">Sweet festival greetings inspired by kites, jaggery, sesame, sunshine, prosperity, and the spirit of new beginnings.</p>
+<div class="mt-6 flex items-center text-rose-700 text-sm font-bold">Open Page <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i></div>
+</a>
+<a class="theme-card p-7 card-hover group block relative overflow-hidden" href="26-chinese-new-year-wishes.html">
+<div class="absolute top-0 right-0 p-4 opacity-[0.06] group-hover:opacity-10 transition-opacity"><i class="fa-solid fa-dragon text-8xl text-rose-900"></i></div>
+<div class="flex items-center mb-4"><span class="text-3xl mr-3">🧧</span><h3 class="text-2xl text-rose-900 group-hover:text-rose-700 transition-colors">Chinese New Year Wishes</h3></div>
+<p class="text-sm font-bold text-rose-500 uppercase tracking-wider mb-4">Lunar Celebration</p>
+<p class="text-stone-700 leading-relaxed">Fortune-filled greetings for prosperity, happiness, family reunion, luck, and success in the lunar new year.</p>
+<div class="mt-6 flex items-center text-rose-700 text-sm font-bold">Open Page <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i></div>
+</a>
+<a class="theme-card p-7 card-hover group block relative overflow-hidden" href="26-holi-wishes.html">
+<div class="absolute top-0 right-0 p-4 opacity-[0.06] group-hover:opacity-10 transition-opacity"><i class="fa-solid fa-palette text-8xl text-rose-900"></i></div>
+<div class="flex items-center mb-4"><span class="text-3xl mr-3">🎨</span><h3 class="text-2xl text-rose-900 group-hover:text-rose-700 transition-colors">Holi Wishes</h3></div>
+<p class="text-sm font-bold text-rose-500 uppercase tracking-wider mb-4">Festival of Colors</p>
+<p class="text-stone-700 leading-relaxed">Colorful greetings packed with happiness, laughter, playful energy, and heartfelt messages for loved ones.</p>
+<div class="mt-6 flex items-center text-rose-700 text-sm font-bold">Open Page <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i></div>
+</a>
+<a class="theme-card p-7 card-hover group block relative overflow-hidden" href="26-easter-wishes.html">
+<div class="absolute top-0 right-0 p-4 opacity-[0.06] group-hover:opacity-10 transition-opacity"><i class="fa-solid fa-cross text-8xl text-rose-900"></i></div>
+<div class="flex items-center mb-4"><span class="text-3xl mr-3">✝️</span><h3 class="text-2xl text-rose-900 group-hover:text-rose-700 transition-colors">Easter Wishes</h3></div>
+<p class="text-sm font-bold text-rose-500 uppercase tracking-wider mb-4">Hope &amp; Renewal</p>
+<p class="text-stone-700 leading-relaxed">Gentle and uplifting Easter messages centered on faith, renewal, springtime joy, and family celebration.</p>
+<div class="mt-6 flex items-center text-rose-700 text-sm font-bold">Open Page <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i></div>
+</a>
+<a class="theme-card p-7 card-hover group block relative overflow-hidden" href="26-mothers-day-wishes.html">
+<div class="absolute top-0 right-0 p-4 opacity-[0.06] group-hover:opacity-10 transition-opacity"><i class="fa-solid fa-heart text-8xl text-rose-900"></i></div>
+<div class="flex items-center mb-4"><span class="text-3xl mr-3">🌷</span><h3 class="text-2xl text-rose-900 group-hover:text-rose-700 transition-colors">Mother's Day Wishes</h3></div>
+<p class="text-sm font-bold text-rose-500 uppercase tracking-wider mb-4">Love &amp; Gratitude</p>
+<p class="text-stone-700 leading-relaxed">Thoughtful messages to honor mothers, grandmothers, mentors, and caregivers with warmth and appreciation.</p>
+<div class="mt-6 flex items-center text-rose-700 text-sm font-bold">Open Page <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i></div>
+</a>
+<a class="theme-card p-7 card-hover group block relative overflow-hidden" href="26-fathers-day-wishes.html">
+<div class="absolute top-0 right-0 p-4 opacity-[0.06] group-hover:opacity-10 transition-opacity"><i class="fa-solid fa-hands-holding-child text-8xl text-rose-900"></i></div>
+<div class="flex items-center mb-4"><span class="text-3xl mr-3">👔</span><h3 class="text-2xl text-rose-900 group-hover:text-rose-700 transition-colors">Father's Day Wishes</h3></div>
+<p class="text-sm font-bold text-rose-500 uppercase tracking-wider mb-4">Respect &amp; Thanks</p>
+<p class="text-stone-700 leading-relaxed">Celebrate dads and father figures with sincere wishes full of gratitude, admiration, and joyful family spirit.</p>
+<div class="mt-6 flex items-center text-rose-700 text-sm font-bold">Open Page <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i></div>
+</a>
+<a class="theme-card p-7 card-hover group block relative overflow-hidden" href="26-diwali-wishes.html">
+<div class="absolute top-0 right-0 p-4 opacity-[0.06] group-hover:opacity-10 transition-opacity"><i class="fa-solid fa-oil-can text-8xl text-rose-900"></i></div>
+<div class="flex items-center mb-4"><span class="text-3xl mr-3">🪔</span><h3 class="text-2xl text-rose-900 group-hover:text-rose-700 transition-colors">Diwali Wishes</h3></div>
+<p class="text-sm font-bold text-rose-500 uppercase tracking-wider mb-4">Lights &amp; Prosperity</p>
+<p class="text-stone-700 leading-relaxed">Light-filled Diwali greetings for happiness, success, abundance, peace, and festive family gatherings.</p>
+<div class="mt-6 flex items-center text-rose-700 text-sm font-bold">Open Page <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i></div>
+</a>
+<a class="theme-card p-7 card-hover group block relative overflow-hidden" href="26-thanks-giving-wishes.html">
+<div class="absolute top-0 right-0 p-4 opacity-[0.06] group-hover:opacity-10 transition-opacity"><i class="fa-solid fa-turkey text-8xl text-rose-900"></i></div>
+<div class="flex items-center mb-4"><span class="text-3xl mr-3">🦃</span><h3 class="text-2xl text-rose-900 group-hover:text-rose-700 transition-colors">Thanksgiving Wishes</h3></div>
+<p class="text-sm font-bold text-rose-500 uppercase tracking-wider mb-4">Gratitude &amp; Togetherness</p>
+<p class="text-stone-700 leading-relaxed">Messages of gratitude, abundance, family warmth, and appreciation for the blessings of the season.</p>
+<div class="mt-6 flex items-center text-rose-700 text-sm font-bold">Open Page <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i></div>
+</a>
+<a class="theme-card p-7 card-hover group block relative overflow-hidden" href="26-christmas-wishes.html">
+<div class="absolute top-0 right-0 p-4 opacity-[0.06] group-hover:opacity-10 transition-opacity"><i class="fa-solid fa-tree text-8xl text-rose-900"></i></div>
+<div class="flex items-center mb-4"><span class="text-3xl mr-3">🎄</span><h3 class="text-2xl text-rose-900 group-hover:text-rose-700 transition-colors">Christmas Wishes</h3></div>
+<p class="text-sm font-bold text-rose-500 uppercase tracking-wider mb-4">Peace &amp; Cheer</p>
+<p class="text-stone-700 leading-relaxed">Festive Christmas greetings with love, warmth, kindness, holiday joy, and messages perfect for cards and sharing.</p>
+<div class="mt-6 flex items-center text-rose-700 text-sm font-bold">Open Page <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i></div>
+</a>
+</div>
+</div>
+</section>
+<section class="py-10" id="all-pages">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="theme-card p-8 md:p-10">
+<div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8">
+<div>
+<h2 class="text-3xl md:text-4xl font-bold text-rose-900 mb-3">All Wishes Pages</h2>
+<p class="text-stone-700 text-lg max-w-3xl">Use this section as a clean internal hub for linking to each dedicated wishes page in your site.</p>
+</div>
+<span class="section-chip inline-flex items-center self-start rounded-full px-4 py-1 text-xs font-bold uppercase tracking-[0.18em]">12 linked pages</span>
+</div>
+<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 text-base">
+<a class="bg-white/80 hover:bg-white rounded-xl border border-rose-100 px-5 py-4 font-semibold text-rose-900 transition-colors shadow-sm" href="26-wishes.html">26 Wishes</a>
+<a class="bg-white/80 hover:bg-white rounded-xl border border-rose-100 px-5 py-4 font-semibold text-rose-900 transition-colors shadow-sm" href="26-new-year-wishes.html">26 New Year Wishes</a>
+<a class="bg-white/80 hover:bg-white rounded-xl border border-rose-100 px-5 py-4 font-semibold text-rose-900 transition-colors shadow-sm" href="26-lohri-wishes.html">26 Lohri Wishes</a>
+<a class="bg-white/80 hover:bg-white rounded-xl border border-rose-100 px-5 py-4 font-semibold text-rose-900 transition-colors shadow-sm" href="26-makarsankranti-wishes.html">26 Makar Sankranti Wishes</a>
+<a class="bg-white/80 hover:bg-white rounded-xl border border-rose-100 px-5 py-4 font-semibold text-rose-900 transition-colors shadow-sm" href="26-chinese-new-year-wishes.html">26 Chinese New Year Wishes</a>
+<a class="bg-white/80 hover:bg-white rounded-xl border border-rose-100 px-5 py-4 font-semibold text-rose-900 transition-colors shadow-sm" href="26-holi-wishes.html">26 Holi Wishes</a>
+<a class="bg-white/80 hover:bg-white rounded-xl border border-rose-100 px-5 py-4 font-semibold text-rose-900 transition-colors shadow-sm" href="26-easter-wishes.html">26 Easter Wishes</a>
+<a class="bg-white/80 hover:bg-white rounded-xl border border-rose-100 px-5 py-4 font-semibold text-rose-900 transition-colors shadow-sm" href="26-mothers-day-wishes.html">26 Mother's Day Wishes</a>
+<a class="bg-white/80 hover:bg-white rounded-xl border border-rose-100 px-5 py-4 font-semibold text-rose-900 transition-colors shadow-sm" href="26-fathers-day-wishes.html">26 Father's Day Wishes</a>
+<a class="bg-white/80 hover:bg-white rounded-xl border border-rose-100 px-5 py-4 font-semibold text-rose-900 transition-colors shadow-sm" href="26-diwali-wishes.html">26 Diwali Wishes</a>
+<a class="bg-white/80 hover:bg-white rounded-xl border border-rose-100 px-5 py-4 font-semibold text-rose-900 transition-colors shadow-sm" href="26-thanks-giving-wishes.html">26 Thanksgiving Wishes</a>
+<a class="bg-white/80 hover:bg-white rounded-xl border border-rose-100 px-5 py-4 font-semibold text-rose-900 transition-colors shadow-sm" href="26-christmas-wishes.html">26 Christmas Wishes</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<div data-heading="Related Articles" data-intro="Explore more greeting pages, celebration ideas, and seasonal guides." data-limit="4" id="related-articles-root"></div>
+<footer class="bg-gray-800 text-gray-300">
 <div class="container mx-auto px-6 py-12 lg:px-8">
 <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
 <div>
@@ -252,139 +404,24 @@
 </div>
 </div>
 </footer>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      var duration = 2200;
+      var animationEnd = Date.now() + duration;
+      var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
 
-    <script type="text/babel">
-        const { useState, useEffect } = React;
+      function randomInRange(min, max) {
+        return Math.random() * (max - min) + min;
+      }
 
-        // --- Data: 26 Wishes (A-Z) ---
-        const wishes = [
-            { letter: "A", title: "Abundance and Adventure", body: "May 2026 overflow with abundance, adventure, and awe-inspiring moments. May every sunrise fill you with renewed hope." },
-            { letter: "B", title: "Brighter Beginnings", body: "Here’s to brighter beginnings and beautiful journeys in 2026! May your dreams unfold one by one." },
-            { letter: "C", title: "Courage and Clarity", body: "May this New Year give you the courage to chase your biggest dreams and the clarity to know what truly matters." },
-            { letter: "D", title: "Dreams and Determination", body: "As 2026 unfolds, may your dreams find direction and your determination open doors you never knew existed." },
-            { letter: "E", title: "Energy and Enthusiasm", body: "May every day of 2026 begin with enthusiasm and end with gratitude. Fill your journey with kindness." },
-            { letter: "F", title: "Family and Friendship", body: "May 2026 surround you with family warmth and friendships that last a lifetime. May every gathering be filled with joy." },
-            { letter: "G", title: "Growth and Gratitude", body: "In 2026, may you grow stronger through challenges, wiser through reflection, and happier through gratitude." },
-            { letter: "H", title: "Hope and Harmony", body: "May the new year bring harmony to your heart and hope to your days. Let 2026 be a year where you find peace." },
-            { letter: "I", title: "Inspiration and Impact", body: "May you inspire others as much as you are inspired. May your work, words, and wisdom make a lasting impact." },
-            { letter: "J", title: "Joy and Journey", body: "Here’s to a joyful journey through 2026! May laughter be your constant companion, and love your guiding star." },
-            { letter: "K", title: "Kindness and Knowledge", body: "May you fill 2026 with acts of kindness and endless learning. Share your wisdom and embrace new experiences." },
-            { letter: "L", title: "Love and Light", body: "May love light your way in 2026 and guide you toward everything you’ve ever wished for." },
-            { letter: "M", title: "Magic and Meaning", body: "May 2026 be sprinkled with magic and meaning. Chase moments that make your heart race." },
-            { letter: "N", title: "New Horizons", body: "Step into 2026 with open arms. May new horizons appear before you, filled with opportunities." },
-            { letter: "O", title: "Optimism and Opportunities", body: "Let 2026 be a year where optimism fuels your actions and opportunities find their way to you naturally." },
-            { letter: "P", title: "Peace and Prosperity", body: "May peace surround your home, prosperity follow your path, and happiness fill your heart all through 2026." },
-            { letter: "Q", title: "Quiet Confidence", body: "Walk into 2026 with quiet confidence. Trust your journey, embrace your pace, and celebrate how far you’ve come." },
-            { letter: "R", title: "Renewal and Radiance", body: "Let this new year renew your spirit. May every challenge turn into a blessing, and every goal bring you closer to purpose." },
-            { letter: "S", title: "Strength and Serenity", body: "May 2026 give you the strength to overcome challenges and the serenity to accept what cannot be changed." },
-            { letter: "T", title: "Triumph and Togetherness", body: "Celebrate every triumph in 2026. Treasure the people who stand by your side." },
-            { letter: "U", title: "Unfolding Possibilities", body: "May 2026 unfold countless possibilities. Take bold steps and trust that the universe is guiding you." },
-            { letter: "V", title: "Vision and Victory", body: "Have a clear vision for your future. May 2026 be your year of victory where your work begins to bloom." },
-            { letter: "W", title: "Wellness and Wonder", body: "Wishing you wellness in body, peace in mind, and wonder in spirit. Let 2026 be filled with laughter." },
-            { letter: "X", title: "eXtraordinary Experiences", body: "Make 2026 extraordinary by living fully. May every experience shape you into the best version of yourself." },
-            { letter: "Y", title: "Youthful Spirit", body: "Keep your spirit young and your dreams alive. The best years aren’t behind you—they’re just beginning." },
-            { letter: "Z", title: "Zeal for Life", body: "May you live 2026 with unshakable zeal. Let passion fuel your purpose and positivity light your path." }
-        ];
-
-        const WishCard = ({ wish }) => {
-            const [copied, setCopied] = useState(false);
-
-            const copyToClipboard = () => {
-                const textToCopy = `${wish.title}\n\n${wish.body}`;
-                navigator.clipboard.writeText(textToCopy).then(() => {
-                    setCopied(true);
-                    setTimeout(() => setCopied(false), 2000);
-                });
-            };
-
-            return (
-                <div className="wish-card p-6 h-full flex flex-col justify-between group relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-16 h-16 bg-rose-100 rounded-bl-full -mr-6 -mt-6 transition-colors group-hover:bg-rose-200"></div>
-                    <div className="absolute top-2 right-3 text-lg font-bold text-rose-300 font-serif">{wish.letter}</div>
-
-                    <div>
-                        <h3 className="text-xl font-bold text-rose-900 mb-3 serif border-b border-rose-100 pb-2 inline-block">
-                            {wish.title}
-                        </h3>
-                        <p className="text-stone-600 text-sm leading-relaxed">
-                            {wish.body}
-                        </p>
-                    </div>
-
-                    <div className="mt-6 pt-4 border-t border-rose-50 flex justify-between items-center">
-                        <span className="text-[10px] font-bold text-rose-400 uppercase tracking-wider">2026 Wishes</span>
-                        <button 
-                            onClick={copyToClipboard}
-                            className="text-stone-400 hover:text-rose-600 transition-colors p-2 rounded-full hover:bg-rose-50"
-                            title="Copy"
-                        >
-                            {copied ? <i className="fa-solid fa-check"></i> : <i className="fa-regular fa-copy"></i>}
-                        </button>
-                    </div>
-                </div>
-            );
-        };
-
-        const App = () => {
-            const [featuredIndex, setFeaturedIndex] = useState(0);
-            const featuredWish = wishes[featuredIndex];
-
-            return (
-                <div className="w-full">
-                    {/* Hero Header */}
-                    <div className="relative pt-12 pb-8 text-center">
-                        <div className="inline-block px-4 py-1 rounded-full border border-rose-200 bg-white/60 text-rose-800 text-xs font-bold tracking-[0.2em] uppercase mb-4 backdrop-blur-sm">
-                            A to Z Collection
-                        </div>
-                        <h1 className="text-4xl md:text-6xl font-bold text-rose-900 mb-4 tracking-tight serif">
-                            Heartfelt Wishes
-                        </h1>
-                        <p className="text-lg text-stone-600 max-w-2xl mx-auto italic mb-12">
-                            "Discover 26 thoughtful greetings for the New Year, from A to Z."
-                        </p>
-                    </div>
-
-                    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-                        
-                        {/* Featured Carousel */}
-                        <div className="mb-16 max-w-3xl mx-auto">
-                            <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-rose-100 relative">
-                                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-rose-300 to-rose-500"></div>
-                                <div className="p-10 text-center min-h-[300px] flex flex-col items-center justify-center">
-                                    <div className="text-[150px] font-bold text-rose-50 absolute opacity-50 select-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 serif">
-                                        {featuredWish.letter}
-                                    </div>
-                                    
-                                    <div className="relative z-10">
-                                        <i className="fa-solid fa-wand-magic-sparkles text-rose-400 text-3xl mb-4"></i>
-                                        <h2 className="text-3xl font-bold text-stone-800 mb-4 serif">{featuredWish.title}</h2>
-                                        <p className="text-xl text-stone-600 italic leading-relaxed max-w-lg mx-auto">
-                                            "{featuredWish.body}"
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className="bg-rose-50 p-4 flex justify-between items-center px-8">
-                                    <button onClick={() => setFeaturedIndex((i) => (i - 1 + wishes.length) % wishes.length)} className="text-stone-500 hover:text-rose-700 font-bold"><i className="fa-solid fa-arrow-left mr-2"></i> Prev</button>
-                                    <span className="text-xs font-bold text-rose-400 uppercase tracking-widest">{featuredIndex + 1} / {wishes.length}</span>
-                                    <button onClick={() => setFeaturedIndex((i) => (i + 1) % wishes.length)} className="text-stone-500 hover:text-rose-700 font-bold">Next <i className="fa-solid fa-arrow-right ml-2"></i></button>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Grid */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                            {wishes.map((wish, idx) => (
-                                <WishCard key={idx} wish={wish} />
-                            ))}
-                        </div>
-                    </main>
-                </div>
-            );
-        };
-
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-
-
+      var interval = setInterval(function() {
+        var timeLeft = animationEnd - Date.now();
+        if (timeLeft <= 0) return clearInterval(interval);
+        var particleCount = Math.floor(40 * (timeLeft / duration));
+        confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+        confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+      }, 250);
+    });
+  </script>
+<script src="https://storage.googleapis.com/create-website/css-scripts/related-articles-noimage.js"></script>
 </body></html>

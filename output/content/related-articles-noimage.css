@@ -1,0 +1,52 @@
+
+.ra-section{
+background:#f8fafc;
+padding:60px 20px;
+border-top:1px solid #e5e7eb;
+border-bottom:1px solid #e5e7eb;
+}
+
+.ra-header{text-align:center;margin-bottom:30px}
+
+.ra-header h2{font-size:30px;margin-bottom:8px}
+
+.ra-header p{color:#666}
+
+.ra-grid{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:24px
+}
+
+.ra-card{
+background:white;
+padding:24px;
+border-radius:10px;
+box-shadow:0 6px 18px rgba(0,0,0,0.08);
+transition:transform .2s ease
+}
+
+.ra-card:hover{transform:translateY(-4px)}
+
+.ra-category{
+font-size:12px;
+font-weight:700;
+color:#2563eb;
+text-transform:uppercase;
+display:block;
+margin-bottom:8px
+}
+
+.ra-card h3{font-size:18px;margin-bottom:10px}
+
+.ra-card h3 a{text-decoration:none;color:#111}
+
+.ra-card p{color:#555;font-size:14px;margin-bottom:14px}
+
+.ra-read-more{
+font-weight:600;
+color:#dc2626;
+text-decoration:none
+}

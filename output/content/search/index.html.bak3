@@ -20,7 +20,7 @@
       "description": "Your definitive resource for New Year's Eve 2026 celebrations, history, and planning.",
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://www.happy-new-year.org/search/?q={search_term_string}",
+        "target": "https://www.happy-new-year.org/search?q={search_term_string}",
         "query-input": "required name=search_term_string"
       }
     }
@@ -69,133 +69,81 @@
       color: #9f1239;
     }
 
-    .search-shell {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .custom-search-form {
-      display: flex;
-      gap: 0.75rem;
-      align-items: stretch;
-      flex-wrap: wrap;
-    }
-
-    .custom-search-input {
-      flex: 1 1 320px;
-      min-width: 0;
-      border: 1px solid #fecdd3;
-      border-radius: 0.9rem;
-      background: rgba(255,255,255,0.95);
-      color: #44403c;
-      font-size: 1.05rem;
-      line-height: 1.5;
-      padding: 0.95rem 1rem;
-      outline: none;
-      box-shadow: inset 0 1px 2px rgba(0,0,0,0.03);
-    }
-
-    .custom-search-input:focus {
-      border-color: #fb7185;
-      box-shadow: 0 0 0 4px rgba(251,113,133,0.12);
-    }
-
-    .custom-search-btn {
-      border-radius: 0.9rem;
-      background: #be123c;
-      color: #fff;
-      border: 1px solid #be123c;
-      padding: 0.95rem 1.25rem;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .custom-search-btn:hover { background: #9f1239; border-color: #9f1239; }
-
-    .gsc-control-cse,
-    .gsc-control-wrapper-cse,
-    .gsc-results-wrapper-overlay,
-    .gsc-modal-background-image,
-    .gsc-overlay-cse {
-      background: transparent !important;
-      border: none !important;
-      box-shadow: none !important;
-    }
-
     .gsc-control-cse {
+      background-color: transparent !important;
+      border: none !important;
       padding: 0 !important;
       font-family: 'Vollkorn', serif !important;
     }
-
-    .gsc-above-wrapper-area,
-    .gsc-adBlock,
-    .gcsc-branding-searchbox,
-    .gcsc-branding,
-    .gsc-resultsHeader {
-      border: 0 !important;
+    .gsc-control-cse .gsc-input-box,
+    .gsc-control-cse .gsc-input-box-hover,
+    .gsc-control-cse .gsc-input-box-focus {
+      border: 1px solid #fecdd3 !important;
+      border-radius: 0.75rem !important;
+      background: rgba(255,255,255,0.95) !important;
+    }
+    .gsc-search-button-v2 {
+      border-radius: 0.75rem !important;
+      background: #be123c !important;
+      border-color: #be123c !important;
+    }
+    .gsc-results-wrapper-overlay,
+    .gsc-modal-background-image,
+    .gsc-overlay-close-button,
+    .gsc-results-close-btn-visible {
+      display: none !important;
+    }
+    .gsc-results-wrapper-visible,
+    .gsc-resultsbox-visible,
+    .gsc-above-wrapper-area-container,
+    .gsc-resultsbox-invisible,
+    .gsc-resultsRoot {
+      position: static !important;
+      inset: auto !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important;
+      max-height: none !important;
+      overflow: visible !important;
+      transform: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
       background: transparent !important;
+      box-shadow: none !important;
+      border: none !important;
     }
-
-    .gsc-result,
-    .gsc-webResult.gsc-result,
-    .gsc-results .gsc-imageResult {
-      border: 1px solid #ffe4e6 !important;
+    .gsc-result, .gsc-webResult.gsc-result {
+      border-color: #ffe4e6 !important;
       background: rgba(255,255,255,0.82) !important;
-      border-radius: 1rem !important;
+      border-radius: 0.75rem !important;
       padding: 1rem !important;
-      margin-bottom: 1rem !important;
-      box-shadow: 0 8px 24px rgba(190,24,60,0.06) !important;
+      margin-bottom: 0.9rem !important;
     }
-
-    .gs-webResult .gs-title,
-    .gs-webResult .gs-title *,
-    .gs-result .gs-title,
-    .gs-result .gs-title * {
+    .gs-webResult .gs-title, .gs-webResult .gs-title * {
+      color: #881337 !important;
+    }
+    .gs-webResult .gs-snippet, .gs-fileFormatType {
+      color: #44403c !important;
+    }
+    .gsc-results .gsc-cursor-box {
+      margin-top: 1rem !important;
+    }
+    .gsc-cursor-page {
+      background: rgba(255,255,255,0.82) !important;
+      border: 1px solid #fecdd3 !important;
+      border-radius: 9999px !important;
+      padding: 0.35rem 0.75rem !important;
+      margin-right: 0.4rem !important;
       color: #881337 !important;
       text-decoration: none !important;
     }
-
-    .gs-webResult .gs-snippet,
-    .gs-fileFormatType,
-    .gsc-url-top,
-    .gsc-url-bottom {
-      color: #44403c !important;
-    }
-
-    .gsc-cursor-box {
-      margin-top: 1rem !important;
-      text-align: center !important;
-    }
-
-    .gsc-cursor-page {
-      display: inline-flex !important;
-      align-items: center;
-      justify-content: center;
-      min-width: 2.25rem;
-      height: 2.25rem;
-      border-radius: 999px;
-      border: 1px solid #fecdd3;
-      background: rgba(255,255,255,0.9);
-      margin: 0 0.2rem;
-      color: #9f1239 !important;
-      text-decoration: none !important;
-    }
-
     .gsc-cursor-current-page {
       background: #be123c !important;
-      color: white !important;
-      border-color: #be123c !important;
+      color: #fff !important;
     }
-
-    .gsc-expansionArea { width: 100% !important; }
-    .gsc-table-result, .gsc-thumbnail-inside, .gsc-url-top { padding-left: 0 !important; padding-right: 0 !important; }
-    .gsc-result-info { color: #78716c !important; }
-    .gsc-orderby-container { display: none !important; }
-
-    @media (max-width: 640px) {
-      .custom-search-form { flex-direction: column; }
-      .custom-search-btn { width: 100%; }
+    .gcsc-branding { margin-top: 10px; }
+    .search-results-shell {
+      min-height: 22rem;
     }
   </style>
 </head>
@@ -244,25 +192,15 @@
     </section>
 
     <section class="theme-card p-6 md:p-8 mb-12">
-      <div class="search-shell">
-        <form class="custom-search-form" id="custom-search-form" action="/search/" method="get">
-          <input class="custom-search-input" id="custom-search-input" name="q" type="search" placeholder="Search wishes, festivals, quotes, party ideas..." aria-label="Search site" />
-          <button class="custom-search-btn" type="submit">
-            <i class="fa-solid fa-magnifying-glass mr-2"></i>Search
-          </button>
-        </form>
-
-        <div class="text-center text-stone-500 text-sm" id="search-loading">
-          <i class="fa-solid fa-circle-notch fa-spin mr-2"></i> Loading search results...
-        </div>
-
-        <div class="text-center text-stone-600 hidden" id="search-empty-state">
-          Enter a keyword above to search the site.
-        </div>
-
-        <div id="search-results-area">
-          <div class="gcse-searchresults-only"></div>
-        </div>
+      <div class="text-center text-stone-500 text-sm mb-4" id="search-loading">
+        <i class="fa-solid fa-circle-notch fa-spin mr-2"></i> Loading Search Engine...
+      </div>
+      <script async src="https://cse.google.com/cse.js?cx=15f62cd40a2954043"></script>
+      <div class="mb-6">
+        <div class="gcse-searchbox-only" data-resultsUrl="/search/"></div>
+      </div>
+      <div class="search-results-shell">
+        <div class="gcse-searchresults-only" data-linktarget="_self"></div>
       </div>
     </section>
 
@@ -340,43 +278,23 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    const params = new URLSearchParams(window.location.search);
-    const q = params.get('q') || '';
-    const input = document.getElementById('custom-search-input');
-    const loading = document.getElementById('search-loading');
-    const emptyState = document.getElementById('search-empty-state');
-    input.value = q;
-
-    if (!q.trim()) {
-      loading.style.display = 'none';
-      emptyState.classList.remove('hidden');
+    function hideLoaderWhenSearchReady() {
+      var tries = 0;
+      var maxTries = 120;
+      var timer = setInterval(function () {
+        var searchBox = document.querySelector('.gsc-input');
+        var resultsContainer = document.querySelector('.gsc-results-wrapper-visible, .gsc-resultsbox-visible, .gsc-webResult, .gsc-result');
+        if (searchBox || resultsContainer || tries >= maxTries) {
+          var loader = document.getElementById('search-loading');
+          if (loader) loader.style.display = 'none';
+          clearInterval(timer);
+        }
+        tries += 1;
+      }, 250);
     }
 
-    window.__gcse = {
-      parsetags: 'explicit',
-      callback: function () {
-        try {
-          google.search.cse.element.render({
-            div: 'search-results-area',
-            tag: 'searchresults-only',
-            attributes: {
-              linkTarget: '',
-              queryParameterName: 'q'
-            }
-          });
-
-          if (q.trim()) {
-            google.search.cse.element.getElement('search-results-area').execute(q);
-          }
-        } catch (e) {
-          console.error('Google CSE render failed:', e);
-        } finally {
-          loading.style.display = 'none';
-        }
-      }
-    };
+    window.addEventListener('load', hideLoaderWhenSearchReady);
   </script>
-  <script async src="https://cse.google.com/cse.js?cx=15f62cd40a2954043"></script>
   <script src="https://storage.googleapis.com/create-website/css-scripts/related-articles-noimage.js"></script>
 </body>
 </html>

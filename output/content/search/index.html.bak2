@@ -87,37 +87,12 @@
       background: #be123c !important;
       border-color: #be123c !important;
     }
-    .gsc-results-wrapper-overlay,
-    .gsc-modal-background-image,
-    .gsc-overlay-close-button,
-    .gsc-results-close-btn-visible {
-      display: none !important;
-    }
-    .gsc-results-wrapper-visible,
-    .gsc-resultsbox-visible,
-    .gsc-above-wrapper-area-container,
-    .gsc-resultsbox-invisible,
-    .gsc-resultsRoot {
-      position: static !important;
-      inset: auto !important;
-      width: 100% !important;
-      max-width: 100% !important;
-      height: auto !important;
-      max-height: none !important;
-      overflow: visible !important;
-      transform: none !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      background: transparent !important;
-      box-shadow: none !important;
-      border: none !important;
-    }
     .gsc-result, .gsc-webResult.gsc-result {
       border-color: #ffe4e6 !important;
-      background: rgba(255,255,255,0.82) !important;
+      background: rgba(255,255,255,0.75) !important;
       border-radius: 0.75rem !important;
       padding: 1rem !important;
-      margin-bottom: 0.9rem !important;
+      margin-bottom: 0.75rem !important;
     }
     .gs-webResult .gs-title, .gs-webResult .gs-title * {
       color: #881337 !important;
@@ -125,26 +100,7 @@
     .gs-webResult .gs-snippet, .gs-fileFormatType {
       color: #44403c !important;
     }
-    .gsc-results .gsc-cursor-box {
-      margin-top: 1rem !important;
-    }
-    .gsc-cursor-page {
-      background: rgba(255,255,255,0.82) !important;
-      border: 1px solid #fecdd3 !important;
-      border-radius: 9999px !important;
-      padding: 0.35rem 0.75rem !important;
-      margin-right: 0.4rem !important;
-      color: #881337 !important;
-      text-decoration: none !important;
-    }
-    .gsc-cursor-current-page {
-      background: #be123c !important;
-      color: #fff !important;
-    }
     .gcsc-branding { margin-top: 10px; }
-    .search-results-shell {
-      min-height: 22rem;
-    }
   </style>
 </head>
 <body class="antialiased min-h-screen flex flex-col overflow-x-hidden text-stone-800">
@@ -195,12 +151,12 @@
       <div class="text-center text-stone-500 text-sm mb-4" id="search-loading">
         <i class="fa-solid fa-circle-notch fa-spin mr-2"></i> Loading Search Engine...
       </div>
-      <script async src="https://cse.google.com/cse.js?cx=15f62cd40a2954043"></script>
+      <script async="" onload="document.getElementById('search-loading').style.display='none';" src="https://cse.google.com/cse.js?cx=15f62cd40a2954043"></script>
       <div class="mb-6">
-        <div class="gcse-searchbox-only" data-resultsUrl="/search/"></div>
+        <div class="gcse-searchbox"></div>
       </div>
-      <div class="search-results-shell">
-        <div class="gcse-searchresults-only" data-linktarget="_self"></div>
+      <div class="results-container">
+        <div class="gcse-searchresults" data-linktarget="_blank"></div>
       </div>
     </section>
 
@@ -277,23 +233,6 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    function hideLoaderWhenSearchReady() {
-      var tries = 0;
-      var maxTries = 120;
-      var timer = setInterval(function () {
-        var searchBox = document.querySelector('.gsc-input');
-        var resultsContainer = document.querySelector('.gsc-results-wrapper-visible, .gsc-resultsbox-visible, .gsc-webResult, .gsc-result');
-        if (searchBox || resultsContainer || tries >= maxTries) {
-          var loader = document.getElementById('search-loading');
-          if (loader) loader.style.display = 'none';
-          clearInterval(timer);
-        }
-        tries += 1;
-      }, 250);
-    }
-
-    window.addEventListener('load', hideLoaderWhenSearchReady);
   </script>
   <script src="https://storage.googleapis.com/create-website/css-scripts/related-articles-noimage.js"></script>
 </body>

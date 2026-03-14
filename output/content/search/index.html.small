@@ -113,41 +113,17 @@
 
     .custom-search-btn:hover { background: #9f1239; border-color: #9f1239; }
 
-    /* =========================================
-       FIX FOR GOOGLE CUSTOM SEARCH OVERLAY
-       ========================================= */
-    
-    /* 1. Force the overlay to behave like a normal inline block */
-    .gsc-results-wrapper-overlay {
-      position: static !important;
-      width: 100% !important;
-      height: auto !important;
-      max-width: 100% !important;
-      max-height: none !important;
-      background: transparent !important;
-      border: none !important;
-      box-shadow: none !important;
-      padding: 0 !important;
-      margin-top: 1rem !important;
-      visibility: visible !important;
-      opacity: 1 !important;
-    }
-
-    /* 2. Hide the dark modal background and the close button completely */
-    .gsc-modal-background-image,
-    .gsc-modal-background-image-visible,
-    .gsc-results-close-btn,
-    .gsc-results-close-btn-visible {
-      display: none !important;
-    }
-
-    /* 3. Keep rest of CSE transparent/clean */
     .gsc-control-cse,
     .gsc-control-wrapper-cse,
+    .gsc-results-wrapper-overlay,
+    .gsc-modal-background-image,
     .gsc-overlay-cse {
       background: transparent !important;
       border: none !important;
       box-shadow: none !important;
+    }
+
+    .gsc-control-cse {
       padding: 0 !important;
       font-family: 'Vollkorn', serif !important;
     }
@@ -350,7 +326,7 @@
         </div>
       </div>
       <div class="border-t border-rose-100 pt-8 flex flex-col md:flex-row justify-between items-center">
-        <p class="text-stone-500 text-xs">© <span id="year">2026</span> Happy-New-Year.org. All rights reserved.</p>
+        <p class="text-stone-500 text-xs">© <span id="year">2025</span> Happy-New-Year.org. All rights reserved.</p>
         <div class="flex space-x-6 mt-4 md:mt-0">
           <a class="text-stone-500 hover:text-rose-700" href="#"><i class="fa-brands fa-facebook"></i></a>
           <a class="text-stone-500 hover:text-rose-700" href="#"><i class="fa-brands fa-twitter"></i></a>
@@ -380,11 +356,9 @@
       parsetags: 'explicit',
       callback: function () {
         try {
-          // Pass a gname so we can explicitly target this specific render
           google.search.cse.element.render({
             div: 'search-results-area',
             tag: 'searchresults-only',
-            gname: 'mainSearch',
             attributes: {
               linkTarget: '',
               queryParameterName: 'q'
@@ -392,7 +366,7 @@
           });
 
           if (q.trim()) {
-            google.search.cse.element.getElement('mainSearch').execute(q);
+            google.search.cse.element.getElement('search-results-area').execute(q);
           }
         } catch (e) {
           console.error('Google CSE render failed:', e);

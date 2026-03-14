@@ -1,0 +1,101 @@
+[
+  {
+    "id": "2018-movies",
+    "title": "Top 10 Must-See Movies of 2018",
+    "url": "https://www.happy-new-year.org/2018/2018-movies.html",
+    "category": "2018",
+    "description": "The article is a table listing the top 10 movies of 2018, including their title, director, genre, and release date.",
+    "keywords": [
+      "Movie titles",
+      "Directors",
+      "Genres",
+      "Release dates",
+      "Black Panther",
+      "A Star is Born",
+      "Bohemian Rhapsody",
+      "Avengers: Infinity War",
+      "Mission: Impossible - Fallout",
+      "The Favourite",
+      "Green Book",
+      "Roma",
+      "BlacKkKlansman",
+      "First Man."
+    ]
+  },
+  {
+    "id": "2018-news",
+    "title": "Top Headlines of 2018",
+    "url": "https://www.happy-new-year.org/2018/2018-news.html",
+    "category": "2018",
+    "description": "The New York Times has compiled a list of the most significant news events of 2018, including the Hawaii false missile alert, the Florida school shooting, the US-North Korea summit, the Thai soccer team rescue, the Paris protests, and the US government shutdown. Other events include the Russian presidential election, the Southwest Airlines engine failure, the signing of a new trade agreement between the US, Canada, and Mexico, and the passing of a criminal justice reform bill by the US Senate.",
+    "keywords": [
+      "Dates",
+      "Headlines",
+      "Hawaii missile alert",
+      "Florida school shooting",
+      "Russian presidential election",
+      "Southwest Airlines engine failure",
+      "Prince Harry&#39;s wedding",
+      "US-North Korea summit",
+      "Thai soccer team rescue",
+      "Paul Manafort trial",
+      "Christine Blasey Ford testimony",
+      "Jamal Khashoggi disappearance",
+      "US midterm elections",
+      "USMCA trade agreement",
+      "George H.W. Bush&#39;s death",
+      "Paris protests",
+      "Google CEO testimony",
+      "Theresa May no-confidence vote",
+      "criminal justice reform bill",
+      "US government shutdown",
+      "Indonesia tsunami."
+    ]
+  },
+  {
+    "id": "2018-oscar-awards",
+    "title": "The Shape of Water Wins Best Picture at Oscars 2018",
+    "url": "https://www.happy-new-year.org/2018/2018-oscar-awards.html",
+    "category": "2018",
+    "description": "The Shape of Water wins Best Picture and Guillermo del Toro wins Best Director at the 90th Academy Awards, while Gary Oldman, Frances McDormand, Sam Rockwell, and Allison Janney take home acting awards. Get Out wins Best Original Screenplay and Coco wins Best Animated Feature.",
+    "keywords": [
+      "Awards",
+      "Winners",
+      "Films",
+      "Directors",
+      "Actors",
+      "Actresses",
+      "Screenplays",
+      "Animated Feature",
+      "Foreign Language Film",
+      "Descriptions."
+    ]
+  },
+  {
+    "id": "index",
+    "title": "Top news for year 2018",
+    "url": "https://www.happy-new-year.org/2018/index.html",
+    "category": "2018",
+    "description": "Top news for year 2018 Top news for year 2018 Home Date Headline January 13, 2018 Hawaii false missile alert causes panic February 14, 2018 Florida school...",
+    "keywords": [
+      "index",
+      "year",
+      "nbsp",
+      "drama",
+      "december",
+      "hindu",
+      "november",
+      "biography"
+    ]
+  },
+  {
+    "id": "movies",
+    "title": "2018's Major Movies: Popularity, Ratings, and Awards",
+    "url": "https://www.happy-new-year.org/2018/movies.html",
+    "category": "2018",
+    "description": "The article provides an HTML table that lists major movies from 2018, including their popularity, ratings, and awards won. The table can be embedded into a website and is styled with CSS for better readability and user interaction.",
+    "keywords": [
+      "1. HTML table\n2. Major movies\n3. Popularity\n4. Ratings\n5. Awards won\n6. Website embedding\n7. CSS styling\n8. Academy Awards\n9. IMDb ratings\n10. User interaction"
+    ]
+  }
+]

@@ -1,0 +1,93 @@
+[
+  {
+    "id": "2010-movies",
+    "title": "Top 10 Must-Watch Movies with High IMDb Ratings",
+    "url": "https://www.happy-new-year.org/2010/2010-movies.html",
+    "category": "2010",
+    "description": "The article is a table listing the top 10 movies of 2010, including their titles, directors, genres, and IMDb ratings. The movies range from dramas like The Social Network and Black Swan to action and adventure films like Inception and Harry Potter and the Deathly Hallows: Part 1.",
+    "keywords": [
+      "movies",
+      "titles",
+      "directors",
+      "genres",
+      "IMDb ratings",
+      "drama",
+      "action",
+      "animation",
+      "adventure",
+      "biography"
+    ]
+  },
+  {
+    "id": "2010-news",
+    "title": "Top Events of 2010",
+    "url": "https://www.happy-new-year.org/2010/2010-news.html",
+    "category": "2010",
+    "description": "The article is a list of significant events that occurred in 2010, including natural disasters, political events, and technological advancements.",
+    "keywords": [
+      "earthquake",
+      "Olympics",
+      "oil rig explosion",
+      "bin Laden",
+      "World Cup",
+      "Spain",
+      "Chilean miners",
+      "iPhone 4",
+      "San Jose mine",
+      "midterm elections",
+      "WikiLeaks",
+      "Arab Spring"
+    ]
+  },
+  {
+    "id": "2010-oscar-awards",
+    "title": "Oscar Winners 2010: The Best of the Best",
+    "url": "https://www.happy-new-year.org/2010/2010-oscar-awards.html",
+    "category": "2010",
+    "description": "The 82nd Academy Awards saw The Hurt Locker win Best Picture and Best Director for Kathryn Bigelow, making her the first woman to win the award for directing. Other winners included Jeff Bridges for Best Actor, Sandra Bullock for Best Actress, and Up for Best Animated Feature.",
+    "keywords": [
+      "Category",
+      "Winner",
+      "Description",
+      "Best Picture",
+      "Best Director",
+      "Best Actor",
+      "Best Actress",
+      "Best Supporting Actor",
+      "Best Supporting Actress",
+      "Best Original Screenplay",
+      "Best Adapted Screenplay",
+      "Best Animated Feature",
+      "Best Foreign Language Film",
+      "Best Original Score",
+      "Best Original Song",
+      "Best Cinematography",
+      "Best Costume Design",
+      "Best Documentary Feature",
+      "Best Documentary Short Subject",
+      "Best Film Editing",
+      "Best Makeup and Hairstyling",
+      "Best Production Design",
+      "Best Sound Editing",
+      "Best Sound Mixing",
+      "Best Visual Effects."
+    ]
+  },
+  {
+    "id": "index",
+    "title": "Top news for year 2010",
+    "url": "https://www.happy-new-year.org/2010/index.html",
+    "category": "2010",
+    "description": "Top news for year 2010 Top news for year 2010 Home Date Headline January 12, 2010 7.0 magnitude earthquake hits Haiti February 12, 2010 Winter Olympics begin...",
+    "keywords": [
+      "index",
+      "year",
+      "nbsp",
+      "hindu",
+      "drama",
+      "hurt",
+      "locker",
+      "news"
+    ]
+  }
+]

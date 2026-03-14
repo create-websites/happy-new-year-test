@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html class="scroll-smooth" data-related-json="folder-pages.json" data-related-keywords="festival family celebration" lang="en">
+<html class="scroll-smooth" data-related-json="/css-scripts/related-articles.json" data-related-keywords="festival family celebration" lang="en">
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>

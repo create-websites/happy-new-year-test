@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Ultimate New Year Party Ideas &amp; Planning Guide</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta content="Discover the ultimate list of New Year's Eve party ideas! Explore top themes, menus, budget tips, interactive timelines, and midnight activities for an unforgettable 2026 celebration." name="description"/>
+    <meta content="New Year party ideas, NYE themes, party planning checklist, New Year menu, NYE decorations, midnight countdown, NYE budget, 2026 party, adult NYE party, kid-friendly NYE" name="keywords"/>
+    <meta content="Party Planner Pro" name="author"/>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        dark: '#0a0a0a',
+                        darker: '#050505',
+                        gold: {
+                            100: '#fcf6e3',
+                            200: '#f8ecb5',
+                            300: '#f3df80',
+                            400: '#ecce46',
+                            500: '#d4af37', // Classic Gold
+                            600: '#b58e26',
+                            700: '#906a1c',
+                            800: '#78561b',
+                            900: '#66481c',
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Styles for Checkbox and Scrollbar */
+        body {
+            background-color: #0a0a0a;
+            color: #f3f4f6;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d4af37; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b58e26; 
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        .tab-content.active {
+            display: block;
+        }
+
+        .checklist-item.completed span {
+            text-decoration: line-through;
+            color: #6b7280;
+        }
+        
+        /* Custom Checkbox */
+        input[type="checkbox"] {
+            appearance: none;
+            background-color: transparent;
+            margin: 0;
+            font: inherit;
+            color: currentColor;
+            width: 1.25em;
+            height: 1.25em;
+            border: 2px solid #d4af37;
+            border-radius: 0.25em;
+            display: grid;
+            place-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+
+        input[type="checkbox"]::before {
+            content: "";
+            width: 0.65em;
+            height: 0.65em;
+            transform: scale(0);
+            transition: 120ms transform ease-in-out;
+            box-shadow: inset 1em 1em #d4af37;
+            background-color: #d4af37;
+            transform-origin: center;
+            clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+        }
+
+        input[type="checkbox"]:checked::before {
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-gold-500 selection:text-darker">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-card bg-darker/90 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <i class="text-gold-500 h-6 w-6" data-lucide="glass-water"></i>
+                    <span class="font-serif font-bold text-xl tracking-wider text-gold-500">NYE 2026</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-6 text-sm font-medium">
+                        <a class="hover:text-gold-400 transition-colors" href="#themes">Top Themes</a>
+                        <a class="hover:text-gold-400 transition-colors" href="#groups">By Category</a>
+                        <a class="hover:text-gold-400 transition-colors" href="#menu">Ultimate Menu</a>
+                        <a class="hover:text-gold-400 transition-colors" href="#timeline">Planner Timeline</a>
+                        <a class="hover:text-gold-400 transition-colors" href="#viral">Viral Ideas</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden border-b border-gold-500/20">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-b from-darker via-dark to-darker"></div>
+            <!-- Decorative glitter elements -->
+            <div class="absolute top-20 left-10 w-2 h-2 bg-gold-500 rounded-full animate-pulse shadow-[0_0_10px_#d4af37]"></div>
+            <div class="absolute top-40 right-20 w-3 h-3 bg-gold-400 rounded-full animate-pulse delay-100 shadow-[0_0_15px_#d4af37]"></div>
+            <div class="absolute bottom-20 left-1/4 w-2 h-2 bg-gold-300 rounded-full animate-pulse delay-300 shadow-[0_0_8px_#d4af37]"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-slide-up">
+            <span class="text-gold-500 font-semibold tracking-widest uppercase text-sm mb-4 block">The Ultimate Guide</span>
+            <h1 class="text-5xl md:text-7xl font-serif font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-gold-300 via-gold-500 to-gold-300">
+                New Year Party Ideas
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-400 mb-10">
+                From elegant black &amp; gold soirées to cozy family game nights. Everything you need to plan an unforgettable midnight celebration.
+            </p>
+            <div class="flex justify-center gap-4">
+                <a class="px-8 py-3 bg-gold-500 text-darker font-bold rounded-full hover:bg-gold-400 transition-colors shadow-[0_0_20px_rgba(212,175,55,0.4)]" href="#themes">
+                    Explore Themes
+                </a>
+                <a class="px-8 py-3 border border-gold-500 text-gold-500 font-bold rounded-full hover:bg-gold-500/10 transition-colors" href="#timeline">
+                    Start Planning
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Pro Tip Alert -->
+    <div class="max-w-4xl mx-auto px-4 -mt-8 relative z-20">
+        <div class="bg-gradient-to-r from-gold-900/80 to-darker border border-gold-500/50 rounded-xl p-6 shadow-2xl flex items-start gap-4 glass-card">
+            <i class="text-gold-400 h-8 w-8 flex-shrink-0 mt-1" data-lucide="lightbulb"></i>
+            <div>
+                <h3 class="text-gold-400 font-bold text-lg">Pro Tip for a Great NYE Party</h3>
+                <p class="text-gray-300 mt-1">A memorable New Year party usually combines 3 essential things: <strong>Good music</strong>, <strong>Easy finger food</strong>, and a powerful <strong>midnight moment</strong> (countdown, toast, or fireworks).</p>
+            </div>
+        </div>
+    </div>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 space-y-32">
+
+        <!-- Top 10 Themes Section -->
+        <section class="scroll-mt-24" id="themes">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-4">Top 10 Detailed Themes</h2>
+                <div class="w-24 h-1 bg-gold-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Theme 1 -->
+                <div class="glass-card rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 group">
+                    <div class="w-12 h-12 rounded-full bg-gold-500/20 flex items-center justify-center mb-4 text-2xl group-hover:bg-gold-500 group-hover:text-darker transition-colors">🎊</div>
+                    <h3 class="text-xl font-bold text-gold-400 mb-2 font-serif">1. Elegant Black &amp; Gold</h3>
+                    <p class="text-sm text-gray-400 mb-4">A classic theme that feels festive and upscale.</p>
+                    <div class="space-y-3 text-sm text-gray-300">
+                        <p><strong class="text-white">Decor:</strong> Black, gold, white balloons, gold table runners, champagne centerpieces.</p>
+                        <p><strong class="text-white">Food:</strong> Champagne, mini appetizers, charcuterie, gold-dusted cupcakes.</p>
+                        <p><strong class="text-white">Activities:</strong> Midnight toast, photo booth, best dressed contest.</p>
+                    </div>
+                </div>
+
+                <!-- Theme 2 -->
+                <div class="glass-card rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 group">
+                    <div class="w-12 h-12 rounded-full bg-gold-500/20 flex items-center justify-center mb-4 text-2xl group-hover:bg-gold-500 group-hover:text-darker transition-colors">🕺</div>
+                    <h3 class="text-xl font-bold text-gold-400 mb-2 font-serif">2. Dance / DJ Night</h3>
+                    <p class="text-sm text-gray-400 mb-4">Perfect for energetic celebrations.</p>
+                    <div class="space-y-3 text-sm text-gray-300">
+                        <p><strong class="text-white">Decor:</strong> Disco balls, strobe lights, neon glow sticks.</p>
+                        <p><strong class="text-white">Food:</strong> Finger foods (sliders, wings), pizza/taco bar, energy drinks.</p>
+                        <p><strong class="text-white">Activities:</strong> Dance competitions, karaoke, TikTok challenges.</p>
+                    </div>
+                </div>
+
+                <!-- Theme 3 -->
+                <div class="glass-card rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 group">
+                    <div class="w-12 h-12 rounded-full bg-gold-500/20 flex items-center justify-center mb-4 text-2xl group-hover:bg-gold-500 group-hover:text-darker transition-colors">🎭</div>
+                    <h3 class="text-xl font-bold text-gold-400 mb-2 font-serif">3. Masquerade Party</h3>
+                    <p class="text-sm text-gray-400 mb-4">Elegant and mysterious theme.</p>
+                    <div class="space-y-3 text-sm text-gray-300">
+                        <p><strong class="text-white">Decor:</strong> Dark colors (purple, black, gold), candle lighting, velvet.</p>
+                        <p><strong class="text-white">Food:</strong> Fancy appetizers, chocolate desserts, wine.</p>
+                        <p><strong class="text-white">Activities:</strong> Mask contest, ballroom music, mystery game.</p>
+                    </div>
+                </div>
+
+                <!-- Theme 4 -->
+                <div class="glass-card rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 group">
+                    <div class="w-12 h-12 rounded-full bg-gold-500/20 flex items-center justify-center mb-4 text-2xl group-hover:bg-gold-500 group-hover:text-darker transition-colors">🍸</div>
+                    <h3 class="text-xl font-bold text-gold-400 mb-2 font-serif">4. Cocktail Tasting</h3>
+                    <p class="text-sm text-gray-400 mb-4">For smaller adult gatherings.</p>
+                    <div class="space-y-3 text-sm text-gray-300">
+                        <p><strong class="text-white">Decor:</strong> Bar cart display, recipe cards, garnish station.</p>
+                        <p><strong class="text-white">Drinks:</strong> 3–5 signature cocktails, mocktails.</p>
+                        <p><strong class="text-white">Activities:</strong> Tasting scorecards, DIY cocktail station.</p>
+                    </div>
+                </div>
+
+                <!-- Theme 5 -->
+                <div class="glass-card rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 group">
+                    <div class="w-12 h-12 rounded-full bg-gold-500/20 flex items-center justify-center mb-4 text-2xl group-hover:bg-gold-500 group-hover:text-darker transition-colors">🎮</div>
+                    <h3 class="text-xl font-bold text-gold-400 mb-2 font-serif">5. Game Night</h3>
+                    <p class="text-sm text-gray-400 mb-4">Great for fun, competitive groups.</p>
+                    <div class="space-y-3 text-sm text-gray-300">
+                        <p><strong class="text-white">Games:</strong> Board games, trivia, charades, Pictionary.</p>
+                        <p><strong class="text-white">Food:</strong> Nacho bar, popcorn, chips and dips.</p>
+                        <p><strong class="text-white">Activities:</strong> Tournament bracket, prizes for winners.</p>
+                    </div>
+                </div>
+
+                <!-- Theme 6 -->
+                <div class="glass-card rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 group">
+                    <div class="w-12 h-12 rounded-full bg-gold-500/20 flex items-center justify-center mb-4 text-2xl group-hover:bg-gold-500 group-hover:text-darker transition-colors">🍿</div>
+                    <h3 class="text-xl font-bold text-gold-400 mb-2 font-serif">6. Movie Marathon</h3>
+                    <p class="text-sm text-gray-400 mb-4">Perfect for relaxed celebrations.</p>
+                    <div class="space-y-3 text-sm text-gray-300">
+                        <p><strong class="text-white">Setup:</strong> Big TV, blankets, cozy seating.</p>
+                        <p><strong class="text-white">Food:</strong> Popcorn bar, candy buffet, hot chocolate.</p>
+                        <p><strong class="text-white">Movies:</strong> NYE classics, comedies, blockbusters.</p>
+                    </div>
+                </div>
+
+                <!-- Theme 7 -->
+                <div class="glass-card rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 group">
+                    <div class="w-12 h-12 rounded-full bg-gold-500/20 flex items-center justify-center mb-4 text-2xl group-hover:bg-gold-500 group-hover:text-darker transition-colors">🌍</div>
+                    <h3 class="text-xl font-bold text-gold-400 mb-2 font-serif">7. Around the World</h3>
+                    <p class="text-sm text-gray-400 mb-4">Celebrate multiple time zones.</p>
+                    <div class="space-y-3 text-sm text-gray-300">
+                        <p><strong class="text-white">Decor:</strong> World map, flags, global music.</p>
+                        <p><strong class="text-white">Stations:</strong> Italy (pasta), Mexico (tacos), Japan (sushi).</p>
+                        <p><strong class="text-white">Concept:</strong> Celebrate midnight for each country.</p>
+                    </div>
+                </div>
+
+                <!-- Theme 8 -->
+                <div class="glass-card rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 group">
+                    <div class="w-12 h-12 rounded-full bg-gold-500/20 flex items-center justify-center mb-4 text-2xl group-hover:bg-gold-500 group-hover:text-darker transition-colors">🪩</div>
+                    <h3 class="text-xl font-bold text-gold-400 mb-2 font-serif">8. Retro (70s/80s/90s)</h3>
+                    <p class="text-sm text-gray-400 mb-4">Nostalgic and incredibly fun.</p>
+                    <div class="space-y-3 text-sm text-gray-300">
+                        <p><strong class="text-white">Decor:</strong> Vintage posters, neon, disco balls.</p>
+                        <p><strong class="text-white">Music:</strong> Throwback playlist, classic hits.</p>
+                        <p><strong class="text-white">Activities:</strong> Costume contest, dance-off.</p>
+                    </div>
+                </div>
+
+                <!-- Theme 9 -->
+                <div class="glass-card rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 group">
+                    <div class="w-12 h-12 rounded-full bg-gold-500/20 flex items-center justify-center mb-4 text-2xl group-hover:bg-gold-500 group-hover:text-darker transition-colors">🍫</div>
+                    <h3 class="text-xl font-bold text-gold-400 mb-2 font-serif">9. Dessert Party</h3>
+                    <p class="text-sm text-gray-400 mb-4">A sweet-themed celebration.</p>
+                    <div class="space-y-3 text-sm text-gray-300">
+                        <p><strong class="text-white">Food:</strong> Macarons, chocolate fountain, cake pops.</p>
+                        <p><strong class="text-white">Drinks:</strong> Coffee, hot chocolate, dessert cocktails.</p>
+                        <p><strong class="text-white">Activities:</strong> Dessert decorating contest.</p>
+                    </div>
+                </div>
+
+                <!-- Theme 10 -->
+                <div class="glass-card rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 group lg:col-start-2">
+                    <div class="w-12 h-12 rounded-full bg-gold-500/20 flex items-center justify-center mb-4 text-2xl group-hover:bg-gold-500 group-hover:text-darker transition-colors">🏡</div>
+                    <h3 class="text-xl font-bold text-gold-400 mb-2 font-serif">10. Backyard Fire Pit</h3>
+                    <p class="text-sm text-gray-400 mb-4">Relaxed outdoor celebration.</p>
+                    <div class="space-y-3 text-sm text-gray-300">
+                        <p><strong class="text-white">Setup:</strong> Fire pit, blankets, heaters, string lights.</p>
+                        <p><strong class="text-white">Food:</strong> BBQ, S'mores, hot dogs, cider.</p>
+                        <p><strong class="text-white">Activities:</strong> Storytelling, outdoor toast, fireworks.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Themed Parties by Group (Tabs) -->
+        <section class="scroll-mt-24" id="groups">
+            <div class="glass-card rounded-3xl p-8 lg:p-12 border border-gold-500/30 bg-gradient-to-br from-darker to-dark">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-serif font-bold text-white mb-4">Ideas By Party Style</h2>
+                    <p class="text-gray-400">Tailor your celebration to your specific guest list and budget.</p>
+                </div>
+
+                <!-- Tab Navigation -->
+                <div class="flex flex-wrap justify-center gap-2 md:gap-4 border-b border-gray-800 pb-4 mb-8">
+                    <button class="group-tab-btn active px-6 py-2 rounded-full bg-gold-500 text-darker font-semibold transition-all" onclick="openGroupTab('adult')">🥂 Adults</button>
+                    <button class="group-tab-btn px-6 py-2 rounded-full bg-transparent text-gray-400 hover:text-white border border-gray-700 hover:border-gold-500 transition-all" onclick="openGroupTab('kids')">🎈 Kids</button>
+                    <button class="group-tab-btn px-6 py-2 rounded-full bg-transparent text-gray-400 hover:text-white border border-gray-700 hover:border-gold-500 transition-all" onclick="openGroupTab('luxury')">💎 Luxury</button>
+                    <button class="group-tab-btn px-6 py-2 rounded-full bg-transparent text-gray-400 hover:text-white border border-gray-700 hover:border-gold-500 transition-all" onclick="openGroupTab('budget')">💰 Budget</button>
+                </div>
+
+                <!-- Tab Contents -->
+                <div class="group-tab-content active space-y-6" id="adult">
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-black/50 p-6 rounded-xl border border-gray-800">
+                            <h4 class="text-gold-400 font-bold mb-2">Casino Night</h4>
+                            <ul class="text-sm text-gray-300 space-y-2 list-disc list-inside">
+                                <li>Poker, Blackjack, Roulette tables</li>
+                                <li>Green felt decor &amp; chips</li>
+                                <li>Steak sliders &amp; truffles</li>
+                            </ul>
+                        </div>
+                        <div class="bg-black/50 p-6 rounded-xl border border-gray-800">
+                            <h4 class="text-gold-400 font-bold mb-2">Wine &amp; Cheese</h4>
+                            <ul class="text-sm text-gray-300 space-y-2 list-disc list-inside">
+                                <li>Wine tasting stations</li>
+                                <li>Labeled cheese boards</li>
+                                <li>Blind tasting game</li>
+                            </ul>
+                        </div>
+                        <div class="bg-black/50 p-6 rounded-xl border border-gray-800">
+                            <h4 class="text-gold-400 font-bold mb-2">Karaoke Party</h4>
+                            <ul class="text-sm text-gray-300 space-y-2 list-disc list-inside">
+                                <li>Karaoke machine setup</li>
+                                <li>Small stage area</li>
+                                <li>Duet challenges &amp; prizes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group-tab-content space-y-6" id="kids">
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-black/50 p-6 rounded-xl border border-gray-800">
+                            <h4 class="text-gold-400 font-bold mb-2">Noon Year's Eve</h4>
+                            <ul class="text-sm text-gray-300 space-y-2 list-disc list-inside">
+                                <li>Countdown at 12:00 PM</li>
+                                <li>Balloon drop</li>
+                                <li>Mini pizzas &amp; cupcakes</li>
+                            </ul>
+                        </div>
+                        <div class="bg-black/50 p-6 rounded-xl border border-gray-800">
+                            <h4 class="text-gold-400 font-bold mb-2">Glow Party</h4>
+                            <ul class="text-sm text-gray-300 space-y-2 list-disc list-inside">
+                                <li>Black lights &amp; neon balloons</li>
+                                <li>Glow face paint</li>
+                                <li>Glow ring toss</li>
+                            </ul>
+                        </div>
+                        <div class="bg-black/50 p-6 rounded-xl border border-gray-800">
+                            <h4 class="text-gold-400 font-bold mb-2">Craft Party</h4>
+                            <ul class="text-sm text-gray-300 space-y-2 list-disc list-inside">
+                                <li>DIY party hats</li>
+                                <li>Make confetti poppers</li>
+                                <li>Resolution boards</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bg-gold-900/30 border border-gold-500/30 p-4 rounded-lg text-sm text-gold-200 mt-4 flex gap-3">
+                        <i class="h-5 w-5 shrink-0" data-lucide="users"></i>
+                        <p><strong>Mixed Age Tip (e.g., older teens):</strong> Create separate zones. A game room for younger guests, a cocktail/mocktail area, and a central dance floor for everyone.</p>
+                    </div>
+                </div>
+
+                <div class="group-tab-content space-y-6" id="luxury">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-black/50 p-6 rounded-xl border border-gray-800">
+                            <h4 class="text-gold-400 font-bold mb-2 text-xl border-b border-gray-700 pb-2">The Gatsby Party</h4>
+                            <ul class="text-gray-300 space-y-3 mt-4">
+                                <li><strong>Decor:</strong> Feather centerpieces, crystal glasses, gold/black</li>
+                                <li><strong>Music:</strong> Live Jazz or swing</li>
+                                <li><strong>Menu:</strong> Oysters, Caviar, Champagne towers</li>
+                            </ul>
+                        </div>
+                        <div class="bg-black/50 p-6 rounded-xl border border-gray-800">
+                            <h4 class="text-gold-400 font-bold mb-2 text-xl border-b border-gray-700 pb-2">Private Chef Dinner</h4>
+                            <ul class="text-gray-300 space-y-3 mt-4">
+                                <li><strong>Setup:</strong> 5-course dinner, candlelit tables</li>
+                                <li><strong>Menu:</strong> Lobster bisque, Filet mignon, Truffle mash</li>
+                                <li><strong>Vibe:</strong> Elegant ambient music</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="text-xs text-right text-gray-500 mt-2">* Example Luxury Budget: ~$5,000 (Decor $1.2k, Food $1.5k, Drinks $800, Entertainment $900, Favors $600)</p>
+                </div>
+
+                <div class="group-tab-content space-y-6" id="budget">
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-black/50 p-6 rounded-xl border border-gray-800">
+                            <h4 class="text-gold-400 font-bold mb-2">Potluck Party</h4>
+                            <p class="text-sm text-gray-300 mb-2">Each guest brings a dish.</p>
+                            <ul class="text-sm text-gray-400 space-y-1 list-disc list-inside">
+                                <li>Saves money instantly</li>
+                                <li>Huge food variety</li>
+                            </ul>
+                        </div>
+                        <div class="bg-black/50 p-6 rounded-xl border border-gray-800">
+                            <h4 class="text-gold-400 font-bold mb-2">DIY Pizza Party</h4>
+                            <p class="text-sm text-gray-300 mb-2">Interactive and cheap.</p>
+                            <ul class="text-sm text-gray-400 space-y-1 list-disc list-inside">
+                                <li>Pre-made dough</li>
+                                <li>Toppings bar</li>
+                            </ul>
+                        </div>
+                        <div class="bg-black/50 p-6 rounded-xl border border-gray-800">
+                            <h4 class="text-gold-400 font-bold mb-2">Board Game Night</h4>
+                            <p class="text-sm text-gray-300 mb-2">Focus on fun, not flash.</p>
+                            <ul class="text-sm text-gray-400 space-y-1 list-disc list-inside">
+                                <li>Monopoly, Uno, Codenames</li>
+                                <li>Snacks and drinks</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="text-xs text-right text-gray-500 mt-2">* Example Budget Party: ~$200 (Decor $40, Food $90, Drinks $40, Activities $30)</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Ultimate Menu & Timeline Split Section -->
+        <section class="grid lg:grid-cols-2 gap-12">
+            
+            <!-- Timeline Interactive Checklist -->
+            <div class="scroll-mt-24" id="timeline">
+                <div class="flex items-center gap-3 mb-8">
+                    <i class="text-gold-500 h-8 w-8" data-lucide="clock"></i>
+                    <h2 class="text-3xl font-serif font-bold text-white">Party Timeline</h2>
+                </div>
+                
+                <div class="glass-card rounded-2xl p-6 relative">
+                    <!-- Vertical Line -->
+                    <div class="absolute left-[39px] top-10 bottom-10 w-0.5 bg-gray-800 z-0"></div>
+
+                    <div class="space-y-8 relative z-10">
+                        <!-- 1 Month Before -->
+                        <div>
+                            <h4 class="text-gold-400 font-bold mb-3 bg-dark inline-block px-2 ml-10">1 Month Before</h4>
+                            <div class="space-y-2 ml-4">
+                                <label class="flex items-center gap-3 checklist-item cursor-pointer p-2 hover:bg-white/5 rounded-lg transition-colors">
+                                    <input onchange="toggleCheck(this)" type="checkbox"/>
+                                    <span>Pick theme and set budget</span>
+                                </label>
+                                <label class="flex items-center gap-3 checklist-item cursor-pointer p-2 hover:bg-white/5 rounded-lg transition-colors">
+                                    <input onchange="toggleCheck(this)" type="checkbox"/>
+                                    <span>Make guest list &amp; send invitations</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 2 Weeks Before -->
+                        <div>
+                            <h4 class="text-gold-400 font-bold mb-3 bg-dark inline-block px-2 ml-10">2 Weeks Before</h4>
+                            <div class="space-y-2 ml-4">
+                                <label class="flex items-center gap-3 checklist-item cursor-pointer p-2 hover:bg-white/5 rounded-lg transition-colors">
+                                    <input onchange="toggleCheck(this)" type="checkbox"/>
+                                    <span>Order decorations &amp; buy supplies</span>
+                                </label>
+                                <label class="flex items-center gap-3 checklist-item cursor-pointer p-2 hover:bg-white/5 rounded-lg transition-colors">
+                                    <input onchange="toggleCheck(this)" type="checkbox"/>
+                                    <span>Hire DJ or plan playlist</span>
+                                </label>
+                                <label class="flex items-center gap-3 checklist-item cursor-pointer p-2 hover:bg-white/5 rounded-lg transition-colors">
+                                    <input onchange="toggleCheck(this)" type="checkbox"/>
+                                    <span>Finalize food menu</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 1 Week Before -->
+                        <div>
+                            <h4 class="text-gold-400 font-bold mb-3 bg-dark inline-block px-2 ml-10">1 Week Before</h4>
+                            <div class="space-y-2 ml-4">
+                                <label class="flex items-center gap-3 checklist-item cursor-pointer p-2 hover:bg-white/5 rounded-lg transition-colors">
+                                    <input onchange="toggleCheck(this)" type="checkbox"/>
+                                    <span>Confirm guest attendance</span>
+                                </label>
+                                <label class="flex items-center gap-3 checklist-item cursor-pointer p-2 hover:bg-white/5 rounded-lg transition-colors">
+                                    <input onchange="toggleCheck(this)" type="checkbox"/>
+                                    <span>Order catering or buy food/drinks</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Party Day -->
+                        <div>
+                            <h4 class="text-gold-400 font-bold mb-3 bg-dark inline-block px-2 ml-10">Party Day</h4>
+                            <div class="space-y-2 ml-4">
+                                <label class="flex items-center gap-3 checklist-item cursor-pointer p-2 hover:bg-white/5 rounded-lg transition-colors">
+                                    <input onchange="toggleCheck(this)" type="checkbox"/>
+                                    <span><strong>4 Hours Before:</strong> Set up decor &amp; food stations</span>
+                                </label>
+                                <label class="flex items-center gap-3 checklist-item cursor-pointer p-2 hover:bg-white/5 rounded-lg transition-colors">
+                                    <input onchange="toggleCheck(this)" type="checkbox"/>
+                                    <span><strong>2 Hours Before:</strong> Chill drinks, light candles</span>
+                                </label>
+                                <label class="flex items-center gap-3 checklist-item cursor-pointer p-2 hover:bg-white/5 rounded-lg transition-colors">
+                                    <input onchange="toggleCheck(this)" type="checkbox"/>
+                                    <span><strong>11:50 PM:</strong> Gather guests, prepare countdown</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ultimate Menu -->
+            <div class="scroll-mt-24" id="menu">
+                <div class="flex items-center gap-3 mb-8">
+                    <i class="text-gold-500 h-8 w-8" data-lucide="utensils"></i>
+                    <h2 class="text-3xl font-serif font-bold text-white">Ultimate Menu</h2>
+                </div>
+
+                <div class="glass-card rounded-2xl overflow-hidden">
+                    <div class="flex border-b border-gray-800 overflow-x-auto scrollbar-hide">
+                        <button class="menu-tab-btn active whitespace-nowrap px-6 py-4 text-sm font-medium text-gold-500 border-b-2 border-gold-500" onclick="openMenuTab('apps')">Appetizers</button>
+                        <button class="menu-tab-btn whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-400 hover:text-gray-200" onclick="openMenuTab('mains')">Mains</button>
+                        <button class="menu-tab-btn whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-400 hover:text-gray-200" onclick="openMenuTab('snacks')">Snacks</button>
+                        <button class="menu-tab-btn whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-400 hover:text-gray-200" onclick="openMenuTab('desserts')">Desserts</button>
+                        <button class="menu-tab-btn whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-400 hover:text-gray-200" onclick="openMenuTab('drinks')">Drinks</button>
+                    </div>
+
+                    <div class="p-6">
+                        <div class="menu-tab-content active" id="apps">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>Bruschetta</div>
+                                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>Stuffed mushrooms</div>
+                                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>Shrimp cocktail</div>
+                                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>Spinach dip</div>
+                                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>Mini quiches</div>
+                                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>Chicken wings</div>
+                                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>Deviled eggs</div>
+                                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>Mozzarella sticks</div>
+                                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>Spring rolls</div>
+                                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>Jalapeño poppers</div>
+                            </div>
+                        </div>
+                        <div class="menu-tab-content" id="mains">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>Mini sliders</div>
+                                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>BBQ ribs</div>
+                                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>Tacos / Pizza</div>
+                                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>Fried chicken</div>
+                                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>Sushi</div>
+                                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>Nachos</div>
+                                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>Mac &amp; cheese bites</div>
+                                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>Chicken skewers</div>
+                            </div>
+                        </div>
+                        <div class="menu-tab-content" id="snacks">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>Popcorn bar</div>
+                                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>Chips &amp; salsa</div>
+                                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>Pretzels</div>
+                                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>Cheese platter</div>
+                                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>Charcuterie board</div>
+                            </div>
+                        </div>
+                        <div class="menu-tab-content" id="desserts">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>Cupcakes</div>
+                                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>Chocolate fountain</div>
+                                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>Cheesecake bites</div>
+                                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>Macarons &amp; Brownies</div>
+                                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>Donuts &amp; Cake pops</div>
+                            </div>
+                        </div>
+                        <div class="menu-tab-content" id="drinks">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>Champagne</div>
+                                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>Sparkling cider</div>
+                                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>Margaritas / Mojitos</div>
+                                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>Hot chocolate</div>
+                                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>Sangria / Fruit punch</div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 pt-6 border-t border-gray-800">
+                            <p class="text-sm text-gray-400"><strong>Hosting 50+ People?</strong> Set up food stations (Taco station, Dessert table, Drink bar) instead of one buffet to reduce crowding.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Viral Ideas & Activities -->
+        <section class="scroll-mt-24" id="viral">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-serif font-bold text-white mb-4">Viral Ideas &amp; Midnight Activities</h2>
+                <p class="text-gray-400">Social media favorites and fun ways to ring in the new year.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Viral List -->
+                <div class="glass-card p-6 rounded-2xl md:col-span-2">
+                    <h3 class="text-xl font-bold text-gold-400 mb-4 flex items-center gap-2"><i class="h-5 w-5" data-lucide="smartphone"></i> 10 Trending Ideas</h3>
+                    <div class="grid sm:grid-cols-2 gap-x-6 gap-y-3 text-sm text-gray-300">
+                        <p><strong class="text-white">1. Balloon Drop:</strong> Net filled with balloons released at 12.</p>
+                        <p><strong class="text-white">2. Champagne Tower:</strong> Stack glasses and pour from top.</p>
+                        <p><strong class="text-white">3. LED Dance Floor:</strong> Light-up floor + DJ.</p>
+                        <p><strong class="text-white">4. Resolution Wall:</strong> Guests write goals on sticky notes.</p>
+                        <p><strong class="text-white">5. Memory Jar:</strong> Write past year's moments, read next year.</p>
+                        <p><strong class="text-white">6. Glitter Photo Booth:</strong> Metallic curtains, 2026 props.</p>
+                        <p><strong class="text-white">7. Sparkler Send-Off:</strong> Everyone lights sparklers for photos.</p>
+                        <p><strong class="text-white">8. Cocktail Bar:</strong> DIY drink creation station.</p>
+                        <p><strong class="text-white">9. Confetti Cannons:</strong> Shoot confetti at midnight.</p>
+                        <p><strong class="text-white">10. Midnight Surprise:</strong> Dessert reveal or fireworks.</p>
+                    </div>
+                </div>
+
+                <!-- Games Sidebar -->
+                <div class="glass-card p-6 rounded-2xl bg-gold-900/10 border-gold-500/30">
+                    <h3 class="text-xl font-bold text-gold-400 mb-4 flex items-center gap-2"><i class="h-5 w-5" data-lucide="dice-5"></i> Fun Games</h3>
+                    <ul class="space-y-4 text-sm text-gray-300">
+                        <li>
+                            <strong class="text-white block">Balloon Pop Countdown</strong>
+                            Write prizes inside balloons. Pop one at midnight.
+                        </li>
+                        <li>
+                            <strong class="text-white block">Prediction Game</strong>
+                            Write predictions for next year. Read them next NYE.
+                        </li>
+                        <li>
+                            <strong class="text-white block">Resolution Guessing</strong>
+                            Write anonymous resolutions. Everyone guesses who wrote them.
+                        </li>
+                        <li>
+                            <strong class="text-white block">Year Trivia</strong>
+                            Questions about major events from the past year.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 20 Quick Themes Accordion -->
+        <section class="max-w-3xl mx-auto pb-10">
+            <details class="group glass-card rounded-2xl cursor-pointer">
+                <summary class="list-none flex justify-between items-center p-6 font-serif text-xl text-gold-400 font-bold">
+                    Need more ideas? View 20 Unique Themes 
+                    <i class="transition-transform group-open:rotate-180" data-lucide="chevron-down"></i>
+                </summary>
+                <div class="p-6 pt-0 border-t border-gray-800 text-sm text-gray-300 grid sm:grid-cols-2 gap-4">
+                    <ol class="list-decimal list-inside space-y-2">
+                        <li>Hollywood Red Carpet</li>
+                        <li>Pajama Party</li>
+                        <li>White Party</li>
+                        <li>Tropical Escape</li>
+                        <li>Decades (70s/80s/90s)</li>
+                        <li>Glow-in-the-Dark</li>
+                        <li>Murder Mystery</li>
+                        <li>Travel Around the World</li>
+                        <li>Fancy Dress Costume</li>
+                        <li>Dessert Buffet</li>
+                    </ol>
+                    <ol class="list-decimal list-inside space-y-2" start="11">
+                        <li>Bonfire Backyard</li>
+                        <li>Champagne &amp; Chocolate</li>
+                        <li>Masquerade Ball</li>
+                        <li>Disco Party</li>
+                        <li>Karaoke Party</li>
+                        <li>Game Tournament</li>
+                        <li>Food Truck Style</li>
+                        <li>Ice Bar Party</li>
+                        <li>Resolution Party</li>
+                        <li>Future Theme (Dress from future)</li>
+                    </ol>
+                </div>
+            </details>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-gray-300">
+<div class="container mx-auto px-6 py-12 lg:px-8">
+<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/easter/">Easter Festival</a></li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">26-bihari-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">26-chinese-new-year-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">26-christmas-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-festival-countdown</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">Christmas-wishes-by-audience</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">Happy-new-year-2026-celebrations-worldwide.html</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">Happy-new-year-2026</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">Multilingual-greetings-webpage</a>
+</li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+</ul>
+<h5 class="text-lg font-semibold text-white mb-4">Wishes and Wallpapers</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes-and-wallpapers.html">Wishes and Wallpapers</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/welcome-new-year.html">Welcome New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wallpapers">Festival Wallpaper for Desktop and Mobile</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards for  New Year</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">2025 Trends and 2026 forecast</h5>
+<ul class="space-y-2">
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-digital-outlook-trends-forecast</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">2026-festival-countdown</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026_dashboard.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">2026_dashboard</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/new_year_2026_page.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">New_year_2026_page</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/send-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl07_title">Send-christmas-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl08_title">Send-sankranti-wishes-in-multiple-languages</a>
+</li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/index-oct.html">Thanks Giving Main Page</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+<div class="space-y-2">
+<p>Redmond<br/>WA, USA</p>
+<p>
+<a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+</p>
+<p>
+<a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+</p>
+</div>
+</div>
+</div>
+<div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+<p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+<div class="flex space-x-4 mt-4 sm:mt-0">
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+<span class="sr-only">Facebook</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+</svg>
+</a>
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+<span class="sr-only">Twitter</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+</svg>
+</a>
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+<span class="sr-only">LinkedIn</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+</svg>
+</a>
+</div>
+<div class="flex gap-4 mt-4 sm:mt-0">
+<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+</div>
+</div>
+</div>
+</footer>
+
+    <!-- Scripts for Interactivity -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Group Tab Logic
+        function openGroupTab(tabId) {
+            // Hide all contents
+            document.querySelectorAll('.group-tab-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            // Remove active state from all buttons
+            document.querySelectorAll('.group-tab-btn').forEach(el => {
+                el.classList.remove('bg-gold-500', 'text-darker');
+                el.classList.add('bg-transparent', 'text-gray-400', 'border', 'border-gray-700');
+            });
+
+            // Show selected content
+            document.getElementById(tabId).classList.add('active');
+            
+            // Highlight selected button
+            const activeBtn = event.currentTarget;
+            activeBtn.classList.remove('bg-transparent', 'text-gray-400', 'border', 'border-gray-700');
+            activeBtn.classList.add('bg-gold-500', 'text-darker');
+        }
+
+        // Menu Tab Logic
+        function openMenuTab(tabId) {
+            document.querySelectorAll('.menu-tab-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.querySelectorAll('.menu-tab-btn').forEach(el => {
+                el.classList.remove('text-gold-500', 'border-b-2', 'border-gold-500');
+                el.classList.add('text-gray-400');
+            });
+
+            document.getElementById(tabId).classList.add('active');
+            const activeBtn = event.currentTarget;
+            activeBtn.classList.remove('text-gray-400');
+            activeBtn.classList.add('text-gold-500', 'border-b-2', 'border-gold-500');
+        }
+
+        // Checklist Strike-through Logic
+        function toggleCheck(checkbox) {
+            const listItem = checkbox.closest('.checklist-item');
+            if (checkbox.checked) {
+                listItem.classList.add('completed');
+            } else {
+                listItem.classList.remove('completed');
+            }
+        }
+
+        // Navbar blur effect on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg', 'border-b', 'border-gold-500/10');
+            } else {
+                nav.classList.remove('shadow-lg', 'border-b', 'border-gold-500/10');
+            }
+        });
+    </script>
+
+</body></html>

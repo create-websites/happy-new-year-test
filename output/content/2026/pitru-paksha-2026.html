@@ -1,275 +1,406 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <!-- Meta Tags Added -->
-    <meta content="A comprehensive interactive guide to Hindu Pitru Paksh rituals, including a Tithi calendar, step-by-step Tarpan procedures, ritual checklists, and ancestral significance for the sacred fortnight." name="description"/>
-    <meta content="Pitru Paksh, Shraddh Guide, Hindu Ancestor Rituals, Tithi Calendar, Pind Daan, Tarpan Procedure, Sarvapitri Amavasya, Vedic Traditions, Hindu Heritage" name="keywords"/>
-    
-    <title>Pitru Paksh: The Ancestral Fortnight Guide</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Lato:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
-    <style>
-        body {
-            font-family: 'Lato', sans-serif;
-            background-color: #fdfbf7;
-            color: #4a4a4a;
-        }
-        h1, h2, h3, h4 {
-            font-family: 'Noto Serif', serif;
-        }
-        .tab-active {
-            border-bottom: 3px solid #d97706;
-            color: #b45309;
-            font-weight: bold;
-        }
-        .tab-inactive {
-            color: #78716c;
-        }
-        .tab-inactive:hover {
-            color: #d97706;
-        }
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 350px;
-            max-height: 400px;
-        }
-        @media (max-width: 640px) {
-            .chart-container {
-                height: 300px;
-            }
-        }
-        .ritual-step::after {
-            content: '';
-            position: absolute;
-            left: 20px;
-            top: 40px;
-            bottom: -20px;
-            width: 2px;
-            background-color: #e5e7eb;
-            z-index: 0;
-        }
-        .ritual-step:last-child::after {
-            display: none;
-        }
-    </style>
-    <!-- Chosen Palette: Warm Neutrals & Saffron - #fdfbf7 (Background), #d97706 (Amber Accent), #78716c (Stone Text), #fff7ed (Highlight) -->
-    <!-- Application Structure Plan: 
-         1. Hero Section: Cultural context and immediate tone setting with SEO meta data integration.
-         2. Navigation: Tab-based system for 'Overview', 'Tithi Calendar', 'Rituals', and 'Rules'.
-         3. Dynamic Tithi Calculator: Interactive filtering for specific death circumstances.
-         4. Ritual Guide: Visual timeline of ceremony steps.
-         5. Analytics: Visualization of the balance between physical offerings, mental devotion, and charity.
-         6. Utility: A persistence-capable (session-based) checklist for ceremonial items.
-    -->
-    <!-- Visualization & Content Choices:
-         1. Intro -> Inform -> Typography-led layout for readability.
-         2. Ritual Balance -> Goal: Inform -> Chart.js Doughnut -> Displays the split between Tarpan, Pind, and Charity.
-         3. Calendar -> Goal: Organize -> Card Grid with Filter JS -> Allows users to find specific days like Navami or Chaturdashi.
-         4. Ritual Steps -> Goal: Process Flow -> Vertical Timeline via CSS -> Clear hierarchical instruction.
-    -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-<!-- Google tag (gtag.js) --><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JJ6LGZB34T"></script><script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-JJ6LGZB34T');
-</script><script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9804321536688475"></script></head>
-<body class="antialiased min-h-screen flex flex-col">
-
-    <!-- Header -->
-    <header class="bg-[#fff7ed] border-b border-orange-100 py-8 px-4 text-center">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-amber-600 text-sm font-bold uppercase tracking-widest mb-2">Heritage &amp; Spirituality</div>
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Pitru Paksh Guide</h1>
-            <p class="text-lg text-gray-600 max-w-2xl mx-auto italic">
-                A digital guide to honoring ancestors, understanding sacred timings, and performing Shraddh with devotion.
-            </p>
+<html class="scroll-smooth" data-related-json="https://storage.googleapis.com/create-website/css-scripts/related-articles.json" data-related-keywords="pitru paksha shraddh ancestors tarpan pind daan 2026 hindu calendar" lang="en"><head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="Pitru Paksha 2026 guide with meaning, Shraddh rituals, Tarpan and Pind Daan steps, do's and don'ts, and the 2026 Pitru Paksha dates from September 26 to October 10." name="description"/>
+  <meta content="Pitru Paksha 2026, Pitra Paksha 2026, Pitru Paksha guide, Shraddh rituals, Tarpan vidhi, Pind Daan, Sarva Pitru Amavasya 2026, Mahalaya Amavasya 2026, ancestors Hindu rituals, Shraddh dates 2026" name="keywords"/>
+  <meta content="Happy-New-Year.org" name="author"/>
+  <meta content="index, follow, max-image-preview:large" name="robots"/>
+  <meta content="Direct answer: Pitru Paksha 2026 is a sacred Hindu fortnight for honoring ancestors through Shraddh, Tarpan, Pind Daan, charity, and sattvic conduct. In 2026, it begins with Purnima Shraddha on September 26 and concludes with Sarva Pitru Amavasya on October 10. Use the ancestor's death tithi to choose the Shraddh day; use Sarva Pitru Amavasya when the tithi is unknown or missed." name="generative-engine-optimization"/>
+  <link href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html" rel="canonical"/>
+  <meta content="Pitru Paksha 2026 Guide: Meaning, Rituals, Tarpan &amp; Dates" property="og:title"/>
+  <meta content="A complete Pitru Paksha 2026 guide focused on ancestor remembrance, Shraddh rituals, Tarpan, Pind Daan, do's and don'ts, and the 2026 dates." property="og:description"/>
+  <meta content="article" property="og:type"/>
+  <meta content="https://www.happy-new-year.org/2026/pitru-paksha-2026.html" property="og:url"/>
+  <meta content="https://storage.googleapis.com/imagesg/festivals/shradh/1000w/sharadh-home.png" property="og:image"/>
+  <title>Pitru Paksha 2026 Guide: Meaning, Rituals, Tarpan &amp; Dates</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://storage.googleapis.com/create-website/css-scripts/related-articles-noimage.css" rel="stylesheet"/>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.happy-new-year.org/2026/pitru-paksha-2026.html"},
+    "headline": "Pitru Paksha 2026 Guide: Meaning, Rituals, Tarpan and Dates",
+    "description": "A practical guide to Pitru Paksha 2026, including Shraddh meaning, Tarpan, Pind Daan, do's and don'ts, and the 2026 date calendar.",
+    "image": ["https://storage.googleapis.com/imagesg/festivals/shradh/1000w/sharadh-home.png"],
+    "author": {"@type": "Organization", "name": "Happy-New-Year.org"},
+    "publisher": {"@type": "Organization", "name": "Happy-New-Year.org"},
+    "datePublished": "2026-06-06",
+    "dateModified": "2026-06-06"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"When is Pitru Paksha 2026?","acceptedAnswer":{"@type":"Answer","text":"Pitru Paksha 2026 begins with Purnima Shraddha on September 26, 2026 and concludes with Sarva Pitru Amavasya on October 10, 2026."}},
+      {"@type":"Question","name":"How do I choose the correct Shraddh day?","acceptedAnswer":{"@type":"Answer","text":"The usual rule is to perform Shraddh on the Pitru Paksha tithi matching the ancestor's death tithi. If the tithi is unknown or the day is missed, Sarva Pitru Amavasya is used."}},
+      {"@type":"Question","name":"What are the main Pitru Paksha rituals?","acceptedAnswer":{"@type":"Answer","text":"Common observances include Tarpan, Pind Daan, feeding Brahmins or the needy, offering food to animals and birds, charity, and maintaining a sattvic lifestyle."}}
+    ]
+  }
+  </script>
+  <style>
+    body {
+      font-family: 'Vollkorn', serif;
+      background-color: #fff1f2;
+      color: #292524;
+      background-image: linear-gradient(rgba(255, 241, 242, 0.90), rgba(255, 241, 242, 0.90)), url('https://storage.googleapis.com/kreatewebsite/banner_all/Happy-New-Year-Photos.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    h1, h2, h3, h4 { font-weight: 700; }
+    .theme-card {
+      background-color: rgba(255, 255, 255, 0.78);
+      border: 1px solid #ffe4e6;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.08), 0 2px 4px -1px rgba(0,0,0,0.05);
+      backdrop-filter: blur(8px);
+    }
+    .card-hover { transition: all 0.3s ease; }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 15px -3px rgba(244,63,94,0.15), 0 4px 6px -2px rgba(244,63,94,0.1);
+      border-color: #fda4af;
+      background-color: rgba(255,255,255,0.92);
+    }
+    .nav-link { color: #57534e; transition: color 0.2s; }
+    .nav-link:hover, .nav-link.active { color: #9f1239; }
+    .hero-img { min-height: 360px; object-fit: cover; }
+    .date-table th { background: #fff1f2; color: #881337; }
+    .soft-pill { background: rgba(255,255,255,0.75); border: 1px solid #fecdd3; }
+  </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col overflow-x-hidden text-stone-800">
+  <nav class="w-full bg-white/80 backdrop-blur-sm sticky top-0 z-50 border-b border-rose-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a class="flex-shrink-0 flex items-center gap-3" href="/">
+          <span class="text-2xl text-rose-600">✨</span>
+          <span class="text-xl font-bold tracking-wide uppercase text-rose-900">Happy New Year</span>
+        </a>
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-8">
+            <a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="/">Home</a>
+            <a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="/wishes/">Wishes</a>
+            <a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="/resolutions/">Resolutions</a>
+            <a class="nav-link active px-3 py-2 rounded-md text-base font-semibold" href="/2026/">2026 Guides</a>
+            <a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="/search/">Search</a>
+          </div>
         </div>
+        <div class="md:hidden">
+          <button aria-label="Open menu" class="text-stone-600 hover:text-rose-800" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+            <i class="fa-solid fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="hidden md:hidden border-t border-rose-100 bg-white/95" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a class="text-stone-600 hover:text-rose-800 block px-3 py-2 rounded-md text-base font-medium" href="/">Home</a>
+        <a class="text-stone-600 hover:text-rose-800 block px-3 py-2 rounded-md text-base font-medium" href="/wishes/">Wishes</a>
+        <a class="text-rose-800 block px-3 py-2 rounded-md text-base font-medium" href="/2026/">2026 Guides</a>
+        <a class="text-stone-600 hover:text-rose-800 block px-3 py-2 rounded-md text-base font-medium" href="/search/">Search</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="relative z-10 flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 w-full">
+    <header class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-14">
+      <div>
+        <div class="inline-block px-4 py-1 rounded-full border border-rose-200 bg-white/70 text-rose-800 text-xs font-bold tracking-[0.2em] uppercase mb-6 backdrop-blur-sm">
+          Pitru Paksha 2026 Guide
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold text-rose-900 mb-5 tracking-tight drop-shadow-sm">Pitru Paksha 2026: Meaning, Rituals &amp; Shraddh Guide</h1>
+        <p class="text-lg md:text-xl text-stone-700 leading-relaxed font-medium mb-6">
+          Pitru Paksha is the sacred fortnight of ancestral remembrance. This guide explains why the period matters, how Shraddh and Tarpan are performed, what to observe at home, and the key 2026 dates from <strong>September 26 to October 10, 2026</strong>.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div class="soft-pill rounded-2xl p-4 text-center">
+            <div class="text-2xl font-bold text-rose-900">16</div>
+            <div class="text-sm text-stone-600">days of remembrance</div>
+          </div>
+          <div class="soft-pill rounded-2xl p-4 text-center">
+            <div class="text-lg font-bold text-rose-900">Sep 26</div>
+            <div class="text-sm text-stone-600">Purnima Shraddha</div>
+          </div>
+          <div class="soft-pill rounded-2xl p-4 text-center">
+            <div class="text-lg font-bold text-rose-900">Oct 10</div>
+            <div class="text-sm text-stone-600">Sarva Pitru Amavasya</div>
+          </div>
+        </div>
+      </div>
+      <figure class="theme-card overflow-hidden">
+        <img alt="Family preparing Shraddh offerings at home during Pitru Paksha" class="hero-img w-full" sizes="(max-width: 1024px) 100vw, 50vw" src="https://storage.googleapis.com/imagesg/festivals/shradh/1000w/sharadh-home.png" srcset="https://storage.googleapis.com/imagesg/festivals/shradh/400w/sharadh-home.png 400w, https://storage.googleapis.com/imagesg/festivals/shradh/500w/sharadh-home.png 500w, https://storage.googleapis.com/imagesg/festivals/shradh/600w/sharadh-home.png 600w, https://storage.googleapis.com/imagesg/festivals/shradh/700w/sharadh-home.png 700w, https://storage.googleapis.com/imagesg/festivals/shradh/800w/sharadh-home.png 800w, https://storage.googleapis.com/imagesg/festivals/shradh/900w/sharadh-home.png 900w, https://storage.googleapis.com/imagesg/festivals/shradh/1000w/sharadh-home.png 1000w"/>
+      </figure>
     </header>
 
-    <!-- Navigation -->
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex overflow-x-auto space-x-8 justify-center py-4" id="nav-container">
-                <button class="tab-active whitespace-nowrap pb-2 text-lg transition-colors" id="tab-overview" onclick="switchTab('overview')">Overview</button>
-                <button class="tab-inactive whitespace-nowrap pb-2 text-lg transition-colors" id="tab-calendar" onclick="switchTab('calendar')">Tithi Calendar</button>
-                <button class="tab-inactive whitespace-nowrap pb-2 text-lg transition-colors" id="tab-rituals" onclick="switchTab('rituals')">Rituals &amp; Checklist</button>
-                <button class="tab-inactive whitespace-nowrap pb-2 text-lg transition-colors" id="tab-guidelines" onclick="switchTab('guidelines')">Do's &amp; Don'ts</button>
+    <article class="space-y-12">
+      <section class="theme-card p-6 md:p-8">
+        <h2 class="text-3xl text-rose-900 mb-4">What is Pitru Paksha?</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div class="lg:col-span-2 space-y-4 text-stone-700 leading-relaxed text-lg">
+            <p>Pitru Paksha, also called Shraddh Paksha or Mahalaya Paksha, is a solemn Hindu observance dedicated to the Pitrs, or ancestors. Families use this period to remember departed relatives, offer water and food with devotion, and express gratitude for the lineage that sustains the present generation.</p>
+            <p>The heart of the observance is <strong>shraddha</strong> — faith expressed through action. Rituals such as Tarpan, Pind Daan, Brahmin Bhojan, feeding animals, and charity are traditionally believed to nourish ancestors spiritually and invite their blessings for health, harmony, wisdom, and family continuity.</p>
+            <p>Unlike a general memorial day, Pitru Paksha is tithi-based. The correct Shraddh day is usually chosen by matching the ancestor's death tithi with the corresponding tithi during the fortnight. When the tithi is unknown, the final day, Sarva Pitru Amavasya, is used.</p>
+          </div>
+          <div class="grid gap-4">
+            <div class="theme-card card-hover p-5">
+              <i class="fa-solid fa-hand-holding-droplet text-rose-600 text-2xl mb-3"></i>
+              <h3 class="text-xl text-rose-900 mb-2">Tarpan</h3>
+              <p class="text-sm text-stone-600">Water offerings, commonly with black sesame, made with remembrance and prayer.</p>
             </div>
+            <div class="theme-card card-hover p-5">
+              <i class="fa-solid fa-bowl-rice text-rose-600 text-2xl mb-3"></i>
+              <h3 class="text-xl text-rose-900 mb-2">Pind Daan</h3>
+              <p class="text-sm text-stone-600">Rice-ball offerings symbolizing nourishment and support for departed souls.</p>
+            </div>
+          </div>
         </div>
-    </nav>
+      </section>
 
-    <!-- Main Content Area -->
-    <main class="flex-grow container mx-auto px-4 py-8 max-w-5xl">
+      <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <figure class="theme-card overflow-hidden">
+          <img alt="Outdoor Pitru Paksha ritual setting with offerings" class="w-full h-full object-cover min-h-[320px]" sizes="(max-width: 1024px) 100vw, 50vw" src="https://storage.googleapis.com/imagesg/festivals/shradh/1000w/sharadh-outside.png" srcset="https://storage.googleapis.com/imagesg/festivals/shradh/400w/sharadh-outside.png 400w, https://storage.googleapis.com/imagesg/festivals/shradh/500w/sharadh-outside.png 500w, https://storage.googleapis.com/imagesg/festivals/shradh/600w/sharadh-outside.png 600w, https://storage.googleapis.com/imagesg/festivals/shradh/700w/sharadh-outside.png 700w, https://storage.googleapis.com/imagesg/festivals/shradh/800w/sharadh-outside.png 800w, https://storage.googleapis.com/imagesg/festivals/shradh/900w/sharadh-outside.png 900w, https://storage.googleapis.com/imagesg/festivals/shradh/1000w/sharadh-outside.png 1000w"/>
+        </figure>
+        <div class="theme-card p-6 md:p-8">
+          <h2 class="text-3xl text-rose-900 mb-4">The spiritual purpose</h2>
+          <p class="text-stone-700 leading-relaxed mb-4">The PDFs describe Pitru Paksha as a period for fulfilling <strong>Pitru Rin</strong>, the ancestral debt. The living acknowledge that their life, family identity, traditions, and cultural memory are inherited from earlier generations.</p>
+          <p class="text-stone-700 leading-relaxed mb-4">The rites are traditionally understood as reciprocal: ancestors receive remembrance, water, food, and merit; descendants seek blessings, peace, continuity, and relief from ancestral imbalance.</p>
+          <p class="text-stone-700 leading-relaxed">The period is not meant to be festive. It is a time of restraint, gratitude, charity, and disciplined remembrance.</p>
+        </div>
+      </section>
 
-        <!-- SECTION: OVERVIEW -->
-        <section class="space-y-12 animate-fade-in" id="section-overview">
-            <div class="text-center max-w-3xl mx-auto mb-10">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">The Fortnight of Remembrance</h2>
-                <p class="text-gray-600 leading-relaxed">
-                    Pitru Paksh is a period dedicated to the Pitrs (ancestors). It is a time when the veil between worlds is believed to be thin, allowing us to express gratitude and help the souls of our forefathers find peace through the act of Shraddh.
-                </p>
+      <section class="theme-card p-6 md:p-8">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
+          <div>
+            <h2 class="text-3xl text-rose-900 mb-2">Pitru Paksha 2026 dates</h2>
+            <p class="text-stone-700">In 2026, Pitru Paksha begins on <strong>Saturday, September 26</strong> and ends on <strong>Saturday, October 10</strong> with Sarva Pitru Amavasya.</p>
+          </div>
+          <a class="inline-flex items-center justify-center rounded-full bg-rose-700 text-white px-5 py-3 font-bold hover:bg-rose-900 transition" href="/2026/2026-shraddh-dates.html">
+            Full Shraddh dates page
+          </a>
+        </div>
+        <div class="overflow-x-auto rounded-xl border border-rose-100 bg-white/70">
+          <table class="date-table min-w-full text-left">
+            <thead>
+              <tr>
+                <th class="px-4 py-3">Date</th>
+                <th class="px-4 py-3">Day</th>
+                <th class="px-4 py-3">Observance</th>
+                <th class="px-4 py-3">Use / Significance</th>
+              </tr>
+            </thead>
+            <tbody><tr class="border-b border-rose-100">
+<td class="px-4 py-3 font-semibold text-rose-900">Sep 26, 2026</td>
+<td class="px-4 py-3 text-stone-600">Saturday</td>
+<td class="px-4 py-3 font-bold text-stone-800">Purnima Shraddha</td>
+<td class="px-4 py-3 text-stone-700">For ancestors who passed on Purnima; opening remembrance day.</td>
+</tr>
+<tr class="border-b border-rose-100">
+<td class="px-4 py-3 font-semibold text-rose-900">Sep 27, 2026</td>
+<td class="px-4 py-3 text-stone-600">Sunday</td>
+<td class="px-4 py-3 font-bold text-stone-800">Pratipada Shraddha</td>
+<td class="px-4 py-3 text-stone-700">For Pratipada tithi.</td>
+</tr>
+<tr class="border-b border-rose-100">
+<td class="px-4 py-3 font-semibold text-rose-900">Sep 28, 2026</td>
+<td class="px-4 py-3 text-stone-600">Monday</td>
+<td class="px-4 py-3 font-bold text-stone-800">Dwitiya Shraddha</td>
+<td class="px-4 py-3 text-stone-700">For Dwitiya tithi.</td>
+</tr>
+<tr class="border-b border-rose-100">
+<td class="px-4 py-3 font-semibold text-rose-900">Sep 29, 2026</td>
+<td class="px-4 py-3 text-stone-600">Tuesday</td>
+<td class="px-4 py-3 font-bold text-stone-800">Tritiya Shraddha</td>
+<td class="px-4 py-3 text-stone-700">For Tritiya tithi.</td>
+</tr>
+<tr class="border-b border-rose-100">
+<td class="px-4 py-3 font-semibold text-rose-900">Sep 30, 2026</td>
+<td class="px-4 py-3 text-stone-600">Wednesday</td>
+<td class="px-4 py-3 font-bold text-stone-800">Chaturthi Shraddha / Maha Bharani</td>
+<td class="px-4 py-3 text-stone-700">For Chaturthi tithi; often noted with Bharani significance.</td>
+</tr>
+<tr class="border-b border-rose-100">
+<td class="px-4 py-3 font-semibold text-rose-900">Oct 1, 2026</td>
+<td class="px-4 py-3 text-stone-600">Thursday</td>
+<td class="px-4 py-3 font-bold text-stone-800">Panchami Shraddha</td>
+<td class="px-4 py-3 text-stone-700">For Panchami tithi.</td>
+</tr>
+<tr class="border-b border-rose-100">
+<td class="px-4 py-3 font-semibold text-rose-900">Oct 2, 2026</td>
+<td class="px-4 py-3 text-stone-600">Friday</td>
+<td class="px-4 py-3 font-bold text-stone-800">Shashthi Shraddha</td>
+<td class="px-4 py-3 text-stone-700">For Shashthi tithi.</td>
+</tr>
+<tr class="border-b border-rose-100">
+<td class="px-4 py-3 font-semibold text-rose-900">Oct 3, 2026</td>
+<td class="px-4 py-3 text-stone-600">Saturday</td>
+<td class="px-4 py-3 font-bold text-stone-800">Saptami Shraddha</td>
+<td class="px-4 py-3 text-stone-700">For Saptami tithi.</td>
+</tr>
+<tr class="border-b border-rose-100">
+<td class="px-4 py-3 font-semibold text-rose-900">Oct 4, 2026</td>
+<td class="px-4 py-3 text-stone-600">Sunday</td>
+<td class="px-4 py-3 font-bold text-stone-800">Ashtami Shraddha / Navami Shraddha</td>
+<td class="px-4 py-3 text-stone-700">For Ashtami and Navami observances in many 2026 calendars; Navami is important for mothers and married women ancestors.</td>
+</tr>
+<tr class="border-b border-rose-100">
+<td class="px-4 py-3 font-semibold text-rose-900">Oct 5, 2026</td>
+<td class="px-4 py-3 text-stone-600">Monday</td>
+<td class="px-4 py-3 font-bold text-stone-800">Dashami Shraddha</td>
+<td class="px-4 py-3 text-stone-700">For Dashami tithi.</td>
+</tr>
+<tr class="border-b border-rose-100">
+<td class="px-4 py-3 font-semibold text-rose-900">Oct 6, 2026</td>
+<td class="px-4 py-3 text-stone-600">Tuesday</td>
+<td class="px-4 py-3 font-bold text-stone-800">Ekadashi Shraddha</td>
+<td class="px-4 py-3 text-stone-700">For Ekadashi tithi; also associated with ascetics in some traditions.</td>
+</tr>
+<tr class="border-b border-rose-100">
+<td class="px-4 py-3 font-semibold text-rose-900">Oct 7, 2026</td>
+<td class="px-4 py-3 text-stone-600">Wednesday</td>
+<td class="px-4 py-3 font-bold text-stone-800">Dwadashi Shraddha</td>
+<td class="px-4 py-3 text-stone-700">For Dwadashi tithi.</td>
+</tr>
+<tr class="border-b border-rose-100">
+<td class="px-4 py-3 font-semibold text-rose-900">Oct 8, 2026</td>
+<td class="px-4 py-3 text-stone-600">Thursday</td>
+<td class="px-4 py-3 font-bold text-stone-800">Trayodashi Shraddha</td>
+<td class="px-4 py-3 text-stone-700">For Trayodashi tithi; often remembered for children in some traditions.</td>
+</tr>
+<tr class="border-b border-rose-100">
+<td class="px-4 py-3 font-semibold text-rose-900">Oct 9, 2026</td>
+<td class="px-4 py-3 text-stone-600">Friday</td>
+<td class="px-4 py-3 font-bold text-stone-800">Chaturdashi Shraddha</td>
+<td class="px-4 py-3 text-stone-700">For those who passed by accident, violence, or untimely circumstances.</td>
+</tr>
+<tr class="border-b border-rose-100">
+<td class="px-4 py-3 font-semibold text-rose-900">Oct 10, 2026</td>
+<td class="px-4 py-3 text-stone-600">Saturday</td>
+<td class="px-4 py-3 font-bold text-stone-800">Sarva Pitru Amavasya</td>
+<td class="px-4 py-3 text-stone-700">Universal day for all ancestors, unknown tithis, and missed observances.</td>
+</tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-sm text-stone-500 mt-4">Note: Exact tithi boundaries and local muhurat can vary by location. Consult a local panchang or priest for family-specific timing.</p>
+      </section>
+
+      <section class="theme-card p-6 md:p-8">
+        <h2 class="text-3xl text-rose-900 mb-6">How to choose the right Shraddh day</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div class="theme-card card-hover p-5">
+            <div class="text-rose-700 font-bold text-sm uppercase tracking-wider mb-2">Step 1</div>
+            <h3 class="text-xl text-rose-900 mb-2">Find the death tithi</h3>
+            <p class="text-stone-600 text-sm">Use the lunar tithi, not the Gregorian date, of the ancestor's passing.</p>
+          </div>
+          <div class="theme-card card-hover p-5">
+            <div class="text-rose-700 font-bold text-sm uppercase tracking-wider mb-2">Step 2</div>
+            <h3 class="text-xl text-rose-900 mb-2">Match it in Pitru Paksha</h3>
+            <p class="text-stone-600 text-sm">Perform Shraddh on that same tithi during the fortnight.</p>
+          </div>
+          <div class="theme-card card-hover p-5">
+            <div class="text-rose-700 font-bold text-sm uppercase tracking-wider mb-2">Step 3</div>
+            <h3 class="text-xl text-rose-900 mb-2">Check special cases</h3>
+            <p class="text-stone-600 text-sm">Navami is important for mothers/women; Chaturdashi is for untimely or unnatural deaths.</p>
+          </div>
+          <div class="theme-card card-hover p-5">
+            <div class="text-rose-700 font-bold text-sm uppercase tracking-wider mb-2">Step 4</div>
+            <h3 class="text-xl text-rose-900 mb-2">Use Amavasya if unknown</h3>
+            <p class="text-stone-600 text-sm">Sarva Pitru Amavasya covers unknown tithis and missed observances.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="theme-card p-6 md:p-8">
+          <h2 class="text-3xl text-rose-900 mb-5">Core rituals</h2>
+          <div class="space-y-5">
+            <div>
+              <h3 class="text-xl text-rose-900">1. Sankalpa and remembrance</h3>
+              <p class="text-stone-700">Begin with a calm intention, remembering the ancestor by name, lineage, or with a universal prayer for all family ancestors.</p>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-stone-100 card-hover">
-                    <div class="text-4xl mb-4 text-amber-600">⚋</div>
-                    <h3 class="text-xl font-bold mb-2">Pitri Rina</h3>
-                    <p class="text-sm text-gray-600">The debt we owe our ancestors for our existence. Rituals performed now are believed to liberate the souls of three generations of ancestors.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-stone-100 card-hover">
-                    <div class="text-4xl mb-4 text-amber-600">✼</div>
-                    <h3 class="text-xl font-bold mb-2">Universal Peace</h3>
-                    <p class="text-sm text-gray-600">While specific days are for lineage, the period concludes with Sarvapitri Amavasya, where offerings are made for all souls, even those with no living descendants.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-stone-100 card-hover">
-                    <div class="text-4xl mb-4 text-amber-600">🌙</div>
-                    <h3 class="text-xl font-bold mb-2">The Lunar Cycle</h3>
-                    <p class="text-sm text-gray-600">Observance follows the Krishna Paksha (waning phase) of the moon. This descent of light signifies the transition of energy toward ancestral realms.</p>
-                </div>
+            <div>
+              <h3 class="text-xl text-rose-900">2. Tarpan</h3>
+              <p class="text-stone-700">Offer water mixed with black sesame, often facing south, using the ancestral hand position between the thumb and index finger.</p>
             </div>
-
-            <div class="bg-white p-8 rounded-xl shadow-md border border-stone-100 mt-8">
-                <div class="flex flex-col md:flex-row items-center">
-                    <div class="w-full md:w-1/2 pr-0 md:pr-8 mb-6 md:mb-0">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Dimensions of the Ceremony</h3>
-                        <p class="text-gray-600 mb-4">A complete Shraddh is more than just a ritual; it is a spiritual ecosystem combining food, water, and social charity. The chart below visualizes the essential balance of a traditional observance.</p>
-                        <ul class="space-y-2 text-sm text-gray-600">
-                            <li><span class="inline-block w-3 h-3 rounded-full bg-[#d97706] mr-2"></span><strong>Pind Daan:</strong> The physical offering (nourishment).</li>
-                            <li><span class="inline-block w-3 h-3 rounded-full bg-[#78716c] mr-2"></span><strong>Tarpan:</strong> The energetic offering (libation).</li>
-                            <li><span class="inline-block w-3 h-3 rounded-full bg-[#fcd34d] mr-2"></span><strong>Seva &amp; Charity:</strong> The social offering (merit).</li>
-                        </ul>
-                    </div>
-                    <div class="w-full md:w-1/2 flex justify-center">
-                        <div class="chart-container">
-                            <canvas id="componentsChart"></canvas>
-                        </div>
-                    </div>
-                </div>
+            <div>
+              <h3 class="text-xl text-rose-900">3. Pind Daan</h3>
+              <p class="text-stone-700">Prepare pindas from rice and traditional ingredients such as sesame, ghee, honey, or barley, depending on family custom.</p>
             </div>
-        </section>
-
-        <!-- SECTION: CALENDAR -->
-        <section class="hidden space-y-8 animate-fade-in" id="section-calendar">
-            <div class="text-center max-w-3xl mx-auto">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Tithi Identification Guide</h2>
-                <p class="text-gray-600">
-                    Find the appropriate day for rituals based on the ancestor's relationship or the specific circumstances of their passing.
-                </p>
+            <div>
+              <h3 class="text-xl text-rose-900">4. Charity and feeding</h3>
+              <p class="text-stone-700">Offer food to Brahmins, the needy, cows, dogs, crows, ants, or other beings as a sign of compassion and shared merit.</p>
             </div>
+          </div>
+        </div>
+        <figure class="theme-card overflow-hidden">
+          <img alt="Pitru Paksha offerings with diya and ritual items" class="w-full h-full object-cover min-h-[420px]" sizes="(max-width: 1024px) 100vw, 50vw" src="https://storage.googleapis.com/imagesg/festivals/shradh/1000w/sharadh-bing-1.jpg" srcset="https://storage.googleapis.com/imagesg/festivals/shradh/400w/sharadh-bing-1.jpg 400w, https://storage.googleapis.com/imagesg/festivals/shradh/500w/sharadh-bing-1.jpg 500w, https://storage.googleapis.com/imagesg/festivals/shradh/600w/sharadh-bing-1.jpg 600w, https://storage.googleapis.com/imagesg/festivals/shradh/700w/sharadh-bing-1.jpg 700w, https://storage.googleapis.com/imagesg/festivals/shradh/800w/sharadh-bing-1.jpg 800w, https://storage.googleapis.com/imagesg/festivals/shradh/900w/sharadh-bing-1.jpg 900w, https://storage.googleapis.com/imagesg/festivals/shradh/1000w/sharadh-bing-1.jpg 1000w"/>
+        </figure>
+      </section>
 
-            <div class="bg-[#fff7ed] p-6 rounded-lg border border-orange-200 shadow-inner">
-                <label class="block text-sm font-bold text-gray-700 mb-2">Filter by Circumstance:</label>
-                <div class="flex flex-wrap gap-2" id="filter-buttons">
-                    <button class="filter-btn bg-amber-600 text-white px-4 py-2 rounded-full text-sm transition" onclick="filterTithi('all')">All Tithis</button>
-                    <button class="filter-btn bg-white text-gray-600 px-4 py-2 rounded-full text-sm border hover:bg-orange-50 transition" onclick="filterTithi('parent')">Parents/Elders</button>
-                    <button class="filter-btn bg-white text-gray-600 px-4 py-2 rounded-full text-sm border hover:bg-orange-50 transition" onclick="filterTithi('accident')">Unnatural Death</button>
-                    <button class="filter-btn bg-white text-gray-600 px-4 py-2 rounded-full text-sm border hover:bg-orange-50 transition" onclick="filterTithi('woman')">Matriarchs</button>
-                    <button class="filter-btn bg-white text-gray-600 px-4 py-2 rounded-full text-sm border hover:bg-orange-50 transition" onclick="filterTithi('unknown')">Unknown/Forgotten</button>
-                </div>
-            </div>
+      <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="theme-card p-6 md:p-8">
+          <h2 class="text-3xl text-rose-900 mb-5">Do's during Pitru Paksha</h2>
+          <ul class="space-y-3 text-stone-700">
+            <li><i class="fa-solid fa-check text-rose-600 mr-2"></i>Keep a sattvic, simple diet and peaceful conduct.</li>
+            <li><i class="fa-solid fa-check text-rose-600 mr-2"></i>Perform Tarpan or remembrance with sincerity, even if the ritual is simple.</li>
+            <li><i class="fa-solid fa-check text-rose-600 mr-2"></i>Offer charity, food, and service in the name of ancestors.</li>
+            <li><i class="fa-solid fa-check text-rose-600 mr-2"></i>Consult local tradition for gotra, mantra, and exact muhurat.</li>
+          </ul>
+        </div>
+        <div class="theme-card p-6 md:p-8">
+          <h2 class="text-3xl text-rose-900 mb-5">Don'ts during Pitru Paksha</h2>
+          <ul class="space-y-3 text-stone-700">
+            <li><i class="fa-solid fa-xmark text-rose-600 mr-2"></i>Avoid meat, alcohol, and tamasic foods in observing households.</li>
+            <li><i class="fa-solid fa-xmark text-rose-600 mr-2"></i>Postpone weddings, housewarmings, and major celebratory beginnings where tradition advises.</li>
+            <li><i class="fa-solid fa-xmark text-rose-600 mr-2"></i>Avoid anger, family disputes, and harsh speech.</li>
+            <li><i class="fa-solid fa-xmark text-rose-600 mr-2"></i>Do not rely only on a solar date if the tithi is available.</li>
+          </ul>
+        </div>
+      </section>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="tithi-grid">
-                <!-- Content Populated by JS -->
-            </div>
-        </section>
+      <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <figure class="theme-card overflow-hidden order-2 lg:order-1">
+          <img alt="Traditional Shraddh ritual items for Pitru Paksha" class="w-full h-full object-cover min-h-[320px]" sizes="(max-width: 1024px) 100vw, 50vw" src="https://storage.googleapis.com/imagesg/festivals/shradh/1000w/sharadh-bing-2.jpg" srcset="https://storage.googleapis.com/imagesg/festivals/shradh/400w/sharadh-bing-2.jpg 400w, https://storage.googleapis.com/imagesg/festivals/shradh/500w/sharadh-bing-2.jpg 500w, https://storage.googleapis.com/imagesg/festivals/shradh/600w/sharadh-bing-2.jpg 600w, https://storage.googleapis.com/imagesg/festivals/shradh/700w/sharadh-bing-2.jpg 700w, https://storage.googleapis.com/imagesg/festivals/shradh/800w/sharadh-bing-2.jpg 800w, https://storage.googleapis.com/imagesg/festivals/shradh/900w/sharadh-bing-2.jpg 900w, https://storage.googleapis.com/imagesg/festivals/shradh/1000w/sharadh-bing-2.jpg 1000w"/>
+        </figure>
+        <div class="theme-card p-6 md:p-8 order-1 lg:order-2">
+          <h2 class="text-3xl text-rose-900 mb-5">Home observance for modern families</h2>
+          <p class="text-stone-700 leading-relaxed mb-4">The research material notes that families in apartments or outside India often adapt the ritual while preserving intention. A small clean altar, a diya, water, black sesame, rice, and a sincere sankalpa can support a meaningful home observance.</p>
+          <p class="text-stone-700 leading-relaxed">When a full priest-led ceremony is not possible, simplified Tarpan, food donation, or Hiranya Shraddh-style charity may be used according to family guidance and local tradition.</p>
+        </div>
+      </section>
 
-        <!-- SECTION: RITUALS -->
-        <section class="hidden space-y-10 animate-fade-in" id="section-rituals">
-            <div class="text-center max-w-3xl mx-auto">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Ritual Procedure</h2>
-                <p class="text-gray-600">
-                    Preparation is key to a successful Shraddh. Use the checklist to gather materials and follow the sequence for a standard household Tarpan.
-                </p>
-            </div>
+      <section class="theme-card p-6 md:p-8">
+        <h2 class="text-3xl text-rose-900 mb-6">Frequently asked questions</h2>
+        <div class="space-y-4">
+          <details class="group bg-white/70 rounded-xl p-4 border border-rose-100">
+            <summary class="font-bold text-rose-900 list-none flex justify-between cursor-pointer">When is Pitru Paksha 2026?<span class="group-open:rotate-45 transition-transform">+</span></summary>
+            <p class="text-stone-700 mt-3">Pitru Paksha 2026 begins on September 26, 2026 and ends on October 10, 2026 with Sarva Pitru Amavasya.</p>
+          </details>
+          <details class="group bg-white/70 rounded-xl p-4 border border-rose-100">
+            <summary class="font-bold text-rose-900 list-none flex justify-between cursor-pointer">What if I do not know the ancestor's tithi?<span class="group-open:rotate-45 transition-transform">+</span></summary>
+            <p class="text-stone-700 mt-3">Use Sarva Pitru Amavasya, the final day of Pitru Paksha, for all ancestors whose tithi is unknown or whose observance was missed.</p>
+          </details>
+          <details class="group bg-white/70 rounded-xl p-4 border border-rose-100">
+            <summary class="font-bold text-rose-900 list-none flex justify-between cursor-pointer">Is Pitru Paksha only about dates?<span class="group-open:rotate-45 transition-transform">+</span></summary>
+            <p class="text-stone-700 mt-3">No. Dates help select the correct observance day, but the guide focuses on gratitude, ritual intention, Tarpan, Pind Daan, charity, conduct, and remembrance.</p>
+          </details>
+        </div>
+      </section>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <div class="lg:col-span-1 bg-white p-6 rounded-xl shadow-md h-fit border border-stone-100">
-                    <h3 class="text-xl font-bold text-amber-700 mb-4 border-b pb-2">Preparation Checklist</h3>
-                    <ul class="space-y-3" id="checklist-container"></ul>
-                </div>
+      <div data-heading="Related Articles" data-intro="Explore more New Year guides, festival dates, and spiritual observances." data-limit="4" id="related-articles-root"></div>
+    </article>
+  </main>
 
-                <div class="lg:col-span-2 space-y-0">
-                    <div class="ritual-step relative pl-12 pb-8">
-                        <div class="absolute left-0 top-0 w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center border-2 border-amber-500 font-bold text-amber-700 z-10">1</div>
-                        <h4 class="text-lg font-bold text-gray-800 mb-2">Setting the Space</h4>
-                        <p class="text-gray-600 text-sm">Place a wooden platform facing <strong>South</strong>. Spread a clean white cloth. Arrange the sesame, barley, and kusha grass. Wash your hands and perform Aachman (purification).</p>
-                    </div>
-
-                    <div class="ritual-step relative pl-12 pb-8">
-                        <div class="absolute left-0 top-0 w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center border-2 border-amber-500 font-bold text-amber-700 z-10">2</div>
-                        <h4 class="text-lg font-bold text-gray-800 mb-2">The Invocations</h4>
-                        <p class="text-gray-600 text-sm">Face East for Gods, North for Sages. Offer water and white sesame. Focus your mind on the lineage of light that preceded your birth.</p>
-                    </div>
-
-                    <div class="ritual-step relative pl-12 pb-8">
-                        <div class="absolute left-0 top-0 w-10 h-10 bg-amber-600 text-white rounded-full flex items-center justify-center border-2 border-amber-800 font-bold z-10">3</div>
-                        <h4 class="text-lg font-bold text-amber-800 mb-2">Pitri Tarpan</h4>
-                        <p class="text-gray-600 text-sm">Face South. Use the 'Pitri Teerth' (the space between thumb and index finger) to pour water mixed with black sesame. Mentally invite your ancestors by name and gotra.</p>
-                        <div class="mt-2 bg-amber-50 p-3 rounded text-sm border-l-4 border-amber-500 font-serif">
-                            "May this water satisfy my ancestors for eternity. May they bless this lineage with wisdom and health."
-                        </div>
-                    </div>
-
-                    <div class="ritual-step relative pl-12 pb-4">
-                        <div class="absolute left-0 top-0 w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center border-2 border-amber-500 font-bold text-amber-700 z-10">4</div>
-                        <h4 class="text-lg font-bold text-gray-800 mb-2">Pancha Bali (The 5 Offerings)</h4>
-                        <p class="text-gray-600 text-sm">Prepare five portions of food for: Cow (Go Bali), Dog (Shwan Bali), Crow (Kaka Bali), Ants (Devadi Bali), and the Brahmin/Priest.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION: GUIDELINES -->
-        <section class="hidden space-y-12 animate-fade-in" id="section-guidelines">
-            <div class="text-center max-w-3xl mx-auto">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Code of Conduct</h2>
-                <p class="text-gray-600">Essential guidelines to maintain the sanctity of the Pitru Paksh period.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-green-50 p-6 rounded-xl border border-green-200">
-                    <h3 class="text-xl font-bold text-green-800 mb-4 flex items-center">
-                        <span class="mr-2">✔</span> Observances
-                    </h3>
-                    <ul class="space-y-3 text-gray-700 text-sm">
-                        <li>Perform Tarpan during the 'Kutupa Muhurta' (noon time).</li>
-                        <li>Observe austerity in speech, action, and diet.</li>
-                        <li>Show kindness to animals and the elderly.</li>
-                        <li>Practice silent meditation or read sacred texts like Garuda Purana.</li>
-                    </ul>
-                </div>
-
-                <div class="bg-red-50 p-6 rounded-xl border border-red-200">
-                    <h3 class="text-xl font-bold text-red-800 mb-4 flex items-center">
-                        <span class="mr-2">✖</span> Restrictions
-                    </h3>
-                    <ul class="space-y-3 text-gray-700 text-sm">
-                        <li>Avoid starting new business ventures or major purchases.</li>
-                        <li>Refrain from consuming 'Tamasic' items (meat, alcohol).</li>
-                        <li>Postpone celebratory events like engagements or housewarmings.</li>
-                        <li>Avoid conflict or harsh arguments within the family.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-gray-800 text-gray-300">
+  <footer class="bg-gray-800 text-gray-300">
 <div class="container mx-auto px-6 py-12 lg:px-8">
 <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
 <div>
@@ -281,30 +412,14 @@
 <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
 <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
 <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/easter/">Easter Festival</a></li>
-<li>
-<a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">26-bihari-wishes</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">26-chinese-new-year-wishes</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">26-christmas-wishes</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-festival-countdown</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">Christmas-wishes-by-audience</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">Happy-new-year-2026-celebrations-worldwide.html</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">Happy-new-year-2026</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">Multilingual-greetings-webpage</a>
-</li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-bihari-wishes.html">26-bihari-wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html">26-chinese-new-year-wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-christmas-wishes.html">26-christmas-wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026-festival-countdown.html">2026-festival-countdown</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html">Christmas-wishes-by-audience</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html">Happy-new-year-2026-celebrations-worldwide.html</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/happy-new-year-2026.html">Happy-new-year-2026</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html">Multilingual-greetings-webpage</a></li>
 </ul>
 </div>
 <div>
@@ -318,226 +433,69 @@
 <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
 <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
 </ul>
-<h5 class="text-lg font-semibold text-white mb-4">Wishes and Wallpapers</h5>
-<ul class="space-y-2">
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes-and-wallpapers.html">Wishes and Wallpapers</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/welcome-new-year.html">Welcome New Year</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wallpapers">Festival Wallpaper for Desktop and Mobile</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards for  New Year</a></li>
-</ul>
 </div>
 <div>
-<h5 class="text-lg font-semibold text-white mb-4">2026 News &amp; Trends t</h5>
+<h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
 <ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html">2026 Digital Outlook Trends Forecast</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026-festival-countdown.html">2026 Festival Countdown</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026-festival-holidays-all-countries.html">2026 Festival Holidays All Countries</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026-festival-holidays-world.html">2026 Festival Holidays World</a></li>
 <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026-news.html">2026 News</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026-festival-holidays-world.html">2026 Festival Dates</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026-festival-holidays-all-countries.html">Countries Festival</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026-festival-countdown.html">Countdown of  Festival</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026-shraddh-dates.html">2026 Shradh Dates</a></li>
-<li>
-<a href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-digital-outlook-trends-forecast</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">2026-festival-countdown</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/2026_dashboard.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">2026_dashboard</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/new_year_2026_page.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">New_year_2026_page</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/send-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl07_title">Send-christmas-wishes</a>
-</li>
-<li>
-<a href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl08_title">Send-sankranti-wishes-in-multiple-languages</a>
-</li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
-<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/index-oct.html">Thanks Giving Main Page</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026-shraddh-dates.html">2026 Shraddh Dates</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026_dashboard.html">2026 Dashboard</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-bihari-wishes.html">26 Bihari Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html">26 Chinese New Year Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-christmas-wishes.html">26 Christmas Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-deepawali-wishes.html">26 Deepawali Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-diwali-wishes.html">26 Diwali Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-easter-wishes.html">26 Easter Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-fathers-day-wishes.html">26 Fathers Day Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-greetings.html">26 Greetings</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-hindi-wishes.html">26 Hindi Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-holi-wishes.html">26 Holi Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-lohri-wishes.html">26 Lohri Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-makarsankranti-wishes.html">26 Makarsankranti Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-marwari-wishes.html">26 Marwari Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-mothers-day-wishes.html">26 Mothers Day Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-new-year-wishes.html">26 New Year Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-rajasthani-new-year-wishes.html">26 Rajasthani New Year Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-tamil-wishes.html">26 Tamil Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-telugu-wishes.html">26 Telugu Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-thanks-giving-wishes.html">26 Thanks Giving Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-wishes.html">26 Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html">Christmas Wishes By Audience</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html">Happy New Year 2026 Celebrations Worldwide.Html</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/happy-new-year-2026.html">Happy New Year 2026</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festivals 2026</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html">Multilingual Greetings Webpage</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/new-year-search-trends.html">New Year Search Trends</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/new_year_2026_page.html">New Year 2026 Page</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/newyear-26-wishes.html">Newyear 26 Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitru Paksha 2026</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/send-christmas-wishes.html">Send Christmas Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html">Send Sankranti Wishes In Multiple Languages</a></li>
 </ul>
 </div>
 <div>
-<h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
-<div class="space-y-2">
-<p>Redmond<br/>WA, USA</p>
-<p>
-<a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
-</p>
-<p>
-<a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
-</p>
+<h5 class="text-lg font-semibold text-white mb-4">Footer Links</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a></li>
+</ul>
 </div>
 </div>
+<div class="mt-8 text-center text-sm text-gray-400">
 </div>
 <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
-<p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
-<div class="flex space-x-4 mt-4 sm:mt-0">
-<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
-<span class="sr-only">Facebook</span>
-<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
-<path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
-</svg>
-</a>
-<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
-<span class="sr-only">Twitter</span>
-<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
-<path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
-</svg>
-</a>
-<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
-<span class="sr-only">LinkedIn</span>
-<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
-<path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
-</svg>
-</a>
-</div>
-<div class="flex gap-4 mt-4 sm:mt-0">
-<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
-<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
-</div>
+<p class="text-sm text-gray-400">© 2026 Wish Happy New Year 2027. All rights reserved.</p>
 </div>
 </div>
 </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script src="https://storage.googleapis.com/create-website/css-scripts/related-articles-noimage.js"></script>
 
-    <script>
-        const tithiData = [
-            { day: 1, name: "Pratipada", category: ["all", "parent"], desc: "For ancestors who passed on the first day of the lunar cycle." },
-            { day: 2, name: "Dwitiya", category: ["all", "parent"], desc: "Second day rituals. Focus on grandparents." },
-            { day: 4, name: "Bharani Shraddh", category: ["all", "parent", "accident"], desc: "Performed on Chaturthi or Panchami when Bharani Nakshatra prevails." },
-            { day: 9, name: "Avidhwa Navami", category: ["all", "woman"], desc: "Specifically for mothers and women who died while their husbands were alive." },
-            { day: 12, name: "Dwadashi", category: ["all", "parent"], desc: "For those who took Sanyasa (ascetics)." },
-            { day: 13, name: "Magha Shraddh", category: ["all", "accident"], desc: "A powerful day for rituals when Magha Nakshatra is present." },
-            { day: 14, name: "Ghatachaturdashi", category: ["all", "accident"], desc: "For those who died due to weapons, poison, or accidents." },
-            { day: 15, name: "Sarvapitri Amavasya", category: ["all", "unknown", "parent", "woman"], desc: "The ultimate day. For all ancestors, known or unknown, regardless of their death tithi." }
-        ];
-
-        const checklistItems = [
-            { id: "c1", text: "Black Sesame Seeds" },
-            { id: "c2", text: "Dried Kusha Grass" },
-            { id: "c3", text: "Copper Pot (Lota)" },
-            { id: "c4", text: "Barley Flour / Rice" },
-            { id: "c5", text: "White Flowers" },
-            { id: "c6", text: "Sandalwood Paste" },
-            { id: "c7", text: "Pure Water/Gangajal" }
-        ];
-
-        let currentTab = 'overview';
-        let checklistState = {};
-
-        function switchTab(tabId) {
-            const section = document.getElementById(`section-${tabId}`);
-            if (!section) return;
-
-            document.querySelectorAll('section').forEach(el => el.classList.add('hidden'));
-            section.classList.remove('hidden');
-            
-            const tabs = ['overview', 'calendar', 'rituals', 'guidelines'];
-            tabs.forEach(t => {
-                const btn = document.getElementById(`tab-${t}`);
-                if (btn) {
-                    if (t === tabId) {
-                        btn.classList.remove('tab-inactive');
-                        btn.classList.add('tab-active');
-                    } else {
-                        btn.classList.add('tab-inactive');
-                        btn.classList.remove('tab-active');
-                    }
-                }
-            });
-            if (tabId === 'overview') renderChart();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function filterTithi(category) {
-            const grid = document.getElementById('tithi-grid');
-            if (!grid) return;
-            
-            grid.innerHTML = '';
-            
-            // Reset all buttons
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('bg-amber-600', 'text-white');
-                btn.classList.add('bg-white', 'text-gray-600');
-            });
-
-            // Safely identify the triggering element
-            const event = window.event;
-            if (event && event.target && event.target.classList && event.target.classList.contains('filter-btn')) {
-                event.target.classList.remove('bg-white', 'text-gray-600');
-                event.target.classList.add('bg-amber-600', 'text-white');
-            } else {
-                // If no event (e.g. onload), find the button manually based on category
-                document.querySelectorAll('.filter-btn').forEach(btn => {
-                    if (btn.getAttribute('onclick')?.includes(`'${category}'`)) {
-                        btn.classList.remove('bg-white', 'text-gray-600');
-                        btn.classList.add('bg-amber-600', 'text-white');
-                    }
-                });
-            }
-
-            const filtered = tithiData.filter(item => item.category.includes(category));
-            filtered.forEach(item => {
-                const card = document.createElement('div');
-                card.className = "bg-white p-4 rounded-lg border border-stone-200 shadow-sm hover:border-amber-400 transition cursor-default";
-                card.innerHTML = `<div class="flex justify-between items-start mb-2"><h4 class="font-bold text-gray-800">${item.name}</h4><span class="text-xs font-mono text-stone-400">Day ${item.day}</span></div><p class="text-xs text-gray-500">${item.desc}</p>`;
-                grid.appendChild(card);
-            });
-        }
-
-        function renderChecklist() {
-            const container = document.getElementById('checklist-container');
-            if (!container) return;
-            
-            container.innerHTML = '';
-            checklistItems.forEach(item => {
-                const isChecked = checklistState[item.id] || false;
-                const li = document.createElement('li');
-                li.className = "flex items-center cursor-pointer group py-1";
-                li.onclick = () => { checklistState[item.id] = !checklistState[item.id]; renderChecklist(); };
-                li.innerHTML = `<div class="w-5 h-5 rounded border ${isChecked ? 'bg-amber-600 border-amber-600' : 'border-gray-300'} flex items-center justify-center mr-3 transition-colors">${isChecked ? '<span class="text-white text-[10px]">&#10003;</span>' : ''}</div><span class="text-sm ${isChecked ? 'text-gray-400 line-through' : 'text-gray-700'}">${item.text}</span>`;
-                container.appendChild(li);
-            });
-        }
-
-        let myChart = null;
-        function renderChart() {
-            const canvas = document.getElementById('componentsChart');
-            if (!canvas) return;
-            
-            const ctx = canvas.getContext('2d');
-            if (myChart) myChart.destroy();
-            myChart = new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['Pind Daan', 'Tarpan', 'Seva'],
-                    datasets: [{
-                        data: [33, 33, 34],
-                        backgroundColor: ['#d97706', '#78716c', '#fcd34d'],
-                        borderWidth: 0
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { position: 'bottom', labels: { usePointStyle: true, font: { size: 11 } } },
-                        tooltip: { enabled: true }
-                    },
-                    cutout: '70%'
-                }
-            });
-        }
-
-        window.onload = () => {
-            renderChart();
-            filterTithi('all');
-            renderChecklist();
-        };
-    </script>
 
 </body></html>

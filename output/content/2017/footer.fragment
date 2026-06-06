@@ -1,0 +1,185 @@
+<footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes in 100 languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in Indian Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in European Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/10-popular-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Popular Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/" class="hover:text-white hover:underline transition-colors duration-200">Cards</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/easter/" class="hover:text-white hover:underline transition-colors duration-200">Easter Festival</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-bihari-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-chinese-new-year-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-christmas-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" class="hover:text-white hover:underline transition-colors duration-200">2026-festival-countdown</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" class="hover:text-white hover:underline transition-colors duration-200">Christmas-wishes-by-audience</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026-celebrations-worldwide.html</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" class="hover:text-white hover:underline transition-colors duration-200">Multilingual-greetings-webpage</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/hindu-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Lunar and Solar Hindu Year</a></li>
+          <li><a href="https://www.happy-new-year.org/jewish-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Jewesh Roash Hashanah</a></li>
+          <li><a href="https://www.happy-new-year.org/islamic-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Islamic New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/japanese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Japanese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Hindu Festival Calendar 2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/2017/2017-movies.html" class="hover:text-white hover:underline transition-colors duration-200">2017 Movies</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/2017-news.html" class="hover:text-white hover:underline transition-colors duration-200">2017 News</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/2017-oscar-awards.html" class="hover:text-white hover:underline transition-colors duration-200">2017 Oscar Awards</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-afghanistan.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Afghanistan</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-albania.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Albania</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-american-samoa.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In American Samoa</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-andorra.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Andorra</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-angola.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Angola</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-anguilla.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Anguilla</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-antigua-and-barbuda.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Antigua And Barbuda</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-argentina.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Argentina</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-armenia.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Armenia</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-aruba.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Aruba</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-australia.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Australia</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-austria.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Austria</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-azerbaijan.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Azerbaijan</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-bahamas.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Bahamas</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-Bangladesh.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Bangladesh</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-Barbados.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Barbados</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-Belarus.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Belarus</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-Belgium.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Belgium</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-Belize.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Belize</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-Benin.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Benin</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-Bermuda.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Bermuda</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-bhutan.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Bhutan</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-bolvia.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Bolvia</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-bosnia-and-herzegovina.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Bosnia And Herzegovina</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-botswana.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Botswana</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-brazil.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Brazil</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-british-virgin-island.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In British Virgin Island</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-brunei.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Brunei</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-bulgaria.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Bulgaria</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-burkina-faso.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Burkina Faso</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-burundi.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Burundi</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-cambodia.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Cambodia</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-cameroon.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Cameroon</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-canada.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Canada</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-cape-verde.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Cape Verde</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-cayman-islands.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Cayman Islands</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-central-african-republic.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Central African Republic</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-chad.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Chad</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-chile.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Chile</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-china.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In China</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-colombia.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Colombia</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-comoros.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Comoros</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-congo-democratic-republic.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Congo Democratic Republic</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-cook-islands.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Cook Islands</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-costa-rica.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Costa Rica</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-croatia.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Croatia</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-cuba.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Cuba</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-curacao.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Curacao</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-cyprus.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Cyprus</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-czech-republic.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Czech Republic</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-holidays-in-Portugal.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Holidays In Portugal</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-india.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In India</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-ireland.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Ireland</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-Montserrat.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Montserrat</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-morocco.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Morocco</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-Mozambique.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Mozambique</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-myanmar.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Myanmar</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-Namibia.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Namibia</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-Nauru.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Nauru</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-Nepal.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Nepal</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-newzealand.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Newzealand</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-Nicaragua.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Nicaragua</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-Niger.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Niger</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-Nigeria.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Nigeria</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-Northern.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Northern</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-Norway.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Norway</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-Oman.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Oman</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-Pakistan.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Pakistan</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-Palau.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Palau</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-Panama.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Panama</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-Papua-New-Guinea.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Papua New Guinea</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-Paraguay.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Paraguay</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-Philippines.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Philippines</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-Poland.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Poland</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-Puerto-Rico.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Puerto Rico</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-Qatar.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Qatar</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-Romania.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Romania</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-Russia.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Russia</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-Rwanda.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Rwanda</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-Saint-Helena.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Saint Helena</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-Saint-Kitts-and-Nevis.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Saint Kitts And Nevis</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-Saint-Lucia.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Saint Lucia</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-St-Barts.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In St Barts</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-uk.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Uk</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/holidays-in-usa.html" class="hover:text-white hover:underline transition-colors duration-200">Holidays In Usa</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/ireland.html" class="hover:text-white hover:underline transition-colors duration-200">Ireland</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/Montserrat.html" class="hover:text-white hover:underline transition-colors duration-200">Montserrat</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/morocco.html" class="hover:text-white hover:underline transition-colors duration-200">Morocco</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/movies.html" class="hover:text-white hover:underline transition-colors duration-200">Movies</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/Mozambique.html" class="hover:text-white hover:underline transition-colors duration-200">Mozambique</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/myanmar.html" class="hover:text-white hover:underline transition-colors duration-200">Myanmar</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/Namibia.html" class="hover:text-white hover:underline transition-colors duration-200">Namibia</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/Nauru.html" class="hover:text-white hover:underline transition-colors duration-200">Nauru</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/Nepal.html" class="hover:text-white hover:underline transition-colors duration-200">Nepal</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/Nicaragua.html" class="hover:text-white hover:underline transition-colors duration-200">Nicaragua</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/Niger.html" class="hover:text-white hover:underline transition-colors duration-200">Niger</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/Nigeria.html" class="hover:text-white hover:underline transition-colors duration-200">Nigeria</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/North-Korea.html" class="hover:text-white hover:underline transition-colors duration-200">North Korea</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/Northern.html" class="hover:text-white hover:underline transition-colors duration-200">Northern</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/Norway.html" class="hover:text-white hover:underline transition-colors duration-200">Norway</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/Oman.html" class="hover:text-white hover:underline transition-colors duration-200">Oman</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/Pakistan.html" class="hover:text-white hover:underline transition-colors duration-200">Pakistan</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/Palau.html" class="hover:text-white hover:underline transition-colors duration-200">Palau</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/Panama.html" class="hover:text-white hover:underline transition-colors duration-200">Panama</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/Papua-New-Guinea.html" class="hover:text-white hover:underline transition-colors duration-200">Papua New Guinea</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/Paraguay.html" class="hover:text-white hover:underline transition-colors duration-200">Paraguay</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/Philippines.html" class="hover:text-white hover:underline transition-colors duration-200">Philippines</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/Poland.html" class="hover:text-white hover:underline transition-colors duration-200">Poland</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/Portugal.html" class="hover:text-white hover:underline transition-colors duration-200">Portugal</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/Puerto-Rico.html" class="hover:text-white hover:underline transition-colors duration-200">Puerto Rico</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/Qatar.html" class="hover:text-white hover:underline transition-colors duration-200">Qatar</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/Romania.html" class="hover:text-white hover:underline transition-colors duration-200">Romania</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/Russia.html" class="hover:text-white hover:underline transition-colors duration-200">Russia</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/Rwanda.html" class="hover:text-white hover:underline transition-colors duration-200">Rwanda</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/Saint-Helena.html" class="hover:text-white hover:underline transition-colors duration-200">Saint Helena</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/Saint-Kitts-and-Nevis.html" class="hover:text-white hover:underline transition-colors duration-200">Saint Kitts And Nevis</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/Saint-Lucia.html" class="hover:text-white hover:underline transition-colors duration-200">Saint Lucia</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/St-Barts.html" class="hover:text-white hover:underline transition-colors duration-200">St Barts</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Footer Links</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/privacypolicy,html" class="hover:text-white hover:underline transition-colors duration-200">Privacy Policy</a></li>
+          <li><a href="https://www.happy-new-year.org/sitemap.html" class="hover:text-white hover:underline transition-colors duration-200">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center text-sm text-gray-400">
+      
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">&copy; 2026 Wish Happy New Year 2027. All rights reserved.</p>
+      
+    </div>
+
+  </div>
+</footer>

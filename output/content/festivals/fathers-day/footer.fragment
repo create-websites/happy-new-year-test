@@ -1,0 +1,106 @@
+<footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes in 100 languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in Indian Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in European Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/10-popular-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Popular Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/" class="hover:text-white hover:underline transition-colors duration-200">Cards</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/easter/" class="hover:text-white hover:underline transition-colors duration-200">Easter Festival</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-bihari-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-chinese-new-year-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-christmas-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" class="hover:text-white hover:underline transition-colors duration-200">2026-festival-countdown</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" class="hover:text-white hover:underline transition-colors duration-200">Christmas-wishes-by-audience</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026-celebrations-worldwide.html</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" class="hover:text-white hover:underline transition-colors duration-200">Multilingual-greetings-webpage</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/hindu-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Lunar and Solar Hindu Year</a></li>
+          <li><a href="https://www.happy-new-year.org/jewish-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Jewesh Roash Hashanah</a></li>
+          <li><a href="https://www.happy-new-year.org/islamic-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Islamic New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/japanese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Japanese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Hindu Festival Calendar 2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Folders</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/pictures/" class="hover:text-white hover:underline transition-colors duration-200">Pictures</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/slides/" class="hover:text-white hover:underline transition-colors duration-200">Slides</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/ai-to-build-website-kreatewebsites.html" class="hover:text-white hover:underline transition-colors duration-200">Ai To Build Website Kreatewebsites</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/celebrate-fathers-day-budget-fun-affordable-ideas.html" class="hover:text-white hover:underline transition-colors duration-200">Celebrate Fathers Day Budget Fun Affordable Ideas</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/celebrating-father-figures-dads-in-our-lives.html" class="hover:text-white hover:underline transition-colors duration-200">Celebrating Father Figures Dads In Our Lives</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/delicious-recipes-fathers-day-barbecue.html" class="hover:text-white hover:underline transition-colors duration-200">Delicious Recipes Fathers Day Barbecue</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/diy-fathers-day-cards-personal-touch.html" class="hover:text-white hover:underline transition-colors duration-200">Diy Fathers Day Cards Personal Touch</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/eco-friendly-fathers-day-sustainable-celebrations.html" class="hover:text-white hover:underline transition-colors duration-200">Eco Friendly Fathers Day Sustainable Celebrations</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/famous-fathers-in-history-lessons-legacies.html" class="hover:text-white hover:underline transition-colors duration-200">Famous Fathers In History Lessons Legacies</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/fathers-day-activities-unique.html" class="hover:text-white hover:underline transition-colors duration-200">Fathers Day Activities Unique</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/fathers-day-activities-whole-family-enjoy.html" class="hover:text-white hover:underline transition-colors duration-200">Fathers Day Activities Whole Family Enjoy</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/fathers-day-crafts-for-kids-easy-creative-projects.html" class="hover:text-white hover:underline transition-colors duration-200">Fathers Day Crafts For Kids Easy Creative Projects</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/fathers-day-diy-gifts.html" class="hover:text-white hover:underline transition-colors duration-200">Fathers Day Diy Gifts</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/fathers-day-guide.html" class="hover:text-white hover:underline transition-colors duration-200">Fathers Day Guide</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/fathers-day-quotes-poems-love-appreciation.html" class="hover:text-white hover:underline transition-colors duration-200">Fathers Day Quotes Poems Love Appreciation</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/fathers-day-traditions-around-world-cultural-perspective.html" class="hover:text-white hover:underline transition-colors duration-200">Fathers Day Traditions Around World Cultural Perspective</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/fathers-day.html" class="hover:text-white hover:underline transition-colors duration-200">Fathers Day</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/gift-fathers-day.html" class="hover:text-white hover:underline transition-colors duration-200">Gift Fathers Day</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/gift-website-to-fathers.html" class="hover:text-white hover:underline transition-colors duration-200">Gift Website To Fathers</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/history-of-fathers-day-honoring-fatherhood.html" class="hover:text-white hover:underline transition-colors duration-200">History Of Fathers Day Honoring Fatherhood</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/history.html" class="hover:text-white hover:underline transition-colors duration-200">History</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/messages-in-hindi.html" class="hover:text-white hover:underline transition-colors duration-200">Messages In Hindi</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/messages-in-italian.html" class="hover:text-white hover:underline transition-colors duration-200">Messages In Italian</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/messages.html" class="hover:text-white hover:underline transition-colors duration-200">Messages</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/pictures.html" class="hover:text-white hover:underline transition-colors duration-200">Pictures</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/planning-perfect-fathers-day-outing-activities.html" class="hover:text-white hover:underline transition-colors duration-200">Planning Perfect Fathers Day Outing Activities</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/quotes-fathers-day.html" class="hover:text-white hover:underline transition-colors duration-200">Quotes Fathers Day</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/role-of-fathers-in-different-cultures-societies.html" class="hover:text-white hover:underline transition-colors duration-200">Role Of Fathers In Different Cultures Societies</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/unique-fathers-day-gift-ideas-for-every-dad.html" class="hover:text-white hover:underline transition-colors duration-200">Unique Fathers Day Gift Ideas For Every Dad</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/When.html" class="hover:text-white hover:underline transition-colors duration-200">When</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/wishes-in-french.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes In French</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/wishes-in-portuguese.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes In Portuguese</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/wishes-in-spanish.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes In Spanish</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/wishes-in-swedish.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes In Swedish</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/wishes.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/fathers-day/write-heartfelt-letter-dad-fathers-day.html" class="hover:text-white hover:underline transition-colors duration-200">Write Heartfelt Letter Dad Fathers Day</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Footer Links</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/privacypolicy,html" class="hover:text-white hover:underline transition-colors duration-200">Privacy Policy</a></li>
+          <li><a href="https://www.happy-new-year.org/sitemap.html" class="hover:text-white hover:underline transition-colors duration-200">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center text-sm text-gray-400">
+      
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">&copy; 2026 Wish Happy New Year 2027. All rights reserved.</p>
+      
+    </div>
+
+  </div>
+</footer>

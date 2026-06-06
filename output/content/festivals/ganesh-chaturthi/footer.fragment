@@ -1,0 +1,79 @@
+<footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes in 100 languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in Indian Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in European Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/10-popular-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Popular Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/" class="hover:text-white hover:underline transition-colors duration-200">Cards</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/easter/" class="hover:text-white hover:underline transition-colors duration-200">Easter Festival</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-bihari-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-chinese-new-year-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-christmas-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" class="hover:text-white hover:underline transition-colors duration-200">2026-festival-countdown</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" class="hover:text-white hover:underline transition-colors duration-200">Christmas-wishes-by-audience</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026-celebrations-worldwide.html</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" class="hover:text-white hover:underline transition-colors duration-200">Multilingual-greetings-webpage</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/hindu-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Lunar and Solar Hindu Year</a></li>
+          <li><a href="https://www.happy-new-year.org/jewish-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Jewesh Roash Hashanah</a></li>
+          <li><a href="https://www.happy-new-year.org/islamic-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Islamic New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/japanese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Japanese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Hindu Festival Calendar 2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/festivals/ganesh-chaturthi/delicious-modak-recipes-traditional-sweets-ganesh-chaturthi.html" class="hover:text-white hover:underline transition-colors duration-200">Delicious Modak Recipes Traditional Sweets Ganesh Chaturthi</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/ganesh-chaturthi/diy-ganesh-decorations-creative-festive-home.html" class="hover:text-white hover:underline transition-colors duration-200">Diy Ganesh Decorations Creative Festive Home</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/ganesh-chaturthi/eco-friendly-ganesh-chaturthi-sustainable-practices.html" class="hover:text-white hover:underline transition-colors duration-200">Eco Friendly Ganesh Chaturthi Sustainable Practices</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/ganesh-chaturthi/famous-ganesh-temples-visit-during-ganesh-chaturthi.html" class="hover:text-white hover:underline transition-colors duration-200">Famous Ganesh Temples Visit During Ganesh Chaturthi</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/ganesh-chaturthi/ganesh-chaturthi-celebrations-india-regional-traditions.html" class="hover:text-white hover:underline transition-colors duration-200">Ganesh Chaturthi Celebrations India Regional Traditions</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/ganesh-chaturthi/ganesh-chaturthi-crafts-kids-fun-educational-activities.html" class="hover:text-white hover:underline transition-colors duration-200">Ganesh Chaturthi Crafts Kids Fun Educational Activities</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/ganesh-chaturthi/ganesh-chaturthi-modern-times-tradition-innovation.html" class="hover:text-white hover:underline transition-colors duration-200">Ganesh Chaturthi Modern Times Tradition Innovation</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/ganesh-chaturthi/ganesh-chaturthi-quotes-wishes-sharing-joy-festival.html" class="hover:text-white hover:underline transition-colors duration-200">Ganesh Chaturthi Quotes Wishes Sharing Joy Festival</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/ganesh-chaturthi/ganesh-visarjan-ritual-significance.html" class="hover:text-white hover:underline transition-colors duration-200">Ganesh Visarjan Ritual Significance</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/ganesh-chaturthi/history-significance-ganesh-chaturthi-honoring-lord-ganesha.html" class="hover:text-white hover:underline transition-colors duration-200">History Significance Ganesh Chaturthi Honoring Lord Ganesha</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/ganesh-chaturthi/life-lessons-lord-ganesha-wisdom-inspiration.html" class="hover:text-white hover:underline transition-colors duration-200">Life Lessons Lord Ganesha Wisdom Inspiration</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/ganesh-chaturthi/organize-ganesh-chaturthi-celebration-community.html" class="hover:text-white hover:underline transition-colors duration-200">Organize Ganesh Chaturthi Celebration Community</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/ganesh-chaturthi/perform-ganesh-chaturthi-puja-home-step-by-step-guide.html" class="hover:text-white hover:underline transition-colors duration-200">Perform Ganesh Chaturthi Puja Home Step By Step Guide</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/ganesh-chaturthi/role-of-music-dance-ganesh-chaturthi-celebrations.html" class="hover:text-white hover:underline transition-colors duration-200">Role Of Music Dance Ganesh Chaturthi Celebrations</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/ganesh-chaturthi/symbolism-of-lord-ganesha-understanding-iconography.html" class="hover:text-white hover:underline transition-colors duration-200">Symbolism Of Lord Ganesha Understanding Iconography</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Footer Links</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/privacypolicy,html" class="hover:text-white hover:underline transition-colors duration-200">Privacy Policy</a></li>
+          <li><a href="https://www.happy-new-year.org/sitemap.html" class="hover:text-white hover:underline transition-colors duration-200">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center text-sm text-gray-400">
+      
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">&copy; 2026 Wish Happy New Year 2027. All rights reserved.</p>
+      
+    </div>
+
+  </div>
+</footer>

@@ -1,0 +1,125 @@
+<footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes in 100 languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in Indian Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in European Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/10-popular-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Popular Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/" class="hover:text-white hover:underline transition-colors duration-200">Cards</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/easter/" class="hover:text-white hover:underline transition-colors duration-200">Easter Festival</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-bihari-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-chinese-new-year-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-christmas-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" class="hover:text-white hover:underline transition-colors duration-200">2026-festival-countdown</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" class="hover:text-white hover:underline transition-colors duration-200">Christmas-wishes-by-audience</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026-celebrations-worldwide.html</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" class="hover:text-white hover:underline transition-colors duration-200">Multilingual-greetings-webpage</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/hindu-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Lunar and Solar Hindu Year</a></li>
+          <li><a href="https://www.happy-new-year.org/jewish-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Jewesh Roash Hashanah</a></li>
+          <li><a href="https://www.happy-new-year.org/islamic-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Islamic New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/japanese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Japanese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Hindu Festival Calendar 2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Folders</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/cards/christmas/" class="hover:text-white hover:underline transition-colors duration-200">Christmas</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/countries/" class="hover:text-white hover:underline transition-colors duration-200">Countries</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/easter/" class="hover:text-white hover:underline transition-colors duration-200">Easter</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/fathers-day/" class="hover:text-white hover:underline transition-colors duration-200">Fathers Day</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/friendship-day/" class="hover:text-white hover:underline transition-colors duration-200">Friendship Day</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/halloween/" class="hover:text-white hover:underline transition-colors duration-200">Halloween</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/janamasthami/" class="hover:text-white hover:underline transition-colors duration-200">Janamasthami</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/mothers-day/" class="hover:text-white hover:underline transition-colors duration-200">Mothers Day</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/rakhi/" class="hover:text-white hover:underline transition-colors duration-200">Rakhi</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/sankranti/" class="hover:text-white hover:underline transition-colors duration-200">Sankranti</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/thanksgiving/" class="hover:text-white hover:underline transition-colors duration-200">Thanksgiving</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/" class="hover:text-white hover:underline transition-colors duration-200">Valentine Day</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/cards/beautiful-card-for-various-occasions.html" class="hover:text-white hover:underline transition-colors duration-200">Beautiful Card For Various Occasions</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/Bright and colorful card.html" class="hover:text-white hover:underline transition-colors duration-200">Bright And Colorful Card</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/Building blocks card for new y.html" class="hover:text-white hover:underline transition-colors duration-200">Building Blocks Card For New Y</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/Celebrate the year.html" class="hover:text-white hover:underline transition-colors duration-200">Celebrate The Year</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/Christmas and New Year.html" class="hover:text-white hover:underline transition-colors duration-200">Christmas And New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/Dog lover.html" class="hover:text-white hover:underline transition-colors duration-200">Dog Lover</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/For Music lover.html" class="hover:text-white hover:underline transition-colors duration-200">For Music Lover</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/Goodbye 2021, Welcome 2022.html" class="hover:text-white hover:underline transition-colors duration-200">Goodbye 2021, Welcome 2022</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/Greetings for Christmas and Ne.html" class="hover:text-white hover:underline transition-colors duration-200">Greetings For Christmas And Ne</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/Happy Christmas and New Year.html" class="hover:text-white hover:underline transition-colors duration-200">Happy Christmas And New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/Happy New Year - Best wishes.html" class="hover:text-white hover:underline transition-colors duration-200">Happy New Year   Best Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/Happy New Year Beautiful Card.html" class="hover:text-white hover:underline transition-colors duration-200">Happy New Year Beautiful Card</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/Happy New Year Colors.html" class="hover:text-white hover:underline transition-colors duration-200">Happy New Year Colors</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/Happy New Year Splash.html" class="hover:text-white hover:underline transition-colors duration-200">Happy New Year Splash</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/Happy New Year with Love.html" class="hover:text-white hover:underline transition-colors duration-200">Happy New Year With Love</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/Happy-New-Year.html" class="hover:text-white hover:underline transition-colors duration-200">Happy New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/Hardwork Luck Happiness will c.html" class="hover:text-white hover:underline transition-colors duration-200">Hardwork Luck Happiness Will C</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/have a lovely new year.html" class="hover:text-white hover:underline transition-colors duration-200">Have A Lovely New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/Heartful wishes.html" class="hover:text-white hover:underline transition-colors duration-200">Heartful Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/Lots of Love.html" class="hover:text-white hover:underline transition-colors duration-200">Lots Of Love</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/Love and Kisses for Happy New .html" class="hover:text-white hover:underline transition-colors duration-200">Love And Kisses For Happy New </a></li>
+          <li><a href="https://www.happy-new-year.org/cards/May all your dream come true.html" class="hover:text-white hover:underline transition-colors duration-200">May All Your Dream Come True</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/May Happy New Year Strengthen .html" class="hover:text-white hover:underline transition-colors duration-200">May Happy New Year Strengthen </a></li>
+          <li><a href="https://www.happy-new-year.org/cards/May New Year bring Luck.html" class="hover:text-white hover:underline transition-colors duration-200">May New Year Bring Luck</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/May New Year bring sunshine.html" class="hover:text-white hover:underline transition-colors duration-200">May New Year Bring Sunshine</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/May new year open door to succ.html" class="hover:text-white hover:underline transition-colors duration-200">May New Year Open Door To Succ</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/May new year spread happiness .html" class="hover:text-white hover:underline transition-colors duration-200">May New Year Spread Happiness </a></li>
+          <li><a href="https://www.happy-new-year.org/cards/messages-for-Fathers-day.html" class="hover:text-white hover:underline transition-colors duration-200">Messages For Fathers Day</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/messages-for-Mothers-day.html" class="hover:text-white hover:underline transition-colors duration-200">Messages For Mothers Day</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/messages-for-ValentineDay.html" class="hover:text-white hover:underline transition-colors duration-200">Messages For Valentineday</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/Music all around.html" class="hover:text-white hover:underline transition-colors duration-200">Music All Around</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/New year glittery as diamond.html" class="hover:text-white hover:underline transition-colors duration-200">New Year Glittery As Diamond</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/New Year Wishes.html" class="hover:text-white hover:underline transition-colors duration-200">New Year Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/new-year-card-gallery.html" class="hover:text-white hover:underline transition-colors duration-200">New Year Card Gallery</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/Peace and Prosperity wishes.html" class="hover:text-white hover:underline transition-colors duration-200">Peace And Prosperity Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/Peace and prosperity.html" class="hover:text-white hover:underline transition-colors duration-200">Peace And Prosperity</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/puzzle.html" class="hover:text-white hover:underline transition-colors duration-200">Puzzle</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/Rainbow colors.html" class="hover:text-white hover:underline transition-colors duration-200">Rainbow Colors</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/Sending new year wishes from h.html" class="hover:text-white hover:underline transition-colors duration-200">Sending New Year Wishes From H</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/simple-cards.html" class="hover:text-white hover:underline transition-colors duration-200">Simple Cards</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/slides.html" class="hover:text-white hover:underline transition-colors duration-200">Slides</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/Sphere of influence.html" class="hover:text-white hover:underline transition-colors duration-200">Sphere Of Influence</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/Stars and Diamonds.html" class="hover:text-white hover:underline transition-colors duration-200">Stars And Diamonds</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Footer Links</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/privacypolicy,html" class="hover:text-white hover:underline transition-colors duration-200">Privacy Policy</a></li>
+          <li><a href="https://www.happy-new-year.org/sitemap.html" class="hover:text-white hover:underline transition-colors duration-200">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center text-sm text-gray-400">
+      
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">&copy; 2026 Wish Happy New Year 2027. All rights reserved.</p>
+      
+    </div>
+
+  </div>
+</footer>

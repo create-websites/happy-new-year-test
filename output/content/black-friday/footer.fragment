@@ -1,0 +1,106 @@
+<footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes in 100 languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in Indian Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in European Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/10-popular-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Popular Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/" class="hover:text-white hover:underline transition-colors duration-200">Cards</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/easter/" class="hover:text-white hover:underline transition-colors duration-200">Easter Festival</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-bihari-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-chinese-new-year-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-christmas-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" class="hover:text-white hover:underline transition-colors duration-200">2026-festival-countdown</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" class="hover:text-white hover:underline transition-colors duration-200">Christmas-wishes-by-audience</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026-celebrations-worldwide.html</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" class="hover:text-white hover:underline transition-colors duration-200">Multilingual-greetings-webpage</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/hindu-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Lunar and Solar Hindu Year</a></li>
+          <li><a href="https://www.happy-new-year.org/jewish-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Jewesh Roash Hashanah</a></li>
+          <li><a href="https://www.happy-new-year.org/islamic-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Islamic New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/japanese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Japanese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Hindu Festival Calendar 2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Folders</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/black-friday/deals/" class="hover:text-white hover:underline transition-colors duration-200">Deals</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/Sale/" class="hover:text-white hover:underline transition-colors duration-200">Sale</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/black-friday/best-electronics-deal.html" class="hover:text-white hover:underline transition-colors duration-200">Best Electronics Deal</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/best-websites-for-deals.html" class="hover:text-white hover:underline transition-colors duration-200">Best Websites For Deals</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/black-friday-2025.html" class="hover:text-white hover:underline transition-colors duration-200">Black Friday 2025</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/black-friday-budget.html" class="hover:text-white hover:underline transition-colors duration-200">Black Friday Budget</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/black-friday-search.html" class="hover:text-white hover:underline transition-colors duration-200">Black Friday Search</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/cyber-monday.html" class="hover:text-white hover:underline transition-colors duration-200">Cyber Monday</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/deal-start-stop-time.html" class="hover:text-white hover:underline transition-colors duration-200">Deal Start Stop Time</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/family-deals.html" class="hover:text-white hover:underline transition-colors duration-200">Family Deals</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/fashion-sales.html" class="hover:text-white hover:underline transition-colors duration-200">Fashion Sales</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/first-time.html" class="hover:text-white hover:underline transition-colors duration-200">First Time</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/fitness-tracker.html" class="hover:text-white hover:underline transition-colors duration-200">Fitness Tracker</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/gaming-console-and-monitors.html" class="hover:text-white hover:underline transition-colors duration-200">Gaming Console And Monitors</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/gaming-deals.html" class="hover:text-white hover:underline transition-colors duration-200">Gaming Deals</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/gift-ideas.html" class="hover:text-white hover:underline transition-colors duration-200">Gift Ideas</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/headphone-ear-bud-deals.html" class="hover:text-white hover:underline transition-colors duration-200">Headphone Ear Bud Deals</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/how-to-spot-fake-black-friday-deals.html" class="hover:text-white hover:underline transition-colors duration-200">How To Spot Fake Black Friday Deals</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/kitchen-appliances-deals.html" class="hover:text-white hover:underline transition-colors duration-200">Kitchen Appliances Deals</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/kreatewebsites-2025-hosting-ai-website.html" class="hover:text-white hover:underline transition-colors duration-200">Kreatewebsites 2025 Hosting Ai Website</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/kreatewebsites-blackfriday-managed-websites-90-percent-off.html" class="hover:text-white hover:underline transition-colors duration-200">Kreatewebsites Blackfriday Managed Websites 90 Percent Off</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/laptop-deals-best-buy.html" class="hover:text-white hover:underline transition-colors duration-200">Laptop Deals Best Buy</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/last-minute-deals.html" class="hover:text-white hover:underline transition-colors duration-200">Last Minute Deals</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/online-vs-in-store-shopping.html" class="hover:text-white hover:underline transition-colors duration-200">Online Vs In Store Shopping</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/sales-tax-saving.html" class="hover:text-white hover:underline transition-colors duration-200">Sales Tax Saving</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/shopping-guide.html" class="hover:text-white hover:underline transition-colors duration-200">Shopping Guide</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/small-business-owners.html" class="hover:text-white hover:underline transition-colors duration-200">Small Business Owners</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/speaker-deals.html" class="hover:text-white hover:underline transition-colors duration-200">Speaker Deals</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/streaming-and-media-devices.html" class="hover:text-white hover:underline transition-colors duration-200">Streaming And Media Devices</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/things-not-to-buy.html" class="hover:text-white hover:underline transition-colors duration-200">Things Not To Buy</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/things-to-buy.html" class="hover:text-white hover:underline transition-colors duration-200">Things To Buy</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/top-10-must-buy-items.html" class="hover:text-white hover:underline transition-colors duration-200">Top 10 Must Buy Items</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/travelers-deals.html" class="hover:text-white hover:underline transition-colors duration-200">Travelers Deals</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/tv-deals-best-buy.html" class="hover:text-white hover:underline transition-colors duration-200">Tv Deals Best Buy</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/tv.html" class="hover:text-white hover:underline transition-colors duration-200">Tv</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/what-to-eat.html" class="hover:text-white hover:underline transition-colors duration-200">What To Eat</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Footer Links</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/privacypolicy,html" class="hover:text-white hover:underline transition-colors duration-200">Privacy Policy</a></li>
+          <li><a href="https://www.happy-new-year.org/sitemap.html" class="hover:text-white hover:underline transition-colors duration-200">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center text-sm text-gray-400">
+      
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">&copy; 2026 Wish Happy New Year 2027. All rights reserved.</p>
+      
+    </div>
+
+  </div>
+</footer>

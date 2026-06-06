@@ -1,0 +1,186 @@
+<footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes in 100 languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in Indian Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in European Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/10-popular-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Popular Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/" class="hover:text-white hover:underline transition-colors duration-200">Cards</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/easter/" class="hover:text-white hover:underline transition-colors duration-200">Easter Festival</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-bihari-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-chinese-new-year-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-christmas-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" class="hover:text-white hover:underline transition-colors duration-200">2026-festival-countdown</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" class="hover:text-white hover:underline transition-colors duration-200">Christmas-wishes-by-audience</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026-celebrations-worldwide.html</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" class="hover:text-white hover:underline transition-colors duration-200">Multilingual-greetings-webpage</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/hindu-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Lunar and Solar Hindu Year</a></li>
+          <li><a href="https://www.happy-new-year.org/jewish-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Jewesh Roash Hashanah</a></li>
+          <li><a href="https://www.happy-new-year.org/islamic-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Islamic New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/japanese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Japanese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Hindu Festival Calendar 2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Folders</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/2008/" class="hover:text-white hover:underline transition-colors duration-200">2008</a></li>
+          <li><a href="https://www.happy-new-year.org/2009/" class="hover:text-white hover:underline transition-colors duration-200">2009</a></li>
+          <li><a href="https://www.happy-new-year.org/2010/" class="hover:text-white hover:underline transition-colors duration-200">2010</a></li>
+          <li><a href="https://www.happy-new-year.org/2011/" class="hover:text-white hover:underline transition-colors duration-200">2011</a></li>
+          <li><a href="https://www.happy-new-year.org/2012/" class="hover:text-white hover:underline transition-colors duration-200">2012</a></li>
+          <li><a href="https://www.happy-new-year.org/2013/" class="hover:text-white hover:underline transition-colors duration-200">2013</a></li>
+          <li><a href="https://www.happy-new-year.org/2014/" class="hover:text-white hover:underline transition-colors duration-200">2014</a></li>
+          <li><a href="https://www.happy-new-year.org/2015/" class="hover:text-white hover:underline transition-colors duration-200">2015</a></li>
+          <li><a href="https://www.happy-new-year.org/2016/" class="hover:text-white hover:underline transition-colors duration-200">2016</a></li>
+          <li><a href="https://www.happy-new-year.org/2017/" class="hover:text-white hover:underline transition-colors duration-200">2017</a></li>
+          <li><a href="https://www.happy-new-year.org/2018/" class="hover:text-white hover:underline transition-colors duration-200">2018</a></li>
+          <li><a href="https://www.happy-new-year.org/2019/" class="hover:text-white hover:underline transition-colors duration-200">2019</a></li>
+          <li><a href="https://www.happy-new-year.org/2020/" class="hover:text-white hover:underline transition-colors duration-200">2020</a></li>
+          <li><a href="https://www.happy-new-year.org/2021/" class="hover:text-white hover:underline transition-colors duration-200">2021</a></li>
+          <li><a href="https://www.happy-new-year.org/2022/" class="hover:text-white hover:underline transition-colors duration-200">2022</a></li>
+          <li><a href="https://www.happy-new-year.org/2023/" class="hover:text-white hover:underline transition-colors duration-200">2023</a></li>
+          <li><a href="https://www.happy-new-year.org/2024/" class="hover:text-white hover:underline transition-colors duration-200">2024</a></li>
+          <li><a href="https://www.happy-new-year.org/2025/" class="hover:text-white hover:underline transition-colors duration-200">2025</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/" class="hover:text-white hover:underline transition-colors duration-200">2026</a></li>
+          <li><a href="https://www.happy-new-year.org/assyrian/" class="hover:text-white hover:underline transition-colors duration-200">Assyrian</a></li>
+          <li><a href="https://www.happy-new-year.org/balinese/" class="hover:text-white hover:underline transition-colors duration-200">Balinese</a></li>
+          <li><a href="https://www.happy-new-year.org/beauty-competition/" class="hover:text-white hover:underline transition-colors duration-200">Beauty Competition</a></li>
+          <li><a href="https://www.happy-new-year.org/black-friday/" class="hover:text-white hover:underline transition-colors duration-200">Black Friday</a></li>
+          <li><a href="https://www.happy-new-year.org/buddhist/" class="hover:text-white hover:underline transition-colors duration-200">Buddhist</a></li>
+          <li><a href="https://www.happy-new-year.org/cambodian/" class="hover:text-white hover:underline transition-colors duration-200">Cambodian</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/" class="hover:text-white hover:underline transition-colors duration-200">Cards</a></li>
+          <li><a href="https://www.happy-new-year.org/celebrations/" class="hover:text-white hover:underline transition-colors duration-200">Celebrations</a></li>
+          <li><a href="https://www.happy-new-year.org/chat-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Chat New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/cyber-monday/" class="hover:text-white hover:underline transition-colors duration-200">Cyber Monday</a></li>
+          <li><a href="https://www.happy-new-year.org/ethiopian/" class="hover:text-white hover:underline transition-colors duration-200">Ethiopian</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/" class="hover:text-white hover:underline transition-colors duration-200">Festivals</a></li>
+          <li><a href="https://www.happy-new-year.org/food-and-wine-tips/" class="hover:text-white hover:underline transition-colors duration-200">Food And Wine Tips</a></li>
+          <li><a href="https://www.happy-new-year.org/gadgets/" class="hover:text-white hover:underline transition-colors duration-200">Gadgets</a></li>
+          <li><a href="https://www.happy-new-year.org/hindu/" class="hover:text-white hover:underline transition-colors duration-200">Hindu</a></li>
+          <li><a href="https://www.happy-new-year.org/hindu-calendar/" class="hover:text-white hover:underline transition-colors duration-200">Hindu Calendar</a></li>
+          <li><a href="https://www.happy-new-year.org/hindu-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Hindu New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/in/" class="hover:text-white hover:underline transition-colors duration-200">In</a></li>
+          <li><a href="https://www.happy-new-year.org/inca/" class="hover:text-white hover:underline transition-colors duration-200">Inca</a></li>
+          <li><a href="https://www.happy-new-year.org/islamic/" class="hover:text-white hover:underline transition-colors duration-200">Islamic</a></li>
+          <li><a href="https://www.happy-new-year.org/islamic-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Islamic New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/japanese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Japanese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/jewish/" class="hover:text-white hover:underline transition-colors duration-200">Jewish</a></li>
+          <li><a href="https://www.happy-new-year.org/jewish-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Jewish New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/korean/" class="hover:text-white hover:underline transition-colors duration-200">Korean</a></li>
+          <li><a href="https://www.happy-new-year.org/marwari/" class="hover:text-white hover:underline transition-colors duration-200">Marwari</a></li>
+          <li><a href="https://www.happy-new-year.org/mayan/" class="hover:text-white hover:underline transition-colors duration-200">Mayan</a></li>
+          <li><a href="https://www.happy-new-year.org/messages/" class="hover:text-white hover:underline transition-colors duration-200">Messages</a></li>
+          <li><a href="https://www.happy-new-year.org/movie/" class="hover:text-white hover:underline transition-colors duration-200">Movie</a></li>
+          <li><a href="https://www.happy-new-year.org/noble-prize/" class="hover:text-white hover:underline transition-colors duration-200">Noble Prize</a></li>
+          <li><a href="https://www.happy-new-year.org/pagan/" class="hover:text-white hover:underline transition-colors duration-200">Pagan</a></li>
+          <li><a href="https://www.happy-new-year.org/party-ideas/" class="hover:text-white hover:underline transition-colors duration-200">Party Ideas</a></li>
+          <li><a href="https://www.happy-new-year.org/persian/" class="hover:text-white hover:underline transition-colors duration-200">Persian</a></li>
+          <li><a href="https://www.happy-new-year.org/photos/" class="hover:text-white hover:underline transition-colors duration-200">Photos</a></li>
+          <li><a href="https://www.happy-new-year.org/quotations/" class="hover:text-white hover:underline transition-colors duration-200">Quotations</a></li>
+          <li><a href="https://www.happy-new-year.org/resolutions/" class="hover:text-white hover:underline transition-colors duration-200">Resolutions</a></li>
+          <li><a href="https://www.happy-new-year.org/search/" class="hover:text-white hover:underline transition-colors duration-200">Search</a></li>
+          <li><a href="https://www.happy-new-year.org/slides/" class="hover:text-white hover:underline transition-colors duration-200">Slides</a></li>
+          <li><a href="https://www.happy-new-year.org/special-day/" class="hover:text-white hover:underline transition-colors duration-200">Special Day</a></li>
+          <li><a href="https://www.happy-new-year.org/sunsign-horoscope/" class="hover:text-white hover:underline transition-colors duration-200">Sunsign Horoscope</a></li>
+          <li><a href="https://www.happy-new-year.org/temp/" class="hover:text-white hover:underline transition-colors duration-200">Temp</a></li>
+          <li><a href="https://www.happy-new-year.org/thai/" class="hover:text-white hover:underline transition-colors duration-200">Thai</a></li>
+          <li><a href="https://www.happy-new-year.org/tibetan/" class="hover:text-white hover:underline transition-colors duration-200">Tibetan</a></li>
+          <li><a href="https://www.happy-new-year.org/wallpapers/" class="hover:text-white hover:underline transition-colors duration-200">Wallpapers</a></li>
+          <li><a href="https://www.happy-new-year.org/websites/" class="hover:text-white hover:underline transition-colors duration-200">Websites</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/zulu/" class="hover:text-white hover:underline transition-colors duration-200">Zulu</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/CheesePlatter.html" class="hover:text-white hover:underline transition-colors duration-200">Cheeseplatter</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year-history.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year History</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/cookies.html" class="hover:text-white hover:underline transition-colors duration-200">Cookies</a></li>
+          <li><a href="https://www.happy-new-year.org/daily-horoscope.html" class="hover:text-white hover:underline transition-colors duration-200">Daily Horoscope</a></li>
+          <li><a href="https://www.happy-new-year.org/different-new-year-celebrations-around-the-world-and-images.html" class="hover:text-white hover:underline transition-colors duration-200">Different New Year Celebrations Around The World And Images</a></li>
+          <li><a href="https://www.happy-new-year.org/evolution-of-new-year.html" class="hover:text-white hover:underline transition-colors duration-200">Evolution Of New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals-countdown.html" class="hover:text-white hover:underline transition-colors duration-200">Festivals Countdown</a></li>
+          <li><a href="https://www.happy-new-year.org/fruit platter.html" class="hover:text-white hover:underline transition-colors duration-200">Fruit Platter</a></li>
+          <li><a href="https://www.happy-new-year.org/full-dinner.html" class="hover:text-white hover:underline transition-colors duration-200">Full Dinner</a></li>
+          <li><a href="https://www.happy-new-year.org/global-celebration.html" class="hover:text-white hover:underline transition-colors duration-200">Global Celebration</a></li>
+          <li><a href="https://www.happy-new-year.org/Ham-dinner.html" class="hover:text-white hover:underline transition-colors duration-200">Ham Dinner</a></li>
+          <li><a href="https://www.happy-new-year.org/Hamm-dinner.html" class="hover:text-white hover:underline transition-colors duration-200">Hamm Dinner</a></li>
+          <li><a href="https://www.happy-new-year.org/happy-new-year-countdown-white.html" class="hover:text-white hover:underline transition-colors duration-200">Happy New Year Countdown White</a></li>
+          <li><a href="https://www.happy-new-year.org/hindu-new-year.html" class="hover:text-white hover:underline transition-colors duration-200">Hindu New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/horoscope.html" class="hover:text-white hover:underline transition-colors duration-200">Horoscope</a></li>
+          <li><a href="https://www.happy-new-year.org/image.html" class="hover:text-white hover:underline transition-colors duration-200">Image</a></li>
+          <li><a href="https://www.happy-new-year.org/index-main.html" class="hover:text-white hover:underline transition-colors duration-200">Index Main</a></li>
+          <li><a href="https://www.happy-new-year.org/index-oct.html" class="hover:text-white hover:underline transition-colors duration-200">Index Oct</a></li>
+          <li><a href="https://www.happy-new-year.org/index.html.bak2.html" class="hover:text-white hover:underline transition-colors duration-200">Index.Html.Bak2</a></li>
+          <li><a href="https://www.happy-new-year.org/index.html.halloween.html" class="hover:text-white hover:underline transition-colors duration-200">Index.Html.Halloween</a></li>
+          <li><a href="https://www.happy-new-year.org/index2.html" class="hover:text-white hover:underline transition-colors duration-200">Index2</a></li>
+          <li><a href="https://www.happy-new-year.org/islamic-new-year.html" class="hover:text-white hover:underline transition-colors duration-200">Islamic New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/kabab.html" class="hover:text-white hover:underline transition-colors duration-200">Kabab</a></li>
+          <li><a href="https://www.happy-new-year.org/New Year Wishes.html" class="hover:text-white hover:underline transition-colors duration-200">New Year Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/new-year-and-wishes-around-the-world.html" class="hover:text-white hover:underline transition-colors duration-200">New Year And Wishes Around The World</a></li>
+          <li><a href="https://www.happy-new-year.org/new-year-in-different-culture.html" class="hover:text-white hover:underline transition-colors duration-200">New Year In Different Culture</a></li>
+          <li><a href="https://www.happy-new-year.org/new-year-slideshow.html" class="hover:text-white hover:underline transition-colors duration-200">New Year Slideshow</a></li>
+          <li><a href="https://www.happy-new-year.org/new-year.html" class="hover:text-white hover:underline transition-colors duration-200">New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/new.html" class="hover:text-white hover:underline transition-colors duration-200">New</a></li>
+          <li><a href="https://www.happy-new-year.org/newyear-history-celebration.html" class="hover:text-white hover:underline transition-colors duration-200">Newyear History Celebration</a></li>
+          <li><a href="https://www.happy-new-year.org/newyear-history.html" class="hover:text-white hover:underline transition-colors duration-200">Newyear History</a></li>
+          <li><a href="https://www.happy-new-year.org/newyear-info.html" class="hover:text-white hover:underline transition-colors duration-200">Newyear Info</a></li>
+          <li><a href="https://www.happy-new-year.org/Newyear-sale.html" class="hover:text-white hover:underline transition-colors duration-200">Newyear Sale</a></li>
+          <li><a href="https://www.happy-new-year.org/pastries.html" class="hover:text-white hover:underline transition-colors duration-200">Pastries</a></li>
+          <li><a href="https://www.happy-new-year.org/privacypolicy.html" class="hover:text-white hover:underline transition-colors duration-200">Privacypolicy</a></li>
+          <li><a href="https://www.happy-new-year.org/Quesdilla-Fiesta.html" class="hover:text-white hover:underline transition-colors duration-200">Quesdilla Fiesta</a></li>
+          <li><a href="https://www.happy-new-year.org/related-articles-json-install-snippet.html" class="hover:text-white hover:underline transition-colors duration-200">Related Articles Json Install Snippet</a></li>
+          <li><a href="https://www.happy-new-year.org/roasted chicken wings2.html" class="hover:text-white hover:underline transition-colors duration-200">Roasted Chicken Wings2</a></li>
+          <li><a href="https://www.happy-new-year.org/sandwich-platter.html" class="hover:text-white hover:underline transition-colors duration-200">Sandwich Platter</a></li>
+          <li><a href="https://www.happy-new-year.org/sitemap.html" class="hover:text-white hover:underline transition-colors duration-200">Sitemap</a></li>
+          <li><a href="https://www.happy-new-year.org/smoked-salmon-platter.html" class="hover:text-white hover:underline transition-colors duration-200">Smoked Salmon Platter</a></li>
+          <li><a href="https://www.happy-new-year.org/special-cookies-platter.html" class="hover:text-white hover:underline transition-colors duration-200">Special Cookies Platter</a></li>
+          <li><a href="https://www.happy-new-year.org/sunsign-horoscope.html" class="hover:text-white hover:underline transition-colors duration-200">Sunsign Horoscope</a></li>
+          <li><a href="https://www.happy-new-year.org/sushi-platter.html" class="hover:text-white hover:underline transition-colors duration-200">Sushi Platter</a></li>
+          <li><a href="https://www.happy-new-year.org/unique-new-year-greetings.html" class="hover:text-white hover:underline transition-colors duration-200">Unique New Year Greetings</a></li>
+          <li><a href="https://www.happy-new-year.org/video.html" class="hover:text-white hover:underline transition-colors duration-200">Video</a></li>
+          <li><a href="https://www.happy-new-year.org/welcome-new-year.html" class="hover:text-white hover:underline transition-colors duration-200">Welcome New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes-and-wallpapers.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes And Wallpapers</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Footer Links</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/privacypolicy,html" class="hover:text-white hover:underline transition-colors duration-200">Privacy Policy</a></li>
+          <li><a href="https://www.happy-new-year.org/sitemap.html" class="hover:text-white hover:underline transition-colors duration-200">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center text-sm text-gray-400">
+      
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">&copy; 2026 Wish Happy New Year 2027. All rights reserved.</p>
+      
+    </div>
+
+  </div>
+</footer>

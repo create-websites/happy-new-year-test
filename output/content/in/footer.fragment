@@ -1,0 +1,228 @@
+<footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes in 100 languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in Indian Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in European Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/10-popular-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Popular Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/" class="hover:text-white hover:underline transition-colors duration-200">Cards</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/easter/" class="hover:text-white hover:underline transition-colors duration-200">Easter Festival</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-bihari-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-chinese-new-year-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-christmas-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" class="hover:text-white hover:underline transition-colors duration-200">2026-festival-countdown</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" class="hover:text-white hover:underline transition-colors duration-200">Christmas-wishes-by-audience</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026-celebrations-worldwide.html</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" class="hover:text-white hover:underline transition-colors duration-200">Multilingual-greetings-webpage</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/hindu-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Lunar and Solar Hindu Year</a></li>
+          <li><a href="https://www.happy-new-year.org/jewish-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Jewesh Roash Hashanah</a></li>
+          <li><a href="https://www.happy-new-year.org/islamic-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Islamic New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/japanese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Japanese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Hindu Festival Calendar 2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/in/afgahani.html" class="hover:text-white hover:underline transition-colors duration-200">Afgahani</a></li>
+          <li><a href="https://www.happy-new-year.org/in/afrikaans.html" class="hover:text-white hover:underline transition-colors duration-200">Afrikaans</a></li>
+          <li><a href="https://www.happy-new-year.org/in/albanian.html" class="hover:text-white hover:underline transition-colors duration-200">Albanian</a></li>
+          <li><a href="https://www.happy-new-year.org/in/arabic.html" class="hover:text-white hover:underline transition-colors duration-200">Arabic</a></li>
+          <li><a href="https://www.happy-new-year.org/in/armanien.html" class="hover:text-white hover:underline transition-colors duration-200">Armanien</a></li>
+          <li><a href="https://www.happy-new-year.org/in/assyrian.html" class="hover:text-white hover:underline transition-colors duration-200">Assyrian</a></li>
+          <li><a href="https://www.happy-new-year.org/in/azeri.html" class="hover:text-white hover:underline transition-colors duration-200">Azeri</a></li>
+          <li><a href="https://www.happy-new-year.org/in/bambara.html" class="hover:text-white hover:underline transition-colors duration-200">Bambara</a></li>
+          <li><a href="https://www.happy-new-year.org/in/basaa.html" class="hover:text-white hover:underline transition-colors duration-200">Basaa</a></li>
+          <li><a href="https://www.happy-new-year.org/in/basque.html" class="hover:text-white hover:underline transition-colors duration-200">Basque</a></li>
+          <li><a href="https://www.happy-new-year.org/in/belarusian.html" class="hover:text-white hover:underline transition-colors duration-200">Belarusian</a></li>
+          <li><a href="https://www.happy-new-year.org/in/bengali.html" class="hover:text-white hover:underline transition-colors duration-200">Bengali</a></li>
+          <li><a href="https://www.happy-new-year.org/in/berber.html" class="hover:text-white hover:underline transition-colors duration-200">Berber</a></li>
+          <li><a href="https://www.happy-new-year.org/in/beti.html" class="hover:text-white hover:underline transition-colors duration-200">Beti</a></li>
+          <li><a href="https://www.happy-new-year.org/in/bhojpuri.html" class="hover:text-white hover:underline transition-colors duration-200">Bhojpuri</a></li>
+          <li><a href="https://www.happy-new-year.org/in/bobo.html" class="hover:text-white hover:underline transition-colors duration-200">Bobo</a></li>
+          <li><a href="https://www.happy-new-year.org/in/bosnian.html" class="hover:text-white hover:underline transition-colors duration-200">Bosnian</a></li>
+          <li><a href="https://www.happy-new-year.org/in/breton.html" class="hover:text-white hover:underline transition-colors duration-200">Breton</a></li>
+          <li><a href="https://www.happy-new-year.org/in/bulgarian.html" class="hover:text-white hover:underline transition-colors duration-200">Bulgarian</a></li>
+          <li><a href="https://www.happy-new-year.org/in/burmese.html" class="hover:text-white hover:underline transition-colors duration-200">Burmese</a></li>
+          <li><a href="https://www.happy-new-year.org/in/cambodian.html" class="hover:text-white hover:underline transition-colors duration-200">Cambodian</a></li>
+          <li><a href="https://www.happy-new-year.org/in/cantonese.html" class="hover:text-white hover:underline transition-colors duration-200">Cantonese</a></li>
+          <li><a href="https://www.happy-new-year.org/in/castilian.html" class="hover:text-white hover:underline transition-colors duration-200">Castilian</a></li>
+          <li><a href="https://www.happy-new-year.org/in/catalan.html" class="hover:text-white hover:underline transition-colors duration-200">Catalan</a></li>
+          <li><a href="https://www.happy-new-year.org/in/cebuano.html" class="hover:text-white hover:underline transition-colors duration-200">Cebuano</a></li>
+          <li><a href="https://www.happy-new-year.org/in/chinese.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese</a></li>
+          <li><a href="https://www.happy-new-year.org/in/cornish.html" class="hover:text-white hover:underline transition-colors duration-200">Cornish</a></li>
+          <li><a href="https://www.happy-new-year.org/in/corsican.html" class="hover:text-white hover:underline transition-colors duration-200">Corsican</a></li>
+          <li><a href="https://www.happy-new-year.org/in/crotian.html" class="hover:text-white hover:underline transition-colors duration-200">Crotian</a></li>
+          <li><a href="https://www.happy-new-year.org/in/czechoslovakia.html" class="hover:text-white hover:underline transition-colors duration-200">Czechoslovakia</a></li>
+          <li><a href="https://www.happy-new-year.org/in/danish.html" class="hover:text-white hover:underline transition-colors duration-200">Danish</a></li>
+          <li><a href="https://www.happy-new-year.org/in/dari.html" class="hover:text-white hover:underline transition-colors duration-200">Dari</a></li>
+          <li><a href="https://www.happy-new-year.org/in/different-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Different Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/in/different-new-year-images.html" class="hover:text-white hover:underline transition-colors duration-200">Different New Year Images</a></li>
+          <li><a href="https://www.happy-new-year.org/in/different-new-year.html" class="hover:text-white hover:underline transition-colors duration-200">Different New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/in/duala.html" class="hover:text-white hover:underline transition-colors duration-200">Duala</a></li>
+          <li><a href="https://www.happy-new-year.org/in/dutch.html" class="hover:text-white hover:underline transition-colors duration-200">Dutch</a></li>
+          <li><a href="https://www.happy-new-year.org/in/elemish.html" class="hover:text-white hover:underline transition-colors duration-200">Elemish</a></li>
+          <li><a href="https://www.happy-new-year.org/in/esperanto.html" class="hover:text-white hover:underline transition-colors duration-200">Esperanto</a></li>
+          <li><a href="https://www.happy-new-year.org/in/estonian.html" class="hover:text-white hover:underline transition-colors duration-200">Estonian</a></li>
+          <li><a href="https://www.happy-new-year.org/in/european-2026-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">European 2026 Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/in/every-language.html" class="hover:text-white hover:underline transition-colors duration-200">Every Language</a></li>
+          <li><a href="https://www.happy-new-year.org/in/ewe.html" class="hover:text-white hover:underline transition-colors duration-200">Ewe</a></li>
+          <li><a href="https://www.happy-new-year.org/in/ewondo.html" class="hover:text-white hover:underline transition-colors duration-200">Ewondo</a></li>
+          <li><a href="https://www.happy-new-year.org/in/fang.html" class="hover:text-white hover:underline transition-colors duration-200">Fang</a></li>
+          <li><a href="https://www.happy-new-year.org/in/faroese.html" class="hover:text-white hover:underline transition-colors duration-200">Faroese</a></li>
+          <li><a href="https://www.happy-new-year.org/in/filipino.html" class="hover:text-white hover:underline transition-colors duration-200">Filipino</a></li>
+          <li><a href="https://www.happy-new-year.org/in/finnish.html" class="hover:text-white hover:underline transition-colors duration-200">Finnish</a></li>
+          <li><a href="https://www.happy-new-year.org/in/fon.html" class="hover:text-white hover:underline transition-colors duration-200">Fon</a></li>
+          <li><a href="https://www.happy-new-year.org/in/french.html" class="hover:text-white hover:underline transition-colors duration-200">French</a></li>
+          <li><a href="https://www.happy-new-year.org/in/frisian.html" class="hover:text-white hover:underline transition-colors duration-200">Frisian</a></li>
+          <li><a href="https://www.happy-new-year.org/in/friulan.html" class="hover:text-white hover:underline transition-colors duration-200">Friulan</a></li>
+          <li><a href="https://www.happy-new-year.org/in/fula.html" class="hover:text-white hover:underline transition-colors duration-200">Fula</a></li>
+          <li><a href="https://www.happy-new-year.org/in/galician.html" class="hover:text-white hover:underline transition-colors duration-200">Galician</a></li>
+          <li><a href="https://www.happy-new-year.org/in/georgian.html" class="hover:text-white hover:underline transition-colors duration-200">Georgian</a></li>
+          <li><a href="https://www.happy-new-year.org/in/german.html" class="hover:text-white hover:underline transition-colors duration-200">German</a></li>
+          <li><a href="https://www.happy-new-year.org/in/greek.html" class="hover:text-white hover:underline transition-colors duration-200">Greek</a></li>
+          <li><a href="https://www.happy-new-year.org/in/gujarati.html" class="hover:text-white hover:underline transition-colors duration-200">Gujarati</a></li>
+          <li><a href="https://www.happy-new-year.org/in/gurani.html" class="hover:text-white hover:underline transition-colors duration-200">Gurani</a></li>
+          <li><a href="https://www.happy-new-year.org/in/haitian-creole.html" class="hover:text-white hover:underline transition-colors duration-200">Haitian Creole</a></li>
+          <li><a href="https://www.happy-new-year.org/in/haoussa.html" class="hover:text-white hover:underline transition-colors duration-200">Haoussa</a></li>
+          <li><a href="https://www.happy-new-year.org/in/happy-new-year-in-90-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Happy New Year In 90 Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/in/happy-new-year-in-all-language.html" class="hover:text-white hover:underline transition-colors duration-200">Happy New Year In All Language</a></li>
+          <li><a href="https://www.happy-new-year.org/in/happy-new-year-wishes-in-51-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Happy New Year Wishes In 51 Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/in/happy-new-year-wishes-in-multiple-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Happy New Year Wishes In Multiple Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/in/hawaiin.html" class="hover:text-white hover:underline transition-colors duration-200">Hawaiin</a></li>
+          <li><a href="https://www.happy-new-year.org/in/hebrew.html" class="hover:text-white hover:underline transition-colors duration-200">Hebrew</a></li>
+          <li><a href="https://www.happy-new-year.org/in/herero.html" class="hover:text-white hover:underline transition-colors duration-200">Herero</a></li>
+          <li><a href="https://www.happy-new-year.org/in/hindi.html" class="hover:text-white hover:underline transition-colors duration-200">Hindi</a></li>
+          <li><a href="https://www.happy-new-year.org/in/hmong.html" class="hover:text-white hover:underline transition-colors duration-200">Hmong</a></li>
+          <li><a href="https://www.happy-new-year.org/in/hungarian.html" class="hover:text-white hover:underline transition-colors duration-200">Hungarian</a></li>
+          <li><a href="https://www.happy-new-year.org/in/icelendic.html" class="hover:text-white hover:underline transition-colors duration-200">Icelendic</a></li>
+          <li><a href="https://www.happy-new-year.org/in/igbo.html" class="hover:text-white hover:underline transition-colors duration-200">Igbo</a></li>
+          <li><a href="https://www.happy-new-year.org/in/indonesian.html" class="hover:text-white hover:underline transition-colors duration-200">Indonesian</a></li>
+          <li><a href="https://www.happy-new-year.org/in/inuktitut.html" class="hover:text-white hover:underline transition-colors duration-200">Inuktitut</a></li>
+          <li><a href="https://www.happy-new-year.org/in/irish-gaelic.html" class="hover:text-white hover:underline transition-colors duration-200">Irish Gaelic</a></li>
+          <li><a href="https://www.happy-new-year.org/in/italian.html" class="hover:text-white hover:underline transition-colors duration-200">Italian</a></li>
+          <li><a href="https://www.happy-new-year.org/in/japanese.html" class="hover:text-white hover:underline transition-colors duration-200">Japanese</a></li>
+          <li><a href="https://www.happy-new-year.org/in/javanese.html" class="hover:text-white hover:underline transition-colors duration-200">Javanese</a></li>
+          <li><a href="https://www.happy-new-year.org/in/kabylian.html" class="hover:text-white hover:underline transition-colors duration-200">Kabylian</a></li>
+          <li><a href="https://www.happy-new-year.org/in/kannada.html" class="hover:text-white hover:underline transition-colors duration-200">Kannada</a></li>
+          <li><a href="https://www.happy-new-year.org/in/kashmiri.html" class="hover:text-white hover:underline transition-colors duration-200">Kashmiri</a></li>
+          <li><a href="https://www.happy-new-year.org/in/kazakh.html" class="hover:text-white hover:underline transition-colors duration-200">Kazakh</a></li>
+          <li><a href="https://www.happy-new-year.org/in/khmer.html" class="hover:text-white hover:underline transition-colors duration-200">Khmer</a></li>
+          <li><a href="https://www.happy-new-year.org/in/kiembu.html" class="hover:text-white hover:underline transition-colors duration-200">Kiembu</a></li>
+          <li><a href="https://www.happy-new-year.org/in/kinyarwanda.html" class="hover:text-white hover:underline transition-colors duration-200">Kinyarwanda</a></li>
+          <li><a href="https://www.happy-new-year.org/in/kirundi.html" class="hover:text-white hover:underline transition-colors duration-200">Kirundi</a></li>
+          <li><a href="https://www.happy-new-year.org/in/korean.html" class="hover:text-white hover:underline transition-colors duration-200">Korean</a></li>
+          <li><a href="https://www.happy-new-year.org/in/kurde.html" class="hover:text-white hover:underline transition-colors duration-200">Kurde</a></li>
+          <li><a href="https://www.happy-new-year.org/in/kwangali.html" class="hover:text-white hover:underline transition-colors duration-200">Kwangali</a></li>
+          <li><a href="https://www.happy-new-year.org/in/kyrgyz.html" class="hover:text-white hover:underline transition-colors duration-200">Kyrgyz</a></li>
+          <li><a href="https://www.happy-new-year.org/in/lao.html" class="hover:text-white hover:underline transition-colors duration-200">Lao</a></li>
+          <li><a href="https://www.happy-new-year.org/in/latin.html" class="hover:text-white hover:underline transition-colors duration-200">Latin</a></li>
+          <li><a href="https://www.happy-new-year.org/in/latvian.html" class="hover:text-white hover:underline transition-colors duration-200">Latvian</a></li>
+          <li><a href="https://www.happy-new-year.org/in/ligurian.html" class="hover:text-white hover:underline transition-colors duration-200">Ligurian</a></li>
+          <li><a href="https://www.happy-new-year.org/in/lingala.html" class="hover:text-white hover:underline transition-colors duration-200">Lingala</a></li>
+          <li><a href="https://www.happy-new-year.org/in/lithunian.html" class="hover:text-white hover:underline transition-colors duration-200">Lithunian</a></li>
+          <li><a href="https://www.happy-new-year.org/in/low-saxon.html" class="hover:text-white hover:underline transition-colors duration-200">Low Saxon</a></li>
+          <li><a href="https://www.happy-new-year.org/in/luganda.html" class="hover:text-white hover:underline transition-colors duration-200">Luganda</a></li>
+          <li><a href="https://www.happy-new-year.org/in/luxembourgeois.html" class="hover:text-white hover:underline transition-colors duration-200">Luxembourgeois</a></li>
+          <li><a href="https://www.happy-new-year.org/in/macedoniam.html" class="hover:text-white hover:underline transition-colors duration-200">Macedoniam</a></li>
+          <li><a href="https://www.happy-new-year.org/in/malagasy.html" class="hover:text-white hover:underline transition-colors duration-200">Malagasy</a></li>
+          <li><a href="https://www.happy-new-year.org/in/malay.html" class="hover:text-white hover:underline transition-colors duration-200">Malay</a></li>
+          <li><a href="https://www.happy-new-year.org/in/malyalam.html" class="hover:text-white hover:underline transition-colors duration-200">Malyalam</a></li>
+          <li><a href="https://www.happy-new-year.org/in/nepali.html" class="hover:text-white hover:underline transition-colors duration-200">Nepali</a></li>
+          <li><a href="https://www.happy-new-year.org/in/new-year-in-70-languages.html" class="hover:text-white hover:underline transition-colors duration-200">New Year In 70 Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/in/new-year-wishes-in-indian-languages.html" class="hover:text-white hover:underline transition-colors duration-200">New Year Wishes In Indian Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/in/norweign.html" class="hover:text-white hover:underline transition-colors duration-200">Norweign</a></li>
+          <li><a href="https://www.happy-new-year.org/in/papua-new-guinea.html" class="hover:text-white hover:underline transition-colors duration-200">Papua New Guinea</a></li>
+          <li><a href="https://www.happy-new-year.org/in/pashto.html" class="hover:text-white hover:underline transition-colors duration-200">Pashto</a></li>
+          <li><a href="https://www.happy-new-year.org/in/persian.html" class="hover:text-white hover:underline transition-colors duration-200">Persian</a></li>
+          <li><a href="https://www.happy-new-year.org/in/philippines.html" class="hover:text-white hover:underline transition-colors duration-200">Philippines</a></li>
+          <li><a href="https://www.happy-new-year.org/in/polish.html" class="hover:text-white hover:underline transition-colors duration-200">Polish</a></li>
+          <li><a href="https://www.happy-new-year.org/in/portuguese.html" class="hover:text-white hover:underline transition-colors duration-200">Portuguese</a></li>
+          <li><a href="https://www.happy-new-year.org/in/punjabi.html" class="hover:text-white hover:underline transition-colors duration-200">Punjabi</a></li>
+          <li><a href="https://www.happy-new-year.org/in/rajasthani.html" class="hover:text-white hover:underline transition-colors duration-200">Rajasthani</a></li>
+          <li><a href="https://www.happy-new-year.org/in/romanian.html" class="hover:text-white hover:underline transition-colors duration-200">Romanian</a></li>
+          <li><a href="https://www.happy-new-year.org/in/russian.html" class="hover:text-white hover:underline transition-colors duration-200">Russian</a></li>
+          <li><a href="https://www.happy-new-year.org/in/samoa.html" class="hover:text-white hover:underline transition-colors duration-200">Samoa</a></li>
+          <li><a href="https://www.happy-new-year.org/in/serbo-croatian.html" class="hover:text-white hover:underline transition-colors duration-200">Serbo Croatian</a></li>
+          <li><a href="https://www.happy-new-year.org/in/sindhi.html" class="hover:text-white hover:underline transition-colors duration-200">Sindhi</a></li>
+          <li><a href="https://www.happy-new-year.org/in/singhalese.html" class="hover:text-white hover:underline transition-colors duration-200">Singhalese</a></li>
+          <li><a href="https://www.happy-new-year.org/in/siraiki.html" class="hover:text-white hover:underline transition-colors duration-200">Siraiki</a></li>
+          <li><a href="https://www.happy-new-year.org/in/Slide 3.html" class="hover:text-white hover:underline transition-colors duration-200">Slide 3</a></li>
+          <li><a href="https://www.happy-new-year.org/in/Slide99.html" class="hover:text-white hover:underline transition-colors duration-200">Slide99</a></li>
+          <li><a href="https://www.happy-new-year.org/in/slovak.html" class="hover:text-white hover:underline transition-colors duration-200">Slovak</a></li>
+          <li><a href="https://www.happy-new-year.org/in/slovenian.html" class="hover:text-white hover:underline transition-colors duration-200">Slovenian</a></li>
+          <li><a href="https://www.happy-new-year.org/in/somali.html" class="hover:text-white hover:underline transition-colors duration-200">Somali</a></li>
+          <li><a href="https://www.happy-new-year.org/in/spanish.html" class="hover:text-white hover:underline transition-colors duration-200">Spanish</a></li>
+          <li><a href="https://www.happy-new-year.org/in/sranan.html" class="hover:text-white hover:underline transition-colors duration-200">Sranan</a></li>
+          <li><a href="https://www.happy-new-year.org/in/sudanese.html" class="hover:text-white hover:underline transition-colors duration-200">Sudanese</a></li>
+          <li><a href="https://www.happy-new-year.org/in/swahili.html" class="hover:text-white hover:underline transition-colors duration-200">Swahili</a></li>
+          <li><a href="https://www.happy-new-year.org/in/swedish.html" class="hover:text-white hover:underline transition-colors duration-200">Swedish</a></li>
+          <li><a href="https://www.happy-new-year.org/in/swiss-german.html" class="hover:text-white hover:underline transition-colors duration-200">Swiss German</a></li>
+          <li><a href="https://www.happy-new-year.org/in/tagalog.html" class="hover:text-white hover:underline transition-colors duration-200">Tagalog</a></li>
+          <li><a href="https://www.happy-new-year.org/in/tahitian.html" class="hover:text-white hover:underline transition-colors duration-200">Tahitian</a></li>
+          <li><a href="https://www.happy-new-year.org/in/tajik.html" class="hover:text-white hover:underline transition-colors duration-200">Tajik</a></li>
+          <li><a href="https://www.happy-new-year.org/in/tamazight.html" class="hover:text-white hover:underline transition-colors duration-200">Tamazight</a></li>
+          <li><a href="https://www.happy-new-year.org/in/tamil.html" class="hover:text-white hover:underline transition-colors duration-200">Tamil</a></li>
+          <li><a href="https://www.happy-new-year.org/in/tatar.html" class="hover:text-white hover:underline transition-colors duration-200">Tatar</a></li>
+          <li><a href="https://www.happy-new-year.org/in/telugu.html" class="hover:text-white hover:underline transition-colors duration-200">Telugu</a></li>
+          <li><a href="https://www.happy-new-year.org/in/thai.html" class="hover:text-white hover:underline transition-colors duration-200">Thai</a></li>
+          <li><a href="https://www.happy-new-year.org/in/tibetan.html" class="hover:text-white hover:underline transition-colors duration-200">Tibetan</a></li>
+          <li><a href="https://www.happy-new-year.org/in/tigre.html" class="hover:text-white hover:underline transition-colors duration-200">Tigre</a></li>
+          <li><a href="https://www.happy-new-year.org/in/tshiluba.html" class="hover:text-white hover:underline transition-colors duration-200">Tshiluba</a></li>
+          <li><a href="https://www.happy-new-year.org/in/tswana.html" class="hover:text-white hover:underline transition-colors duration-200">Tswana</a></li>
+          <li><a href="https://www.happy-new-year.org/in/tulu.html" class="hover:text-white hover:underline transition-colors duration-200">Tulu</a></li>
+          <li><a href="https://www.happy-new-year.org/in/turkish.html" class="hover:text-white hover:underline transition-colors duration-200">Turkish</a></li>
+          <li><a href="https://www.happy-new-year.org/in/twents.html" class="hover:text-white hover:underline transition-colors duration-200">Twents</a></li>
+          <li><a href="https://www.happy-new-year.org/in/udmurt.html" class="hover:text-white hover:underline transition-colors duration-200">Udmurt</a></li>
+          <li><a href="https://www.happy-new-year.org/in/ukrainian.html" class="hover:text-white hover:underline transition-colors duration-200">Ukrainian</a></li>
+          <li><a href="https://www.happy-new-year.org/in/urdu.html" class="hover:text-white hover:underline transition-colors duration-200">Urdu</a></li>
+          <li><a href="https://www.happy-new-year.org/in/uzbek.html" class="hover:text-white hover:underline transition-colors duration-200">Uzbek</a></li>
+          <li><a href="https://www.happy-new-year.org/in/vietnamese.html" class="hover:text-white hover:underline transition-colors duration-200">Vietnamese</a></li>
+          <li><a href="https://www.happy-new-year.org/in/waloon.html" class="hover:text-white hover:underline transition-colors duration-200">Waloon</a></li>
+          <li><a href="https://www.happy-new-year.org/in/welsh-cymraeg.html" class="hover:text-white hover:underline transition-colors duration-200">Welsh Cymraeg</a></li>
+          <li><a href="https://www.happy-new-year.org/in/welsh.html" class="hover:text-white hover:underline transition-colors duration-200">Welsh</a></li>
+          <li><a href="https://www.happy-new-year.org/in/west indian creole.html" class="hover:text-white hover:underline transition-colors duration-200">West Indian Creole</a></li>
+          <li><a href="https://www.happy-new-year.org/in/wolof.html" class="hover:text-white hover:underline transition-colors duration-200">Wolof</a></li>
+          <li><a href="https://www.happy-new-year.org/in/xhosa.html" class="hover:text-white hover:underline transition-colors duration-200">Xhosa</a></li>
+          <li><a href="https://www.happy-new-year.org/in/yiddish.html" class="hover:text-white hover:underline transition-colors duration-200">Yiddish</a></li>
+          <li><a href="https://www.happy-new-year.org/in/yoruba.html" class="hover:text-white hover:underline transition-colors duration-200">Yoruba</a></li>
+          <li><a href="https://www.happy-new-year.org/in/zerma.html" class="hover:text-white hover:underline transition-colors duration-200">Zerma</a></li>
+          <li><a href="https://www.happy-new-year.org/in/zulu.html" class="hover:text-white hover:underline transition-colors duration-200">Zulu</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Footer Links</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/privacypolicy,html" class="hover:text-white hover:underline transition-colors duration-200">Privacy Policy</a></li>
+          <li><a href="https://www.happy-new-year.org/sitemap.html" class="hover:text-white hover:underline transition-colors duration-200">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center text-sm text-gray-400">
+      
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">&copy; 2026 Wish Happy New Year 2027. All rights reserved.</p>
+      
+    </div>
+
+  </div>
+</footer>

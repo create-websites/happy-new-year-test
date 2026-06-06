@@ -1,0 +1,124 @@
+<footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes in 100 languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in Indian Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in European Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/10-popular-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Popular Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/" class="hover:text-white hover:underline transition-colors duration-200">Cards</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/easter/" class="hover:text-white hover:underline transition-colors duration-200">Easter Festival</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-bihari-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-chinese-new-year-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-christmas-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" class="hover:text-white hover:underline transition-colors duration-200">2026-festival-countdown</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" class="hover:text-white hover:underline transition-colors duration-200">Christmas-wishes-by-audience</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026-celebrations-worldwide.html</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" class="hover:text-white hover:underline transition-colors duration-200">Multilingual-greetings-webpage</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/hindu-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Lunar and Solar Hindu Year</a></li>
+          <li><a href="https://www.happy-new-year.org/jewish-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Jewesh Roash Hashanah</a></li>
+          <li><a href="https://www.happy-new-year.org/islamic-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Islamic New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/japanese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Japanese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Hindu Festival Calendar 2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Folders</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/elegant-cards/" class="hover:text-white hover:underline transition-colors duration-200">Elegant Cards</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/greetings/" class="hover:text-white hover:underline transition-colors duration-200">Greetings</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/wishes-and-cards/" class="hover:text-white hover:underline transition-colors duration-200">Wishes And Cards</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/best-stores-to-buy-Thanks-Giving-meal.html" class="hover:text-white hover:underline transition-colors duration-200">Best Stores To Buy Thanks Giving Meal</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/blessings.html" class="hover:text-white hover:underline transition-colors duration-200">Blessings</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/budget-friendly-thanksgiving.html" class="hover:text-white hover:underline transition-colors duration-200">Budget Friendly Thanksgiving</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/Cheese Platter for snacks.html" class="hover:text-white hover:underline transition-colors duration-200">Cheese Platter For Snacks</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/Chicken wings.html" class="hover:text-white hover:underline transition-colors duration-200">Chicken Wings</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/Cookies plate.html" class="hover:text-white hover:underline transition-colors duration-200">Cookies Plate</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/Deluxe Cookies.html" class="hover:text-white hover:underline transition-colors duration-200">Deluxe Cookies</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/dinner.html" class="hover:text-white hover:underline transition-colors duration-200">Dinner</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/Family and Friends Dinner.html" class="hover:text-white hover:underline transition-colors duration-200">Family And Friends Dinner</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/Fruit platter - healthy option.html" class="hover:text-white hover:underline transition-colors duration-200">Fruit Platter   Healthy Option</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/gift-thanksgiving-day.html" class="hover:text-white hover:underline transition-colors duration-200">Gift Thanksgiving Day</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/Ham.html" class="hover:text-white hover:underline transition-colors duration-200">Ham</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/how-to-host-perfect-thanks-giving.html" class="hover:text-white hover:underline transition-colors duration-200">How To Host Perfect Thanks Giving</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/japanese-style-thanks-giving.html" class="hover:text-white hover:underline transition-colors duration-200">Japanese Style Thanks Giving</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/kabab.html" class="hover:text-white hover:underline transition-colors duration-200">Kabab</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/Meal with Ham.html" class="hover:text-white hover:underline transition-colors duration-200">Meal With Ham</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/mental-and-physical-well-being-at-thanksgiving.html" class="hover:text-white hover:underline transition-colors duration-200">Mental And Physical Well Being At Thanksgiving</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/messages-for-ThanksGiving.html" class="hover:text-white hover:underline transition-colors duration-200">Messages For Thanksgiving</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/Pastries for Desert.html" class="hover:text-white hover:underline transition-colors duration-200">Pastries For Desert</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/Quesdilla Fiesta.html" class="hover:text-white hover:underline transition-colors duration-200">Quesdilla Fiesta</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/quotes-thanksgiving-day.html" class="hover:text-white hover:underline transition-colors duration-200">Quotes Thanksgiving Day</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/Salmon Meal.html" class="hover:text-white hover:underline transition-colors duration-200">Salmon Meal</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/sandwiches - Light meal.html" class="hover:text-white hover:underline transition-colors duration-200">Sandwiches   Light Meal</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/send-thanks-giving-card-by-email.html" class="hover:text-white hover:underline transition-colors duration-200">Send Thanks Giving Card By Email</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/send-thanks-giving-card.html" class="hover:text-white hover:underline transition-colors duration-200">Send Thanks Giving Card</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/sites-that-sell-thanks-giving-food.html" class="hover:text-white hover:underline transition-colors duration-200">Sites That Sell Thanks Giving Food</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/small-gathering-thanks-giving.html" class="hover:text-white hover:underline transition-colors duration-200">Small Gathering Thanks Giving</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/special-diet-dinner.html" class="hover:text-white hover:underline transition-colors duration-200">Special Diet Dinner</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/Sushi dinner.html" class="hover:text-white hover:underline transition-colors duration-200">Sushi Dinner</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/table-settings-for-thanks-giving.html" class="hover:text-white hover:underline transition-colors duration-200">Table Settings For Thanks Giving</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/thai-thanks-giving.html" class="hover:text-white hover:underline transition-colors duration-200">Thai Thanks Giving</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/Thanks Giving family Dinner.html" class="hover:text-white hover:underline transition-colors duration-200">Thanks Giving Family Dinner</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/thanks-giving-feast-planner-info.html" class="hover:text-white hover:underline transition-colors duration-200">Thanks Giving Feast Planner Info</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/thanks-giving-feast-planner.html" class="hover:text-white hover:underline transition-colors duration-200">Thanks Giving Feast Planner</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/thanks-giving-guide.html" class="hover:text-white hover:underline transition-colors duration-200">Thanks Giving Guide</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/thanks-giving-history.html" class="hover:text-white hover:underline transition-colors duration-200">Thanks Giving History</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/thanks-giving-overview.html" class="hover:text-white hover:underline transition-colors duration-200">Thanks Giving Overview</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/thanks-giving-wishes-around-the-world.html" class="hover:text-white hover:underline transition-colors duration-200">Thanks Giving Wishes Around The World</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/thanks-giving-wishes-in-different-languages-images.html" class="hover:text-white hover:underline transition-colors duration-200">Thanks Giving Wishes In Different Languages Images</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/thanks-giving-wishes-in-different-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Thanks Giving Wishes In Different Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/thanks-giving-wishes-in-indian-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Thanks Giving Wishes In Indian Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/Thanksgiving Traditional dinne.html" class="hover:text-white hover:underline transition-colors duration-200">Thanksgiving Traditional Dinne</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/thanksgiving-alone-ideas.html" class="hover:text-white hover:underline transition-colors duration-200">Thanksgiving Alone Ideas</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/thanksgiving-index-happy-new-year.html" class="hover:text-white hover:underline transition-colors duration-200">Thanksgiving Index Happy New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/thanksgiving-leftovers-receipes.html" class="hover:text-white hover:underline transition-colors duration-200">Thanksgiving Leftovers Receipes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/thanksgiving-tradition-around-the-world.html" class="hover:text-white hover:underline transition-colors duration-200">Thanksgiving Tradition Around The World</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/tips-for-thanks-giving-travel.html" class="hover:text-white hover:underline transition-colors duration-200">Tips For Thanks Giving Travel</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/warm-thanks-giving-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">Warm Thanks Giving Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/wishes-and-dinner.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes And Dinner</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/Wonderful meal.html" class="hover:text-white hover:underline transition-colors duration-200">Wonderful Meal</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Footer Links</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/privacypolicy,html" class="hover:text-white hover:underline transition-colors duration-200">Privacy Policy</a></li>
+          <li><a href="https://www.happy-new-year.org/sitemap.html" class="hover:text-white hover:underline transition-colors duration-200">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center text-sm text-gray-400">
+      
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">&copy; 2026 Wish Happy New Year 2027. All rights reserved.</p>
+      
+    </div>
+
+  </div>
+</footer>

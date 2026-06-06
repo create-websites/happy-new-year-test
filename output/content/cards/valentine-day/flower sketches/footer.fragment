@@ -1,0 +1,110 @@
+<footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes in 100 languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in Indian Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in European Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/10-popular-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Popular Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/" class="hover:text-white hover:underline transition-colors duration-200">Cards</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/easter/" class="hover:text-white hover:underline transition-colors duration-200">Easter Festival</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-bihari-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-chinese-new-year-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-christmas-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" class="hover:text-white hover:underline transition-colors duration-200">2026-festival-countdown</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" class="hover:text-white hover:underline transition-colors duration-200">Christmas-wishes-by-audience</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026-celebrations-worldwide.html</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" class="hover:text-white hover:underline transition-colors duration-200">Multilingual-greetings-webpage</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/hindu-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Lunar and Solar Hindu Year</a></li>
+          <li><a href="https://www.happy-new-year.org/jewish-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Jewesh Roash Hashanah</a></li>
+          <li><a href="https://www.happy-new-year.org/islamic-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Islamic New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/japanese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Japanese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Hindu Festival Calendar 2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/3 flowers.html" class="hover:text-white hover:underline transition-colors duration-200">3 Flowers</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Autumn Flower.html" class="hover:text-white hover:underline transition-colors duration-200">Autumn Flower</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Autumn Trees.html" class="hover:text-white hover:underline transition-colors duration-200">Autumn Trees</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Baby Angel with flowers.html" class="hover:text-white hover:underline transition-colors duration-200">Baby Angel With Flowers</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Basket and Bird.html" class="hover:text-white hover:underline transition-colors duration-200">Basket And Bird</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Basket of flowers and bird.html" class="hover:text-white hover:underline transition-colors duration-200">Basket Of Flowers And Bird</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Basket with flowers 2.html" class="hover:text-white hover:underline transition-colors duration-200">Basket With Flowers 2</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Basket with flowers.html" class="hover:text-white hover:underline transition-colors duration-200">Basket With Flowers</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Beach and Flower Border.html" class="hover:text-white hover:underline transition-colors duration-200">Beach And Flower Border</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Bench and Flowers.html" class="hover:text-white hover:underline transition-colors duration-200">Bench And Flowers</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Bench in Garden.html" class="hover:text-white hover:underline transition-colors duration-200">Bench In Garden</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Bird and Flower.html" class="hover:text-white hover:underline transition-colors duration-200">Bird And Flower</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Birds and Flowers.html" class="hover:text-white hover:underline transition-colors duration-200">Birds And Flowers</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Birds and Trees.html" class="hover:text-white hover:underline transition-colors duration-200">Birds And Trees</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Birds of Paradise.html" class="hover:text-white hover:underline transition-colors duration-200">Birds Of Paradise</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Black and White sunflowers.html" class="hover:text-white hover:underline transition-colors duration-200">Black And White Sunflowers</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Blue butterfly and flowers.html" class="hover:text-white hover:underline transition-colors duration-200">Blue Butterfly And Flowers</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Blue Flowers.html" class="hover:text-white hover:underline transition-colors duration-200">Blue Flowers</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Blurred flower .html" class="hover:text-white hover:underline transition-colors duration-200">Blurred Flower </a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Book and flower.html" class="hover:text-white hover:underline transition-colors duration-200">Book And Flower</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Bouqet and basket.html" class="hover:text-white hover:underline transition-colors duration-200">Bouqet And Basket</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Bouqet.html" class="hover:text-white hover:underline transition-colors duration-200">Bouqet</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Butter flies and flower.html" class="hover:text-white hover:underline transition-colors duration-200">Butter Flies And Flower</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Butterflies and flowers.html" class="hover:text-white hover:underline transition-colors duration-200">Butterflies And Flowers</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Butterflies and flowers2.html" class="hover:text-white hover:underline transition-colors duration-200">Butterflies And Flowers2</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Butterflies and liliacs.html" class="hover:text-white hover:underline transition-colors duration-200">Butterflies And Liliacs</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Butterfly and beautiful flower.html" class="hover:text-white hover:underline transition-colors duration-200">Butterfly And Beautiful Flower</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Floral arrangement painting.html" class="hover:text-white hover:underline transition-colors duration-200">Floral Arrangement Painting</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Flower Basket.html" class="hover:text-white hover:underline transition-colors duration-200">Flower Basket</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Flower borders.html" class="hover:text-white hover:underline transition-colors duration-200">Flower Borders</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Flower garden.html" class="hover:text-white hover:underline transition-colors duration-200">Flower Garden</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Flower landscape.html" class="hover:text-white hover:underline transition-colors duration-200">Flower Landscape</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Flower sketch.html" class="hover:text-white hover:underline transition-colors duration-200">Flower Sketch</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Flower water painting.html" class="hover:text-white hover:underline transition-colors duration-200">Flower Water Painting</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/flowers border.html" class="hover:text-white hover:underline transition-colors duration-200">Flowers Border</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Flowers.html" class="hover:text-white hover:underline transition-colors duration-200">Flowers</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Garde-gate.html" class="hover:text-white hover:underline transition-colors duration-200">Garde Gate</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Garden wildlife.html" class="hover:text-white hover:underline transition-colors duration-200">Garden Wildlife</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Garden.html" class="hover:text-white hover:underline transition-colors duration-200">Garden</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Leaves.html" class="hover:text-white hover:underline transition-colors duration-200">Leaves</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/pastel flowers.html" class="hover:text-white hover:underline transition-colors duration-200">Pastel Flowers</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Pink Basket.html" class="hover:text-white hover:underline transition-colors duration-200">Pink Basket</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/Pink Daisies.html" class="hover:text-white hover:underline transition-colors duration-200">Pink Daisies</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/roses.html" class="hover:text-white hover:underline transition-colors duration-200">Roses</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/tree.html" class="hover:text-white hover:underline transition-colors duration-200">Tree</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/valentine-day/flower sketches/white flower painting.html" class="hover:text-white hover:underline transition-colors duration-200">White Flower Painting</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Footer Links</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/privacypolicy,html" class="hover:text-white hover:underline transition-colors duration-200">Privacy Policy</a></li>
+          <li><a href="https://www.happy-new-year.org/sitemap.html" class="hover:text-white hover:underline transition-colors duration-200">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center text-sm text-gray-400">
+      
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">&copy; 2026 Wish Happy New Year 2027. All rights reserved.</p>
+      
+    </div>
+
+  </div>
+</footer>

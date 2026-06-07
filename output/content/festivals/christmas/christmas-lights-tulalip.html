@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tulalip Lights & Ice — Christmas at Quil Ceda Village</title>
+<meta name="description" content="A photo journal from Tulalip Lights & Ice at Quil Ceda Village near Seattle Premium Outlets — 97 million holiday lights, ice skating, and festive magic in Tulalip, WA.">
+<meta name="keywords" content="Tulalip Lights and Ice, Quil Ceda Village, Christmas lights Seattle, holiday lights Tulalip, Seattle Premium Outlets Christmas, Washington holiday events">
+<meta property="og:title" content="Tulalip Lights & Ice — A Holiday Photo Journal">
+<meta property="og:description" content="97 million lights. One magical night. Tulalip Lights & Ice at Quil Ceda Village near Seattle.">
+<meta property="og:image" content="https://storage.googleapis.com/placestosee/christmas-lights-wa/900w/PXL_20251221_013823551.jpg">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Serif+Display:ital@0;1&family=Syncopate:wght@400;700&family=Jost:ital,wght@0,200;0,300;0,400;1,300&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --night:     #07090f;
+  --deep-navy: #0c1120;
+  --navy:      #111827;
+  --gold:      #f5c842;
+  --gold-warm: #e8a020;
+  --gold-dim:  #7a5010;
+  --crimson:   #c0272d;
+  --holly:     #1a5c2a;
+  --frost:     #d4eaf7;
+  --frost-dim: #6a9ab8;
+  --cream:     #fdf6e8;
+  --snow:      #f0f4f8;
+  --shadow:    rgba(7,9,15,0.6);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--night);
+  color: var(--cream);
+  font-family: 'Jost', sans-serif;
+  overflow-x: hidden;
+  cursor: default;
+}
+
+/* ── BOKEH CANVAS (ambient glow overlay) ─────────────── */
+#bokeh {
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.18;
+}
+
+/* ── HERO ─────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 640px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.hero-img {
+  position: absolute; inset: 0;
+  animation: heroZoom 10s ease both;
+}
+
+@keyframes heroZoom {
+  from { transform: scale(1.12); }
+  to   { transform: scale(1); }
+}
+
+.hero-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-img::after {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to top, rgba(7,9,15,0.97) 0%, rgba(7,9,15,0.5) 40%, rgba(7,9,15,0.1) 70%, transparent 100%),
+    linear-gradient(to right, rgba(7,9,15,0.6) 0%, transparent 50%);
+}
+
+/* Animated light-string across hero */
+.hero-lights {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 60px;
+  z-index: 3;
+  overflow: hidden;
+}
+
+.light-string {
+  position: absolute;
+  top: 0; left: -10px; right: -10px;
+  height: 2px;
+  background: rgba(245,200,66,0.3);
+}
+
+.bulb {
+  position: absolute;
+  top: 2px;
+  width: 8px; height: 12px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  animation: bulbFlicker 3s ease-in-out infinite;
+}
+
+@keyframes bulbFlicker {
+  0%,100% { opacity: 1; filter: brightness(1); }
+  50%      { opacity: 0.7; filter: brightness(0.6); }
+  75%      { opacity: 1; filter: brightness(1.3); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 4;
+  padding: 0 80px 80px;
+  animation: fadeUp 1s ease 0.6s both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-eyebrow {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 400;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 18px;
+}
+
+.hero-title {
+  font-family: 'Italiana', serif;
+  font-size: clamp(4rem, 10vw, 9rem);
+  line-height: 0.92;
+  font-weight: 400;
+  color: var(--cream);
+  text-shadow: 0 0 80px rgba(245,200,66,0.3);
+  margin-bottom: 8px;
+}
+
+.hero-title .glow {
+  color: var(--gold);
+  text-shadow:
+    0 0 20px rgba(245,200,66,0.8),
+    0 0 60px rgba(245,200,66,0.4),
+    0 0 120px rgba(245,200,66,0.2);
+}
+
+.hero-sub {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: rgba(253,246,232,0.6);
+  margin: 20px 0 36px;
+  max-width: 500px;
+  line-height: 1.65;
+}
+
+.hero-tags {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.hero-tag {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 0.55rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(253,246,232,0.4);
+  border: 1px solid rgba(245,200,66,0.2);
+  padding: 8px 18px;
+  border-radius: 1px;
+  backdrop-filter: blur(4px);
+  background: rgba(245,200,66,0.04);
+}
+
+.hero-tag.hot {
+  color: var(--gold);
+  border-color: rgba(245,200,66,0.5);
+  background: rgba(245,200,66,0.08);
+}
+
+/* ── MARQUEE STRIP ───────────────────────────────────── */
+.marquee-strip {
+  position: relative;
+  z-index: 1;
+  background: var(--crimson);
+  padding: 14px 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(245,200,66,0.3);
+  border-bottom: 1px solid rgba(245,200,66,0.3);
+}
+
+.marquee-inner {
+  display: flex;
+  gap: 0;
+  white-space: nowrap;
+  animation: marquee 25s linear infinite;
+  width: max-content;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-text {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--cream);
+  padding: 0 40px;
+}
+
+.marquee-star { color: var(--gold); padding: 0 8px; }
+
+/* ── INTRO CARD ──────────────────────────────────────── */
+.intro-card {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 60px 72px;
+  border: 1px solid rgba(245,200,66,0.15);
+  border-radius: 2px;
+  background: linear-gradient(135deg, rgba(17,24,39,0.9) 0%, rgba(12,17,32,0.95) 100%);
+  text-align: center;
+  backdrop-filter: blur(8px);
+}
+
+.intro-card::before {
+  content: '✦';
+  display: block;
+  font-size: 1.4rem;
+  color: var(--gold);
+  margin-bottom: 24px;
+  text-shadow: 0 0 20px rgba(245,200,66,0.8);
+}
+
+.intro-card p {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-size: 1.3rem;
+  line-height: 1.75;
+  color: rgba(253,246,232,0.85);
+  margin-bottom: 28px;
+}
+
+.intro-card-meta {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.meta-num {
+  font-family: 'Italiana', serif;
+  font-size: 2.4rem;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.meta-label {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 0.5rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(253,246,232,0.35);
+}
+
+/* ── SECTION HEADS ───────────────────────────────────── */
+.sec-head {
+  position: relative;
+  z-index: 1;
+  padding: 64px 72px 40px;
+}
+
+.sec-head .tag {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 0.55rem;
+  font-weight: 400;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold-warm);
+  margin-bottom: 12px;
+}
+
+.sec-head h2 {
+  font-family: 'Italiana', serif;
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1;
+  color: var(--cream);
+}
+
+.sec-head h2 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.gold-rule {
+  width: 40px; height: 2px;
+  background: linear-gradient(to right, var(--gold), transparent);
+  margin-top: 18px;
+}
+
+/* ── HERO FEATURE SPREAD ─────────────────────────────── */
+.feature-spread {
+  position: relative;
+  z-index: 1;
+  padding: 0 72px 64px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  min-height: 600px;
+}
+
+.spread-item {
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.spread-item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+.spread-item:hover img { transform: scale(1.05); }
+
+.spread-item.main { grid-row: span 2; }
+
+.spread-item .glow-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(7,9,15,0.7) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: 18px;
+}
+
+.spread-item:hover .glow-overlay { opacity: 1; }
+
+.glow-overlay span {
+  font-family: 'Jost', sans-serif;
+  font-weight: 200;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ── MASONRY GRID ────────────────────────────────────── */
+.gallery-wrap {
+  position: relative;
+  z-index: 1;
+  padding: 0 72px 64px;
+}
+
+.masonry {
+  columns: 3;
+  column-gap: 10px;
+}
+
+.m-item {
+  break-inside: avoid;
+  margin-bottom: 10px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.m-item img {
+  width: 100%;
+  display: block;
+  transition: transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94), filter 0.4s ease;
+  filter: brightness(0.92) saturate(1.1);
+}
+
+.m-item:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.05) saturate(1.3);
+}
+
+.m-item .cap {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(7,9,15,0.85) 0%, transparent 55%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: 14px;
+}
+
+.m-item:hover .cap { opacity: 1; }
+
+.cap span {
+  font-family: 'Jost', sans-serif;
+  font-weight: 200;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(245,200,66,0.9);
+}
+
+/* ── GLOW ROW (MP panoramas) ─────────────────────────── */
+.glow-section {
+  position: relative;
+  z-index: 1;
+  background: var(--deep-navy);
+  padding: 72px 0;
+  border-top: 1px solid rgba(245,200,66,0.08);
+  border-bottom: 1px solid rgba(245,200,66,0.08);
+}
+
+.glow-scroll {
+  display: flex;
+  gap: 10px;
+  padding: 0 72px 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold-dim) var(--deep-navy);
+}
+
+.glow-scroll::-webkit-scrollbar { height: 2px; }
+.glow-scroll::-webkit-scrollbar-thumb { background: var(--gold-dim); }
+
+.glow-item {
+  flex-shrink: 0;
+  width: 360px;
+  scroll-snap-align: start;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  border-radius: 2px;
+  border: 1px solid rgba(245,200,66,0.1);
+  transition: border-color 0.3s;
+}
+
+.glow-item:hover { border-color: rgba(245,200,66,0.4); }
+
+.glow-item img {
+  width: 100%; height: 240px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease, filter 0.4s ease;
+  filter: saturate(1.2) brightness(0.88);
+}
+
+.glow-item:hover img {
+  transform: scale(1.06);
+  filter: saturate(1.4) brightness(1.05);
+}
+
+.glow-item .num {
+  position: absolute;
+  top: 10px; left: 12px;
+  font-family: 'Syncopate', sans-serif;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  color: rgba(245,200,66,0.6);
+  background: rgba(7,9,15,0.5);
+  padding: 4px 8px;
+  backdrop-filter: blur(4px);
+}
+
+/* ── SPECIAL SHOTS (long exposure + portrait) ────────── */
+.special-section {
+  position: relative;
+  z-index: 1;
+  padding: 0 72px 72px;
+}
+
+.special-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.special-item {
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  border-radius: 2px;
+  border: 1px solid rgba(245,200,66,0.08);
+}
+
+.special-item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease, filter 0.4s ease;
+  filter: saturate(1.2);
+}
+
+.special-item:hover img {
+  transform: scale(1.04);
+  filter: saturate(1.5) brightness(1.1);
+}
+
+.special-item .badge {
+  position: absolute;
+  top: 10px; right: 10px;
+  font-family: 'Syncopate', sans-serif;
+  font-size: 0.5rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  background: rgba(192,39,45,0.85);
+  color: var(--cream);
+  padding: 5px 10px;
+  backdrop-filter: blur(4px);
+}
+
+.special-item.exposure { border-color: rgba(245,200,66,0.25); }
+.special-item.exposure img { filter: saturate(1.3) brightness(1.1); }
+
+/* ── FILMSTRIP ───────────────────────────────────────── */
+.strip-section {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(to bottom, var(--deep-navy), var(--night));
+  padding: 64px 0 80px;
+  border-top: 1px solid rgba(245,200,66,0.08);
+}
+
+.strip-scroll {
+  display: flex;
+  gap: 6px;
+  padding: 0 72px 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold-dim) var(--night);
+}
+
+.strip-scroll::-webkit-scrollbar { height: 2px; }
+.strip-scroll::-webkit-scrollbar-thumb { background: var(--gold-dim); }
+
+.strip-item {
+  flex-shrink: 0;
+  width: 160px;
+  scroll-snap-align: start;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  border-radius: 1px;
+  border: 1px solid rgba(245,200,66,0.08);
+  transition: border-color 0.2s;
+}
+
+.strip-item:hover { border-color: rgba(245,200,66,0.35); }
+
+.strip-item img {
+  width: 100%; height: 110px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease, filter 0.3s ease;
+  filter: brightness(0.8) saturate(1.1);
+}
+
+.strip-item:hover img {
+  transform: scale(1.08);
+  filter: brightness(1.1) saturate(1.4);
+}
+
+.strip-num {
+  position: absolute;
+  bottom: 4px; right: 6px;
+  font-family: 'Syncopate', sans-serif;
+  font-size: 0.5rem;
+  color: rgba(245,200,66,0.4);
+}
+
+/* ── FOOTER ──────────────────────────────────────────── */
+.footer {
+  position: relative;
+  z-index: 1;
+  background: var(--night);
+  border-top: 1px solid rgba(245,200,66,0.12);
+  padding: 64px 72px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: center;
+}
+
+.footer-title {
+  font-family: 'Italiana', serif;
+  font-size: 2.8rem;
+  color: var(--gold);
+  text-shadow: 0 0 30px rgba(245,200,66,0.3);
+  margin-bottom: 8px;
+}
+
+.footer-sub {
+  font-family: 'Jost', sans-serif;
+  font-weight: 200;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: rgba(253,246,232,0.3);
+  line-height: 2;
+}
+
+.footer-badge {
+  text-align: right;
+  font-family: 'Syncopate', sans-serif;
+  font-size: 0.5rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(253,246,232,0.2);
+  line-height: 2.5;
+}
+
+/* ── REVEAL ──────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── SNOW CURSOR PARTICLES ───────────────────────────── */
+.snowflake {
+  position: fixed;
+  top: -10px;
+  pointer-events: none;
+  z-index: 9999;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+  animation: snowfall linear forwards;
+  user-select: none;
+}
+
+@keyframes snowfall {
+  to { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────── */
+@media (max-width: 900px) {
+  .hero-content { padding: 0 32px 60px; }
+  .sec-head, .gallery-wrap, .special-section, .feature-spread { padding-left: 24px; padding-right: 24px; }
+  .masonry { columns: 2; }
+  .feature-spread { grid-template-columns: 1fr 1fr; min-height: 400px; }
+  .spread-item.main { grid-row: span 1; grid-column: span 2; }
+  .special-grid { grid-template-columns: 1fr 1fr; }
+  .glow-scroll, .strip-scroll { padding-left: 24px; }
+  .footer { padding: 48px 32px; grid-template-columns: 1fr; }
+  .footer-badge { text-align: left; }
+  .intro-card { margin: 60px 24px; padding: 40px 32px; }
+  .intro-card-meta { gap: 32px; }
+}
+
+@media (max-width: 600px) {
+  .masonry { columns: 1; }
+  .special-grid { grid-template-columns: 1fr; }
+  .hero-title { font-size: clamp(3rem, 16vw, 5rem); }
+  .glow-item { width: 260px; }
+  .strip-item { width: 130px; }
+  .hero-tags { gap: 10px; }
+}
+</style>
+</head>
+<body>
+
+<canvas id="bokeh"></canvas>
+
+<!-- ── HERO ───────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-img">
+    <img
+      src="https://storage.googleapis.com/placestosee/christmas-lights-wa/900w/PXL_20251221_013823551.jpg"
+      srcset="
+        https://storage.googleapis.com/placestosee/christmas-lights-wa/600w/PXL_20251221_013823551.jpg 600w,
+        https://storage.googleapis.com/placestosee/christmas-lights-wa/900w/PXL_20251221_013823551.jpg 900w"
+      sizes="100vw"
+      alt="Tulalip Lights and Ice Christmas display"
+      loading="eager"
+    >
+  </div>
+  <div class="hero-lights" id="heroLights"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Tulalip Lights &amp; Ice &nbsp;·&nbsp; Quil Ceda Village, WA</p>
+    <h1 class="hero-title"><span class="glow">97 Million</span><br>Holiday<br>Lights</h1>
+    <p class="hero-sub">Experience the spectacular Christmas light show near Seattle at the Premium Outlets. Two nights, two years, a magical tradition.</p>
+    <div class="hero-tags">
+      <span class="hero-tag hot">★ Tulalip, WA</span>
+      <span class="hero-tag">Nov 2023 &amp; Dec 2025</span>
+      <span class="hero-tag">55 Photographs</span>
+      <span class="hero-tag">Quil Ceda Village</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── MARQUEE ─────────────────────────────────────────────── -->
+<div class="marquee-strip">
+  <div class="marquee-inner" id="marqueeInner"></div>
+</div>
+
+<!-- ── INTRO CARD ──────────────────────────────────────────── -->
+<div class="intro-card reveal">
+  <p>"Every year, Quil Ceda Village transforms into a wonderland of <em>97 million lights</em> - shimmering trees, luminous arches, ice skating, and the cozy charm of a Pacific Northwest Christmas tradition.</p>
+  <div class="intro-card-meta">
+    <div class="meta-item">
+      <span class="meta-num">97M</span>
+      <span class="meta-label">Holiday Lights</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-num">55</span>
+      <span class="meta-label">Photos Taken</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-num">2</span>
+      <span class="meta-label">Magical Visits</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-num">WA</span>
+      <span class="meta-label">Tulalip, WA</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── FEATURE SPREAD ──────────────────────────────────────── -->
+<div class="sec-head reveal">
+  <p class="tag">First Look · 2023 &amp; 2025</p>
+  <h2>Into the <em>Light</em></h2>
+  <div class="gold-rule"></div>
+</div>
+<div class="feature-spread reveal" id="featureSpread"></div>
+
+<!-- ── MAIN GALLERY ────────────────────────────────────────── -->
+<div class="sec-head reveal">
+  <p class="tag">The Full Glow</p>
+  <h2>A Night of <em>Wonder</em></h2>
+  <div class="gold-rule"></div>
+</div>
+<div class="gallery-wrap reveal">
+  <div class="masonry" id="masonry"></div>
+</div>
+
+<!-- ── MP PANORAMAS ────────────────────────────────────────── -->
+<section class="glow-section">
+  <div class="sec-head reveal" style="padding-top:0">
+    <p class="tag">Wide Shots · Panoramas</p>
+    <h2>All the <em>Magic</em></h2>
+    <div class="gold-rule"></div>
+  </div>
+  <div class="glow-scroll" id="glowScroll"></div>
+</section>
+
+<!-- ── SPECIAL: LONG EXPOSURE + PORTRAITS ─────────────────── -->
+<div class="sec-head reveal">
+  <p class="tag">Long Exposure &amp; Portraits</p>
+  <h2>Captured in <em>Light</em></h2>
+  <div class="gold-rule"></div>
+</div>
+<div class="special-section reveal" id="specialSec">
+  <div class="special-grid" id="specialGrid"></div>
+</div>
+
+<!-- ── FULL FILMSTRIP ──────────────────────────────────────── -->
+<section class="strip-section">
+  <div class="sec-head reveal" style="padding-top:0">
+    <p class="tag">Every Frame</p>
+    <h2>All <em>55</em> Photos</h2>
+    <div class="gold-rule"></div>
+  </div>
+  <div class="strip-scroll" id="stripScroll"></div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────────────────── -->
+<footer class="footer">
+  <div>
+    <div class="footer-title">Tulalip Lights &amp; Ice</div>
+    <div class="footer-sub">
+      Quil Ceda Village · Tulalip, WA 98271<br>
+      Next to Seattle Premium Outlets · I-5 Exit 202<br>
+      Photographed November 2023 &amp; December 2025
+    </div>
+  </div>
+  <div class="footer-badge">
+    55 Photographs<br>
+    Personal Collection<br>
+    Washington State
+  </div>
+</footer>
+
+<script>
+const BASE   = 'https://storage.googleapis.com/placestosee/christmas-lights-wa/';
+const DETAIL = 'image-detail.html';
+
+// ── All 55 images with captions and keywords ─────────────
+const ALL = [
+  { f:'PXL_20231126_014545153.MP.jpg',    c:'Lights arch entrance',         k:'Tulalip Lights,Christmas,arch,2023,Quil Ceda Village' },
+  { f:'PXL_20231126_014548321.jpg',        c:'Glowing path of lights',       k:'Tulalip Lights,path,glow,Christmas 2023' },
+  { f:'PXL_20231126_014549681.jpg',        c:'Holiday light display',        k:'Tulalip Lights,display,holiday,Washington' },
+  { f:'PXL_20231126_014550973.jpg',        c:'Christmas bokeh glow',         k:'Tulalip Lights,bokeh,glow,Christmas lights' },
+  { f:'PXL_20231126_014600707.jpg',        c:'Festive light tunnel',         k:'Tulalip Lights,tunnel,festive,2023' },
+  { f:'PXL_20231126_014603445.jpg',        c:'Golden light reflection',      k:'Tulalip Lights,gold,reflection,holiday' },
+  { f:'PXL_20231126_014608426.jpg',        c:'Light display close-up',       k:'Tulalip Lights,closeup,display,Christmas' },
+  { f:'PXL_20231126_014610815.jpg',        c:'Colorful holiday glow',        k:'Tulalip Lights,colorful,holiday,2023' },
+  { f:'PXL_20231126_014616433.jpg',        c:'Christmas scene detail',       k:'Tulalip Lights,scene,detail,Washington' },
+  { f:'PXL_20231126_014710421.MP.jpg',    c:'Wide panorama 2023',           k:'Tulalip Lights,panorama,wide,2023' },
+  { f:'PXL_20231126_014843837.MP.jpg',    c:'Evening panorama of lights',   k:'Tulalip Lights,evening,panorama,Christmas 2023' },
+  { f:'PXL_20231126_014845056.jpg',        c:'Holiday night scene',          k:'Tulalip Lights,night,scene,2023' },
+  { f:'PXL_20231126_015051556.MP.jpg',    c:'Light display panorama',       k:'Tulalip Lights,panorama,display,2023' },
+  { f:'PXL_20231126_015100804.MP.jpg',    c:'Sparkling arch panorama',      k:'Tulalip Lights,arch,sparkling,2023' },
+  { f:'PXL_20231126_015103544.jpg',        c:'Warm light garden',            k:'Tulalip Lights,garden,warm,lights' },
+  { f:'PXL_20231126_015236622.jpg',        c:'Holiday spectacle',            k:'Tulalip Lights,spectacle,holiday,Washington' },
+  { f:'PXL_20231126_015239296.jpg',        c:'Festive evening glow',         k:'Tulalip Lights,evening,festive,glow' },
+  { f:'PXL_20231126_015245078.jpg',        c:'Light installation art',       k:'Tulalip Lights,art,installation,Christmas' },
+  { f:'PXL_20231126_015248426.jpg',        c:'Winter wonderland lights',     k:'Tulalip Lights,winter wonderland,Christmas 2023' },
+  { f:'PXL_20231126_015253200.jpg',        c:'Glimmering display',           k:'Tulalip Lights,glimmer,display,holiday' },
+  { f:'PXL_20231126_015327973.jpg',        c:'Bright holiday scene',         k:'Tulalip Lights,bright,scene,2023' },
+  { f:'PXL_20231126_015328917.jpg',        c:'Luminous night display',       k:'Tulalip Lights,luminous,night,Washington' },
+  { f:'PXL_20231126_015332924.jpg',        c:'Christmas light finale 2023',  k:'Tulalip Lights,finale,2023,Christmas' },
+  { f:'PXL_20251221_002714398.jpg',        c:'Return visit 2025',            k:'Tulalip Lights,2025,return,Christmas' },
+  { f:'PXL_20251221_005643596.jpg',        c:'New displays 2025',            k:'Tulalip Lights,2025,new,displays' },
+  { f:'PXL_20251221_005648572.jpg',        c:'Festive arches 2025',          k:'Tulalip Lights,arches,2025,festive' },
+  { f:'PXL_20251221_005656069.jpg',        c:'Light garden 2025',            k:'Tulalip Lights,garden,2025,holiday' },
+  { f:'PXL_20251221_005720068.jpg',        c:'Sparkling pathways',           k:'Tulalip Lights,pathways,sparkling,2025' },
+  { f:'PXL_20251221_005934528.MP.jpg',    c:'2025 panorama dusk',           k:'Tulalip Lights,panorama,dusk,2025' },
+  { f:'PXL_20251221_010355740.MP.jpg',    c:'Wide shot evening 2025',       k:'Tulalip Lights,evening,wide,2025' },
+  { f:'PXL_20251221_010358131.jpg',        c:'Twinkling display 2025',       k:'Tulalip Lights,twinkling,2025,Christmas' },
+  { f:'PXL_20251221_013336476.jpg',        c:'Illuminated walkway',          k:'Tulalip Lights,walkway,illuminated,2025' },
+  { f:'PXL_20251221_013338199.jpg',        c:'Radiant holiday scene',        k:'Tulalip Lights,radiant,scene,2025' },
+  { f:'PXL_20251221_013559610.jpg',        c:'Festival of lights',           k:'Tulalip Lights,festival,lights,Washington' },
+  { f:'PXL_20251221_013604543.jpg',        c:'Glowing archway 2025',         k:'Tulalip Lights,archway,glow,2025' },
+  { f:'PXL_20251221_013610365.jpg',        c:'Christmas light tunnel 2025',  k:'Tulalip Lights,tunnel,2025,Christmas' },
+  { f:'PXL_20251221_013704793.jpg',        c:'Holiday light art',            k:'Tulalip Lights,art,holiday,2025' },
+  { f:'PXL_20251221_013738018.jpg',        c:'Sparkling golden lights',      k:'Tulalip Lights,golden,sparkling,2025' },
+  { f:'PXL_20251221_013823551.jpg',        c:'Peak Christmas glow',          k:'Tulalip Lights,peak,glow,2025' },
+  { f:'PXL_20251221_013917857.MP.jpg',    c:'Panoramic light sweep',        k:'Tulalip Lights,panoramic,sweep,2025' },
+  { f:'PXL_20251221_013921275.MP.jpg',    c:'Wide Christmas display',       k:'Tulalip Lights,wide,display,2025' },
+  { f:'PXL_20251221_013943414.MP.jpg',    c:'Light garden panorama',        k:'Tulalip Lights,garden,panorama,2025' },
+  { f:'PXL_20251221_013944242.jpg',        c:'Holiday atmosphere 2025',      k:'Tulalip Lights,atmosphere,2025,holiday' },
+  { f:'PXL_20251221_014029944.MP.jpg',    c:'Evening wide shot 2025',       k:'Tulalip Lights,evening,2025,panorama' },
+  { f:'PXL_20251221_014109233.jpg',        c:'Christmas glow detail',        k:'Tulalip Lights,glow,detail,2025' },
+  { f:'PXL_20251221_014111084.jpg',        c:'Warm festive light',           k:'Tulalip Lights,warm,festive,2025' },
+  { f:'PXL_20251221_014142615.MP.jpg',    c:'Panoramic finale 2025',        k:'Tulalip Lights,panoramic,finale,2025' },
+  { f:'PXL_20251221_014144606.jpg',        c:'Light display final night',    k:'Tulalip Lights,final,night,2025' },
+  { f:'PXL_20251221_014147952.jpg',        c:'Glimmering end of evening',    k:'Tulalip Lights,glimmer,evening,2025' },
+  { f:'PXL_20251221_014149114.jpg',        c:'Last lights of the night',     k:'Tulalip Lights,last,night,Christmas 2025' },
+  { f:'PXL_20251221_014229354.MP.jpg',    c:'Final panorama 2025',          k:'Tulalip Lights,final,panorama,2025' },
+  { f:'PXL_20251221_014235758.jpg',        c:'Goodbye Christmas 2025',       k:'Tulalip Lights,goodbye,2025,Christmas' },
+  { f:'PXL_20251221_014244961.LONG_EXPOSURE-01.COVER.jpg', c:'Long exposure light trails', k:'Tulalip Lights,long exposure,trails,2025' },
+  { f:'PXL_20251221_014256700.PORTRAIT.ORIGINAL.jpg',      c:'Holiday portrait 2025',      k:'Tulalip Lights,portrait,holiday,2025' },
+  { f:'PXL_20251221_014259294.PORTRAIT.ORIGINAL.jpg',      c:'Christmas portrait 2025',    k:'Tulalip Lights,portrait,Christmas,2025' },
+];
+
+// ── URL helpers ────────────────────────────────────────────
+// For this collection, ALL file types (including .MP.) exist in sized subfolders
+// Only .PORTRAIT.ORIGINAL and .LONG_EXPOSURE* are root-only
+function isResized(f) {
+  return !/PORTRAIT|LONG_EXPOSURE/i.test(f);  // everything except portrait & long-exp has sized copies
+}
+
+function u(f, w) {
+  return isResized(f) ? `${BASE}${w}w/${f}` : `${BASE}${f}`;
+}
+
+function ss(f) {
+  if (!isResized(f)) return '';
+  return [300, 500, 700, 900].map(w => `${u(f, w)} ${w}w`).join(', ');
+}
+
+function imgTag(f, w, sizes, alt, extraClass='') {
+  const srcset = ss(f);
+  return `<img src="${u(f, w)}" ${srcset ? `srcset="${srcset}" sizes="${sizes}"` : ''} alt="${alt}" class="${extraClass}" loading="lazy">`;
+}
+
+// ── Classify ───────────────────────────────────────────────
+const IDX = { plain: [], mp: [], portrait: [], longExposure: [] };
+ALL.forEach((img, i) => {
+  const fu = img.f.toUpperCase();
+  if (fu.includes('LONG_EXPOSURE'))      IDX.longExposure.push(i);
+  else if (fu.includes('PORTRAIT'))      IDX.portrait.push(i);
+  else if (/\.MP\.JPG$/i.test(img.f))   IDX.mp.push(i);
+  else                                    IDX.plain.push(i);
+});
+
+function goDetail(idx) {
+  const img = ALL[idx];
+  const p = new URLSearchParams({
+    imageurl:      u(img.f, 900),
+    title:         img.c,
+    meta_desc:     `Tulalip Lights & Ice, Quil Ceda Village WA — ${img.c}.`,
+    meta_keywords: img.k,
+    content:       `Photographed at Tulalip Lights & Ice, Quil Ceda Village, Tulalip WA.\n${img.c}. One of 97 million holiday lights near Seattle Premium Outlets.`,
+  });
+  window.location.href = `${DETAIL}?${p}`;
+}
+
+// ── MARQUEE ────────────────────────────────────────────────
+const mi = document.getElementById('marqueeInner');
+const seg = '✦ Tulalip Lights &amp; Ice ✦ Quil Ceda Village ✦ 97 Million Lights ✦ Tulalip WA ✦ Seattle Premium Outlets ✦ Christmas 2023 &amp; 2025 ✦ ';
+mi.innerHTML = seg.repeat(8);
+
+// ── HERO LIGHTS string ─────────────────────────────────────
+const hls = document.getElementById('heroLights');
+hls.innerHTML = '<div class="light-string"></div>';
+const colors = ['#f5c842','#c0272d','#1a5c2a','#d4eaf7','#e8a020','#9b59b6','#c0272d','#f5c842'];
+for (let i = 0; i < 32; i++) {
+  const b = document.createElement('div');
+  b.className = 'bulb';
+  b.style.left = (i * 3.2) + '%';
+  b.style.background = colors[i % colors.length];
+  b.style.boxShadow = `0 0 6px 2px ${colors[i % colors.length]}88`;
+  b.style.animationDelay = (Math.random() * 3) + 's';
+  b.style.animationDuration = (2 + Math.random() * 2) + 's';
+  hls.appendChild(b);
+}
+
+// ── BOKEH CANVAS ──────────────────────────────────────────
+const canvas = document.getElementById('bokeh');
+const ctx = canvas.getContext('2d');
+let bw, bh;
+const bokehDots = [];
+const bokehColors = ['#f5c842','#c0272d','#1a5c2a','#d4eaf7','#e8a020'];
+
+function initBokeh() {
+  bw = canvas.width = window.innerWidth;
+  bh = canvas.height = window.innerHeight;
+  bokehDots.length = 0;
+  for (let i = 0; i < 60; i++) {
+    bokehDots.push({
+      x: Math.random() * bw,
+      y: Math.random() * bh,
+      r: 4 + Math.random() * 28,
+      color: bokehColors[Math.floor(Math.random() * bokehColors.length)],
+      speed: 0.1 + Math.random() * 0.3,
+      phase: Math.random() * Math.PI * 2,
+    });
+  }
+}
+
+function drawBokeh(t) {
+  ctx.clearRect(0, 0, bw, bh);
+  bokehDots.forEach(d => {
+    d.y -= d.speed;
+    if (d.y + d.r < 0) { d.y = bh + d.r; d.x = Math.random() * bw; }
+    const alpha = 0.3 + 0.3 * Math.sin(t / 1000 + d.phase);
+    const grad = ctx.createRadialGradient(d.x, d.y, 0, d.x, d.y, d.r);
+    grad.addColorStop(0, d.color + 'cc');
+    grad.addColorStop(1, d.color + '00');
+    ctx.beginPath();
+    ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+    ctx.fillStyle = grad;
+    ctx.globalAlpha = alpha;
+    ctx.fill();
+  });
+  ctx.globalAlpha = 1;
+  requestAnimationFrame(drawBokeh);
+}
+
+initBokeh();
+requestAnimationFrame(drawBokeh);
+window.addEventListener('resize', initBokeh);
+
+// ── SNOWFALL ───────────────────────────────────────────────
+function spawnSnow() {
+  const s = document.createElement('div');
+  s.className = 'snowflake';
+  s.textContent = ['❄','❅','❆','·','*'][Math.floor(Math.random()*5)];
+  s.style.left = Math.random() * 100 + 'vw';
+  s.style.fontSize = (0.5 + Math.random() * 1.2) + 'rem';
+  s.style.opacity = (0.3 + Math.random() * 0.5);
+  const dur = 6 + Math.random() * 8;
+  s.style.animation = `snowfall ${dur}s linear forwards`;
+  document.body.appendChild(s);
+  setTimeout(() => s.remove(), dur * 1000);
+}
+setInterval(spawnSnow, 600);
+
+// ── FEATURE SPREAD ─────────────────────────────────────────
+// Main: first plain image; sides: next 2
+const fs = document.getElementById('featureSpread');
+[[IDX.plain[0],'main','800','66vw'],[IDX.plain[1],'','500','33vw'],[IDX.plain[2],'','500','33vw']].forEach(([idx,cls,w,sizes]) => {
+  const img = ALL[idx];
+  const d = document.createElement('div');
+  d.className = 'spread-item ' + cls;
+  d.style.cursor = 'pointer';
+  const srcset = ss(img.f);
+  d.innerHTML = `
+    ${imgTag(img.f, parseInt(w), sizes, img.c)}
+    <div class="glow-overlay"><span>${img.c}</span></div>
+  `;
+  d.addEventListener('click', () => goDetail(idx));
+  fs.appendChild(d);
+});
+
+// ── MASONRY: plain images (skip first 3 used in spread)
+const masonry = document.getElementById('masonry');
+IDX.plain.slice(3).forEach((idx) => {
+  const img = ALL[idx];
+  const d = document.createElement('div');
+  d.className = 'm-item';
+  d.innerHTML = `
+    ${imgTag(img.f, 400, '(max-width:600px) 100vw, (max-width:900px) 50vw, 33vw', img.c)}
+    <div class="cap"><span>${img.c}</span></div>
+  `;
+  d.addEventListener('click', () => goDetail(idx));
+  masonry.appendChild(d);
+});
+
+// ── GLOW SCROLL: all MP panoramas
+const gs = document.getElementById('glowScroll');
+IDX.mp.forEach((idx, pos) => {
+  const img = ALL[idx];
+  const d = document.createElement('div');
+  d.className = 'glow-item';
+  const srcset = ss(img.f);
+  d.innerHTML = `
+    ${imgTag(img.f, 500, '360px', img.c)}
+    <span class="num">${String(pos + 1).padStart(2,'0')}</span>
+  `;
+  d.addEventListener('click', () => goDetail(idx));
+  gs.appendChild(d);
+});
+
+// ── SPECIAL GRID: long exposure + portraits
+const sg = document.getElementById('specialGrid');
+[...IDX.longExposure, ...IDX.portrait].forEach((idx) => {
+  const img = ALL[idx];
+  const isLong = img.f.toUpperCase().includes('LONG_EXPOSURE');
+  const d = document.createElement('div');
+  d.className = 'special-item' + (isLong ? ' exposure' : '');
+  const srcset = ss(img.f);
+  d.innerHTML = `
+    ${imgTag(img.f, 600, '33vw', img.c)}
+    <span class="badge">${isLong ? 'Long Exposure' : 'Portrait'}</span>
+    <div class="glow-overlay"><span>${img.c}</span></div>
+  `;
+  d.addEventListener('click', () => goDetail(idx));
+  sg.appendChild(d);
+});
+
+// ── FILMSTRIP: all 55 images
+const strip = document.getElementById('stripScroll');
+ALL.forEach((img, i) => {
+  const d = document.createElement('div');
+  d.className = 'strip-item';
+  d.innerHTML = `
+    ${imgTag(img.f, 200, '160px', img.c)}
+    <span class="strip-num">${String(i + 1).padStart(2,'0')}</span>
+  `;
+  d.addEventListener('click', () => goDetail(i));
+  strip.appendChild(d);
+});
+
+// ── REVEAL OBSERVER ────────────────────────────────────────
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Dynamic meta tags — filled by JS from query params -->
+<title id="page-title">Photo Detail</title>
+<meta name="description" id="meta-desc" content="">
+<meta name="keywords"    id="meta-keywords" content="">
+
+<!-- Open Graph -->
+<meta property="og:type"        content="article">
+<meta property="og:title"       id="og-title"   content="">
+<meta property="og:description" id="og-desc"    content="">
+<meta property="og:image"       id="og-image"   content="">
+<meta property="og:url"         id="og-url"     content="">
+
+<!-- Twitter Card -->
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       id="tw-title" content="">
+<meta name="twitter:description" id="tw-desc"  content="">
+<meta name="twitter:image"       id="tw-image" content="">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Josefin+Sans:wght@200;300;400&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:        #14100d;
+    --cream:      #f4efe6;
+    --warm-white: #faf7f2;
+    --gold:       #c8962a;
+    --gold-light: #e8c96a;
+    --rust:       #b84b2a;
+    --muted:      #7a6a58;
+    --shadow:     rgba(20,16,13,0.18);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ink);
+    color: var(--cream);
+    font-family: 'Cormorant Garamond', serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── NAV BAR ───────────────────────────────────────────── */
+  .topbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 40px;
+    background: linear-gradient(to bottom, rgba(20,16,13,0.95) 0%, transparent 100%);
+    backdrop-filter: blur(4px);
+    animation: fadeDown 0.6s ease both;
+  }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .back-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(244,239,230,0.6);
+    text-decoration: none;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+    cursor: pointer;
+    background: none; border: none;
+  }
+
+  .back-btn:hover { color: var(--gold); }
+
+  .back-btn .arrow {
+    font-size: 1rem;
+    transition: transform 0.2s;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .back-btn:hover .arrow { transform: translateX(-4px); }
+
+  .topbar-actions {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .action-btn {
+    background: none; border: none;
+    color: rgba(244,239,230,0.5);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .action-btn:hover { color: var(--gold); }
+
+  .action-btn svg {
+    width: 14px; height: 14px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+  }
+
+  /* ── HERO IMAGE ────────────────────────────────────────── */
+  .image-hero {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 90px 0 0;
+    position: relative;
+    min-height: 70vh;
+    background: var(--ink);
+  }
+
+  .image-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, rgba(200,150,42,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .image-frame {
+    position: relative;
+    max-width: min(90vw, 1100px);
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 40px;
+    animation: imageFadeIn 0.8s ease 0.2s both;
+  }
+
+  @keyframes imageFadeIn {
+    from { opacity: 0; transform: scale(0.97); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+
+  .image-frame img {
+    width: 100%;
+    max-height: 78vh;
+    object-fit: contain;
+    display: block;
+    border-radius: 2px;
+    box-shadow:
+      0 2px 4px rgba(0,0,0,0.3),
+      0 8px 24px rgba(0,0,0,0.4),
+      0 32px 80px rgba(0,0,0,0.5),
+      0 0 0 1px rgba(200,150,42,0.08);
+  }
+
+  /* ── CONTENT PANEL ─────────────────────────────────────── */
+  .content-panel {
+    background: var(--warm-white);
+    color: var(--ink);
+    padding: 64px 40px 80px;
+    margin-top: 40px;
+    position: relative;
+    animation: slideUp 0.8s ease 0.5s both;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .content-panel::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%; transform: translateX(-50%);
+    width: 60px; height: 2px;
+    background: var(--gold);
+  }
+
+  .content-inner {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  /* no-content state */
+  .content-panel.bare {
+    background: transparent;
+    padding: 40px 40px 80px;
+  }
+
+  .content-panel.bare .content-inner {
+    text-align: center;
+  }
+
+  /* eyebrow tag */
+  .content-eyebrow {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: none; /* shown when title present */
+  }
+
+  /* title */
+  .content-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 24px;
+    display: none;
+  }
+
+  .content-title em {
+    font-style: italic;
+    color: var(--rust);
+  }
+
+  /* ornament */
+  .ornament {
+    width: 50px; height: 1px;
+    background: var(--gold);
+    margin: 28px 0;
+    position: relative;
+    display: none;
+  }
+
+  .ornament::before, .ornament::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+  .ornament::before { left: -3px; }
+  .ornament::after  { right: -3px; }
+
+  /* body content */
+  .content-body {
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: #3a2e24;
+    display: none;
+  }
+
+  /* keywords / tags */
+  .content-tags {
+    display: none;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 32px;
+  }
+
+  .tag {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border: 1px solid rgba(122,106,88,0.3);
+    padding: 5px 12px;
+    border-radius: 1px;
+  }
+
+  /* image filename fallback line */
+  .image-source-line {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(244,239,230,0.2);
+    text-align: center;
+    padding: 20px 40px 40px;
+  }
+
+  /* ── ERROR STATE ───────────────────────────────────────── */
+  .error-state {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 40px;
+    text-align: center;
+    gap: 20px;
+    animation: imageFadeIn 0.6s ease both;
+  }
+
+  .error-state h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--gold);
+  }
+
+  .error-state p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: rgba(244,239,230,0.5);
+    max-width: 400px;
+    line-height: 1.7;
+  }
+
+  .error-state code {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    background: rgba(200,150,42,0.1);
+    border: 1px solid rgba(200,150,42,0.2);
+    color: var(--gold-light);
+    padding: 12px 24px;
+    border-radius: 2px;
+    display: block;
+    max-width: 600px;
+    word-break: break-all;
+    line-height: 1.6;
+    text-align: left;
+  }
+
+  /* ── COPY TOAST ────────────────────────────────────────── */
+  .toast {
+    position: fixed;
+    bottom: 32px; left: 50%; transform: translateX(-50%) translateY(20px);
+    background: var(--gold);
+    color: var(--ink);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 12px 28px;
+    border-radius: 2px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 200;
+  }
+
+  .toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* ── RESPONSIVE ────────────────────────────────────────── */
+  @media (max-width: 640px) {
+    .topbar { padding: 16px 20px; }
+    .image-frame { padding: 0 16px; }
+    .content-panel { padding: 48px 24px 64px; }
+    .image-source-line { padding: 16px 24px 32px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── TOP BAR ───────────────────────────────────────────── -->
+<nav class="topbar">
+  <button class="back-btn" id="backBtn" onclick="goBack()">
+    <span class="arrow">←</span>
+    <span>Back</span>
+  </button>
+  <div class="topbar-actions">
+    <button class="action-btn" onclick="copyLink()" title="Copy link">
+      <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+      <span>Copy Link</span>
+    </button>
+    <a class="action-btn" id="downloadBtn" href="#" download title="Download image">
+      <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      <span>Save</span>
+    </a>
+  </div>
+</nav>
+
+<!-- ── MAIN (filled by JS) ───────────────────────────────── -->
+<main id="main"></main>
+
+<!-- ── IMAGE SOURCE ──────────────────────────────────────── -->
+<div class="image-source-line" id="sourceLine"></div>
+
+<!-- ── TOAST ─────────────────────────────────────────────── -->
+<div class="toast" id="toast">Link copied</div>
+
+<script>
+(function () {
+  const params  = new URLSearchParams(window.location.search);
+  const imageUrl   = params.get('imageurl') || params.get('imageUrl') || params.get('image') || '';
+  const title      = params.get('title')    || '';
+  const content    = params.get('content')  || '';
+  const metaDesc   = params.get('meta_desc') || params.get('description') || '';
+  const metaKw     = params.get('meta_keywords') || params.get('keywords') || '';
+  const backUrl    = params.get('back')     || document.referrer || '';
+
+  // ── Apply meta tags ──────────────────────────────────────
+  const pageTitle  = title || 'Photo Detail';
+  document.getElementById('page-title').textContent = pageTitle;
+
+  const setMeta = (id, val) => { if (val) document.getElementById(id).setAttribute('content', val); };
+  setMeta('meta-desc',    metaDesc);
+  setMeta('meta-keywords', metaKw);
+  setMeta('og-title',     pageTitle);
+  setMeta('og-desc',      metaDesc || content.substring(0, 160));
+  setMeta('og-image',     imageUrl);
+  setMeta('og-url',       window.location.href);
+  setMeta('tw-title',     pageTitle);
+  setMeta('tw-desc',      metaDesc || content.substring(0, 160));
+  setMeta('tw-image',     imageUrl);
+
+  // ── Download link ────────────────────────────────────────
+  if (imageUrl) {
+    const dlBtn = document.getElementById('downloadBtn');
+    dlBtn.href = imageUrl;
+    const fname = imageUrl.split('/').pop() || 'photo.jpg';
+    dlBtn.setAttribute('download', fname);
+  }
+
+  // ── Source line ──────────────────────────────────────────
+  if (imageUrl) {
+    const sl = document.getElementById('sourceLine');
+    sl.textContent = imageUrl;
+  }
+
+  // ── Render main content ──────────────────────────────────
+  const main = document.getElementById('main');
+
+  if (!imageUrl) {
+    // Error state
+    main.innerHTML = `
+      <div class="error-state">
+        <h1>No Image Provided</h1>
+        <p>This page expects an <em>imageurl</em> query parameter pointing to the photo you'd like to view.</p>
+        <code>image-detail.html?imageurl=https://example.com/photo.jpg&amp;title=My+Photo&amp;meta_desc=A+description&amp;meta_keywords=travel,photo&amp;content=Body+text+here</code>
+      </div>`;
+    return;
+  }
+
+  const hasText = title || content || metaKw;
+
+  main.innerHTML = `
+    <div class="image-hero">
+      <div class="image-frame">
+        <img id="detailImg" src="${escHtml(imageUrl)}" alt="${escHtml(title || 'Photo')}" />
+      </div>
+    </div>
+    <div class="content-panel${hasText ? '' : ' bare'}" id="contentPanel">
+      <div class="content-inner">
+        <div class="content-eyebrow" id="eyebrow">Photograph</div>
+        <h1 class="content-title" id="contentTitle"></h1>
+        <div class="ornament" id="ornament"></div>
+        <div class="content-body" id="contentBody"></div>
+        <div class="content-tags" id="contentTags"></div>
+      </div>
+    </div>
+  `;
+
+  // Populate title
+  if (title) {
+    document.getElementById('eyebrow').style.display = 'block';
+    const titleEl = document.getElementById('contentTitle');
+    titleEl.style.display = 'block';
+    // Wrap last word in <em> for editorial flair
+    const words = title.trim().split(' ');
+    if (words.length > 1) {
+      const last = words.pop();
+      titleEl.innerHTML = words.join(' ') + ' <em>' + escHtml(last) + '</em>';
+    } else {
+      titleEl.textContent = title;
+    }
+  }
+
+  // Ornament — show if both title + content
+  if (title && content) {
+    document.getElementById('ornament').style.display = 'block';
+  }
+
+  // Content body
+  if (content) {
+    const bodyEl = document.getElementById('contentBody');
+    bodyEl.style.display = 'block';
+    // Support \n as paragraph breaks
+    const paras = content.split(/\\n|<br>/g).filter(p => p.trim());
+    bodyEl.innerHTML = paras.map(p => `<p>${escHtml(p.trim())}</p>`).join('');
+  }
+
+  // Keywords as tags
+  if (metaKw) {
+    const tagsEl = document.getElementById('contentTags');
+    const tags = metaKw.split(',').map(t => t.trim()).filter(Boolean);
+    if (tags.length) {
+      tagsEl.style.display = 'flex';
+      tagsEl.innerHTML = tags.map(t => `<span class="tag">${escHtml(t)}</span>`).join('');
+    }
+  }
+
+  // Image error fallback
+  document.getElementById('detailImg').addEventListener('error', function () {
+    this.style.opacity = '0.3';
+    this.style.filter = 'grayscale(1)';
+  });
+
+})();
+
+// ── Back navigation ────────────────────────────────────────
+function goBack() {
+  if (document.referrer) {
+    history.back();
+  } else {
+    window.location.href = 'disneyland-travel-photos.html';
+  }
+}
+
+// ── Copy current URL ───────────────────────────────────────
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href).then(() => showToast('Link copied'));
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2400);
+}
+
+// ── HTML escape helper ─────────────────────────────────────
+function escHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+</script>
+</body>
+</html>

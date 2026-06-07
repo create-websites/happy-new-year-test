@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Photo Detail</title>
+  <meta name="description" content="Travel photo detail page." />
+  <meta name="keywords" content="travel photo, photo gallery" />
+  <meta property="og:title" content="Photo Detail" />
+  <meta property="og:description" content="Travel photo detail page." />
+  <meta property="og:image" content="" />
+  <style>
+    :root {
+      --bg: #0d1020;
+      --panel: rgba(255,255,255,.08);
+      --border: rgba(255,255,255,.16);
+      --text: #f7f8ff;
+      --muted: #c8cbe0;
+      --accent: #ffd36a;
+      --danger: #ff9a9a;
+      --shadow: 0 18px 45px rgba(0,0,0,.32);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(74,130,255,.28), transparent 34rem),
+        radial-gradient(circle at top right, rgba(255,126,182,.18), transparent 30rem),
+        linear-gradient(180deg, #121634 0%, var(--bg) 58%, #080a14 100%);
+      color: var(--text);
+    }
+    .wrap { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 28px 0 46px; }
+    .topbar { display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-bottom: 22px; }
+    .back, .open-original {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--text);
+      background: rgba(255,255,255,.08);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .back:hover, .open-original:hover { border-color: rgba(255,211,106,.55); }
+    header { text-align: center; padding: 12px 0 24px; }
+    .eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: .08em; font-size: 12px; font-weight: 800; }
+    h1 { margin: 10px auto 10px; max-width: 920px; font-size: clamp(30px, 5vw, 62px); line-height: 1; letter-spacing: -0.05em; }
+    .content { max-width: 780px; margin: 0 auto; color: var(--muted); font-size: clamp(16px, 2vw, 19px); line-height: 1.65; }
+    .photo-card { margin-top: 18px; border: 1px solid var(--border); background: var(--panel); border-radius: 28px; box-shadow: var(--shadow); overflow: hidden; }
+    .photo-frame { display: grid; place-items: center; min-height: 320px; background: rgba(0,0,0,.24); }
+    img { display: block; max-width: 100%; width: auto; height: auto; max-height: 84vh; object-fit: contain; }
+    .caption { padding: 16px 18px; color: var(--muted); font-size: 14px; word-break: break-word; }
+    .error { padding: 24px; color: var(--danger); text-align: center; font-weight: 700; }
+    @media (max-width: 640px) {
+      .topbar { align-items: stretch; flex-direction: column; }
+      .back, .open-original { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="topbar" aria-label="Photo navigation">
+      <a class="back" href="javascript:history.length > 1 ? history.back() : location.href='disneyland_california_travel_photos.html'">← Back to gallery</a>
+      <a class="open-original" id="openOriginal" href="#" target="_blank" rel="noopener">Open original</a>
+    </nav>
+
+    <header>
+      <div class="eyebrow">Travel Photo</div>
+      <h1 id="pageTitle">Photo Detail</h1>
+      <p class="content" id="pageContent">View the selected travel photo in a larger format.</p>
+    </header>
+
+    <main class="photo-card">
+      <div class="photo-frame" id="photoFrame">
+        <img id="detailImage" src="" alt="Travel photo" decoding="async" />
+      </div>
+      <div class="caption" id="caption"></div>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const imageUrl = params.get('imageurl') || params.get('image_url') || params.get('url');
+      const title = params.get('title') || 'Photo Detail';
+      const content = params.get('content') || 'View the selected travel photo in a larger format.';
+      const metaDesc = params.get('meta_desc') || content;
+      const metaKeywords = params.get('meta_keywords') || 'travel photo, photo gallery';
+
+      function setMeta(selector, attr, value) {
+        let el = document.querySelector(selector);
+        if (!el) return;
+        el.setAttribute(attr, value);
+      }
+
+      document.title = title;
+      document.getElementById('pageTitle').textContent = title;
+      document.getElementById('pageContent').textContent = content;
+      setMeta('meta[name="description"]', 'content', metaDesc);
+      setMeta('meta[name="keywords"]', 'content', metaKeywords);
+      setMeta('meta[property="og:title"]', 'content', title);
+      setMeta('meta[property="og:description"]', 'content', metaDesc);
+
+      const img = document.getElementById('detailImage');
+      const frame = document.getElementById('photoFrame');
+      const caption = document.getElementById('caption');
+      const openOriginal = document.getElementById('openOriginal');
+
+      if (!imageUrl) {
+        frame.innerHTML = '<div class="error">Missing required query parameter: imageurl</div>';
+        openOriginal.style.display = 'none';
+        caption.textContent = 'Example: image-detail.html?imageurl=https%3A%2F%2Fexample.com%2Fphoto.jpg';
+        return;
+      }
+
+      img.src = imageUrl;
+      img.alt = title;
+      openOriginal.href = imageUrl;
+      caption.textContent = imageUrl;
+      setMeta('meta[property="og:image"]', 'content', imageUrl);
+    }());
+  </script>
+</body>
+</html>

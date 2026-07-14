@@ -69,6 +69,7 @@
           <li><a href="https://www.happy-new-year.org/chat-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Chat New Year</a></li>
           <li><a href="https://www.happy-new-year.org/chinese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year</a></li>
           <li><a href="https://www.happy-new-year.org/cyber-monday/" class="hover:text-white hover:underline transition-colors duration-200">Cyber Monday</a></li>
+          <li><a href="https://www.happy-new-year.org/design/" class="hover:text-white hover:underline transition-colors duration-200">Design</a></li>
           <li><a href="https://www.happy-new-year.org/ethiopian/" class="hover:text-white hover:underline transition-colors duration-200">Ethiopian</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/" class="hover:text-white hover:underline transition-colors duration-200">Festivals</a></li>
           <li><a href="https://www.happy-new-year.org/food-and-wine-tips/" class="hover:text-white hover:underline transition-colors duration-200">Food And Wine Tips</a></li>
@@ -174,11 +175,11 @@
     </div>
 
     <div class="mt-8 text-center text-sm text-gray-400">
-      <p class="text-sm text-gray-400">Fathers Day Special</p>
+      <p class="text-sm text-gray-400">Celebrate Festival, Send wishes, Design cards</p>
     </div>
 
     <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
-      <p class="text-sm text-gray-400">&copy; 2026 2026 events Festivals News events. All rights reserved.</p>
+      <p class="text-sm text-gray-400">&copy; 2026 Happy New Year and Festivals. All rights reserved.</p>
       
     </div>
 

@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Rakhi — design your own</title>
+
+<meta content="A free interactive rakhi designer. Pick a style and shape, size it, add your photo, decorate a jewelled medallion in radial symmetry, choose your thread and closure, add LED lights, and download your Raksha Bandhan rakhi." name="description"/>
+<meta content="rakhi design, design rakhi online, rakhi maker, Raksha Bandhan, photo rakhi, personalised rakhi, kundan rakhi, LED rakhi, bracelet rakhi" name="keywords"/>
+<meta content="Prashant Dhingra" name="author"/>
+<meta content="index, follow" name="robots"/>
+<meta content="#140C22" name="theme-color"/>
+<link href="https://prashant.dhingra.website/design-rakhi/" rel="canonical"/>
+
+<meta content="website" property="og:type"/>
+<meta content="Rakhi — design your own" property="og:title"/>
+<meta content="Pick a style and shape, add your photo, decorate a jewelled rakhi in radial symmetry, add LED lights, and download it for Raksha Bandhan." property="og:description"/>
+<meta content="https://prashant.dhingra.website/design-rakhi/" property="og:url"/>
+<meta content="https://prashant.dhingra.website/design-rakhi/og-image.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Rakhi — design your own" name="twitter:title"/>
+<meta content="Design a jewelled, personalised rakhi with photo, shapes and LED lights, and download it for Raksha Bandhan." name="twitter:description"/>
+<meta content="https://prashant.dhingra.website/design-rakhi/og-image.png" name="twitter:image"/>
+
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&amp;family=DM+Sans:wght@400;500;700&amp;family=Tiro+Devanagari+Hindi&amp;display=swap" rel="stylesheet"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Rakhi Designer",
+  "url": "https://prashant.dhingra.website/design-rakhi/",
+  "description": "A free interactive tool to design a personalised rakhi with photo, shapes and LED lights, and download it as an image for Raksha Bandhan.",
+  "applicationCategory": "DesignApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires a modern web browser with HTML5 canvas.",
+  "author": { "@type": "Person", "name": "Prashant Dhingra" },
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "featureList": [
+    "Quick-start style presets",
+    "Six medallion shapes and adjustable overall size",
+    "Upload a photo for the centrepiece",
+    "Radial symmetry engine that turns one ornament into a ring",
+    "Ornaments: gem, pearl, kundan, bead, sequin, petal",
+    "Centrepiece motifs: Om, Swastik, Kalash, flower, star, nazar, rudraksha, diya",
+    "Personalise with a name or short message",
+    "Thread styles with tie, sliding-knot or clasp closures",
+    "LED lights with an optional twinkle animation",
+    "Download the finished rakhi as a PNG image"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What is a rakhi?", "acceptedAnswer": { "@type": "Answer", "text": "A rakhi is a decorative thread tied by a sister around her brother's wrist during Raksha Bandhan as a symbol of protection and love. It usually has a central motif, supporting decoration, a thread or band, and a closure." } },
+    { "@type": "Question", "name": "Can I add a photo to my rakhi?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Upload a photo and it is placed in the centre of the medallion with a gold frame, so you can make a personalised photo rakhi." } },
+    { "@type": "Question", "name": "Is the rakhi designer free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. It runs entirely in your browser, needs no sign-up, and lets you download your rakhi design as an image at no cost." } }
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --night:#140C22; --night-2:#1B1230; --panel:#20162F; --panel-hi:#2A1E3D;
+    --line:rgba(232,184,75,.16); --line-soft:rgba(243,236,221,.09);
+    --gold:#E8B84B; --gold-dim:#a98a3a; --ruby:#C42348;
+    --ink:#F3ECDD; --muted:#9E90B4;
+    --stage-1:#241938; --stage-2:#160E29;
+    --shadow:0 24px 60px -20px rgba(0,0,0,.7); --radius:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{font-family:"DM Sans",system-ui,sans-serif;background:radial-gradient(1200px 700px at 80% -12%, rgba(196,35,72,.12), transparent 60%),radial-gradient(1000px 800px at 4% 112%, rgba(232,184,75,.10), transparent 55%),var(--night);color:var(--ink);min-height:100dvh;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:1180px;margin:0 auto;padding:26px 22px 46px;display:flex;flex-direction:column;gap:22px}
+  header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:16px}
+  .brand{display:flex;align-items:center;gap:16px}
+  .mark{width:50px;height:50px;flex:none;color:var(--gold);filter:drop-shadow(0 3px 12px rgba(232,184,75,.4));animation:spin 46s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .titles{display:flex;flex-direction:column;gap:2px;line-height:1}
+  .wordmark{font-family:"Fraunces",serif;font-weight:900;font-size:clamp(30px,6vw,44px);letter-spacing:-.01em;background:linear-gradient(180deg,#fbf0d2,#E8B84B 55%,#b98a2f);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+  .subtitle{font-family:"Tiro Devanagari Hindi",serif;font-size:clamp(15px,3.6vw,20px);color:var(--muted);letter-spacing:.02em}
+  .tag{max-width:320px;text-align:right;font-size:13.5px;line-height:1.5;color:var(--muted)}
+  .tag b{color:var(--ink);font-weight:600}
+  main{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:22px;align-items:start}
+  @media (max-width:860px){main{grid-template-columns:1fr}}
+  .stage{position:relative;border-radius:var(--radius);background:radial-gradient(120% 120% at 50% 30%, var(--stage-1), var(--stage-2) 70%);border:1px solid var(--line);box-shadow:var(--shadow);overflow:hidden;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;touch-action:none}
+  .stage::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(closest-side at 50% 50%, transparent 62%, rgba(0,0,0,.35))}
+  canvas#art{width:100%;height:100%;display:block;position:relative;z-index:1;cursor:crosshair;touch-action:none}
+  .hint{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:2;font-size:12.5px;color:var(--muted);background:rgba(20,12,34,.62);backdrop-filter:blur(6px);padding:6px 12px;border-radius:999px;border:1px solid var(--line);transition:opacity .4s;pointer-events:none;white-space:nowrap}
+  .stage[data-touched="1"] .hint{opacity:0}
+  .panel{display:flex;flex-direction:column;gap:18px}
+  .card{background:linear-gradient(180deg,var(--panel),var(--night-2));border:1px solid var(--line);border-radius:var(--radius);padding:16px 16px 18px;box-shadow:var(--shadow)}
+  .card h2{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:13px;display:flex;align-items:center;gap:8px}
+  .card h2::after{content:"";flex:1;height:1px;background:var(--line-soft)}
+  .row{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{appearance:none;border:1px solid var(--line);background:var(--panel-hi);color:var(--ink);font-family:inherit;font-size:13px;font-weight:500;padding:8px 12px;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:border-color .15s,background .15s,transform .05s}
+  .chip svg{width:16px;height:16px;display:block}
+  .chip:hover{border-color:rgba(232,184,75,.4)}
+  .chip:active{transform:translateY(1px)}
+  .chip[aria-pressed="true"]{border-color:var(--gold);background:linear-gradient(180deg,rgba(232,184,75,.18),rgba(232,184,75,.06));color:#fbf0d2}
+  .swatches{display:flex;flex-wrap:wrap;gap:9px;align-items:center}
+  .sw{width:30px;height:30px;border-radius:50%;cursor:pointer;border:2px solid transparent;box-shadow:inset 0 0 0 1px rgba(0,0,0,.35),0 2px 6px rgba(0,0,0,.4);transition:transform .1s,border-color .12s;position:relative}
+  .sw:hover{transform:scale(1.08)}
+  .sw[aria-pressed="true"]{border-color:var(--ink);transform:scale(1.08)}
+  .sw.custom{display:grid;place-items:center;background:conic-gradient(from 0deg,#ff4d4d,#ffd24d,#4dff88,#4dd2ff,#b64dff,#ff4d4d);overflow:hidden}
+  .sw.custom input{opacity:0;width:100%;height:100%;cursor:pointer;border:0}
+  .field{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+  .field-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  label.lbl{font-size:12.5px;color:var(--muted);font-weight:500}
+  .val{font-size:12.5px;color:var(--gold);font-variant-numeric:tabular-nums;min-width:44px;text-align:right}
+  .textin{width:100%;background:var(--night-2);border:1px solid var(--line);border-radius:10px;color:var(--ink);font-family:inherit;font-size:14px;padding:10px 12px}
+  .textin::placeholder{color:var(--muted)}
+  .textin:focus{border-color:var(--gold);outline:none}
+  .subnote{font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.5}
+  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:99px;background:linear-gradient(90deg,var(--gold-dim),var(--gold));outline:none}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff5dd,#E8B84B);border:2px solid #7a5c1e;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.5)}
+  input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;border:2px solid #7a5c1e;background:radial-gradient(circle at 35% 30%,#fff5dd,#E8B84B);cursor:pointer}
+  .seg{display:flex;background:var(--night-2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .seg button{flex:1;appearance:none;border:0;background:transparent;color:var(--muted);font-family:inherit;font-size:13px;font-weight:600;padding:8px 0;cursor:pointer;transition:color .15s,background .15s}
+  .seg button + button{border-left:1px solid var(--line-soft)}
+  .seg button[aria-pressed="true"]{color:#140C22;background:var(--gold)}
+  .toggle{display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
+  .toggle input{position:absolute;opacity:0;pointer-events:none}
+  .track{width:42px;height:24px;border-radius:99px;background:var(--night-2);border:1px solid var(--line);position:relative;transition:background .18s;flex:none}
+  .track::after{content:"";position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:var(--muted);transition:transform .18s,background .18s}
+  .toggle input:checked + .track{background:linear-gradient(90deg,var(--gold-dim),var(--gold))}
+  .toggle input:checked + .track::after{transform:translateX(18px);background:#fff5dd}
+  .toggle span{font-size:13px;color:var(--ink)}
+  .actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .btn{appearance:none;font-family:inherit;font-size:13.5px;font-weight:600;padding:11px 12px;border-radius:11px;cursor:pointer;border:1px solid var(--line);background:var(--panel-hi);color:var(--ink);display:inline-flex;align-items:center;justify-content:center;gap:7px;transition:border-color .15s,background .15s,transform .05s,opacity .15s}
+  .btn svg{width:16px;height:16px}
+  .btn:hover{border-color:rgba(232,184,75,.45)}
+  .btn:active{transform:translateY(1px)}
+  .btn:disabled{opacity:.4;cursor:not-allowed}
+  .btn.wide{width:100%}
+  .btn.gold{grid-column:span 2;background:linear-gradient(180deg,#f4d576,#E8B84B 60%,#c99a34);color:#20130a;border-color:#8a6a24;font-weight:700}
+  .btn.gold:hover{filter:brightness(1.05)}
+  :focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:6px}
+  #toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);background:#2A1E3D;border:1px solid var(--gold);color:var(--ink);padding:11px 18px;border-radius:99px;font-size:13.5px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:50;max-width:80vw;text-align:center}
+  #toast.show{opacity:1;transform:translate(-50%,0)}
+  footer{text-align:center;color:var(--muted);font-size:12.5px;padding-top:6px}
+  footer a{color:var(--gold-dim);text-decoration:none}
+  footer a:hover{color:var(--gold)}
+  @media (prefers-reduced-motion:reduce){.mark{animation:none}*{transition:none !important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand">
+      <svg aria-hidden="true" class="mark" viewBox="0 0 100 100">
+        <g fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="50" cy="50" r="14"></circle><circle cx="50" cy="50" r="30" stroke-dasharray="2 5.5"></circle><circle cx="50" cy="50" r="42" stroke-dasharray="1 8"></circle></g>
+        <g fill="currentColor"><circle cx="50" cy="50" r="5"></circle><g id="petals"></g></g>
+      </svg>
+      <div class="titles"><div class="wordmark">Rakhi</div><div class="subtitle">राखी · design your own</div></div>
+    </div>
+    <p class="tag">Shape it, size it, decorate it. <b>One gem blooms into a ring</b> — build a personalised rakhi for Raksha Bandhan.</p>
+  </header>
+
+  <main>
+    <div class="stage" data-touched="0" id="stage">
+      <canvas aria-label="Rakhi design canvas" height="1200" id="art" width="1200"></canvas>
+      <div class="hint">Tap or drag on the medallion — near the centre for inner rings, near the edge for outer</div>
+    </div>
+
+    <div class="panel">
+
+      <div class="card">
+        <h2>Quick start</h2>
+        <div class="row" id="presetRow"></div>
+        <p class="subnote">Each style sets shape, colours, ornament and thread — then keep decorating.</p>
+      </div>
+
+      <div class="card">
+        <h2>Shape &amp; size</h2>
+        <div class="row" id="shapeRow"></div>
+        <div class="field">
+          <div class="field-row"><label class="lbl" for="scale">Rakhi size</label><span class="val" id="scaleVal">100%</span></div>
+          <input id="scale" max="100" min="50" type="range" value="100"/>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Centrepiece</h2>
+        <div class="field-row" style="margin-bottom:10px"><label class="lbl">Base colour</label></div>
+        <div class="swatches" id="baseSwatches"></div>
+        <div class="field-row" style="margin:14px 0 8px"><label class="lbl">Motif</label></div>
+        <div class="row" id="motifRow"></div>
+      </div>
+
+      <div class="card">
+        <h2>Photo</h2>
+        <label class="btn wide" for="photo">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M17 8l-5-5-5 5"></path><path d="M12 3v12"></path></svg>
+          Upload photo
+        </label>
+        <input accept="image/*" id="photo" style="display:none" type="file"/>
+        <div id="photoCtl" style="display:none">
+          <div class="field"><div class="field-row"><label class="lbl" for="zoom">Zoom</label><span class="val" id="zoomVal">1.0×</span></div><input id="zoom" max="3" min="1" step="0.05" type="range" value="1"/></div>
+          <button class="btn wide" id="rmPhoto" style="margin-top:10px">Remove photo</button>
+        </div>
+        <p class="subnote">Placed in the centre with a gold frame — for a personalised photo rakhi.</p>
+      </div>
+
+      <div class="card">
+        <h2>Personalise</h2>
+        <input autocomplete="off" class="textin" id="name" maxlength="22" placeholder="Name or short message" type="text"/>
+        <p class="subnote">Shows on a gold nameplate. Leave empty for none.</p>
+      </div>
+
+      <div class="card">
+        <h2>Ornament</h2>
+        <div class="row" id="ornRow"></div>
+        <div class="field"><div class="field-row"><label class="lbl" for="size">Size</label><span class="val" id="sizeVal">22</span></div><input id="size" max="46" min="8" type="range" value="22"/></div>
+        <div class="field"><div class="field-row"><label class="lbl">Symmetry</label><span class="val" id="foldVal">12 folds</span></div><div aria-label="Symmetry folds" class="seg" id="folds" role="group"></div></div>
+        <div class="field"><label class="toggle"><input id="mirror" type="checkbox"/><span class="track"></span><span>Mirror each fold</span></label></div>
+      </div>
+
+      <div class="card">
+        <h2>Ornament colour</h2>
+        <div class="swatches" id="ornSwatches"></div>
+      </div>
+
+      <div class="card">
+        <h2>Thread &amp; closure</h2>
+        <div class="field-row" style="margin-bottom:10px"><label class="lbl">Band colour</label></div>
+        <div class="swatches" id="threadSwatches"></div>
+        <div class="field-row" style="margin:14px 0 8px"><label class="lbl">Band style</label></div>
+        <div class="row" id="bandRow"></div>
+        <div class="field-row" style="margin:14px 0 8px"><label class="lbl">Closure (both ends)</label></div>
+        <div class="row" id="closureRow"></div>
+        <div class="field" style="margin-top:14px"><label class="toggle"><input checked="" id="tassel" type="checkbox"/><span class="track"></span><span>Hanging latkan</span></label></div>
+      </div>
+
+      <div class="card">
+        <h2>Lights</h2>
+        <label class="toggle"><input id="led" type="checkbox"/><span class="track"></span><span>LED lights</span></label>
+        <label class="toggle" style="margin-top:12px"><input id="anim" type="checkbox"/><span class="track"></span><span>Animate (twinkle)</span></label>
+        <p class="subnote">A ring of bulbs around the rim. Animation is a live preview — the saved image is a still.</p>
+      </div>
+
+      <div class="actions">
+        <button class="btn" disabled="" id="undo"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M9 14 4 9l5-5"></path><path d="M4 9h11a5 5 0 0 1 0 10h-1"></path></svg>Undo</button>
+        <button class="btn" id="clear"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6h18"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><path d="M6 6v14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V6"></path></svg>Clear</button>
+        <button class="btn gold" id="save"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M7 10l5 5 5-5"></path><path d="M12 15V3"></path></svg>Save rakhi</button>
+        <button class="btn" id="share" style="grid-column:span 2"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"></path></svg>Share</button>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="bg-gray-800 text-gray-300">
+<div class="container mx-auto px-6 py-12 lg:px-8">
+<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/easter/">Easter Festival</a></li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">26-bihari-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">26-chinese-new-year-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">26-christmas-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-festival-countdown</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">Christmas-wishes-by-audience</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">Happy-new-year-2026-celebrations-worldwide.html</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">Happy-new-year-2026</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">Multilingual-greetings-webpage</a>
+</li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+</ul>
+<h5 class="text-lg font-semibold text-white mb-4">Wishes and Wallpapers</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes-and-wallpapers.html">Wishes and Wallpapers</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/welcome-new-year.html">Welcome New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wallpapers">Festival Wallpaper for Desktop and Mobile</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards for  New Year</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">2026 News &amp; Trends t</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026-news.html">2026 News</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026-festival-holidays-world.html">2026 Festival Dates</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026-festival-holidays-all-countries.html">Countries Festival</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026-festival-countdown.html">Countdown of  Festival</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026-shraddh-dates.html">2026 Shradh Dates</a></li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-digital-outlook-trends-forecast</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">2026-festival-countdown</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026_dashboard.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">2026_dashboard</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/new_year_2026_page.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">New_year_2026_page</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/send-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl07_title">Send-christmas-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl08_title">Send-sankranti-wishes-in-multiple-languages</a>
+</li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/index-oct.html">Thanks Giving Main Page</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+<div class="space-y-2">
+<p>Redmond<br/>WA, USA</p>
+<p>
+<a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+</p>
+<p>
+<a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+</p>
+</div>
+</div>
+</div>
+<div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+<p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+<div class="flex space-x-4 mt-4 sm:mt-0">
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+<span class="sr-only">Facebook</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+</svg>
+</a>
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+<span class="sr-only">Twitter</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+</svg>
+</a>
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+<span class="sr-only">LinkedIn</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+</svg>
+</a>
+</div>
+<div class="flex gap-4 mt-4 sm:mt-0">
+<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+</div>
+</div>
+</div>
+</footer>
+</div>
+
+<div aria-live="polite" id="toast" role="status"></div>
+
+<script>
+(function(){
+  "use strict";
+  const SIZE=1200, CX=SIZE/2, CY=SIZE/2, R_MED=300;
+  const SHARE_URL="https://prashant.dhingra.website/design-rakhi/";
+  const SHARE_TEXT="I designed a rakhi for Raksha Bandhan — make your own:";
+  const artC=document.getElementById('art'), ctx=artC.getContext('2d'), stage=document.getElementById('stage');
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const JEWELS=[{n:'Gold',c:'#E8B84B'},{n:'Ruby',c:'#C42348'},{n:'Rose',c:'#E23A8A'},{n:'Saffron',c:'#F08A24'},{n:'Emerald',c:'#1F9E6B'},{n:'Sapphire',c:'#2E5BD6'},{n:'Amethyst',c:'#8145C4'},{n:'Turquoise',c:'#12A5A5'},{n:'Pearl',c:'#F4EEDD'},{n:'Wood',c:'#8A5A2B'}];
+  const BASES=[{n:'Ruby',a:'#B01E42',b:'#7A0E28'},{n:'Royal',a:'#3A57C8',b:'#1E2E86'},{n:'Emerald',a:'#1E9E68',b:'#0C6141'},{n:'Plum',a:'#7C3AA6',b:'#4A1E6E'},{n:'Saffron',a:'#F0932A',b:'#B45E12'},{n:'Gold',a:'#E8C05A',b:'#A87C22'},{n:'Ink',a:'#2A2140',b:'#160E29'}];
+  const THREADS=[{n:'Ruby',c:'#B01E42'},{n:'Maroon',c:'#6E1226'},{n:'Saffron',c:'#E07C1E'},{n:'Gold',c:'#C9992F'},{n:'Magenta',c:'#C2277E'},{n:'Emerald',c:'#1B7A55'},{n:'Cream',c:'#E7DCC0'}];
+  const ORNAMENTS=['Gem','Pearl','Kundan','Bead','Sequin','Petal'];
+  const BANDS=['Cord','Braided','Beaded','Chain'];
+  const CLOSURES=['Tie ends','Sliding knot','Clasp'];
+  const SHAPES=[{k:'circle',label:'● Circle'},{k:'flower',label:'✿ Flower'},{k:'cushion',label:'▢ Cushion'},{k:'star',label:'★ Star'},{k:'heart',label:'♥ Heart'},{k:'hexagon',label:'⬡ Hexagon'}];
+
+  const state={
+    shape:'circle', scale:1, base:BASES[0], motif:'om', ornColor:'#E8B84B', orn:'Kundan',
+    size:22, folds:12, mirror:false, thread:THREADS[0], bandStyle:'Beaded', closure:'Tie ends',
+    tassel:true, name:'', photo:null, photoZoom:1, led:false, animate:false, items:[]
+  };
+
+  const PRESETS={
+    Traditional:{shape:'circle',base:'Ruby',motif:'om',orn:'Kundan',color:'#E8B84B',thread:'Ruby',band:'Beaded',closure:'Tie ends',tassel:true,size:22,folds:12,seed:[['Kundan','#E8B84B',22,0.92],['Pearl','#F4EEDD',15,0.6]]},
+    Minimal:{shape:'circle',base:'Ink',motif:'none',orn:'Bead',color:'#F4EEDD',thread:'Cream',band:'Cord',closure:'Sliding knot',tassel:false,size:12,folds:8,seed:[['Bead','#F4EEDD',12,0.7]]},
+    Luxury:{shape:'hexagon',base:'Royal',motif:'star',orn:'Gem',color:'#2E5BD6',thread:'Gold',band:'Chain',closure:'Clasp',tassel:true,size:24,folds:12,seed:[['Gem','#2E5BD6',24,0.93],['Gem','#E8B84B',16,0.62]]},
+    Kids:{shape:'flower',base:'Saffron',motif:'star',orn:'Sequin',color:'#12A5A5',thread:'Magenta',band:'Cord',closure:'Tie ends',tassel:true,size:26,folds:8,seed:[['Sequin','#12A5A5',26,0.9],['Sequin','#E23A8A',20,0.58]]},
+    Eco:{shape:'flower',base:'Emerald',motif:'rudraksha',orn:'Bead',color:'#8A5A2B',thread:'Cream',band:'Braided',closure:'Tie ends',tassel:true,size:20,folds:12,seed:[['Bead','#8A5A2B',20,0.92],['Bead','#1F9E6B',14,0.6]]},
+    Bracelet:{shape:'cushion',base:'Ink',motif:'none',orn:'Bead',color:'#1F9E6B',thread:'Maroon',band:'Braided',closure:'Clasp',tassel:false,size:16,folds:16,seed:[['Bead','#1F9E6B',16,0.82]]}
+  };
+
+  (function(){let s='';for(let i=0;i<8;i++){const a=i*45*Math.PI/180,x=50+Math.cos(a)*22,y=50+Math.sin(a)*22;s+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3"/>`;}document.getElementById('petals').innerHTML=s;})();
+
+  const RM=()=>R_MED*state.scale;
+  const innerR=()=>RM()-14*state.scale;
+
+  function shade(hex,f){const n=parseInt(hex.slice(1),16);let r=(n>>16)&255,g=(n>>8)&255,b=n&255;if(f>0){r+=(255-r)*f;g+=(255-g)*f;b+=(255-b)*f;}else{r*=(1+f);g*=(1+f);b*=(1+f);}return `rgb(${r|0},${g|0},${b|0})`;}
+  function roundRect(c,x,y,w,h,r){if(c.roundRect){c.beginPath();c.roundRect(x,y,w,h,r);return;}c.beginPath();c.moveTo(x+r,y);c.arcTo(x+w,y,x+w,y+h,r);c.arcTo(x+w,y+h,x,y+h,r);c.arcTo(x,y+h,x,y,r);c.arcTo(x,y,x+w,y,r);c.closePath();}
+  function goldBead(c,x,y,r){const g=c.createRadialGradient(x-r*.3,y-r*.3,1,x,y,r);g.addColorStop(0,'#fbe6a8');g.addColorStop(1,'#b7862a');c.fillStyle=g;c.beginPath();c.arc(x,y,r,0,7);c.fill();}
+
+  function shapePath(c,shape,r){
+    c.beginPath();
+    if(shape==='circle'){c.arc(CX,CY,r,0,7);return;}
+    if(shape==='cushion'){const s=r*0.92;roundRect(c,CX-s,CY-s,s*2,s*2,r*0.34);return;}
+    if(shape==='hexagon'){for(let i=0;i<6;i++){const a=-Math.PI/2+i*Math.PI/3;c[i?'lineTo':'moveTo'](CX+Math.cos(a)*r,CY+Math.sin(a)*r);}c.closePath();return;}
+    if(shape==='star'){const P=10;for(let i=0;i<P;i++){const rr=i%2?r*0.52:r,a=i*Math.PI/(P/2)-Math.PI/2;c[i?'lineTo':'moveTo'](CX+Math.cos(a)*rr,CY+Math.sin(a)*rr);}c.closePath();return;}
+    if(shape==='flower'){const N=140;for(let i=0;i<=N;i++){const a=i/N*Math.PI*2,rr=r*(0.82+0.18*Math.cos(a*10));c[i?'lineTo':'moveTo'](CX+Math.cos(a)*rr,CY+Math.sin(a)*rr);}c.closePath();return;}
+    if(shape==='heart'){const N=140,k=r/17;for(let i=0;i<=N;i++){const t=i/N*Math.PI*2,hx=16*Math.pow(Math.sin(t),3),hy=13*Math.cos(t)-5*Math.cos(2*t)-2*Math.cos(3*t)-Math.cos(4*t);c[i?'lineTo':'moveTo'](CX+hx*k,CY-hy*k*0.92);}c.closePath();return;}
+    c.arc(CX,CY,r,0,7);
+  }
+
+  /* ---------- UI ---------- */
+  function syncUI(){
+    const set=(sel,pred)=>document.querySelectorAll(sel).forEach(b=>b.setAttribute('aria-pressed',pred(b)?'true':'false'));
+    set('#baseSwatches .sw',b=>b.dataset.key===state.base.n);
+    set('#ornSwatches .sw',b=>b.dataset.key===state.ornColor);
+    set('#threadSwatches .sw',b=>b.dataset.key===state.thread.n);
+    set('#ornRow .chip',b=>b.dataset.key===state.orn);
+    set('#motifRow .chip',b=>b.dataset.key===state.motif);
+    set('#shapeRow .chip',b=>b.dataset.key===state.shape);
+    set('#folds button',b=>+b.dataset.key===state.folds);
+    set('#bandRow .chip',b=>b.dataset.key===state.bandStyle);
+    set('#closureRow .chip',b=>b.dataset.key===state.closure);
+    document.getElementById('mirror').checked=state.mirror;
+    document.getElementById('tassel').checked=state.tassel;
+    document.getElementById('led').checked=state.led;
+    document.getElementById('anim').checked=state.animate;
+    document.getElementById('size').value=state.size;document.getElementById('sizeVal').textContent=state.size;
+    document.getElementById('scale').value=Math.round(state.scale*100);document.getElementById('scaleVal').textContent=Math.round(state.scale*100)+'%';
+    document.getElementById('zoom').value=state.photoZoom;document.getElementById('zoomVal').textContent=state.photoZoom.toFixed(2)+'×';
+    document.getElementById('foldVal').textContent=state.folds+' folds';
+    document.getElementById('name').value=state.name;
+    document.getElementById('photoCtl').style.display=state.photo?'block':'none';
+  }
+
+  function swatchGroup(el,list,keyFn,onPick,withCustom){
+    el.innerHTML='';
+    list.forEach(item=>{const b=document.createElement('button');b.className='sw';b.dataset.key=keyFn(item);b.style.background=item.c||`linear-gradient(160deg,${item.a},${item.b})`;b.title=item.n;b.setAttribute('aria-label',item.n);b.setAttribute('aria-pressed','false');b.addEventListener('click',()=>{onPick(item);syncUI();render();});el.appendChild(b);});
+    if(withCustom){const wrap=document.createElement('label');wrap.className='sw custom';wrap.title='Custom colour';const inp=document.createElement('input');inp.type='color';inp.value=state.ornColor;inp.addEventListener('input',e=>{withCustom(e.target.value);syncUI();});wrap.appendChild(inp);el.appendChild(wrap);}
+  }
+  function chipGroup(el,items,onPick){el.innerHTML='';items.forEach(it=>{const b=document.createElement('button');b.className='chip';b.dataset.key=it.k;b.innerHTML=(it.icon||'')+it.label;b.setAttribute('aria-pressed','false');b.addEventListener('click',()=>{onPick(it.k);syncUI();render();});el.appendChild(b);});}
+
+  swatchGroup(document.getElementById('baseSwatches'),BASES,it=>it.n,it=>{state.base=it;});
+  swatchGroup(document.getElementById('ornSwatches'),JEWELS,it=>it.c,it=>{state.ornColor=it.c;},hex=>{state.ornColor=hex;});
+  swatchGroup(document.getElementById('threadSwatches'),THREADS,it=>it.n,it=>{state.thread=it;});
+
+  const ornIcons={Gem:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 3h12l3 5-9 13L3 8z" opacity=".9"/></svg>',Pearl:'<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="8"/></svg>',Kundan:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="7"/></svg>',Bead:'<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="5"/></svg>',Sequin:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.5" fill="currentColor"/></svg>',Petal:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c5 5 5 15 0 20C7 17 7 7 12 2z"/></svg>'};
+  chipGroup(document.getElementById('ornRow'),ORNAMENTS.map(o=>({k:o,label:o,icon:ornIcons[o]})),k=>state.orn=k);
+  chipGroup(document.getElementById('motifRow'),[{k:'om',label:'ॐ Om'},{k:'swastik',label:'✚ Swastik'},{k:'kalash',label:'⚱ Kalash'},{k:'flower',label:'✿ Flower'},{k:'star',label:'✦ Star'},{k:'nazar',label:'◉ Nazar'},{k:'rudraksha',label:'✺ Rudraksha'},{k:'diya',label:'🪔 Diya'},{k:'none',label:'· None'}],k=>state.motif=k);
+  chipGroup(document.getElementById('shapeRow'),SHAPES,k=>state.shape=k);
+  chipGroup(document.getElementById('bandRow'),BANDS.map(b=>({k:b,label:b})),k=>state.bandStyle=k);
+  chipGroup(document.getElementById('closureRow'),CLOSURES.map(c=>({k:c,label:c})),k=>state.closure=k);
+  chipGroup(document.getElementById('presetRow'),Object.keys(PRESETS).map(p=>({k:p,label:p})),applyPreset);
+
+  const foldEl=document.getElementById('folds');
+  [6,8,12,16].forEach(f=>{const b=document.createElement('button');b.dataset.key=f;b.textContent=f;b.setAttribute('aria-pressed','false');b.addEventListener('click',()=>{state.folds=f;syncUI();});foldEl.appendChild(b);});
+
+  document.getElementById('size').addEventListener('input',e=>{state.size=+e.target.value;document.getElementById('sizeVal').textContent=e.target.value;});
+  document.getElementById('scale').addEventListener('input',e=>{state.scale=(+e.target.value)/100;document.getElementById('scaleVal').textContent=e.target.value+'%';render();});
+  document.getElementById('zoom').addEventListener('input',e=>{state.photoZoom=+e.target.value;document.getElementById('zoomVal').textContent=state.photoZoom.toFixed(2)+'×';render();});
+  document.getElementById('mirror').addEventListener('change',e=>state.mirror=e.target.checked);
+  document.getElementById('tassel').addEventListener('change',e=>{state.tassel=e.target.checked;render();});
+  document.getElementById('led').addEventListener('change',e=>{state.led=e.target.checked;render();});
+  document.getElementById('anim').addEventListener('change',e=>{state.animate=e.target.checked;updateAnim();});
+  document.getElementById('name').addEventListener('input',e=>{state.name=e.target.value;render();});
+
+  document.getElementById('photo').addEventListener('change',e=>{
+    const f=e.target.files&&e.target.files[0];if(!f)return;
+    const rd=new FileReader();
+    rd.onload=ev=>{const img=new Image();img.onload=()=>{state.photo=img;state.motif='none';stage.dataset.touched='1';syncUI();render();};img.onerror=()=>toast('Could not read that image');img.src=ev.target.result;};
+    rd.readAsDataURL(f);
+    e.target.value='';
+  });
+  document.getElementById('rmPhoto').addEventListener('click',()=>{state.photo=null;syncUI();render();});
+
+  function applyPreset(name){
+    const p=PRESETS[name];if(!p)return;
+    state.shape=p.shape||state.shape;
+    state.base=BASES.find(b=>b.n===p.base)||state.base;
+    state.motif=p.motif;state.orn=p.orn;state.ornColor=p.color;state.size=p.size;state.folds=p.folds;state.mirror=false;
+    state.thread=THREADS.find(t=>t.n===p.thread)||state.thread;
+    state.bandStyle=p.band;state.closure=p.closure;state.tassel=p.tassel;
+    state.items=p.seed.map((s,i)=>({type:s[0],color:s[1],size:s[2],r:s[3],a:i*(Math.PI/p.folds)}));
+    document.getElementById('undo').disabled=state.items.length===0;
+    stage.dataset.touched='1';syncUI();render();
+  }
+
+  /* ---------- ornaments ---------- */
+  function drawOrn(c,x,y,s,color,type,outAng){
+    c.save();c.translate(x,y);
+    if(type==='Gem'||type==='Petal')c.rotate(outAng+Math.PI/2);
+    switch(type){
+      case 'Gem':{const h=s*1.25,g=c.createLinearGradient(0,-h,0,h);g.addColorStop(0,shade(color,.55));g.addColorStop(.5,color);g.addColorStop(1,shade(color,-.35));c.beginPath();c.moveTo(0,-h);c.lineTo(s*.72,-h*.28);c.lineTo(0,h);c.lineTo(-s*.72,-h*.28);c.closePath();c.fillStyle=g;c.fill();c.strokeStyle=shade(color,.4);c.lineWidth=1.1;c.beginPath();c.moveTo(-s*.72,-h*.28);c.lineTo(s*.72,-h*.28);c.moveTo(0,-h);c.lineTo(0,h);c.stroke();c.fillStyle='rgba(255,255,255,.45)';c.beginPath();c.moveTo(0,-h);c.lineTo(s*.3,-h*.4);c.lineTo(0,-h*.15);c.closePath();c.fill();break;}
+      case 'Pearl':{const g=c.createRadialGradient(-s*.32,-s*.32,s*.15,0,0,s);g.addColorStop(0,shade(color,.7));g.addColorStop(.45,color);g.addColorStop(1,shade(color,-.4));c.fillStyle=g;c.beginPath();c.arc(0,0,s,0,7);c.fill();c.fillStyle='rgba(255,255,255,.6)';c.beginPath();c.arc(-s*.34,-s*.34,s*.2,0,7);c.fill();break;}
+      case 'Kundan':{c.fillStyle=shade('#E8B84B',-.05);c.beginPath();c.arc(0,0,s,0,7);c.fill();c.strokeStyle=shade('#E8B84B',.5);c.lineWidth=Math.max(1,s*.12);c.beginPath();c.arc(0,0,s*.92,0,7);c.stroke();const g=c.createRadialGradient(-s*.25,-s*.25,s*.1,0,0,s*.68);g.addColorStop(0,shade(color,.55));g.addColorStop(1,shade(color,-.3));c.fillStyle=g;c.beginPath();c.arc(0,0,s*.6,0,7);c.fill();c.fillStyle='rgba(255,255,255,.5)';c.beginPath();c.arc(-s*.2,-s*.2,s*.14,0,7);c.fill();break;}
+      case 'Bead':{const g=c.createRadialGradient(-s*.3,-s*.3,s*.12,0,0,s);g.addColorStop(0,shade(color,.5));g.addColorStop(1,shade(color,-.35));c.fillStyle=g;c.beginPath();c.arc(0,0,s*.85,0,7);c.fill();break;}
+      case 'Sequin':{const g=c.createRadialGradient(0,0,s*.1,0,0,s);g.addColorStop(0,shade(color,.5));g.addColorStop(.7,color);g.addColorStop(1,shade(color,-.35));c.fillStyle=g;c.beginPath();c.arc(0,0,s,0,7);c.fill();c.strokeStyle='rgba(255,255,255,.35)';c.lineWidth=1;c.stroke();c.fillStyle=shade(color,-.5);c.beginPath();c.arc(0,0,s*.22,0,7);c.fill();c.strokeStyle='rgba(255,255,255,.55)';c.lineWidth=1;c.beginPath();c.moveTo(-s*.55,0);c.lineTo(s*.55,0);c.moveTo(0,-s*.55);c.lineTo(0,s*.55);c.stroke();break;}
+      case 'Petal':{const h=s*1.5,g=c.createLinearGradient(0,-h,0,h*.3);g.addColorStop(0,shade(color,.4));g.addColorStop(1,shade(color,-.3));c.fillStyle=g;c.beginPath();c.moveTo(0,-h);c.bezierCurveTo(s*.9,-h*.5,s*.6,h*.25,0,h*.3);c.bezierCurveTo(-s*.6,h*.25,-s*.9,-h*.5,0,-h);c.closePath();c.fill();c.strokeStyle=shade(color,.35);c.lineWidth=1;c.beginPath();c.moveTo(0,-h*.85);c.lineTo(0,h*.1);c.stroke();break;}
+    }
+    c.restore();
+  }
+
+  /* ---------- band ---------- */
+  function eachSide(fn){const inset=RM()*0.94;fn(-1,46,CX-inset);fn(1,SIZE-46,CX+inset);}
+  function sidePoints(x0,x1){const a=Math.min(x0,x1),b=Math.max(x0,x1),pts=[],N=44;for(let i=0;i<=N;i++){const x=a+(b-a)*i/N;pts.push([x,CY-Math.sin((x-a)/(b-a)*Math.PI)*8]);}return pts;}
+  function strokePts(c,pts,w,col){c.beginPath();pts.forEach((p,i)=>c[i?'lineTo':'moveTo'](p[0],p[1]));c.strokeStyle=shade(col,-.15);c.lineWidth=w;c.stroke();c.strokeStyle=shade(col,.2);c.lineWidth=w*.4;c.stroke();}
+  function drawBraid(c,pts,col){for(const ph of [0,Math.PI]){c.beginPath();pts.forEach((p,i)=>{const off=Math.sin(i/2+ph)*7;c[i?'lineTo':'moveTo'](p[0],p[1]+off);});c.strokeStyle=ph?shade(col,-.2):shade(col,.05);c.lineWidth=7;c.stroke();}}
+  function drawChain(c,pts,col){for(let i=2;i<pts.length-1;i+=3){const[x,y]=pts[i],[px,py]=pts[i-1],ang=Math.atan2(y-py,x-px);c.save();c.translate(x,y);c.rotate(ang);c.strokeStyle=(Math.floor(i/3))%2?shade(col,.2):'#c99a34';c.lineWidth=3;c.beginPath();c.ellipse(0,0,10,5,0,0,7);c.stroke();c.restore();}}
+  function drawBeadRow(c,pts,col){for(let i=2;i<pts.length;i+=3){const[x,y]=pts[i],g=c.createRadialGradient(x-3,y-3,1,x,y,8);g.addColorStop(0,shade(col,.4));g.addColorStop(1,shade(col,-.3));c.fillStyle=g;c.beginPath();c.arc(x,y,7,0,7);c.fill();}}
+  function drawClosure(c,x,y,col,side){const dir=side<0?-1:1;switch(state.closure){
+    case 'Tie ends':{c.strokeStyle=shade(col,-.05);c.lineWidth=3;c.lineCap='round';for(let k=-3;k<=3;k++){c.beginPath();c.moveTo(x,y);c.quadraticCurveTo(x+dir*18,y+k*3,x+dir*42,y+k*7);c.stroke();}goldBead(c,x,y,10);break;}
+    case 'Sliding knot':{goldBead(c,x,y,11);break;}
+    case 'Clasp':{c.strokeStyle='#c99a34';c.lineWidth=4;c.beginPath();c.arc(x,y,10,0,7);c.stroke();goldBead(c,x+dir*14,y,6);break;}
+  }}
+  function drawBand(c){const col=state.thread.c,style=state.bandStyle;c.save();c.lineCap='round';c.lineJoin='round';eachSide((side,xEnd,xMed)=>{const pts=sidePoints(xEnd,xMed);if(style==='Braided')drawBraid(c,pts,col);else if(style==='Chain'){strokePts(c,pts,3,col);drawChain(c,pts,col);}else if(style==='Beaded'){strokePts(c,pts,10,col);drawBeadRow(c,pts,col);}else strokePts(c,pts,14,col);drawClosure(c,xEnd,CY,col,side);});c.restore();}
+  function drawLatkan(c){if(!state.tassel)return;const col=state.thread.c,sc=state.scale,topY=CY+RM()-38*sc;c.save();[-46,0,46].forEach((dx,i)=>{const len=(i===1?150:120)*sc,x=CX+dx*sc;goldBead(c,x,topY,13*sc);c.strokeStyle=shade(col,-.05);c.lineWidth=3;c.lineCap='round';for(let k=-4;k<=4;k++){c.beginPath();c.moveTo(x,topY+8*sc);c.quadraticCurveTo(x+k*3*sc,topY+len*.6,x+k*4.5*sc,topY+len);c.stroke();}});c.restore();}
+
+  /* ---------- medallion / led / photo ---------- */
+  function drawMedallion(c){
+    const sc=state.scale,r=RM(),rimW=16*sc,shape=state.shape;c.save();
+    const glow=c.createRadialGradient(CX,CY,r*.6,CX,CY,r*1.3);glow.addColorStop(0,'rgba(232,184,75,.16)');glow.addColorStop(1,'rgba(232,184,75,0)');c.fillStyle=glow;c.beginPath();c.arc(CX,CY,r*1.3,0,7);c.fill();
+    shapePath(c,shape,r);const rim=c.createLinearGradient(CX,CY-r,CX,CY+r);rim.addColorStop(0,'#f6dd93');rim.addColorStop(.5,'#c99a34');rim.addColorStop(1,'#8a6a24');c.fillStyle=rim;c.fill();
+    shapePath(c,shape,r-rimW);const bg=c.createRadialGradient(CX-r*.3,CY-r*.3,r*.1,CX,CY,r);bg.addColorStop(0,state.base.a);bg.addColorStop(1,state.base.b);c.fillStyle=bg;c.fill();
+    c.strokeStyle='rgba(232,184,75,.28)';c.lineWidth=3*sc;shapePath(c,shape,(r-rimW)*0.86);c.stroke();c.setLineDash([3,9]);c.lineWidth=2*sc;shapePath(c,shape,(r-rimW)*0.62);c.stroke();c.setLineDash([]);
+    c.restore();
+  }
+  function drawLED(c,time){
+    if(!state.led)return;const sc=state.scale,ring=RM()+12*sc,N=24,cols=['#ffd95a','#ff5d6c','#66d4ff','#8affc1'];c.save();
+    for(let i=0;i<N;i++){const a=i/N*Math.PI*2-Math.PI/2,x=CX+Math.cos(a)*ring,y=CY+Math.sin(a)*ring;const b=time==null?1:0.35+0.65*(0.5+0.5*Math.sin(time*5+i*0.7));const col=cols[i%cols.length];c.globalAlpha=b;c.shadowColor=col;c.shadowBlur=14*sc*b;c.fillStyle=col;c.beginPath();c.arc(x,y,4.4*sc,0,7);c.fill();c.shadowBlur=0;c.globalAlpha=1;c.fillStyle='rgba(255,255,255,'+(0.6*b)+')';c.beginPath();c.arc(x-1,y-1,1.6*sc,0,7);c.fill();}
+    c.restore();
+  }
+  function drawPhoto(c){
+    if(!state.photo)return;const sc=state.scale,R=RM()*0.46,img=state.photo;c.save();c.beginPath();c.arc(CX,CY,R,0,7);c.clip();
+    const iw=img.naturalWidth||img.width,ih=img.naturalHeight||img.height,cover=Math.max(2*R/iw,2*R/ih)*state.photoZoom,w=iw*cover,h=ih*cover;
+    c.drawImage(img,CX-w/2,CY-h/2,w,h);c.restore();
+    c.save();c.strokeStyle='#c99a34';c.lineWidth=9*sc;c.beginPath();c.arc(CX,CY,R,0,7);c.stroke();c.strokeStyle='#f6dd93';c.lineWidth=3*sc;c.beginPath();c.arc(CX,CY,R-5*sc,0,7);c.stroke();c.restore();
+  }
+
+  /* ---------- motif / nameplate ---------- */
+  function drawMotif(c){
+    if(state.motif==='none')return;const gold='#f4d979',sc=state.scale;c.save();c.translate(CX,CY);c.scale(sc,sc);c.textAlign='center';c.textBaseline='middle';
+    switch(state.motif){
+      case 'om':{c.fillStyle=gold;c.shadowColor='rgba(0,0,0,.5)';c.shadowBlur=8;c.shadowOffsetY=2;c.font='700 144px "Tiro Devanagari Hindi", serif';c.fillText('ॐ',0,6);break;}
+      case 'swastik':{const u=20;c.strokeStyle=gold;c.lineWidth=14;c.lineCap='square';c.lineJoin='miter';const seg=[[[-2*u,0],[2*u,0]],[[0,-2*u],[0,2*u]],[[0,-2*u],[2*u,-2*u]],[[2*u,0],[2*u,2*u]],[[0,2*u],[-2*u,2*u]],[[-2*u,0],[-2*u,-2*u]]];c.beginPath();seg.forEach(s=>{c.moveTo(s[0][0],s[0][1]);c.lineTo(s[1][0],s[1][1]);});c.stroke();c.fillStyle=gold;[[-1,-1],[1,-1],[1,1],[-1,1]].forEach(([sx,sy])=>{c.beginPath();c.arc(sx*u,sy*u,4.5,0,7);c.fill();});break;}
+      case 'kalash':{const g=c.createLinearGradient(0,-10,0,64);g.addColorStop(0,'#f4d979');g.addColorStop(1,'#c99a34');c.fillStyle=g;c.beginPath();c.moveTo(-38,-6);c.bezierCurveTo(-48,42,-30,66,0,66);c.bezierCurveTo(30,66,48,42,38,-6);c.closePath();c.fill();c.fillStyle='#c99a34';c.fillRect(-26,-18,52,14);c.fillRect(-34,-28,68,10);c.fillStyle='#8a5117';c.beginPath();c.arc(0,-42,18,0,7);c.fill();c.fillStyle='#1F9E6B';[-1,1].forEach(s=>{c.save();c.translate(0,-26);c.rotate(s*0.5);c.beginPath();c.ellipse(s*16,-4,16,7,0,0,7);c.fill();c.restore();});c.strokeStyle='#8a6a24';c.lineWidth=3;c.beginPath();c.moveTo(-40,22);c.quadraticCurveTo(0,32,40,22);c.stroke();break;}
+      case 'flower':{c.fillStyle=gold;for(let i=0;i<8;i++){c.save();c.rotate(i*Math.PI/4);c.beginPath();c.moveTo(0,-14);c.bezierCurveTo(26,-40,26,-8,0,-58);c.bezierCurveTo(-26,-8,-26,-40,0,-14);c.closePath();c.fill();c.restore();}c.fillStyle='#C42348';c.beginPath();c.arc(0,0,16,0,7);c.fill();c.fillStyle=gold;c.beginPath();c.arc(0,0,7,0,7);c.fill();break;}
+      case 'star':{c.fillStyle=gold;c.beginPath();for(let i=0;i<16;i++){const r=i%2?24:60,a=i*Math.PI/8-Math.PI/2;c[i?'lineTo':'moveTo'](Math.cos(a)*r,Math.sin(a)*r);}c.closePath();c.fill();c.fillStyle='#7A0E28';c.beginPath();c.arc(0,0,12,0,7);c.fill();break;}
+      case 'nazar':{[['#1B4B9E',52],['#ffffff',36],['#2E5BD6',22],['#0b1c33',9]].forEach(([col,r])=>{c.fillStyle=col;c.beginPath();c.arc(0,0,r,0,7);c.fill();});break;}
+      case 'rudraksha':{const g=c.createRadialGradient(-12,-12,6,0,0,52);g.addColorStop(0,'#8a5a2b');g.addColorStop(1,'#3e2410');c.fillStyle=g;c.beginPath();c.arc(0,0,50,0,7);c.fill();c.strokeStyle='rgba(20,10,4,.7)';c.lineWidth=3;for(let i=0;i<7;i++){c.save();c.rotate(i*Math.PI/7);c.beginPath();c.ellipse(0,0,50,14,0,0,7);c.stroke();c.restore();}break;}
+      case 'diya':{c.fillStyle='#C77A2A';c.beginPath();c.ellipse(0,26,52,20,0,0,Math.PI);c.fill();c.fillStyle='#8a5117';c.beginPath();c.ellipse(0,26,52,8,0,0,7);c.fill();const fg=c.createLinearGradient(0,-46,0,10);fg.addColorStop(0,'#fff2b0');fg.addColorStop(.5,'#ffb733');fg.addColorStop(1,'#e0521e');c.fillStyle=fg;c.beginPath();c.moveTo(0,-52);c.bezierCurveTo(22,-20,16,14,0,16);c.bezierCurveTo(-16,14,-22,-20,0,-52);c.closePath();c.fill();break;}
+    }
+    c.restore();
+  }
+  function drawNamePlate(c){
+    const name=state.name.trim();if(!name)return;const sc=state.scale,y=CY+RM()*0.52;c.save();
+    let fs=Math.round(46*sc);if(fs<16)fs=16;c.font=`700 ${fs}px "DM Sans", sans-serif`;let w=c.measureText(name).width;const maxW=RM()*1.1;
+    while(w>maxW&&fs>14){fs-=2;c.font=`700 ${fs}px "DM Sans", sans-serif`;w=c.measureText(name).width;}
+    const padX=22*sc,plateW=w+padX*2,plateH=fs+18,x=CX-plateW/2,py=y-plateH/2;
+    const g=c.createLinearGradient(0,py,0,py+plateH);g.addColorStop(0,'#f6dd93');g.addColorStop(1,'#c99a34');
+    roundRect(c,x,py,plateW,plateH,plateH/2);c.fillStyle=g;c.fill();c.strokeStyle='#8a6a24';c.lineWidth=2;c.stroke();
+    c.fillStyle='#2a180a';c.textAlign='center';c.textBaseline='middle';c.font=`700 ${fs}px "DM Sans", sans-serif`;c.fillText(name,CX,y+1);c.restore();
+  }
+
+  /* ---------- scene ---------- */
+  function renderScene(c,withBackdrop,time){
+    c.clearRect(0,0,SIZE,SIZE);
+    if(withBackdrop){const g=c.createRadialGradient(CX,CY*.75,0,CX,CY,SIZE*.62);g.addColorStop(0,'#241938');g.addColorStop(1,'#160E29');c.fillStyle=g;c.fillRect(0,0,SIZE,SIZE);}
+    drawBand(c);drawLatkan(c);drawMedallion(c);drawLED(c,time);drawPhoto(c);
+    const step=2*Math.PI/state.folds;c.save();shapePath(c,state.shape,innerR());c.clip();
+    state.items.forEach(it=>{for(let k=0;k<state.folds;k++){placeOne(c,it.r,it.a+k*step,it);if(state.mirror)placeOne(c,it.r,-it.a+k*step,it);}});
+    c.restore();
+    drawNamePlate(c);drawMotif(c);
+  }
+  function placeOne(c,frac,a,it){const r=frac*innerR();drawOrn(c,CX+Math.cos(a)*r,CY+Math.sin(a)*r,it.size*state.scale,it.color,it.type,a);}
+  function render(){renderScene(ctx,false,null);}
+
+  /* ---------- animation ---------- */
+  let raf=null;
+  function loop(ts){renderScene(ctx,false,ts/1000);raf=requestAnimationFrame(loop);}
+  function updateAnim(){const want=state.animate&&!reduceMotion;if(want){if(!raf)raf=requestAnimationFrame(loop);}else{if(raf){cancelAnimationFrame(raf);raf=null;}render();}}
+
+  /* ---------- interaction ---------- */
+  function toCanvas(e){const rect=artC.getBoundingClientRect();return{x:(e.clientX-rect.left)*(SIZE/rect.width),y:(e.clientY-rect.top)*(SIZE/rect.height)};}
+  function addAt(p){const dx=p.x-CX,dy=p.y-CY;let r=Math.hypot(dx,dy);if(r>RM())return false;const inner=innerR();r=Math.max(16*state.scale,Math.min(inner,r));state.items.push({r:r/inner,a:Math.atan2(dy,dx),type:state.orn,color:state.ornColor,size:state.size});return true;}
+  let drawing=false,last=null;
+  function begin(e){drawing=true;stage.dataset.touched='1';const p=toCanvas(e);if(addAt(p)){last=p;render();document.getElementById('undo').disabled=false;}artC.setPointerCapture&&artC.setPointerCapture(e.pointerId);}
+  function move(e){if(!drawing)return;const p=toCanvas(e);const spacing=state.size*state.scale*1.7+6;if(last&&Math.hypot(p.x-last.x,p.y-last.y)<spacing)return;if(addAt(p)){last=p;render();document.getElementById('undo').disabled=false;}}
+  function end(){drawing=false;last=null;}
+  artC.addEventListener('pointerdown',begin);artC.addEventListener('pointermove',move);artC.addEventListener('pointerup',end);artC.addEventListener('pointercancel',end);
+
+  /* ---------- actions ---------- */
+  document.getElementById('undo').addEventListener('click',()=>{state.items.pop();render();if(!state.items.length)document.getElementById('undo').disabled=true;});
+  document.getElementById('clear').addEventListener('click',()=>{state.items.length=0;render();document.getElementById('undo').disabled=true;});
+  function buildImageCanvas(){const out=document.createElement('canvas');out.width=SIZE;out.height=SIZE;renderScene(out.getContext('2d'),true,null);return out;}
+  document.getElementById('save').addEventListener('click',()=>{const out=buildImageCanvas();out.toBlob(blob=>{if(!blob){toast('Could not create image — try again');return;}const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='rakhi.png';a.rel='noopener';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),8000);toast('Saved rakhi.png to your Downloads folder');},'image/png');});
+  function canvasToFile(){return new Promise(res=>buildImageCanvas().toBlob(b=>res(b?new File([b],'rakhi.png',{type:'image/png'}):null),'image/png'));}
+  async function copyLink(){try{await navigator.clipboard.writeText(SHARE_URL);toast('Link copied to clipboard');}catch{toast(SHARE_URL);}}
+  document.getElementById('share').addEventListener('click',async()=>{const hasArt=state.items.length>0||!!state.photo;if(hasArt&&navigator.canShare){const file=await canvasToFile();if(file&&navigator.canShare({files:[file]})){try{await navigator.share({files:[file],title:'My Rakhi',text:SHARE_TEXT,url:SHARE_URL});return;}catch(e){if(e&&e.name==='AbortError')return;}}}if(navigator.share){try{await navigator.share({title:'Rakhi Designer',text:SHARE_TEXT,url:SHARE_URL});return;}catch(e){if(e&&e.name==='AbortError')return;}}copyLink();});
+
+  let toastT;function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('show'),2600);}
+
+  syncUI();render();
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{if(!raf)render();});
+})();
+</script>
+
+
+</body></html>

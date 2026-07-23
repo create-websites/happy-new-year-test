@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en"><head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+  <title>2026 Festival Calendar: India, USA, Europe, Australia &amp; UAE</title>
+  <meta content="Explore the complete 2026 festival and public holiday calendar for India, the USA, Europe, Australia, and the UAE. Browse dates month by month and open dedicated festival guides for Diwali, Holi, Easter, Christmas, Eid, Thanksgiving, and more." name="description"/>
+  <meta content="2026 festival calendar, 2026 holiday calendar, festivals 2026, India festivals 2026, USA holidays 2026, UAE holidays 2026, Europe holidays 2026, Australia holidays 2026, Diwali 2026, Holi 2026, Easter 2026, Eid 2026, Christmas 2026, Thanksgiving 2026" name="keywords"/>
+  <meta content="index, follow" name="robots"/>
+
+  <meta content="website" property="og:type"/>
+  <meta content="2026 Festival Calendar" property="og:title"/>
+  <meta content="Browse 2026 festivals and public holidays across India, the USA, Europe, Australia, and the UAE." property="og:description"/>
+  <meta content="https://storage.googleapis.com/kreatewebsite/banner_all/Happy-New-Year-Photos.jpg" property="og:image"/>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --rose-950: #4c0519;
+      --rose-900: #881337;
+      --rose-800: #9f1239;
+      --rose-700: #be123c;
+      --rose-600: #e11d48;
+      --rose-100: #ffe4e6;
+      --rose-50: #fff1f2;
+      --stone-800: #292524;
+      --stone-600: #57534e;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Vollkorn', serif;
+      color: var(--stone-800);
+      background-color: var(--rose-50);
+      background-image:
+        linear-gradient(rgba(255, 241, 242, 0.93), rgba(255, 241, 242, 0.93)),
+        url('https://storage.googleapis.com/kreatewebsite/banner_all/Happy-New-Year-Photos.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    h1, h2, h3 { font-weight: 700; }
+
+    .nav-glass {
+      background: rgba(255, 255, 255, 0.86);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--rose-100);
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.74);
+      border: 1px solid var(--rose-100);
+      border-radius: 1rem;
+      box-shadow: 0 6px 18px rgba(76, 5, 25, 0.06);
+      backdrop-filter: blur(8px);
+    }
+
+    .festival-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.76);
+      border: 1px solid var(--rose-100);
+      border-radius: 1rem;
+      padding: 1.25rem;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease;
+      box-shadow: 0 4px 12px rgba(76, 5, 25, 0.05);
+      backdrop-filter: blur(6px);
+    }
+
+    .festival-card:hover {
+      transform: translateY(-5px);
+      border-color: #fda4af;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 14px 28px rgba(190, 18, 60, 0.14);
+    }
+
+    .date-badge {
+      min-width: 58px;
+      height: 58px;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: .9rem;
+      background: linear-gradient(145deg, #fff1f2, #ffe4e6);
+      border: 1px solid #fecdd3;
+      color: var(--rose-900);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .date-badge .month { font-size: .7rem; letter-spacing: .12em; font-weight: 700; }
+    .date-badge .day { font-size: 1.45rem; font-weight: 700; margin-top: .25rem; }
+
+    .region-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      width: fit-content;
+      padding: .28rem .65rem;
+      border-radius: 999px;
+      background: #fff1f2;
+      color: var(--rose-700);
+      border: 1px solid #fecdd3;
+      font-size: .7rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      font-weight: 700;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: .9rem 3rem .9rem 1.2rem;
+      border: 1px solid #e7e5e4;
+      border-radius: 999px;
+      background: rgba(255,255,255,.9);
+      outline: none;
+      color: #44403c;
+      transition: .2s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--rose-700);
+      box-shadow: 0 0 0 4px rgba(253, 164, 175, .28);
+    }
+
+    .month-section { scroll-margin-top: 86px; }
+
+    .month-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      padding: .45rem .9rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,.8);
+      border: 1px solid var(--rose-100);
+      color: var(--rose-900);
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-weight: 700;
+    }
+
+    .filter-btn.active {
+      background: var(--rose-700);
+      color: white;
+      border-color: var(--rose-700);
+    }
+
+    .hidden-card { display: none !important; }
+
+    .next-festival-banner {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(136,19,55,.97), rgba(190,18,60,.91));
+      color: white;
+      border: 1px solid rgba(255,255,255,.28);
+      box-shadow: 0 18px 45px rgba(136,19,55,.22);
+    }
+
+    .next-festival-banner::after {
+      content: "";
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      right: -80px;
+      top: -110px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.1);
+    }
+
+    .festival-card.is-next {
+      border: 2px solid var(--rose-700);
+      background: rgba(255,255,255,.98);
+      box-shadow: 0 18px 38px rgba(190,18,60,.22);
+      transform: translateY(-3px);
+      position: relative;
+    }
+
+    .festival-card.is-next::before {
+      content: "NEXT FESTIVAL";
+      position: absolute;
+      top: -12px;
+      right: 16px;
+      padding: .28rem .7rem;
+      border-radius: 999px;
+      background: var(--rose-700);
+      color: white;
+      font-size: .66rem;
+      letter-spacing: .1em;
+      font-weight: 700;
+      box-shadow: 0 5px 12px rgba(190,18,60,.25);
+    }
+
+    .festival-card.is-past { opacity: .58; }
+    .festival-card.is-past:hover { opacity: 1; }
+
+    .month-section.is-current-month {
+      border-radius: 1.25rem;
+      background: rgba(255,255,255,.28);
+      padding-left: 1rem;
+      padding-right: 1rem;
+      box-shadow: inset 0 0 0 1px rgba(254,205,211,.75);
+    }
+
+    .today-marker {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      margin-left: .5rem;
+      padding: .25rem .6rem;
+      border-radius: 999px;
+      background: #ffe4e6;
+      color: var(--rose-800);
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "2026 Festival Calendar",
+    "description": "A month-by-month 2026 festival and public holiday calendar for India, USA, Europe, Australia, and UAE.",
+    "about": ["Festivals", "Public holidays", "Cultural celebrations"],
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Happy New Year"
+    }
+  }
+  </script>
+</head>
+<body class="antialiased min-h-screen flex flex-col overflow-x-hidden">
+
+  <nav class="nav-glass sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a class="flex items-center gap-3 group" href="/">
+          <span class="text-2xl text-rose-600 group-hover:scale-110 transition-transform">✨</span>
+          <span class="text-xl font-bold tracking-wide uppercase text-rose-900">Happy New Year</span>
+        </a>
+        <div class="hidden md:flex items-center gap-7 text-stone-600 font-semibold">
+          <a class="hover:text-rose-800" href="/">Home</a>
+          <a class="hover:text-rose-800" href="#calendar">2026 Calendar</a>
+          <a class="hover:text-rose-800" href="/festivals/">100 Festivals</a>
+          <a class="hover:text-rose-800" href="/search/">Search</a>
+        </div>
+        <button aria-label="Open menu" class="md:hidden text-stone-600 hover:text-rose-800" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+          <i class="fa-solid fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+    <div class="hidden md:hidden border-t border-rose-100 bg-white/95" id="mobile-menu">
+      <div class="px-4 py-3 space-y-1 font-semibold text-stone-600">
+        <a class="block px-3 py-2 hover:text-rose-800" href="/">Home</a>
+        <a class="block px-3 py-2 hover:text-rose-800" href="#calendar">2026 Calendar</a>
+        <a class="block px-3 py-2 hover:text-rose-800" href="/festivals/">100 Festivals</a>
+        <a class="block px-3 py-2 hover:text-rose-800" href="/search/">Search</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-10 text-center w-full">
+    <div class="inline-block px-4 py-1 rounded-full border border-rose-200 bg-white/70 text-rose-800 text-xs font-bold tracking-[0.2em] uppercase mb-5 backdrop-blur-sm">
+      Plan the Year
+    </div>
+    <h1 class="text-4xl md:text-6xl font-bold text-rose-900 mb-5 tracking-tight">2026 Festival &amp; Holiday Calendar</h1>
+    <p class="text-lg md:text-xl text-stone-700 max-w-3xl mx-auto leading-relaxed">
+      Discover major celebrations across India, the United States, Europe, Australia, and the UAE. Select any festival to open its dedicated guide.
+    </p>
+
+    <div class="glass-card max-w-4xl mx-auto mt-9 p-5 md:p-6">
+      <div class="relative max-w-xl mx-auto">
+        <input aria-label="Search festivals" class="search-input" id="search-input" placeholder="Search Diwali, Easter, UAE, India..." type="search"/>
+        <i class="fa-solid fa-search absolute right-5 top-1/2 -translate-y-1/2 text-stone-400"></i>
+      </div>
+      <div class="mt-5 flex flex-wrap justify-center gap-2" id="filters">
+        <button class="filter-btn active px-4 py-2 rounded-full border border-rose-200 bg-white/80 text-rose-800 text-sm font-bold" data-filter="all">All regions</button>
+        <button class="filter-btn px-4 py-2 rounded-full border border-rose-200 bg-white/80 text-rose-800 text-sm font-bold" data-filter="india">India</button>
+        <button class="filter-btn px-4 py-2 rounded-full border border-rose-200 bg-white/80 text-rose-800 text-sm font-bold" data-filter="usa">USA</button>
+        <button class="filter-btn px-4 py-2 rounded-full border border-rose-200 bg-white/80 text-rose-800 text-sm font-bold" data-filter="europe">Europe</button>
+        <button class="filter-btn px-4 py-2 rounded-full border border-rose-200 bg-white/80 text-rose-800 text-sm font-bold" data-filter="australia">Australia</button>
+        <button class="filter-btn px-4 py-2 rounded-full border border-rose-200 bg-white/80 text-rose-800 text-sm font-bold" data-filter="uae">UAE / Gulf</button>
+        <button class="filter-btn px-4 py-2 rounded-full border border-rose-200 bg-white/80 text-rose-800 text-sm font-bold" data-filter="global">Global</button>
+      </div>
+    </div>
+
+    <div aria-live="polite" class="next-festival-banner glass-card max-w-4xl mx-auto mt-7 p-6 md:p-8 text-left hidden" id="next-festival"></div>
+
+    <p class="mt-5 text-sm text-stone-500">Islamic dates marked with an asterisk may vary by moon sighting.</p>
+  </header>
+
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 w-full" id="calendar">
+    <div id="calendar-root"></div>
+    <div class="hidden glass-card text-center py-12 px-6 text-stone-600" id="no-results">
+      <i class="fa-regular fa-calendar-xmark text-3xl text-rose-400 mb-3"></i>
+      <p class="text-lg font-semibold">No matching festivals found.</p>
+    </div>
+  </main>
+
+  <footer class="bg-gray-800 text-gray-300">
+<div class="container mx-auto px-6 py-12 lg:px-8">
+<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/easter/">Easter Festival</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-bihari-wishes.html">26-bihari-wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html">26-chinese-new-year-wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-christmas-wishes.html">26-christmas-wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026-festival-countdown.html">2026-festival-countdown</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html">Christmas-wishes-by-audience</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html">Happy-new-year-2026-celebrations-worldwide.html</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/happy-new-year-2026.html">Happy-new-year-2026</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html">Multilingual-greetings-webpage</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html">2026 Digital Outlook Trends Forecast</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026-festival-calendar.html">2026 Festival Calendar</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026-festival-countdown.html">2026 Festival Countdown</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026-festival-holidays-all-countries.html">2026 Festival Holidays All Countries</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026-festival-holidays-world.html">2026 Festival Holidays World</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026-news.html">2026 News</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026-shraddh-dates.html">2026 Shraddh Dates</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026_dashboard.html">2026 Dashboard</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-bihari-wishes.html">26 Bihari Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html">26 Chinese New Year Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-christmas-wishes.html">26 Christmas Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-deepawali-wishes.html">26 Deepawali Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-diwali-wishes.html">26 Diwali Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-easter-wishes.html">26 Easter Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-fathers-day-wishes.html">26 Fathers Day Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-greetings.html">26 Greetings</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-hindi-wishes.html">26 Hindi Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-holi-wishes.html">26 Holi Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-lohri-wishes.html">26 Lohri Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-makarsankranti-wishes.html">26 Makarsankranti Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-marwari-wishes.html">26 Marwari Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-mothers-day-wishes.html">26 Mothers Day Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-new-year-wishes.html">26 New Year Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-rajasthani-new-year-wishes.html">26 Rajasthani New Year Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-tamil-wishes.html">26 Tamil Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-telugu-wishes.html">26 Telugu Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-thanks-giving-wishes.html">26 Thanks Giving Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-wishes.html">26 Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html">Christmas Wishes By Audience</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html">Happy New Year 2026 Celebrations Worldwide.Html</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/happy-new-year-2026.html">Happy New Year 2026</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festivals 2026</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html">Multilingual Greetings Webpage</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/new-year-search-trends.html">New Year Search Trends</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/new_year_2026_page.html">New Year 2026 Page</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/newyear-26-wishes.html">Newyear 26 Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitru Paksha 2026</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/send-christmas-wishes.html">Send Christmas Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html">Send Sankranti Wishes In Multiple Languages</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Footer Links</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-8 text-center text-sm text-gray-400">
+<p class="text-sm text-gray-400">Celebrate Festival, Send wishes in 100 languages, Design Rakhi</p>
+</div>
+<div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+<p class="text-sm text-gray-400">© 2026 Happy New Year 2027. All rights reserved.</p>
+</div>
+</div>
+</footer>
+
+  <script>
+    const festivals = [
+      {date:'2026-01-01', display:'Jan 1', name:"New Year’s Day", region:'USA, Europe, Australia, UAE', tags:['usa','europe','australia','uae','global'], slug:'../'},
+      {date:'2026-01-13', display:'Jan 13', name:'Lohri', region:'India', tags:['india'], slug:'../festivals/lohri/'},
+      {date:'2026-01-14', display:'Jan 14', name:'Makar Sankranti / Pongal / Uttarayan', region:'India', tags:['india'], slug:'../festivals/makar-sankranti/'},
+      {date:'2026-01-19', display:'Jan 19', name:'Martin Luther King Jr. Day', region:'USA', tags:['usa'], slug:'../festivals/martin-luther-king-jr-day/'},
+      {date:'2026-01-26', display:'Jan 26', name:'Republic Day', region:'India', tags:['india'], slug:'../festivals/republic-day-india/'},
+      {date:'2026-01-26', display:'Jan 26', name:'Australia Day', region:'Australia', tags:['australia'], slug:'../festivals/australia-day/'},
+
+      {date:'2026-02-14', display:'Feb 14', name:"Valentine’s Day", region:'Global', tags:['global'], slug:'../festivals/valentines-day/'},
+      {date:'2026-02-15', display:'Feb 15', name:'Maha Shivaratri', region:'India', tags:['india'], slug:'../festivals/maha-shivaratri/'},
+      {date:'2026-02-16', display:'Feb 16', name:"Presidents’ Day", region:'USA', tags:['usa'], slug:'../festivals/presidents-day/'},
+      {date:'2026-02-18', display:'Feb 18', name:'Start of Ramadan*', region:'Middle East / Muslim world', tags:['uae','global'], slug:'../festivals/ramadan/'},
+
+      {date:'2026-03-04', display:'Mar 4', name:'Holi', region:'India', tags:['india'], slug:'../festivals/holi/'},
+      {date:'2026-03-19', display:'Mar 19–22', name:'Eid al-Fitr Holidays*', region:'UAE / Gulf', tags:['uae'], slug:'../festivals/eid-al-fitr/'},
+      {date:'2026-03-20', display:'Mar 20', name:'Eid al-Fitr*', region:'Middle East / Muslim world', tags:['uae','global'], slug:'../festivals/eid-al-fitr/'},
+      {date:'2026-03-20', display:'Mar 20', name:'Nowruz', region:'Middle East / Central Asia', tags:['uae','global'], slug:'../festivals/nowruz/'},
+      {date:'2026-03-22', display:'Mar 22', name:'Ugadi / Gudi Padwa', region:'India', tags:['india'], slug:'../festivals/ugadi-gudi-padwa/'},
+      {date:'2026-03-28', display:'Mar 28', name:'Rama Navami', region:'India', tags:['india'], slug:'../festivals/rama-navami/'},
+
+      {date:'2026-04-02', display:'Apr 2', name:'Mahavir Jayanti', region:'India', tags:['india'], slug:'../festivals/mahavir-jayanti/'},
+      {date:'2026-04-03', display:'Apr 3', name:'Good Friday', region:'Europe, Australia, Christian world', tags:['europe','australia','global'], slug:'../festivals/good-friday/'},
+      {date:'2026-04-05', display:'Apr 5', name:'Easter Sunday', region:'Europe, Australia, Christian world', tags:['europe','australia','global'], slug:'../festivals/easter/'},
+      {date:'2026-04-06', display:'Apr 6', name:'Easter Monday', region:'Europe, Australia', tags:['europe','australia'], slug:'../festivals/easter/'},
+      {date:'2026-04-14', display:'Apr 14', name:'Vaisakhi / Baisakhi', region:'India', tags:['india'], slug:'../festivals/vaisakhi/'},
+
+      {date:'2026-05-01', display:'May 1', name:'International Workers’ Day / Labour Day', region:'Europe, India, many countries', tags:['europe','india','global'], slug:'../festivals/international-workers-day/'},
+      {date:'2026-05-14', display:'May 14', name:'Buddha Purnima / Vesak', region:'India / Buddhist world', tags:['india','global'], slug:'../festivals/buddha-purnima/'},
+      {date:'2026-05-25', display:'May 25', name:'Memorial Day', region:'USA', tags:['usa'], slug:'../festivals/memorial-day/'},
+      {date:'2026-05-26', display:'May 26', name:'Arafat Day*', region:'UAE / Gulf', tags:['uae'], slug:'../festivals/arafat-day/'},
+      {date:'2026-05-27', display:'May 27–29', name:'Eid al-Adha Holidays*', region:'UAE / Gulf', tags:['uae'], slug:'../festivals/eid-al-adha/'},
+      {date:'2026-05-27', display:'May 27', name:'Eid al-Adha*', region:'Middle East / Muslim world', tags:['uae','global'], slug:'../festivals/eid-al-adha/'},
+
+      {date:'2026-06-16', display:'Jun 16', name:'Islamic New Year*', region:'Middle East / Muslim world', tags:['uae','global'], slug:'../festivals/islamic-new-year/'},
+      {date:'2026-06-19', display:'Jun 19', name:'Juneteenth', region:'USA', tags:['usa'], slug:'juneteenth/'},
+      {date:'2026-06-21', display:'Jun 21', name:'International Day of Yoga', region:'India / Global', tags:['india','global'], slug:'../festivals/international-day-of-yoga/'},
+
+      {date:'2026-07-03', display:'Jul 3', name:'Independence Day Observed', region:'USA', tags:['usa'], slug:'../festivals/independence-day-usa/'},
+      {date:'2026-07-04', display:'Jul 4', name:'Independence Day', region:'USA', tags:['usa'], slug:'../festivals/independence-day-usa/'},
+      {date:'2026-07-16', display:'Jul 16', name:'Jagannath Rath Yatra', region:'India', tags:['india'], slug:'../festivals/rath-yatra/'},
+
+      {date:'2026-08-15', display:'Aug 15', name:'Independence Day', region:'India', tags:['india'], slug:'../festivals/independence-day-india/'},
+      {date:'2026-08-16', display:'Aug 16', name:'Raksha Bandhan', region:'India', tags:['india'], slug:'../festivals/raksha-bandhan/'},
+      {date:'2026-08-25', display:'Aug 25', name:'Prophet Muhammad’s Birthday / Mawlid*', region:'Middle East / Muslim world', tags:['uae','global'], slug:'../festivals/mawlid/'},
+      {date:'2026-08-27', display:'Aug 27', name:'Janmashtami', region:'India', tags:['india'], slug:'../festivals/janmashtami/'},
+      {date:'2026-08-31', display:'Aug 31', name:'Summer Bank Holiday', region:'UK', tags:['europe'], slug:'../festivals/summer-bank-holiday/'},
+
+      {date:'2026-09-07', display:'Sep 7', name:'Labor Day', region:'USA', tags:['usa'], slug:'../festivals/labor-day/'},
+      {date:'2026-09-17', display:'Sep 17', name:'Ganesh Chaturthi', region:'India', tags:['india'], slug:'../festivals/ganesh-chaturthi/'},
+      {date:'2026-09-26', display:'Sep 26', name:'Onam / Thiruvonam', region:'India (Kerala)', tags:['india'], slug:'../festivals/onam/'},
+
+      {date:'2026-10-12', display:'Oct 12', name:'Columbus Day / Indigenous Peoples’ Day', region:'USA', tags:['usa'], slug:'../festivals/indigenous-peoples-day/'},
+      {date:'2026-10-20', display:'Oct 20', name:'Navratri Begins', region:'India', tags:['india'], slug:'../festivals/navratri/'},
+      {date:'2026-10-22', display:'Oct 22', name:'Dussehra / Vijayadashami', region:'India', tags:['india'], slug:'../festivals/dussehra/'},
+      {date:'2026-10-31', display:'Oct 31', name:'Halloween', region:'USA, Europe, Australia', tags:['usa','europe','australia','global'], slug:'../festivals/halloween/'},
+
+      {date:'2026-11-01', display:'Nov 1', name:'Diwali / Deepavali', region:'India', tags:['india'], slug:'../festivals/diwali/'},
+      {date:'2026-11-11', display:'Nov 11', name:'Veterans Day', region:'USA', tags:['usa'], slug:'../festivals/veterans-day/'},
+      {date:'2026-11-26', display:'Nov 26', name:'Thanksgiving Day', region:'USA', tags:['usa'], slug:'../festivals/thanksgiving/'},
+      {date:'2026-11-30', display:'Nov 30', name:'Commemoration Day', region:'UAE', tags:['uae'], slug:'../festivals/uae-commemoration-day/'},
+
+      {date:'2026-12-02', display:'Dec 2–3', name:'UAE National Day Holidays', region:'UAE', tags:['uae'], slug:'../festivals/uae-national-day/'},
+      {date:'2026-12-14', display:'Dec 14', name:'Gita Jayanti', region:'India', tags:['india'], slug:'../festivals/gita-jayanti/'},
+      {date:'2026-12-25', display:'Dec 25', name:'Christmas Day', region:'Global', tags:['global','usa','europe','australia','uae'], slug:'../festivals/christmas/'},
+      {date:'2026-12-28', display:'Dec 28', name:'Boxing Day Substitute', region:'UK, Australia', tags:['europe','australia'], slug:'../festivals/boxing-day/'},
+      {date:'2026-12-31', display:'Dec 31', name:'New Year’s Eve', region:'Global', tags:['global'], slug:'../festivals/new-years-eve/'}
+    ];
+
+    const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    let activeFilter = 'all';
+
+    function localDateOnly(date = new Date()) {
+      return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+    }
+
+    function festivalDate(item) {
+      const [year, month, day] = item.date.split('-').map(Number);
+      return new Date(year, month - 1, day);
+    }
+
+    function getNextFestival() {
+      const today = localDateOnly();
+      return festivals
+        .map((item, index) => ({ item, index, date: festivalDate(item) }))
+        .filter(entry => entry.date >= today)
+        .sort((a, b) => a.date - b.date || a.index - b.index)[0] || null;
+    }
+
+    function renderNextFestivalBanner(nextEntry) {
+      const banner = document.getElementById('next-festival');
+      if (!nextEntry) {
+        banner.classList.remove('hidden');
+        banner.innerHTML = `
+          <div class="relative z-10 text-center">
+            <p class="text-sm uppercase tracking-[.18em] font-bold text-rose-100">2026 Calendar Complete</p>
+            <h2 class="text-2xl md:text-3xl mt-2">All listed 2026 festivals have passed.</h2>
+            <p class="mt-2 text-white/80">Explore the complete calendar below or visit the festival library.</p>
+          </div>`;
+        return;
+      }
+
+      const today = localDateOnly();
+      const daysAway = Math.round((nextEntry.date - today) / 86400000);
+      const timing = daysAway === 0 ? 'Today' : daysAway === 1 ? 'Tomorrow' : `${daysAway} days away`;
+      const fullDate = nextEntry.date.toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric', year:'numeric' });
+      banner.classList.remove('hidden');
+      banner.innerHTML = `
+        <div class="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div>
+            <p class="text-sm uppercase tracking-[.18em] font-bold text-rose-100"><i class="fa-solid fa-star mr-2"></i>Next Festival</p>
+            <h2 class="text-3xl md:text-4xl mt-2">${nextEntry.item.name}</h2>
+            <p class="mt-2 text-white/85 text-lg">${fullDate} · ${nextEntry.item.region}</p>
+          </div>
+          <div class="md:text-right flex-shrink-0">
+            <div class="text-2xl md:text-3xl font-bold">${timing}</div>
+            <div class="mt-4 flex flex-wrap md:justify-end gap-3">
+              <button id="jump-to-next" class="px-5 py-2.5 rounded-full bg-white text-rose-800 font-bold hover:bg-rose-50 transition-colors">
+                <i class="fa-solid fa-location-arrow mr-2"></i>Show in calendar
+              </button>
+              <a href="${nextEntry.item.slug}" class="px-5 py-2.5 rounded-full border border-white/60 text-white font-bold hover:bg-white/10 transition-colors">Open guide</a>
+            </div>
+          </div>
+        </div>`;
+    }
+
+    function renderCalendar() {
+      const query = document.getElementById('search-input').value.trim().toLowerCase();
+      const root = document.getElementById('calendar-root');
+      root.innerHTML = '';
+      let totalVisible = 0;
+      const today = localDateOnly();
+      const nextEntry = getNextFestival();
+      const nextItem = nextEntry ? nextEntry.item : null;
+
+      monthNames.forEach((month, monthIndex) => {
+        const monthFestivals = festivals.filter(item => {
+          const itemMonth = new Date(item.date + 'T00:00:00').getMonth();
+          const filterMatch = activeFilter === 'all' || item.tags.includes(activeFilter);
+          const queryMatch = !query || `${item.name} ${item.region} ${item.display}`.toLowerCase().includes(query);
+          return itemMonth === monthIndex && filterMatch && queryMatch;
+        });
+
+        if (!monthFestivals.length) return;
+        totalVisible += monthFestivals.length;
+
+        const section = document.createElement('section');
+        section.className = 'month-section py-8';
+        if (monthIndex === today.getMonth() && today.getFullYear() === 2026) section.classList.add('is-current-month');
+        section.id = month.toLowerCase();
+        section.innerHTML = `
+          <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-5">
+            <div>
+              <span class="month-pill"><i class="fa-regular fa-calendar"></i>${month} 2026</span>${monthIndex === today.getMonth() && today.getFullYear() === 2026 ? '<span class="today-marker"><i class="fa-solid fa-circle"></i>Current month</span>' : ''}
+              <h2 class="text-3xl md:text-4xl text-rose-900 mt-3">${month} Celebrations</h2>
+            </div>
+            <p class="text-sm text-stone-500">${monthFestivals.length} date${monthFestivals.length === 1 ? '' : 's'}</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+        `;
+
+        const grid = section.querySelector('.grid');
+        monthFestivals.forEach(item => {
+          const [mon, day] = item.display.replace('–', '-').split(' ');
+          const card = document.createElement('a');
+          card.href = item.slug;
+          card.className = 'festival-card group';
+          const itemDate = festivalDate(item);
+          const isNext = nextItem && item === nextItem;
+          if (isNext) {
+            card.classList.add('is-next');
+            card.id = 'next-festival-card';
+          } else if (itemDate < today) {
+            card.classList.add('is-past');
+          }
+          card.setAttribute('aria-label', `Open ${item.name} guide`);
+          card.innerHTML = `
+            <div class="flex gap-4 items-start">
+              <div class="date-badge">
+                <span class="month">${mon.toUpperCase()}</span>
+                <span class="day">${day}</span>
+              </div>
+              <div class="min-w-0">
+                <span class="region-tag"><i class="fa-solid fa-location-dot"></i>${item.region}</span>
+                <h3 class="text-xl text-rose-900 mt-3 group-hover:text-rose-700 transition-colors">${item.name}</h3>
+              </div>
+            </div>
+            <div class="mt-auto pt-5 flex items-center justify-between text-sm font-bold text-rose-700">
+              <span>Explore festival</span>
+              <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+
+        root.appendChild(section);
+      });
+
+      document.getElementById('no-results').classList.toggle('hidden', totalVisible !== 0);
+
+      const jumpButton = document.getElementById('jump-to-next');
+      if (jumpButton) {
+        jumpButton.onclick = () => {
+          activeFilter = 'all';
+          document.getElementById('search-input').value = '';
+          document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.filter === 'all'));
+          renderCalendar();
+          requestAnimationFrame(() => document.getElementById('next-festival-card')?.scrollIntoView({ behavior:'smooth', block:'center' }));
+        };
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const nextEntry = getNextFestival();
+      renderNextFestivalBanner(nextEntry);
+      renderCalendar();
+      document.getElementById('search-input').addEventListener('input', renderCalendar);
+
+      document.querySelectorAll('.filter-btn').forEach(button => {
+        button.addEventListener('click', () => {
+          activeFilter = button.dataset.filter;
+          document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+          renderCalendar();
+        });
+      });
+    });
+  </script>
+
+
+</body></html>

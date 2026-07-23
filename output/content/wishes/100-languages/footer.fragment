@@ -37,36 +37,19 @@
       </div>
 
       <div>
-        <h5 class="text-lg font-semibold text-white mb-4">Folders</h5>
-        <ul class="space-y-2">
-          <li><a href="https://www.happy-new-year.org/wishes/100-languages/" class="hover:text-white hover:underline transition-colors duration-200">100 Languages</a></li>
-          <li><a href="https://www.happy-new-year.org/wishes/in-languages/" class="hover:text-white hover:underline transition-colors duration-200">In Languages</a></li>
-        </ul>
-      </div>
-
-      <div>
         <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
         <ul class="space-y-2">
-          <li><a href="https://www.happy-new-year.org/wishes/10-popular-languages.html" class="hover:text-white hover:underline transition-colors duration-200">10 Popular Languages</a></li>
-          <li><a href="https://www.happy-new-year.org/wishes/christmas-wishes-by-audience.html" class="hover:text-white hover:underline transition-colors duration-200">Christmas Wishes By Audience</a></li>
-          <li><a href="https://www.happy-new-year.org/wishes/grand-children.html" class="hover:text-white hover:underline transition-colors duration-200">Grand Children</a></li>
-          <li><a href="https://www.happy-new-year.org/wishes/grand-parents.html" class="hover:text-white hover:underline transition-colors duration-200">Grand Parents</a></li>
-          <li><a href="https://www.happy-new-year.org/wishes/happy-new-year-2026-wishes-in-100-langauges.html" class="hover:text-white hover:underline transition-colors duration-200">Happy New Year 2026 Wishes In 100 Langauges</a></li>
-          <li><a href="https://www.happy-new-year.org/wishes/happy_new_year_2026_multilingual_greetings_webpage.html" class="hover:text-white hover:underline transition-colors duration-200">Happy New Year 2026 Multilingual Greetings Webpage</a></li>
-          <li><a href="https://www.happy-new-year.org/wishes/happy_new_year_2026_multilingual_greetings_webpage_with_voice.html" class="hover:text-white hover:underline transition-colors duration-200">Happy New Year 2026 Multilingual Greetings Webpage With Voice</a></li>
-          <li><a href="https://www.happy-new-year.org/wishes/new-year-and-wishes-around-the-world.html" class="hover:text-white hover:underline transition-colors duration-200">New Year And Wishes Around The World</a></li>
-          <li><a href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html" class="hover:text-white hover:underline transition-colors duration-200">New Year Wishes In 100 Langauges</a></li>
-          <li><a href="https://www.happy-new-year.org/wishes/newyear-history-celebration.html" class="hover:text-white hover:underline transition-colors duration-200">Newyear History Celebration</a></li>
-          <li><a href="https://www.happy-new-year.org/wishes/newyear-history.html" class="hover:text-white hover:underline transition-colors duration-200">Newyear History</a></li>
-          <li><a href="https://www.happy-new-year.org/wishes/newyear-info.html" class="hover:text-white hover:underline transition-colors duration-200">Newyear Info</a></li>
-          <li><a href="https://www.happy-new-year.org/wishes/parents.html" class="hover:text-white hover:underline transition-colors duration-200">Parents</a></li>
-          <li><a href="https://www.happy-new-year.org/wishes/quotes.html" class="hover:text-white hover:underline transition-colors duration-200">Quotes</a></li>
-          <li><a href="https://www.happy-new-year.org/wishes/son.html" class="hover:text-white hover:underline transition-colors duration-200">Son</a></li>
-          <li><a href="https://www.happy-new-year.org/wishes/wishes-kids.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes Kids</a></li>
-          <li><a href="https://www.happy-new-year.org/wishes/wishes-parents.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes Parents</a></li>
-          <li><a href="https://www.happy-new-year.org/wishes/wishes-professional.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes Professional</a></li>
-          <li><a href="https://www.happy-new-year.org/wishes/wishes-relatives.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes Relatives</a></li>
-          <li><a href="https://www.happy-new-year.org/wishes/wishes-spouse.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes Spouse</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/100-languages/christmas.html" class="hover:text-white hover:underline transition-colors duration-200">Christmas</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/100-languages/diwali.html" class="hover:text-white hover:underline transition-colors duration-200">Diwali</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/100-languages/dussehra.html" class="hover:text-white hover:underline transition-colors duration-200">Dussehra</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/100-languages/lohri.html" class="hover:text-white hover:underline transition-colors duration-200">Lohri</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/100-languages/maha-shivratri.html" class="hover:text-white hover:underline transition-colors duration-200">Maha Shivratri</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/100-languages/makar-sankranti.html" class="hover:text-white hover:underline transition-colors duration-200">Makar Sankranti</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/100-languages/onam.html" class="hover:text-white hover:underline transition-colors duration-200">Onam</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/100-languages/pongal.html" class="hover:text-white hover:underline transition-colors duration-200">Pongal</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/100-languages/rakhi.html" class="hover:text-white hover:underline transition-colors duration-200">Rakhi</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/100-languages/thanksgiving.html" class="hover:text-white hover:underline transition-colors duration-200">Thanksgiving</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/100-languages/valentine.html" class="hover:text-white hover:underline transition-colors duration-200">Valentine</a></li>
         </ul>
       </div>
 
@@ -85,7 +68,7 @@
 
     <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
       <p class="text-sm text-gray-400">&copy; 2026 Happy New Year 2027. All rights reserved.</p>
-      <div class="flex space-x-4 mt-4 sm:mt-0"><a href="https://www.happy-new-year.org/wishes/facebook.html" class="text-gray-400 hover:text-white transition-colors duration-200">Facebook</a> <a href="https://www.happy-new-year.org/wishes/linkedin.html" class="text-gray-400 hover:text-white transition-colors duration-200">Linkedin</a></div>
+      
     </div>
 
   </div>

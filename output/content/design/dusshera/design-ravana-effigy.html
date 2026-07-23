@@ -2,10 +2,10 @@
 <html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-<title>Dussehra — design your Ravana</title>
+<title>Dussehra :  design your Ravana</title>
 
 <!-- ------- SEO ------- -->
-<meta content="A free interactive Dussehra effigy designer. Build a ten-headed Ravana — choose the crown, mustache, outfit and weapons, decorate the body, then light the effigy and watch it burn for Vijayadashami." name="description"/>
+<meta content="A free interactive Dussehra effigy designer. Build a ten-headed Ravana :  choose the crown, mustache, outfit and weapons, decorate the body, then light the effigy and watch it burn for Vijayadashami." name="description"/>
 <meta content="Ravana effigy, Dussehra, Vijayadashami, design Ravana, Ravana Dahan, effigy maker, ten headed Ravana, Dasara, burn Ravana, interactive effigy designer" name="keywords"/>
 <meta content="Prashant Dhingra" name="author"/>
 <meta content="index, follow" name="robots"/>
@@ -14,12 +14,12 @@
 
 <!-- ------- Open Graph / Twitter ------- -->
 <meta content="website" property="og:type"/>
-<meta content="Dussehra — design your Ravana" property="og:title"/>
-<meta content="Build a ten-headed Ravana effigy — crown, mustache, outfit and weapons — then light it and watch it burn for Vijayadashami. Free and made in your browser." property="og:description"/>
+<meta content="Dussehra :  design your Ravana" property="og:title"/>
+<meta content="Build a ten-headed Ravana effigy :  crown, mustache, outfit and weapons :  then light it and watch it burn for Vijayadashami. Free and made in your browser." property="og:description"/>
 <meta content="https://www.happy-new-year.org/design/dusshera/" property="og:url"/>
 <meta content="https://www.happy-new-year.org/design/dusshera/og-image.png" property="og:image"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Dussehra — design your Ravana" name="twitter:title"/>
+<meta content="Dussehra :  design your Ravana" name="twitter:title"/>
 <meta content="Build a ten-headed Ravana effigy and set it alight for Dussehra." name="twitter:description"/>
 <meta content="https://www.happy-new-year.org/design/dusshera/og-image.png" name="twitter:image"/>
 
@@ -360,6 +360,12 @@ gtag('config', 'G-7P1WS6BM5K');
 </ul>
 </div>
 <div>
+<h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/design/dusshera/design-ravana-effigy.html">Design Ravana Effigy</a></li>
+</ul>
+</div>
+<div>
 <h5 class="text-lg font-semibold text-white mb-4">Footer Links</h5>
 <ul class="space-y-2">
 <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a></li>
@@ -368,7 +374,7 @@ gtag('config', 'G-7P1WS6BM5K');
 </div>
 </div>
 <div class="mt-8 text-center text-sm text-gray-400">
-<p class="text-sm text-gray-400">Celebrate Festival, Send wishes, Design Rakhi</p>
+<p class="text-sm text-gray-400">Celebrate Festival, Send wishes in 100 languages, Design Rakhi</p>
 </div>
 <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
 <p class="text-sm text-gray-400">© 2026 Happy New Year 2027. All rights reserved.</p>
@@ -385,7 +391,7 @@ gtag('config', 'G-7P1WS6BM5K');
 
   const SIZE=1200, CX=600, GY=1088;   // ground line
   const SHARE_URL="https://www.happy-new-year.org/design/dusshera/";
-  const SHARE_TEXT="I designed a Ravana effigy for Dussehra — make your own:";
+  const SHARE_TEXT="I designed a Ravana effigy for Dussehra :  make your own:";
 
   const artC=document.getElementById('art');
   const c=artC.getContext('2d');
@@ -835,7 +841,7 @@ gtag('config', 'G-7P1WS6BM5K');
     const blob=await canvasToBlob();if(!blob){toast('Could not save');return;}
     const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='ravana-effigy.png';
     document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
-    toast('Saved — check your downloads');
+    toast('Saved :  check your downloads');
   };
   function copyLink(){if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(SHARE_URL).then(()=>toast('Link copied')).catch(()=>toast(SHARE_URL));}else toast(SHARE_URL);}
   document.getElementById('share').onclick=async()=>{

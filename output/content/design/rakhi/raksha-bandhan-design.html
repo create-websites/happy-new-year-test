@@ -2,7 +2,7 @@
 <html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-<title>Design Your Own Rakhi — Personalised Photo Rakhi Maker</title>
+<title>Design Your Own Rakhi :  Personalised Photo Rakhi Maker</title>
 
 <meta content="A free interactive rakhi designer. Pick a style and shape, size it, add your photo, decorate a jewelled medallion in radial symmetry, choose your thread and closure, add LED lights, and download your Raksha Bandhan rakhi." name="description"/>
 <meta content="rakhi design, design rakhi online, rakhi maker, Raksha Bandhan, photo rakhi, personalised rakhi, kundan rakhi, LED rakhi, bracelet rakhi" name="keywords"/>
@@ -12,14 +12,14 @@
 <link href="https://www.happy-new-year.org/design-rakhi/" rel="canonical"/>
 
 <meta content="website" property="og:type"/>
-<meta content="Rakhi — design your own" property="og:title"/>
+<meta content="Rakhi :  design your own" property="og:title"/>
 <meta content="Pick a style and shape, add your photo, decorate a jewelled rakhi in radial symmetry, add LED lights, and download it for Raksha Bandhan." property="og:description"/>
 <meta content="https://www.happy-new-year.org/design-rakhi/" property="og:url"/>
 <meta content="https://www.happy-new-year.org/design-rakhi/og-image.png" property="og:image"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Rakhi — design your own" name="twitter:title"/>
+<meta content="Rakhi :  design your own" name="twitter:title"/>
 <meta content="Design a jewelled, personalised rakhi with photo, shapes and LED lights, and download it for Raksha Bandhan." name="twitter:description"/>
 <meta content="https://www.happy-new-year.org/design-rakhi/og-image.png" name="twitter:image"/>
 
@@ -285,7 +285,7 @@ gtag('config', 'G-7P1WS6BM5K');
   <main id="designer">
     <div class="stage" data-touched="0" id="stage">
       <canvas aria-label="Rakhi design canvas" height="1200" id="art" width="1200"></canvas>
-      <div class="hint">Tap or drag on the medallion — near the centre for inner rings, near the edge for outer</div>
+      <div class="hint">Tap or drag on the medallion :  near the centre for inner rings, near the edge for outer</div>
     </div>
 
     <div class="panel">
@@ -293,7 +293,7 @@ gtag('config', 'G-7P1WS6BM5K');
       <div class="card">
         <h2>Quick start</h2>
         <div class="row" id="presetRow"></div>
-        <p class="subnote">Each style sets shape, colours, ornament and thread — then keep decorating.</p>
+        <p class="subnote">Each style sets shape, colours, ornament and thread :  then keep decorating.</p>
       </div>
 
       <div class="card">
@@ -324,7 +324,7 @@ gtag('config', 'G-7P1WS6BM5K');
           <div class="field"><div class="field-row"><label class="lbl" for="zoom">Zoom</label><span class="val" id="zoomVal">1.0×</span></div><input id="zoom" max="3" min="1" step="0.05" type="range" value="1"/></div>
           <button class="btn wide" id="rmPhoto" style="margin-top:10px">Remove photo</button>
         </div>
-        <p class="subnote">Placed in the centre with a gold frame — for a personalised photo rakhi.</p>
+        <p class="subnote">Placed in the centre with a gold frame :  for a personalised photo rakhi.</p>
       </div>
 
       <div class="card">
@@ -361,7 +361,7 @@ gtag('config', 'G-7P1WS6BM5K');
         <h2>Lights</h2>
         <label class="toggle"><input id="led" type="checkbox"/><span class="track"></span><span>LED lights</span></label>
         <label class="toggle" style="margin-top:12px"><input id="anim" type="checkbox"/><span class="track"></span><span>Animate (twinkle)</span></label>
-        <p class="subnote">A ring of bulbs around the rim. Animation is a live preview — the saved image is a still.</p>
+        <p class="subnote">A ring of bulbs around the rim. Animation is a live preview :  the saved image is a still.</p>
       </div>
 
       <div class="actions" id="save-actions">
@@ -415,6 +415,12 @@ gtag('config', 'G-7P1WS6BM5K');
 </ul>
 </div>
 <div>
+<h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/design/rakhi/raksha-bandhan-design.html">Raksha Bandhan Design</a></li>
+</ul>
+</div>
+<div>
 <h5 class="text-lg font-semibold text-white mb-4">Footer Links</h5>
 <ul class="space-y-2">
 <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a></li>
@@ -423,7 +429,7 @@ gtag('config', 'G-7P1WS6BM5K');
 </div>
 </div>
 <div class="mt-8 text-center text-sm text-gray-400">
-<p class="text-sm text-gray-400">Celebrate Festival, Send wishes, Design Rakhi</p>
+<p class="text-sm text-gray-400">Celebrate Festival, Send wishes in 100 languages, Design Rakhi</p>
 </div>
 <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
 <p class="text-sm text-gray-400">© 2026 Happy New Year 2027. All rights reserved.</p>
@@ -439,7 +445,7 @@ gtag('config', 'G-7P1WS6BM5K');
   "use strict";
   const SIZE=1200, CX=SIZE/2, CY=SIZE/2, R_MED=300;
   const SHARE_URL="https://www.happy-new-year.org/design-rakhi/";
-  const SHARE_TEXT="I designed a rakhi for Raksha Bandhan — make your own:";
+  const SHARE_TEXT="I designed a rakhi for Raksha Bandhan :  make your own:";
   const artC=document.getElementById('art'), ctx=artC.getContext('2d'), stage=document.getElementById('stage');
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -669,7 +675,7 @@ gtag('config', 'G-7P1WS6BM5K');
   document.getElementById('undo').addEventListener('click',()=>{state.items.pop();render();if(!state.items.length)document.getElementById('undo').disabled=true;});
   document.getElementById('clear').addEventListener('click',()=>{state.items.length=0;render();document.getElementById('undo').disabled=true;});
   function buildImageCanvas(){const out=document.createElement('canvas');out.width=SIZE;out.height=SIZE;renderScene(out.getContext('2d'),true,null);return out;}
-  document.getElementById('save').addEventListener('click',()=>{const out=buildImageCanvas();out.toBlob(blob=>{if(!blob){toast('Could not create image — try again');return;}const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='rakhi.png';a.rel='noopener';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),8000);toast('Saved rakhi.png to your Downloads folder');},'image/png');});
+  document.getElementById('save').addEventListener('click',()=>{const out=buildImageCanvas();out.toBlob(blob=>{if(!blob){toast('Could not create image :  try again');return;}const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='rakhi.png';a.rel='noopener';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),8000);toast('Saved rakhi.png to your Downloads folder');},'image/png');});
   function canvasToFile(){return new Promise(res=>buildImageCanvas().toBlob(b=>res(b?new File([b],'rakhi.png',{type:'image/png'}):null),'image/png'));}
   async function copyLink(){try{await navigator.clipboard.writeText(SHARE_URL);toast('Link copied to clipboard');}catch{toast(SHARE_URL);}}
   document.getElementById('share').addEventListener('click',async()=>{const hasArt=state.items.length>0||!!state.photo;if(hasArt&&navigator.canShare){const file=await canvasToFile();if(file&&navigator.canShare({files:[file]})){try{await navigator.share({files:[file],title:'My Rakhi',text:SHARE_TEXT,url:SHARE_URL});return;}catch(e){if(e&&e.name==='AbortError')return;}}}if(navigator.share){try{await navigator.share({title:'Rakhi Designer',text:SHARE_TEXT,url:SHARE_URL});return;}catch(e){if(e&&e.name==='AbortError')return;}}copyLink();});

@@ -2,26 +2,26 @@
 <html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-<title>Karwa Chauth — design your thali</title>
+<title>Karwa Chauth :  design your thali</title>
 
 <!-- ------- SEO ------- -->
-<meta content="A free interactive Karwa Chauth thali designer. Arrange the puja thali — set the diya, karwa, sieve, water and sweets, decorate the rim, choose a metal finish, and download your thali as an image under the moon." name="description"/>
+<meta content="A free interactive Karwa Chauth thali designer. Arrange the puja thali :  set the diya, karwa, sieve, water and sweets, decorate the rim, choose a metal finish, and download your thali as an image under the moon." name="description"/>
 <meta content="karwa chauth thali, thali design, puja thali, karwa chauth, design thali online, thali decoration, karva chauth, interactive thali designer, sargi thali" name="keywords"/>
 <meta content="Prashant Dhingra" name="author"/>
 <meta content="index, follow" name="robots"/>
 <meta content="#fff1f2" name="theme-color"/>
-<link href="https://prashant.dhingra.website/design-karwachauth/" rel="canonical"/>
+<link href="https://www.happy-new-year.org/design-karwachauth/" rel="canonical"/>
 
 <!-- ------- Open Graph / Twitter ------- -->
 <meta content="website" property="og:type"/>
-<meta content="Karwa Chauth — design your thali" property="og:title"/>
-<meta content="Arrange the puja thali — diya, karwa, sieve and sweets — decorate the rim and download it for Karwa Chauth. Free and made in your browser." property="og:description"/>
-<meta content="https://prashant.dhingra.website/design-karwachauth/" property="og:url"/>
-<meta content="https://prashant.dhingra.website/design-karwachauth/og-image.png" property="og:image"/>
+<meta content="Karwa Chauth :  design your thali" property="og:title"/>
+<meta content="Arrange the puja thali :  diya, karwa, sieve and sweets :  decorate the rim and download it for Karwa Chauth. Free and made in your browser." property="og:description"/>
+<meta content="https://www.happy-new-year.org/design-karwachauth/" property="og:url"/>
+<meta content="https://www.happy-new-year.org/design-karwachauth/og-image.png" property="og:image"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Karwa Chauth — design your thali" name="twitter:title"/>
+<meta content="Karwa Chauth :  design your thali" name="twitter:title"/>
 <meta content="Arrange and decorate a Karwa Chauth puja thali, then download it under the moon." name="twitter:description"/>
-<meta content="https://prashant.dhingra.website/design-karwachauth/og-image.png" name="twitter:image"/>
+<meta content="https://www.happy-new-year.org/design-karwachauth/og-image.png" name="twitter:image"/>
 
 <!-- ------- Structured data ------- -->
 <script type="application/ld+json">
@@ -29,13 +29,13 @@
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "Karwa Chauth Thali Designer",
-  "url": "https://prashant.dhingra.website/design-karwachauth/",
+  "url": "https://www.happy-new-year.org/design-karwachauth/",
   "description": "A free interactive Karwa Chauth thali designer. Arrange the puja thali with a diya, karwa, sieve, water and sweets, decorate the rim, choose a metal finish, and download your thali as an image.",
   "applicationCategory": "DesignApplication",
   "operatingSystem": "Any",
   "browserRequirements": "Requires a modern web browser with HTML5 canvas support.",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "author": { "@type": "Person", "name": "Prashant Dhingra", "url": "https://prashant.dhingra.website/" }
+  "author": { "@type": "Person", "name": "Prashant Dhingra", "url": "https://www.happy-new-year.org/" }
 }
 </script>
 <script type="application/ld+json">
@@ -350,6 +350,12 @@
 </ul>
 </div>
 <div>
+<h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/design/karwachouth/puja-thali.html">Puja Thali</a></li>
+</ul>
+</div>
+<div>
 <h5 class="text-lg font-semibold text-white mb-4">Footer Links</h5>
 <ul class="space-y-2">
 <li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a></li>
@@ -358,7 +364,7 @@
 </div>
 </div>
 <div class="mt-8 text-center text-sm text-gray-400">
-<p class="text-sm text-gray-400">Celebrate Festival, Send wishes, Design Rakhi</p>
+<p class="text-sm text-gray-400">Celebrate Festival, Send wishes in 100 languages, Design Rakhi</p>
 </div>
 <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
 <p class="text-sm text-gray-400">© 2026 Happy New Year 2027. All rights reserved.</p>
@@ -376,8 +382,8 @@
   /* ---------- geometry (1200x1200) ---------- */
   const SIZE=1200, CX=600, CY=600;
   const R_OUT=478, R_RIM=406, R_PLATE=398;
-  const SHARE_URL="https://prashant.dhingra.website/design-karwachauth/";
-  const SHARE_TEXT="I designed a Karwa Chauth thali — make your own:";
+  const SHARE_URL="https://www.happy-new-year.org/design-karwachauth/";
+  const SHARE_TEXT="I designed a Karwa Chauth thali :  make your own:";
 
   const artC=document.getElementById('art');
   const c=artC.getContext('2d');
@@ -850,7 +856,7 @@
   document.getElementById('save').onclick=async()=>{
     const blob=await canvasToBlob();if(!blob){toast('Could not save');return;}
     downloadBlob(blob,'karwachauth-thali.png');
-    toast('Saved — check your downloads');
+    toast('Saved :  check your downloads');
   };
   document.getElementById('share').onclick=async()=>{
     const url=shareUrl();
@@ -863,7 +869,7 @@
     }
     const blob=await canvasToBlob();if(blob)downloadBlob(blob,'karwachauth-thali.png');
     copyText(url);
-    toast('Image downloaded — attach it to your message. Design link copied too.');
+    toast('Image downloaded :  attach it to your message. Design link copied too.');
   };
 
   /* ---------- misc ---------- */

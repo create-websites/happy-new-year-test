@@ -37,6 +37,13 @@
       </div>
 
       <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/design/karwachouth/puja-thali.html" class="hover:text-white hover:underline transition-colors duration-200">Puja Thali</a></li>
+        </ul>
+      </div>
+
+      <div>
         <h5 class="text-lg font-semibold text-white mb-4">Footer Links</h5>
         <ul class="space-y-2">
           <li><a href="https://www.happy-new-year.org/privacypolicy,html" class="hover:text-white hover:underline transition-colors duration-200">Privacy Policy</a></li>
@@ -46,7 +53,7 @@
     </div>
 
     <div class="mt-8 text-center text-sm text-gray-400">
-      <p class="text-sm text-gray-400">Celebrate Festival, Send wishes, Design Rakhi</p>
+      <p class="text-sm text-gray-400">Celebrate Festival, Send wishes in 100 languages, Design Rakhi</p>
     </div>
 
     <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">

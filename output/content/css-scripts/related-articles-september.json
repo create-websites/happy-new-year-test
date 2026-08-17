@@ -1,0 +1,87 @@
+[
+  {
+    "id": "ganesh-chaturthi-celebration-guide",
+    "title": "Ganesh Chaturthi Celebration Guide",
+    "url": "/festivals/ganesh-chaturthi/",
+    "category": "Hindu Festival",
+    "description": "Explore Ganesh Chaturthi traditions, Lord Ganesha worship, festive decorations, modak recipes, and family celebration ideas.",
+    "image": "/images/ganesh-chaturthi-guide.jpg",
+    "keywords": [
+      "ganesh chaturthi",
+      "ganesha festival",
+      "lord ganesha",
+      "ganpati",
+      "vinayaka chaturthi",
+      "modak",
+      "hindu festival"
+    ]
+  },
+  {
+    "id": "onam-celebration-guide",
+    "title": "Onam Celebration Guide",
+    "url": "/festivals/onam/",
+    "category": "Indian Festival",
+    "description": "Discover the traditions of Onam, including Pookalam, Onam Sadhya, Vallam Kali, cultural celebrations, and the story of King Mahabali.",
+    "image": "/images/onam-guide.jpg",
+    "keywords": [
+      "onam",
+      "onam festival",
+      "kerala festival",
+      "pookalam",
+      "onam sadhya",
+      "king mahabali",
+      "vallam kali"
+    ]
+  },
+  {
+    "id": "navratri-celebration-guide",
+    "title": "Navratri Celebration Guide",
+    "url": "/festivals/navratri/",
+    "category": "Hindu Festival",
+    "description": "Learn about Navratri traditions, nine nights of Goddess Durga worship, fasting, Garba, Dandiya, colors, and festive celebration ideas.",
+    "image": "/images/navratri-guide.jpg",
+    "keywords": [
+      "navratri",
+      "navaratri",
+      "durga",
+      "garba",
+      "dandiya",
+      "nine nights",
+      "hindu festival"
+    ]
+  },
+  {
+    "id": "halloween-celebration-guide",
+    "title": "Halloween Celebration Guide",
+    "url": "/festivals/halloween/",
+    "category": "Seasonal Festival",
+    "description": "Get ready for Halloween with costume ideas, spooky decorations, pumpkin carving, party inspiration, trick-or-treat traditions, and family activities.",
+    "image": "/images/halloween-guide.jpg",
+    "keywords": [
+      "halloween",
+      "halloween festival",
+      "halloween costumes",
+      "pumpkin carving",
+      "trick or treat",
+      "halloween decorations",
+      "halloween party"
+    ]
+  },
+  {
+    "id": "september-festival-highlights",
+    "title": "September Festival Highlights",
+    "url": "/festivals/",
+    "category": "Upcoming Festivals",
+    "description": "Explore September festival highlights featuring Ganesh Chaturthi, Onam, Navratri, and early Halloween celebration ideas.",
+    "image": "/images/september-festival-highlights.jpg",
+    "keywords": [
+      "september festivals",
+      "ganesh chaturthi",
+      "onam",
+      "navratri",
+      "halloween",
+      "festival calendar",
+      "upcoming festivals"
+    ]
+  }
+]

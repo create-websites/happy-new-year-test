@@ -324,7 +324,7 @@ gtag('config', 'G-7P1WS6BM5K');
             "Janmashtami (India)   Krishna’s birth celebrated with reenactments and midnight prayers.",
             "Maha Shivaratri (India)   Night-long worship and fasting honoring Shiva.",
             "Raksha Bandhan (India)   Sibling festival with rakhi tying and gift exchange.",
-            "Karva Chauth (India)   Fasting tradition with evening rituals and family gatherings.",
+            "Karwa Chauth (India)   Fasting tradition with evening rituals and family gatherings.",
             "Makar Sankranti (India)   Solar/harvest festival known for kites, sweets, and rituals.",
             "Lohri (Punjab)   Bonfire festival celebrating winter harvest and folk songs.",
             "Pongal (Tamil Nadu)   Harvest thanksgiving with cooking new rice and honoring nature.",
@@ -418,24 +418,40 @@ gtag('config', 'G-7P1WS6BM5K');
             "Coachella (USA)   Pop-culture-defining music festival with art installations and fashion."
         ];
 
-        // Parse Data
+        // Parse each entry into festival name, region, and description.
+        // Entries use 3+ spaces between the title/region portion and description.
         const festivalData = festivals.map(line => {
-            const parts = line.split(' ');
-            const desc = parts[1] ? parts[1].trim() : '';
-            
-            const titlePart = parts[0].trim();
-            const openParenIndex = titlePart.indexOf('(');
-            
-            let name = titlePart;
-            let region = 'Global';
+            const match = line.match(/^(.+?)\s*\(([^)]+)\)\s{3,}(.+)$/);
 
-            if (openParenIndex > -1) {
-                name = titlePart.substring(0, openParenIndex).trim();
-                region = titlePart.substring(openParenIndex + 1, titlePart.length - 1).trim();
+            if (match) {
+                return {
+                    name: match[1].trim(),
+                    region: match[2].trim(),
+                    desc: match[3].trim()
+                };
             }
 
-            return { name, region, desc };
+            // Safe fallback for any future entry that does not include a region.
+            const parts = line.split(/\s{3,}/);
+            return {
+                name: (parts[0] || '').trim(),
+                region: 'Global',
+                desc: (parts.slice(1).join(' ') || '').trim()
+            };
         });
+
+        // Create an SEO-friendly URL slug from the festival name.
+        // Examples: Raksha Bandhan -> raksha-bandhan/, Karwa Chauth -> karwa-chauth/
+        function festivalSlug(name) {
+            return name
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '')
+                .toLowerCase()
+                .replace(/&/g, ' and ')
+                .replace(/[’']/g, '')
+                .replace(/[^a-z0-9]+/g, '-')
+                .replace(/^-+|-+$/g, '') + '/';
+        }
 
         // Render Cards
         function renderFestivals(filterText = '') {
@@ -455,16 +471,21 @@ gtag('config', 'G-7P1WS6BM5K');
                 noResults.classList.add('hidden');
                 filtered.forEach(f => {
                     const card = document.createElement('div');
+                    const url = festivalSlug(f.name);
                     card.className = 'festival-card group';
                     card.innerHTML = `
                         <div class="mb-auto">
                             <span class="region-tag">${f.region}</span>
-                            <h3 class="text-xl font-bold text-slate-800 mb-2 group-hover:text-rose-700 transition-colors">${f.name}</h3>
+                            <h3 class="text-xl font-bold mb-2">
+                                <a class="text-slate-800 group-hover:text-rose-700 transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500 focus-visible:ring-offset-2 rounded" href="${url}">${f.name}</a>
+                            </h3>
                             <p class="text-stone-600 text-sm leading-relaxed">${f.desc}</p>
                         </div>
-                        <div class="mt-4 pt-4 border-t border-rose-100 flex justify-between items-center text-rose-400 text-sm">
-                            <span><i class="fa-solid fa-earth-americas"></i> Culture</span>
-                            <i class="fa-solid fa-arrow-right opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:translate-x-1"></i>
+                        <div class="mt-4 pt-4 border-t border-rose-100 flex justify-between items-center text-sm">
+                            <span class="text-rose-400"><i class="fa-solid fa-earth-americas"></i> Culture</span>
+                            <a class="text-rose-600 font-semibold hover:text-rose-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500 focus-visible:ring-offset-2 rounded" href="${url}" aria-label="Read more about ${f.name}">
+                                Explore <i class="fa-solid fa-arrow-right ml-1 transition-transform group-hover:translate-x-1"></i>
+                            </a>
                         </div>
                     `;
                     grid.appendChild(card);

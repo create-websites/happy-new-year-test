@@ -4,10 +4,10 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     
     <!-- Meta Tags -->
-    <meta content="Explore a diverse collection of cultural festivals from around the world. From Diwali and Lunar New Year to Carnival and Oktoberfest, discover how humanity celebrates." name="description"/>
+    <meta content="Explore festivals around the world with their traditions, regions, typical celebration dates, and links to detailed festival guides." name="description"/>
     <meta content="global festivals, cultural holidays, Lunar New Year, Diwali, Christmas, Hanukkah, Ramadan, Carnival, world celebrations, traditions" name="keywords"/>
 
-    <title>Festivals of the World | Cultural Calendar</title>
+    <title>Festivals of the World: Dates, Traditions &amp; Celebrations</title>
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- FontAwesome CSS -->
@@ -133,11 +133,11 @@ gtag('config', 'G-7P1WS6BM5K');
                         <a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="index.html">Home</a>
                         <a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="index.html#resolutions">Resolutions</a>
                         <a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="new-year-celebrations.html">Celebrations</a>
-                        <a class="nav-link px-3 py-2 rounded-md text-base font-semibold text-rose-800 border-b-2 border-rose-800" href="#">Festivals</a>
+                        <a class="nav-link px-3 py-2 rounded-md text-base font-semibold text-rose-800 border-b-2 border-rose-800" href="/festivals/">Festivals</a>
                     </div>
                 </div>
                 <div class="md:hidden">
-                    <button class="text-stone-600 hover:text-rose-800" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                    <button aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation menu" class="text-stone-600 hover:text-rose-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-600 rounded" onclick="const menu=document.getElementById('mobile-menu'); menu.classList.toggle('hidden'); this.setAttribute('aria-expanded', String(!menu.classList.contains('hidden')))">
                         <i class="fa-solid fa-bars text-2xl"></i>
                     </button>
                 </div>
@@ -148,7 +148,7 @@ gtag('config', 'G-7P1WS6BM5K');
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a class="text-stone-600 hover:text-rose-800 block px-3 py-2 rounded-md text-base font-medium" href="index.html">Home</a>
                 <a class="text-stone-600 hover:text-rose-800 block px-3 py-2 rounded-md text-base font-medium" href="new-year-celebrations.html">Celebrations</a>
-                <a class="text-rose-900 font-bold block px-3 py-2 rounded-md text-base" href="#">Festivals</a>
+                <a class="text-rose-900 font-bold block px-3 py-2 rounded-md text-base" href="/festivals/">Festivals</a>
             </div>
         </div>
     </nav>
@@ -335,7 +335,7 @@ gtag('config', 'G-7P1WS6BM5K');
             "Harbin Ice & Snow Festival (China)   Monumental illuminated ice architecture and winter spectacle.",
             "Nowruz (Iran + Central Asia + diaspora)   Persian New Year welcoming spring with symbolic “Haft-Seen” tables.",
             "Yalda Night (Iran + diaspora)   Winter solstice gathering with poetry, fruit, and family time.",
-            "Haj (Saudi Arabia; global Muslim pilgrimage)   Major pilgrimage season with deep spiritual and cultural importance.",
+            "Hajj (Saudi Arabia; global Muslim pilgrimage)   Major pilgrimage season with deep spiritual and cultural importance.",
             "Mawlid (varies by country)   Commemorations of the Prophet Muhammad’s birth with gatherings and recitations.",
             "Thaipusam (Tamil communities worldwide)   Devotional processions marked by vows, music, and intense rituals.",
             "Pongal (Tamil Nadu + diaspora)   Harvest thanksgiving with cooking new rice and honoring nature.",
@@ -348,7 +348,7 @@ gtag('config', 'G-7P1WS6BM5K');
             "Ganesh Chaturthi (India + diaspora)   Public idols and processions culminating in river/sea immersions.",
             "Janmashtami (India + diaspora)   Celebrates Krishna’s birth with midnight prayers and reenactments.",
             "Raksha Bandhan (India + diaspora)   Sibling festival centered on tying rakhis and exchanging gifts.",
-            "Karva Chauth (North India + diaspora)   Fasting tradition with evening rituals and family gatherings.",
+            "Karwa Chauth (North India + diaspora)   Fasting tradition with evening rituals and family gatherings.",
             "Maha Shivaratri (India + diaspora)   Night-long worship and fasting honoring Shiva.",
             "Guru Nanak Gurpurab (Sikh communities worldwide)   Nagar kirtans, prayers, and community meals.",
             "Buddha Purnima (South Asia)   Devotional day tied to Buddha’s birth/enlightenment in many traditions.",
@@ -421,23 +421,159 @@ gtag('config', 'G-7P1WS6BM5K');
             "Coachella (USA)   Pop-culture-defining music festival with art installations and fashion."
         ];
 
-        // Parse Data
+        // Parse festival strings safely. Entries use three or more spaces before the description.
+        const festivalWhen = {
+            "Lunar New Year": "January–February; 2026: February 17",
+            "Diwali": "October–November; 2026: November 8",
+            "Holi": "February–March; 2026: March 4",
+            "Eid al-Fitr": "End of Ramadan; 2026: around March 19–20 (moon-sighting dependent)",
+            "Eid al-Adha": "10th of Dhu al-Hijjah; 2026: around May 27 (moon-sighting dependent)",
+            "Ramadan": "9th Islamic month; 2026: approximately February 17–March 19",
+            "Christmas": "December 25 in most traditions; January 7 in some Orthodox traditions",
+            "Easter": "March–April; 2026 Western Easter: April 5",
+            "Hanukkah": "November–December; 2026: December 4–12",
+            "Rosh Hashanah": "September–October; begins at sunset and lasts two days",
+            "Yom Kippur": "September–October; 10 days after Rosh Hashanah",
+            "Passover / Pesach": "March–April; begins on 15 Nisan",
+            "Vesak": "April–May; date varies by Buddhist tradition and country",
+            "Songkran": "April 13–15",
+            "Thingyan": "Usually April 13–16",
+            "Pchum Ben": "September–October; dates follow the Khmer lunar calendar",
+            "Chuseok": "September–October; 15th day of the 8th lunar month",
+            "Seollal": "January–February; Korean Lunar New Year",
+            "Mid-Autumn Festival": "September–October; 2026: September 25",
+            "Dragon Boat Festival": "May–June; 2026: June 19",
+            "Qingming / Tomb-Sweeping Day": "April 4–6; 2026: April 5",
+            "Lantern Festival": "15th day of the first lunar month; 2026: March 3",
+            "Hungry Ghost Festival": "August–September; 15th day of the 7th lunar month",
+            "Obon": "Commonly August 13–16; some regions observe it in July",
+            "Hanami / Cherry Blossom Festivals": "Late March–early May, depending on blossom season and region",
+            "Tanabata": "July 7 in many places; some regions observe it in August",
+            "Setsubun": "Around February 3, the day before the traditional start of spring",
+            "Gion Matsuri": "Throughout July; main float processions July 17 and 24",
+            "Awa Odori": "August 12–15",
+            "Kanda Matsuri": "Mid-May; the grand festival is traditionally held in odd-numbered years",
+            "Sapporo Snow Festival": "Early February",
+            "Harbin Ice & Snow Festival": "January–February, with opening events in early January",
+            "Nowruz": "Around the March equinox, usually March 20 or 21",
+            "Yalda Night": "Night of the winter solstice, around December 20–21",
+            "Hajj": "8th–13th of Dhu al-Hijjah; 2026: expected in late May",
+            "Mawlid": "12th of Rabi al-Awwal in many traditions; Gregorian date shifts yearly",
+            "Thaipusam": "January–February; full moon in the Tamil month of Thai",
+            "Pongal": "Usually January 14–17",
+            "Makar Sankranti": "Usually January 14 or 15",
+            "Lohri": "January 13",
+            "Baisakhi / Vaisakhi": "Usually April 13 or 14",
+            "Onam": "August–September; centered on Thiruvonam",
+            "Navratri": "Usually September–October for Sharad Navratri; nine nights",
+            "Durga Puja": "September–October; during the final days of Sharad Navratri",
+            "Ganesh Chaturthi": "August–September; 4th day of Bhadrapada",
+            "Janmashtami": "August–September; 8th day of Krishna Paksha in Bhadrapada",
+            "Raksha Bandhan": "July–August; 2026: August 28",
+            "Karwa Chauth": "October–November; 2026: October 29",
+            "Maha Shivaratri": "February–March; 14th night of the waning moon in Phalguna/Magha",
+            "Guru Nanak Gurpurab": "October–November; full moon of Kartik",
+            "Buddha Purnima": "April–May; full moon of Vaisakha",
+            "Kumbh Mela": "Periodic, not annual; major gatherings are scheduled in Kumbh years, usually January–April",
+            "Dussehra / Vijayadashami": "September–October; 10th day after Navratri begins",
+            "Rath Yatra": "June–July; 2nd day of Shukla Paksha in Ashadha",
+            "Bihu": "Three main observances: January, April, and October; Bohag Bihu in mid-April is the largest",
+            "Chhath Puja": "October–November; six days after Diwali in many calendars",
+            "Pohela Boishakh": "April 14 in Bangladesh; mid-April in Bengali communities",
+            "Sinhalese & Tamil New Year": "Usually April 13–14",
+            "Vesak Lantern Festivals": "May, around Vesak full moon observances",
+            "Timkat": "January 19 in most years; January 20 after an Ethiopian leap year",
+            "Meskel": "September 27 in most years; September 28 after an Ethiopian leap year",
+            "Ashura": "10th of Muharram; Gregorian date shifts yearly",
+            "Ethiopian New Year / Enkutatash": "September 11 in most years; September 12 before a Gregorian leap year",
+            "Fes Festival of World Sacred Music": "Usually May–June; exact dates vary by year",
+            "Mawazine": "Usually June; exact dates vary by year",
+            "Cape Town Minstrel Carnival": "January 2, with related events around New Year",
+            "Gerewol": "Usually September, near the end of the rainy season; dates vary by community",
+            "Durbar Festival": "Often held around Eid al-Fitr and Eid al-Adha; dates follow the Islamic calendar",
+            "Oshun-Osogbo Festival": "Usually August; annual two-week festival",
+            "Aboakyir Festival": "First Saturday in May",
+            "Homowo": "Usually August–September; dates vary among Ga communities",
+            "Carnival": "Usually February–March, in the days leading up to Lent",
+            "Rio Carnival": "February–March, immediately before Lent",
+            "Trinidad & Tobago Carnival": "February–March; Monday and Tuesday before Ash Wednesday",
+            "Mardi Gras": "February–March; the Tuesday before Ash Wednesday",
+            "Notting Hill Carnival": "Last weekend of August, including the UK summer bank-holiday Monday",
+            "Caribana / Toronto Caribbean Carnival": "Late July–early August; grand parade usually first weekend of August",
+            "Junkanoo": "December 26 and January 1, with related events around the holiday season",
+            "Crop Over": "June–early August; climax is Grand Kadooment in early August",
+            "Carnaval de Oruro": "February–March; main events before Ash Wednesday",
+            "Fiesta de la Candelaria": "Early February; central feast day February 2",
+            "Inti Raymi": "June 24",
+            "Día de los Muertos": "November 1–2",
+            "Guelaguetza": "Usually the last two Mondays of July",
+            "Semana Santa": "Holy Week, the week before Easter",
+            "San Fermín / Running of the Bulls": "July 6–14",
+            "La Tomatina": "Last Wednesday of August",
+            "Fallas": "March 15–19; major events build through early March",
+            "Feria de Abril": "Usually April–May, about two weeks after Holy Week",
+            "Venice Carnival": "February–March; ends on Shrove Tuesday before Lent",
+            "Oktoberfest": "Mid/late September to the first Sunday in October",
+            "St. Patrick’s Day": "March 17",
+            "Up Helly Aa": "Last Tuesday of January",
+            "King’s Day": "April 27; April 26 if April 27 falls on a Sunday",
+            "La Mercè": "Around September 24",
+            "Midsummer": "Around the June solstice; dates vary by Nordic country, usually June 20–26",
+            "St. Lucia Day": "December 13",
+            "Hogmanay": "December 31 through New Year’s Day",
+            "Burning Man": "Late August–early September; exact dates vary by year",
+            "Thanksgiving": "USA: 4th Thursday of November; Canada: 2nd Monday of October",
+            "Halloween": "October 31",
+            "Día de la Independencia": "September 16; celebrations begin the evening of September 15",
+            "Bastille Day": "July 14",
+            "Canada Day": "July 1",
+            "Australia Day": "January 26",
+            "Anzac Day": "April 25",
+            "Guy Fawkes / Bonfire Night": "November 5",
+            "Chaharshanbe Suri": "Tuesday evening before the last Wednesday before Nowruz, usually in March",
+            "Kupala Night": "June 23–24 in some traditions; July 6–7 in old-calendar traditions",
+            "Yi Peng / Lantern Festivals": "Usually November, around the full moon of the Lanna lunar calendar",
+            "Loi Krathong": "Usually November; full moon of the 12th Thai lunar month",
+            "Naadam": "July 11–15 for Mongolia’s national Naadam; local festivals may vary",
+            "Tsagaan Sar": "January–March; date follows the Mongolian lunar calendar",
+            "Pushkar Camel Fair": "October–November, culminating around the Kartik full moon",
+            "Albuquerque International Balloon Fiesta": "Early October; runs for nine days",
+            "Glastonbury Festival": "Usually late June; exact dates vary and some years are fallow years",
+            "Edinburgh Festival Fringe": "August; typically runs for most of the month",
+            "Coachella": "Two weekends in April"
+};
+
+        function slugifyFestival(name) {
+            return name
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '')
+                .replace(/&/g, ' and ')
+                .replace(/[’']/g, '')
+                .replace(/[^a-zA-Z0-9]+/g, '-')
+                .replace(/^-+|-+$/g, '')
+                .toLowerCase();
+        }
+
         const festivalData = festivals.map(line => {
-            const parts = line.split(' ');
-            const desc = parts[1] ? parts[1].trim() : '';
-            
-            const titlePart = parts[0].trim();
-            const openParenIndex = titlePart.indexOf('(');
-            
+            const split = line.split(/\s{3,}/);
+            const titlePart = (split.shift() || '').trim();
+            const desc = split.join(' ').trim();
+            const regionMatch = titlePart.match(/^(.*?)\s*\((.*)\)\s*$/);
+
             let name = titlePart;
             let region = 'Global';
-
-            if (openParenIndex > -1) {
-                name = titlePart.substring(0, openParenIndex).trim();
-                region = titlePart.substring(openParenIndex + 1, titlePart.length - 1).trim();
+            if (regionMatch) {
+                name = regionMatch[1].trim();
+                region = regionMatch[2].trim();
             }
 
-            return { name, region, desc };
+            return {
+                name,
+                region,
+                desc,
+                when: festivalWhen[name] || 'Date varies by year and local tradition',
+                slug: slugifyFestival(name)
+            };
         });
 
         // Render Cards
@@ -445,34 +581,45 @@ gtag('config', 'G-7P1WS6BM5K');
             const grid = document.getElementById('festival-grid');
             const noResults = document.getElementById('no-results');
             grid.innerHTML = '';
-            
-            const filtered = festivalData.filter(f => 
-                f.name.toLowerCase().includes(filterText.toLowerCase()) || 
-                f.region.toLowerCase().includes(filterText.toLowerCase()) ||
-                f.desc.toLowerCase().includes(filterText.toLowerCase())
+
+            const query = filterText.toLowerCase().trim();
+            const filtered = festivalData.filter(f =>
+                f.name.toLowerCase().includes(query) ||
+                f.region.toLowerCase().includes(query) ||
+                f.desc.toLowerCase().includes(query) ||
+                f.when.toLowerCase().includes(query)
             );
 
             if (filtered.length === 0) {
                 noResults.classList.remove('hidden');
-            } else {
-                noResults.classList.add('hidden');
-                filtered.forEach(f => {
-                    const card = document.createElement('div');
-                    card.className = 'festival-card group';
-                    card.innerHTML = `
-                        <div class="mb-auto">
-                            <span class="region-tag">${f.region}</span>
-                            <h3 class="text-xl font-bold text-slate-800 mb-2 group-hover:text-rose-700 transition-colors">${f.name}</h3>
-                            <p class="text-stone-600 text-sm leading-relaxed">${f.desc}</p>
-                        </div>
-                        <div class="mt-4 pt-4 border-t border-rose-100 flex justify-between items-center text-rose-400 text-sm">
-                            <span><i class="fa-solid fa-earth-americas"></i> Culture</span>
-                            <i class="fa-solid fa-arrow-right opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:translate-x-1"></i>
-                        </div>
-                    `;
-                    grid.appendChild(card);
-                });
+                return;
             }
+
+            noResults.classList.add('hidden');
+            filtered.forEach(f => {
+                const card = document.createElement('article');
+                card.className = 'festival-card group';
+                card.innerHTML = `
+                    <div class="mb-auto">
+                        <span class="region-tag">${f.region}</span>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2 group-hover:text-rose-700 transition-colors">
+                            <a class="focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-600 rounded" href="${f.slug}/">${f.name}</a>
+                        </h3>
+                        <p class="text-stone-600 text-sm leading-relaxed">${f.desc}</p>
+                        <p class="mt-3 text-sm text-stone-700 leading-relaxed">
+                            <span class="font-bold text-rose-800"><i class="fa-regular fa-calendar mr-1" aria-hidden="true"></i> When:</span>
+                            ${f.when}
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-rose-100 flex justify-between items-center text-sm">
+                        <span class="text-rose-500"><i class="fa-solid fa-earth-americas" aria-hidden="true"></i> Culture</span>
+                        <a class="font-bold text-rose-700 hover:text-rose-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-600 rounded" href="${f.slug}/" aria-label="Explore ${f.name}">
+                            Explore <i class="fa-solid fa-arrow-right ml-1" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
         }
 
         // Init

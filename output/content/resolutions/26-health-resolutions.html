@@ -1,257 +1,102 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <meta content="A comprehensive interactive guide to body optimization, muscle gain, and holistic health. Explore scientific protocols for training, nutrition, and recovery." name="description"/>
-    <meta content="muscle gain, hypertrophy, health optimization, nutrition guide, recovery protocols, workout science, fitness dashboard, bio-hacking, wellness planner" name="keywords"/>
-    <title>The Bio-Optimization Blueprint: Muscle &amp; Health</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        /* Custom Font Import */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Oswald:wght@400;600&display=swap');
-
-        :root {
-            /* Palette: Clinical Cleanliness meets Organic Strength */
-            /* Using a base of cool slate and white, with vitality green accents */
-            --color-bg: #F8FAFC; /* Slate-50 */
-            --color-card: #FFFFFF;
-            --color-text-main: #1E293B; /* Slate-800 */
-            --color-text-muted: #64748B; /* Slate-500 */
-            --color-accent: #0EA5E9; /* Sky-500 (Focus/Tech) */
-            --color-success: #10B981; /* Emerald-500 (Health) */
-            --color-strength: #334155; /* Slate-700 */
-        }
-
-        body {
-            background-color: var(--color-bg);
-            color: var(--color-text-main);
-            font-family: 'Inter', sans-serif;
-        }
-
-        h1, h2, h3, .brand-font {
-            font-family: 'Oswald', sans-serif;
-            text-transform: uppercase;
-        }
-
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            height: 350px; /* Base height */
-            margin: 0 auto;
-        }
-
-        /* Custom Scrollbar */
-        .custom-scroll::-webkit-scrollbar {
-            width: 6px;
-        }
-        .custom-scroll::-webkit-scrollbar-track {
-            background: #E2E8F0; 
-        }
-        .custom-scroll::-webkit-scrollbar-thumb {
-            background: #94A3B8; 
-            border-radius: 10px;
-        }
-
-        .card-interaction {
-            transition: all 0.2s ease;
-        }
-        .card-interaction:hover {
-            transform: translateY(-2px);
-            border-left-width: 6px; 
-        }
-
-        .tab-active {
-            background-color: #0EA5E9;
-            color: white;
-            border-color: #0EA5E9;
-        }
-        
-        .fade-in {
-            animation: fadeIn 0.4s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
-    <!-- Chosen Palette: "Vitality Slate" - Cool neutrals (Slate/White) for a clinical/scientific feel, paired with Sky Blue and Emerald Green to represent technology and biological health. -->
-    
-    <!-- Application Structure Plan:
-         1. Header: Sets the tone of "Engineering the Body."
-         2. Physiology Dashboard (Top):
-            - Radar Chart: Visualizes the "Fitness 4-Pillar Balance" (Strength, Hypertrophy, Cardio, Mobility) to show users that health is not just one thing.
-            - Bar Chart: "Recovery Velocity" showing how long different tissues (CNS, Muscle, Tendon) take to repair, emphasizing the importance of rest.
-         3. Protocol Explorer (Main): 
-            - Categorized by "Training", "Fuel (Nutrition)", "Repair (Recovery)", and "Mindset".
-            - Users filter categories to find specific protocols (e.g., "Progressive Overload", "Protein Pacing").
-            - Detail view explains the *Why* (Mechanism) and the *How* (Execution).
-         4. Routine Builder (Bottom): 
-            - Users "equip" protocols to build a daily stack.
-            - A summary view helps them visualize their new lifestyle regimen.
-    -->
-
-    <!-- Visualization & Content Choices:
-         1. Radar Chart (The 4 Pillars): Goal: Balance. Interaction: None (Static reference). Justification: Best way to show multi-dimensional data relative to a center point (holistic health).
-         2. Bar Chart (Recovery Times): Goal: Education. Interaction: Hover for time details. Justification: Compares distinct categorical data (Body Systems) effectively.
-         3. Dynamic List/Detail: Goal: Deep Learning. Interaction: Selection updates view. Justification: Allows dense scientific info to be consumed in bite-sized pieces without overwhelming the user.
-    -->
-
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-<!-- Google tag (gtag.js) --><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JJ6LGZB34T"></script><script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-JJ6LGZB34T');
-</script><script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9804321536688475"></script><link href="https://storage.googleapis.com/css-designs/purple/kreatewebsites.production.css" rel="stylesheet"/><script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-7P1WS6BM5K');
-</script></head>
-<body class="antialiased min-h-screen flex flex-col">
-
-    <!-- Header -->
-    <header class="w-full bg-slate-900 text-white border-b-4 border-sky-500 py-10 px-4">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
-                <div>
-                    <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-2">BIO-OPTIMIZATION <span class="text-sky-400">BLUEPRINT</span></h1>
-                    <p class="text-slate-400 text-lg max-w-2xl">
-                        A scientific framework for musculoskeletal growth, metabolic health, and systemic longevity. 
-                        Design your protocol based on human physiology.
-                    </p>
-                </div>
-                <div class="mt-6 md:mt-0 bg-slate-800 p-4 rounded-lg border border-slate-700">
-                    <p class="text-xs text-slate-400 uppercase tracking-widest mb-1">Current Focus</p>
-                    <p class="text-2xl font-bold text-white" id="focus-stat">Hypertrophy &amp; Health</p>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <main class="flex-grow w-full max-w-7xl mx-auto px-4 md:px-8 py-10 space-y-16">
-
-        <!-- SECTION 1: Physiology Dashboard -->
-        <section class="animate-fade-in-up">
-            <div class="mb-8 border-l-4 border-emerald-500 pl-4">
-                <h2 class="text-3xl font-bold text-slate-800">The Physiology Dashboard</h2>
-                <p class="text-slate-600 mt-2 max-w-3xl">
-                    True health is an equilibrium. Focusing solely on muscle size (Hypertrophy) often neglects cardiovascular efficiency or tissue quality. 
-                    Review the metrics below to understand the balance required for a high-performing body.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Chart 1: Fitness Pillars -->
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                    <div class="flex justify-between items-center mb-4">
-                        <h3 class="text-lg font-bold text-slate-700 uppercase tracking-wide">The 4 Pillars of Function</h3>
-                        <span class="text-xs bg-slate-100 text-slate-500 px-2 py-1 rounded">Ideal Balance</span>
-                    </div>
-                    <div class="chart-container">
-                        <canvas id="pillarChart"></canvas>
-                    </div>
-                    <div class="mt-4 text-sm text-slate-500 bg-slate-50 p-3 rounded">
-                        <strong>Insight:</strong> Many individuals tend to focus too heavily on one aspect, but a well-balanced body maintains a minimum score of 7 out of 10 in each of the four quadrants.
-                    </div>
-                </div>
-
-                <!-- Chart 2: Recovery Windows -->
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                    <div class="flex justify-between items-center mb-4">
-                        <h3 class="text-lg font-bold text-slate-700 uppercase tracking-wide">Systemic Recovery Curves</h3>
-                        <span class="text-xs bg-slate-100 text-slate-500 px-2 py-1 rounded">Hours to Repair</span>
-                    </div>
-                    <div class="chart-container">
-                        <canvas id="recoveryChart"></canvas>
-                    </div>
-                    <div class="mt-4 text-sm text-slate-500 bg-slate-50 p-3 rounded">
-                        <strong>Insight:</strong> Muscles have a faster recovery rate compared to tendons and the central nervous system (CNS). When engaging in heavy lifting, longer breaks are needed not for the muscles, but for the neural drive.
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 2: Protocol Explorer -->
-        <section>
-            <div class="mb-8 border-l-4 border-sky-500 pl-4">
-                <h2 class="text-3xl font-bold text-slate-800">Protocol Explorer</h2>
-                <p class="text-slate-600 mt-2 max-w-3xl">
-                    Choose a category to discover evidence-based protocols. Simply click on a card to see the biological mechanism and implementation strategy.
-                </p>
-            </div>
-
-            <!-- Tabs -->
-            <div class="flex flex-wrap gap-2 mb-6">
-                <button class="filter-btn tab-active px-6 py-3 rounded-lg font-bold text-sm border transition-colors shadow-sm" onclick="filterProtocols('Training', this)">TRAINING (Stimulus)</button>
-                <button class="filter-btn px-6 py-3 rounded-lg font-bold text-sm border bg-white text-slate-600 hover:bg-slate-50 transition-colors shadow-sm" onclick="filterProtocols('Nutrition', this)">NUTRITION (Fuel)</button>
-                <button class="filter-btn px-6 py-3 rounded-lg font-bold text-sm border bg-white text-slate-600 hover:bg-slate-50 transition-colors shadow-sm" onclick="filterProtocols('Recovery', this)">RECOVERY (Repair)</button>
-                <button class="filter-btn px-6 py-3 rounded-lg font-bold text-sm border bg-white text-slate-600 hover:bg-slate-50 transition-colors shadow-sm" onclick="filterProtocols('Longevity', this)">LONGEVITY (Sustain)</button>
-            </div>
-
-            <!-- Explorer Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-[650px] md:h-[550px]">
-                
-                <!-- Left: List -->
-                <div class="md:col-span-4 bg-white rounded-xl shadow border border-slate-200 overflow-hidden flex flex-col">
-                    <div class="p-4 bg-slate-50 border-b border-slate-200">
-                        <h4 class="font-bold text-slate-700 text-sm uppercase">Available Protocols</h4>
-                    </div>
-                    <div class="overflow-y-auto custom-scroll p-2 space-y-2 flex-grow" id="protocolList">
-                        <!-- JS injected items -->
-                    </div>
-                </div>
-
-                <!-- Right: Details -->
-                <div class="md:col-span-8 bg-white rounded-xl shadow border border-slate-200 p-6 md:p-8 flex flex-col relative">
-                    <div class="h-full overflow-y-auto custom-scroll fade-in" id="detailView">
-                        <!-- Default State -->
-                        <div class="flex h-full flex-col items-center justify-center text-slate-300">
-                            <span class="text-6xl mb-4">🧬</span>
-                            <p class="text-xl font-medium">Select a protocol to analyze</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 3: Routine Builder -->
-        <section class="bg-slate-900 rounded-2xl p-8 shadow-2xl">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="md:col-span-2 text-white">
-                    <h2 class="text-2xl font-bold text-emerald-400 mb-2">My Daily Stack</h2>
-                    <p class="text-slate-400 mb-6">
-                        Establish your daily routine by choosing up to 5 protocols from the explorer to include in your bio-optimization stack.
-                    </p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="stackContainer">
-                        <p class="text-slate-600 italic col-span-2">No protocols added yet.</p>
-                    </div>
-                </div>
-                <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-white font-bold uppercase tracking-wider text-sm mb-4">Stack Summary</h3>
-                        <div class="flex justify-between items-end mb-2">
-                            <span class="text-slate-400 text-sm">Capacity</span>
-                            <span class="text-2xl font-bold text-white" id="stackCount">0/5</span>
-                        </div>
-                        <div class="w-full bg-slate-700 h-2 rounded-full overflow-hidden">
-                            <div class="bg-emerald-500 h-full w-0 transition-all duration-500" id="progressBar"></div>
-                        </div>
-                    </div>
-                    <button class="w-full mt-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg transition-colors shadow-lg shadow-emerald-900/50" onclick="printStack()">
-                        DOWNLOAD PROTOCOL
-                    </button>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="bg-gray-800 text-gray-300">
+<html class="scroll-smooth" data-related-json="https://storage.googleapis.com/create-website/css-scripts/related-articles.json" data-related-keywords="2026 health resolutions fitness strength sleep wellness" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>26 Health Resolutions for 2026: Fitness, Sleep &amp; Wellness</title>
+<meta content="Build a realistic 2026 health plan with 26 resolutions for fitness, strength, cardio, sleep, nutrition, recovery, mobility and sustainable wellness habits." name="description"/>
+<meta content="2026 health resolutions, fitness resolutions, wellness goals, strength training, cardio goals, sleep goals, healthy habits, New Year health goals" name="keywords"/>
+<meta content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" name="robots"/>
+<link href="/26-health-resolutions.html" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="26 Health Resolutions for 2026: A Practical Wellness Plan" property="og:title"/>
+<meta content="A practical, evidence-aware guide to 26 health resolutions covering movement, strength, sleep, nutrition, recovery and sustainable habits." property="og:description"/>
+<meta content="https://storage.googleapis.com/kreatewebsite/banner_all/Happy-New-Year-Photos.jpg" property="og:image"/>
+<meta content="Happy New Year" property="og:site_name"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="26 Health Resolutions for 2026" name="twitter:title"/>
+<meta content="Build a sustainable 2026 health plan with practical goals for fitness, sleep, nutrition, recovery and mobility." name="twitter:description"/>
+<meta content="A practical 2026 guide to 26 health resolutions covering aerobic activity, strength training, walking, mobility, sleep, nutrition, hydration, recovery, preventive care and sustainable behavior change. Includes an interactive protocol explorer and routine builder." name="ai-summary"/>
+<meta content="educational health and wellness guide" name="ai-content-type"/>
+<meta content="2026 health and fitness resolutions" name="ai-primary-topic"/>
+<meta content="CDC Physical Activity Basics; U.S. Office of Disease Prevention and Health Promotion Physical Activity Guidelines; CDC Sleep; NIH Office of Dietary Supplements exercise and athletic performance guidance." name="citation"/>
+<meta content="Happy New Year" name="author"/>
+<meta content="#881337" name="theme-color"/>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {"@type":"WebPage","name":"26 Health Resolutions for 2026","description":"A practical guide to health and fitness resolutions for 2026, including movement, strength, sleep, nutrition, recovery and sustainable habits.","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Happy New Year"}},
+    {"@type":"Article","headline":"26 Health Resolutions for 2026: Fitness, Sleep & Wellness","description":"A practical, evidence-aware guide to 26 health resolutions for 2026.","image":"https://storage.googleapis.com/kreatewebsite/banner_all/Happy-New-Year-Photos.jpg","author":{"@type":"Organization","name":"Happy New Year"},"publisher":{"@type":"Organization","name":"Happy New Year"},"mainEntityOfPage":{"@type":"WebPage","@id":"/26-health-resolutions.html"}},
+    {"@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"What are good health resolutions for 2026?","acceptedAnswer":{"@type":"Answer","text":"Strong health resolutions focus on repeatable behaviors such as weekly aerobic activity, strength training, walking, adequate sleep, balanced meals, mobility, recovery and preventive care."}},
+      {"@type":"Question","name":"How much exercise should adults aim for each week?","acceptedAnswer":{"@type":"Answer","text":"Current U.S. guidance recommends at least 150 to 300 minutes of moderate-intensity aerobic activity each week, or 75 to 150 minutes of vigorous activity, plus muscle-strengthening activity on at least two days each week."}},
+      {"@type":"Question","name":"How much sleep do adults need?","acceptedAnswer":{"@type":"Answer","text":"CDC guidance says adults ages 18 to 60 generally need at least 7 hours of sleep per day, with recommendations varying somewhat by age."}},
+      {"@type":"Question","name":"Should I start all 26 resolutions at once?","acceptedAnswer":{"@type":"Answer","text":"No. Choose a small number of priorities, make them easy to repeat, track adherence, and add or adjust goals after the routine becomes stable."}}
+    ]}
+  ]
+}
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://storage.googleapis.com/create-website/css-scripts/related-articles-noimage.css" rel="stylesheet"/>
+<style>
+body{font-family:'Vollkorn',serif;background-color:#fff1f2;color:#292524;background-image:linear-gradient(rgba(255,241,242,.91),rgba(255,241,242,.91)),url('https://storage.googleapis.com/kreatewebsite/banner_all/Happy-New-Year-Photos.jpg');background-size:cover;background-position:center;background-attachment:fixed}
+h1,h2,h3{font-weight:700} .theme-card{background:rgba(255,255,255,.76);border:1px solid #ffe4e6;border-radius:.9rem;box-shadow:0 4px 12px rgba(136,19,55,.06);backdrop-filter:blur(8px);transition:.25s ease} .card-hover:hover{transform:translateY(-3px);box-shadow:0 12px 24px rgba(190,18,60,.12);border-color:#fda4af;background:rgba(255,255,255,.94)}
+.nav-link{color:#57534e;transition:.2s} .nav-link:hover,.nav-link.active{color:#9f1239} .filter-btn.tab-active{background:#9f1239;color:white;border-color:#9f1239} .custom-scroll::-webkit-scrollbar{width:7px} .custom-scroll::-webkit-scrollbar-thumb{background:#fda4af;border-radius:99px} .chart-container{position:relative;width:100%;height:330px} .focus-ring:focus-visible,a:focus-visible,button:focus-visible{outline:3px solid #f43f5e;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+@media print{nav,.no-print,#related-articles{display:none!important} body{background:white} .theme-card{box-shadow:none;background:white}}
+</style>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JJ6LGZB34T"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-JJ6LGZB34T');gtag('config','G-7P1WS6BM5K');</script>
+<script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9804321536688475"></script>
+<link href="https://storage.googleapis.com/css-designs/purple/kreatewebsites.production.css" rel="stylesheet"/>
+</head>
+<body class="antialiased min-h-screen text-stone-800">
+<nav class="w-full bg-white/80 backdrop-blur-sm sticky top-0 z-50 border-b border-rose-100">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex items-center justify-between h-16"><a class="flex items-center gap-2" href="/"><span class="text-2xl text-rose-600">✨</span><span class="text-xl font-bold tracking-wide uppercase text-rose-900">Happy New Year</span></a><div class="hidden md:flex items-center gap-6"><a class="nav-link font-semibold" href="#resolutions">26 Resolutions</a><a class="nav-link font-semibold" href="#dashboard">Health Baseline</a><a class="nav-link font-semibold" href="#protocols">Protocols</a><a class="nav-link font-semibold" href="#builder">My Plan</a><a class="nav-link font-semibold" href="#sources">Sources</a></div><button aria-controls="mobile-menu" aria-expanded="false" aria-label="Open navigation menu" class="md:hidden text-stone-700 p-2 focus-ring" id="menuButton"><i class="fa-solid fa-bars text-2xl"></i></button></div></div>
+<div class="hidden md:hidden bg-white/95 border-t border-rose-100" id="mobile-menu"><div class="px-4 py-4 space-y-2"><a class="block nav-link font-semibold py-2" href="#resolutions">26 Resolutions</a><a class="block nav-link font-semibold py-2" href="#dashboard">Health Baseline</a><a class="block nav-link font-semibold py-2" href="#protocols">Protocols</a><a class="block nav-link font-semibold py-2" href="#builder">My Plan</a><a class="block nav-link font-semibold py-2" href="#sources">Sources</a></div></div>
+</nav>
+<header class="relative pt-16 pb-14"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center"><div class="inline-flex items-center gap-2 px-4 py-1 rounded-full border border-rose-200 bg-white/70 text-rose-800 text-xs font-bold tracking-[.18em] uppercase mb-5"><i class="fa-solid fa-heart-pulse"></i> 2026 Health Resolution Guide</div><h1 class="text-4xl md:text-6xl font-bold text-rose-900 tracking-tight">26 Health Resolutions for a Stronger 2026</h1><p class="mt-6 max-w-3xl mx-auto text-xl text-stone-700 leading-relaxed">Turn New Year motivation into a repeatable health system. Build around movement, strength, sleep, nutrition, recovery and preventive care—then choose only the habits you can sustain.</p><div class="mt-8 flex flex-wrap justify-center gap-3"><a class="px-7 py-3 rounded-lg bg-rose-700 hover:bg-rose-800 text-white font-bold shadow-lg shadow-rose-200" href="#resolutions">Explore all 26 goals</a><a class="px-7 py-3 rounded-lg bg-white/80 border border-rose-200 text-rose-900 font-bold hover:bg-white" href="#builder">Build my routine</a></div><p class="mt-5 text-sm text-stone-600 max-w-3xl mx-auto">Educational content only. Exercise, nutrition, supplement and recovery needs vary by age, health status, medications, pregnancy, injury history and training experience.</p></div></header>
+<main>
+<section class="py-12 bg-white/45 border-y border-rose-100"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="grid md:grid-cols-3 gap-5"><article class="theme-card p-6"><div class="text-rose-700 text-2xl mb-3"><i class="fa-solid fa-person-walking"></i></div><h2 class="text-xl text-rose-900">Move Every Week</h2><p class="mt-2 text-stone-700">Adults can build toward 150–300 minutes of moderate aerobic activity weekly, or 75–150 minutes vigorous, plus strength work on 2 days.</p></article><article class="theme-card p-6"><div class="text-rose-700 text-2xl mb-3"><i class="fa-solid fa-dumbbell"></i></div><h2 class="text-xl text-rose-900">Train for Function</h2><p class="mt-2 text-stone-700">Strength, cardiorespiratory fitness, mobility and balance each support different parts of health. Your plan does not need to maximize all of them at once.</p></article><article class="theme-card p-6"><div class="text-rose-700 text-2xl mb-3"><i class="fa-solid fa-moon"></i></div><h2 class="text-xl text-rose-900">Recover on Purpose</h2><p class="mt-2 text-stone-700">Most adults need at least 7 hours of sleep. Recovery also includes appropriate training load, food, hydration, easier days and medical care when needed.</p></article></div></div></section>
+<section class="py-16" id="resolutions"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="text-center mb-10"><span class="text-sm uppercase tracking-[.18em] text-rose-700 font-bold">Your 2026 Checklist</span><h2 class="text-3xl md:text-4xl text-rose-900 mt-2">26 Practical Health Resolutions</h2><p class="text-stone-700 max-w-3xl mx-auto mt-4">You do not need to adopt all 26. Start with two or three behaviors that solve your biggest bottleneck, make them easy to repeat, and expand only after they feel stable.</p></div><div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5"><article class="theme-card p-5 card-hover"><div class="flex gap-4"><span class="flex-none w-9 h-9 rounded-full bg-rose-100 text-rose-800 font-bold flex items-center justify-center">1</span><div><h3 class="text-lg font-bold text-rose-900">Move 150 Minutes a Week</h3><p class="mt-2 text-stone-700 text-sm leading-relaxed">Build toward at least 150 minutes of moderate-intensity aerobic activity each week, or an equivalent amount of vigorous activity.</p></div></div></article>
+<article class="theme-card p-5 card-hover"><div class="flex gap-4"><span class="flex-none w-9 h-9 rounded-full bg-rose-100 text-rose-800 font-bold flex items-center justify-center">2</span><div><h3 class="text-lg font-bold text-rose-900">Strength Train Twice Weekly</h3><p class="mt-2 text-stone-700 text-sm leading-relaxed">Train all major muscle groups on at least two days each week, scaling resistance to your current ability.</p></div></div></article>
+<article class="theme-card p-5 card-hover"><div class="flex gap-4"><span class="flex-none w-9 h-9 rounded-full bg-rose-100 text-rose-800 font-bold flex items-center justify-center">3</span><div><h3 class="text-lg font-bold text-rose-900">Walk More Often</h3><p class="mt-2 text-stone-700 text-sm leading-relaxed">Use short walks, stairs, errands, and movement breaks to reduce long stretches of sitting.</p></div></div></article>
+<article class="theme-card p-5 card-hover"><div class="flex gap-4"><span class="flex-none w-9 h-9 rounded-full bg-rose-100 text-rose-800 font-bold flex items-center justify-center">4</span><div><h3 class="text-lg font-bold text-rose-900">Progress Your Resistance Training</h3><p class="mt-2 text-stone-700 text-sm leading-relaxed">Increase challenge gradually as technique and recovery allow instead of chasing constant maximal effort.</p></div></div></article>
+<article class="theme-card p-5 card-hover"><div class="flex gap-4"><span class="flex-none w-9 h-9 rounded-full bg-rose-100 text-rose-800 font-bold flex items-center justify-center">5</span><div><h3 class="text-lg font-bold text-rose-900">Practice the Major Movement Patterns</h3><p class="mt-2 text-stone-700 text-sm leading-relaxed">Include some combination of squat, hinge, push, pull, carry, step, and rotation patterns that are appropriate for you.</p></div></div></article>
+<article class="theme-card p-5 card-hover"><div class="flex gap-4"><span class="flex-none w-9 h-9 rounded-full bg-rose-100 text-rose-800 font-bold flex items-center justify-center">6</span><div><h3 class="text-lg font-bold text-rose-900">Protect Your Joints</h3><p class="mt-2 text-stone-700 text-sm leading-relaxed">Use controlled ranges of motion, sensible loading, and exercise substitutions when a movement causes pain.</p></div></div></article>
+<article class="theme-card p-5 card-hover"><div class="flex gap-4"><span class="flex-none w-9 h-9 rounded-full bg-rose-100 text-rose-800 font-bold flex items-center justify-center">7</span><div><h3 class="text-lg font-bold text-rose-900">Train Cardiorespiratory Fitness</h3><p class="mt-2 text-stone-700 text-sm leading-relaxed">Mix easier steady activity with occasional harder efforts if your health and experience support it.</p></div></div></article>
+<article class="theme-card p-5 card-hover"><div class="flex gap-4"><span class="flex-none w-9 h-9 rounded-full bg-rose-100 text-rose-800 font-bold flex items-center justify-center">8</span><div><h3 class="text-lg font-bold text-rose-900">Build a Mobility Habit</h3><p class="mt-2 text-stone-700 text-sm leading-relaxed">Spend a few minutes most days moving key joints through comfortable ranges you want to maintain.</p></div></div></article>
+<article class="theme-card p-5 card-hover"><div class="flex gap-4"><span class="flex-none w-9 h-9 rounded-full bg-rose-100 text-rose-800 font-bold flex items-center justify-center">9</span><div><h3 class="text-lg font-bold text-rose-900">Prioritize Consistency Over Intensity</h3><p class="mt-2 text-stone-700 text-sm leading-relaxed">Choose a weekly plan you can repeat for months, not a heroic plan you can only tolerate for days.</p></div></div></article>
+<article class="theme-card p-5 card-hover"><div class="flex gap-4"><span class="flex-none w-9 h-9 rounded-full bg-rose-100 text-rose-800 font-bold flex items-center justify-center">10</span><div><h3 class="text-lg font-bold text-rose-900">Schedule Recovery Days</h3><p class="mt-2 text-stone-700 text-sm leading-relaxed">Alternate demanding sessions with easier days so your training plan includes recovery rather than treating it as an afterthought.</p></div></div></article>
+<article class="theme-card p-5 card-hover"><div class="flex gap-4"><span class="flex-none w-9 h-9 rounded-full bg-rose-100 text-rose-800 font-bold flex items-center justify-center">11</span><div><h3 class="text-lg font-bold text-rose-900">Get at Least 7 Hours of Sleep</h3><p class="mt-2 text-stone-700 text-sm leading-relaxed">Protect a consistent sleep opportunity and address persistent sleep problems with a healthcare professional.</p></div></div></article>
+<article class="theme-card p-5 card-hover"><div class="flex gap-4"><span class="flex-none w-9 h-9 rounded-full bg-rose-100 text-rose-800 font-bold flex items-center justify-center">12</span><div><h3 class="text-lg font-bold text-rose-900">Keep a Regular Sleep Schedule</h3><p class="mt-2 text-stone-700 text-sm leading-relaxed">Aim for similar bed and wake times and create a repeatable wind-down routine.</p></div></div></article>
+<article class="theme-card p-5 card-hover"><div class="flex gap-4"><span class="flex-none w-9 h-9 rounded-full bg-rose-100 text-rose-800 font-bold flex items-center justify-center">13</span><div><h3 class="text-lg font-bold text-rose-900">Eat Protein-Rich Foods Regularly</h3><p class="mt-2 text-stone-700 text-sm leading-relaxed">Include protein sources that fit your dietary pattern, goals, preferences, and medical needs.</p></div></div></article>
+<article class="theme-card p-5 card-hover"><div class="flex gap-4"><span class="flex-none w-9 h-9 rounded-full bg-rose-100 text-rose-800 font-bold flex items-center justify-center">14</span><div><h3 class="text-lg font-bold text-rose-900">Build Meals Around Minimally Processed Foods</h3><p class="mt-2 text-stone-700 text-sm leading-relaxed">Make fruits, vegetables, whole grains, legumes, nuts, seeds, and other nutrient-dense foods routine rather than occasional.</p></div></div></article>
+<article class="theme-card p-5 card-hover"><div class="flex gap-4"><span class="flex-none w-9 h-9 rounded-full bg-rose-100 text-rose-800 font-bold flex items-center justify-center">15</span><div><h3 class="text-lg font-bold text-rose-900">Hydrate for Your Conditions</h3><p class="mt-2 text-stone-700 text-sm leading-relaxed">Adjust fluids to heat, activity, sweat rate, diet, and medical guidance rather than following a one-size-fits-all number.</p></div></div></article>
+<article class="theme-card p-5 card-hover"><div class="flex gap-4"><span class="flex-none w-9 h-9 rounded-full bg-rose-100 text-rose-800 font-bold flex items-center justify-center">16</span><div><h3 class="text-lg font-bold text-rose-900">Plan Your Food Environment</h3><p class="mt-2 text-stone-700 text-sm leading-relaxed">Keep convenient, satisfying foods available so your default choices support your goals.</p></div></div></article>
+<article class="theme-card p-5 card-hover"><div class="flex gap-4"><span class="flex-none w-9 h-9 rounded-full bg-rose-100 text-rose-800 font-bold flex items-center justify-center">17</span><div><h3 class="text-lg font-bold text-rose-900">Use Supplements Selectively</h3><p class="mt-2 text-stone-700 text-sm leading-relaxed">Treat supplements as optional tools. Check evidence, dose, interactions, quality, and whether you actually need them.</p></div></div></article>
+<article class="theme-card p-5 card-hover"><div class="flex gap-4"><span class="flex-none w-9 h-9 rounded-full bg-rose-100 text-rose-800 font-bold flex items-center justify-center">18</span><div><h3 class="text-lg font-bold text-rose-900">Track One or Two Useful Metrics</h3><p class="mt-2 text-stone-700 text-sm leading-relaxed">Use a small dashboard—such as workouts completed, weekly activity minutes, sleep, or waist trend—without turning health into constant surveillance.</p></div></div></article>
+<article class="theme-card p-5 card-hover"><div class="flex gap-4"><span class="flex-none w-9 h-9 rounded-full bg-rose-100 text-rose-800 font-bold flex items-center justify-center">19</span><div><h3 class="text-lg font-bold text-rose-900">Measure Progress Monthly</h3><p class="mt-2 text-stone-700 text-sm leading-relaxed">Look for trends in strength, endurance, energy, function, and adherence rather than judging progress from a single day.</p></div></div></article>
+<article class="theme-card p-5 card-hover"><div class="flex gap-4"><span class="flex-none w-9 h-9 rounded-full bg-rose-100 text-rose-800 font-bold flex items-center justify-center">20</span><div><h3 class="text-lg font-bold text-rose-900">Set a Minimum-Viable Workout</h3><p class="mt-2 text-stone-700 text-sm leading-relaxed">Create a short fallback session for busy days so missed time does not become an abandoned routine.</p></div></div></article>
+<article class="theme-card p-5 card-hover"><div class="flex gap-4"><span class="flex-none w-9 h-9 rounded-full bg-rose-100 text-rose-800 font-bold flex items-center justify-center">21</span><div><h3 class="text-lg font-bold text-rose-900">Reduce Long Sitting Bouts</h3><p class="mt-2 text-stone-700 text-sm leading-relaxed">Break up prolonged sitting with standing, stretching, or brief walks when practical.</p></div></div></article>
+<article class="theme-card p-5 card-hover"><div class="flex gap-4"><span class="flex-none w-9 h-9 rounded-full bg-rose-100 text-rose-800 font-bold flex items-center justify-center">22</span><div><h3 class="text-lg font-bold text-rose-900">Train for Real-Life Function</h3><p class="mt-2 text-stone-700 text-sm leading-relaxed">Include balance, carries, getting up from the floor, stairs, and other tasks that matter in daily life.</p></div></div></article>
+<article class="theme-card p-5 card-hover"><div class="flex gap-4"><span class="flex-none w-9 h-9 rounded-full bg-rose-100 text-rose-800 font-bold flex items-center justify-center">23</span><div><h3 class="text-lg font-bold text-rose-900">Use Pain as Information</h3><p class="mt-2 text-stone-700 text-sm leading-relaxed">Stop or modify movements that produce concerning pain, swelling, dizziness, chest pain, or other warning symptoms.</p></div></div></article>
+<article class="theme-card p-5 card-hover"><div class="flex gap-4"><span class="flex-none w-9 h-9 rounded-full bg-rose-100 text-rose-800 font-bold flex items-center justify-center">24</span><div><h3 class="text-lg font-bold text-rose-900">Make Stress Recovery Deliberate</h3><p class="mt-2 text-stone-700 text-sm leading-relaxed">Use walks, breathing exercises, time outdoors, hobbies, social connection, or other healthy decompression practices.</p></div></div></article>
+<article class="theme-card p-5 card-hover"><div class="flex gap-4"><span class="flex-none w-9 h-9 rounded-full bg-rose-100 text-rose-800 font-bold flex items-center justify-center">25</span><div><h3 class="text-lg font-bold text-rose-900">Get Preventive Care</h3><p class="mt-2 text-stone-700 text-sm leading-relaxed">Keep up with age- and risk-appropriate checkups, vaccinations, screenings, and dental care with your healthcare team.</p></div></div></article>
+<article class="theme-card p-5 card-hover"><div class="flex gap-4"><span class="flex-none w-9 h-9 rounded-full bg-rose-100 text-rose-800 font-bold flex items-center justify-center">26</span><div><h3 class="text-lg font-bold text-rose-900">Review the Plan Every Quarter</h3><p class="mt-2 text-stone-700 text-sm leading-relaxed">Every few months, keep what is working, remove what is not, and set the next small health target for the year.</p></div></div></article></div></div></section>
+<section class="py-16 bg-white/45 border-y border-rose-100" id="dashboard"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="mb-10 text-center"><span class="text-sm uppercase tracking-[.18em] text-rose-700 font-bold">Evidence-Aware Baseline</span><h2 class="text-3xl md:text-4xl text-rose-900 mt-2">Build the Foundation Before You Optimize</h2><p class="mt-4 text-stone-700 max-w-3xl mx-auto">The most useful starting point is not a complicated biohack. It is a plan that covers aerobic activity, muscle strengthening, sleep, nutrition, recovery and gradual progression.</p></div><div class="grid lg:grid-cols-2 gap-7"><article class="theme-card p-6"><h3 class="text-xl text-rose-900">Balanced Health Priorities</h3><p class="text-sm text-stone-600 mt-2">A conceptual planning wheel—not a medical score. Use it to notice which area of your routine is being neglected.</p><div class="chart-container mt-4"><canvas aria-label="Conceptual balanced health priorities chart" id="pillarChart"></canvas></div></article><article class="theme-card p-6"><h3 class="text-xl text-rose-900">Weekly Aerobic Activity Baseline</h3><p class="text-sm text-stone-600 mt-2">Current U.S. guidance: 150–300 minutes moderate intensity or 75–150 minutes vigorous intensity, plus strength training on at least two days.</p><div class="chart-container mt-4"><canvas aria-label="Weekly aerobic activity recommendation chart" id="activityChart"></canvas></div><div class="mt-4 p-4 rounded-xl bg-rose-50 border border-rose-100 text-sm text-stone-700"><strong class="text-rose-900">Strength anchor:</strong> add muscle-strengthening activity involving major muscle groups on 2 or more days each week.</div></article></div></div></section>
+<section class="py-16" id="protocols"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="text-center mb-10"><span class="text-sm uppercase tracking-[.18em] text-rose-700 font-bold">Interactive Explorer</span><h2 class="text-3xl md:text-4xl text-rose-900 mt-2">Core Health &amp; Fitness Protocols</h2><p class="mt-4 text-stone-700 max-w-3xl mx-auto">Explore the original training, nutrition, recovery and longevity ideas from this page with more cautious implementation notes. Add up to five priorities to your personal stack.</p></div><div class="flex flex-wrap justify-center gap-2 mb-6"><button class="filter-btn tab-active px-5 py-3 rounded-lg font-bold border border-rose-200" onclick="filterProtocols('Training', this)">Training</button><button class="filter-btn px-5 py-3 rounded-lg font-bold border border-rose-200 bg-white/80 text-stone-700" onclick="filterProtocols('Nutrition', this)">Nutrition</button><button class="filter-btn px-5 py-3 rounded-lg font-bold border border-rose-200 bg-white/80 text-stone-700" onclick="filterProtocols('Recovery', this)">Recovery</button><button class="filter-btn px-5 py-3 rounded-lg font-bold border border-rose-200 bg-white/80 text-stone-700" onclick="filterProtocols('Longevity', this)">Longevity</button></div><div class="grid md:grid-cols-12 gap-6"><div class="md:col-span-4 theme-card overflow-hidden flex flex-col min-h-[480px]"><div class="p-4 bg-rose-50/80 border-b border-rose-100"><h3 class="font-bold text-rose-900">Available Protocols</h3></div><div class="overflow-y-auto custom-scroll p-3 space-y-2 flex-grow" id="protocolList"></div></div><div class="md:col-span-8 theme-card p-6 md:p-8 min-h-[480px]"><div class="h-full" id="detailView"><div class="flex h-full flex-col items-center justify-center text-stone-400 text-center"><span class="text-5xl mb-4">🧭</span><p class="text-xl font-semibold">Choose a protocol to explore</p><p class="text-sm mt-2">The detail view explains the idea, a practical implementation approach, and its intended role.</p></div></div></div></div></div></section>
+<section class="py-16 bg-white/45 border-y border-rose-100" id="builder"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="theme-card p-7 md:p-10"><div class="grid md:grid-cols-3 gap-8"><div class="md:col-span-2"><span class="text-sm uppercase tracking-[.18em] text-rose-700 font-bold">Routine Builder</span><h2 class="text-3xl text-rose-900 mt-2">My 2026 Health Stack</h2><p class="mt-3 text-stone-700">Choose up to five protocols. A short list is deliberate: adherence usually improves when your plan has fewer moving parts.</p><div class="grid sm:grid-cols-2 gap-3 mt-6" id="stackContainer"><p class="italic text-stone-500 sm:col-span-2">No protocols added yet.</p></div></div><aside class="rounded-xl bg-rose-950 text-white p-6"><h3 class="font-bold text-rose-100">Stack Summary</h3><div class="flex justify-between items-end mt-6"><span class="text-rose-200 text-sm">Capacity</span><span class="text-3xl font-bold" id="stackCount">0/5</span></div><div class="w-full bg-rose-900 h-2 rounded-full overflow-hidden mt-2"><div class="bg-rose-300 h-full w-0 transition-all duration-500" id="progressBar"></div></div><button class="no-print w-full mt-6 py-3 rounded-lg bg-white text-rose-900 font-bold hover:bg-rose-50" onclick="printStack()">Print My Plan</button></aside></div></div></div></section>
+<section class="py-16"><div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"><div class="text-center mb-9"><span class="text-sm uppercase tracking-[.18em] text-rose-700 font-bold">Common Questions</span><h2 class="text-3xl md:text-4xl text-rose-900 mt-2">Health Resolution FAQ</h2></div><div class="space-y-4"><details class="theme-card p-5"><summary class="font-bold text-rose-900 cursor-pointer">What is the best health resolution to start with?</summary><p class="mt-3 text-stone-700">Start with the behavior that removes your biggest constraint. For many people that is simply walking more, scheduling two strength sessions, protecting sleep, or making meals easier to plan.</p></details><details class="theme-card p-5"><summary class="font-bold text-rose-900 cursor-pointer">Should I do all 26 resolutions?</summary><p class="mt-3 text-stone-700">No. Pick a few priorities and make them repeatable. Add goals only when your current routine is stable enough that another habit will not crowd it out.</p></details><details class="theme-card p-5"><summary class="font-bold text-rose-900 cursor-pointer">How much exercise should adults aim for?</summary><p class="mt-3 text-stone-700">Current U.S. guidance recommends at least 150–300 minutes of moderate aerobic activity weekly, or 75–150 minutes vigorous, plus muscle-strengthening activity on at least two days each week.</p></details><details class="theme-card p-5"><summary class="font-bold text-rose-900 cursor-pointer">How much sleep do adults need?</summary><p class="mt-3 text-stone-700">CDC guidance says adults ages 18–60 generally need at least 7 hours per day; recommendations vary somewhat for older adults. Persistent sleep problems deserve professional evaluation.</p></details><details class="theme-card p-5"><summary class="font-bold text-rose-900 cursor-pointer">Are supplements necessary for a health resolution plan?</summary><p class="mt-3 text-stone-700">Not usually. Training, diet quality, sleep, activity and adherence are the foundation. Some supplements have evidence for specific uses, but benefits, risks and interactions vary.</p></details></div></div></section>
+<section class="py-16 bg-white/55 border-y border-rose-100" id="sources"><div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"><h2 class="text-3xl text-rose-900">Evidence &amp; Source Notes</h2><p class="mt-4 text-stone-700">This page is educational and intentionally avoids presenting general wellness advice as individualized medical treatment. The expanded baseline guidance was aligned to authoritative U.S. public-health resources.</p><ul class="mt-6 space-y-3 text-stone-700"><li><a class="text-rose-800 font-semibold underline decoration-rose-200 underline-offset-4" href="https://www.cdc.gov/physical-activity-basics/guidelines/adults.html" rel="external noopener">CDC — Adult Physical Activity Guidelines</a></li><li><a class="text-rose-800 font-semibold underline decoration-rose-200 underline-offset-4" href="https://odphp.health.gov/our-work/nutrition-physical-activity/physical-activity-guidelines/current-guidelines" rel="external noopener">U.S. Office of Disease Prevention and Health Promotion — Current Physical Activity Guidelines</a></li><li><a class="text-rose-800 font-semibold underline decoration-rose-200 underline-offset-4" href="https://www.cdc.gov/sleep/about/index.html" rel="external noopener">CDC — About Sleep</a></li><li><a class="text-rose-800 font-semibold underline decoration-rose-200 underline-offset-4" href="https://ods.od.nih.gov/factsheets/ExerciseAndAthleticPerformance-Consumer/" rel="external noopener">NIH Office of Dietary Supplements — Exercise and Athletic Performance</a></li></ul><div class="mt-7 p-5 rounded-xl border border-amber-200 bg-amber-50 text-amber-950"><strong>Safety:</strong> Seek medical guidance before vigorous exercise if you have relevant symptoms, chronic conditions, major risk factors, pregnancy, a recent injury, or have been inactive and are unsure what intensity is appropriate. Stop exercise and seek urgent care for warning symptoms such as chest pain, fainting, or severe shortness of breath.</div></div></section>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="related-articles"></div>
+</main>
+<footer class="bg-gray-800 text-gray-300">
 <div class="container mx-auto px-6 py-12 lg:px-8">
 <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
 <div>
@@ -324,18 +169,16 @@ gtag('config', 'G-7P1WS6BM5K');
 </div>
 </div>
 </footer>
-
-    <script>
-        // --- DATA: The Scientific Protocols ---
-        const protocols = [
+<script>
+const protocols = [
             // TRAINING
             { 
                 id: 1, 
                 category: 'Training', 
                 title: 'Progressive Overload', 
                 tag: 'Hypertrophy', 
-                mechanism: "The fundamental driver of muscle growth. It involves consistently increasing the demands on the musculoskeletal system to avoid adaptation plateaus.", 
-                execution: "Increase weight, reps, or sets by 2-5% every week. Track every lift.",
+                mechanism: "A common training principle for improving strength or muscle size is to gradually increase the challenge over time while maintaining good technique and adequate recovery.", 
+                execution: "Progress gradually by adding a small amount of weight, repetitions, sets, range of motion, or control when your current workload feels consistently manageable. Track performance and avoid forcing weekly increases.",
                 benefit: "Forces muscle fiber adaptation (growth)."
             },
             { 
@@ -343,8 +186,8 @@ gtag('config', 'G-7P1WS6BM5K');
                 category: 'Training', 
                 title: 'Time Under Tension (TUT)', 
                 tag: 'Technique', 
-                mechanism: "Slowing down the repetition (specifically the eccentric/lowering phase) creates micro-tears and metabolic stress signaling growth.", 
-                execution: "3 seconds down, 1 second pause, 1 second up (3-1-1 tempo).",
+                mechanism: "Controlled repetitions can increase time under tension and help reinforce technique. Tempo is one training variable, not a requirement for muscle growth.", 
+                execution: "Use a controlled tempo that lets you maintain form. A slower lowering phase can be useful for technique practice or lighter-load training.",
                 benefit: "Maximizes fiber recruitment without heavy loads."
             },
             { 
@@ -352,7 +195,7 @@ gtag('config', 'G-7P1WS6BM5K');
                 category: 'Training', 
                 title: 'Compound Movements', 
                 tag: 'Strength', 
-                mechanism: "Multi-joint movements recruit the maximum amount of muscle mass and trigger the largest hormonal response (Testosterone/HGH).", 
+                mechanism: "Multi-joint movements train several muscle groups at once and can be an efficient way to build general strength and movement skill.", 
                 execution: "Build workouts around: Squats, Deadlifts, Bench Press, Overhead Press, Pull-ups.",
                 benefit: "Systemic strength and efficiency."
             },
@@ -361,8 +204,8 @@ gtag('config', 'G-7P1WS6BM5K');
                 category: 'Training', 
                 title: 'Zone 2 Cardio', 
                 tag: 'Metabolism', 
-                mechanism: "Low-intensity steady-state cardio builds mitochondrial density and improves the body's ability to use fat as fuel.", 
-                execution: "30-45 mins at a pace where you can talk but not sing (60-70% Max HR).",
+                mechanism: "Steady aerobic activity can improve cardiorespiratory fitness and is one practical way to accumulate weekly moderate-intensity activity.", 
+                execution: "Use the talk test for moderate intensity: you can talk, but singing would be difficult. Build duration gradually toward your weekly activity target.",
                 benefit: "Metabolic flexibility and endurance base."
             },
 
@@ -372,8 +215,8 @@ gtag('config', 'G-7P1WS6BM5K');
                 category: 'Nutrition', 
                 title: 'Protein Pacing', 
                 tag: 'Synthesis', 
-                mechanism: "Muscle Protein Synthesis (MPS) spikes and drops every 3-4 hours. Eating protein frequently keeps the body in an anabolic (building) state.", 
-                execution: "Consume 20-40g of protein every 3-4 hours, totaling 1.6g-2.2g per kg of bodyweight.",
+                mechanism: "Protein supports muscle repair and adaptation. Total daily intake, food quality, and a pattern that fits your preferences matter more than rigid meal timing.", 
+                execution: "Include a protein source at meals and snacks as appropriate for your goals, appetite, body size, and medical needs. People with kidney disease or other conditions should seek individualized guidance.",
                 benefit: "Maximized muscle repair."
             },
             { 
@@ -381,17 +224,17 @@ gtag('config', 'G-7P1WS6BM5K');
                 category: 'Nutrition', 
                 title: 'Creatine Monohydrate', 
                 tag: 'Supplement', 
-                mechanism: "Increases phosphocreatine stores in muscles, allowing for faster ATP (energy) regeneration during high-intensity effort.", 
-                execution: "5g daily mixed with water. No cycling required.",
-                benefit: "Explosive power and cognitive boost."
+                mechanism: "Creatine monohydrate can increase muscle creatine stores and may improve performance during repeated short bursts of high-intensity activity such as sprinting or resistance training.", 
+                execution: "If you are considering creatine, review the product, dose, medications, kidney health, and other medical factors with a qualified clinician or sports-dietitian when appropriate.",
+                benefit: "May support strength and repeated high-intensity exercise performance; individual responses vary."
             },
             { 
                 id: 7, 
                 category: 'Nutrition', 
                 title: 'Hydration + Electrolytes', 
                 tag: 'Performance', 
-                mechanism: "Even 2% dehydration reduces strength by 10%. Electrolytes (Sodium, Potassium, Magnesium) enable muscle contraction.", 
-                execution: "Drink 3-4 liters daily. Add a pinch of sea salt to pre-workout water.",
+                mechanism: "Hydration supports normal physical performance and thermoregulation. Fluid and electrolyte needs vary with body size, climate, sweat rate, diet, and exercise duration.", 
+                execution: "Drink regularly and use thirst, urine color, climate, and workout demands as practical cues. Avoid universal fluid or sodium prescriptions; some medical conditions require fluid or sodium limits.",
                 benefit: "Sustained performance and cramp prevention."
             },
             { 
@@ -399,8 +242,8 @@ gtag('config', 'G-7P1WS6BM5K');
                 category: 'Nutrition', 
                 title: 'Caloric Surplus/Deficit', 
                 tag: 'Physics', 
-                mechanism: "Thermodynamics dictates weight. Surplus builds tissue (muscle+fat), deficit removes tissue.", 
-                execution: "Gain: Maintenance + 300kcal. Cut: Maintenance - 500kcal.",
+                mechanism: "Body weight changes reflect energy balance over time, but appetite, food quality, training, sleep, medications, and health conditions also affect outcomes.", 
+                execution: "If weight change is a goal, use modest, sustainable adjustments and monitor trends rather than chasing a single daily calorie target. Individualized nutrition guidance can be helpful.",
                 benefit: "Controlled weight manipulation."
             },
 
@@ -410,26 +253,26 @@ gtag('config', 'G-7P1WS6BM5K');
                 category: 'Recovery', 
                 title: 'Sleep Opportunity (8hr)', 
                 tag: 'Hormones', 
-                mechanism: "Growth Hormone is released primarily during deep sleep stages. Sleep deprivation mimics aging metabolically.", 
-                execution: "In bed 8.5 hours to get 7.5 hours of actual sleep. Room temp 65-68°F.",
-                benefit: "The #1 performance enhancer."
+                mechanism: "Sleep supports recovery, cognition, mood, and overall health. CDC guidance indicates that most adults need at least 7 hours of sleep, with needs varying by age and individual.", 
+                execution: "Protect a consistent sleep window, keep the room comfortable and dark, and aim for at least 7 hours of sleep if you are an adult unless your clinician advises otherwise.",
+                benefit: "A foundational recovery habit for health and performance."
             },
             { 
                 id: 10, 
                 category: 'Recovery', 
                 title: 'Active Recovery', 
                 tag: 'Bloodflow', 
-                mechanism: "Low-impact movement flushes metabolic waste (lactate) and delivers nutrients to damaged tissue via blood flow.", 
+                mechanism: "Easy movement on lower-load days can help maintain mobility and routine, and some people find it reduces the perception of soreness.", 
                 execution: "Walking, light swimming, or yoga on 'Rest Days'.",
-                benefit: "Reduced soreness (DOMS)."
+                benefit: "May support comfort, mobility, and consistency between harder sessions."
             },
             { 
                 id: 11, 
                 category: 'Recovery', 
                 title: 'Magnesium Loading', 
                 tag: 'Nervous System', 
-                mechanism: "Magnesium is essential for muscle relaxation and CNS downregulation.", 
-                execution: "400mg Magnesium Glycinate or Threonate 1 hour before bed.",
+                mechanism: "Magnesium is an essential nutrient involved in many body processes, including normal muscle and nerve function. Supplement needs are individual and excess supplemental magnesium can cause side effects.", 
+                execution: "Prioritize food sources of magnesium. Before using a supplement, check the label, total intake, medications, kidney health, and clinician guidance when relevant.",
                 benefit: "Improved sleep quality and muscle relaxation."
             },
 
@@ -439,17 +282,17 @@ gtag('config', 'G-7P1WS6BM5K');
                 category: 'Longevity', 
                 title: 'Grip Strength', 
                 tag: 'Biomarker', 
-                mechanism: "Grip strength is one of the strongest correlations to overall longevity and all-cause mortality.", 
+                mechanism: "Grip strength is commonly used as a simple marker of functional strength and has been associated with health outcomes in observational research; it is not a stand-alone prediction of lifespan.", 
                 execution: "Farmers walks: Carry heavy dumbbells for distance/time.",
-                benefit: "Predictor of functional aging."
+                benefit: "Useful functional-strength marker when interpreted in context."
             },
             { 
                 id: 13, 
                 category: 'Longevity', 
                 title: 'Mobility/Joint Health', 
                 tag: 'Function', 
-                mechanism: "Joint range of motion decreases with age. Maintenance requires taking joints through full ROM under load.", 
-                execution: "Deep squats (ATG), hanging from a bar (shoulder health).",
+                mechanism: "Maintaining strength and comfortable range of motion can support everyday function as you age. The appropriate range and load depend on your mobility, injury history, and symptoms.", 
+                execution: "Use pain-free, controlled movements that match your current mobility. Examples may include supported squats, reaching, carries, and gentle mobility work.",
                 benefit: "Pain-free movement into old age."
             },
             { 
@@ -457,238 +300,20 @@ gtag('config', 'G-7P1WS6BM5K');
                 category: 'Longevity', 
                 title: 'Cold/Heat Exposure', 
                 tag: 'Hormetic Stress', 
-                mechanism: "Sauna mimics moderate cardio; Cold shock increases dopamine and metabolism.", 
-                execution: "Sauna: 20 mins @ 180°F. Cold Shower: 2 mins.",
-                benefit: "Cardiovascular health and mood resilience."
+                mechanism: "Heat and cold exposure are optional wellness practices, not substitutes for exercise, sleep, or medical care. Evidence and safety vary by protocol and individual health status.", 
+                execution: "If you use heat or cold exposure, start conservatively, avoid extreme temperatures, hydrate appropriately, and seek medical advice if you have cardiovascular disease, blood-pressure concerns, pregnancy, or other relevant conditions.",
+                benefit: "Optional practice with potential benefits and important safety considerations; evidence is still evolving."
             }
         ];
-
-        // --- STATE ---
-        let currentCategory = 'Training';
-        let myStack = new Set();
-
-        // --- INIT ---
-        document.addEventListener('DOMContentLoaded', () => {
-            initCharts();
-            renderList();
-            renderStack();
-        });
-
-        // --- FUNCTIONS ---
-        
-        function filterProtocols(category, btnElement) {
-            currentCategory = category;
-            
-            // Update Tab UI
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('tab-active', 'border-transparent', 'shadow-sm');
-                btn.classList.add('bg-white', 'text-slate-600', 'hover:bg-slate-50');
-            });
-            btnElement.classList.remove('bg-white', 'text-slate-600', 'hover:bg-slate-50');
-            btnElement.classList.add('tab-active');
-
-            renderList();
-            // Clear detail view
-            document.getElementById('detailView').innerHTML = `
-                <div class="flex h-full flex-col items-center justify-center text-slate-300">
-                    <span class="text-6xl mb-4">🧬</span>
-                    <p class="text-xl font-medium">Select a protocol to analyze</p>
-                </div>
-            `;
-        }
-
-        function renderList() {
-            const listContainer = document.getElementById('protocolList');
-            listContainer.innerHTML = '';
-            
-            const items = protocols.filter(p => p.category === currentCategory);
-            
-            items.forEach(item => {
-                const isAdded = myStack.has(item.id);
-                const el = document.createElement('div');
-                el.className = `p-3 rounded-lg cursor-pointer card-interaction border-l-4 border bg-white ${isAdded ? 'border-emerald-500 bg-emerald-50' : 'border-slate-300 hover:border-sky-400'}`;
-                el.onclick = () => showDetail(item.id);
-                el.innerHTML = `
-                    <div class="flex justify-between items-center">
-                        <span class="font-bold text-slate-800">${item.title}</span>
-                        ${isAdded ? '<span class="text-xs text-emerald-600 font-bold">ACTIVE</span>' : ''}
-                    </div>
-                    <span class="text-xs text-slate-500 uppercase tracking-wide bg-slate-100 px-2 py-0.5 rounded mt-1 inline-block">${item.tag}</span>
-                `;
-                listContainer.appendChild(el);
-            });
-        }
-
-        function showDetail(id) {
-            const item = protocols.find(p => p.id === id);
-            const isAdded = myStack.has(item.id);
-            const btnLabel = isAdded ? "Remove from Stack" : "Add to Daily Stack";
-            const btnColor = isAdded ? "bg-red-50 text-red-600 border border-red-200 hover:bg-red-100" : "bg-slate-900 text-white hover:bg-slate-800";
-
-            const html = `
-                <div class="fade-in">
-                    <div class="flex justify-between items-start mb-6">
-                        <div>
-                            <span class="text-sky-500 font-bold tracking-widest text-xs uppercase mb-1 block">${item.category} // ${item.tag}</span>
-                            <h2 class="text-3xl md:text-4xl font-bold text-slate-800 leading-tight">${item.title}</h2>
-                        </div>
-                    </div>
-
-                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg mb-6">
-                        <h4 class="font-bold text-blue-900 text-sm uppercase mb-1">Mechanism of Action</h4>
-                        <p class="text-blue-800 text-sm leading-relaxed">${item.mechanism}</p>
-                    </div>
-
-                    <div class="grid grid-cols-1 gap-6 mb-8">
-                        <div>
-                            <h4 class="font-bold text-slate-900 mb-2 flex items-center">
-                                <span class="bg-slate-200 w-6 h-6 rounded-full flex items-center justify-center text-xs mr-2">1</span> 
-                                Implementation Strategy
-                            </h4>
-                            <p class="text-slate-600 ml-8">${item.execution}</p>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-emerald-700 mb-2 flex items-center">
-                                <span class="bg-emerald-100 w-6 h-6 rounded-full flex items-center justify-center text-xs mr-2 text-emerald-700">✓</span> 
-                                Expected Outcome
-                            </h4>
-                            <p class="text-slate-600 ml-8">${item.benefit}</p>
-                        </div>
-                    </div>
-
-                    <div class="mt-auto pt-6 border-t border-slate-100 flex justify-end">
-                        <button onclick="toggleStack(${item.id})" class="px-6 py-3 rounded-lg font-bold shadow-sm transition-colors ${btnColor}">
-                            ${btnLabel}
-                        </button>
-                    </div>
-                </div>
-            `;
-            document.getElementById('detailView').innerHTML = html;
-        }
-
-        function toggleStack(id) {
-            if (myStack.has(id)) {
-                myStack.delete(id);
-            } else {
-                if (myStack.size >= 5) {
-                    alert("Stack Full: Focus is key. Limit your active protocols to 5 for best adherence.");
-                    return;
-                }
-                myStack.add(id);
-            }
-            renderStack();
-            renderList();
-            showDetail(id); // refresh button state
-        }
-
-        function renderStack() {
-            const container = document.getElementById('stackContainer');
-            const countEl = document.getElementById('stackCount');
-            const progressEl = document.getElementById('progressBar');
-            
-            countEl.innerText = `${myStack.size}/5`;
-            progressEl.style.width = `${(myStack.size / 5) * 100}%`;
-
-            if (myStack.size === 0) {
-                container.innerHTML = `<p class="text-slate-600 italic col-span-2 text-center py-4 bg-slate-800 rounded border border-slate-700 border-dashed">Select protocols from the list to build your routine.</p>`;
-                return;
-            }
-
-            container.innerHTML = '';
-            myStack.forEach(id => {
-                const item = protocols.find(p => p.id === id);
-                const div = document.createElement('div');
-                div.className = 'bg-slate-800 border border-slate-600 p-3 rounded flex justify-between items-center text-white shadow-lg';
-                div.innerHTML = `
-                    <div class="flex items-center overflow-hidden">
-                        <div class="w-2 h-2 rounded-full bg-emerald-400 mr-2 flex-shrink-0"></div>
-                        <span class="text-sm font-medium truncate">${item.title}</span>
-                    </div>
-                    <button onclick="toggleStack(${item.id})" class="ml-2 text-slate-400 hover:text-red-400 text-lg leading-none">&times;</button>
-                `;
-                container.appendChild(div);
-            });
-        }
-
-        function printStack() {
-            if (myStack.size === 0) {
-                alert("Please add at least one protocol.");
-                return;
-            }
-            alert("Protocol generated! (This would download a PDF in a full app). Prepare to optimize.");
-        }
-
-        // --- CHARTS ---
-        function initCharts() {
-            // Radar Chart: Pillars
-            new Chart(document.getElementById('pillarChart'), {
-                type: 'radar',
-                data: {
-                    labels: ['Hypertrophy (Size)', 'Strength (Force)', 'Cardio (Endurance)', 'Mobility (Range)', 'Recovery (Health)'],
-                    datasets: [{
-                        label: 'Optimized Balance',
-                        data: [8, 9, 7, 8, 9],
-                        backgroundColor: 'rgba(14, 165, 233, 0.2)',
-                        borderColor: '#0EA5E9',
-                        pointBackgroundColor: '#0EA5E9',
-                        borderWidth: 2
-                    }, {
-                        label: 'Common Imbalance',
-                        data: [9, 6, 3, 2, 4], // All show, no go
-                        backgroundColor: 'rgba(100, 116, 139, 0.1)',
-                        borderColor: '#94A3B8',
-                        borderDash: [5, 5],
-                        borderWidth: 2
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        r: {
-                            angleLines: { color: '#E2E8F0' },
-                            grid: { color: '#E2E8F0' },
-                            pointLabels: { font: { size: 11, weight: 'bold' }, color: '#475569' },
-                            suggestedMin: 0,
-                            suggestedMax: 10
-                        }
-                    },
-                    plugins: { legend: { position: 'bottom' } }
-                }
-            });
-
-            // Bar Chart: Recovery
-            new Chart(document.getElementById('recoveryChart'), {
-                type: 'bar',
-                data: {
-                    labels: ['Heart Rate', 'Glycogen Stores', 'Muscle Tissue', 'Tendons/Ligaments', 'CNS (Nervous System)'],
-                    datasets: [{
-                        label: 'Hours to Full Recovery',
-                        data: [2, 24, 48, 72, 96], // Rough estimates for intense training
-                        backgroundColor: [
-                            '#10B981', // Heart (Fast)
-                            '#34D399', 
-                            '#0EA5E9', 
-                            '#6366F1', 
-                            '#1E293B'  // CNS (Slow)
-                        ],
-                        borderRadius: 4
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            title: { display: true, text: 'Hours' },
-                            grid: { color: '#F1F5F9' }
-                        },
-                        x: { grid: { display: false } }
-                    },
-                    plugins: { legend: { display: false } }
-                }
-            });
-        }
-    </script>
-
+let currentCategory='Training'; let myStack=new Set();
+document.addEventListener('DOMContentLoaded',()=>{initCharts();renderList();renderStack();const menuButton=document.getElementById('menuButton');const menu=document.getElementById('mobile-menu');menuButton?.addEventListener('click',()=>{const hidden=menu.classList.toggle('hidden');menuButton.setAttribute('aria-expanded',String(!hidden));});menu?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.add('hidden');menuButton.setAttribute('aria-expanded','false');}));});
+function filterProtocols(category,btn){currentCategory=category;document.querySelectorAll('.filter-btn').forEach(b=>{b.classList.remove('tab-active');b.classList.add('bg-white/80','text-stone-700')});btn.classList.add('tab-active');btn.classList.remove('bg-white/80','text-stone-700');renderList();document.getElementById('detailView').innerHTML='<div class="flex h-full flex-col items-center justify-center text-stone-400 text-center"><span class="text-5xl mb-4">🧭</span><p class="text-xl font-semibold">Choose a protocol to explore</p></div>';}
+function renderList(){const c=document.getElementById('protocolList');c.innerHTML='';protocols.filter(p=>p.category===currentCategory).forEach(item=>{const active=myStack.has(item.id);const el=document.createElement('button');el.type='button';el.className=`w-full text-left p-4 rounded-xl border transition bg-white/80 ${active?'border-rose-400 bg-rose-50':'border-rose-100 hover:border-rose-300'}`;el.onclick=()=>showDetail(item.id);el.innerHTML=`<div class="flex justify-between gap-3"><span class="font-bold text-rose-900">${item.title}</span>${active?'<span class="text-xs text-rose-700 font-bold">ACTIVE</span>':''}</div><span class="text-xs text-stone-500 uppercase tracking-wide mt-1 inline-block">${item.tag}</span>`;c.appendChild(el);});}
+function showDetail(id){const item=protocols.find(p=>p.id===id);const active=myStack.has(id);document.getElementById('detailView').innerHTML=`<div><span class="text-rose-700 font-bold tracking-widest text-xs uppercase">${item.category} · ${item.tag}</span><h3 class="text-3xl text-rose-900 mt-2">${item.title}</h3><div class="mt-6 p-5 rounded-xl bg-rose-50 border border-rose-100"><h4 class="font-bold text-rose-900">Why it may help</h4><p class="mt-2 text-stone-700 leading-relaxed">${item.mechanism}</p></div><div class="mt-6"><h4 class="font-bold text-stone-900">Practical approach</h4><p class="mt-2 text-stone-700">${item.execution}</p></div><div class="mt-6"><h4 class="font-bold text-rose-800">Intended role</h4><p class="mt-2 text-stone-700">${item.benefit}</p></div><div class="mt-8 pt-6 border-t border-rose-100"><button class="px-6 py-3 rounded-lg font-bold ${active?'bg-white border border-rose-300 text-rose-800':'bg-rose-700 text-white hover:bg-rose-800'}" onclick="toggleStack(${id})">${active?'Remove from My Stack':'Add to My Stack'}</button></div></div>`;}
+function toggleStack(id){if(myStack.has(id))myStack.delete(id);else{if(myStack.size>=5){alert('Choose up to five priorities so the plan stays focused.');return}myStack.add(id)}renderStack();renderList();showDetail(id);}
+function renderStack(){const c=document.getElementById('stackContainer');document.getElementById('stackCount').innerText=`${myStack.size}/5`;document.getElementById('progressBar').style.width=`${myStack.size/5*100}%`;if(!myStack.size){c.innerHTML='<p class="italic text-stone-500 sm:col-span-2">No protocols added yet. Choose a protocol above to start.</p>';return}c.innerHTML='';myStack.forEach(id=>{const item=protocols.find(p=>p.id===id);const d=document.createElement('div');d.className='p-4 rounded-xl bg-white border border-rose-100 flex items-center justify-between';d.innerHTML=`<span class="font-semibold text-rose-900">${item.title}</span><button aria-label="Remove ${item.title}" class="text-rose-500 hover:text-rose-800 text-xl" onclick="toggleStack(${id})">&times;</button>`;c.appendChild(d);})}
+function printStack(){if(!myStack.size){alert('Add at least one protocol first.');return}window.print();}
+function initCharts(){const p=document.getElementById('pillarChart');if(p)new Chart(p,{type:'radar',data:{labels:['Strength','Cardio','Mobility','Sleep','Nutrition','Recovery'],datasets:[{label:'Balanced planning example',data:[8,8,7,9,8,8],backgroundColor:'rgba(190,18,60,.12)',borderColor:'#be123c',pointBackgroundColor:'#be123c',borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,scales:{r:{suggestedMin:0,suggestedMax:10,grid:{color:'#ffe4e6'},angleLines:{color:'#ffe4e6'},pointLabels:{color:'#57534e',font:{size:12,weight:'bold'}}}},plugins:{legend:{position:'bottom'}}}});const a=document.getElementById('activityChart');if(a)new Chart(a,{type:'bar',data:{labels:['Moderate-intensity baseline','Vigorous-intensity baseline'],datasets:[{label:'Minutes per week',data:[150,75],backgroundColor:['rgba(190,18,60,.72)','rgba(244,63,94,.52)'],borderColor:['#9f1239','#e11d48'],borderWidth:1,borderRadius:7}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,scales:{x:{beginAtZero:true,title:{display:true,text:'Minutes per week'}}},plugins:{legend:{display:false},tooltip:{callbacks:{afterLabel:(ctx)=>ctx.dataIndex===0?'Guideline range: 150–300 min moderate':'Guideline range: 75–150 min vigorous'}}}}})}
+</script>
+<script defer="" src="https://storage.googleapis.com/create-website/css-scripts/related-articles.js"></script>
 </body></html>

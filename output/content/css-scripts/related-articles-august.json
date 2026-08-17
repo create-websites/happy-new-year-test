@@ -1,0 +1,87 @@
+[
+  {
+    "id": "raksha-bandhan-celebration-guide",
+    "title": "Raksha Bandhan Celebration Guide",
+    "url": "/festivals/raksha-bandhan/",
+    "category": "Indian Festival",
+    "description": "Discover the meaning of Raksha Bandhan, Rakhi traditions, gift ideas, and ways to celebrate the bond between brothers and sisters.",
+    "image": "/images/raksha-bandhan-guide.jpg",
+    "keywords": [
+      "raksha bandhan",
+      "rakhi",
+      "rakhi festival",
+      "brother sister",
+      "rakhi gifts",
+      "indian festival",
+      "family celebration"
+    ]
+  },
+  {
+    "id": "janmashtami-celebration-guide",
+    "title": "Janmashtami Celebration Guide",
+    "url": "/festivals/janmashtami/",
+    "category": "Hindu Festival",
+    "description": "Learn about Krishna Janmashtami, its spiritual significance, traditions, fasting, midnight celebrations, and family activities.",
+    "image": "/images/janmashtami-guide.jpg",
+    "keywords": [
+      "janmashtami",
+      "krishna janmashtami",
+      "lord krishna",
+      "krishna birthday",
+      "hindu festival",
+      "dahi handi",
+      "janmashtami celebration"
+    ]
+  },
+  {
+    "id": "ganesh-chaturthi-celebration-guide",
+    "title": "Ganesh Chaturthi Celebration Guide",
+    "url": "/festivals/ganesh-chaturthi/",
+    "category": "Hindu Festival",
+    "description": "Explore Ganesh Chaturthi traditions, Lord Ganesha worship, home decoration ideas, festive food, and celebration customs.",
+    "image": "/images/ganesh-chaturthi-guide.jpg",
+    "keywords": [
+      "ganesh chaturthi",
+      "ganesha festival",
+      "lord ganesha",
+      "vinayaka chaturthi",
+      "hindu festival",
+      "ganpati",
+      "festival celebration"
+    ]
+  },
+  {
+    "id": "halloween-celebration-guide",
+    "title": "Halloween Celebration Guide",
+    "url": "/festivals/halloween/",
+    "category": "Seasonal Festival",
+    "description": "Find Halloween costume ideas, spooky decorations, party inspiration, trick-or-treat traditions, and family-friendly activities.",
+    "image": "/images/halloween-guide.jpg",
+    "keywords": [
+      "halloween",
+      "halloween festival",
+      "costume ideas",
+      "trick or treat",
+      "halloween decorations",
+      "halloween party",
+      "family activities"
+    ]
+  },
+  {
+    "id": "august-festival-highlights",
+    "title": "August Festival Highlights",
+    "url": "/festivals/",
+    "category": "Upcoming Festivals",
+    "description": "Explore festival highlights featuring Raksha Bandhan, Janmashtami, Ganesh Chaturthi, and Halloween celebration guides.",
+    "image": "/images/august-festival-highlights.jpg",
+    "keywords": [
+      "august festivals",
+      "raksha bandhan",
+      "rakhi",
+      "janmashtami",
+      "ganesh chaturthi",
+      "halloween",
+      "festival calendar"
+    ]
+  }
+]

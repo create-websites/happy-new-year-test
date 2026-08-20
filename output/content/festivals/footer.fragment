@@ -52,6 +52,7 @@
           <li><a href="https://www.happy-new-year.org/festivals/hindu-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Hindu New Year</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/holi/" class="hover:text-white hover:underline transition-colors duration-200">Holi</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/islamic-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Islamic New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/janmashtami/" class="hover:text-white hover:underline transition-colors duration-200">Janmashtami</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/japanese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Japanese New Year</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/jewish-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Jewish New Year</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/lohri/" class="hover:text-white hover:underline transition-colors duration-200">Lohri</a></li>
@@ -109,11 +110,11 @@
     </div>
 
     <div class="mt-8 text-center text-sm text-gray-400">
-      <p class="text-sm text-gray-400">Rakhi Janmashtmi and Ganesh Chaturthi in Aug Sep</p>
+      <p class="text-sm text-gray-400">Rakhi Wishes in indian languages</p>
     </div>
 
     <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
-      <p class="text-sm text-gray-400">&copy; 2026 Happy New Year. All rights reserved.</p>
+      <p class="text-sm text-gray-400">&copy; 2026 Happy New Year 2027. All rights reserved.</p>
       
     </div>
 

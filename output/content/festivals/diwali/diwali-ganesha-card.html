@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#2f0b5f" name="theme-color"/>
+<meta content="A colourful Diwali greeting card featuring Lord Ganesha, warm festive wishes and a responsive full-image viewer." name="description"/>
+<meta content="Shubh Deepavali — Lord Ganesha Blessings" property="og:title"/>
+<meta content="May Lord Ganesha remove every obstacle and fill your Diwali with light, joy and prosperity." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://storage.googleapis.com/kreatewebsites/photos1000/colourful-ganesha.jpg" property="og:image"/>
+<title>Shubh Deepavali — Lord Ganesha Card</title>
+<link as="image" href="https://storage.googleapis.com/kreatewebsites/photos1000/colourful-ganesha.jpg" imagesizes="(max-width: 720px) calc(100vw - 40px), (max-width: 1080px) 58vw, 680px" imagesrcset="
+          https://storage.googleapis.com/kreatewebsites/photos100/colourful-ganesha.jpg 100w,
+          https://storage.googleapis.com/kreatewebsites/photos200/colourful-ganesha.jpg 200w,
+          https://storage.googleapis.com/kreatewebsites/photos300/colourful-ganesha.jpg 300w,
+          https://storage.googleapis.com/kreatewebsites/photos400/colourful-ganesha.jpg 400w,
+          https://storage.googleapis.com/kreatewebsites/photos500/colourful-ganesha.jpg 500w,
+          https://storage.googleapis.com/kreatewebsites/photos600/colourful-ganesha.jpg 600w,
+          https://storage.googleapis.com/kreatewebsites/photos700/colourful-ganesha.jpg 700w,
+          https://storage.googleapis.com/kreatewebsites/photos800/colourful-ganesha.jpg 800w,
+          https://storage.googleapis.com/kreatewebsites/photos900/colourful-ganesha.jpg 900w,
+          https://storage.googleapis.com/kreatewebsites/photos1000/colourful-ganesha.jpg 1000w" rel="preload"/>
+<style>
+    :root {
+      --ink: #24113a;
+      --cream: #fff8e9;
+      --gold: #ffbe2e;
+      --orange: #ff6b1a;
+      --pink: #ec268f;
+      --violet: #6f2ce8;
+      --blue: #08aeea;
+      --green: #9dcc00;
+      --deep-1: #15062c;
+      --deep-2: #34075d;
+      --deep-3: #74104f;
+      --glass: rgba(255, 255, 255, 0.1);
+      --line: rgba(255, 255, 255, 0.22);
+      --shadow: 0 30px 80px rgba(7, 0, 27, 0.45);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: #fff;
+      background:
+        radial-gradient(circle at 12% 15%, rgba(236, 38, 143, 0.42), transparent 30rem),
+        radial-gradient(circle at 88% 18%, rgba(8, 174, 234, 0.33), transparent 28rem),
+        radial-gradient(circle at 72% 92%, rgba(255, 190, 46, 0.24), transparent 27rem),
+        linear-gradient(145deg, var(--deep-1) 0%, var(--deep-2) 43%, var(--deep-3) 100%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      isolation: isolate;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: auto;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      filter: blur(70px);
+      opacity: 0.24;
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    body::before {
+      top: -180px;
+      left: -120px;
+      background: var(--pink);
+    }
+
+    body::after {
+      right: -150px;
+      bottom: -170px;
+      background: var(--orange);
+    }
+
+    button,
+    a { font: inherit; }
+
+    button { -webkit-tap-highlight-color: transparent; }
+
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 100;
+      padding: 10px 14px;
+      border-radius: 12px;
+      color: var(--ink);
+      background: #fff;
+      transform: translateY(-150%);
+      transition: transform 160ms ease;
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    .sparkles {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .spark {
+      position: absolute;
+      width: var(--size);
+      height: var(--size);
+      border-radius: 50%;
+      background: rgba(255, 239, 164, 0.95);
+      box-shadow: 0 0 12px rgba(255, 201, 61, 0.95);
+      animation: drift var(--duration) linear var(--delay) infinite;
+      opacity: 0;
+    }
+
+    @keyframes drift {
+      0% { transform: translate3d(0, 12vh, 0) scale(0.45); opacity: 0; }
+      12% { opacity: 0.9; }
+      78% { opacity: 0.55; }
+      100% { transform: translate3d(var(--sway), -112vh, 0) scale(1.15); opacity: 0; }
+    }
+
+    .page-shell {
+      width: min(1180px, calc(100% - 32px));
+      margin-inline: auto;
+      padding: clamp(24px, 5vw, 64px) 0 26px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: #fff;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.11);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24);
+      font-size: 1.2rem;
+    }
+
+    .festival-tag {
+      padding: 9px 13px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      backdrop-filter: blur(12px);
+    }
+
+    .greeting-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.8fr);
+      gap: 0;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.21);
+      border-radius: var(--radius-xl);
+      background: rgba(25, 5, 49, 0.56);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(24px);
+    }
+
+    .greeting-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.62), rgba(255, 190, 46, 0.14), rgba(8, 174, 234, 0.3));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .artwork-wrap {
+      position: relative;
+      min-width: 0;
+      padding: clamp(14px, 2.2vw, 24px);
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.035)),
+        repeating-linear-gradient(45deg, transparent 0 18px, rgba(255, 255, 255, 0.025) 18px 19px);
+    }
+
+    .artwork-button {
+      position: relative;
+      display: block;
+      width: 100%;
+      padding: 0;
+      overflow: hidden;
+      border: 0;
+      border-radius: calc(var(--radius-xl) - 14px);
+      background: #fff;
+      cursor: zoom-in;
+      box-shadow: 0 24px 52px rgba(9, 0, 28, 0.3);
+      text-align: left;
+    }
+
+    .artwork-button::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: inherit;
+      pointer-events: none;
+    }
+
+    .artwork-button::after {
+      content: "View full card";
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
+      z-index: 3;
+      padding: 9px 12px;
+      border-radius: 999px;
+      color: #fff;
+      background: rgba(23, 8, 45, 0.78);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(10px);
+      font-weight: 750;
+      font-size: 0.78rem;
+      letter-spacing: 0.02em;
+      transform: translateY(6px);
+      opacity: 0;
+      transition: transform 180ms ease, opacity 180ms ease;
+    }
+
+    .artwork-button:hover::after,
+    .artwork-button:focus-visible::after {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .artwork-button:focus-visible {
+      outline: 4px solid rgba(255, 190, 46, 0.95);
+      outline-offset: 4px;
+    }
+
+    .artwork {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      transition: transform 420ms cubic-bezier(.2, .8, .2, 1), filter 420ms ease;
+    }
+
+    .artwork-button:hover .artwork {
+      transform: scale(1.018);
+      filter: saturate(1.05);
+    }
+
+    .wish-panel {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(30px, 5vw, 66px) clamp(26px, 4vw, 52px);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(8, 174, 234, 0.23), transparent 44%),
+        radial-gradient(circle at 0% 100%, rgba(236, 38, 143, 0.2), transparent 42%);
+    }
+
+    .wish-panel::before,
+    .wish-panel::after {
+      content: "✦";
+      position: absolute;
+      color: rgba(255, 210, 70, 0.48);
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      animation: pulse 2.6s ease-in-out infinite;
+    }
+
+    .wish-panel::before { top: 28px; right: 34px; }
+    .wish-panel::after { left: 28px; bottom: 28px; animation-delay: 1.2s; }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(0.78) rotate(0); opacity: 0.38; }
+      50% { transform: scale(1.1) rotate(18deg); opacity: 0.95; }
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      margin: 0 0 18px;
+      color: #ffd46d;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3rem, 6vw, 5.8rem);
+      font-weight: 700;
+      line-height: 0.88;
+      letter-spacing: -0.055em;
+      text-wrap: balance;
+    }
+
+    h1 span {
+      display: block;
+      margin-top: 10px;
+      color: transparent;
+      background: linear-gradient(90deg, #ffd155, #ff7a31 34%, #ff4ba0 66%, #67d9ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    .divider {
+      width: 72px;
+      height: 4px;
+      margin: 25px 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--gold), var(--pink), var(--blue));
+      box-shadow: 0 0 22px rgba(255, 139, 55, 0.42);
+    }
+
+    .message {
+      max-width: 31rem;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.82);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.05rem, 1.8vw, 1.28rem);
+      line-height: 1.72;
+    }
+
+    .signature {
+      margin: 20px 0 0;
+      color: rgba(255, 255, 255, 0.64);
+      font-size: 0.9rem;
+      font-weight: 650;
+      letter-spacing: 0.02em;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+      margin-top: 30px;
+    }
+
+    .action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 46px;
+      padding: 11px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.23);
+      border-radius: 999px;
+      cursor: pointer;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+      font-weight: 760;
+      font-size: 0.86rem;
+    }
+
+    .action.primary {
+      border-color: transparent;
+      color: #2c123e;
+      background: linear-gradient(135deg, #ffd963, #ff8a37);
+      box-shadow: 0 12px 26px rgba(255, 131, 45, 0.24);
+    }
+
+    .action:hover { transform: translateY(-2px); background-color: rgba(255, 255, 255, 0.15); }
+    .action.primary:hover { background: linear-gradient(135deg, #ffe58c, #ff9d5c); }
+    .action:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+
+    .action svg {
+      width: 17px;
+      height: 17px;
+      flex: 0 0 auto;
+    }
+
+    .blessing-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .blessing {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 10px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 14px;
+      color: rgba(255, 255, 255, 0.76);
+      background: rgba(255, 255, 255, 0.055);
+      backdrop-filter: blur(10px);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .blessing b {
+      color: #ffd362;
+      font-size: 1rem;
+    }
+
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      margin-top: 18px;
+      padding-inline: 4px;
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 0.76rem;
+    }
+
+    .footer span:last-child { text-align: right; }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      background: rgba(8, 2, 18, 0.93);
+      backdrop-filter: blur(14px);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 180ms ease, visibility 180ms ease;
+    }
+
+    .lightbox.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .lightbox-inner {
+      position: relative;
+      width: min(1000px, 96vw);
+      max-height: 92vh;
+    }
+
+    .lightbox-image {
+      display: block;
+      width: 100%;
+      max-height: 88vh;
+      object-fit: contain;
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 30px 100px rgba(0, 0, 0, 0.58);
+    }
+
+    .close-lightbox {
+      position: absolute;
+      top: -14px;
+      right: -14px;
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 50%;
+      color: #fff;
+      background: rgba(34, 12, 58, 0.92);
+      cursor: pointer;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+      font-size: 1.35rem;
+    }
+
+    .close-lightbox:hover { background: #5c1a72; }
+    .close-lightbox:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+    .lightbox-note {
+      margin: 12px 0 0;
+      color: rgba(255, 255, 255, 0.68);
+      text-align: center;
+      font-size: 0.8rem;
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      z-index: 80;
+      padding: 11px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 999px;
+      color: #fff;
+      background: rgba(29, 9, 52, 0.94);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+      transform: translate(-50%, 20px);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 180ms ease, opacity 180ms ease;
+      font-size: 0.83rem;
+      font-weight: 700;
+    }
+
+    .toast.show { transform: translate(-50%, 0); opacity: 1; }
+
+    @media (max-width: 950px) {
+      .greeting-card { grid-template-columns: 1fr; }
+      .artwork-wrap { padding-bottom: 0; }
+      .wish-panel { padding-top: 38px; }
+      .message { max-width: 44rem; }
+      .blessing-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 620px) {
+      .page-shell { width: min(100% - 20px, 1180px); padding-top: 16px; }
+      .topbar { align-items: flex-start; }
+      .festival-tag { display: none; }
+      .brand { font-size: 0.72rem; }
+      .greeting-card { border-radius: 25px; }
+      .artwork-wrap { padding: 10px 10px 0; }
+      .artwork-button { border-radius: 18px; }
+      .artwork-button::after { display: none; }
+      .wish-panel { padding: 31px 22px 34px; }
+      h1 { font-size: clamp(3.1rem, 17vw, 4.6rem); }
+      .message { font-size: 1.04rem; line-height: 1.65; }
+      .actions { display: grid; grid-template-columns: 1fr 1fr; }
+      .action { padding-inline: 12px; }
+      .footer { display: block; text-align: center; line-height: 1.7; }
+      .footer span { display: block; }
+      .footer span:last-child { text-align: center; }
+      .lightbox { padding: 12px; }
+      .close-lightbox { top: -8px; right: -5px; }
+    }
+
+    @media (max-width: 390px) {
+      .actions { grid-template-columns: 1fr; }
+      .blessing-strip { grid-template-columns: 1fr 1fr; }
+      .blessing { font-size: 0.72rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .sparkles { display: none; }
+    }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#greeting">Skip to the Diwali greeting</a>
+<div aria-hidden="true" class="sparkles" id="sparkles"></div>
+<main class="page-shell" id="greeting">
+<header class="topbar">
+<div aria-label="Diwali greetings" class="brand">
+<span aria-hidden="true" class="brand-mark">ॐ</span>
+<span>Festival of Lights</span>
+</div>
+<span class="festival-tag">Ganpati Bappa Morya</span>
+</header>
+<article aria-labelledby="card-title" class="greeting-card">
+<section aria-label="Lord Ganesha Diwali artwork" class="artwork-wrap">
+<button aria-label="Open the Lord Ganesha Diwali card at full size" class="artwork-button" id="openArtwork" type="button">
+<img alt="Colourful line-art illustration of Lord Ganesha with bright festive bunting and the words Happy Diwali Wishes" class="artwork" decoding="async" fetchpriority="high" height="750" id="cardImage" sizes="(max-width: 720px) calc(100vw - 40px), (max-width: 1080px) 58vw, 680px" src="https://storage.googleapis.com/kreatewebsites/photos600/colourful-ganesha.jpg" srcset="
+              https://storage.googleapis.com/kreatewebsites/photos100/colourful-ganesha.jpg 100w,
+              https://storage.googleapis.com/kreatewebsites/photos200/colourful-ganesha.jpg 200w,
+              https://storage.googleapis.com/kreatewebsites/photos300/colourful-ganesha.jpg 300w,
+              https://storage.googleapis.com/kreatewebsites/photos400/colourful-ganesha.jpg 400w,
+              https://storage.googleapis.com/kreatewebsites/photos500/colourful-ganesha.jpg 500w,
+              https://storage.googleapis.com/kreatewebsites/photos600/colourful-ganesha.jpg 600w,
+              https://storage.googleapis.com/kreatewebsites/photos700/colourful-ganesha.jpg 700w,
+              https://storage.googleapis.com/kreatewebsites/photos800/colourful-ganesha.jpg 800w,
+              https://storage.googleapis.com/kreatewebsites/photos900/colourful-ganesha.jpg 900w,
+              https://storage.googleapis.com/kreatewebsites/photos1000/colourful-ganesha.jpg 1000w" width="1000"/>
+</button>
+</section>
+<section class="wish-panel">
+<p class="eyebrow">A luminous new beginning</p>
+<h1 id="card-title">Shubh <span>Deepavali</span></h1>
+<div aria-hidden="true" class="divider"></div>
+<p class="message">
+          May Lord Ganesha remove every obstacle from your path, and may the glow of every diya fill your home with happiness, wisdom, good health and prosperity.
+        </p>
+<p class="signature">Warm <a href="https://www.happy-new-year.org/wishes/">wishes</a> for a joyful and radiant Diwali.</p>
+<div aria-label="Greeting card actions" class="actions">
+<button class="action primary" id="shareButton" type="button">
+<svg aria-hidden="true" fill="none" viewbox="0 0 24 24"><path d="M18 8a3 3 0 1 0-2.83-4A3 3 0 0 0 15 5c0 .25.03.48.08.71L8.91 9.28A3 3 0 0 0 7 8.6a3 3 0 1 0 1.91 5.32l6.17 3.57A3 3 0 0 0 15 18a3 3 0 1 0 .92-2.16l-6.17-3.57A3 3 0 0 0 10 11c0-.25-.03-.48-.08-.71l6.17-3.57A3 3 0 0 0 18 8Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg>
+            Share wishes
+          </button>
+<button class="action" id="copyButton" type="button">
+<svg aria-hidden="true" fill="none" viewbox="0 0 24 24"><rect height="11" rx="2" stroke="currentColor" stroke-width="1.8" width="11" x="8" y="8"></rect><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"></path></svg>
+            Copy message
+          </button>
+</div>
+</section>
+</article>
+<section aria-label="Diwali blessings" class="blessing-strip">
+<div class="blessing"><b aria-hidden="true">✦</b> Light</div>
+<div class="blessing"><b aria-hidden="true">✦</b> Wisdom</div>
+<div class="blessing"><b aria-hidden="true">✦</b> Prosperity</div>
+<div class="blessing"><b aria-hidden="true">✦</b> Togetherness</div>
+</section>
+<footer class="bg-gray-800 text-gray-300">
+<div class="container mx-auto px-6 py-12 lg:px-8">
+<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/easter/">Easter Festival</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-bihari-wishes.html">26-bihari-wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html">26-chinese-new-year-wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-christmas-wishes.html">26-christmas-wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026-festival-countdown.html">2026-festival-countdown</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html">Christmas-wishes-by-audience</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html">Happy-new-year-2026-celebrations-worldwide.html</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/happy-new-year-2026.html">Happy-new-year-2026</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html">Multilingual-greetings-webpage</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Folders</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/govardhan-puja/">Govardhan Puja</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/9-nights-of-celebration-at-navratri.html">9 Nights Of Celebration At Navratri</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/beautiful-diyas-card.html">Beautiful Diyas Card</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/beautiful-ganesha-photos.html">Beautiful Ganesha Photos</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/cute-ganesh-ji-photosjpeg.html">Cute Ganesh Ji Photosjpeg</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/Dhanteras-overview-1.html">Dhanteras Overview 1</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/diwali-card-fireworks.html">Diwali Card Fireworks</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/diwali-city-card-with-lights.html">Diwali City Card With Lights</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/diwali-city-made-of-sweets-pos.html">Diwali City Made Of Sweets Pos</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/diwali-city-made-of-sweets-poster.html">Diwali City Made Of Sweets Poster</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/diwali-city-of-fireworks.html">Diwali City Of Fireworks</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/diwali-city-sweets-card.html">Diwali City Sweets Card</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/diwali-diyas-temple-card.html">Diwali Diyas Temple Card</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/diwali-elgegant-card.html">Diwali Elgegant Card</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/diwali-fireworks-card.html">Diwali Fireworks Card</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/diwali-fireworks-in-city-card.html">Diwali Fireworks In City Card</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/diwali-ganesh-card-2.html">Diwali Ganesh Card 2</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/diwali-ganesh-cute.html">Diwali Ganesh Cute</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/diwali-ganesha-card.html">Diwali Ganesha Card</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/diwali-imagination.html">Diwali Imagination</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/diwali-lights-card.html">Diwali Lights Card</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/diwali-rangoli-card-2.html">Diwali Rangoli Card 2</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/diwali-rangoli-card-city.html">Diwali Rangoli Card City</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/diwali-rangoli-card-view.html">Diwali Rangoli Card View</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/diwali-rangoli-card.html">Diwali Rangoli Card</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/diwali-sweets-card.html">Diwali Sweets Card</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/diwali-temple-card.html">Diwali Temple Card</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/diwali-virtual-card-with-firew.html">Diwali Virtual Card With Firew</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/diwali-virtual-card-with-fireworks.html">Diwali Virtual Card With Fireworks</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/diwali-virtual-fireworks.html">Diwali Virtual Fireworks</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/diwali-vistual-city-of-sweets.html">Diwali Vistual City Of Sweets</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/diyas-andc-icity.html">Diyas Andc Icity</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/ganesh-card-for-diwali.html">Ganesh Card For Diwali</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/ganesh-ji-laddos-card.html">Ganesh Ji Laddos Card</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/ganesh-ji-ladoos.html">Ganesh Ji Ladoos</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/ganesh-ladoo-card.html">Ganesh Ladoo Card</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/ganesha-card-made-of-sweets.html">Ganesha Card Made Of Sweets</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/ganesha-kid-photo.html">Ganesha Kid Photo</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/ganesha-pink-photos.html">Ganesha Pink Photos</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/ganesha-poster-made-of-weets.html">Ganesha Poster Made Of Weets</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/gift-diwali.html">Gift Diwali</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/Karwa-chauth-and-Diwali-gift-ideas-for-women.html">Karwa Chauth And Diwali Gift Ideas For Women</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/quotes-diwali.html">Quotes Diwali</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/diwali/virtual-city-made-of-candies.html">Virtual City Made Of Candies</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Footer Links</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-8 text-center text-sm text-gray-400">
+<p class="text-sm text-gray-400">Festival &amp; NewYear Wishes in Different languages</p>
+</div>
+<div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+<p class="text-sm text-gray-400">© 2026 Happy New Year 2027. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</main>
+<div aria-hidden="true" aria-label="Full-size Lord Ganesha Diwali card" aria-modal="true" class="lightbox" id="lightbox" role="dialog">
+<div class="lightbox-inner">
+<img alt="Full-size colourful Lord Ganesha Happy Diwali Wishes card" class="lightbox-image" height="750" id="lightboxImage" src="https://storage.googleapis.com/kreatewebsites/photos1000/colourful-ganesha.jpg" width="1000"/>
+<button aria-label="Close full-size image" class="close-lightbox" id="closeLightbox" type="button">×</button>
+<p class="lightbox-note">Press Escape or tap outside the card to close</p>
+</div>
+</div>
+<div aria-live="polite" class="toast" id="toast" role="status"></div>
+<script>
+    (() => {
+      'use strict';
+
+      const FULL_IMAGE = 'https://storage.googleapis.com/kreatewebsites/photos1000/colourful-ganesha.jpg';
+      const GREETING = 'Shubh Deepavali! May Lord Ganesha remove every obstacle from your path, and may the glow of every diya fill your home with happiness, wisdom, good health and prosperity.';
+
+      const cardImage = document.getElementById('cardImage');
+      const openArtwork = document.getElementById('openArtwork');
+      const lightbox = document.getElementById('lightbox');
+      const closeLightbox = document.getElementById('closeLightbox');
+      const copyButton = document.getElementById('copyButton');
+      const shareButton = document.getElementById('shareButton');
+      const toast = document.getElementById('toast');
+      const sparkles = document.getElementById('sparkles');
+      let lastFocused = null;
+      let toastTimer = null;
+
+      function showToast(message) {
+        toast.textContent = message;
+        toast.classList.add('show');
+        window.clearTimeout(toastTimer);
+        toastTimer = window.setTimeout(() => toast.classList.remove('show'), 2300);
+      }
+
+      function openLightbox() {
+        lastFocused = document.activeElement;
+        lightbox.classList.add('is-open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        closeLightbox.focus();
+      }
+
+      function hideLightbox() {
+        lightbox.classList.remove('is-open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+      }
+
+      async function copyGreeting() {
+        try {
+          await navigator.clipboard.writeText(GREETING);
+          showToast('Diwali message copied');
+        } catch (error) {
+          const textarea = document.createElement('textarea');
+          textarea.value = GREETING;
+          textarea.setAttribute('readonly', '');
+          textarea.style.position = 'fixed';
+          textarea.style.opacity = '0';
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand('copy');
+          textarea.remove();
+          showToast('Diwali message copied');
+        }
+      }
+
+      async function shareGreeting() {
+        if (navigator.share) {
+          try {
+            await navigator.share({
+              title: 'Shubh Deepavali',
+              text: GREETING,
+              url: window.location.href
+            });
+            return;
+          } catch (error) {
+            if (error && error.name === 'AbortError') return;
+          }
+        }
+        await copyGreeting();
+        showToast('Message copied — ready to share');
+      }
+
+      function createSparkles() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const count = window.innerWidth < 640 ? 16 : 28;
+        const fragment = document.createDocumentFragment();
+
+        for (let i = 0; i < count; i += 1) {
+          const spark = document.createElement('span');
+          spark.className = 'spark';
+          spark.style.left = `${Math.random() * 100}%`;
+          spark.style.top = `${60 + Math.random() * 65}%`;
+          spark.style.setProperty('--size', `${2 + Math.random() * 4}px`);
+          spark.style.setProperty('--duration', `${8 + Math.random() * 10}s`);
+          spark.style.setProperty('--delay', `${-Math.random() * 16}s`);
+          spark.style.setProperty('--sway', `${-70 + Math.random() * 140}px`);
+          fragment.appendChild(spark);
+        }
+        sparkles.appendChild(fragment);
+      }
+
+      cardImage.addEventListener('error', () => {
+        if (cardImage.src !== FULL_IMAGE) {
+          cardImage.removeAttribute('srcset');
+          cardImage.src = FULL_IMAGE;
+        }
+      }, { once: true });
+
+      openArtwork.addEventListener('click', openLightbox);
+      closeLightbox.addEventListener('click', hideLightbox);
+      copyButton.addEventListener('click', copyGreeting);
+      shareButton.addEventListener('click', shareGreeting);
+
+      lightbox.addEventListener('click', (event) => {
+        if (event.target === lightbox) hideLightbox();
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && lightbox.classList.contains('is-open')) hideLightbox();
+        if (event.key === 'Tab' && lightbox.classList.contains('is-open')) {
+          event.preventDefault();
+          closeLightbox.focus();
+        }
+      });
+
+      createSparkles();
+    })();
+  </script>
+</body></html>

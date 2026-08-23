@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en"><head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>1</title>
+  <meta content="gen description" name="description"/>
+  <meta content="index, follow" name="robots"/>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+
+  <style>
+    body {
+      font-family: 'Vollkorn', serif;
+      background-color: #fff1f2;
+      color: #292524;
+      background-image:
+        linear-gradient(rgba(255,241,242,.86), rgba(255,241,242,.86)),
+        url('https://storage.googleapis.com/kreatewebsite/banner_all/Happy-New-Year-Photos.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    h1, h2, h3 { font-weight: 700; }
+
+    .nav-link { color:#57534e; transition:color .2s; }
+    .nav-link:hover, .nav-link.active { color:#9f1239; }
+
+    .hero-shell,
+    .gallery-item,
+    .article-card {
+      background: rgba(255,255,255,.78);
+      border: 1px solid #ffe4e6;
+      border-radius: 1rem;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 8px 24px rgba(136,19,55,.08);
+    }
+
+    .hero-shell {
+      border-radius: 1.25rem;
+      box-shadow: 0 10px 30px rgba(136,19,55,.08);
+    }
+
+    .tag-sentence {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: .55rem 1rem;
+      border-radius: 999px;
+      border: 1px solid #fecdd3;
+      background: rgba(255,255,255,.75);
+      color: #9f1239;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .hero-desc { white-space: pre-line; }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      transition: all .3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-3px);
+      border-color: #fda4af;
+      box-shadow: 0 14px 30px rgba(136,19,55,.13);
+      background: rgba(255,255,255,.92);
+    }
+
+    .gallery-item a { display:block; }
+
+    .gallery-item img {
+      width:100%;
+      height:auto;
+      display:block;
+      background:#fff;
+    }
+
+    .caption {
+      padding: 1rem 1.25rem 1.2rem;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #881337;
+      line-height: 1.5;
+    }
+
+    .article-wrap { margin-top:3rem; }
+
+    .article-card { padding:1.75rem; }
+
+    .article-content {
+      color:#44403c;
+      font-size:1.05rem;
+      line-height:1.85;
+      overflow-wrap:anywhere;
+    }
+
+    .article-content h2 {
+      color:#881337;
+      font-size:2rem;
+      line-height:1.2;
+      margin-top:1.6em;
+      margin-bottom:.7em;
+    }
+
+    .article-content h3 {
+      color:#9f1239;
+      font-size:1.5rem;
+      line-height:1.25;
+      margin-top:1.5em;
+      margin-bottom:.6em;
+    }
+
+    .article-content h4 {
+      color:#9f1239;
+      font-size:1.2rem;
+      margin-top:1.4em;
+      margin-bottom:.5em;
+    }
+
+    .article-content p,
+    .article-content ul,
+    .article-content ol,
+    .article-content table,
+    .article-content blockquote {
+      margin-top:1em;
+      margin-bottom:1em;
+    }
+
+    .article-content ul,
+    .article-content ol { padding-left:1.4rem; }
+
+    .article-content a {
+      color:#be123c;
+      text-decoration:underline;
+      text-underline-offset:2px;
+    }
+
+    .article-content blockquote {
+      border-left:4px solid #fb7185;
+      background:rgba(255,241,242,.92);
+      padding:1rem 1.2rem;
+      border-radius:.75rem;
+      color:#7f1d1d;
+    }
+
+    .article-content table {
+      width:100%;
+      border-collapse:collapse;
+      background:rgba(255,255,255,.7);
+    }
+
+    .article-content th,
+    .article-content td {
+      border:1px solid #fecdd3;
+      padding:.75rem;
+      text-align:left;
+      vertical-align:top;
+    }
+
+    .article-content th {
+      background:#fff1f2;
+      color:#881337;
+    }
+
+    @media (min-width:900px) {
+      .gallery-grid { grid-template-columns:1fr 1fr; }
+    }
+  </style>
+</head>
+
+<body class="antialiased min-h-screen flex flex-col overflow-x-hidden text-stone-800">
+
+  <nav class="w-full bg-white/80 backdrop-blur-sm sticky top-0 z-50 border-b border-rose-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex-shrink-0 flex items-center gap-3">
+          <span class="text-2xl text-rose-600">✨</span>
+          <a class="text-xl font-bold tracking-wide uppercase text-rose-900" href="/">Happy New Year</a>
+        </div>
+
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-8">
+            <a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="/">Home</a>
+            <a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="#slides">Slides</a>
+            <a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="#article">Article</a>
+            <a class="nav-link px-3 py-2 rounded-md text-base font-semibold" href="/search/">Search</a>
+          </div>
+        </div>
+
+        <div class="md:hidden">
+          <button aria-label="Toggle menu" class="text-stone-600 hover:text-rose-800" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+            <i class="fa-solid fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="hidden md:hidden border-t border-rose-100 bg-white/95" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a class="block px-3 py-2 text-stone-600 hover:text-rose-800" href="/">Home</a>
+        <a class="block px-3 py-2 text-stone-600 hover:text-rose-800" href="#slides">Slides</a>
+        <a class="block px-3 py-2 text-stone-600 hover:text-rose-800" href="#article">Article</a>
+        <a class="block px-3 py-2 text-stone-600 hover:text-rose-800" href="/search/">Search</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="relative pt-20 pb-12">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="hero-shell px-6 py-10 md:px-10 md:py-12">
+        <div class="inline-block px-4 py-1 rounded-full border border-rose-200 bg-white/70 text-rose-800 text-xs font-bold tracking-[0.2em] uppercase mb-6 backdrop-blur-sm">
+          Celebration Guide
+        </div>
+
+        <h1 class="text-4xl md:text-6xl font-bold text-rose-900 mb-5 tracking-tight drop-shadow-sm">
+          1
+        </h1>
+
+        
+
+        <div class="hero-desc mt-6 max-w-3xl mx-auto text-lg md:text-xl text-stone-700 leading-relaxed font-medium">
+          gen description
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    <section class="py-12 md:py-16" id="slides">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10">
+          <div class="inline-block px-3 py-1 rounded-full bg-rose-100 text-rose-700 text-xs font-bold uppercase tracking-[0.18em] mb-4">
+            Visual Guide
+          </div>
+          <h2 class="text-3xl md:text-4xl font-bold text-rose-900 mb-4">Explore the Slides</h2>
+          <p class="text-stone-700 max-w-2xl mx-auto text-lg font-medium">
+            Browse the visual story below. Select any image to open the full-size version.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          
+        </div>
+
+        
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-gray-800 text-gray-300">
+<div class="container mx-auto px-6 py-12 lg:px-8">
+<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/easter/">Easter Festival</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-bihari-wishes.html">26-bihari-wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html">26-chinese-new-year-wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-christmas-wishes.html">26-christmas-wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026-festival-countdown.html">2026-festival-countdown</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html">Christmas-wishes-by-audience</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html">Happy-new-year-2026-celebrations-worldwide.html</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/happy-new-year-2026.html">Happy-new-year-2026</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html">Multilingual-greetings-webpage</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/animal/animal-zodiac-sign/.html">.Html</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/animal/animal-zodiac-sign/Dog.html">Dog</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/animal/animal-zodiac-sign/Dragon.html">Dragon</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/animal/animal-zodiac-sign/Goat.html">Goat</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/animal/animal-zodiac-sign/Horse.html">Horse</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/animal/animal-zodiac-sign/Monkey.html">Monkey</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/animal/animal-zodiac-sign/Ox.html">Ox</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/animal/animal-zodiac-sign/Pig.html">Pig</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/animal/animal-zodiac-sign/Rabbit.html">Rabbit</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/animal/animal-zodiac-sign/Rat.html">Rat</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/animal/animal-zodiac-sign/Rooster.html">Rooster</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/animal/animal-zodiac-sign/Snake.html">Snake</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/animal/animal-zodiac-sign/Tiger.html">Tiger</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Footer Links</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-8 text-center text-sm text-gray-400">
+<p class="text-sm text-gray-400">Happy New Year with Slides, Cards</p>
+</div>
+<div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+<p class="text-sm text-gray-400">© 2026 Hapy New Year . All rights reserved.</p>
+</div>
+</div>
+</footer>
+
+
+
+</body></html>

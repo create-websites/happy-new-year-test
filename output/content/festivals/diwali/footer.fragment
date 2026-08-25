@@ -39,6 +39,7 @@
       <div>
         <h5 class="text-lg font-semibold text-white mb-4">Folders</h5>
         <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/festivals/diwali/diwali-stories/" class="hover:text-white hover:underline transition-colors duration-200">Diwali Stories</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/diwali/govardhan-puja/" class="hover:text-white hover:underline transition-colors duration-200">Govardhan Puja</a></li>
         </ul>
       </div>
@@ -87,6 +88,7 @@
           <li><a href="https://www.happy-new-year.org/festivals/diwali/ganesha-poster-made-of-weets.html" class="hover:text-white hover:underline transition-colors duration-200">Ganesha Poster Made Of Weets</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/diwali/gift-diwali.html" class="hover:text-white hover:underline transition-colors duration-200">Gift Diwali</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/diwali/Karwa-chauth-and-Diwali-gift-ideas-for-women.html" class="hover:text-white hover:underline transition-colors duration-200">Karwa Chauth And Diwali Gift Ideas For Women</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/diwali/pictures.html" class="hover:text-white hover:underline transition-colors duration-200">Pictures</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/diwali/quotes-diwali.html" class="hover:text-white hover:underline transition-colors duration-200">Quotes Diwali</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/diwali/virtual-city-made-of-candies.html" class="hover:text-white hover:underline transition-colors duration-200">Virtual City Made Of Candies</a></li>
         </ul>
@@ -102,7 +104,7 @@
     </div>
 
     <div class="mt-8 text-center text-sm text-gray-400">
-      <p class="text-sm text-gray-400">Happy New Year with Slides, Cards</p>
+      <p class="text-sm text-gray-400">Happy Rakhi with Slides, Cards</p>
     </div>
 
     <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">

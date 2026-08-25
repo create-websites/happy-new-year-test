@@ -39,11 +39,11 @@
       <div>
         <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
         <ul class="space-y-2">
-          <li><a href="https://www.happy-new-year.org/festivals/Tulips festivals/Blue Tulips.html" class="hover:text-white hover:underline transition-colors duration-200">Blue Tulips</a></li>
-          <li><a href="https://www.happy-new-year.org/festivals/Tulips festivals/Pink Tulips.html" class="hover:text-white hover:underline transition-colors duration-200">Pink Tulips</a></li>
-          <li><a href="https://www.happy-new-year.org/festivals/Tulips festivals/Purple Tulips.html" class="hover:text-white hover:underline transition-colors duration-200">Purple Tulips</a></li>
-          <li><a href="https://www.happy-new-year.org/festivals/Tulips festivals/Red Tulips.html" class="hover:text-white hover:underline transition-colors duration-200">Red Tulips</a></li>
-          <li><a href="https://www.happy-new-year.org/festivals/Tulips festivals/Yellow Tulips.html" class="hover:text-white hover:underline transition-colors duration-200">Yellow Tulips</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/Tulips festivals/blue-tulips.html" class="hover:text-white hover:underline transition-colors duration-200">Blue Tulips</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/Tulips festivals/pink-tulips.html" class="hover:text-white hover:underline transition-colors duration-200">Pink Tulips</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/Tulips festivals/purple-tulips.html" class="hover:text-white hover:underline transition-colors duration-200">Purple Tulips</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/Tulips festivals/red-tulips.html" class="hover:text-white hover:underline transition-colors duration-200">Red Tulips</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/Tulips festivals/yellow-tulips.html" class="hover:text-white hover:underline transition-colors duration-200">Yellow Tulips</a></li>
         </ul>
       </div>
 
@@ -57,7 +57,7 @@
     </div>
 
     <div class="mt-8 text-center text-sm text-gray-400">
-      <p class="text-sm text-gray-400">Happy New Year with Slides, Cards</p>
+      <p class="text-sm text-gray-400">Happy Rakhi with Slides, Cards</p>
     </div>
 
     <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">

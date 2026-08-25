@@ -74,6 +74,7 @@
       <div>
         <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
         <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/festivals/1.html" class="hover:text-white hover:underline transition-colors duration-200">1</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/100-festivals-around-world.html" class="hover:text-white hover:underline transition-colors duration-200">100 Festivals Around World</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/festival-cards.html" class="hover:text-white hover:underline transition-colors duration-200">Festival Cards</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/festival-dates.html" class="hover:text-white hover:underline transition-colors duration-200">Festival Dates</a></li>
@@ -89,6 +90,7 @@
           <li><a href="https://www.happy-new-year.org/festivals/wishes-easter.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes Easter</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/wishes-eid.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes Eid</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/wishes-fathers-day.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes Fathers Day</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/wishes-for-new-year-and-festivals.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes For New Year And Festivals</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/wishes-guru-nanak-jyanati.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes Guru Nanak Jyanati</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/wishes-hindu-new-year.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes Hindu New Year</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/wishes-lohri.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes Lohri</a></li>
@@ -110,7 +112,7 @@
     </div>
 
     <div class="mt-8 text-center text-sm text-gray-400">
-      <p class="text-sm text-gray-400">Happy New Year with Slides, Cards</p>
+      <p class="text-sm text-gray-400">Happy Rakhi with Slides, Cards</p>
     </div>
 
     <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">

@@ -40,8 +40,8 @@
         <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
         <ul class="space-y-2">
           <li><a href="https://www.happy-new-year.org/quotations/inspirational-quotes.html" class="hover:text-white hover:underline transition-colors duration-200">Inspirational Quotes</a></li>
-          <li><a href="https://www.happy-new-year.org/quotations/Quotations on dream.html" class="hover:text-white hover:underline transition-colors duration-200">Quotations On Dream</a></li>
-          <li><a href="https://www.happy-new-year.org/quotations/Things to have to meet your goals.html" class="hover:text-white hover:underline transition-colors duration-200">Things To Have To Meet Your Goals</a></li>
+          <li><a href="https://www.happy-new-year.org/quotations/quotations-on-dream.html" class="hover:text-white hover:underline transition-colors duration-200">Quotations On Dream</a></li>
+          <li><a href="https://www.happy-new-year.org/quotations/things-to-have-to-meet-your-goals.html" class="hover:text-white hover:underline transition-colors duration-200">Things To Have To Meet Your Goals</a></li>
         </ul>
       </div>
 
@@ -55,7 +55,7 @@
     </div>
 
     <div class="mt-8 text-center text-sm text-gray-400">
-      <p class="text-sm text-gray-400">Happy New Year with Slides, Cards</p>
+      <p class="text-sm text-gray-400">Happy Rakhi with Slides, Cards</p>
     </div>
 
     <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">

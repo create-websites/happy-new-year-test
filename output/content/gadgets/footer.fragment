@@ -46,6 +46,7 @@
       <div>
         <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
         <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/gadgets/index-2.html" class="hover:text-white hover:underline transition-colors duration-200">Index 2</a></li>
           <li><a href="https://www.happy-new-year.org/gadgets/MicrosoftBand.html" class="hover:text-white hover:underline transition-colors duration-200">Microsoftband</a></li>
           <li><a href="https://www.happy-new-year.org/gadgets/Photos.html" class="hover:text-white hover:underline transition-colors duration-200">Photos</a></li>
         </ul>
@@ -61,7 +62,7 @@
     </div>
 
     <div class="mt-8 text-center text-sm text-gray-400">
-      <p class="text-sm text-gray-400">Happy New Year with Slides, Cards</p>
+      <p class="text-sm text-gray-400">Happy Rakhi with Slides, Cards</p>
     </div>
 
     <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">

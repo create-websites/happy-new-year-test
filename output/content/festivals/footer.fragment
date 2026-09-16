@@ -47,6 +47,7 @@
           <li><a href="https://www.happy-new-year.org/festivals/eid/" class="hover:text-white hover:underline transition-colors duration-200">Eid</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/fathers-day/" class="hover:text-white hover:underline transition-colors duration-200">Fathers Day</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/ganesh-chaturthi/" class="hover:text-white hover:underline transition-colors duration-200">Ganesh Chaturthi</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/gudi-padwa/" class="hover:text-white hover:underline transition-colors duration-200">Gudi Padwa</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/halloween/" class="hover:text-white hover:underline transition-colors duration-200">Halloween</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/hanukkah/" class="hover:text-white hover:underline transition-colors duration-200">Hanukkah</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/hindu-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Hindu New Year</a></li>
@@ -112,7 +113,7 @@
     </div>
 
     <div class="mt-8 text-center text-sm text-gray-400">
-      <p class="text-sm text-gray-400">Happy Ganesh Chathruthi - Beginning of festival season</p>
+      <p class="text-sm text-gray-400">Happy New Year and Festival Blessings</p>
     </div>
 
     <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">

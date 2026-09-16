@@ -56,8 +56,14 @@
       <div>
         <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
         <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/adult-halloween-murder-mystery-party.html" class="hover:text-white hover:underline transition-colors duration-200">Adult Halloween Murder Mystery Party</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/economics-of-halloween-retail.html" class="hover:text-white hover:underline transition-colors duration-200">Economics Of Halloween Retail</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/evolution-of-slasher-cinema.html" class="hover:text-white hover:underline transition-colors duration-200">Evolution Of Slasher Cinema</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/family-friendly-halloween-watchlist.html" class="hover:text-white hover:underline transition-colors duration-200">Family Friendly Halloween Watchlist</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/halloween/gallery.html" class="hover:text-white hover:underline transition-colors duration-200">Gallery</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/halloween/halloweeen.html" class="hover:text-white hover:underline transition-colors duration-200">Halloweeen</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-candy-wine-pairing-guide.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Candy Wine Pairing Guide</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-cocktails-mocktails-safe-dry-ice.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Cocktails Mocktails Safe Dry Ice</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-costume-suggestion.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Costume Suggestion</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-decoration.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Decoration</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-evolution.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Evolution</a></li>
@@ -67,12 +73,27 @@
           <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-in-garage.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween In Garage</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-info.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Info</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-office-decoration.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Office Decoration</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-sfx-makeup-beginners.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Sfx Makeup Beginners</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Wishes</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/halloween/hallowwn-wishes-in-european-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Hallowwn Wishes In European Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/haunted-porch-budget-decor-ideas.html" class="hover:text-white hover:underline transition-colors duration-200">Haunted Porch Budget Decor Ideas</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/last-minute-halloween-costumes-closet.html" class="hover:text-white hover:underline transition-colors duration-200">Last Minute Halloween Costumes Closet</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/leftover-halloween-candy-dessert-hacks.html" class="hover:text-white hover:underline transition-colors duration-200">Leftover Halloween Candy Dessert Hacks</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/halloween/most-searched-items.html" class="hover:text-white hover:underline transition-colors duration-200">Most Searched Items</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/overview.html" class="hover:text-white hover:underline transition-colors duration-200">Overview</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/real-life-haunted-landmarks-history-legends.html" class="hover:text-white hover:underline transition-colors duration-200">Real Life Haunted Landmarks History Legends</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/safe-stress-free-pet-halloween-costumes.html" class="hover:text-white hover:underline transition-colors duration-200">Safe Stress Free Pet Halloween Costumes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/samhain-connection-halloween-origins.html" class="hover:text-white hover:underline transition-colors duration-200">Samhain Connection Halloween Origins</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/savory-spooky-halloween-snacks.html" class="hover:text-white hover:underline transition-colors duration-200">Savory Spooky Halloween Snacks</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/science-of-scared-fear-horror.html" class="hover:text-white hover:underline transition-colors duration-200">Science Of Scared Fear Horror</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/spooky-holidays-around-the-world.html" class="hover:text-white hover:underline transition-colors duration-200">Spooky Holidays Around The World</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/stingy-jack-jack-o-lantern-legend.html" class="hover:text-white hover:underline transition-colors duration-200">Stingy Jack Jack O Lantern Legend</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/halloween/story-moral.html" class="hover:text-white hover:underline transition-colors duration-200">Story Moral</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/sustainable-eco-friendly-halloween.html" class="hover:text-white hover:underline transition-colors duration-200">Sustainable Eco Friendly Halloween</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/trick-or-treating-history-souling-guising.html" class="hover:text-white hover:underline transition-colors duration-200">Trick Or Treating History Souling Guising</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/halloween/trick-treat.html" class="hover:text-white hover:underline transition-colors duration-200">Trick Treat</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/halloween/wishes-trick-treat.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes Trick Treat</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/witches-crows-black-cats-halloween-superstitions.html" class="hover:text-white hover:underline transition-colors duration-200">Witches Crows Black Cats Halloween Superstitions</a></li>
         </ul>
       </div>
 
@@ -86,7 +107,7 @@
     </div>
 
     <div class="mt-8 text-center text-sm text-gray-400">
-      <p class="text-sm text-gray-400">Happy Ganesh Chathruthi - Beginning of festival season</p>
+      <p class="text-sm text-gray-400">Happy New Year and Festival Blessings</p>
     </div>
 
     <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">

@@ -1,0 +1,10 @@
+{
+  "name": "dussehra-pages-tailwind",
+  "private": true,
+  "scripts": {
+    "build": "node build-css.js"
+  },
+  "devDependencies": {
+    "tailwindcss": "^4.1.10"
+  }
+}

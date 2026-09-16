@@ -1,0 +1,12 @@
+
+:root{
+  --page-bg:#fffdf7; --surface:#ffffff; --surface-soft:#fff8ef; --ink:#27302c; --muted:#5d665f;
+  --primary:#3f7a62; --primary-strong:#285741; --primary-soft:#e7f4ec; --accent:#d97745;
+  --line:#d7e6dc; --hero-a:#416b5b; --hero-b:#6d4d7b; --hero-text:#fffdf7;
+  --shadow:0 14px 36px rgba(63,78,69,.12);
+}
+body{background-image:radial-gradient(circle at 12% 8%,rgba(250,204,21,.08),transparent 23%),radial-gradient(circle at 88% 12%,rgba(216,180,254,.16),transparent 25%)}
+.site-nav{background:rgba(255,253,247,.94)}
+.hero:after{background:radial-gradient(circle at 18% 18%,rgba(255,255,255,.14),transparent 30%),radial-gradient(circle at 84% 30%,rgba(251,191,36,.16),transparent 25%)}
+.pill{background:#edf8f1;color:#285741}.site-footer{background:#24352f}.card-hover:hover{box-shadow:0 18px 42px rgba(63,122,98,.16)}
+.callout{background:#fff8eb}.safety-note{background:#fff7e8;border-color:#efb78d;color:#7a3d22}

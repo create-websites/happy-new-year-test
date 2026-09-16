@@ -1,0 +1,20 @@
+:root{--rose:#9f1239;--rose2:#be123c;--soft:#fff1f2;--stone:#44403c;}
+*{box-sizing:border-box} html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:'Vollkorn',serif;background-color:#fff1f2;color:#292524;background-image:linear-gradient(rgba(255,241,242,.92),rgba(255,247,237,.94));min-height:100vh}
+a:focus-visible,button:focus-visible{outline:3px solid #fb7185;outline-offset:3px}
+h1,h2,h3{font-weight:700}
+.theme-card{background-color:rgba(255,255,255,.82);border:1px solid #ffe4e6;border-radius:.9rem;box-shadow:0 4px 6px -1px rgba(0,0,0,.08),0 2px 4px -2px rgba(0,0,0,.05);transition:all .25s ease;backdrop-filter:blur(8px)}
+.card-hover:hover{transform:translateY(-4px);box-shadow:0 12px 24px -6px rgba(190,18,60,.18);border-color:#fda4af;background-color:rgba(255,255,255,.95)}
+.nav-link{color:#57534e;transition:color .2s,background .2s} .nav-link:hover{color:#9f1239;background:#fff1f2}
+.festival-hero{background-image:linear-gradient(rgba(76,5,25,.72),rgba(120,53,15,.48)),url('https://storage.googleapis.com/imagesg/festivals/vijya-dashmi/vijya-dashmi-celebration.png');background-size:cover;background-position:center;}
+.article-prose p{margin:1rem 0;line-height:1.9;color:#57534e;font-size:1.06rem}
+.article-prose ul,.article-prose ol{margin:1rem 0;padding-left:1.5rem;color:#57534e;line-height:1.8}
+.article-prose ul{list-style:disc} .article-prose ol{list-style:decimal}
+.article-prose h2{color:#881337;font-size:clamp(1.7rem,3vw,2.25rem);margin-top:2.2rem;margin-bottom:.8rem}
+.article-prose h3{color:#9f1239;font-size:1.35rem;margin-top:1.5rem}
+.quick-card{border-left:4px solid #f59e0b;background:#fffbeb}
+.badge{display:inline-flex;align-items:center;gap:.45rem;padding:.4rem .8rem;border-radius:999px;background:rgba(255,255,255,.88);color:#9f1239;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+@media(max-width:640px){.article-prose p{font-size:1rem}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}.card-hover:hover{transform:none}}
+
+.festival-visual{min-height:320px;border-radius:.9rem;background-image:linear-gradient(rgba(76,5,25,.12),rgba(120,53,15,.10)),url('https://storage.googleapis.com/imagesg/festivals/dusshera/1000w/dusshera-sweet-wishes.png');background-size:cover;background-position:center;box-shadow:0 4px 18px rgba(0,0,0,.10);border:1px solid #ffe4e6}

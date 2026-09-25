@@ -1,0 +1,98 @@
+<footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes in 100 languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in Indian Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in European Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/10-popular-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Popular Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/" class="hover:text-white hover:underline transition-colors duration-200">Cards</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/easter/" class="hover:text-white hover:underline transition-colors duration-200">Easter Festival</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-bihari-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-chinese-new-year-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-christmas-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" class="hover:text-white hover:underline transition-colors duration-200">2026-festival-countdown</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" class="hover:text-white hover:underline transition-colors duration-200">Christmas-wishes-by-audience</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026-celebrations-worldwide.html</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" class="hover:text-white hover:underline transition-colors duration-200">Multilingual-greetings-webpage</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/hindu-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Lunar and Solar Hindu Year</a></li>
+          <li><a href="https://www.happy-new-year.org/jewish-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Jewesh Roash Hashanah</a></li>
+          <li><a href="https://www.happy-new-year.org/islamic-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Islamic New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/japanese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Japanese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Hindu Festival Calendar 2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Folders</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/celebration-and-cities/" class="hover:text-white hover:underline transition-colors duration-200">Celebration And Cities</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/how-to/" class="hover:text-white hover:underline transition-colors duration-200">How To</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/rituals-and-questions/" class="hover:text-white hover:underline transition-colors duration-200">Rituals And Questions</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/significance/" class="hover:text-white hover:underline transition-colors duration-200">Significance</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-2026-dates-calendar.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja 2026 Dates Calendar</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-four-days-rituals.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Four Days Rituals</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-history-culture.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja History Culture</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-in-bihar.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja In Bihar</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-in-delhi-ncr.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja In Delhi Ncr</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-in-jharkhand.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja In Jharkhand</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-in-uttar-pradesh.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja In Uttar Pradesh</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-planning-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Planning Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-regional-celebrations.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Regional Celebrations</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-samagri-list.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Samagri List</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-samagri-prasad-guide.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Samagri Prasad Guide</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-songs-geet.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Songs Geet</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-vrat-rules.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Vrat Rules</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-messages.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes Messages</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/four-days-of-chhath-puja.html" class="hover:text-white hover:underline transition-colors duration-200">Four Days Of Chhath Puja</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/history-origin-significance.html" class="hover:text-white hover:underline transition-colors duration-200">History Origin Significance</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/how-to-make-thekua-recipe.html" class="hover:text-white hover:underline transition-colors duration-200">How To Make Thekua Recipe</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/kharna-puja-vidhi.html" class="hover:text-white hover:underline transition-colors duration-200">Kharna Puja Vidhi</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/nahay-khay-rituals.html" class="hover:text-white hover:underline transition-colors duration-200">Nahay Khay Rituals</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/sandhya-arghya-evening-offering.html" class="hover:text-white hover:underline transition-colors duration-200">Sandhya Arghya Evening Offering</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/significance-sugarcane-coconut-fruits.html" class="hover:text-white hover:underline transition-colors duration-200">Significance Sugarcane Coconut Fruits</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/story-of-chhathi-maiya.html" class="hover:text-white hover:underline transition-colors duration-200">Story Of Chhathi Maiya</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/traditional-chhath-puja-prasad.html" class="hover:text-white hover:underline transition-colors duration-200">Traditional Chhath Puja Prasad</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/usha-arghya-morning-offering.html" class="hover:text-white hover:underline transition-colors duration-200">Usha Arghya Morning Offering</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Footer Links</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/privacypolicy,html" class="hover:text-white hover:underline transition-colors duration-200">Privacy Policy</a></li>
+          <li><a href="https://www.happy-new-year.org/sitemap.html" class="hover:text-white hover:underline transition-colors duration-200">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center text-sm text-gray-400">
+      <p class="text-sm text-gray-400">Pitru Paksha and Shardh from Sep 26</p>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">&copy; 2026 New Year Guide. All rights reserved.</p>
+      
+    </div>
+
+  </div>
+</footer>

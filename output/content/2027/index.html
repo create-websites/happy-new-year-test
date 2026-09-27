@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Live countdown timers for major festivals in 2027, including Valentine's Day, Holi, Easter, Mother's Day, Father's Day, Eid, Thanksgiving, Christmas, and more." name="description"/>
+    <meta content="2027 festival countdown, 2027 holiday timer, valentine's day 2027, easter 2027, eid 2027, christmas 2027, holi 2027, diwali 2027, dusshera 2027" name="keywords"/>
+    <title>2027 Festival Countdown</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            background-color: #f0f2f5;
+        }
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        .card {
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .timer-box {
+            background-color: rgba(0,0,0,0.03);
+        }
+        .star-container {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            overflow: hidden; pointer-events: none; z-index: -1;
+        }
+        .star {
+            position: absolute; width: 15px; height: 15px; opacity: 0.8;
+            animation: fall linear infinite;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100px) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+    </style>
+<!-- Google tag (gtag.js) --><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JJ6LGZB34T"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JJ6LGZB34T');
+</script><script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9804321536688475"></script><link href="https://storage.googleapis.com/css-designs/purple/kreatewebsites.production.css" rel="stylesheet"/><script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-7P1WS6BM5K');
+</script></head>
+<body class="text-gray-800">
+
+    <div class="star-container"></div>
+
+    <div class="container mx-auto p-4 md:p-8">
+        <header class="text-center mb-8 md:mb-12">
+            <h1 class="font-playfair text-4xl md:text-6xl font-bold text-gray-800">2027 Festival Countdown</h1>
+            <p class="text-gray-500 mt-2">Counting down to the next big celebration!</p>
+            <div class="mt-4 border-t border-gray-200 pt-4 text-gray-600 text-sm max-w-sm mx-auto">
+                <p id="current-time">Loading current time...</p>
+                <p class="mt-1" id="timezone">Detecting your timezone...</p>
+            </div>
+        </header>
+
+        <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" id="festivals-grid">
+            <!-- Festival cards will be inserted here by JS -->
+        <footer class="bg-gray-800 text-gray-300">
+<div class="container mx-auto px-6 py-12 lg:px-8">
+<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/easter/">Easter Festival</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-bihari-wishes.html">26-bihari-wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html">26-chinese-new-year-wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-christmas-wishes.html">26-christmas-wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026-festival-countdown.html">2026-festival-countdown</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html">Christmas-wishes-by-audience</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html">Happy-new-year-2026-celebrations-worldwide.html</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/happy-new-year-2026.html">Happy-new-year-2026</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html">Multilingual-greetings-webpage</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2027/2027-festival-countdown.html">2027 Festival Countdown</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2027/2027-festivals-countdown.html">2027 Festivals Countdown</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Footer Links</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-8 text-center text-sm text-gray-400">
+<p class="text-sm text-gray-400">Happy New Year tools and monthly guide</p>
+</div>
+<div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+<p class="text-sm text-gray-400">© 2026 Happy New Year 2027. All rights reserved.</p>
+</div>
+</div>
+</footer></main>
+    </div>
+
+    <script>
+        const festivalsGrid = document.getElementById('festivals-grid');
+        const currentTimeEl = document.getElementById('current-time');
+        const timezoneEl = document.getElementById('timezone');
+        const starContainer = document.querySelector('.star-container');
+
+        // --- Date Calculation Functions ---
+        function getMothersDay(year) { // 2nd Sunday in May
+            const date = new Date(year, 4, 1);
+            const dayOfWeek = date.getDay();
+            const firstSunday = (7 - dayOfWeek + 7) % 7 + 1;
+            return new Date(year, 4, firstSunday + 7);
+        }
+
+        function getFathersDay(year) { // 3rd Sunday in June
+            const date = new Date(year, 5, 1);
+            const dayOfWeek = date.getDay();
+            const firstSunday = (7 - dayOfWeek + 7) % 7 + 1;
+            return new Date(year, 5, firstSunday + 14);
+        }
+
+        function getThanksgiving(year) { // 4th Thursday of November
+            const date = new Date(year, 10, 1);
+            const dayOfWeek = date.getDay();
+            const firstThursday = (4 - dayOfWeek + 7) % 7 + 1;
+            return new Date(year, 10, firstThursday + 21);
+        }
+
+        // --- Festival Data for 2027 ---
+        const festivals = [
+            { name: "New Year's Day", date: '2027-01-01T00:00:00', color: '#3b82f6' },
+            { name: 'Makar Sankranti', date: '2027-01-15T00:00:00', color: '#f97316' },
+            { name: "Valentine's Day", date: '2027-02-14T00:00:00', color: '#ec4899' },
+            { name: 'Holi', date: '2027-03-02T00:00:00', color: '#a855f7' },
+            { name: "St. Patrick's Day", date: '2027-03-17T00:00:00', color: '#22c55e' },
+            { name: 'Eid al-Fitr', date: '2027-03-18T00:00:00', color: '#10b981' },
+            { name: 'Easter', date: '2027-03-28T00:00:00', color: '#facc15' },
+            { name: "Mother's Day", date: getMothersDay(2027), color: '#f472b6' },
+            { name: "Father's Day", date: getFathersDay(2027), color: '#0284c7' },
+            { name: 'Dussehra', date: '2027-10-10T00:00:00', color: '#d946ef' },
+            { name: 'Diwali', date: '2027-10-29T00:00:00', color: '#fbbf24' },
+            { name: 'Halloween', date: '2027-10-31T00:00:00', color: '#ea580c' },
+            { name: 'Guru Nanak Jayanti', date: '2027-11-12T00:00:00', color: '#f59e0b' },
+            { name: 'Thanksgiving', date: getThanksgiving(2027), color: '#b45309' },
+            { name: 'Christmas', date: '2027-12-25T00:00:00', color: '#dc2626' }
+        ];
+
+        // Sort festivals by date to display them chronologically
+        festivals.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+        // --- UI Generation ---
+        festivals.forEach(festival => {
+            const festivalId = festival.name.toLowerCase().replace(/[^a-z0-9]/g, '-');
+            const cardHTML = `
+                <div id="card-${festivalId}" class="card rounded-2xl shadow-lg p-6 text-center">
+                    <h2 class="font-playfair text-3xl font-bold mb-4" style="color: ${festival.color}">${festival.name}</h2>
+                    <div id="countdown-${festivalId}" class="grid grid-cols-4 gap-3 text-center">
+                        <div class="timer-box p-3 rounded-lg"><div class="days text-3xl font-semibold">00</div><div class="text-xs text-gray-500">Days</div></div>
+                        <div class="timer-box p-3 rounded-lg"><div class="hours text-3xl font-semibold">00</div><div class="text-xs text-gray-500">Hours</div></div>
+                        <div class="timer-box p-3 rounded-lg"><div class="minutes text-3xl font-semibold">00</div><div class="text-xs text-gray-500">Minutes</div></div>
+                        <div class="timer-box p-3 rounded-lg"><div class="seconds text-3xl font-semibold">00</div><div class="text-xs text-gray-500">Seconds</div></div>
+                    </div>
+                    <div id="message-${festivalId}" class="hidden mt-4 text-2xl font-semibold" style="color: ${festival.color}"></div>
+                </div>
+            `;
+            festivalsGrid.innerHTML += cardHTML;
+        });
+        
+        function updateAllCountdowns() {
+            const now = new Date();
+            currentTimeEl.textContent = `Current Time: ${now.toLocaleString()}`;
+
+            festivals.forEach(festival => {
+                const festivalId = festival.name.toLowerCase().replace(/[^a-z0-9]/g, '-');
+                const targetDate = new Date(festival.date);
+                const card = document.getElementById(`card-${festivalId}`);
+                if (!card) return;
+
+                const countdownEl = card.querySelector(`#countdown-${festivalId}`);
+                const messageEl = card.querySelector(`#message-${festivalId}`);
+                const totalSeconds = (targetDate - now) / 1000;
+
+                if (totalSeconds < 0) {
+                    countdownEl.classList.add('hidden');
+                    messageEl.textContent = `Celebrated!`;
+                    messageEl.classList.remove('hidden', 'animate-pulse');
+                } else if (totalSeconds <= 86400 && totalSeconds >=0) { // On the day of the festival
+                    countdownEl.classList.add('hidden');
+                    messageEl.textContent = `Happy ${festival.name}!`;
+                    messageEl.classList.remove('hidden');
+                    messageEl.classList.add('animate-pulse');
+                } else {
+                    countdownEl.classList.remove('hidden');
+                    messageEl.classList.add('hidden');
+                    const days = Math.floor(totalSeconds / 3600 / 24);
+                    const hours = Math.floor(totalSeconds / 3600) % 24;
+                    const minutes = Math.floor(totalSeconds / 60) % 60;
+                    const seconds = Math.floor(totalSeconds) % 60;
+                    
+                    countdownEl.querySelector('.days').textContent = formatTime(days);
+                    countdownEl.querySelector('.hours').textContent = formatTime(hours);
+                    countdownEl.querySelector('.minutes').textContent = formatTime(minutes);
+                    countdownEl.querySelector('.seconds').textContent = formatTime(seconds);
+                }
+            });
+        }
+        
+        function formatTime(time) {
+            return time < 10 ? `0${time}` : time;
+        }
+
+        function createStars() {
+            const colors = ['#FFD700', '#FF4136', '#0074D9', '#2ECC40', '#B10DC9', '#FF851B', '#F012BE'];
+            for (let i = 0; i < 70; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = `${Math.random() * 100}vw`;
+                star.style.animationDuration = `${Math.random() * 5 + 6}s`;
+                star.style.animationDelay = `${Math.random() * 6}s`;
+                star.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                const size = `${Math.random() * 10 + 8}px`;
+                star.style.width = size; star.style.height = size;
+                star.style.opacity = Math.random() * 0.5 + 0.5;
+                starContainer.appendChild(star);
+            }
+        }
+        
+        const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        timezoneEl.textContent = `Your Timezone: ${userTimezone.replace(/_/g, ' ')}`;
+        
+        updateAllCountdowns();
+        createStars();
+        setInterval(updateAllCountdowns, 1000);
+    </script>
+
+
+</body></html>

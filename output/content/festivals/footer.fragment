@@ -66,6 +66,7 @@
           <li><a href="https://www.happy-new-year.org/festivals/pongal/" class="hover:text-white hover:underline transition-colors duration-200">Pongal</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/rakhi/" class="hover:text-white hover:underline transition-colors duration-200">Rakhi</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/sankranti/" class="hover:text-white hover:underline transition-colors duration-200">Sankranti</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/shraddh/" class="hover:text-white hover:underline transition-colors duration-200">Shraddh</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/" class="hover:text-white hover:underline transition-colors duration-200">Thanksgiving</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/Tulips festivals/" class="hover:text-white hover:underline transition-colors duration-200">Tulips Festivals</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/uttaryan/" class="hover:text-white hover:underline transition-colors duration-200">Uttaryan</a></li>
@@ -114,11 +115,11 @@
     </div>
 
     <div class="mt-8 text-center text-sm text-gray-400">
-      <p class="text-sm text-gray-400">Pitru Paksha and Shardh from Sep 26</p>
+      <p class="text-sm text-gray-400">Happy New Year tools and monthly guide</p>
     </div>
 
     <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
-      <p class="text-sm text-gray-400">&copy; 2026 New Year Guide. All rights reserved.</p>
+      <p class="text-sm text-gray-400">&copy; 2026 Happy New Year 2027. All rights reserved.</p>
       
     </div>
 

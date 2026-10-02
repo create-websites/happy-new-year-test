@@ -41,6 +41,19 @@
         <ul class="space-y-2">
           <li><a href="https://www.happy-new-year.org/2027/2027-festival-countdown.html" class="hover:text-white hover:underline transition-colors duration-200">2027 Festival Countdown</a></li>
           <li><a href="https://www.happy-new-year.org/2027/2027-festivals-countdown.html" class="hover:text-white hover:underline transition-colors duration-200">2027 Festivals Countdown</a></li>
+          <li><a href="https://www.happy-new-year.org/2027/april-festivals.html" class="hover:text-white hover:underline transition-colors duration-200">April Festivals</a></li>
+          <li><a href="https://www.happy-new-year.org/2027/august-festivals.html" class="hover:text-white hover:underline transition-colors duration-200">August Festivals</a></li>
+          <li><a href="https://www.happy-new-year.org/2027/december-festivals.html" class="hover:text-white hover:underline transition-colors duration-200">December Festivals</a></li>
+          <li><a href="https://www.happy-new-year.org/2027/february-festivals.html" class="hover:text-white hover:underline transition-colors duration-200">February Festivals</a></li>
+          <li><a href="https://www.happy-new-year.org/2027/january-festivals.html" class="hover:text-white hover:underline transition-colors duration-200">January Festivals</a></li>
+          <li><a href="https://www.happy-new-year.org/2027/july-festivals.html" class="hover:text-white hover:underline transition-colors duration-200">July Festivals</a></li>
+          <li><a href="https://www.happy-new-year.org/2027/june-festivals.html" class="hover:text-white hover:underline transition-colors duration-200">June Festivals</a></li>
+          <li><a href="https://www.happy-new-year.org/2027/march-festivals.html" class="hover:text-white hover:underline transition-colors duration-200">March Festivals</a></li>
+          <li><a href="https://www.happy-new-year.org/2027/may-festivals.html" class="hover:text-white hover:underline transition-colors duration-200">May Festivals</a></li>
+          <li><a href="https://www.happy-new-year.org/2027/next-year.html" class="hover:text-white hover:underline transition-colors duration-200">Next Year</a></li>
+          <li><a href="https://www.happy-new-year.org/2027/october-festivals.html" class="hover:text-white hover:underline transition-colors duration-200">October Festivals</a></li>
+          <li><a href="https://www.happy-new-year.org/2027/september-festivals.html" class="hover:text-white hover:underline transition-colors duration-200">September Festivals</a></li>
+          <li><a href="https://www.happy-new-year.org/2027/year-around.html" class="hover:text-white hover:underline transition-colors duration-200">Year Around</a></li>
         </ul>
       </div>
 
@@ -54,11 +67,11 @@
     </div>
 
     <div class="mt-8 text-center text-sm text-gray-400">
-      <p class="text-sm text-gray-400">Happy New Year tools and monthly guide</p>
+      <p class="text-sm text-gray-400">New Year Festivals, events, wishes, horoscope</p>
     </div>
 
     <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
-      <p class="text-sm text-gray-400">&copy; 2026 Happy New Year 2027. All rights reserved.</p>
+      <p class="text-sm text-gray-400">&copy; 2026 Happy New Year. All rights reserved.</p>
       
     </div>
 

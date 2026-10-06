@@ -41,6 +41,8 @@
         <ul class="space-y-2">
           <li><a href="https://www.happy-new-year.org/festivals/diwali/diwali-stories/" class="hover:text-white hover:underline transition-colors duration-200">Diwali Stories</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/diwali/govardhan-puja/" class="hover:text-white hover:underline transition-colors duration-200">Govardhan Puja</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/diwali/modern-lights/" class="hover:text-white hover:underline transition-colors duration-200">Modern Lights</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/diwali/specil-sweets-for-each-state/" class="hover:text-white hover:underline transition-colors duration-200">Specil Sweets For Each State</a></li>
         </ul>
       </div>
 
@@ -104,7 +106,7 @@
     </div>
 
     <div class="mt-8 text-center text-sm text-gray-400">
-      <p class="text-sm text-gray-400">New Year Festivals, events, wishes, horoscope</p>
+      <p class="text-sm text-gray-400">Navratri and Dusshera cards</p>
     </div>
 
     <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">

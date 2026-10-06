@@ -1,0 +1,74 @@
+<footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes in 100 languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in Indian Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in European Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/10-popular-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Popular Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/" class="hover:text-white hover:underline transition-colors duration-200">Cards</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/easter/" class="hover:text-white hover:underline transition-colors duration-200">Easter Festival</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-bihari-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-chinese-new-year-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-christmas-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" class="hover:text-white hover:underline transition-colors duration-200">2026-festival-countdown</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" class="hover:text-white hover:underline transition-colors duration-200">Christmas-wishes-by-audience</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026-celebrations-worldwide.html</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" class="hover:text-white hover:underline transition-colors duration-200">Multilingual-greetings-webpage</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/hindu-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Lunar and Solar Hindu Year</a></li>
+          <li><a href="https://www.happy-new-year.org/jewish-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Jewesh Roash Hashanah</a></li>
+          <li><a href="https://www.happy-new-year.org/islamic-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Islamic New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/japanese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Japanese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Hindu Festival Calendar 2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/festivals/diwali/specil-sweets-for-each-state/halwa-ladoo-faral-classics/coconut-ladoo-nariyal-ladoo-3-ingredient-quick-fix.html" class="hover:text-white hover:underline transition-colors duration-200">Coconut Ladoo Nariyal Ladoo 3 Ingredient Quick Fix</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/diwali/specil-sweets-for-each-state/halwa-ladoo-faral-classics/gajar-ka-halwa-transitioning-into-winter-sweets.html" class="hover:text-white hover:underline transition-colors duration-200">Gajar Ka Halwa Transitioning Into Winter Sweets</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/diwali/specil-sweets-for-each-state/halwa-ladoo-faral-classics/gujiya-and-karanji-the-stuffed-fried-pastries-of-diwali.html" class="hover:text-white hover:underline transition-colors duration-200">Gujiya And Karanji The Stuffed Fried Pastries Of Diwali</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/diwali/specil-sweets-for-each-state/halwa-ladoo-faral-classics/kalakand-in-15-minutes-a-quick-condensed-milk-recipe.html" class="hover:text-white hover:underline transition-colors duration-200">Kalakand In 15 Minutes A Quick Condensed Milk Recipe</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/diwali/specil-sweets-for-each-state/halwa-ladoo-faral-classics/mathura-peda-the-classic-caramelized-milk-sweet.html" class="hover:text-white hover:underline transition-colors duration-200">Mathura Peda The Classic Caramelized Milk Sweet</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/diwali/specil-sweets-for-each-state/halwa-ladoo-faral-classics/mohanthal-the-rich-gujarati-besan-fudge.html" class="hover:text-white hover:underline transition-colors duration-200">Mohanthal The Rich Gujarati Besan Fudge</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/diwali/specil-sweets-for-each-state/halwa-ladoo-faral-classics/moong-dal-halwa-the-labor-of-love.html" class="hover:text-white hover:underline transition-colors duration-200">Moong Dal Halwa The Labor Of Love</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/diwali/specil-sweets-for-each-state/halwa-ladoo-faral-classics/mysore-pak-the-south-indian-ghee-delicacy.html" class="hover:text-white hover:underline transition-colors duration-200">Mysore Pak The South Indian Ghee Delicacy</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/diwali/specil-sweets-for-each-state/halwa-ladoo-faral-classics/shankarpali-shakkarpara-sweet-crispy-bites.html" class="hover:text-white hover:underline transition-colors duration-200">Shankarpali Shakkarpara Sweet Crispy Bites</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/diwali/specil-sweets-for-each-state/halwa-ladoo-faral-classics/traditional-panjiri-and-atta-ladoo.html" class="hover:text-white hover:underline transition-colors duration-200">Traditional Panjiri And Atta Ladoo</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Footer Links</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/privacypolicy,html" class="hover:text-white hover:underline transition-colors duration-200">Privacy Policy</a></li>
+          <li><a href="https://www.happy-new-year.org/sitemap.html" class="hover:text-white hover:underline transition-colors duration-200">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center text-sm text-gray-400">
+      <p class="text-sm text-gray-400">Navratri and Dusshera cards</p>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">&copy; 2026 Happy New Year. All rights reserved.</p>
+      
+    </div>
+
+  </div>
+</footer>

@@ -1,0 +1,96 @@
+<footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes in 100 languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in Indian Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in European Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/10-popular-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Popular Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/" class="hover:text-white hover:underline transition-colors duration-200">Cards</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/easter/" class="hover:text-white hover:underline transition-colors duration-200">Easter Festival</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-bihari-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-chinese-new-year-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-christmas-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" class="hover:text-white hover:underline transition-colors duration-200">2026-festival-countdown</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" class="hover:text-white hover:underline transition-colors duration-200">Christmas-wishes-by-audience</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026-celebrations-worldwide.html</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" class="hover:text-white hover:underline transition-colors duration-200">Multilingual-greetings-webpage</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Dusshera wishes and cards</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/hindu-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Lunar and Solar Hindu Year</a></li>
+          <li><a href="https://www.happy-new-year.org/jewish-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Jewesh Roash Hashanah</a></li>
+          <li><a href="https://www.happy-new-year.org/islamic-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Islamic New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/japanese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Japanese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Hindu Festival Calendar 2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/01-hindi-dussehra-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">01 Hindi Dussehra Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/02-english-dussehra-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">02 English Dussehra Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/03-gujarati-dussehra-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">03 Gujarati Dussehra Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/04-marathi-dussehra-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">04 Marathi Dussehra Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/05-bengali-dussehra-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">05 Bengali Dussehra Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/06-tamil-dussehra-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">06 Tamil Dussehra Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/07-telugu-dussehra-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">07 Telugu Dussehra Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/08-kannada-dussehra-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">08 Kannada Dussehra Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/09-malayalam-dussehra-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">09 Malayalam Dussehra Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/10-punjabi-dussehra-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">10 Punjabi Dussehra Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/11-assamese-dussehra-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">11 Assamese Dussehra Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/12-odia-dussehra-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">12 Odia Dussehra Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/13-nepali-dussehra-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">13 Nepali Dussehra Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/14-urdu-dussehra-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">14 Urdu Dussehra Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/15-sanskrit-dussehra-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">15 Sanskrit Dussehra Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/16-bhojpuri-dussehra-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">16 Bhojpuri Dussehra Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/17-maithili-dussehra-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">17 Maithili Dussehra Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/18-dogri-dussehra-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">18 Dogri Dussehra Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/19-konkani-dussehra-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">19 Konkani Dussehra Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/20-sindhi-dussehra-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">20 Sindhi Dussehra Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/21-manipuri-meitei-dussehra-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">21 Manipuri Meitei Dussehra Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/22-santali-dussehra-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">22 Santali Dussehra Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/23-bodo-dussehra-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">23 Bodo Dussehra Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/24-mizo-dussehra-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">24 Mizo Dussehra Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/25-khasi-dussehra-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">25 Khasi Dussehra Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/26-garo-dussehra-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26 Garo Dussehra Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/27-tibetan-dussehra-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">27 Tibetan Dussehra Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/28-korean-dussehra-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">28 Korean Dussehra Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/29-japanese-dussehra-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">29 Japanese Dussehra Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/30-chinese-simplified-dussehra-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">30 Chinese Simplified Dussehra Wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/31-arabic-dussehra-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">31 Arabic Dussehra Wishes</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Footer Links</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/privacypolicy,html" class="hover:text-white hover:underline transition-colors duration-200">Privacy Policy</a></li>
+          <li><a href="https://www.happy-new-year.org/sitemap.html" class="hover:text-white hover:underline transition-colors duration-200">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center text-sm text-gray-400">
+      <p class="text-sm text-gray-400">New year cards in multiple languages</p>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">&copy; 2026 Happy New Year. All rights reserved.</p>
+      
+    </div>
+
+  </div>
+</footer>

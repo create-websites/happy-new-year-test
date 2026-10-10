@@ -164,6 +164,7 @@
           <li><a href="https://www.happy-new-year.org/video.html" class="hover:text-white hover:underline transition-colors duration-200">Video</a></li>
           <li><a href="https://www.happy-new-year.org/welcome-new-year.html" class="hover:text-white hover:underline transition-colors duration-200">Welcome New Year</a></li>
           <li><a href="https://www.happy-new-year.org/wishes-and-wallpapers.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes And Wallpapers</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes-card-in-multiple-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes Card In Multiple Languages</a></li>
         </ul>
       </div>
 
@@ -177,7 +178,7 @@
     </div>
 
     <div class="mt-8 text-center text-sm text-gray-400">
-      <p class="text-sm text-gray-400">New year cards in multiple languages</p>
+      <p class="text-sm text-gray-400">New Year Festivals, events, wishes, horoscope</p>
     </div>
 
     <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">

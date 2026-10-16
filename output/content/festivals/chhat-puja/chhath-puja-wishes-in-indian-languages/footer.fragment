@@ -1,0 +1,117 @@
+<footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes in 100 languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in Indian Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in European Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/10-popular-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Popular Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/" class="hover:text-white hover:underline transition-colors duration-200">Cards</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/easter/" class="hover:text-white hover:underline transition-colors duration-200">Easter Festival</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-bihari-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-chinese-new-year-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-christmas-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" class="hover:text-white hover:underline transition-colors duration-200">2026-festival-countdown</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" class="hover:text-white hover:underline transition-colors duration-200">Christmas-wishes-by-audience</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026-celebrations-worldwide.html</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" class="hover:text-white hover:underline transition-colors duration-200">Multilingual-greetings-webpage</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Dusshera wishes and cards</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/hindu-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Lunar and Solar Hindu Year</a></li>
+          <li><a href="https://www.happy-new-year.org/jewish-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Jewesh Roash Hashanah</a></li>
+          <li><a href="https://www.happy-new-year.org/islamic-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Islamic New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/japanese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Japanese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Hindu Festival Calendar 2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-ahom.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Ahom</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-angami.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Angami</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-assamese.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Assamese</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-awadhi.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Awadhi</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-bengali.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Bengali</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-bhili.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Bhili</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-bhojpuri.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Bhojpuri</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-bodo.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Bodo</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-chhattisgarhi.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Chhattisgarhi</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-dogri.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Dogri</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-english.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In English</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-garhwali.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Garhwali</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-garo.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Garo</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-gondi.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Gondi</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-gujarati.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Gujarati</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-halbi.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Halbi</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-hindi.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Hindi</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-hinglish.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Hinglish</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-ho.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Ho</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-kannada.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Kannada</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-karbi.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Karbi</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-kashmiri.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Kashmiri</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-khandeshi.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Khandeshi</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-khasi.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Khasi</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-kokborok.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Kokborok</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-konkani.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Konkani</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-kumaoni.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Kumaoni</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-kurukh.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Kurukh</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-kutchi.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Kutchi</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-lepcha.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Lepcha</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-limbu.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Limbu</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-magahi.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Magahi</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-maithili.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Maithili</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-malayalam.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Malayalam</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-manipuri.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Manipuri</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-marathi.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Marathi</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-marwari.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Marwari</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-mizo.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Mizo</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-mundari.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Mundari</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-nepali.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Nepali</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-odia.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Odia</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-punjabi.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Punjabi</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-sanskrit.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Sanskrit</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-santali.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Santali</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-sherpa.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Sherpa</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-sikkimese.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Sikkimese</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-sindhi.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Sindhi</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-tamang.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Tamang</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-tamil.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Tamil</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-telugu.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Telugu</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-tulu.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Tulu</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/chhath-puja-wishes-in-indian-languages/chhath-puja-wishes-in-urdu.html" class="hover:text-white hover:underline transition-colors duration-200">Chhath Puja Wishes In Urdu</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Footer Links</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/privacypolicy,html" class="hover:text-white hover:underline transition-colors duration-200">Privacy Policy</a></li>
+          <li><a href="https://www.happy-new-year.org/sitemap.html" class="hover:text-white hover:underline transition-colors duration-200">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center text-sm text-gray-400">
+      <p class="text-sm text-gray-400">New Year Wishes Celebrations and Traditions</p>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">&copy; 2026 Happy New Year. All rights reserved.</p>
+      
+    </div>
+
+  </div>
+</footer>

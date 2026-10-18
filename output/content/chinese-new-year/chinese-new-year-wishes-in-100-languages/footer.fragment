@@ -1,0 +1,165 @@
+<footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes in 100 languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in Indian Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in European Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/10-popular-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Popular Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/" class="hover:text-white hover:underline transition-colors duration-200">Cards</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/easter/" class="hover:text-white hover:underline transition-colors duration-200">Easter Festival</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-bihari-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-chinese-new-year-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-christmas-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" class="hover:text-white hover:underline transition-colors duration-200">2026-festival-countdown</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" class="hover:text-white hover:underline transition-colors duration-200">Christmas-wishes-by-audience</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026-celebrations-worldwide.html</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" class="hover:text-white hover:underline transition-colors duration-200">Multilingual-greetings-webpage</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Dusshera wishes and cards</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/hindu-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Lunar and Solar Hindu Year</a></li>
+          <li><a href="https://www.happy-new-year.org/jewish-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Jewesh Roash Hashanah</a></li>
+          <li><a href="https://www.happy-new-year.org/islamic-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Islamic New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/japanese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Japanese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Hindu Festival Calendar 2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-afrikaans.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Afrikaans</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-akan-twi.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Akan Twi</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-albanian.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Albanian</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-amharic.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Amharic</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-arabic.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Arabic</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-armenian.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Armenian</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-assamese.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Assamese</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-azerbaijani.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Azerbaijani</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-belarusian.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Belarusian</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-bengali.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Bengali</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-bhojpuri.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Bhojpuri</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-bosnian.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Bosnian</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-bulgarian.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Bulgarian</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-burmese.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Burmese</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-cantonese.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Cantonese</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-catalan.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Catalan</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-cebuano.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Cebuano</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-chichewa.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Chichewa</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-croatian.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Croatian</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-czech.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Czech</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-danish.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Danish</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-dutch.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Dutch</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-english.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In English</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-estonian.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Estonian</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-finnish.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Finnish</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-french.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In French</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-georgian.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Georgian</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-german.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In German</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-greek.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Greek</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-gujarati.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Gujarati</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-haitian-creole.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Haitian Creole</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-hausa.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Hausa</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-hebrew.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Hebrew</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-hindi.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Hindi</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-hungarian.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Hungarian</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-icelandic.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Icelandic</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-igbo.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Igbo</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-indonesian.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Indonesian</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-irish.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Irish</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-italian.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Italian</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-japanese.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Japanese</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-javanese.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Javanese</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-kannada.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Kannada</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-kazakh.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Kazakh</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-khmer.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Khmer</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-kinyarwanda.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Kinyarwanda</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-korean.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Korean</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-kurdish-kurmanji.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Kurdish Kurmanji</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-lao.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Lao</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-latvian.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Latvian</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-lingala.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Lingala</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-lithuanian.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Lithuanian</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-macedonian.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Macedonian</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-maithili.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Maithili</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-malagasy.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Malagasy</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-malay.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Malay</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-malayalam.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Malayalam</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-mandarin-chinese.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Mandarin Chinese</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-marathi.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Marathi</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-meitei-manipuri.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Meitei Manipuri</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-mongolian.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Mongolian</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-nepali.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Nepali</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-nigerian-pidgin.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Nigerian Pidgin</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-norwegian.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Norwegian</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-odia.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Odia</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-oromo.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Oromo</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-pashto.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Pashto</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-persian.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Persian</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-polish.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Polish</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-portuguese.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Portuguese</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-punjabi.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Punjabi</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-romanian.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Romanian</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-russian.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Russian</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-santali.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Santali</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-serbian.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Serbian</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-shona.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Shona</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-sindhi.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Sindhi</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-sinhala.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Sinhala</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-slovak.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Slovak</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-slovenian.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Slovenian</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-somali.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Somali</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-spanish.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Spanish</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-swahili.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Swahili</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-swedish.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Swedish</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-tagalog-filipino.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Tagalog Filipino</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-tajik.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Tajik</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-tamil.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Tamil</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-telugu.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Telugu</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-thai.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Thai</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-turkish.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Turkish</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-turkmen.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Turkmen</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-ukrainian.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Ukrainian</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-urdu.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Urdu</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-uzbek.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Uzbek</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-vietnamese.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Vietnamese</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-welsh.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Welsh</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-wu-chinese-shanghainese.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Wu Chinese Shanghainese</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-xhosa.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Xhosa</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-yoruba.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Yoruba</a></li>
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/chinese-new-year-wishes-in-100-languages/chinese-new-year-wishes-in-zulu.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year Wishes In Zulu</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Footer Links</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/privacypolicy,html" class="hover:text-white hover:underline transition-colors duration-200">Privacy Policy</a></li>
+          <li><a href="https://www.happy-new-year.org/sitemap.html" class="hover:text-white hover:underline transition-colors duration-200">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center text-sm text-gray-400">
+      <p class="text-sm text-gray-400">New Year Wishes Celebrations and Traditions</p>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">&copy; 2026 Happy New Year. All rights reserved.</p>
+      
+    </div>
+
+  </div>
+</footer>

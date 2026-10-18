@@ -1,0 +1,46 @@
+{
+	
+	"routes": [
+    { "route": "/solutions",       "redirect": "/capability-led-solutions",     "statusCode": 301 },
+    { "route": "/solutions/*",     "redirect": "/capability-led-solutions",     "statusCode": 301 },
+
+    { "route": "/fractional-cto-ai",       "redirect": "/capability-led-solutions/fractional-cto-ai", "statusCode": 301 },
+    { "route": "/fractional-cto-ai/*",     "redirect": "/capability-led-solutions/fractional-cto-ai", "statusCode": 301 },
+
+    { "route": "/products/workshop",   "redirect": "/capability-led-solutions/workshop",  "statusCode": 301 },
+    { "route": "/products/workshop/*", "redirect": "/capability-led-solutions/workshop",  "statusCode": 301 },
+	
+	{ "route": "/products/kreatebots",   "redirect": "/products/kreate/kreatebots",  "statusCode": 301 },
+    { "route": "/products/kreatebots/*", "redirect": "/products/kreate/kreatebots",  "statusCode": 301 },
+	
+    { "route": "/products/kreaewebsites",   "redirect": "/products/kreate/kreatewebsites",  "statusCode": 301 },
+    { "route": "/products/kreatewebsites/*", "redirect": "/products/kreate/kreatewebsites",  "statusCode": 301 },
+	
+	{ "route": "/data-products/capabilities",   "redirect": "/data-products/dataproduct-building-capabilities.html",  "statusCode": 301 },
+    { "route": "/data-products/capabilities/*", "redirect": "/data-products/dataproduct-building-capabilities.html",  "statusCode": 301 },
+	
+	{ "route": "/agent-ai/use-case",   "redirect": "/agentic-ai/use-cases",  "statusCode": 301 },
+    { "route": "/agent-ai/use-cases/*", "redirect": "/agentic-ai/use-cases",  "statusCode": 301 },
+		
+	
+    { "route": "/agent-ai/agent-engineering-exec-deck.html",   "redirect": "/agentic-ai/agent-engineering/",  "statusCode": 301 },
+	{ "route": "/dataknobs-data-flywheel-positioning.html",   "redirect": "/how-to-enable-data-flywheel.html",  "statusCode": 301 },
+	{ "route": "/ai-twin.html",   "redirect": "/products/ai-twin/",  "statusCode": 301 },
+	{ "route": "/approaches.html",   "redirect": "/data-products/data-product-building-at-dataknobs.html",  "statusCode": 301 },
+	{ "route": "/capabilities.html",   "redirect": "/dataknobs-capabilities.html",  "statusCode": 301 },
+	{ "route": "/dataknobs-finance.html",   "redirect": "/use-cases/finance-ai-agents/",  "statusCode": 301 },
+	{ "route": "/index-search-embed.html",   "redirect": "/search.html",  "statusCode": 301 },
+	{ "route": "/orthogonal-info.html",   "redirect": "/orthogonal-dials-info.html",  "statusCode": 301 },
+	
+	{ "route": "/data-products/dataknobs.html",   "redirect": "/",  "statusCode": 301 },
+    { "route": "/data-products/lifecycle.html", "redirect": "/data-products/dataproduct-building-capabilities.html",  "statusCode": 301 },
+
+    { "route": "/consulting",   "redirect": "/capability-led-solutions",  "statusCode": 301 },
+    { "route": "/consulting/*", "redirect": "/capability-led-solutions",  "statusCode": 301 }
+  ],
+  "responseOverrides": {
+    "404": {
+      "rewrite": "/404.html"
+    }
+  }
+}

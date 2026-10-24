@@ -1,0 +1,75 @@
+<footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes in 100 languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in Indian Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in European Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/10-popular-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Popular Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/" class="hover:text-white hover:underline transition-colors duration-200">Cards</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/easter/" class="hover:text-white hover:underline transition-colors duration-200">Easter Festival</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-bihari-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-chinese-new-year-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-christmas-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" class="hover:text-white hover:underline transition-colors duration-200">2026-festival-countdown</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" class="hover:text-white hover:underline transition-colors duration-200">Christmas-wishes-by-audience</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026-celebrations-worldwide.html</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" class="hover:text-white hover:underline transition-colors duration-200">Multilingual-greetings-webpage</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Dusshera wishes and cards</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/hindu-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Lunar and Solar Hindu Year</a></li>
+          <li><a href="https://www.happy-new-year.org/jewish-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Jewesh Roash Hashanah</a></li>
+          <li><a href="https://www.happy-new-year.org/islamic-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Islamic New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/japanese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Japanese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Hindu Festival Calendar 2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/festivals/karwa-chauth/karwa-chauth-around-world/western-and-central-india/11-maharashtra-bollywood-s-influence-in-mumbai.html" class="hover:text-white hover:underline transition-colors duration-200">11 Maharashtra Bollywood S Influence In Mumbai</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/karwa-chauth/karwa-chauth-around-world/western-and-central-india/12-gujarat-merging-fasting-with-festivity.html" class="hover:text-white hover:underline transition-colors duration-200">12 Gujarat Merging Fasting With Festivity</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/karwa-chauth/karwa-chauth-around-world/western-and-central-india/13-madhya-pradesh-the-heart-of-india-s-celebrations.html" class="hover:text-white hover:underline transition-colors duration-200">13 Madhya Pradesh The Heart Of India S Celebrations</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/karwa-chauth/karwa-chauth-around-world/western-and-central-india/14-the-marwari-diaspora-across-western-india.html" class="hover:text-white hover:underline transition-colors duration-200">14 The Marwari Diaspora Across Western India</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/karwa-chauth/karwa-chauth-around-world/western-and-central-india/15-the-sindhi-variation-teejri-vs-karwa-chauth.html" class="hover:text-white hover:underline transition-colors duration-200">15 The Sindhi Variation Teejri Vs Karwa Chauth</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/karwa-chauth/karwa-chauth-around-world/western-and-central-india/16-goa-beachside-moon-sightings.html" class="hover:text-white hover:underline transition-colors duration-200">16 Goa Beachside Moon Sightings</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/karwa-chauth/karwa-chauth-around-world/western-and-central-india/17-corporate-india-fasting-in-western-metros.html" class="hover:text-white hover:underline transition-colors duration-200">17 Corporate India Fasting In Western Metros</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/karwa-chauth/karwa-chauth-around-world/western-and-central-india/18-the-husband-fast-a-growing-trend-in-urban-india.html" class="hover:text-white hover:underline transition-colors duration-200">18 The Husband Fast A Growing Trend In Urban India</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/karwa-chauth/karwa-chauth-around-world/western-and-central-india/19-night-markets-and-festivities-in-pune.html" class="hover:text-white hover:underline transition-colors duration-200">19 Night Markets And Festivities In Pune</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/karwa-chauth/karwa-chauth-around-world/western-and-central-india/20-chhath-puja-vs-karwa-chauth-in-central-india.html" class="hover:text-white hover:underline transition-colors duration-200">20 Chhath Puja Vs Karwa Chauth In Central India</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Footer Links</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/privacypolicy,html" class="hover:text-white hover:underline transition-colors duration-200">Privacy Policy</a></li>
+          <li><a href="https://www.happy-new-year.org/sitemap.html" class="hover:text-white hover:underline transition-colors duration-200">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center text-sm text-gray-400">
+      <p class="text-sm text-gray-400">New Year Wishes Celebrations and Traditions</p>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">&copy; 2026 Happy New Year. All rights reserved.</p>
+      
+    </div>
+
+  </div>
+</footer>

@@ -40,6 +40,7 @@
       <div>
         <h5 class="text-lg font-semibold text-white mb-4">Folders</h5>
         <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/festivals/diwali/diwali-around-world/" class="hover:text-white hover:underline transition-colors duration-200">Diwali Around World</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/diwali/diwali-stories/" class="hover:text-white hover:underline transition-colors duration-200">Diwali Stories</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/diwali/diwali-wishes-in-indian-languages/" class="hover:text-white hover:underline transition-colors duration-200">Diwali Wishes In Indian Languages</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/diwali/govardhan-puja/" class="hover:text-white hover:underline transition-colors duration-200">Govardhan Puja</a></li>

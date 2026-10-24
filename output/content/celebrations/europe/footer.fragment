@@ -1,0 +1,75 @@
+<footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes in 100 languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in Indian Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in European Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/10-popular-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Popular Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/" class="hover:text-white hover:underline transition-colors duration-200">Cards</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/easter/" class="hover:text-white hover:underline transition-colors duration-200">Easter Festival</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-bihari-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-chinese-new-year-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-christmas-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" class="hover:text-white hover:underline transition-colors duration-200">2026-festival-countdown</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" class="hover:text-white hover:underline transition-colors duration-200">Christmas-wishes-by-audience</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026-celebrations-worldwide.html</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" class="hover:text-white hover:underline transition-colors duration-200">Multilingual-greetings-webpage</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Dusshera wishes and cards</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/hindu-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Lunar and Solar Hindu Year</a></li>
+          <li><a href="https://www.happy-new-year.org/jewish-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Jewesh Roash Hashanah</a></li>
+          <li><a href="https://www.happy-new-year.org/islamic-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Islamic New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/japanese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Japanese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Hindu Festival Calendar 2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/celebrations/europe/01-scotland-s-hogmanay-fire-fury-and-the-first-foot.html" class="hover:text-white hover:underline transition-colors duration-200">01 Scotland S Hogmanay Fire Fury And The First Foot</a></li>
+          <li><a href="https://www.happy-new-year.org/celebrations/europe/02-spain-s-nochevieja-the-12-grapes-of-luck.html" class="hover:text-white hover:underline transition-colors duration-200">02 Spain S Nochevieja The 12 Grapes Of Luck</a></li>
+          <li><a href="https://www.happy-new-year.org/celebrations/europe/03-france-le-reveillon-de-la-saint-sylvestre.html" class="hover:text-white hover:underline transition-colors duration-200">03 France Le Reveillon De La Saint Sylvestre</a></li>
+          <li><a href="https://www.happy-new-year.org/celebrations/europe/04-germany-s-silvester-fireworks-and-lead-pouring.html" class="hover:text-white hover:underline transition-colors duration-200">04 Germany S Silvester Fireworks And Lead Pouring</a></li>
+          <li><a href="https://www.happy-new-year.org/celebrations/europe/05-italy-s-capodanno-red-underwear-and-lentils.html" class="hover:text-white hover:underline transition-colors duration-200">05 Italy S Capodanno Red Underwear And Lentils</a></li>
+          <li><a href="https://www.happy-new-year.org/celebrations/europe/06-iceland-bonfires-fireworks-and-elves.html" class="hover:text-white hover:underline transition-colors duration-200">06 Iceland Bonfires Fireworks And Elves</a></li>
+          <li><a href="https://www.happy-new-year.org/celebrations/europe/07-greece-smashing-pomegranates-and-vasilopita.html" class="hover:text-white hover:underline transition-colors duration-200">07 Greece Smashing Pomegranates And Vasilopita</a></li>
+          <li><a href="https://www.happy-new-year.org/celebrations/europe/08-russia-s-novy-god-ded-moroz-and-the-snow-maiden.html" class="hover:text-white hover:underline transition-colors duration-200">08 Russia S Novy God Ded Moroz And The Snow Maiden</a></li>
+          <li><a href="https://www.happy-new-year.org/celebrations/europe/09-switzerland-lake-illuminations-and-silvesterklause.html" class="hover:text-white hover:underline transition-colors duration-200">09 Switzerland Lake Illuminations And Silvesterklause</a></li>
+          <li><a href="https://www.happy-new-year.org/celebrations/europe/10-denmark-smashing-plates-and-jumping-off-chairs.html" class="hover:text-white hover:underline transition-colors duration-200">10 Denmark Smashing Plates And Jumping Off Chairs</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Footer Links</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/privacypolicy,html" class="hover:text-white hover:underline transition-colors duration-200">Privacy Policy</a></li>
+          <li><a href="https://www.happy-new-year.org/sitemap.html" class="hover:text-white hover:underline transition-colors duration-200">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center text-sm text-gray-400">
+      <p class="text-sm text-gray-400">New Year Wishes Celebrations and Traditions</p>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">&copy; 2026 Happy New Year. All rights reserved.</p>
+      
+    </div>
+
+  </div>
+</footer>

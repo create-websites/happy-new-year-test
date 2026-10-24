@@ -38,6 +38,16 @@
       </div>
 
       <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Folders</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/celebrations/africa-oceania/" class="hover:text-white hover:underline transition-colors duration-200">Africa Oceania</a></li>
+          <li><a href="https://www.happy-new-year.org/celebrations/americas/" class="hover:text-white hover:underline transition-colors duration-200">Americas</a></li>
+          <li><a href="https://www.happy-new-year.org/celebrations/europe/" class="hover:text-white hover:underline transition-colors duration-200">Europe</a></li>
+          <li><a href="https://www.happy-new-year.org/celebrations/extraordinary-destinations/" class="hover:text-white hover:underline transition-colors duration-200">Extraordinary Destinations</a></li>
+        </ul>
+      </div>
+
+      <div>
         <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
         <ul class="space-y-2">
           <li><a href="https://www.happy-new-year.org/celebrations/australia.html" class="hover:text-white hover:underline transition-colors duration-200">Australia</a></li>
@@ -53,6 +63,7 @@
           <li><a href="https://www.happy-new-year.org/celebrations/las-vegas.html" class="hover:text-white hover:underline transition-colors duration-200">Las Vegas</a></li>
           <li><a href="https://www.happy-new-year.org/celebrations/london.html" class="hover:text-white hover:underline transition-colors duration-200">London</a></li>
           <li><a href="https://www.happy-new-year.org/celebrations/mexico.html" class="hover:text-white hover:underline transition-colors duration-200">Mexico</a></li>
+          <li><a href="https://www.happy-new-year.org/celebrations/new-year-celebration.html" class="hover:text-white hover:underline transition-colors duration-200">New Year Celebration</a></li>
           <li><a href="https://www.happy-new-year.org/celebrations/newealand.html" class="hover:text-white hover:underline transition-colors duration-200">Newealand</a></li>
           <li><a href="https://www.happy-new-year.org/celebrations/newyork.html" class="hover:text-white hover:underline transition-colors duration-200">Newyork</a></li>
           <li><a href="https://www.happy-new-year.org/celebrations/north-carolina.html" class="hover:text-white hover:underline transition-colors duration-200">North Carolina</a></li>

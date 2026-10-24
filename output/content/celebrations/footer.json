@@ -25,7 +25,12 @@
     "Hindu Festival Calendar 2026": "https://www.happy-new-year.org/2026/hindu-festivals-2026.html",
     "Pitu Paksha 2026": "https://www.happy-new-year.org/2026/pitru-paksha-2026.html"
   },
-  "Folders": {},
+  "Folders": {
+    "Africa Oceania": "https://www.happy-new-year.org/celebrations/africa-oceania/",
+    "Americas": "https://www.happy-new-year.org/celebrations/americas/",
+    "Europe": "https://www.happy-new-year.org/celebrations/europe/",
+    "Extraordinary Destinations": "https://www.happy-new-year.org/celebrations/extraordinary-destinations/"
+  },
   "Pages": {
     "Australia": "https://www.happy-new-year.org/celebrations/australia.html",
     "California": "https://www.happy-new-year.org/celebrations/california.html",
@@ -40,6 +45,7 @@
     "Las Vegas": "https://www.happy-new-year.org/celebrations/las-vegas.html",
     "London": "https://www.happy-new-year.org/celebrations/london.html",
     "Mexico": "https://www.happy-new-year.org/celebrations/mexico.html",
+    "New Year Celebration": "https://www.happy-new-year.org/celebrations/new-year-celebration.html",
     "Newealand": "https://www.happy-new-year.org/celebrations/newealand.html",
     "Newyork": "https://www.happy-new-year.org/celebrations/newyork.html",
     "North Carolina": "https://www.happy-new-year.org/celebrations/north-carolina.html",

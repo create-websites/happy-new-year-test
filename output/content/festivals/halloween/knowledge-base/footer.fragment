@@ -1,0 +1,118 @@
+<footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes in 100 languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in Indian Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in European Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/10-popular-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Popular Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/" class="hover:text-white hover:underline transition-colors duration-200">Cards</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/easter/" class="hover:text-white hover:underline transition-colors duration-200">Easter Festival</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-bihari-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-chinese-new-year-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-christmas-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" class="hover:text-white hover:underline transition-colors duration-200">2026-festival-countdown</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" class="hover:text-white hover:underline transition-colors duration-200">Christmas-wishes-by-audience</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026-celebrations-worldwide.html</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" class="hover:text-white hover:underline transition-colors duration-200">Multilingual-greetings-webpage</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Dusshera wishes and cards</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/hindu-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Lunar and Solar Hindu Year</a></li>
+          <li><a href="https://www.happy-new-year.org/jewish-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Jewesh Roash Hashanah</a></li>
+          <li><a href="https://www.happy-new-year.org/islamic-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Islamic New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/japanese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Japanese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Hindu Festival Calendar 2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/01-origin-of-halloween.html" class="hover:text-white hover:underline transition-colors duration-200">01 Origin Of Halloween</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/02-why-we-celebrate-halloween-on-october-31.html" class="hover:text-white hover:underline transition-colors duration-200">02 Why We Celebrate Halloween On October 31</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/03-story-of-the-jack-o-lantern.html" class="hover:text-white hover:underline transition-colors duration-200">03 Story Of The Jack O Lantern</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/04-trick-or-treating-explained.html" class="hover:text-white hover:underline transition-colors duration-200">04 Trick Or Treating Explained</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/05-ghosts-witches-and-black-cats.html" class="hover:text-white hover:underline transition-colors duration-200">05 Ghosts Witches And Black Cats</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/06-halloween-home-decorating-guide.html" class="hover:text-white hover:underline transition-colors duration-200">06 Halloween Home Decorating Guide</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/07-pumpkin-carving-masterclass.html" class="hover:text-white hover:underline transition-colors duration-200">07 Pumpkin Carving Masterclass</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/08-diy-halloween-decorations.html" class="hover:text-white hover:underline transition-colors duration-200">08 Diy Halloween Decorations</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/09-elegant-halloween-decor.html" class="hover:text-white hover:underline transition-colors duration-200">09 Elegant Halloween Decor</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/10-halloween-lighting-ideas.html" class="hover:text-white hover:underline transition-colors duration-200">10 Halloween Lighting Ideas</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/11-best-halloween-costume-ideas.html" class="hover:text-white hover:underline transition-colors duration-200">11 Best Halloween Costume Ideas</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/12-diy-halloween-costumes.html" class="hover:text-white hover:underline transition-colors duration-200">12 Diy Halloween Costumes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/13-halloween-makeup-ideas.html" class="hover:text-white hover:underline transition-colors duration-200">13 Halloween Makeup Ideas</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/14-how-to-host-a-halloween-party.html" class="hover:text-white hover:underline transition-colors duration-200">14 How To Host A Halloween Party</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/15-halloween-costume-safety.html" class="hover:text-white hover:underline transition-colors duration-200">15 Halloween Costume Safety</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/16-halloween-food-guide.html" class="hover:text-white hover:underline transition-colors duration-200">16 Halloween Food Guide</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/17-halloween-desserts-for-kids.html" class="hover:text-white hover:underline transition-colors duration-200">17 Halloween Desserts For Kids</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/18-halloween-candy-guide.html" class="hover:text-white hover:underline transition-colors duration-200">18 Halloween Candy Guide</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/19-family-halloween-night.html" class="hover:text-white hover:underline transition-colors duration-200">19 Family Halloween Night</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/20-halloween-activities-for-kids.html" class="hover:text-white hover:underline transition-colors duration-200">20 Halloween Activities For Kids</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/21-best-halloween-destinations-in-america.html" class="hover:text-white hover:underline transition-colors duration-200">21 Best Halloween Destinations In America</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/22-halloween-in-salem-massachusetts.html" class="hover:text-white hover:underline transition-colors duration-200">22 Halloween In Salem Massachusetts</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/23-halloween-around-the-world.html" class="hover:text-white hover:underline transition-colors duration-200">23 Halloween Around The World</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/24-eco-friendly-halloween.html" class="hover:text-white hover:underline transition-colors duration-200">24 Eco Friendly Halloween</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/25-halloween-for-modern-families.html" class="hover:text-white hover:underline transition-colors duration-200">25 Halloween For Modern Families</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/26-salem-halloween-october-travel-guide.html" class="hover:text-white hover:underline transition-colors duration-200">26 Salem Halloween October Travel Guide</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/27-halloween-in-sleepy-hollow-new-york.html" class="hover:text-white hover:underline transition-colors duration-200">27 Halloween In Sleepy Hollow New York</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/28-halloween-in-new-orleans.html" class="hover:text-white hover:underline transition-colors duration-200">28 Halloween In New Orleans</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/29-halloween-in-savannah-georgia.html" class="hover:text-white hover:underline transition-colors duration-200">29 Halloween In Savannah Georgia</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/30-halloween-in-st-augustine-florida.html" class="hover:text-white hover:underline transition-colors duration-200">30 Halloween In St Augustine Florida</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/31-best-pumpkin-patches-in-america.html" class="hover:text-white hover:underline transition-colors duration-200">31 Best Pumpkin Patches In America</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/32-corn-maze-guide.html" class="hover:text-white hover:underline transition-colors duration-200">32 Corn Maze Guide</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/33-halloween-farm-adventures.html" class="hover:text-white hover:underline transition-colors duration-200">33 Halloween Farm Adventures</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/34-family-pumpkin-patch-day-guide.html" class="hover:text-white hover:underline transition-colors duration-200">34 Family Pumpkin Patch Day Guide</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/35-from-pumpkin-patch-to-jack-o-lantern.html" class="hover:text-white hover:underline transition-colors duration-200">35 From Pumpkin Patch To Jack O Lantern</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/36-disney-halloween-celebrations.html" class="hover:text-white hover:underline transition-colors duration-200">36 Disney Halloween Celebrations</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/37-universal-halloween-horror-nights.html" class="hover:text-white hover:underline transition-colors duration-200">37 Universal Halloween Horror Nights</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/38-best-haunted-houses-in-america.html" class="hover:text-white hover:underline transition-colors duration-200">38 Best Haunted Houses In America</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/39-halloween-at-amusement-parks.html" class="hover:text-white hover:underline transition-colors duration-200">39 Halloween At Amusement Parks</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/40-haunted-attraction-road-trip-planning.html" class="hover:text-white hover:underline transition-colors duration-200">40 Haunted Attraction Road Trip Planning</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/41-best-halloween-neighborhoods-in-america.html" class="hover:text-white hover:underline transition-colors duration-200">41 Best Halloween Neighborhoods In America</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/42-trunk-or-treat-explained.html" class="hover:text-white hover:underline transition-colors duration-200">42 Trunk Or Treat Explained</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/43-halloween-block-parties.html" class="hover:text-white hover:underline transition-colors duration-200">43 Halloween Block Parties</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/44-rise-of-elaborate-halloween-houses.html" class="hover:text-white hover:underline transition-colors duration-200">44 Rise Of Elaborate Halloween Houses</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/45-trick-or-treat-friendly-home.html" class="hover:text-white hover:underline transition-colors duration-200">45 Trick Or Treat Friendly Home</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/46-new-england-halloween-road-trip.html" class="hover:text-white hover:underline transition-colors duration-200">46 New England Halloween Road Trip</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/47-california-halloween-road-trip.html" class="hover:text-white hover:underline transition-colors duration-200">47 California Halloween Road Trip</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/48-halloween-in-the-pacific-northwest.html" class="hover:text-white hover:underline transition-colors duration-200">48 Halloween In The Pacific Northwest</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/49-halloween-in-the-american-south.html" class="hover:text-white hover:underline transition-colors duration-200">49 Halloween In The American South</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/50-halloween-in-the-midwest.html" class="hover:text-white hover:underline transition-colors duration-200">50 Halloween In The Midwest</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/articles.html" class="hover:text-white hover:underline transition-colors duration-200">Articles</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/gallery.html" class="hover:text-white hover:underline transition-colors duration-200">Gallery</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/sitemap.html" class="hover:text-white hover:underline transition-colors duration-200">Sitemap</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Footer Links</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/privacypolicy,html" class="hover:text-white hover:underline transition-colors duration-200">Privacy Policy</a></li>
+          <li><a href="https://www.happy-new-year.org/sitemap.html" class="hover:text-white hover:underline transition-colors duration-200">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center text-sm text-gray-400">
+      <p class="text-sm text-gray-400">New Year Wishes Celebrations and Traditions</p>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">&copy; 2026 Happy New Year. All rights reserved.</p>
+      
+    </div>
+
+  </div>
+</footer>

@@ -1,0 +1,85 @@
+<footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes in 100 languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in Indian Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in European Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/10-popular-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Popular Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/" class="hover:text-white hover:underline transition-colors duration-200">Cards</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/easter/" class="hover:text-white hover:underline transition-colors duration-200">Easter Festival</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-bihari-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-chinese-new-year-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-christmas-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" class="hover:text-white hover:underline transition-colors duration-200">2026-festival-countdown</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" class="hover:text-white hover:underline transition-colors duration-200">Christmas-wishes-by-audience</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026-celebrations-worldwide.html</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" class="hover:text-white hover:underline transition-colors duration-200">Multilingual-greetings-webpage</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Dusshera wishes and cards</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/hindu-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Lunar and Solar Hindu Year</a></li>
+          <li><a href="https://www.happy-new-year.org/jewish-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Jewesh Roash Hashanah</a></li>
+          <li><a href="https://www.happy-new-year.org/islamic-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Islamic New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/japanese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Japanese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Hindu Festival Calendar 2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/global-traditions-folklore-and-cultural-comparisons/autumn-festivals-of-the-dead-around-the-world.html" class="hover:text-white hover:underline transition-colors duration-200">Autumn Festivals Of The Dead Around The World</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/global-traditions-folklore-and-cultural-comparisons/ghost-festivals-around-the-world-compared.html" class="hover:text-white hover:underline transition-colors duration-200">Ghost Festivals Around The World Compared</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/global-traditions-folklore-and-cultural-comparisons/halloween-around-the-world-20-unique-traditions.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Around The World 20 Unique Traditions</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/global-traditions-folklore-and-cultural-comparisons/halloween-traditions-across-asia.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Traditions Across Asia</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/global-traditions-folklore-and-cultural-comparisons/halloween-traditions-across-europe.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Traditions Across Europe</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/global-traditions-folklore-and-cultural-comparisons/halloween-vs-all-saints-day-what-is-the-difference.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Vs All Saints Day What Is The Difference</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/global-traditions-folklore-and-cultural-comparisons/halloween-vs-bonfire-night-different-autumn-traditions-explained.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Vs Bonfire Night Different Autumn Traditions Explained</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/global-traditions-folklore-and-cultural-comparisons/halloween-vs-d-a-de-los-muertos-key-differences-and-cultural-meaning.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Vs D A De Los Muertos Key Differences And Cultural Meaning</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/global-traditions-folklore-and-cultural-comparisons/halloween-vs-samhain-history-and-modern-traditions.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Vs Samhain History And Modern Traditions</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/global-traditions-folklore-and-cultural-comparisons/how-halloween-became-a-global-pop-culture-event.html" class="hover:text-white hover:underline transition-colors duration-200">How Halloween Became A Global Pop Culture Event</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/global-traditions-folklore-and-cultural-comparisons/how-halloween-is-celebrated-in-australia.html" class="hover:text-white hover:underline transition-colors duration-200">How Halloween Is Celebrated In Australia</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/global-traditions-folklore-and-cultural-comparisons/how-halloween-is-celebrated-in-canada.html" class="hover:text-white hover:underline transition-colors duration-200">How Halloween Is Celebrated In Canada</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/global-traditions-folklore-and-cultural-comparisons/how-halloween-is-celebrated-in-india.html" class="hover:text-white hover:underline transition-colors duration-200">How Halloween Is Celebrated In India</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/global-traditions-folklore-and-cultural-comparisons/how-halloween-is-celebrated-in-ireland.html" class="hover:text-white hover:underline transition-colors duration-200">How Halloween Is Celebrated In Ireland</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/global-traditions-folklore-and-cultural-comparisons/how-halloween-is-celebrated-in-japan.html" class="hover:text-white hover:underline transition-colors duration-200">How Halloween Is Celebrated In Japan</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/global-traditions-folklore-and-cultural-comparisons/how-halloween-is-celebrated-in-mexico.html" class="hover:text-white hover:underline transition-colors duration-200">How Halloween Is Celebrated In Mexico</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/global-traditions-folklore-and-cultural-comparisons/how-halloween-is-celebrated-in-south-korea.html" class="hover:text-white hover:underline transition-colors duration-200">How Halloween Is Celebrated In South Korea</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/global-traditions-folklore-and-cultural-comparisons/how-halloween-is-celebrated-in-the-united-kingdom.html" class="hover:text-white hover:underline transition-colors duration-200">How Halloween Is Celebrated In The United Kingdom</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/global-traditions-folklore-and-cultural-comparisons/how-halloween-is-celebrated-in-the-united-states.html" class="hover:text-white hover:underline transition-colors duration-200">How Halloween Is Celebrated In The United States</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/global-traditions-folklore-and-cultural-comparisons/how-irish-and-scottish-traditions-shaped-modern-halloween.html" class="hover:text-white hover:underline transition-colors duration-200">How Irish And Scottish Traditions Shaped Modern Halloween</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Footer Links</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/privacypolicy,html" class="hover:text-white hover:underline transition-colors duration-200">Privacy Policy</a></li>
+          <li><a href="https://www.happy-new-year.org/sitemap.html" class="hover:text-white hover:underline transition-colors duration-200">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center text-sm text-gray-400">
+      <p class="text-sm text-gray-400">New Year Wishes Celebrations and Traditions</p>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">&copy; 2026 Happy New Year. All rights reserved.</p>
+      
+    </div>
+
+  </div>
+</footer>

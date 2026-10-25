@@ -1,0 +1,85 @@
+<footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes in 100 languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in Indian Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in European Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/10-popular-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Popular Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/" class="hover:text-white hover:underline transition-colors duration-200">Cards</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/easter/" class="hover:text-white hover:underline transition-colors duration-200">Easter Festival</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-bihari-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-chinese-new-year-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-christmas-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" class="hover:text-white hover:underline transition-colors duration-200">2026-festival-countdown</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" class="hover:text-white hover:underline transition-colors duration-200">Christmas-wishes-by-audience</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026-celebrations-worldwide.html</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" class="hover:text-white hover:underline transition-colors duration-200">Multilingual-greetings-webpage</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Dusshera wishes and cards</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/hindu-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Lunar and Solar Hindu Year</a></li>
+          <li><a href="https://www.happy-new-year.org/jewish-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Jewesh Roash Hashanah</a></li>
+          <li><a href="https://www.happy-new-year.org/islamic-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Islamic New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/japanese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Japanese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Hindu Festival Calendar 2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/trick-or-treating-safety-and-neighborhood-guides/best-trick-or-treating-etiquette-for-kids-and-adults.html" class="hover:text-white hover:underline transition-colors duration-200">Best Trick Or Treating Etiquette For Kids And Adults</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/trick-or-treating-safety-and-neighborhood-guides/halloween-porch-safety-tips.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Porch Safety Tips</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/trick-or-treating-safety-and-neighborhood-guides/halloween-road-safety-tips-for-drivers-and-pedestrians.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Road Safety Tips For Drivers And Pedestrians</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/trick-or-treating-safety-and-neighborhood-guides/halloween-safety-checklist-for-families.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Safety Checklist For Families</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/trick-or-treating-safety-and-neighborhood-guides/how-much-candy-should-you-buy-for-halloween.html" class="hover:text-white hover:underline transition-colors duration-200">How Much Candy Should You Buy For Halloween</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/trick-or-treating-safety-and-neighborhood-guides/how-to-handle-halloween-candy-safely-after-trick-or-treating.html" class="hover:text-white hover:underline transition-colors duration-200">How To Handle Halloween Candy Safely After Trick Or Treating</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/trick-or-treating-safety-and-neighborhood-guides/how-to-keep-pets-safe-on-halloween-night.html" class="hover:text-white hover:underline transition-colors duration-200">How To Keep Pets Safe On Halloween Night</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/trick-or-treating-safety-and-neighborhood-guides/how-to-make-your-home-trick-or-treat-friendly.html" class="hover:text-white hover:underline transition-colors duration-200">How To Make Your Home Trick Or Treat Friendly</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/trick-or-treating-safety-and-neighborhood-guides/how-to-organize-a-neighborhood-halloween-event.html" class="hover:text-white hover:underline transition-colors duration-200">How To Organize A Neighborhood Halloween Event</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/trick-or-treating-safety-and-neighborhood-guides/indoor-trick-or-treat-ideas.html" class="hover:text-white hover:underline transition-colors duration-200">Indoor Trick Or Treat Ideas</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/trick-or-treating-safety-and-neighborhood-guides/non-candy-halloween-treat-ideas.html" class="hover:text-white hover:underline transition-colors duration-200">Non Candy Halloween Treat Ideas</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/trick-or-treating-safety-and-neighborhood-guides/rainy-halloween-trick-or-treat-alternatives.html" class="hover:text-white hover:underline transition-colors duration-200">Rainy Halloween Trick Or Treat Alternatives</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/trick-or-treating-safety-and-neighborhood-guides/teal-pumpkin-project-what-it-means-and-how-to-participate.html" class="hover:text-white hover:underline transition-colors duration-200">Teal Pumpkin Project What It Means And How To Participate</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/trick-or-treating-safety-and-neighborhood-guides/trick-or-treating-complete-guide-for-families.html" class="hover:text-white hover:underline transition-colors duration-200">Trick Or Treating Complete Guide For Families</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/trick-or-treating-safety-and-neighborhood-guides/trick-or-treating-ideas-for-apartments.html" class="hover:text-white hover:underline transition-colors duration-200">Trick Or Treating Ideas For Apartments</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/trick-or-treating-safety-and-neighborhood-guides/trick-or-treating-safety-tips-for-kids-and-parents.html" class="hover:text-white hover:underline transition-colors duration-200">Trick Or Treating Safety Tips For Kids And Parents</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/trick-or-treating-safety-and-neighborhood-guides/trunk-or-treat-ideas-for-schools-and-communities.html" class="hover:text-white hover:underline transition-colors duration-200">Trunk Or Treat Ideas For Schools And Communities</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/trick-or-treating-safety-and-neighborhood-guides/what-candy-should-you-hand-out-on-halloween.html" class="hover:text-white hover:underline transition-colors duration-200">What Candy Should You Hand Out On Halloween</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/trick-or-treating-safety-and-neighborhood-guides/what-time-does-trick-or-treating-usually-start-and-end.html" class="hover:text-white hover:underline transition-colors duration-200">What Time Does Trick Or Treating Usually Start And End</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/trick-or-treating-safety-and-neighborhood-guides/when-are-kids-too-old-to-trick-or-treat.html" class="hover:text-white hover:underline transition-colors duration-200">When Are Kids Too Old To Trick Or Treat</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Footer Links</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/privacypolicy,html" class="hover:text-white hover:underline transition-colors duration-200">Privacy Policy</a></li>
+          <li><a href="https://www.happy-new-year.org/sitemap.html" class="hover:text-white hover:underline transition-colors duration-200">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center text-sm text-gray-400">
+      <p class="text-sm text-gray-400">New Year Wishes Celebrations and Traditions</p>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">&copy; 2026 Happy New Year. All rights reserved.</p>
+      
+    </div>
+
+  </div>
+</footer>

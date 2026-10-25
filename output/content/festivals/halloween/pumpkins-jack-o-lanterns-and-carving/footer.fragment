@@ -1,0 +1,85 @@
+<footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes in 100 languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in Indian Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in European Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/10-popular-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Popular Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/" class="hover:text-white hover:underline transition-colors duration-200">Cards</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/easter/" class="hover:text-white hover:underline transition-colors duration-200">Easter Festival</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-bihari-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-chinese-new-year-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-christmas-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" class="hover:text-white hover:underline transition-colors duration-200">2026-festival-countdown</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" class="hover:text-white hover:underline transition-colors duration-200">Christmas-wishes-by-audience</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026-celebrations-worldwide.html</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" class="hover:text-white hover:underline transition-colors duration-200">Multilingual-greetings-webpage</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Dusshera wishes and cards</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/hindu-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Lunar and Solar Hindu Year</a></li>
+          <li><a href="https://www.happy-new-year.org/jewish-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Jewesh Roash Hashanah</a></li>
+          <li><a href="https://www.happy-new-year.org/islamic-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Islamic New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/japanese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Japanese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Hindu Festival Calendar 2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/pumpkins-jack-o-lanterns-and-carving/best-halloween-pumpkin-carving-ideas.html" class="hover:text-white hover:underline transition-colors duration-200">Best Halloween Pumpkin Carving Ideas</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/pumpkins-jack-o-lanterns-and-carving/best-tools-for-pumpkin-carving.html" class="hover:text-white hover:underline transition-colors duration-200">Best Tools For Pumpkin Carving</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/pumpkins-jack-o-lanterns-and-carving/creative-pumpkin-faces-and-expressions.html" class="hover:text-white hover:underline transition-colors duration-200">Creative Pumpkin Faces And Expressions</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/pumpkins-jack-o-lanterns-and-carving/cute-pumpkin-carving-ideas-for-kids.html" class="hover:text-white hover:underline transition-colors duration-200">Cute Pumpkin Carving Ideas For Kids</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/pumpkins-jack-o-lanterns-and-carving/easy-pumpkin-carving-ideas-for-beginners.html" class="hover:text-white hover:underline transition-colors duration-200">Easy Pumpkin Carving Ideas For Beginners</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/pumpkins-jack-o-lanterns-and-carving/funny-pumpkin-carving-ideas.html" class="hover:text-white hover:underline transition-colors duration-200">Funny Pumpkin Carving Ideas</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/pumpkins-jack-o-lanterns-and-carving/halloween-pumpkin-display-ideas-for-porches.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Pumpkin Display Ideas For Porches</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/pumpkins-jack-o-lanterns-and-carving/how-to-carve-a-pumpkin-step-by-step.html" class="hover:text-white hover:underline transition-colors duration-200">How To Carve A Pumpkin Step By Step</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/pumpkins-jack-o-lanterns-and-carving/how-to-keep-pumpkins-from-rotting-before-halloween.html" class="hover:text-white hover:underline transition-colors duration-200">How To Keep Pumpkins From Rotting Before Halloween</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/pumpkins-jack-o-lanterns-and-carving/how-to-make-a-carved-pumpkin-last-longer.html" class="hover:text-white hover:underline transition-colors duration-200">How To Make A Carved Pumpkin Last Longer</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/pumpkins-jack-o-lanterns-and-carving/how-to-make-a-jack-o-lantern-safely.html" class="hover:text-white hover:underline transition-colors duration-200">How To Make A Jack O Lantern Safely</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/pumpkins-jack-o-lanterns-and-carving/mini-pumpkin-decorating-ideas.html" class="hover:text-white hover:underline transition-colors duration-200">Mini Pumpkin Decorating Ideas</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/pumpkins-jack-o-lanterns-and-carving/no-carve-pumpkin-decorating-ideas.html" class="hover:text-white hover:underline transition-colors duration-200">No Carve Pumpkin Decorating Ideas</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/pumpkins-jack-o-lanterns-and-carving/painted-pumpkin-ideas-for-halloween.html" class="hover:text-white hover:underline transition-colors duration-200">Painted Pumpkin Ideas For Halloween</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/pumpkins-jack-o-lanterns-and-carving/pumpkin-carving-ideas-for-families.html" class="hover:text-white hover:underline transition-colors duration-200">Pumpkin Carving Ideas For Families</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/pumpkins-jack-o-lanterns-and-carving/pumpkin-carving-party-ideas.html" class="hover:text-white hover:underline transition-colors duration-200">Pumpkin Carving Party Ideas</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/pumpkins-jack-o-lanterns-and-carving/pumpkin-decorating-ideas-for-small-spaces.html" class="hover:text-white hover:underline transition-colors duration-200">Pumpkin Decorating Ideas For Small Spaces</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/pumpkins-jack-o-lanterns-and-carving/pumpkin-stencil-ideas-for-halloween.html" class="hover:text-white hover:underline transition-colors duration-200">Pumpkin Stencil Ideas For Halloween</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/pumpkins-jack-o-lanterns-and-carving/scary-pumpkin-carving-ideas.html" class="hover:text-white hover:underline transition-colors duration-200">Scary Pumpkin Carving Ideas</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/pumpkins-jack-o-lanterns-and-carving/what-to-do-with-pumpkins-after-halloween.html" class="hover:text-white hover:underline transition-colors duration-200">What To Do With Pumpkins After Halloween</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Footer Links</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/privacypolicy,html" class="hover:text-white hover:underline transition-colors duration-200">Privacy Policy</a></li>
+          <li><a href="https://www.happy-new-year.org/sitemap.html" class="hover:text-white hover:underline transition-colors duration-200">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center text-sm text-gray-400">
+      <p class="text-sm text-gray-400">New Year Wishes Celebrations and Traditions</p>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">&copy; 2026 Happy New Year. All rights reserved.</p>
+      
+    </div>
+
+  </div>
+</footer>

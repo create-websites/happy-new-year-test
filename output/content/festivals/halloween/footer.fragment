@@ -41,16 +41,31 @@
         <h5 class="text-lg font-semibold text-white mb-4">Folders</h5>
         <ul class="space-y-2">
           <li><a href="https://www.happy-new-year.org/festivals/halloween/articles/" class="hover:text-white hover:underline transition-colors duration-200">Articles</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/best/" class="hover:text-white hover:underline transition-colors duration-200">Best</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/halloween/Bikes/" class="hover:text-white hover:underline transition-colors duration-200">Bikes</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/halloween/cards/" class="hover:text-white hover:underline transition-colors duration-200">Cards</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/halloween/Costumes/" class="hover:text-white hover:underline transition-colors duration-200">Costumes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/costumes-makeup-and-dress-up-ideas/" class="hover:text-white hover:underline transition-colors duration-200">Costumes Makeup And Dress Up Ideas</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/halloween/Decorations/" class="hover:text-white hover:underline transition-colors duration-200">Decorations</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/design/" class="hover:text-white hover:underline transition-colors duration-200">Design</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/food-candy-desserts-and-recipes/" class="hover:text-white hover:underline transition-colors duration-200">Food Candy Desserts And Recipes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/foundation-history-origins-and-symbols/" class="hover:text-white hover:underline transition-colors duration-200">Foundation History Origins And Symbols</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/halloween/Gifts/" class="hover:text-white hover:underline transition-colors duration-200">Gifts</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/global-traditions-folklore-and-cultural-comparisons/" class="hover:text-white hover:underline transition-colors duration-200">Global Traditions Folklore And Cultural Comparisons</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/halloween/guide/" class="hover:text-white hover:underline transition-colors duration-200">Guide</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-2027-city-events-and-local-search/" class="hover:text-white hover:underline transition-colors duration-200">Halloween 2027 City Events And Local Search</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-wishes-in-100-languages/" class="hover:text-white hover:underline transition-colors duration-200">Halloween Wishes In 100 Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/haunted-houses-ghost-stories-and-spooky-experiences/" class="hover:text-white hover:underline transition-colors duration-200">Haunted Houses Ghost Stories And Spooky Experiences</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/home-yard-porch-and-party-decor/" class="hover:text-white hover:underline transition-colors duration-200">Home Yard Porch And Party Decor</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/kids-family-school-and-classroom-content/" class="hover:text-white hover:underline transition-colors duration-200">Kids Family School And Classroom Content</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/halloween/Masks/" class="hover:text-white hover:underline transition-colors duration-200">Masks</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/movies-books-music-and-pop-culture/" class="hover:text-white hover:underline transition-colors duration-200">Movies Books Music And Pop Culture</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/party-games-music-and-entertainment/" class="hover:text-white hover:underline transition-colors duration-200">Party Games Music And Entertainment</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/photos-wallpapers/" class="hover:text-white hover:underline transition-colors duration-200">Photos Wallpapers</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/halloween/Pumpkins/" class="hover:text-white hover:underline transition-colors duration-200">Pumpkins</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/pumpkins-jack-o-lanterns-and-carving/" class="hover:text-white hover:underline transition-colors duration-200">Pumpkins Jack O Lanterns And Carving</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/halloween/Toys/" class="hover:text-white hover:underline transition-colors duration-200">Toys</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/trick-or-treating-safety-and-neighborhood-guides/" class="hover:text-white hover:underline transition-colors duration-200">Trick Or Treating Safety And Neighborhood Guides</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/halloween/Wines/" class="hover:text-white hover:underline transition-colors duration-200">Wines</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/halloween/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes</a></li>
         </ul>
@@ -78,6 +93,7 @@
           <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-info.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Info</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-office-decoration.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Office Decoration</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-sfx-makeup-beginners.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Sfx Makeup Beginners</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-topics.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Topics</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Wishes</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/halloween/hallowwn-wishes-in-european-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Hallowwn Wishes In European Languages</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/halloween/haunted-porch-budget-decor-ideas.html" class="hover:text-white hover:underline transition-colors duration-200">Haunted Porch Budget Decor Ideas</a></li>

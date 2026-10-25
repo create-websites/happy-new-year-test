@@ -1,0 +1,85 @@
+<footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes in 100 languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in Indian Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in European Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/10-popular-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Popular Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/" class="hover:text-white hover:underline transition-colors duration-200">Cards</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/easter/" class="hover:text-white hover:underline transition-colors duration-200">Easter Festival</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-bihari-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-chinese-new-year-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-christmas-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" class="hover:text-white hover:underline transition-colors duration-200">2026-festival-countdown</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" class="hover:text-white hover:underline transition-colors duration-200">Christmas-wishes-by-audience</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026-celebrations-worldwide.html</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" class="hover:text-white hover:underline transition-colors duration-200">Multilingual-greetings-webpage</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Dusshera wishes and cards</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/hindu-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Lunar and Solar Hindu Year</a></li>
+          <li><a href="https://www.happy-new-year.org/jewish-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Jewesh Roash Hashanah</a></li>
+          <li><a href="https://www.happy-new-year.org/islamic-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Islamic New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/japanese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Japanese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Hindu Festival Calendar 2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/haunted-houses-ghost-stories-and-spooky-experiences/classic-ghost-story-themes-for-halloween.html" class="hover:text-white hover:underline transition-colors duration-200">Classic Ghost Story Themes For Halloween</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/haunted-houses-ghost-stories-and-spooky-experiences/diy-haunted-house-ideas-for-small-spaces.html" class="hover:text-white hover:underline transition-colors duration-200">Diy Haunted House Ideas For Small Spaces</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/haunted-houses-ghost-stories-and-spooky-experiences/family-friendly-haunted-attraction-ideas.html" class="hover:text-white hover:underline transition-colors duration-200">Family Friendly Haunted Attraction Ideas</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/haunted-houses-ghost-stories-and-spooky-experiences/famous-haunted-places-and-the-stories-behind-them.html" class="hover:text-white hover:underline transition-colors duration-200">Famous Haunted Places And The Stories Behind Them</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/haunted-houses-ghost-stories-and-spooky-experiences/halloween-escape-room-ideas-at-home.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Escape Room Ideas At Home</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/haunted-houses-ghost-stories-and-spooky-experiences/halloween-ghost-story-ideas-for-families.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Ghost Story Ideas For Families</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/haunted-houses-ghost-stories-and-spooky-experiences/halloween-haunted-maze-ideas.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Haunted Maze Ideas</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/haunted-houses-ghost-stories-and-spooky-experiences/halloween-mystery-party-ideas.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Mystery Party Ideas</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/haunted-houses-ghost-stories-and-spooky-experiences/halloween-urban-legends-and-their-origins.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Urban Legends And Their Origins</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/haunted-houses-ghost-stories-and-spooky-experiences/haunted-house-ideas-for-kids.html" class="hover:text-white hover:underline transition-colors duration-200">Haunted House Ideas For Kids</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/haunted-houses-ghost-stories-and-spooky-experiences/how-haunted-houses-became-a-halloween-tradition.html" class="hover:text-white hover:underline transition-colors duration-200">How Haunted Houses Became A Halloween Tradition</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/haunted-houses-ghost-stories-and-spooky-experiences/how-to-build-a-halloween-fog-and-lighting-setup-safely.html" class="hover:text-white hover:underline transition-colors duration-200">How To Build A Halloween Fog And Lighting Setup Safely</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/haunted-houses-ghost-stories-and-spooky-experiences/how-to-create-a-backyard-haunted-trail.html" class="hover:text-white hover:underline transition-colors duration-200">How To Create A Backyard Haunted Trail</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/haunted-houses-ghost-stories-and-spooky-experiences/how-to-create-a-haunted-house-at-home.html" class="hover:text-white hover:underline transition-colors duration-200">How To Create A Haunted House At Home</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/haunted-houses-ghost-stories-and-spooky-experiences/how-to-host-a-ghost-story-night.html" class="hover:text-white hover:underline transition-colors duration-200">How To Host A Ghost Story Night</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/haunted-houses-ghost-stories-and-spooky-experiences/how-to-make-a-haunted-house-scary-without-being-too-intense.html" class="hover:text-white hover:underline transition-colors duration-200">How To Make A Haunted House Scary Without Being Too Intense</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/haunted-houses-ghost-stories-and-spooky-experiences/how-to-tell-a-great-scary-story-around-a-campfire.html" class="hover:text-white hover:underline transition-colors duration-200">How To Tell A Great Scary Story Around A Campfire</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/haunted-houses-ghost-stories-and-spooky-experiences/scary-halloween-game-ideas.html" class="hover:text-white hover:underline transition-colors duration-200">Scary Halloween Game Ideas</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/haunted-houses-ghost-stories-and-spooky-experiences/scary-haunted-house-room-ideas.html" class="hover:text-white hover:underline transition-colors duration-200">Scary Haunted House Room Ideas</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/haunted-houses-ghost-stories-and-spooky-experiences/spooky-halloween-sound-effects-and-ambience-ideas.html" class="hover:text-white hover:underline transition-colors duration-200">Spooky Halloween Sound Effects And Ambience Ideas</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Footer Links</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/privacypolicy,html" class="hover:text-white hover:underline transition-colors duration-200">Privacy Policy</a></li>
+          <li><a href="https://www.happy-new-year.org/sitemap.html" class="hover:text-white hover:underline transition-colors duration-200">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center text-sm text-gray-400">
+      <p class="text-sm text-gray-400">New Year Wishes Celebrations and Traditions</p>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">&copy; 2026 Happy New Year. All rights reserved.</p>
+      
+    </div>
+
+  </div>
+</footer>

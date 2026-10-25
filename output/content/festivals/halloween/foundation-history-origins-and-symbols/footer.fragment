@@ -1,0 +1,85 @@
+<footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes in 100 languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in Indian Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in European Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/10-popular-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Popular Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/" class="hover:text-white hover:underline transition-colors duration-200">Cards</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/easter/" class="hover:text-white hover:underline transition-colors duration-200">Easter Festival</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-bihari-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-chinese-new-year-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-christmas-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" class="hover:text-white hover:underline transition-colors duration-200">2026-festival-countdown</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" class="hover:text-white hover:underline transition-colors duration-200">Christmas-wishes-by-audience</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026-celebrations-worldwide.html</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" class="hover:text-white hover:underline transition-colors duration-200">Multilingual-greetings-webpage</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Dusshera wishes and cards</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/hindu-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Lunar and Solar Hindu Year</a></li>
+          <li><a href="https://www.happy-new-year.org/jewish-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Jewesh Roash Hashanah</a></li>
+          <li><a href="https://www.happy-new-year.org/islamic-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Islamic New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/japanese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Japanese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Hindu Festival Calendar 2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/foundation-history-origins-and-symbols/50-frequently-asked-questions-about-halloween.html" class="hover:text-white hover:underline transition-colors duration-200">50 Frequently Asked Questions About Halloween</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/foundation-history-origins-and-symbols/halloween-complete-guide-to-history-meaning-traditions-and-celebration.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Complete Guide To History Meaning Traditions And Celebration</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/foundation-history-origins-and-symbols/halloween-for-beginners-everything-you-need-to-know.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween For Beginners Everything You Need To Know</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/foundation-history-origins-and-symbols/halloween-myths-vs-facts.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Myths Vs Facts</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/foundation-history-origins-and-symbols/halloween-traditions-around-the-world.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Traditions Around The World</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/foundation-history-origins-and-symbols/how-halloween-became-popular-in-the-united-states.html" class="hover:text-white hover:underline transition-colors duration-200">How Halloween Became Popular In The United States</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/foundation-history-origins-and-symbols/how-halloween-evolved-from-ancient-traditions-to-a-modern-holiday.html" class="hover:text-white hover:underline transition-colors duration-200">How Halloween Evolved From Ancient Traditions To A Modern Holiday</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/foundation-history-origins-and-symbols/the-history-of-halloween-costumes.html" class="hover:text-white hover:underline transition-colors duration-200">The History Of Halloween Costumes</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/foundation-history-origins-and-symbols/the-history-of-haunted-houses-and-halloween-attractions.html" class="hover:text-white hover:underline transition-colors duration-200">The History Of Haunted Houses And Halloween Attractions</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/foundation-history-origins-and-symbols/the-history-of-trick-or-treating.html" class="hover:text-white hover:underline transition-colors duration-200">The History Of Trick Or Treating</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/foundation-history-origins-and-symbols/the-meaning-of-orange-and-black-on-halloween.html" class="hover:text-white hover:underline transition-colors duration-200">The Meaning Of Orange And Black On Halloween</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/foundation-history-origins-and-symbols/the-origin-of-the-jack-o-lantern.html" class="hover:text-white hover:underline transition-colors duration-200">The Origin Of The Jack O Lantern</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/foundation-history-origins-and-symbols/what-is-samhain-and-how-is-it-connected-to-halloween.html" class="hover:text-white hover:underline transition-colors duration-200">What Is Samhain And How Is It Connected To Halloween</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/foundation-history-origins-and-symbols/why-are-bats-and-spiders-associated-with-halloween.html" class="hover:text-white hover:underline transition-colors duration-200">Why Are Bats And Spiders Associated With Halloween</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/foundation-history-origins-and-symbols/why-are-black-cats-a-halloween-symbol.html" class="hover:text-white hover:underline transition-colors duration-200">Why Are Black Cats A Halloween Symbol</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/foundation-history-origins-and-symbols/why-are-ghosts-and-spirits-associated-with-halloween.html" class="hover:text-white hover:underline transition-colors duration-200">Why Are Ghosts And Spirits Associated With Halloween</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/foundation-history-origins-and-symbols/why-are-witches-associated-with-halloween.html" class="hover:text-white hover:underline transition-colors duration-200">Why Are Witches Associated With Halloween</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/foundation-history-origins-and-symbols/why-do-people-carve-pumpkins-on-halloween.html" class="hover:text-white hover:underline transition-colors duration-200">Why Do People Carve Pumpkins On Halloween</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/foundation-history-origins-and-symbols/why-is-halloween-celebrated-history-origins-and-cultural-meaning.html" class="hover:text-white hover:underline transition-colors duration-200">Why Is Halloween Celebrated History Origins And Cultural Meaning</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/foundation-history-origins-and-symbols/why-is-halloween-celebrated-on-october-31.html" class="hover:text-white hover:underline transition-colors duration-200">Why Is Halloween Celebrated On October 31</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Footer Links</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/privacypolicy,html" class="hover:text-white hover:underline transition-colors duration-200">Privacy Policy</a></li>
+          <li><a href="https://www.happy-new-year.org/sitemap.html" class="hover:text-white hover:underline transition-colors duration-200">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center text-sm text-gray-400">
+      <p class="text-sm text-gray-400">New Year Wishes Celebrations and Traditions</p>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">&copy; 2026 Happy New Year. All rights reserved.</p>
+      
+    </div>
+
+  </div>
+</footer>

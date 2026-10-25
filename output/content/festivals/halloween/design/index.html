@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Halloween :  design your trunk-or-treat</title>
+
+<!-- ------- SEO ------- -->
+<meta content="A free trunk-or-treat car designer for Halloween. Pick a theme, dress the cargo bay, add lights and a custom plate, then pop the hatch and watch your display light up for the trick-or-treaters." name="description"/>
+<meta content="trunk or treat, trunk or treat ideas, halloween car decoration, decorate car trunk halloween, trunk or treat themes, halloween car designer, car boot halloween, trunk decorating" name="keywords"/>
+<meta content="Prashant Dhingra" name="author"/>
+<meta content="index, follow" name="robots"/>
+<meta content="#140C22" name="theme-color"/>
+<link href="https://www.happy-new-year.org/design-trunk-or-treat/" rel="canonical"/>
+
+<!-- ------- Open Graph / Twitter ------- -->
+<meta content="website" property="og:type"/>
+<meta content="Halloween :  design your trunk-or-treat" property="og:title"/>
+<meta content="Pick a theme, dress the cargo bay, then pop the hatch and light it up for the trick-or-treaters." property="og:description"/>
+<meta content="https://www.happy-new-year.org/design-trunk-or-treat/" property="og:url"/>
+<meta content="https://www.happy-new-year.org/design-trunk-or-treat/og-image.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Halloween :  design your trunk-or-treat" name="twitter:title"/>
+<meta content="Design a trunk-or-treat display, pop the hatch and light it up." name="twitter:description"/>
+<meta content="https://www.happy-new-year.org/design-trunk-or-treat/og-image.png" name="twitter:image"/>
+
+<!-- ------- Structured data ------- -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Trunk-or-Treat Designer",
+  "url": "https://www.happy-new-year.org/design-trunk-or-treat/",
+  "description": "A free trunk-or-treat car designer for Halloween. Choose a theme, dress the cargo bay, add lights and a custom plate, then open the hatch to reveal the display.",
+  "applicationCategory": "DesignApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires a modern web browser with HTML5 canvas support.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Person", "name": "Prashant Dhingra", "url": "https://www.happy-new-year.org/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is trunk-or-treat?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Trunk-or-treat is a Halloween tradition where people park in a lot, decorate the boot or cargo area of their cars around a theme, and hand out sweets to children who go from car to car instead of house to house. It is popular with schools, churches and neighbourhood groups." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the trunk-or-treat designer?",
+      "acceptedAnswer": { "@type": "Answer", "text": "It is a free browser tool for planning a trunk-or-treat display. You choose a theme kit that dresses the whole cargo bay, pick your car and colour, add lights, a candy bowl and a custom number plate, then pop the hatch to see the finished display light up." }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the theme kits?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Each kit re-dresses the entire cargo bay at once with its own props and lighting: a graveyard, a spider lair, a mad science lab, a pirate cove, a monster mouth or a candy shop. You can then adjust the details around it." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my design private?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Everything runs in your browser and nothing is uploaded to a server. Your design only leaves the page when you choose to save it or share the link." }
+    }
+  ]
+}
+</script>
+
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;family=DM+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+
+<style>
+  :root{
+    --bg:#140C22; --panel:#1E1330; --panel2:#271A3D;
+    --ink:#F4EEDD; --muted:#B9A9CE;
+    --gold:#E8B84B; --gold2:#C9962E;
+    --line:rgba(232,184,75,.18);
+    --radius:16px;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:
+      radial-gradient(1200px 700px at 78% -8%, rgba(232,184,75,.10), transparent 60%),
+      radial-gradient(900px 700px at 0% 110%, rgba(232,117,26,.12), transparent 55%),
+      var(--bg);
+    color:var(--ink);
+    font-family:"DM Sans",system-ui,sans-serif;
+    min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1160px;margin:0 auto;padding:28px 20px 40px}
+
+  header{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+  .brand{display:flex;flex-direction:column;gap:2px}
+  .kicker{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(32px,5.6vw,52px);line-height:1;margin:0}
+  h1 .np{
+    font-family:"Fraunces",serif;font-weight:700;font-style:italic;font-size:.72em;
+    background:linear-gradient(180deg,#FFB13B,#C1440E);
+    -webkit-background-clip:text;background-clip:text;color:transparent;margin-left:.28em;
+  }
+  .sub{color:var(--muted);font-size:14px;max-width:44ch;line-height:1.5}
+
+  main{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:22px;align-items:start}
+  @media (max-width:880px){ main{grid-template-columns:1fr} }
+
+  .stage{
+    position:relative;border-radius:var(--radius);overflow:hidden;
+    border:1px solid var(--line);
+    box-shadow:0 30px 70px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.02);
+    background:#0F0819;
+    aspect-ratio:1/1;
+  }
+  #art{display:block;width:100%;height:100%;cursor:pointer}
+  .hint{
+    position:absolute;left:14px;bottom:12px;font-size:12px;color:rgba(244,238,221,.62);
+    background:rgba(20,12,34,.55);border:1px solid var(--line);padding:6px 10px;border-radius:999px;
+    pointer-events:none;backdrop-filter:blur(6px);transition:opacity .4s;
+  }
+
+  .panelcol{display:flex;flex-direction:column;gap:14px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px}
+  .card h2{font-family:"Fraunces",serif;font-weight:600;font-size:15px;margin:0 0 10px;letter-spacing:.01em}
+  .card h2 .n{color:var(--gold);font-size:12px;margin-right:8px;font-family:"DM Sans";letter-spacing:.1em}
+  .card.hero{background:linear-gradient(180deg,rgba(232,117,26,.14),rgba(30,19,48,.6));border-color:rgba(232,184,75,.34)}
+
+  .kits{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}
+  .kit{
+    appearance:none;border:1px solid var(--line);background:var(--panel2);color:var(--ink);
+    font-family:inherit;font-size:12.5px;font-weight:600;padding:11px 8px;border-radius:11px;cursor:pointer;
+    display:flex;align-items:center;gap:8px;transition:.15s;text-align:left;
+  }
+  .kit:hover{border-color:var(--gold2)}
+  .kit[aria-pressed="true"]{background:linear-gradient(180deg,rgba(232,184,75,.22),rgba(232,184,75,.08));border-color:var(--gold);color:#FBEFCB}
+  .kit b{width:12px;height:12px;border-radius:50%;flex:none;box-shadow:0 0 8px currentColor}
+
+  .seg{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+  .chip{
+    appearance:none;border:1px solid var(--line);background:var(--panel2);color:var(--ink);
+    font-family:inherit;font-size:12.5px;font-weight:600;padding:9px 6px;border-radius:10px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;gap:6px;transition:.15s;
+  }
+  .chip:hover{border-color:var(--gold2)}
+  .chip[aria-pressed="true"]{background:linear-gradient(180deg,rgba(232,184,75,.22),rgba(232,184,75,.08));border-color:var(--gold);color:#FBEFCB}
+
+  .swatches{display:flex;flex-wrap:wrap;gap:7px}
+  .sw{width:28px;height:28px;border-radius:7px;border:2px solid rgba(255,255,255,.14);cursor:pointer;transition:transform .12s}
+  .sw:hover{transform:translateY(-2px)}
+  .sw[aria-pressed="true"]{border-color:#fff;box-shadow:0 0 0 2px var(--gold)}
+
+  .row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:9px 0}
+  .row:first-child{margin-top:0}
+  .row label{font-size:13px;color:var(--muted);flex:none}
+  .sublabel{font-size:11px;color:var(--muted);margin:2px 0 6px}
+  input[type=text]{width:100%;background:var(--panel2);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-family:inherit;font-size:13.5px;text-transform:uppercase}
+  input[type=text]:focus{outline:none;border-color:var(--gold2)}
+  .toggle{position:relative;width:42px;height:24px;border-radius:999px;background:var(--panel2);border:1px solid var(--line);cursor:pointer;flex:none;transition:.2s}
+  .toggle::after{content:"";position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:var(--muted);transition:.2s}
+  .toggle[aria-pressed="true"]{background:linear-gradient(90deg,var(--gold2),var(--gold))}
+  .toggle[aria-pressed="true"]::after{left:22px;background:#231607}
+
+  .pop{
+    appearance:none;width:100%;border:1px solid transparent;border-radius:12px;cursor:pointer;
+    font-family:inherit;font-weight:700;font-size:15px;padding:14px;color:#2a1408;
+    background:linear-gradient(180deg,#FFC14D,#E8751A);
+    display:flex;align-items:center;justify-content:center;gap:9px;transition:.15s;
+    box-shadow:0 8px 26px rgba(232,117,26,.35);
+  }
+  .pop svg{width:18px;height:18px}
+  .pop:hover{filter:brightness(1.06)}
+  .pop.shut{background:var(--panel2);color:var(--ink);border-color:var(--line);box-shadow:none}
+
+  .actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+  .btn{
+    appearance:none;border:1px solid var(--line);background:var(--panel2);color:var(--ink);
+    font-family:inherit;font-weight:600;font-size:13.5px;padding:11px 10px;border-radius:11px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;gap:7px;transition:.15s;
+  }
+  .btn svg{width:16px;height:16px}
+  .btn:hover{border-color:var(--gold2)}
+  .btn.gold{background:linear-gradient(180deg,var(--gold),var(--gold2));color:#231607;border-color:transparent}
+
+  footer{margin-top:26px;text-align:center;color:var(--muted);font-size:12.5px}
+  footer a{color:var(--gold);text-decoration:none}
+  footer a:hover{text-decoration:underline}
+
+  #toast{
+    position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);
+    background:#2a1c14;color:#FBEFCB;border:1px solid var(--gold2);padding:11px 18px;border-radius:999px;
+    font-size:13.5px;font-weight:600;opacity:0;pointer-events:none;transition:.3s;z-index:50;box-shadow:0 12px 30px rgba(0,0,0,.4);
+    max-width:90vw;text-align:center;
+  }
+  #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+<link href="https://storage.googleapis.com/css-designs/purple/kreatewebsites.production.css" rel="stylesheet"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JJ6LGZB34T"></script><script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-7P1WS6BM5K');
+</script><script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9804321536688475"></script></head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand">
+      <span class="kicker">Halloween · Trunk-or-treat</span>
+      <h1>Design your<span class="np">trunk</span></h1>
+    </div>
+    <p class="sub">Back into the lot, pick a theme, dress the boot :  then pop the hatch and let them come.</p>
+  </header>
+
+  <main>
+    <div class="stage" id="stage">
+      <canvas height="1200" id="art" width="1200"></canvas>
+      <div class="hint" id="hint">Pick a theme kit, then pop the hatch</div>
+    </div>
+
+    <div class="panelcol">
+
+      <div class="card hero">
+        <h2><span class="n">01</span>Theme kit</h2>
+        <div class="kits" id="kitRow"></div>
+        <p class="sublabel" style="margin:9px 0 0">Each kit dresses the whole boot at once.</p>
+      </div>
+
+      <div class="card">
+        <h2><span class="n">02</span>The car</h2>
+        <div class="swatches" id="bodySw"></div>
+        <div class="sublabel" style="margin-top:10px">Shape</div>
+        <div class="seg" id="carRow">
+          <button aria-pressed="true" class="chip" data-car="suv">SUV</button>
+          <button class="chip" data-car="hatch">Hatchback</button>
+          <button class="chip" data-car="van">Van</button>
+        </div>
+        <div class="sublabel" style="margin-top:10px">Number plate</div>
+        <input id="plate" maxlength="8" placeholder="BOO 4 U" type="text"/>
+      </div>
+
+      <div class="card">
+        <h2><span class="n">03</span>Sign</h2>
+        <div class="row" style="margin-bottom:8px"><label>Show sign</label><button aria-pressed="true" class="toggle" id="sign"></button></div>
+        <input id="signText" maxlength="16" placeholder="TRICK OR TREAT" type="text"/>
+      </div>
+
+      <div class="card">
+        <h2><span class="n">04</span>Extras</h2>
+        <div class="row"><label>Candy bowl</label><button aria-pressed="true" class="toggle" id="bowl"></button></div>
+        <div class="row"><label>Pumpkins</label><button aria-pressed="true" class="toggle" id="pumpkins"></button></div>
+        <div class="row"><label>Cobwebs</label><button aria-pressed="true" class="toggle" id="cobwebs"></button></div>
+        <div class="row"><label>Fog</label><button aria-pressed="true" class="toggle" id="fog"></button></div>
+        <div class="row"><label>String lights</label><button aria-pressed="true" class="toggle" id="lights"></button></div>
+        <div class="swatches" id="lightSw"></div>
+      </div>
+
+      <div class="card">
+        <button class="pop" id="popBtn">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M12 19V5"></path><path d="M5 12l7-7 7 7"></path></svg>
+          Pop the hatch
+        </button>
+        <div class="actions">
+          <button class="btn" id="random">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"></path></svg>Surprise
+          </button>
+          <button class="btn" id="reset">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M3 7v6h6"></path><path d="M3 13a9 9 0 1 0 3-7L3 9"></path></svg>Reset
+          </button>
+          <button class="btn gold" id="save">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M7 10l5 5 5-5M12 15V3"></path></svg>Save
+          </button>
+          <button class="btn" id="share">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"></path></svg>Share
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="bg-gray-800 text-gray-300">
+<div class="container mx-auto px-6 py-12 lg:px-8">
+<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/easter/">Easter Festival</a></li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">26-bihari-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">26-chinese-new-year-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">26-christmas-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-festival-countdown</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">Christmas-wishes-by-audience</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">Happy-new-year-2026-celebrations-worldwide.html</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl04_title">Happy-new-year-2026</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl05_title">Multilingual-greetings-webpage</a>
+</li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+</ul>
+<h5 class="text-lg font-semibold text-white mb-4">Wishes and Wallpapers</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes-and-wallpapers.html">Wishes and Wallpapers</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/welcome-new-year.html">Welcome New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wallpapers">Festival Wallpaper for Desktop and Mobile</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards for  New Year</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">2026 News &amp; Trends t</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026-news.html">2026 News</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026-festival-holidays-world.html">2026 Festival Dates</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026-festival-holidays-all-countries.html">Countries Festival</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026-festival-countdown.html">Countdown of  Festival</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026-shraddh-dates.html">2026 Shradh Dates</a></li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-digital-outlook-trends-forecast.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl01_title">2026-digital-outlook-trends-forecast</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl02_title">2026-festival-countdown</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/2026_dashboard.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl03_title">2026_dashboard</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/new_year_2026_page.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl06_title">New_year_2026_page</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/send-christmas-wishes.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl07_title">Send-christmas-wishes</a>
+</li>
+<li>
+<a href="https://www.happy-new-year.org/2026/send-sankranti-wishes-in-multiple-languages.html" id="ctl00_ContentPlaceHolder1_RepLinks_ctl08_title">Send-sankranti-wishes-in-multiple-languages</a>
+</li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/thanksgiving/">Thanks Giving Gratitude</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/christmas/">Christmas</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/valentineday/">Love Festival</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/mothers-day/">Mothers Day</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/fathers-day/">Fathers Day</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/">Halloween Horror</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/index-oct.html">Thanks Giving Main Page</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Contact Us</h5>
+<div class="space-y-2">
+<p>Redmond<br/>WA, USA</p>
+<p>
+<a class="hover:text-white hover:underline transition-colors duration-200" href="mailto:contact@happy-new-year.org">contact@happy-new-year.org</a>
+</p>
+<p>
+<a class="hover:text-white hover:underline transition-colors duration-200" href="tel:+14253411222">+1 (425) 341-1222</a>
+</p>
+</div>
+</div>
+</div>
+<div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+<p class="text-sm text-gray-400">© 2025 Dataknobs, Inc. All rights reserved.</p>
+<div class="flex space-x-4 mt-4 sm:mt-0">
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.facebook.com/kreatewebsites/">
+<span class="sr-only">Facebook</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+</svg>
+</a>
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.twitter.com/dataknobs/">
+<span class="sr-only">Twitter</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+</svg>
+</a>
+<a class="text-gray-400 hover:text-white transition-colors duration-200" href="https://www.linkedin.com/company/kreatewebsites/">
+<span class="sr-only">LinkedIn</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+</svg>
+</a>
+</div>
+<div class="flex gap-4 mt-4 sm:mt-0">
+<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a> <!-- 13 -->
+<a class="text-stone-400 hover:text-white" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a> <!-- 14 -->
+</div>
+</div>
+</div>
+</footer>
+</div>
+
+<div aria-live="polite" id="toast" role="status"></div>
+
+<script>
+(function(){
+  "use strict";
+
+  const SIZE=1200;
+  const GY=1012;                                  // tarmac line
+  const CX0=224, CX1=976, ROOF=436, BASE=1000;    // car body
+  const HX0=286, HX1=914, HY0=470, HY1=850;       // hatch panel (hinged at HY0)
+  const BX0=292, BX1=908, BY0=470, BY1=852;       // cargo bay stage
+  const HL=HY1-HY0;
+  const SHARE_URL="https://www.happy-new-year.org/design-trunk-or-treat/";
+  const SHARE_TEXT="I designed my trunk-or-treat :  do yours:";
+
+  const artC=document.getElementById('art');
+  const c=artC.getContext('2d');
+  const $=id=>document.getElementById(id);
+
+  const BODIES=['#2A2F3A','#8E1B24','#E8751A','#F0E6D2','#2E4A3A','#4A2A5E'];
+  const LIGHTS=['#FFB13B','#7CFF6B','#B57BFF','#FF5A5A','#6BD5FF'];
+  const KITS={
+    graveyard:{n:'Graveyard', glow:'#8FE39B', sign:'R.I.P.'},
+    spider:   {n:'Spider lair',glow:'#B57BFF', sign:'KEEP OUT'},
+    lab:      {n:'Mad lab',    glow:'#7CFF6B', sign:'IT LIVES!'},
+    pirate:   {n:'Pirate cove',glow:'#FFC14D', sign:'YO HO HO'},
+    monster:  {n:'Monster',    glow:'#FF6A4D', sign:'FEED ME'},
+    candy:    {n:'Candy shop', glow:'#FF9ED2', sign:'SWEETS!'}
+  };
+
+  const DEF={
+    kit:'graveyard', body:'#2A2F3A', car:'suv',
+    plate:'BOO 4 U', sign:true, signText:'TRICK OR TREAT',
+    bowl:true, pumpkins:true, cobwebs:true, fog:true,
+    lights:true, lightColor:'#FFB13B'
+  };
+  const state=Object.assign({},DEF);
+
+  /* ---------- hatch animation ---------- */
+  let open=false, amt=0, T=0, raf=null, lastTs=null;
+  function needLoop(){return (open&&amt<1)||(!open&&amt>0)||(amt>0.02);}
+  function loop(ts){
+    if(lastTs==null)lastTs=ts;
+    const dt=Math.min(0.05,(ts-lastTs)/1000); lastTs=ts; T+=dt;
+    if(open) amt=Math.min(1,amt+dt*0.85); else amt=Math.max(0,amt-dt*1.3);
+    render();
+    if(needLoop())raf=requestAnimationFrame(loop); else{raf=null;lastTs=null;render();}
+  }
+  function kick(){if(!raf){lastTs=null;raf=requestAnimationFrame(loop);}}
+
+  /* ---------- helpers ---------- */
+  function hx(h){h=h.replace('#','');if(h.length===3)h=h.split('').map(k=>k+k).join('');return [parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)];}
+  function rgb(a){return 'rgb('+Math.round(a[0])+','+Math.round(a[1])+','+Math.round(a[2])+')';}
+  function hexA(hex,a){const [r,g,b]=hx(hex);return 'rgba('+r+','+g+','+b+','+a+')';}
+  function mix(h1,h2,t){const a=hx(h1),b=hx(h2);return [a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t,a[2]+(b[2]-a[2])*t];}
+  function shade(hex,amt2){return rgb(mix(hex,amt2<0?'#000000':'#FFFFFF',Math.abs(amt2)));}
+  function prng(s){s=s|0||1;return function(){s=(s*1103515245+12345)&0x7fffffff;return s/0x7fffffff;};}
+  function rr(x,y,w,h,r){c.beginPath();c.moveTo(x+r,y);c.arcTo(x+w,y,x+w,y+h,r);c.arcTo(x+w,y+h,x,y+h,r);c.arcTo(x,y+h,x,y,r);c.arcTo(x,y,x+w,y,r);c.closePath();}
+  function glow(){return KITS[state.kit].glow;}
+  function flick(){return 0.9+0.1*Math.sin(T*7)+0.05*Math.sin(T*17);}
+  /* hatch geometry: swings up about the hinge at HY0 */
+  function hatchEnd(){
+    const phi=amt*1.75;                                   // up to ~100°
+    const endY=HY0+HL*Math.cos(phi)-HL*Math.sin(phi)*0.30; // camera sits a touch low
+    const wexp=1+0.10*Math.sin(phi);
+    return {phi,endY,wexp};
+  }
+
+  /* =========================================================
+     LOT
+  ==========================================================*/
+  const STARS=(function(){const r=prng(6161);const a=[];for(let i=0;i<70;i++)a.push({x:r()*SIZE,y:r()*440,rad:r()*1.5+.4,al:r()*.6+.3});return a;})();
+  function drawLot(){
+    const g=c.createLinearGradient(0,0,0,GY);
+    g.addColorStop(0,'#0A0716');g.addColorStop(.6,'#1A1030');g.addColorStop(1,'#2C1B3A');
+    c.fillStyle=g;c.fillRect(0,0,SIZE,SIZE);
+    c.fillStyle='#FFF0C8';
+    STARS.forEach(s=>{c.globalAlpha=s.al;c.beginPath();c.arc(s.x,s.y,s.rad,0,7);c.fill();});
+    c.globalAlpha=1;
+    // moon
+    const mg=c.createRadialGradient(150,150,8,150,150,150);
+    mg.addColorStop(0,'rgba(255,250,228,.85)');mg.addColorStop(1,'rgba(240,228,196,0)');
+    c.fillStyle=mg;c.beginPath();c.arc(150,150,150,0,7);c.fill();
+    c.fillStyle='#F7F0D8';c.beginPath();c.arc(150,150,62,0,7);c.fill();
+    c.fillStyle='rgba(200,188,158,.5)';
+    [[-20,-14,12],[16,10,9],[-4,22,7]].forEach(k=>{c.beginPath();c.arc(150+k[0],150+k[1],k[2],0,7);c.fill();});
+    // distant lamp posts + other cars' glow
+    [180,1030].forEach(x=>{
+      c.strokeStyle='#1A1526';c.lineWidth=9;
+      c.beginPath();c.moveTo(x,GY);c.lineTo(x,300);c.stroke();
+      c.fillStyle='rgba(255,214,140,.9)';
+      c.beginPath();c.ellipse(x,296,26,12,0,0,7);c.fill();
+      const lg=c.createRadialGradient(x,300,10,x,300,300);
+      lg.addColorStop(0,'rgba(255,214,140,.24)');lg.addColorStop(1,'rgba(255,214,140,0)');
+      c.fillStyle=lg;c.beginPath();c.arc(x,300,300,0,7);c.fill();
+    });
+    // tarmac
+    const tg=c.createLinearGradient(0,GY,0,SIZE);
+    tg.addColorStop(0,'#241C2E');tg.addColorStop(1,'#120C1C');
+    c.fillStyle=tg;c.fillRect(0,GY,SIZE,SIZE-GY);
+    // parking bay lines
+    c.strokeStyle='rgba(220,210,180,.22)';c.lineWidth=6;
+    c.beginPath();c.moveTo(120,SIZE);c.lineTo(230,GY+16);c.stroke();
+    c.beginPath();c.moveTo(1080,SIZE);c.lineTo(970,GY+16);c.stroke();
+  }
+
+  /* =========================================================
+     THEME STAGES  (drawn clipped inside the cargo bay)
+  ==========================================================*/
+  function bayFloor(){return BY1-8;}
+  function stageGraveyard(){
+    const r=prng(11);
+    const gy=bayFloor();
+    // back wall
+    c.fillStyle='#120E1E';c.fillRect(BX0,BY0,BX1-BX0,BY1-BY0);
+    // bare tree
+    c.strokeStyle='#241A2A';c.lineCap='round';
+    c.lineWidth=16;c.beginPath();c.moveTo(BX0+92,gy);c.lineTo(BX0+84,BY0+96);c.stroke();
+    c.lineWidth=8;
+    [[-1,150,52],[1,132,58],[-1,110,40]].forEach(([d,h,len])=>{
+      c.beginPath();c.moveTo(BX0+86,BY0+h);c.quadraticCurveTo(BX0+86+d*len*0.7,BY0+h-24,BX0+86+d*len,BY0+h-52);c.stroke();
+    });
+    // tombstones
+    [[BX0+210,96,120],[BX0+330,80,96],[BX0+450,104,132],[BX0+560,74,88]].forEach(([x,w,h],i)=>{
+      c.fillStyle= i%2? '#4A4658':'#3E3A4A';
+      c.beginPath();
+      c.moveTo(x-w/2,gy);c.lineTo(x-w/2,gy-h+w/2);
+      c.arc(x,gy-h+w/2,w/2,Math.PI,0);
+      c.lineTo(x+w/2,gy);c.closePath();c.fill();
+      c.fillStyle='rgba(0,0,0,.3)';c.fillRect(x-w/2,gy-6,w,6);
+      c.fillStyle='rgba(255,255,255,.18)';
+      c.font='700 '+Math.round(w*0.22)+'px "Fraunces",serif';c.textAlign='center';c.textBaseline='middle';
+      c.fillText('RIP',x,gy-h+w*0.62);
+    });
+    // skeleton hand clawing out
+    c.strokeStyle='#D8D2C0';c.lineWidth=7;c.lineCap='round';
+    const hx2=BX0+276, hy=gy-6;
+    c.beginPath();c.moveTo(hx2,hy);c.lineTo(hx2+2,hy-40);c.stroke();
+    for(let i=-2;i<=2;i++){
+      c.beginPath();c.moveTo(hx2+2,hy-38);
+      c.quadraticCurveTo(hx2+i*10,hy-62,hx2+i*15,hy-72);c.stroke();
+    }
+    // ground mound
+    c.fillStyle='#1E1826';c.beginPath();c.ellipse(BX0+276,gy+2,74,16,0,Math.PI,0);c.fill();
+  }
+  function stageSpider(){
+    const gy=bayFloor();
+    c.fillStyle='#150E20';c.fillRect(BX0,BY0,BX1-BX0,BY1-BY0);
+    // web from the top corners
+    c.strokeStyle='rgba(226,224,240,.5)';c.lineWidth=2;
+    const cx=(BX0+BX1)/2, cy=BY0+20, R=470;
+    for(let i=0;i<=8;i++){
+      const a=Math.PI*(i/8);
+      c.beginPath();c.moveTo(cx,cy);c.lineTo(cx+Math.cos(a)*R,cy+Math.sin(a)*R);c.stroke();
+    }
+    for(let ring=1;ring<=6;ring++){
+      const rr2=R*ring/6;
+      c.beginPath();
+      for(let i=0;i<=8;i++){
+        const a=Math.PI*(i/8);
+        const x=cx+Math.cos(a)*rr2, y=cy+Math.sin(a)*rr2;
+        if(i===0)c.moveTo(x,y);
+        else{const pa=Math.PI*((i-0.5)/8);c.quadraticCurveTo(cx+Math.cos(pa)*rr2*0.86,cy+Math.sin(pa)*rr2*0.86,x,y);}
+      }
+      c.stroke();
+    }
+    // egg sacs
+    c.fillStyle='rgba(230,226,240,.75)';
+    [[BX0+80,BY0+120,26],[BX1-96,BY0+96,20],[BX0+150,BY0+210,16]].forEach(([x,y,r2])=>{
+      c.beginPath();c.ellipse(x,y,r2,r2*1.2,0,0,7);c.fill();
+    });
+    // big spider on a thread
+    const sx=cx, sy=BY0+150+Math.sin(T*1.2)*10;
+    c.strokeStyle='rgba(226,224,240,.6)';c.lineWidth=2;
+    c.beginPath();c.moveTo(cx,BY0);c.lineTo(sx,sy-46);c.stroke();
+    c.save();c.translate(sx,sy);
+    c.strokeStyle='#0E0A16';c.fillStyle='#0E0A16';c.lineWidth=8;c.lineCap='round';
+    for(let i=0;i<4;i++){
+      const yy=-14+i*12;
+      [-1,1].forEach(d=>{
+        c.beginPath();c.moveTo(d*14,yy);
+        c.quadraticCurveTo(d*62,yy-30,d*76,yy+34);c.stroke();
+      });
+    }
+    c.beginPath();c.ellipse(0,18,34,40,0,0,7);c.fill();
+    c.beginPath();c.arc(0,-22,22,0,7);c.fill();
+    c.fillStyle='#FF3B3B';
+    c.beginPath();c.arc(-9,-26,5,0,7);c.arc(9,-26,5,0,7);c.fill();
+    c.restore();
+  }
+  function stageLab(){
+    const gy=bayFloor();
+    c.fillStyle='#0F1A18';c.fillRect(BX0,BY0,BX1-BX0,BY1-BY0);
+    // shelf
+    c.fillStyle='#3A2E24';c.fillRect(BX0+40,BY0+170,BX1-BX0-80,14);
+    // flasks
+    const cols=['#7CFF6B','#6BD5FF','#FF6AE0','#FFE86B'];
+    [[BX0+110,54],[BX0+220,44],[BX0+330,60],[BX0+440,40]].forEach(([x,h],i)=>{
+      const y=BY0+170;
+      c.fillStyle='rgba(220,240,255,.28)';
+      c.beginPath();c.moveTo(x-8,y-h-26);c.lineTo(x-8,y-h);c.lineTo(x-24,y);c.lineTo(x+24,y);c.lineTo(x+8,y-h);c.lineTo(x+8,y-h-26);c.closePath();c.fill();
+      c.fillStyle=hexA(cols[i],.85);
+      c.beginPath();c.moveTo(x-17,y-h*0.36);c.lineTo(x-24,y);c.lineTo(x+24,y);c.lineTo(x+17,y-h*0.36);c.closePath();c.fill();
+      // bubbles
+      for(let b=0;b<4;b++){
+        const t2=(T*0.7+b*0.27+i*0.13)%1;
+        c.fillStyle=hexA(cols[i],0.5*(1-t2));
+        c.beginPath();c.arc(x+Math.sin(b*2+i)*9, y-t2*(h*0.4), 3.4*(1-t2)+1.2, 0,7);c.fill();
+      }
+      const g=c.createRadialGradient(x,y-10,2,x,y-10,80);
+      g.addColorStop(0,hexA(cols[i],.3));g.addColorStop(1,hexA(cols[i],0));
+      c.fillStyle=g;c.beginPath();c.arc(x,y-10,80,0,7);c.fill();
+    });
+    // tesla coil
+    const tx=BX1-110;
+    c.fillStyle='#3A3A46';c.fillRect(tx-26,gy-90,52,90);
+    c.fillStyle='#5A5A6A';
+    for(let i=0;i<5;i++)c.fillRect(tx-30,gy-92-i*11,60,7);
+    c.fillStyle='#8A8AA0';c.beginPath();c.ellipse(tx,gy-152,34,14,0,0,7);c.fill();
+    // sparks
+    const sp=prng(Math.floor(T*9)+3);
+    c.strokeStyle='#BFF7FF';c.lineWidth=2.5;c.lineCap='round';
+    for(let i=0;i<4;i++){
+      c.beginPath();c.moveTo(tx,gy-158);
+      let x=tx,y=gy-158;
+      for(let j=0;j<4;j++){x+=(sp()-0.5)*44;y-=sp()*20;c.lineTo(x,y);}
+      c.stroke();
+    }
+    // slab
+    c.fillStyle='#2A2A34';c.fillRect(BX0+60,gy-24,300,24);
+    c.fillStyle='#4A4A58';c.fillRect(BX0+60,gy-30,300,8);
+  }
+  function stagePirate(){
+    const gy=bayFloor();
+    c.fillStyle='#14100A';c.fillRect(BX0,BY0,BX1-BX0,BY1-BY0);
+    // plank wall
+    c.fillStyle='#3A2C1E';
+    for(let y=BY0;y<BY1;y+=34){c.fillRect(BX0,y,BX1-BX0,30);}
+    c.strokeStyle='rgba(0,0,0,.4)';c.lineWidth=2;
+    for(let y=BY0;y<BY1;y+=34){c.beginPath();c.moveTo(BX0,y+31);c.lineTo(BX1,y+31);c.stroke();}
+    // jolly roger
+    c.fillStyle='#14110F';c.fillRect(BX0+60,BY0+30,190,120);
+    c.fillStyle='#EDE7D4';
+    c.beginPath();c.arc(BX0+155,BY0+76,26,0,7);c.fill();
+    c.fillRect(BX0+141,BY0+92,28,16);
+    c.fillStyle='#14110F';
+    c.beginPath();c.arc(BX0+146,BY0+72,7,0,7);c.arc(BX0+164,BY0+72,7,0,7);c.fill();
+    c.strokeStyle='#EDE7D4';c.lineWidth=9;c.lineCap='round';
+    c.beginPath();c.moveTo(BX0+118,BY0+128);c.lineTo(BX0+192,BY0+112);
+    c.moveTo(BX0+118,BY0+112);c.lineTo(BX0+192,BY0+128);c.stroke();
+    // treasure chest
+    const cx=BX0+400;
+    c.fillStyle='#5A3A1E';
+    c.fillRect(cx-110,gy-90,220,90);
+    c.fillStyle='#6E4A26';
+    c.beginPath();c.moveTo(cx-116,gy-90);c.quadraticCurveTo(cx,gy-176,cx+116,gy-90);c.closePath();c.fill();
+    c.strokeStyle='#C9962E';c.lineWidth=7;
+    c.beginPath();c.moveTo(cx-110,gy-52);c.lineTo(cx+110,gy-52);c.stroke();
+    c.fillStyle='#C9962E';c.fillRect(cx-16,gy-64,32,26);
+    // gold
+    const r=prng(808);
+    for(let i=0;i<26;i++){
+      const x=cx+(r()-0.5)*200, y=gy-88+r()*80;
+      c.fillStyle=i%3?'#F0C93A':'#E8B84B';
+      c.beginPath();c.ellipse(x,y,11,6,0,0,7);c.fill();
+    }
+    const g=c.createRadialGradient(cx,gy-70,6,cx,gy-70,180);
+    g.addColorStop(0,'rgba(255,201,60,.34)');g.addColorStop(1,'rgba(255,201,60,0)');
+    c.fillStyle=g;c.beginPath();c.arc(cx,gy-70,180,0,7);c.fill();
+  }
+  function stageMonster(){
+    const gy=bayFloor();
+    // the boot itself is the mouth
+    const g=c.createRadialGradient((BX0+BX1)/2,BY1-40,20,(BX0+BX1)/2,BY1-40,420);
+    g.addColorStop(0,'#7A1020');g.addColorStop(1,'#1A0408');
+    c.fillStyle=g;c.fillRect(BX0,BY0,BX1-BX0,BY1-BY0);
+    // tongue
+    c.fillStyle='#C43A52';
+    c.beginPath();
+    c.moveTo((BX0+BX1)/2-120,BY1);
+    c.quadraticCurveTo((BX0+BX1)/2,BY1-190,(BX0+BX1)/2+120,BY1);
+    c.closePath();c.fill();
+    c.fillStyle='rgba(0,0,0,.2)';
+    c.beginPath();c.moveTo((BX0+BX1)/2,BY1);c.lineTo((BX0+BX1)/2,BY1-140);c.stroke();
+    // teeth top
+    const n=9, w=(BX1-BX0)/n;
+    c.fillStyle='#F2ECD8';
+    for(let i=0;i<n;i++){
+      const x=BX0+i*w;
+      c.beginPath();c.moveTo(x,BY0);c.lineTo(x+w,BY0);c.lineTo(x+w/2,BY0+64+(i%2?18:0));c.closePath();c.fill();
+    }
+    for(let i=0;i<n;i++){
+      const x=BX0+i*w;
+      c.beginPath();c.moveTo(x,BY1);c.lineTo(x+w,BY1);c.lineTo(x+w/2,BY1-58-(i%2?16:0));c.closePath();c.fill();
+    }
+    c.strokeStyle='rgba(120,60,60,.5)';c.lineWidth=2;
+    for(let i=0;i<n;i++){
+      const x=BX0+i*w;
+      c.beginPath();c.moveTo(x,BY0);c.lineTo(x+w,BY0);c.lineTo(x+w/2,BY0+64+(i%2?18:0));c.closePath();c.stroke();
+    }
+    // uvula
+    c.fillStyle='#8E1B28';
+    c.beginPath();c.ellipse((BX0+BX1)/2,BY0+112,16,30,0,0,7);c.fill();
+  }
+  function stageCandy(){
+    const gy=bayFloor();
+    c.fillStyle='#2A1230';c.fillRect(BX0,BY0,BX1-BX0,BY1-BY0);
+    // striped awning
+    const n=10, w=(BX1-BX0)/n;
+    for(let i=0;i<n;i++){
+      c.fillStyle=i%2?'#F2E4EC':'#E8467E';
+      c.beginPath();c.moveTo(BX0+i*w,BY0);c.lineTo(BX0+(i+1)*w,BY0);
+      c.lineTo(BX0+(i+1)*w,BY0+52);c.quadraticCurveTo(BX0+(i+0.5)*w,BY0+80,BX0+i*w,BY0+52);
+      c.closePath();c.fill();
+    }
+    // shelf + jars
+    c.fillStyle='#5A3A46';c.fillRect(BX0+30,BY0+220,BX1-BX0-60,12);
+    const cols=['#FF5A5A','#FFC14D','#7CFF6B','#6BD5FF','#FF9ED2'];
+    [0,1,2,3].forEach(i=>{
+      const x=BX0+120+i*140, y=BY0+220;
+      c.fillStyle='rgba(230,240,255,.22)';
+      rr(x-40,y-96,80,96,10);c.fill();
+      c.fillStyle=hexA(cols[i],.85);
+      rr(x-34,y-72,68,70,8);c.fill();
+      const r=prng(70+i);
+      for(let k=0;k<10;k++){
+        c.fillStyle=hexA(cols[(i+k)%5],.95);
+        c.beginPath();c.arc(x-26+r()*52,y-64+r()*58,6,0,7);c.fill();
+      }
+      c.fillStyle='#C9962E';rr(x-24,y-108,48,14,4);c.fill();
+    });
+    // lollipops
+    [[BX0+70,120],[BX1-70,140]].forEach(([x,h])=>{
+      c.strokeStyle='#F2E4EC';c.lineWidth=7;c.lineCap='round';
+      c.beginPath();c.moveTo(x,gy);c.lineTo(x,gy-h);c.stroke();
+      c.save();c.translate(x,gy-h-26);
+      for(let i=0;i<6;i++){
+        c.fillStyle=i%2?'#E8467E':'#F2E4EC';
+        c.beginPath();c.moveTo(0,0);c.arc(0,0,28,i*Math.PI/3,(i+1)*Math.PI/3);c.closePath();c.fill();
+      }
+      c.restore();
+    });
+  }
+  const STAGES={graveyard:stageGraveyard,spider:stageSpider,lab:stageLab,pirate:stagePirate,monster:stageMonster,candy:stageCandy};
+
+  function drawBay(){
+    c.save();
+    c.beginPath();c.rect(BX0,BY0,BX1-BX0,BY1-BY0);c.clip();
+    (STAGES[state.kit]||stageGraveyard)();
+    // the bay is only lit once the hatch is up
+    if(amt<0.99){
+      c.fillStyle='rgba(4,2,8,'+(1-amt)*0.94+')';
+      c.fillRect(BX0,BY0,BX1-BX0,BY1-BY0);
+    }
+    // themed glow washing the bay
+    if(amt>0.05){
+      const gl=c.createRadialGradient((BX0+BX1)/2,BY1-60,10,(BX0+BX1)/2,BY1-60,460);
+      gl.addColorStop(0,hexA(glow(),0.24*amt*flick()));gl.addColorStop(1,hexA(glow(),0));
+      c.fillStyle=gl;c.fillRect(BX0,BY0,BX1-BX0,BY1-BY0);
+    }
+    // sign across the bay
+    if(state.sign&&amt>0.3){
+      const txt=(state.signText||'').trim();
+      if(txt){
+        const a=(amt-0.3)/0.7;
+        c.save();c.globalAlpha=a;
+        c.fillStyle='rgba(12,8,18,.72)';
+        rr(BX0+40,BY0+16,BX1-BX0-80,62,8);c.fill();
+        c.strokeStyle=hexA(glow(),.8);c.lineWidth=3;rr(BX0+40,BY0+16,BX1-BX0-80,62,8);c.stroke();
+        c.fillStyle=hexA(glow(),1);
+        c.shadowColor=hexA(glow(),.9);c.shadowBlur=18;
+        c.textAlign='center';c.textBaseline='middle';
+        let fs=40;
+        do{c.font='700 '+fs+'px "Fraunces",serif';if(c.measureText(txt).width<=BX1-BX0-120)break;fs-=2;}while(fs>14);
+        c.fillText(txt.toUpperCase(),(BX0+BX1)/2,BY0+48);
+        c.restore();
+      }
+    }
+    c.restore();
+    // bay opening shadow
+    c.strokeStyle='rgba(0,0,0,.6)';c.lineWidth=6;
+    c.strokeRect(BX0,BY0,BX1-BX0,BY1-BY0);
+  }
+
+  /* =========================================================
+     CAR
+  ==========================================================*/
+  function carTop(){return state.car==='van'? ROOF-40 : state.car==='hatch'? ROOF+52 : ROOF;}
+  function drawCarBody(){
+    const top=carTop();
+    const body=state.body;
+    // shadow under the car
+    c.save();
+    const sg=c.createRadialGradient(600,BASE+10,20,600,BASE+10,460);
+    sg.addColorStop(0,'rgba(0,0,0,.65)');sg.addColorStop(1,'rgba(0,0,0,0)');
+    c.fillStyle=sg;c.beginPath();c.ellipse(600,BASE+14,460,54,0,0,7);c.fill();
+    c.restore();
+    // wheels
+    [CX0+96,CX1-96].forEach(x=>{
+      c.fillStyle='#0C0A12';c.beginPath();c.ellipse(x,BASE-4,58,42,0,0,7);c.fill();
+      c.fillStyle='#22202C';c.beginPath();c.ellipse(x,BASE-8,40,28,0,0,7);c.fill();
+    });
+    // rear shell
+    c.fillStyle=body;
+    c.beginPath();
+    c.moveTo(CX0,BASE-30);
+    c.lineTo(CX0,top+64);
+    c.quadraticCurveTo(CX0+6,top,CX0+78,top);
+    c.lineTo(CX1-78,top);
+    c.quadraticCurveTo(CX1-6,top,CX1,top+64);
+    c.lineTo(CX1,BASE-30);
+    c.closePath();c.fill();
+    // side shading
+    c.save();c.beginPath();
+    c.moveTo(CX0,BASE-30);c.lineTo(CX0,top+64);
+    c.quadraticCurveTo(CX0+6,top,CX0+78,top);
+    c.lineTo(CX1-78,top);c.quadraticCurveTo(CX1-6,top,CX1,top+64);
+    c.lineTo(CX1,BASE-30);c.closePath();c.clip();
+    const g=c.createLinearGradient(CX0,0,CX1,0);
+    g.addColorStop(0,'rgba(0,0,0,.4)');g.addColorStop(.18,'rgba(255,255,255,.10)');
+    g.addColorStop(.55,'rgba(255,255,255,0)');g.addColorStop(1,'rgba(0,0,0,.45)');
+    c.fillStyle=g;c.fillRect(CX0,top,CX1-CX0,BASE-top);
+    // roof sheen
+    const rg=c.createLinearGradient(0,top,0,top+70);
+    rg.addColorStop(0,'rgba(255,255,255,.16)');rg.addColorStop(1,'rgba(255,255,255,0)');
+    c.fillStyle=rg;c.fillRect(CX0,top,CX1-CX0,70);
+    c.restore();
+    // roof rails on the SUV
+    if(state.car==='suv'){
+      c.fillStyle=shade(body,-0.45);
+      c.fillRect(CX0+70,top-10,120,10);c.fillRect(CX1-190,top-10,120,10);
+    }
+    // brake light bar above the hatch
+    c.fillStyle='rgba(120,20,20,.9)';
+    rr(560,HY0-26,80,12,4);c.fill();
+  }
+  function drawCarRear(){
+    const body=state.body;
+    // taillights
+    [[CX0+16,'#C41E2A'],[CX1-96,'#C41E2A']].forEach(([x])=>{
+      c.fillStyle='#7A0E16';
+      rr(x,700,80,120,10);c.fill();
+      c.fillStyle='rgba(230,60,60,.9)';
+      rr(x+8,708,64,104,8);c.fill();
+      c.fillStyle='rgba(255,180,180,.5)';
+      rr(x+14,714,52,30,6);c.fill();
+      const g=c.createRadialGradient(x+40,760,4,x+40,760,120);
+      g.addColorStop(0,'rgba(255,60,60,.28)');g.addColorStop(1,'rgba(255,60,60,0)');
+      c.fillStyle=g;c.beginPath();c.arc(x+40,760,120,0,7);c.fill();
+    });
+    // bumper
+    c.fillStyle=shade(body,-0.32);
+    rr(CX0-4,852,CX1-CX0+8,92,10);c.fill();
+    c.fillStyle='rgba(0,0,0,.28)';
+    c.fillRect(CX0-4,930,CX1-CX0+8,14);
+    // plate
+    const p=(state.plate||'').trim();
+    c.fillStyle='#EDE9DC';
+    rr(536,872,128,50,6);c.fill();
+    c.strokeStyle='#3A3A46';c.lineWidth=3;rr(536,872,128,50,6);c.stroke();
+    if(p){
+      c.fillStyle='#1B1A22';c.textAlign='center';c.textBaseline='middle';
+      let fs=28;
+      do{c.font='700 '+fs+'px "DM Sans",sans-serif';if(c.measureText(p).width<=112)break;fs-=1;}while(fs>9);
+      c.fillText(p.toUpperCase(),600,898);
+    }
+    // exhaust
+    c.fillStyle='#2A2A34';
+    rr(CX1-150,936,52,16,6);c.fill();
+  }
+
+  function drawHatch(){
+    const {phi,endY,wexp}=hatchEnd();
+    const body=state.body;
+    const cxm=(HX0+HX1)/2, halfW=(HX1-HX0)/2*wexp;
+    const openSide=endY<HY0;   // past vertical → we're looking at the underside
+    c.save();
+    c.beginPath();
+    c.moveTo(HX0,HY0);c.lineTo(HX1,HY0);
+    c.lineTo(cxm+halfW,endY);c.lineTo(cxm-halfW,endY);
+    c.closePath();
+    c.fillStyle= openSide? shade(body,-0.5) : body;
+    c.fill();
+    c.save();c.clip();
+    if(openSide){
+      // underside: trim panel + a strip light
+      c.fillStyle='rgba(255,255,255,.05)';
+      c.fillRect(HX0-40,Math.min(HY0,endY),HX1-HX0+80,Math.abs(HY0-endY));
+      c.fillStyle=hexA(glow(),0.5*amt*flick());
+      c.fillRect(cxm-halfW*0.5,endY+(HY0-endY)*0.22,halfW,10);
+    } else {
+      // outside: glass + wiper
+      const gy0=HY0+26, gh=HL*0.34;
+      c.fillStyle='rgba(18,20,34,.92)';
+      rr(HX0+40,gy0,HX1-HX0-80,gh,10);c.fill();
+      const gg=c.createLinearGradient(HX0,gy0,HX1,gy0+gh);
+      gg.addColorStop(0,'rgba(255,255,255,.12)');gg.addColorStop(.5,'rgba(255,255,255,0)');
+      c.fillStyle=gg;rr(HX0+40,gy0,HX1-HX0-80,gh,10);c.fill();
+      c.strokeStyle='rgba(0,0,0,.5)';c.lineWidth=4;
+      c.beginPath();c.moveTo(HX0+70,gy0+gh+16);c.lineTo(HX1-120,gy0+gh-6);c.stroke();
+      // handle
+      c.fillStyle=shade(body,-0.4);
+      rr(cxm-46,gy0+gh+38,92,16,8);c.fill();
+      // body shading
+      const g=c.createLinearGradient(HX0,0,HX1,0);
+      g.addColorStop(0,'rgba(0,0,0,.34)');g.addColorStop(.25,'rgba(255,255,255,.08)');
+      g.addColorStop(.6,'rgba(255,255,255,0)');g.addColorStop(1,'rgba(0,0,0,.38)');
+      c.fillStyle=g;c.fillRect(HX0,HY0,HX1-HX0,HL);
+    }
+    c.restore();
+    c.strokeStyle='rgba(0,0,0,.55)';c.lineWidth=3;c.stroke();
+    c.restore();
+
+    // gas strut once it's up
+    if(amt>0.12){
+      c.strokeStyle='#9A9AB0';c.lineWidth=7;c.lineCap='round';
+      [[HX0+30],[HX1-30]].forEach(([x])=>{
+        c.beginPath();c.moveTo(x,HY0+150);
+        c.lineTo(cxm+(x-cxm)*wexp*0.94, endY+(HY0-endY)*0.16);
+        c.stroke();
+      });
+    }
+    // spill of light from the open boot onto the ground
+    if(amt>0.1){
+      c.save();
+      const g=c.createLinearGradient(0,BY1,0,SIZE);
+      g.addColorStop(0,hexA(glow(),0.3*amt*flick()));g.addColorStop(1,hexA(glow(),0));
+      c.fillStyle=g;
+      c.beginPath();
+      c.moveTo(BX0,BY1);c.lineTo(BX1,BY1);c.lineTo(BX1+180,SIZE);c.lineTo(BX0-180,SIZE);
+      c.closePath();c.fill();
+      c.restore();
+    }
+  }
+
+  /* =========================================================
+     EXTRAS
+  ==========================================================*/
+  function drawCobwebs(){
+    if(!state.cobwebs)return;
+    const top=carTop();
+    [[CX0+4,top+8,1],[CX1-4,top+8,-1]].forEach(([ox,oy,dir])=>{
+      c.save();c.translate(ox,oy);c.scale(dir,1);
+      c.strokeStyle='rgba(226,224,240,.5)';c.lineWidth=2;
+      const R=150,n=5;
+      for(let i=0;i<=n;i++){const a=i/n*(Math.PI/2);
+        c.beginPath();c.moveTo(0,0);c.lineTo(Math.cos(a)*R,Math.sin(a)*R);c.stroke();}
+      for(let ring=1;ring<=4;ring++){
+        const rr2=R*ring/4;
+        c.beginPath();
+        for(let i=0;i<=n;i++){
+          const a=i/n*(Math.PI/2), x=Math.cos(a)*rr2, y=Math.sin(a)*rr2;
+          if(i===0)c.moveTo(x,y);
+          else{const pa=(i-0.5)/n*(Math.PI/2);c.quadraticCurveTo(Math.cos(pa)*rr2*0.85,Math.sin(pa)*rr2*0.85,x,y);}
+        }
+        c.stroke();
+      }
+      c.restore();
+    });
+  }
+  function drawLights(){
+    if(!state.lights)return;
+    const top=carTop();
+    const pts=[];
+    const n=24;
+    for(let i=0;i<=n;i++){
+      const t=i/n;
+      const x=CX0-10+(CX1-CX0+20)*t;
+      const y=top+10+Math.sin(Math.PI*t)*26+Math.sin(t*11)*4;
+      pts.push([x,y]);
+    }
+    c.strokeStyle='rgba(0,0,0,.5)';c.lineWidth=2.5;
+    c.beginPath();pts.forEach((p,i)=>i?c.lineTo(p[0],p[1]):c.moveTo(p[0],p[1]));c.stroke();
+    pts.forEach((p,i)=>{
+      if(i%2)return;
+      const ph=Math.sin(T*3+i*0.9)*0.5+0.5;
+      const a=0.6+0.4*ph;
+      const g=c.createRadialGradient(p[0],p[1],1,p[0],p[1],30);
+      g.addColorStop(0,hexA(state.lightColor,0.5*a));g.addColorStop(1,hexA(state.lightColor,0));
+      c.fillStyle=g;c.beginPath();c.arc(p[0],p[1],30,0,7);c.fill();
+      c.fillStyle=hexA(state.lightColor,0.55+0.45*a);
+      c.beginPath();c.ellipse(p[0],p[1]+4,5.5,7.5,0,0,7);c.fill();
+    });
+  }
+  function pumpkin(x,y,s){
+    const g=c.createRadialGradient(x,y-s*0.3,3,x,y-s*0.3,s*3);
+    g.addColorStop(0,'rgba(255,170,60,.3)');g.addColorStop(1,'rgba(255,170,60,0)');
+    c.fillStyle=g;c.beginPath();c.arc(x,y-s*0.3,s*3,0,7);c.fill();
+    c.fillStyle='#C1500E';
+    c.beginPath();c.ellipse(x,y-s*0.62,s,s*0.76,0,0,7);c.fill();
+    for(let i=-1;i<=1;i++){
+      c.fillStyle= i===0? '#E8751A':'#A8410A';
+      c.beginPath();c.ellipse(x+i*s*0.42,y-s*0.62,s*0.34,s*0.75,0,0,7);c.fill();
+    }
+    c.fillStyle='#2E4020';c.fillRect(x-s*0.08,y-s*1.5,s*0.16,s*0.2);
+    c.fillStyle='rgba(255,214,120,'+(0.6+0.4*flick())+')';
+    c.beginPath();c.moveTo(x-s*0.4,y-s*0.86);c.lineTo(x-s*0.14,y-s*0.62);c.lineTo(x-s*0.48,y-s*0.58);c.closePath();c.fill();
+    c.beginPath();c.moveTo(x+s*0.4,y-s*0.86);c.lineTo(x+s*0.14,y-s*0.62);c.lineTo(x+s*0.48,y-s*0.58);c.closePath();c.fill();
+    c.beginPath();
+    c.moveTo(x-s*0.46,y-s*0.4);
+    for(let i=0;i<4;i++){const x0=x-s*0.46+s*0.92*i/4,x1=x-s*0.46+s*0.92*(i+0.5)/4;
+      c.lineTo(x0,y-s*0.4);c.lineTo(x1,y-s*0.2);}
+    c.lineTo(x+s*0.46,y-s*0.4);c.lineTo(x+s*0.4,y-s*0.12);c.lineTo(x-s*0.4,y-s*0.12);
+    c.closePath();c.fill();
+  }
+  function drawPumpkins(){
+    if(!state.pumpkins)return;
+    pumpkin(CX0-70,GY+58,40);
+    pumpkin(CX1+70,GY+62,44);
+    pumpkin(CX0-146,GY+92,30);
+  }
+  function drawBowl(){
+    if(!state.bowl)return;
+    const x=600, y=BY1+66;
+    if(amt<0.25)return;
+    c.save();c.globalAlpha=Math.min(1,(amt-0.25)/0.4);
+    // table
+    c.fillStyle='#2A2434';c.fillRect(x-150,y+6,300,10);
+    // cauldron
+    c.fillStyle='#17141F';
+    c.beginPath();c.ellipse(x,y-16,74,58,0,0,7);c.fill();
+    c.fillStyle='#0E0C14';
+    c.beginPath();c.ellipse(x,y-52,72,20,0,0,7);c.fill();
+    c.fillStyle=hexA(glow(),.5);
+    c.beginPath();c.ellipse(x,y-52,60,14,0,0,7);c.fill();
+    // sweets
+    const r=prng(303);
+    const cols=['#FF5A5A','#FFC14D','#7CFF6B','#6BD5FF','#FF9ED2'];
+    for(let i=0;i<22;i++){
+      const a=r()*7, d=r()*54;
+      const sx=x+Math.cos(a)*d, sy=y-56+Math.sin(a)*12;
+      c.save();c.translate(sx,sy);c.rotate(r()*7);
+      c.fillStyle=cols[i%cols.length];
+      rr(-9,-5,18,10,3);c.fill();
+      c.beginPath();c.moveTo(-9,0);c.lineTo(-15,-5);c.lineTo(-15,5);c.closePath();c.fill();
+      c.beginPath();c.moveTo(9,0);c.lineTo(15,-5);c.lineTo(15,5);c.closePath();c.fill();
+      c.restore();
+    }
+    const g=c.createRadialGradient(x,y-52,4,x,y-52,150);
+    g.addColorStop(0,hexA(glow(),.24*flick()));g.addColorStop(1,hexA(glow(),0));
+    c.fillStyle=g;c.beginPath();c.arc(x,y-52,150,0,7);c.fill();
+    c.restore();
+  }
+  function drawFog(){
+    if(!state.fog)return;
+    c.save();
+    for(let i=0;i<6;i++){
+      const y=GY-10+i*26;
+      const x=600+Math.sin(T*0.2+i*1.3)*160;
+      const g=c.createRadialGradient(x,y,10,x,y,380);
+      g.addColorStop(0,'rgba(190,180,215,'+(0.10-i*0.012)+')');
+      g.addColorStop(1,'rgba(190,180,215,0)');
+      c.fillStyle=g;c.beginPath();c.ellipse(x,y,380,50,0,0,7);c.fill();
+    }
+    c.restore();
+  }
+
+  /* =========================================================
+     RENDER
+  ==========================================================*/
+  function render(){
+    c.setTransform(1,0,0,1,0,0);
+    c.clearRect(0,0,SIZE,SIZE);
+    drawLot();
+    drawCarBody();
+    drawBay();        // the stage sits inside the shell
+    drawCarRear();    // taillights, bumper, plate frame the bay
+    drawHatch();      // …and the hatch swings over it
+    drawCobwebs();
+    drawBowl();
+    drawPumpkins();
+    drawLights();
+    drawFog();
+    updateHash();
+  }
+
+  /* =========================================================
+     SHAREABLE LINK
+  ==========================================================*/
+  function b64u(s){return btoa(unescape(encodeURIComponent(s))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');}
+  function ub64(s){s=s.replace(/-/g,'+').replace(/_/g,'/');while(s.length%4)s+='=';return decodeURIComponent(escape(atob(s)));}
+  function encodeState(){try{return b64u(JSON.stringify({v:1,
+    k:state.kit,b:state.body,c:state.car,p:state.plate,st:state.signText,lc:state.lightColor,
+    f:[state.sign,state.bowl,state.pumpkins,state.cobwebs,state.fog,state.lights].map(x=>x?1:0).join('')
+  }));}catch(e){return '';}}
+  function decodeState(s){try{return JSON.parse(ub64(s));}catch(e){return null;}}
+  function applyState(q){if(!q)return;
+    if(q.k&&KITS[q.k])state.kit=q.k; if(q.b)state.body=q.b; if(q.c)state.car=q.c;
+    if(typeof q.p==='string')state.plate=q.p; if(typeof q.st==='string')state.signText=q.st;
+    if(q.lc)state.lightColor=q.lc;
+    if(typeof q.f==='string'){const f=q.f;
+      ['sign','bowl','pumpkins','cobwebs','fog','lights'].forEach((k,i)=>state[k]=f[i]==='1');}
+  }
+  let _h;function updateHash(){clearTimeout(_h);_h=setTimeout(function(){try{history.replaceState(null,'',location.pathname+location.search+'#t='+encodeState());}catch(e){}},350);}
+  function readHash(){const h=location.hash||'';const i=h.indexOf('t=');return i>-1?h.slice(i+2):'';}
+  function restoreFromHash(){const r=readHash();if(!r)return false;const q=decodeState(r);if(q){applyState(q);return true;}return false;}
+  function shareUrl(){return SHARE_URL+'#t='+encodeState();}
+
+  /* =========================================================
+     CONTROLS
+  ==========================================================*/
+  const kitRow=$('kitRow');
+  Object.keys(KITS).forEach(k=>{
+    const b=document.createElement('button');b.className='kit';b.dataset.k=k;
+    b.setAttribute('aria-pressed',k===state.kit?'true':'false');
+    b.innerHTML='<b style="background:'+KITS[k].glow+';color:'+KITS[k].glow+'"></b>'+KITS[k].n;
+    b.onclick=()=>{
+      state.kit=k; state.signText=KITS[k].sign;
+      $('signText').value=state.signText;
+      [...kitRow.children].forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));
+      const h=$('hint');if(h)h.style.opacity='0';
+      render();kick();
+    };
+    kitRow.appendChild(b);
+  });
+
+  function makeSw(id,list,key){
+    const el=$(id);
+    list.forEach(col=>{
+      const b=document.createElement('button');b.className='sw';b.style.background=col;b.dataset.v=col;
+      b.setAttribute('aria-pressed',col===state[key]?'true':'false');
+      b.onclick=()=>{state[key]=col;[...el.children].forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));render();kick();};
+      el.appendChild(b);
+    });
+  }
+  makeSw('bodySw',BODIES,'body');
+  makeSw('lightSw',LIGHTS,'lightColor');
+
+  $('carRow').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;
+    state.car=b.dataset.car;
+    [...$('carRow').children].forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));render();kick();});
+
+  function bindToggle(id,key){const el=$(id);el.setAttribute('aria-pressed',state[key]?'true':'false');
+    el.onclick=()=>{state[key]=!state[key];el.setAttribute('aria-pressed',state[key]?'true':'false');render();kick();};}
+  ['sign','bowl','pumpkins','cobwebs','fog','lights'].forEach(k=>bindToggle(k,k));
+
+  function bindText(id,key){const el=$(id);el.value=state[key];
+    el.addEventListener('input',()=>{state[key]=el.value;render();kick();});}
+  bindText('plate','plate');
+  bindText('signText','signText');
+
+  const popBtn=$('popBtn');
+  function setOpen(v){
+    open=v;
+    popBtn.classList.toggle('shut',open);
+    popBtn.lastChild.textContent= open? ' Shut the hatch':' Pop the hatch';
+    const h=$('hint');if(h)h.style.opacity='0';
+    kick();
+  }
+  popBtn.onclick=()=>setOpen(!open);
+  artC.addEventListener('click',()=>setOpen(!open));
+
+  $('random').onclick=()=>{
+    const pick=a=>a[Math.floor(Math.random()*a.length)];
+    state.kit=pick(Object.keys(KITS));
+    state.signText=KITS[state.kit].sign;
+    state.body=pick(BODIES);state.car=pick(['suv','hatch','van']);
+    state.lightColor=pick(LIGHTS);
+    ['bowl','pumpkins','cobwebs','fog','lights'].forEach(k=>state[k]=Math.random()>0.25);
+    state.sign=true;
+    syncUI();render();kick();
+  };
+  $('reset').onclick=()=>{Object.assign(state,DEF);syncUI();render();kick();toast('Reset');};
+
+  function syncUI(){
+    [...kitRow.children].forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===state.kit?'true':'false'));
+    [...$('bodySw').children].forEach(x=>x.setAttribute('aria-pressed',x.dataset.v===state.body?'true':'false'));
+    [...$('lightSw').children].forEach(x=>x.setAttribute('aria-pressed',x.dataset.v===state.lightColor?'true':'false'));
+    [...$('carRow').children].forEach(x=>x.setAttribute('aria-pressed',x.dataset.car===state.car?'true':'false'));
+    ['sign','bowl','pumpkins','cobwebs','fog','lights'].forEach(k=>$(k).setAttribute('aria-pressed',state[k]?'true':'false'));
+    $('plate').value=state.plate;$('signText').value=state.signText;
+  }
+
+  /* =========================================================
+     SAVE / SHARE
+  ==========================================================*/
+  function canvasToBlob(){return new Promise(res=>{render();artC.toBlob(b=>res(b),'image/png');});}
+  async function canvasToFile(){const b=await canvasToBlob();return b?new File([b],'trunk-or-treat.png',{type:'image/png'}):null;}
+  function downloadBlob(blob,name){const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+  function copyText(t){if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).catch(()=>{});}}
+
+  $('save').onclick=async()=>{
+    const blob=await canvasToBlob();if(!blob){toast('Could not save');return;}
+    downloadBlob(blob,'trunk-or-treat.png');
+    toast('Saved :  check your downloads');
+  };
+  $('share').onclick=async()=>{
+    const url=shareUrl();
+    if(navigator.canShare){
+      const file=await canvasToFile();
+      if(file&&navigator.canShare({files:[file]})){
+        try{await navigator.share({files:[file],title:'My trunk-or-treat',text:SHARE_TEXT,url});return;}
+        catch(e){if(e&&e.name==='AbortError')return;}
+      }
+    }
+    const blob=await canvasToBlob();if(blob)downloadBlob(blob,'trunk-or-treat.png');
+    copyText(url);
+    toast('Image downloaded :  attach it to your message. Trunk link copied too.');
+  };
+
+  let toastT;function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('show'),3200);}
+
+  /* ---------- boot ---------- */
+  const fromLink=restoreFromHash();
+  syncUI();
+  render();
+  if(fromLink){
+    const h=$('hint');if(h)h.textContent='Someone set this up :  pop the hatch';
+    setTimeout(()=>setOpen(true),700);
+  }
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(render);
+})();
+</script>
+
+
+</body></html>

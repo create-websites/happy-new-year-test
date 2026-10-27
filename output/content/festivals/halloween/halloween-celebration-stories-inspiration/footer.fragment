@@ -1,0 +1,126 @@
+<footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes in 100 languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in Indian Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in European Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/10-popular-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Popular Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/" class="hover:text-white hover:underline transition-colors duration-200">Cards</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/easter/" class="hover:text-white hover:underline transition-colors duration-200">Easter Festival</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-bihari-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-chinese-new-year-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-christmas-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" class="hover:text-white hover:underline transition-colors duration-200">2026-festival-countdown</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" class="hover:text-white hover:underline transition-colors duration-200">Christmas-wishes-by-audience</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026-celebrations-worldwide.html</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" class="hover:text-white hover:underline transition-colors duration-200">Multilingual-greetings-webpage</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Dusshera wishes and cards</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/hindu-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Lunar and Solar Hindu Year</a></li>
+          <li><a href="https://www.happy-new-year.org/jewish-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Jewesh Roash Hashanah</a></li>
+          <li><a href="https://www.happy-new-year.org/islamic-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Islamic New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/japanese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Japanese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Hindu Festival Calendar 2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/all-characters-halloween.html" class="hover:text-white hover:underline transition-colors duration-200">All Characters Halloween</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/candy-decor.html" class="hover:text-white hover:underline transition-colors duration-200">Candy Decor</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/card-decoration.html" class="hover:text-white hover:underline transition-colors duration-200">Card Decoration</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/characters-pumpkin.html" class="hover:text-white hover:underline transition-colors duration-200">Characters Pumpkin</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/diwali-halloween-8.html" class="hover:text-white hover:underline transition-colors duration-200">Diwali Halloween 8</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/diwali-halloween-decoration-1.html" class="hover:text-white hover:underline transition-colors duration-200">Diwali Halloween Decoration 1</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/diwali-halloween-decoration-2.html" class="hover:text-white hover:underline transition-colors duration-200">Diwali Halloween Decoration 2</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/diwali-halloween-decoration-3.html" class="hover:text-white hover:underline transition-colors duration-200">Diwali Halloween Decoration 3</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/diwali-halloween-decoration-6.html" class="hover:text-white hover:underline transition-colors duration-200">Diwali Halloween Decoration 6</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/diwali-halloween-decoration.html" class="hover:text-white hover:underline transition-colors duration-200">Diwali Halloween Decoration</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/ghost-decor.html" class="hover:text-white hover:underline transition-colors duration-200">Ghost Decor</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/hallloween-diwali.html" class="hover:text-white hover:underline transition-colors duration-200">Hallloween Diwali</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/halloween-candies.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Candies</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/halloween-celebration-4.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Celebration 4</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/halloween-character-made-from-candy.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Character Made From Candy</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/halloween-city-candies.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween City Candies</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/halloween-decoration-indoor.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Decoration Indoor</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/halloween-diwali.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Diwali</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/halloween-external-decor.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween External Decor</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/halloween-external-decoration.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween External Decoration</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/halloween-garage-decoration.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Garage Decoration</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/halloween-garage-setp.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Garage Setp</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/halloween-garage.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Garage</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/halloween-good.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Good</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/halloween-horror-character--made-from-candy.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Horror Character  Made From Candy</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/halloween-house-decoration.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween House Decoration</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/halloween-house-outside.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween House Outside</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/halloween-office-decoration-1.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Office Decoration 1</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/halloween-office-decoration-2.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Office Decoration 2</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/halloween-office-decoration-4.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Office Decoration 4</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/halloween-orgami-1.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Orgami 1</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/halloween-orgami-15.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Orgami 15</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/halloween-orgami-2.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Orgami 2</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/halloween-orgami-3.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Orgami 3</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/halloween-orgami-4.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Orgami 4</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/halloween-orgami-6.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Orgami 6</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/halloween-orgami-7.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Orgami 7</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/halloween-orgami-8.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Orgami 8</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/halloween-orgami-9.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Orgami 9</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/halloween-orgami-characters.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Orgami Characters</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/halloween-orgami.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Orgami</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/halloween-setup.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Setup</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/halloween-street-celebration-1.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Street Celebration 1</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/halloween-street-celebration-2.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Street Celebration 2</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/halloween-street-celebration-3.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Street Celebration 3</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/halloween-witches-clowns.html" class="hover:text-white hover:underline transition-colors duration-200">Halloween Witches Clowns</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/hallowen-candies.html" class="hover:text-white hover:underline transition-colors duration-200">Hallowen Candies</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/horror-characters.html" class="hover:text-white hover:underline transition-colors duration-200">Horror Characters</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/horror-funny-decor.html" class="hover:text-white hover:underline transition-colors duration-200">Horror Funny Decor</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/house-decor-diwali-halloween.html" class="hover:text-white hover:underline transition-colors duration-200">House Decor Diwali Halloween</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/house-decoration.html" class="hover:text-white hover:underline transition-colors duration-200">House Decoration</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/house-external-decor-halloween.html" class="hover:text-white hover:underline transition-colors duration-200">House External Decor Halloween</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/house-light.html" class="hover:text-white hover:underline transition-colors duration-200">House Light</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/house.html" class="hover:text-white hover:underline transition-colors duration-200">House</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/icons-halloween.html" class="hover:text-white hover:underline transition-colors duration-200">Icons Halloween</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/kids-costume.html" class="hover:text-white hover:underline transition-colors duration-200">Kids Costume</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/orgami-characters.html" class="hover:text-white hover:underline transition-colors duration-200">Orgami Characters</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/pumpkin-horror.html" class="hover:text-white hover:underline transition-colors duration-200">Pumpkin Horror</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/screen-horror.html" class="hover:text-white hover:underline transition-colors duration-200">Screen Horror</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/vampire.html" class="hover:text-white hover:underline transition-colors duration-200">Vampire</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/witches.html" class="hover:text-white hover:underline transition-colors duration-200">Witches</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Footer Links</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/privacypolicy,html" class="hover:text-white hover:underline transition-colors duration-200">Privacy Policy</a></li>
+          <li><a href="https://www.happy-new-year.org/sitemap.html" class="hover:text-white hover:underline transition-colors duration-200">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center text-sm text-gray-400">
+      <p class="text-sm text-gray-400">New Year Wishes Celebrations and Traditions</p>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">&copy; 2026 Happy New Year. All rights reserved.</p>
+      
+    </div>
+
+  </div>
+</footer>

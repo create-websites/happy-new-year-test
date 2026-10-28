@@ -116,6 +116,7 @@
       <div>
         <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
         <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/2027-page.html" class="hover:text-white hover:underline transition-colors duration-200">2027 Page</a></li>
           <li><a href="https://www.happy-new-year.org/CheesePlatter.html" class="hover:text-white hover:underline transition-colors duration-200">Cheeseplatter</a></li>
           <li><a href="https://www.happy-new-year.org/chinese-new-year-history.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year History</a></li>
           <li><a href="https://www.happy-new-year.org/chinese-new-year.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year</a></li>
@@ -133,6 +134,7 @@
           <li><a href="https://www.happy-new-year.org/hindu-new-year.html" class="hover:text-white hover:underline transition-colors duration-200">Hindu New Year</a></li>
           <li><a href="https://www.happy-new-year.org/horoscope.html" class="hover:text-white hover:underline transition-colors duration-200">Horoscope</a></li>
           <li><a href="https://www.happy-new-year.org/image.html" class="hover:text-white hover:underline transition-colors duration-200">Image</a></li>
+          <li><a href="https://www.happy-new-year.org/index-halloween.html" class="hover:text-white hover:underline transition-colors duration-200">Index Halloween</a></li>
           <li><a href="https://www.happy-new-year.org/index-main.html" class="hover:text-white hover:underline transition-colors duration-200">Index Main</a></li>
           <li><a href="https://www.happy-new-year.org/index-oct.html" class="hover:text-white hover:underline transition-colors duration-200">Index Oct</a></li>
           <li><a href="https://www.happy-new-year.org/index-prashant.html" class="hover:text-white hover:underline transition-colors duration-200">Index Prashant</a></li>

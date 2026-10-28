@@ -1,341 +1,196 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halloween: An Interactive Guide to History and Haunts</title>
-    
-    <!-- Meta Description and Keywords for SEO -->
-    <meta name="description" content="Explore the spooky history, origins (Samhain), key traditions, and modern celebrations of the Halloween festival in this interactive guide.">
-    <meta name="keywords" content="Halloween, Samhain, history, traditions, trick-or-treating, costumes, jack-o'-lanterns, spooky">
-
-    <!-- Open Graph (OG) / Social Media Tags -->
-    <meta property="og:title" content="Halloween: An Interactive Guide to History and Haunts">
-    <meta property="og:description" content="Discover how the ancient Celtic festival of Samhain evolved into the modern-day celebration of Halloween.">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://example.com/halloween-guide">
-    <meta property="og:image" content="https://placehold.co/1200x630/FF4500/000000?text=Halloween+Guide">
-    <meta property="og:site_name" content="Cultural Festival Explorer">
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
-    
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Event",
-      "name": "Halloween",
-      "description": "The annual celebration observed on October 31, originating from the ancient Celtic harvest festival of Samhain.",
-      "image": "https://placehold.co/1200x630/FF4500/000000?text=Halloween+Guide",
-      "startDate": "2025-10-31", 
-      "location": {
-        "@type": "Place",
-        "name": "Worldwide"
-      }
-    }
-    </script>
-    
-    <!-- Chosen Palette: Black, Deep Orange, and Purple (Spooky Theme) -->
-    <!-- Application Structure Plan: A thematic, single-page application with a sticky top navigation. The structure moves chronologically/thematically: 'Significance' (modern date/tone), the central 'Samhain Origins' story, 'Key Traditions' (Costumes, Lanterns, T-or-T), an 'Activity Breakdown' chart visualizing modern participation, and finally, 'Wishes & Quotes'. This sequence guides the user from the modern holiday back to its ancient roots and current practices. -->
-    <!-- Visualization & Content Choices: 
-        - Significance: Inform -> Text block & Two Image Cards (Placeholders) -> Static -> Justification: Provides contextual modern history alongside visual representation of key holiday elements (Pumpkin, Costume). Method: HTML/Tailwind.
-        - Samhain Origins: Inform -> Detailed Story Block -> Static -> Justification: The core historical/mythological narrative is presented clearly as the central focus. Method: HTML/Tailwind.
-        - Traditions: Organize/Inform -> Step-by-step card flow -> Scroll/Click -> Justification: Breaks down modern holiday customs (Trick-or-Treat, Costumes, Lanterns) into digestible steps. Method: HTML/Tailwind.
-        - Activity Breakdown: Inform/Compare -> Bar Chart -> Interactive Tooltips -> Justification: Visually represents the conceptual distribution of modern Halloween celebratory activities. Library: Chart.js/Canvas.
-        - Wishes/Quotes: Inform -> Grid of Text Cards -> Static -> Justification: Provides fun, shareable content as a concluding resource. Method: HTML/Tailwind. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #121212; 
-        }
-        h1, h2, h3 {
-            font-family: 'Lora', serif;
-        }
-        .nav-link {
-            transition: color 0.3s, border-color 0.3s;
-        }
-        .nav-link.active {
-            color: #FF8C00; 
-            border-bottom-color: #FF8C00;
-        }
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 400px;
-            max-height: 450px;
-        }
-    </style>
-</head>
-<body class="text-gray-200">
-
-    <header class="bg-black/80 backdrop-blur-md sticky top-0 z-50 shadow-lg shadow-orange-900/20">
-        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <h1 class="text-2xl font-bold text-orange-500">Halloween</h1>
-                <div class="hidden sm:flex sm:space-x-8" id="nav-links">
-                    <a href="#significance" class="nav-link text-gray-400 hover:text-orange-400 border-b-2 border-transparent pb-1">Modern Holiday</a>
-                    <a href="#samhain" class="nav-link text-gray-400 hover:text-orange-400 border-b-2 border-transparent pb-1">Origins</a>
-                    <a href="#traditions" class="nav-link text-gray-400 hover:text-orange-400 border-b-2 border-transparent pb-1">Key Traditions</a>
-                    <a href="#activities" class="nav-link text-gray-400 hover:text-orange-400 border-b-2 border-transparent pb-1">Activities</a>
-                    <a href="#quotes" class="nav-link text-gray-400 hover:text-orange-400 border-b-2 border-transparent pb-1">Wishes & Quotes</a>
-                </div>
-                <div class="sm:hidden">
-                    <select id="mobile-nav" class="block w-full rounded-md border-gray-700 bg-gray-900 text-white shadow-sm focus:border-orange-500 focus:ring-orange-500">
-                        <option value="#significance">Modern Holiday</option>
-                        <option value="#samhain">Origins</option>
-                        <option value="#traditions">Key Traditions</option>
-                        <option value="#activities">Activities</option>
-                        <option value="#quotes">Wishes & Quotes</option>
-                    </select>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-
-        <section id="hero" class="text-center mb-16">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-orange-500 tracking-tight">Halloween: Where Ancient Ritual Meets Modern Fun</h1>
-            <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-400">A handy guide diving into the history, eerie legends, and cherished customs of Halloween night.</p>
-        </section>
-
-        <section id="significance" class="mb-16 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-8 text-orange-500">The Modern Holiday</h2>
-            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-                <!-- Text Content -->
-                <div class="md:col-span-2 bg-gray-900 p-8 rounded-xl shadow-lg border border-orange-900">
-                    <h3 class="text-2xl font-semibold text-orange-400 mb-4">Date and Global Reach</h3>
-                    <p class="text-lg text-gray-300 leading-relaxed">
-                        **Halloween**, observed annually on **October 31st**, is a widely celebrated secular holiday in Western nations, especially in the United States, Canada, and the UK. Its name originates from **'All Hallows' Evening,'** marking the eve of All Saints' Day in Christian tradition. Today, it features fun, spooky customs such as dressing in **costumes**, carving **jack-o'-lanterns**, holding parties, and the beloved tradition of **trick-or-treating**. The holiday blends playful frights with festive community spirit.
-                    </p>
-                </div>
-                <!-- Image Cards (Placeholders) -->
-                <div class="md:col-span-1 space-y-4">
-                    <div class="rounded-xl overflow-hidden shadow-xl border border-orange-700 bg-gray-800">
-                        <img src="https://placehold.co/400x250/FF4500/121212?text=Spooky+Costume" alt="Placeholder image of a spooky Halloween costume." class="w-full h-auto object-cover">
-                        <p class="p-3 text-sm text-center font-medium text-orange-500">The Modern Halloween Costume</p>
-                    </div>
-                    <div class="rounded-xl overflow-hidden shadow-xl border border-orange-700 bg-gray-800">
-                        <img src="https://placehold.co/400x250/FFA500/121212?text=Glowing+Pumpkin" alt="Placeholder image of a glowing jack-o'-lantern." class="w-full h-auto object-cover">
-                         <p class="p-3 text-sm text-center font-medium text-orange-500">The Signature Jack-O'-Lantern</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="samhain" class="mb-16 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-8 text-orange-500">The Ancient Celtic Origins: Samhain</h2>
-            <div class="bg-gray-900 p-8 rounded-xl shadow-2xl max-w-4xl mx-auto border-t-4 border-purple-500">
-                <h3 class="text-2xl font-bold text-purple-400 mb-4">The End of the Harvest</h3>
-                <p class="text-gray-300 leading-relaxed">
-                    Halloween traces its origins to the ancient **Celtic festival of Samhain** (pronounced *sow-in*), meaning 'summer's end.' Over 2,000 years ago, this festival was observed mainly in Ireland, the UK, and Northern France to mark the transition from harvest to the cold, dark winter—a season linked to death. The Celts believed that on the eve of the new year, the boundary between the living and the dead blurred. Samhain was celebrated on November 1st, making **October 31st** the sacred night when spirits and ghosts could revisit the earthly world.
-                </p>
-            </div>
-        </section>
-
-        <section id="traditions" class="mb-16 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-8 text-orange-500">The Evolution of Key Traditions</h2>
-             <p class="text-center max-w-3xl mx-auto mb-10 text-gray-400">
-                Three key modern traditions trace back to ancient Celtic and European folk practices.
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-gray-900 p-6 rounded-xl shadow-lg border border-orange-900 transition-transform transform hover:scale-105 border-b-4 border-orange-500">
-                    <h3 class="text-xl font-semibold text-orange-400 mb-3">Trick-or-Treating</h3>
-                    <p class="text-gray-400">Steeped in medieval European traditions of **'souling,'** the poor once roamed door-to-door, seeking food in return for prayers for the departed (soul cakes).</p>
-                </div>
-                <div class="bg-gray-900 p-6 rounded-xl shadow-lg border border-orange-900 transition-transform transform hover:scale-105 border-b-4 border-orange-500">
-                    <h3 class="text-xl font-semibold text-orange-400 mb-3">Costumes & Masking</h3>
-                    <p class="text-gray-400">The Celts donned animal-skin costumes during Samhain to trick or repel spirits, blending in or scaring them away.</p>
-                </div>
-                <div class="bg-gray-900 p-6 rounded-xl shadow-lg border border-orange-900 transition-transform transform hover:scale-105 border-b-4 border-orange-500">
-                    <h3 class="text-xl font-semibold text-orange-400 mb-3">Jack-O'-Lanterns</h3>
-                    <p class="text-gray-400">Traditionally made from turnips or potatoes in Ireland and Scotland, they symbolized guiding lights and kept evil spirits away.</p>
-                </div>
-            </div>
-        </section>
-        
-        <section id="activities" class="mb-16 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-8 text-orange-500">Modern Halloween Activity Breakdown</h2>
-            <p class="text-center max-w-3xl mx-auto mb-10 text-gray-400">
-                How do people usually celebrate Halloween nowadays? This chart shows the relative popularity of key festive activities.
-            </p>
-            <div class="bg-gray-900 p-4 sm:p-8 rounded-xl shadow-lg">
-                <div class="chart-container">
-                    <canvas id="activityChart"></canvas>
-                </div>
-                <div class="text-center mt-4 text-sm text-gray-500">Place your cursor over the bars to view detailed activity.</div>
-            </div>
-        </section>
-        
-        <section id="quotes" class="mb-16 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-8 text-orange-500">20 Spooky Wishes & Quotes</h2>
-            <p class="text-center max-w-3xl mx-auto mb-10 text-gray-400">
-                Share these eerie and fun quotes to spread Halloween vibes with your loved ones.
-            </p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
-                <div class="bg-gray-900 p-4 rounded-lg shadow-md border-l-2 border-purple-500 text-gray-300">Hope your Halloween is filled with treats, not tricks!</div>
-                <div class="bg-gray-900 p-4 rounded-lg shadow-md border-l-2 border-purple-500 text-gray-300">Wishing you a night of frights and delight. Happy Halloween!</div>
-                <div class="bg-gray-900 p-4 rounded-lg shadow-md border-l-2 border-purple-500 text-gray-300">May your candy stash be massive and your costume legendary.</div>
-                <div class="bg-gray-900 p-4 rounded-lg shadow-md border-l-2 border-purple-500 text-gray-300">"Without imagination, there can be no fear." - Sir Arthur Conan Doyle</div>
-                <div class="bg-gray-900 p-4 rounded-lg shadow-md border-l-2 border-purple-500 text-gray-300">Have a wicked good time! Be safe and spooky.</div>
-                <div class="bg-gray-900 p-4 rounded-lg shadow-md border-l-2 border-purple-500 text-gray-300">The night stirs with unease! Beware what lurks in the shadows.</div>
-                <div class="bg-gray-900 p-4 rounded-lg shadow-md border-l-2 border-purple-500 text-gray-300">Wishing you a Halloween that's more sweet than scary.</div>
-                <div class="bg-gray-900 p-4 rounded-lg shadow-md border-l-2 border-purple-500 text-gray-300">May your blood be chilled and your treats be many!</div>
-                <div class="bg-gray-900 p-4 rounded-lg shadow-md border-l-2 border-purple-500 text-gray-300">"Magic is quite simple; just truly wish for something." - Halloweentown</div>
-                <div class="bg-gray-900 p-4 rounded-lg shadow-md border-l-2 border-purple-500 text-gray-300">Eat, drink, and be scary! Have a fantastic night.</div>
-                <div class="bg-gray-900 p-4 rounded-lg shadow-md border-l-2 border-purple-500 text-gray-300">Don't be a fraidy-cat! This is the season to cheer.</div>
-                <div class="bg-gray-900 p-4 rounded-lg shadow-md border-l-2 border-purple-500 text-gray-300">I hope your ghost detector stays silent tonight!</div>
-                <div class="bg-gray-900 p-4 rounded-lg shadow-md border-l-2 border-purple-500 text-gray-300">Sending you lots of boos and chilling cheers!</div>
-                <div class="bg-gray-900 p-4 rounded-lg shadow-md border-l-2 border-purple-500 text-gray-300">"When witches take flight and black cats appear, the moon softly chuckles, 'Halloween is near.'"</div>
-                <div class="bg-gray-900 p-4 rounded-lg shadow-md border-l-2 border-purple-500 text-gray-300">May your Halloween be bewitching, spooky, and full of fun.</div>
-                <div class="bg-gray-900 p-4 rounded-lg shadow-md border-l-2 border-purple-500 text-gray-300">Wishing you a very creepy and candy-filled October 31st!</div>
-                <div class="bg-gray-900 p-4 rounded-lg shadow-md border-l-2 border-purple-500 text-gray-300">Be sure to check under your bed tonight... just in case!</div>
-                <div class="bg-gray-900 p-4 rounded-lg shadow-md border-l-2 border-purple-500 text-gray-300">Get ready for a howling good time! Happy spooky season!</div>
-                <div class="bg-gray-900 p-4 rounded-lg shadow-md border-l-2 border-purple-500 text-gray-300">"Twice the toil, and twice the trouble; Flames do rise, and cauldrons bubble."</div>
-                <div class="bg-gray-900 p-4 rounded-lg shadow-md border-l-2 border-purple-500 text-gray-300">May your night be as magical as a witch’s spell.</div>
-            </div>
-        </section>
-
-    </main>
-    
-    <footer class="bg-black mt-16">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-gray-600">
-            <p>&copy; 2025 Halloween Interactive Guide. Keep it spooky!</p>
-        </div>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            const navLinks = document.querySelectorAll('.nav-link');
-            const sections = document.querySelectorAll('section[id]');
-            const mobileNav = document.getElementById('mobile-nav');
-
-            const activateNav = (id) => {
-                navLinks.forEach(link => {
-                    link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-                });
-                if (mobileNav.value !== `#${id}`) {
-                    mobileNav.value = `#${id}`;
-                }
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        activateNav(entry.target.id);
-                    }
-                });
-            }, { rootMargin: '-30% 0px -70% 0px' });
-            
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-
-            mobileNav.addEventListener('change', (e) => {
-                window.location.href = e.target.value;
-            });
-            
-            const ctx = document.getElementById('activityChart').getContext('2d');
-            
-            // Custom plugin to draw shadows beneath the bars
-            const barShadowPlugin = {
-                id: 'barShadow',
-                beforeDraw(chart) {
-                    const ctx = chart.ctx;
-                    chart.getDatasetMeta(0).data.forEach((bar, index) => {
-                        ctx.save();
-                        ctx.shadowColor = 'rgba(255, 69, 0, 0.5)';
-                        ctx.shadowBlur = 10;
-                        ctx.fillStyle = bar.options.backgroundColor;
-                        ctx.fillRect(bar.x - bar.width / 2, bar.y, bar.width, bar.height);
-                        ctx.restore();
-                    });
-                }
-            };
-
-            const activityChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['Trick-or-Treating', 'Wearing Costumes', 'Carving Pumpkins', 'Hosting/Attending Parties', 'Haunted Houses'],
-                    datasets: [{
-                        label: 'Estimated Participation',
-                        data: [85, 92, 70, 45, 30], // Percentage based estimates
-                        backgroundColor: [
-                            'rgba(255, 140, 0, 0.8)', 
-                            'rgba(147, 51, 234, 0.8)', 
-                            'rgba(255, 69, 0, 0.8)', 
-                            'rgba(255, 140, 0, 0.8)',
-                            'rgba(147, 51, 234, 0.8)'
-                        ],
-                        borderColor: '#FF4500',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    indexAxis: 'y', 
-                    scales: {
-                        x: {
-                            beginAtZero: true,
-                            max: 100,
-                            ticks: {
-                                color: '#A1A1AA', // Gray-400
-                                callback: function(value) { return value + '%'; }
-                            },
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.1)'
-                            },
-                            title: {
-                                display: true,
-                                text: 'Participation Level (%)',
-                                color: '#FF8C00'
-                            }
-                        },
-                        y: {
-                            ticks: {
-                                color: '#FF8C00', // Dark Orange
-                            },
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.1)'
-                            }
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            display: false
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    const label = context.label || '';
-                                    const value = context.parsed.x;
-                                    let text = '';
-                                    if (label.includes('Trick-or-Treating')) text = 'The classic door-to-door candy quest for kids.';
-                                    else if (label.includes('Costumes')) text = 'Worn by both adults and children for parties and public events.';
-                                    else if (label.includes('Carving')) text = 'Involves creating decorative or frightening faces on pumpkins.';
-                                    else if (label.includes('Parties')) text = 'Social gatherings featuring games, food, and themed decorations.';
-                                    else if (label.includes('Haunted Houses')) text = 'Attending professional or amateur scare attractions.';
-                                    return `${value}% - ${text}`;
-                                }
-                            }
-                        }
-                    }
-                },
-                plugins: [barShadowPlugin]
-            });
-
-        });
-    </script>
-
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Halloween Ideas, Parties, Decor &amp; Traditions | Guide</title><meta content="Explore Halloween party ideas, decorations, pumpkin carving, trick-or-treating, ghost stories, multilingual wishes, photos and wallpapers in one guide." name="description"/><meta content="Halloween ideas, Halloween parties, Halloween decorations, pumpkin carving, Halloween wishes, trick-or-treating, ghost stories, Halloween wallpapers" name="keywords"/>
+<meta content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" name="robots"/><meta content="#fff1f2" name="theme-color"/>
+<meta content="A curated Halloween hub covering party guides, decorations, pumpkin projects, trick-or-treating, folklore, safety, movies, multilingual wishes, and seasonal images." name="ai-summary"/>
+<link href="https://www.happy-new-year.org/festivals/halloween/" rel="canonical"/>
+<meta content="website" property="og:type"/><meta content="Halloween Ideas, Parties, Decor &amp; Traditions | Guide" property="og:title"/><meta content="Explore Halloween party ideas, decorations, pumpkin carving, trick-or-treating, ghost stories, multilingual wishes, photos and wallpapers in one guide." property="og:description"/><meta content="https://www.happy-new-year.org/festivals/halloween/" property="og:url"/><meta content="Prashant Dhingra · Festivals" property="og:site_name"/><meta content="https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/1000w/halloween-pumpkin-harvest-festival.png" property="og:image"/><meta content="Glowing jack-o’-lanterns and warm autumn lights at a Halloween harvest scene" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/><meta content="Halloween Ideas, Parties, Decor &amp; Traditions | Guide" name="twitter:title"/><meta content="Explore Halloween party ideas, decorations, pumpkin carving, trick-or-treating, ghost stories, multilingual wishes, photos and wallpapers in one guide." name="twitter:description"/><meta content="https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/1000w/halloween-pumpkin-harvest-festival.png" name="twitter:image"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;500;600;700&amp;family=Tiro+Devanagari+Hindi&amp;display=swap" rel="stylesheet"/>
+<link href="https://css.kreatewebsites.com/css-designs/new-year-2/assets/css/site.css" rel="stylesheet"/><script defer="" src="https://css.kreatewebsites.com/css-designs/new-year-2/assets/js/site.js"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":"https://www.happy-new-year.org/festivals/halloween/#webpage","url":"https://www.happy-new-year.org/festivals/halloween/","name":"Halloween Ideas, Traditions & Celebration Hub","description":"Explore Halloween party ideas, decorations, pumpkin carving, trick-or-treating, ghost stories, multilingual wishes, photos and wallpapers in one guide.","inLanguage":"en","isAccessibleForFree":true,"about":{"@type":"Thing","name":"Halloween"},"primaryImageOfPage":{"@type":"ImageObject","contentUrl":"https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/1000w/halloween-pumpkin-harvest-festival.png"},"mainEntity":{"@id":"https://www.happy-new-year.org/festivals/halloween/#directory"}},{"@type":"BreadcrumbList","@id":"https://www.happy-new-year.org/festivals/halloween/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Festivals","item":"https://www.happy-new-year.org/festivals/"},{"@type":"ListItem","position":2,"name":"Halloween","item":"https://www.happy-new-year.org/festivals/halloween/"}]},{"@type":"ItemList","@id":"https://www.happy-new-year.org/festivals/halloween/#directory","name":"Halloween guides, categories and collections","numberOfItems":14,"itemListElement":[{"@type":"ListItem","position":1,"name":"Decorating","url":"https://www.happy-new-year.org/festivals/halloween/home-yard-porch-and-party-decor.html"},{"@type":"ListItem","position":2,"name":"Pumpkins & jack-o’-lanterns","url":"https://www.happy-new-year.org/festivals/halloween/pumpkins-jack-o-lanterns-and-carving.html"},{"@type":"ListItem","position":3,"name":"Halloween parties & games","url":"https://www.happy-new-year.org/festivals/halloween/party-games-music-and-entertainment.html"},{"@type":"ListItem","position":4,"name":"Haunted houses & ghost stories","url":"https://www.happy-new-year.org/festivals/halloween/haunted-houses-ghost-stories-and-spooky-experiences.html"},{"@type":"ListItem","position":5,"name":"Trick-or-treating & neighborhood safety","url":"https://www.happy-new-year.org/festivals/halloween/trick-or-treating-safety-and-neighborhood-guides.html"},{"@type":"ListItem","position":6,"name":"Movies, books & pop culture","url":"https://www.happy-new-year.org/festivals/halloween/movies-books-music-and-pop-culture.html"},{"@type":"ListItem","position":7,"name":"Halloween knowledge base","url":"https://www.happy-new-year.org/festivals/halloween/knowledge-base.html"},{"@type":"ListItem","position":8,"name":"Halloween wishes in 100 languages","url":"https://www.happy-new-year.org/festivals/halloween/halloween-wishes-in-100-languages.html"},{"@type":"ListItem","position":9,"name":"Halloween photos & celebrations","url":"https://www.happy-new-year.org/festivals/halloween/photos-wallpapers.html"},{"@type":"ListItem","position":10,"name":"Halloween wallpapers","url":"https://www.happy-new-year.org/festivals/halloween/wallpapers-halloween.html"},{"@type":"ListItem","position":11,"name":"The science of feeling scared","url":"https://www.happy-new-year.org/festivals/halloween/science-of-scared-fear-horror.html"},{"@type":"ListItem","position":12,"name":"Witches, crows & black cats","url":"https://www.happy-new-year.org/festivals/halloween/witches-crows-black-cats-halloween-superstitions.html"},{"@type":"ListItem","position":13,"name":"Halloween party mini-blog","url":"https://www.happy-new-year.org/festivals/halloween/parties/index.html"},{"@type":"ListItem","position":14,"name":"Eight illustrated Halloween topic collections","url":"https://www.happy-new-year.org/festivals/halloween/topics/"}]},{"@type":"FAQPage","@id":"https://www.happy-new-year.org/festivals/halloween/#faq","mainEntity":[{"@type":"Question","name":"What can I find in this Halloween collection?","acceptedAnswer":{"@type":"Answer","text":"You can explore party planning, decorations, pumpkins, trick-or-treating, haunted houses, entertainment, multilingual greetings, images and Halloween folklore."}},{"@type":"Question","name":"Where can I get Halloween greetings in different languages?","acceptedAnswer":{"@type":"Answer","text":"Open the Halloween Wishes in 100 Languages collection to browse messages and greetings by language."}},{"@type":"Question","name":"Are there ideas for children and families?","acceptedAnswer":{"@type":"Answer","text":"Yes. The trick-or-treating and neighborhood guide covers family planning and safety, and the party collections include activities for different ages."}},{"@type":"Question","name":"Where can I find Halloween wallpapers and images?","acceptedAnswer":{"@type":"Answer","text":"The photos and wallpapers collections link to seasonal photography and four wallpaper designs in multiple resolutions."}}]}]}</script><link href="https://storage.googleapis.com/css-designs/purple/kreatewebsites.production.css" rel="stylesheet"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JJ6LGZB34T"></script><script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-7P1WS6BM5K');
+</script><script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9804321536688475"></script></head><body class="halloween-hub" id="top">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Primary navigation" class="site-nav"><div class="site-container nav-inner">
+<a aria-label="Halloween festival home" class="site-logo" href="index.html"><span aria-hidden="true" class="site-logo-symbol">✦</span><span>Halloween <strong>Guide</strong><small>CELEBRATE · CREATE · EXPLORE</small></span></a>
+<button aria-controls="primary-links" aria-expanded="false" aria-label="Toggle menu" class="mobile-nav-toggle" type="button">☰ <span>Menu</span></button>
+<div class="nav-links" id="primary-links"><a aria-current="page" class="hub-nav-current" href="index.html">Home</a><a href="topics/index.html">8 Topics</a><a href="#browse">Explore topics</a><a href="parties/index.html">Parties</a><a href="halloween-wishes-in-100-languages.html">Wishes</a><a href="wallpapers-halloween.html">Wallpapers</a></div>
+<form action="topics/index.html" class="nav-search" method="get" role="search"><label class="sr-only" for="nav-search">Search Halloween collections</label><input id="nav-search" name="q" placeholder="Search topics…" type="search"/><button aria-label="Search" type="submit">⌕</button></form>
+</div></nav>
+<main id="main-content">
+<header class="hub-hero"><div class="site-container hub-hero-inner"><div><span class="hub-eyebrow">Your Halloween inspiration starts here</span><h1>A season of <em>spooky wonder.</em></h1>
+<p class="hub-lede">From pumpkin-lit porches and playful costumes to ghost stories, family traditions and wishes around the world: explore all your Halloween ideas in one place.</p>
+<div class="hero-cta"><a class="primary-cta" href="#browse">Explore Halloween topics <span aria-hidden="true">→</span></a><a class="outline-cta" href="parties/index.html">Plan a party</a></div>
+<div class="hero-trust"><span>✦ Halloween on October 31</span><span>✦ Ideas for every age</span><span>✦ Stories, activities &amp; celebrations</span></div></div>
+<div class="hub-visual"><div class="hub-visual-frame"><img alt="Glowing pumpkins, hay bales and string lights at a Halloween harvest celebration" decoding="async" fetchpriority="high" height="563" loading="eager" sizes="(max-width: 740px) 100vw, 600px" src="https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/1000w/halloween-pumpkin-harvest-festival.png" srcset="https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/400w/halloween-pumpkin-harvest-festival.png 400w, https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/600w/halloween-pumpkin-harvest-festival.png 600w, https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/1000w/halloween-pumpkin-harvest-festival.png 1000w" width="1000"/></div><div class="hub-visual-label"><strong>October 31</strong>A little magic after dark</div></div></div></header>
+<div class="site-container"><div aria-label="Popular Halloween categories" class="hub-strip">
+<a href="#browse"><span aria-hidden="true" class="hub-strip-icon">🎃</span><span><strong>Decorate</strong><small>Porches &amp; pumpkins</small></span></a>
+<a href="parties/index.html"><span aria-hidden="true" class="hub-strip-icon">🎭</span><span><strong>Celebrate</strong><small>Parties &amp; costumes</small></span></a>
+<a href="halloween-wishes-in-100-languages.html"><span aria-hidden="true" class="hub-strip-icon">✉️</span><span><strong>Connect</strong><small>Wishes &amp; greetings</small></span></a>
+<a href="wallpapers-halloween.html"><span aria-hidden="true" class="hub-strip-icon">🌙</span><span><strong>Explore art</strong><small>Photos &amp; wallpapers</small></span></a>
+</div></div>
+<section aria-labelledby="featured-heading" class="hub-section site-container" id="start-here"><div class="hub-head"><div><span class="hub-eyebrow">Editor's picks</span><h2 id="featured-heading">Start with a little inspiration.</h2><p>Three easy ways to make this Halloween memorable, whether you're hosting, decorating or sending a greeting.</p></div><a class="hub-inline-link" href="#browse">Browse all collections →</a></div><div class="hub-feature-grid"><a class="hub-feature" href="parties/index.html"><img alt="The party starts here" decoding="async" loading="lazy" src="https://storage.googleapis.com/kreatewebsite/festival/halloween-celebration/photos_source/photos900/halloween-house-decoration.png"/><div class="hub-feature-body"><span class="hub-card-cat">Party planning</span><h3>The party starts here</h3><p>Games, invitations, costumes and the little details that bring everyone together.</p><span class="hub-read">Explore collection →</span></div></a>
+<a class="hub-feature" href="home-yard-porch-and-party-decor.html"><img alt="Make the outdoors magical" decoding="async" height="563" loading="lazy" sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 370px" src="https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/1000w/halloween-decorated-neighborhood-street.png" srcset="https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/400w/halloween-decorated-neighborhood-street.png 400w, https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/600w/halloween-decorated-neighborhood-street.png 600w, https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/1000w/halloween-decorated-neighborhood-street.png 1000w" width="1000"/><div class="hub-feature-body"><span class="hub-card-cat">Decorating</span><h3>Make the outdoors magical</h3><p>Porch lights, pumpkins, garden displays and decorations for any budget.</p><span class="hub-read">Explore collection →</span></div></a>
+<a class="hub-feature" href="halloween-wishes-in-100-languages.html"><img alt="Wishes across languages" decoding="async" loading="lazy" src="https://storage.googleapis.com/kreatewebsite/festival/halloween-celebration/all-characters-halloween.jpeg"/><div class="hub-feature-body"><span class="hub-card-cat">Greetings</span><h3>Wishes across languages</h3><p>Browse greetings and messages for different languages and audiences.</p><span class="hub-read">Explore collection →</span></div></a></div></section><section class="hub-section site-container" id="eight-topics"><div class="hub-head"><div><span class="hub-eyebrow">A deeper dive</span><h2>Eight illustrated collections. Fifty ideas.</h2><p>Go beyond party planning to discover Halloween traditions, costumes, decorated neighborhoods, seasonal destinations and family-friendly autumn outings.</p></div><a class="hub-inline-link" href="topics/index.html">Explore all eight topics →</a></div><div class="hub-feature-grid"><a class="hub-feature" href="topics/history-and-traditions.html"><img alt="Witch and black cat above a moonlit village" loading="lazy" src="https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/1000w/halloween-witch-moonlit-gothic-village.png"/><div class="hub-feature-body"><span class="hub-card-cat">Traditions</span><h3>History &amp; folklore</h3><p>Explore the origins and symbolism of Halloween.</p><span class="hub-read">Explore topic ↗</span></div></a><a class="hub-feature" href="topics/costumes-and-makeup.html"><img alt="Children in Halloween costumes" loading="lazy" src="https://storage.googleapis.com/kreatewebsite/festival/halloween-celebration/photos_source/photos900/kids-costume.png"/><div class="hub-feature-body"><span class="hub-card-cat">Creative ideas</span><h3>Costumes &amp; makeup</h3><p>Get ideas for handmade costumes and seasonal looks.</p><span class="hub-read">Explore topic ↗</span></div></a><a class="hub-feature" href="topics/destinations-and-road-trips.html"><img alt="Path to a haunted manor under a moonlit sky" loading="lazy" src="https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/1000w/halloween-haunted-manor-moonlit-path.png"/><div class="hub-feature-body"><span class="hub-card-cat">Places</span><h3>Autumn destinations</h3><p>Explore road trips and Halloween attractions.</p><span class="hub-read">Explore topic ↗</span></div></a></div></section>
+<section aria-labelledby="browse-heading" class="hub-section alt" id="browse"><div class="site-container"><div class="hub-head"><div><span class="hub-eyebrow">The Halloween directory</span><h2 id="browse-heading">Find your kind of Halloween.</h2><p>Browse the collections, featured articles, creative activities and illustrated guides gathered in this hub.</p></div></div>
+<div class="hub-filter-shell"><div class="hub-search-row"><label for="hub-search">Search collections</label><input aria-controls="hub-directory" autocomplete="off" id="hub-search" placeholder="Try decorations, pumpkins, scary stories, greetings…" type="search"/></div><div aria-label="Filter by category" class="hub-filters" role="group"><button aria-pressed="true" class="hub-filter" data-hub-filter="all" type="button">All topics</button><button aria-pressed="false" class="hub-filter" data-hub-filter="Party" type="button">Parties</button><button aria-pressed="false" class="hub-filter" data-hub-filter="Decor" type="button">Decor &amp; pumpkins</button><button aria-pressed="false" class="hub-filter" data-hub-filter="Family" type="button">Family</button><button aria-pressed="false" class="hub-filter" data-hub-filter="Culture" type="button">Stories &amp; culture</button><button aria-pressed="false" class="hub-filter" data-hub-filter="Images" type="button">Photos</button><button aria-pressed="false" class="hub-filter" data-hub-filter="Wishes" type="button">Greetings</button></div><p aria-live="polite" class="hub-count" id="hub-results">Showing all collections</p></div>
+<div class="hub-card-grid" id="hub-directory"><article class="hub-card" data-group="Decor" data-search="decorating porches, yards, windows, lighting and party tables: ideas for spaces large and small. 20 guides decor"><img alt="Decorating" decoding="async" height="563" loading="lazy" sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 370px" src="https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/1000w/halloween-decorated-neighborhood-street.png" srcset="https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/400w/halloween-decorated-neighborhood-street.png 400w, https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/600w/halloween-decorated-neighborhood-street.png 600w, https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/1000w/halloween-decorated-neighborhood-street.png 1000w" width="1000"/><div class="hub-card-body"><span class="hub-card-cat">Decorations &amp; pumpkins · 20 guides</span><h3>Decorating</h3><p>Porches, yards, windows, lighting and party tables: ideas for spaces large and small.</p><a aria-label="Explore Decorating" class="hub-card-link" href="home-yard-porch-and-party-decor.html">Explore guide <span aria-hidden="true">↗</span></a></div></article>
+<article class="hub-card" data-group="Decor" data-search="pumpkins &amp; jack-o’-lanterns carving, painting, no-carve pumpkins and family-friendly displays. 20 guides decor"><img alt="Pumpkins &amp; jack-o’-lanterns" decoding="async" height="563" loading="lazy" sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 370px" src="https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/1000w/halloween-pumpkin-harvest-festival.png" srcset="https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/400w/halloween-pumpkin-harvest-festival.png 400w, https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/600w/halloween-pumpkin-harvest-festival.png 600w, https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/1000w/halloween-pumpkin-harvest-festival.png 1000w" width="1000"/><div class="hub-card-body"><span class="hub-card-cat">Decorations &amp; pumpkins · 20 guides</span><h3>Pumpkins &amp; jack-o’-lanterns</h3><p>Carving, painting, no-carve pumpkins and family-friendly displays.</p><a aria-label="Explore Pumpkins &amp; jack-o’-lanterns" class="hub-card-link" href="pumpkins-jack-o-lanterns-and-carving.html">Explore guide <span aria-hidden="true">↗</span></a></div></article>
+<article class="hub-card" data-group="Party" data-search="halloween parties &amp; games party themes, games, music, invitations and activities for a memorable gathering. 20 guides party"><img alt="Halloween parties &amp; games" decoding="async" height="563" loading="lazy" sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 370px" src="https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/1000w/halloween-cute-whimsical-village.png" srcset="https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/400w/halloween-cute-whimsical-village.png 400w, https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/600w/halloween-cute-whimsical-village.png 600w, https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/1000w/halloween-cute-whimsical-village.png 1000w" width="1000"/><div class="hub-card-body"><span class="hub-card-cat">Party ideas · 20 guides</span><h3>Halloween parties &amp; games</h3><p>Party themes, games, music, invitations and activities for a memorable gathering.</p><a aria-label="Explore Halloween parties &amp; games" class="hub-card-link" href="party-games-music-and-entertainment.html">Explore guide <span aria-hidden="true">↗</span></a></div></article>
+<article class="hub-card" data-group="Culture" data-search="haunted houses &amp; ghost stories atmosphere, haunted-house concepts, ghost stories and scare-level ideas. 20 guides culture"><img alt="Haunted houses &amp; ghost stories" decoding="async" height="563" loading="lazy" sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 370px" src="https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/1000w/halloween-haunted-manor-moonlit-path.png" srcset="https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/400w/halloween-haunted-manor-moonlit-path.png 400w, https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/600w/halloween-haunted-manor-moonlit-path.png 600w, https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/1000w/halloween-haunted-manor-moonlit-path.png 1000w" width="1000"/><div class="hub-card-body"><span class="hub-card-cat">Stories &amp; culture · 20 guides</span><h3>Haunted houses &amp; ghost stories</h3><p>Atmosphere, haunted-house concepts, ghost stories and scare-level ideas.</p><a aria-label="Explore Haunted houses &amp; ghost stories" class="hub-card-link" href="haunted-houses-ghost-stories-and-spooky-experiences.html">Explore guide <span aria-hidden="true">↗</span></a></div></article>
+<article class="hub-card" data-group="Family" data-search="trick-or-treating &amp; neighborhood safety family planning, candy routes, neighborhood activities and welcoming porches. 20 guides family"><img alt="Trick-or-treating &amp; neighborhood safety" decoding="async" height="563" loading="lazy" sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 370px" src="https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/1000w/halloween-decorated-neighborhood-street.png" srcset="https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/400w/halloween-decorated-neighborhood-street.png 400w, https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/600w/halloween-decorated-neighborhood-street.png 600w, https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/1000w/halloween-decorated-neighborhood-street.png 1000w" width="1000"/><div class="hub-card-body"><span class="hub-card-cat">Family &amp; safety · 20 guides</span><h3>Trick-or-treating &amp; neighborhood safety</h3><p>Family planning, candy routes, neighborhood activities and welcoming porches.</p><a aria-label="Explore Trick-or-treating &amp; neighborhood safety" class="hub-card-link" href="trick-or-treating-safety-and-neighborhood-guides.html">Explore guide <span aria-hidden="true">↗</span></a></div></article>
+<article class="hub-card" data-group="Culture" data-search="movies, books &amp; pop culture movies, books, playlists, pop-culture costumes and cozy october evenings. 20 guides culture"><img alt="Movies, books &amp; pop culture" decoding="async" height="563" loading="lazy" sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 370px" src="https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/1000w/halloween-moonlit-gothic-graveyard.png" srcset="https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/400w/halloween-moonlit-gothic-graveyard.png 400w, https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/600w/halloween-moonlit-gothic-graveyard.png 600w, https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/1000w/halloween-moonlit-gothic-graveyard.png 1000w" width="1000"/><div class="hub-card-body"><span class="hub-card-cat">Stories &amp; culture · 20 guides</span><h3>Movies, books &amp; pop culture</h3><p>Movies, books, playlists, pop-culture costumes and cozy October evenings.</p><a aria-label="Explore Movies, books &amp; pop culture" class="hub-card-link" href="movies-books-music-and-pop-culture.html">Explore guide <span aria-hidden="true">↗</span></a></div></article>
+<article class="hub-card" data-group="Culture" data-search="halloween knowledge base explore halloween history, costumes, traditions, travel and family activities. 50 illustrated guides culture"><img alt="Halloween knowledge base" decoding="async" height="563" loading="lazy" sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 370px" src="https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/1000w/halloween-witch-moonlit-gothic-village.png" srcset="https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/400w/halloween-witch-moonlit-gothic-village.png 400w, https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/600w/halloween-witch-moonlit-gothic-village.png 600w, https://storage.googleapis.com/imagesg/festivals/halloween/halloween-wallpapers/1000w/halloween-witch-moonlit-gothic-village.png 1000w" width="1000"/><div class="hub-card-body"><span class="hub-card-cat">Stories &amp; culture · 50 illustrated guides</span><h3>Halloween knowledge base</h3><p>Explore Halloween history, costumes, traditions, travel and family activities.</p><a aria-label="Explore Halloween knowledge base" class="hub-card-link" href="knowledge-base.html">Explore guide <span aria-hidden="true">↗</span></a></div></article>
+<article class="hub-card" data-group="Wishes" data-search="halloween wishes in 100 languages find multilingual halloween messages for family, friends and colleagues. multilingual greetings wishes"><img alt="Halloween wishes in 100 languages" decoding="async" loading="lazy" src="https://storage.googleapis.com/kreatewebsite/festival/halloween-celebration/all-characters-halloween.jpeg"/><div class="hub-card-body"><span class="hub-card-cat">Wishes &amp; <a href="https://www.happy-new-year.org/wishes/">greetings</a> · Multilingual greetings</span><h3>Halloween wishes in 100 languages</h3><p>Find multilingual Halloween messages for family, friends and colleagues.</p><a aria-label="Explore Halloween wishes in 100 languages" class="hub-card-link" href="halloween-wishes-in-100-languages.html">Explore guide <span aria-hidden="true">↗</span></a></div></article>
+<article class="hub-card" data-group="Images" data-search="halloween photos &amp; celebrations a halloween photo collection, seasonal scenes and decorative visual inspiration. photo gallery images"><img alt="Halloween photos &amp; celebrations" decoding="async" loading="lazy" src="https://storage.googleapis.com/kreatewebsite/festival/halloween-celebration/halloween-celebration-4.jpeg"/><div class="hub-card-body"><span class="hub-card-cat">Photos &amp; wallpapers · Photo gallery</span><h3>Halloween photos &amp; celebrations</h3><p>A Halloween photo collection, seasonal scenes and decorative visual inspiration.</p><a aria-label="Explore Halloween photos &amp; celebrations" class="hub-card-link" href="photos-wallpapers.html">Explore guide <span aria-hidden="true">↗</span></a></div></article>
+<article class="hub-card" data-group="Images" data-search="halloween wallpapers browse four wallpaper designs with multiple available image resolutions. 4 wallpaper designs images"><img alt="Halloween wallpapers" decoding="async" loading="lazy" src="https://storage.googleapis.com/imagesg/wallpapers/halloween/create-wall-papers-for-halloween-1.jpg"/><div class="hub-card-body"><span class="hub-card-cat">Photos &amp; wallpapers · 4 wallpaper designs</span><h3>Halloween wallpapers</h3><p>Browse four wallpaper designs with multiple available image resolutions.</p><a aria-label="Explore Halloween wallpapers" class="hub-card-link" href="wallpapers-halloween.html">Explore guide <span aria-hidden="true">↗</span></a></div></article>
+<article class="hub-card" data-group="Culture" data-search="the science of feeling scared why haunted houses and horror can feel thrilling when we feel safe. featured article culture"><img alt="The science of feeling scared" decoding="async" loading="lazy" sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 370px" src="https://storage.googleapis.com/imagesg/cms-festival/halloween/imagesd/1000w/haunted-trail-walk-through-woods.jpg" srcset="https://storage.googleapis.com/imagesg/cms-festival/halloween/imagesd/400w/haunted-trail-walk-through-woods.jpg 400w, https://storage.googleapis.com/imagesg/cms-festival/halloween/imagesd/600w/haunted-trail-walk-through-woods.jpg 600w, https://storage.googleapis.com/imagesg/cms-festival/halloween/imagesd/1000w/haunted-trail-walk-through-woods.jpg 1000w"/><div class="hub-card-body"><span class="hub-card-cat">Stories &amp; culture · Featured article</span><h3>The science of feeling scared</h3><p>Why haunted houses and horror can feel thrilling when we feel safe.</p><a aria-label="Explore The science of feeling scared" class="hub-card-link" href="science-of-scared-fear-horror.html">Explore guide <span aria-hidden="true">↗</span></a></div></article>
+<article class="hub-card" data-group="Culture" data-search="witches, crows &amp; black cats explore halloween folklore and the stories behind familiar seasonal symbols. featured article culture"><img alt="Witches, crows &amp; black cats" decoding="async" loading="lazy" sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 370px" src="https://storage.googleapis.com/imagesg/cms-festival/halloween/imagesd/1000w/black-cat-with-glowing-eyes.jpg" srcset="https://storage.googleapis.com/imagesg/cms-festival/halloween/imagesd/400w/black-cat-with-glowing-eyes.jpg 400w, https://storage.googleapis.com/imagesg/cms-festival/halloween/imagesd/600w/black-cat-with-glowing-eyes.jpg 600w, https://storage.googleapis.com/imagesg/cms-festival/halloween/imagesd/1000w/black-cat-with-glowing-eyes.jpg 1000w"/><div class="hub-card-body"><span class="hub-card-cat">Stories &amp; culture · Featured article</span><h3>Witches, crows &amp; black cats</h3><p>Explore Halloween folklore and the stories behind familiar seasonal symbols.</p><a aria-label="Explore Witches, crows &amp; black cats" class="hub-card-link" href="witches-crows-black-cats-halloween-superstitions.html">Explore guide <span aria-hidden="true">↗</span></a></div></article>
+<article class="hub-card" data-group="Party" data-search="halloween party mini-blog costumes, invitations, spooky snacks, backyard activities and an escape-room party. 11 original guides party"><img alt="Halloween party mini-blog" decoding="async" loading="lazy" src="https://storage.googleapis.com/kreatewebsite/festival/halloween-celebration/photos_source/photos900/halloween-house-decoration.png"/><div class="hub-card-body"><span class="hub-card-cat">Party ideas · 11 original guides</span><h3>Halloween party mini-blog</h3><p>Costumes, invitations, spooky snacks, backyard activities and an escape-room party.</p><a aria-label="Explore Halloween party mini-blog" class="hub-card-link" href="parties/index.html">Explore guide <span aria-hidden="true">↗</span></a></div></article></div><p class="hub-none" hidden="" id="hub-no-results">No matching topic. Try a different keyword or choose “All topics”.</p></div></section>
+<section class="hub-section site-container" id="party-planner"><div class="hub-banner"><div class="hub-banner-copy"><span class="hub-eyebrow">The Halloween party edit</span><h2>Plan a party they'll remember.</h2><p>Go beyond ordinary costumes. Discover invitations, decorating guides, party food and mocktails, photo booths, contests, outdoor gatherings and even an escape-room mystery.</p><a class="primary-cta" href="parties/index.html">Explore 11 party guides <span aria-hidden="true">→</span></a></div><div class="hub-banner-img"><img alt="Festive Halloween house decorated for a costume party" decoding="async" loading="lazy" src="https://storage.googleapis.com/kreatewebsite/festival/halloween-celebration/photos_source/photos900/halloween-house-decoration.png"/></div></div></section>
+<section class="hub-section alt" id="more-stories"><div class="site-container"><div class="hub-head"><div><span class="hub-eyebrow">Stories behind the season</span><h2>Why Halloween fascinates us.</h2><p>From the thrill of controlled fear to witches, crows and black-cat symbolism, explore ideas beyond the decorations.</p></div></div><div class="hub-article-grid">
+<a class="hub-editorial" href="science-of-scared-fear-horror.html"><img alt="A mysterious woodland trail, atmospheric light and spooky scenery" decoding="async" loading="lazy" sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 370px" src="https://storage.googleapis.com/imagesg/cms-festival/halloween/imagesd/1000w/haunted-trail-walk-through-woods.jpg" srcset="https://storage.googleapis.com/imagesg/cms-festival/halloween/imagesd/400w/haunted-trail-walk-through-woods.jpg 400w, https://storage.googleapis.com/imagesg/cms-festival/halloween/imagesd/600w/haunted-trail-walk-through-woods.jpg 600w, https://storage.googleapis.com/imagesg/cms-festival/halloween/imagesd/1000w/haunted-trail-walk-through-woods.jpg 1000w"/><div><span>Halloween psychology</span><h3>Why being scared can feel so good</h3><p>The psychology behind horror movies, haunted houses and safe thrills.</p></div></a>
+<a class="hub-editorial" href="witches-crows-black-cats-halloween-superstitions.html"><img alt="Black cat with bright eyes, a familiar Halloween folklore image" decoding="async" loading="lazy" sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 370px" src="https://storage.googleapis.com/imagesg/cms-festival/halloween/imagesd/1000w/black-cat-with-glowing-eyes.jpg" srcset="https://storage.googleapis.com/imagesg/cms-festival/halloween/imagesd/400w/black-cat-with-glowing-eyes.jpg 400w, https://storage.googleapis.com/imagesg/cms-festival/halloween/imagesd/600w/black-cat-with-glowing-eyes.jpg 600w, https://storage.googleapis.com/imagesg/cms-festival/halloween/imagesd/1000w/black-cat-with-glowing-eyes.jpg 1000w"/><div><span>Myth &amp; folklore</span><h3>Witches, crows and black cats</h3><p>How familiar Halloween symbols grew out of myths, history and popular culture.</p></div></a>
+</div></div></section>
+<section aria-labelledby="faq-heading" class="hub-faq site-container" id="faq"><span class="hub-eyebrow">Quick answers</span><h2 id="faq-heading">Frequently asked questions</h2><details><summary>What can I find in this Halloween collection?</summary><p>You can explore party planning, decorations, pumpkins, trick-or-treating, haunted houses, entertainment, multilingual greetings, images and Halloween folklore.</p></details><details><summary>Where can I get Halloween greetings in different languages?</summary><p>Open the Halloween Wishes in 100 Languages collection to browse messages and greetings by language.</p></details><details><summary>Are there ideas for children and families?</summary><p>Yes. The trick-or-treating and neighborhood guide covers family planning and safety, and the party collections include activities for different ages.</p></details><details><summary>Where can I find Halloween wallpapers and images?</summary><p>The photos and wallpapers collections link to seasonal photography and four wallpaper designs in multiple resolutions.</p></details></section>
+</main>
+<footer class="bg-gray-800 text-gray-300">
+<div class="container mx-auto px-6 py-12 lg:px-8">
+<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html">Wishes in 100 languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in Indian Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/">Wishes in European Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/wishes/10-popular-languages.html">Popular Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/cards/">Cards</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/easter/">Easter Festival</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-bihari-wishes.html">26-bihari-wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html">26-chinese-new-year-wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/26-christmas-wishes.html">26-christmas-wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/2026-festival-countdown.html">2026-festival-countdown</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html">Christmas-wishes-by-audience</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html">Happy-new-year-2026-celebrations-worldwide.html</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/happy-new-year-2026.html">Happy-new-year-2026</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html">Multilingual-greetings-webpage</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/dusshera/wishes/">Dusshera wishes and cards</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/new-year-page.html">New Year Page</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/chinese-new-year/">Chinese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/hindu-new-year/">Lunar and Solar Hindu Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/jewish-new-year/">Jewesh Roash Hashanah</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/islamic-new-year/">Islamic New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/japanese-new-year/">Japanese New Year</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html">Hindu Festival Calendar 2026</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html">Pitu Paksha 2026</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Folders</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/articles/">Articles</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/best/">Best</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/Bikes/">Bikes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/cards/">Cards</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/Costumes/">Costumes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/costumes-makeup-and-dress-up-ideas/">Costumes Makeup And Dress Up Ideas</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/Decorations/">Decorations</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/design/">Design</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/food-candy-desserts-and-recipes/">Food Candy Desserts And Recipes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/foundation-history-origins-and-symbols/">Foundation History Origins And Symbols</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/Gifts/">Gifts</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/global-traditions-folklore-and-cultural-comparisons/">Global Traditions Folklore And Cultural Comparisons</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/guide/">Guide</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/halloween-2027-city-events-and-local-search/">Halloween 2027 City Events And Local Search</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration-stories-inspiration/">Halloween Celebration Stories Inspiration</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/halloween-wishes-in-100-languages/">Halloween Wishes In 100 Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/haunted-houses-ghost-stories-and-spooky-experiences/">Haunted Houses Ghost Stories And Spooky Experiences</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/home-yard-porch-and-party-decor/">Home Yard Porch And Party Decor</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/kids-family-school-and-classroom-content/">Kids Family School And Classroom Content</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/">Knowledge Base</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/Masks/">Masks</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/movies-books-music-and-pop-culture/">Movies Books Music And Pop Culture</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/party-games-music-and-entertainment/">Party Games Music And Entertainment</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/party-ideas/">Party Ideas</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/photos-wallpapers/">Photos Wallpapers</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/Pumpkins/">Pumpkins</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/pumpkins-jack-o-lanterns-and-carving/">Pumpkins Jack O Lanterns And Carving</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/Toys/">Toys</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/trick-or-treating-safety-and-neighborhood-guides/">Trick Or Treating Safety And Neighborhood Guides</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/Wines/">Wines</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/wishes/">Wishes</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/adult-halloween-murder-mystery-party.html">Adult Halloween Murder Mystery Party</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/economics-of-halloween-retail.html">Economics Of Halloween Retail</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/evolution-of-slasher-cinema.html">Evolution Of Slasher Cinema</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/family-friendly-halloween-watchlist.html">Family Friendly Halloween Watchlist</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/gallery.html">Gallery</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/halloweeen.html">Halloweeen</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/halloween-candy-wine-pairing-guide.html">Halloween Candy Wine Pairing Guide</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/halloween-celebration.html">Halloween Celebration</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/halloween-cocktails-mocktails-safe-dry-ice.html">Halloween Cocktails Mocktails Safe Dry Ice</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/halloween-costume-suggestion.html">Halloween Costume Suggestion</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/halloween-decoration.html">Halloween Decoration</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/halloween-evolution.html">Halloween Evolution</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/halloween-guide-2.html">Halloween Guide 2</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/halloween-guide-info.html">Halloween Guide Info</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/halloween-guide.html">Halloween Guide</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/halloween-in-garage.html">Halloween In Garage</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/halloween-info.html">Halloween Info</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/halloween-office-decoration.html">Halloween Office Decoration</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/halloween-sfx-makeup-beginners.html">Halloween Sfx Makeup Beginners</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/halloween-topics.html">Halloween Topics</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/halloween-wishes.html">Halloween Wishes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/hallowwn-wishes-in-european-languages.html">Hallowwn Wishes In European Languages</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/haunted-porch-budget-decor-ideas.html">Haunted Porch Budget Decor Ideas</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/last-minute-halloween-costumes-closet.html">Last Minute Halloween Costumes Closet</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/leftover-halloween-candy-dessert-hacks.html">Leftover Halloween Candy Dessert Hacks</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/most-searched-items.html">Most Searched Items</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/overview.html">Overview</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/photo-gallery.html">Photo Gallery</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/real-life-haunted-landmarks-history-legends.html">Real Life Haunted Landmarks History Legends</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/safe-stress-free-pet-halloween-costumes.html">Safe Stress Free Pet Halloween Costumes</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/samhain-connection-halloween-origins.html">Samhain Connection Halloween Origins</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/savory-spooky-halloween-snacks.html">Savory Spooky Halloween Snacks</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/science-of-scared-fear-horror.html">Science Of Scared Fear Horror</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/spooky-holidays-around-the-world.html">Spooky Holidays Around The World</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/stingy-jack-jack-o-lantern-legend.html">Stingy Jack Jack O Lantern Legend</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/story-moral.html">Story Moral</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/sustainable-eco-friendly-halloween.html">Sustainable Eco Friendly Halloween</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/trick-or-treating-history-souling-guising.html">Trick Or Treating History Souling Guising</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/trick-treat.html">Trick Treat</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/wallpapers-halloween.html">Wallpapers Halloween</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/wishes-trick-treat.html">Wishes Trick Treat</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/festivals/halloween/witches-crows-black-cats-halloween-superstitions.html">Witches Crows Black Cats Halloween Superstitions</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Footer Links</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/privacypolicy,html">Privacy Policy</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.happy-new-year.org/sitemap.html">Sitemap</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-8 text-center text-sm text-gray-400">
+<p class="text-sm text-gray-400">New Year Wishes Celebrations and Traditions</p>
+</div>
+<div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+<p class="text-sm text-gray-400">© 2026 Happy New Year. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</body></html>

@@ -117,9 +117,6 @@
         <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
         <ul class="space-y-2">
           <li><a href="https://www.happy-new-year.org/2027-page.html" class="hover:text-white hover:underline transition-colors duration-200">2027 Page</a></li>
-          <li><a href="https://www.happy-new-year.org/CheesePlatter.html" class="hover:text-white hover:underline transition-colors duration-200">Cheeseplatter</a></li>
-          <li><a href="https://www.happy-new-year.org/chinese-new-year-history.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year History</a></li>
-          <li><a href="https://www.happy-new-year.org/chinese-new-year.html" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year</a></li>
           <li><a href="https://www.happy-new-year.org/cookies.html" class="hover:text-white hover:underline transition-colors duration-200">Cookies</a></li>
           <li><a href="https://www.happy-new-year.org/daily-horoscope.html" class="hover:text-white hover:underline transition-colors duration-200">Daily Horoscope</a></li>
           <li><a href="https://www.happy-new-year.org/different-new-year-celebrations-around-the-world-and-images.html" class="hover:text-white hover:underline transition-colors duration-200">Different New Year Celebrations Around The World And Images</a></li>
@@ -128,44 +125,26 @@
           <li><a href="https://www.happy-new-year.org/fruit platter.html" class="hover:text-white hover:underline transition-colors duration-200">Fruit Platter</a></li>
           <li><a href="https://www.happy-new-year.org/full-dinner.html" class="hover:text-white hover:underline transition-colors duration-200">Full Dinner</a></li>
           <li><a href="https://www.happy-new-year.org/global-celebration.html" class="hover:text-white hover:underline transition-colors duration-200">Global Celebration</a></li>
-          <li><a href="https://www.happy-new-year.org/Ham-dinner.html" class="hover:text-white hover:underline transition-colors duration-200">Ham Dinner</a></li>
-          <li><a href="https://www.happy-new-year.org/Hamm-dinner.html" class="hover:text-white hover:underline transition-colors duration-200">Hamm Dinner</a></li>
           <li><a href="https://www.happy-new-year.org/happy-new-year-countdown-white.html" class="hover:text-white hover:underline transition-colors duration-200">Happy New Year Countdown White</a></li>
           <li><a href="https://www.happy-new-year.org/hindu-new-year.html" class="hover:text-white hover:underline transition-colors duration-200">Hindu New Year</a></li>
           <li><a href="https://www.happy-new-year.org/horoscope.html" class="hover:text-white hover:underline transition-colors duration-200">Horoscope</a></li>
           <li><a href="https://www.happy-new-year.org/image.html" class="hover:text-white hover:underline transition-colors duration-200">Image</a></li>
-          <li><a href="https://www.happy-new-year.org/index-halloween.html" class="hover:text-white hover:underline transition-colors duration-200">Index Halloween</a></li>
           <li><a href="https://www.happy-new-year.org/index-main.html" class="hover:text-white hover:underline transition-colors duration-200">Index Main</a></li>
           <li><a href="https://www.happy-new-year.org/index-oct.html" class="hover:text-white hover:underline transition-colors duration-200">Index Oct</a></li>
           <li><a href="https://www.happy-new-year.org/index-prashant.html" class="hover:text-white hover:underline transition-colors duration-200">Index Prashant</a></li>
-          <li><a href="https://www.happy-new-year.org/index.htm.bak.html" class="hover:text-white hover:underline transition-colors duration-200">Index.Htm.Bak</a></li>
-          <li><a href="https://www.happy-new-year.org/index.htm.bak2.html" class="hover:text-white hover:underline transition-colors duration-200">Index.Htm.Bak2</a></li>
-          <li><a href="https://www.happy-new-year.org/index.html.bak2.html" class="hover:text-white hover:underline transition-colors duration-200">Index.Html.Bak2</a></li>
-          <li><a href="https://www.happy-new-year.org/index.html.halloween.html" class="hover:text-white hover:underline transition-colors duration-200">Index.Html.Halloween</a></li>
-          <li><a href="https://www.happy-new-year.org/index2.html" class="hover:text-white hover:underline transition-colors duration-200">Index2</a></li>
           <li><a href="https://www.happy-new-year.org/islamic-new-year.html" class="hover:text-white hover:underline transition-colors duration-200">Islamic New Year</a></li>
-          <li><a href="https://www.happy-new-year.org/kabab.html" class="hover:text-white hover:underline transition-colors duration-200">Kabab</a></li>
-          <li><a href="https://www.happy-new-year.org/New Year Wishes.html" class="hover:text-white hover:underline transition-colors duration-200">New Year Wishes</a></li>
           <li><a href="https://www.happy-new-year.org/new-year-and-wishes-around-the-world.html" class="hover:text-white hover:underline transition-colors duration-200">New Year And Wishes Around The World</a></li>
           <li><a href="https://www.happy-new-year.org/new-year-in-different-culture.html" class="hover:text-white hover:underline transition-colors duration-200">New Year In Different Culture</a></li>
           <li><a href="https://www.happy-new-year.org/new-year-slideshow.html" class="hover:text-white hover:underline transition-colors duration-200">New Year Slideshow</a></li>
-          <li><a href="https://www.happy-new-year.org/new-year.html" class="hover:text-white hover:underline transition-colors duration-200">New Year</a></li>
-          <li><a href="https://www.happy-new-year.org/new.html" class="hover:text-white hover:underline transition-colors duration-200">New</a></li>
           <li><a href="https://www.happy-new-year.org/newyear-history-celebration.html" class="hover:text-white hover:underline transition-colors duration-200">Newyear History Celebration</a></li>
           <li><a href="https://www.happy-new-year.org/newyear-history.html" class="hover:text-white hover:underline transition-colors duration-200">Newyear History</a></li>
           <li><a href="https://www.happy-new-year.org/newyear-info.html" class="hover:text-white hover:underline transition-colors duration-200">Newyear Info</a></li>
           <li><a href="https://www.happy-new-year.org/Newyear-sale.html" class="hover:text-white hover:underline transition-colors duration-200">Newyear Sale</a></li>
-          <li><a href="https://www.happy-new-year.org/pastries.html" class="hover:text-white hover:underline transition-colors duration-200">Pastries</a></li>
           <li><a href="https://www.happy-new-year.org/privacypolicy.html" class="hover:text-white hover:underline transition-colors duration-200">Privacypolicy</a></li>
-          <li><a href="https://www.happy-new-year.org/Quesdilla-Fiesta.html" class="hover:text-white hover:underline transition-colors duration-200">Quesdilla Fiesta</a></li>
           <li><a href="https://www.happy-new-year.org/related-articles-json-install-snippet.html" class="hover:text-white hover:underline transition-colors duration-200">Related Articles Json Install Snippet</a></li>
           <li><a href="https://www.happy-new-year.org/roasted chicken wings2.html" class="hover:text-white hover:underline transition-colors duration-200">Roasted Chicken Wings2</a></li>
-          <li><a href="https://www.happy-new-year.org/sandwich-platter.html" class="hover:text-white hover:underline transition-colors duration-200">Sandwich Platter</a></li>
           <li><a href="https://www.happy-new-year.org/sitemap.html" class="hover:text-white hover:underline transition-colors duration-200">Sitemap</a></li>
-          <li><a href="https://www.happy-new-year.org/smoked-salmon-platter.html" class="hover:text-white hover:underline transition-colors duration-200">Smoked Salmon Platter</a></li>
-          <li><a href="https://www.happy-new-year.org/special-cookies-platter.html" class="hover:text-white hover:underline transition-colors duration-200">Special Cookies Platter</a></li>
           <li><a href="https://www.happy-new-year.org/sunsign-horoscope.html" class="hover:text-white hover:underline transition-colors duration-200">Sunsign Horoscope</a></li>
-          <li><a href="https://www.happy-new-year.org/sushi-platter.html" class="hover:text-white hover:underline transition-colors duration-200">Sushi Platter</a></li>
           <li><a href="https://www.happy-new-year.org/unique-new-year-greetings.html" class="hover:text-white hover:underline transition-colors duration-200">Unique New Year Greetings</a></li>
           <li><a href="https://www.happy-new-year.org/video.html" class="hover:text-white hover:underline transition-colors duration-200">Video</a></li>
           <li><a href="https://www.happy-new-year.org/welcome-new-year.html" class="hover:text-white hover:underline transition-colors duration-200">Welcome New Year</a></li>

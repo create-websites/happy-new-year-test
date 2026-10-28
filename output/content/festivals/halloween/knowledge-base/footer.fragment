@@ -39,6 +39,13 @@
       </div>
 
       <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Folders</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/topics/" class="hover:text-white hover:underline transition-colors duration-200">Topics</a></li>
+        </ul>
+      </div>
+
+      <div>
         <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
         <ul class="space-y-2">
           <li><a href="https://www.happy-new-year.org/festivals/halloween/knowledge-base/01-origin-of-halloween.html" class="hover:text-white hover:underline transition-colors duration-200">01 Origin Of Halloween</a></li>

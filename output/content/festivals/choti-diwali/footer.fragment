@@ -1,0 +1,107 @@
+<footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Happy New Year Wishes</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes in 100 languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in Indian Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in European Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/wishes/10-popular-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Popular Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/cards/" class="hover:text-white hover:underline transition-colors duration-200">Cards</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/easter/" class="hover:text-white hover:underline transition-colors duration-200">Easter Festival</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-bihari-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-bihari-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-chinese-new-year-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-chinese-new-year-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/26-christmas-wishes.html" class="hover:text-white hover:underline transition-colors duration-200">26-christmas-wishes</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/2026-festival-countdown.html" class="hover:text-white hover:underline transition-colors duration-200">2026-festival-countdown</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/christmas-wishes-by-audience.html" class="hover:text-white hover:underline transition-colors duration-200">Christmas-wishes-by-audience</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026-celebrations-worldwide.html.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026-celebrations-worldwide.html</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/happy-new-year-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Happy-new-year-2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/multilingual-greetings-webpage.html" class="hover:text-white hover:underline transition-colors duration-200">Multilingual-greetings-webpage</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/dusshera/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Dusshera wishes and cards</a></li>
+          <li><a href="https://www.happy-new-year.org/new-year-page.html" class="hover:text-white hover:underline transition-colors duration-200">New Year Page</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">International New Year</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/chinese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Chinese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/hindu-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Lunar and Solar Hindu Year</a></li>
+          <li><a href="https://www.happy-new-year.org/jewish-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Jewesh Roash Hashanah</a></li>
+          <li><a href="https://www.happy-new-year.org/islamic-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Islamic New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/japanese-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Japanese New Year</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/hindu-festivals-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Hindu Festival Calendar 2026</a></li>
+          <li><a href="https://www.happy-new-year.org/2026/pitru-paksha-2026.html" class="hover:text-white hover:underline transition-colors duration-200">Pitu Paksha 2026</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/abhyanga-snan-the-holy-pre-dawn-oil-bath.html" class="hover:text-white hover:underline transition-colors duration-200">Abhyanga Snan The Holy Pre Dawn Oil Bath</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/ayurvedic-skincare-routines-for-choti-diwali.html" class="hover:text-white hover:underline transition-colors duration-200">Ayurvedic Skincare Routines For Choti Diwali</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/bhoot-chaturdashi-in-west-bengal-honoring-the-ancestors.html" class="hover:text-white hover:underline transition-colors duration-200">Bhoot Chaturdashi In West Bengal Honoring The Ancestors</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/capturing-the-festival-photography-tips-for-diya-lighting.html" class="hover:text-white hover:underline transition-colors duration-200">Capturing The Festival Photography Tips For Diya Lighting</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/charity-and-giving-back-on-naraka-chaturdashi.html" class="hover:text-white hover:underline transition-colors duration-200">Charity And Giving Back On Naraka Chaturdashi</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/choddo-shak-the-14-leafy-greens-of-bengal.html" class="hover:text-white hover:underline transition-colors duration-200">Choddo Shak The 14 Leafy Greens Of Bengal</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/choti-diwali-101-the-second-day-of-the-festival-of-lights.html" class="hover:text-white hover:underline transition-colors duration-200">Choti Diwali 101 The Second Day Of The Festival Of Lights</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/choti-diwali-outfit-ideas-balancing-comfort-and-festivity.html" class="hover:text-white hover:underline transition-colors duration-200">Choti Diwali Outfit Ideas Balancing Comfort And Festivity</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/choti-diwali-vs-badi-diwali-understanding-the-divide.html" class="hover:text-white hover:underline transition-colors duration-200">Choti Diwali Vs Badi Diwali Understanding The Divide</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/community-bonfires-and-local-folklore.html" class="hover:text-white hover:underline transition-colors duration-200">Community Bonfires And Local Folklore</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/corporate-and-personal-gifting-on-day-two.html" class="hover:text-white hover:underline transition-colors duration-200">Corporate And Personal Gifting On Day Two</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/decluttering-rules-before-the-evening-puja.html" class="hover:text-white hover:underline transition-colors duration-200">Decluttering Rules Before The Evening Puja</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/deepavali-in-tamil-nadu-the-main-event.html" class="hover:text-white hover:underline transition-colors duration-200">Deepavali In Tamil Nadu The Main Event</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/early-morning-firecrackers-the-south-indian-tradition.html" class="hover:text-white hover:underline transition-colors duration-200">Early Morning Firecrackers The South Indian Tradition</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/eco-friendly-lighting-solutions-for-choti-diwali.html" class="hover:text-white hover:underline transition-colors duration-200">Eco Friendly Lighting Solutions For Choti Diwali</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/essential-oils-and-floral-waters-for-the-festive-bath.html" class="hover:text-white hover:underline transition-colors duration-200">Essential Oils And Floral Waters For The Festive Bath</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/faraal-preparation-in-maharashtra.html" class="hover:text-white hover:underline transition-colors duration-200">Faraal Preparation In Maharashtra</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/fasting-rules-and-saatvik-diets-for-choti-diwali.html" class="hover:text-white hover:underline transition-colors duration-200">Fasting Rules And Saatvik Diets For Choti Diwali</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/floral-decorations-and-torans-for-day-two.html" class="hover:text-white hover:underline transition-colors duration-200">Floral Decorations And Torans For Day Two</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/global-choti-diwali-diaspora-celebrations.html" class="hover:text-white hover:underline transition-colors duration-200">Global Choti Diwali Diaspora Celebrations</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/hanuman-puja-on-choti-diwali.html" class="hover:text-white hover:underline transition-colors duration-200">Hanuman Puja On Choti Diwali</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/hosting-a-choti-diwali-card-party-etiquette-and-tips.html" class="hover:text-white hover:underline transition-colors duration-200">Hosting A Choti Diwali Card Party Etiquette And Tips</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/how-to-make-the-perfect-traditional-ubtan.html" class="hover:text-white hover:underline transition-colors duration-200">How To Make The Perfect Traditional Ubtan</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/kali-chaudas-tantric-traditions-in-gujarat-and-rajasthan.html" class="hover:text-white hover:underline transition-colors duration-200">Kali Chaudas Tantric Traditions In Gujarat And Rajasthan</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/king-bali-and-the-vamana-avatar-connection.html" class="hover:text-white hover:underline transition-colors duration-200">King Bali And The Vamana Avatar Connection</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/last-minute-diwali-shopping-what-to-buy-on-choti-diwali.html" class="hover:text-white hover:underline transition-colors duration-200">Last Minute Diwali Shopping What To Buy On Choti Diwali</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/lighting-the-akhand-jyot-for-the-festive-week.html" class="hover:text-white hover:underline transition-colors duration-200">Lighting The Akhand Jyot For The Festive Week</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/mental-detox-cleansing-the-mind-before-lakshmi-puja.html" class="hover:text-white hover:underline transition-colors duration-200">Mental Detox Cleansing The Mind Before Lakshmi Puja</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/modern-spa-treatments-vs-traditional-ubtan.html" class="hover:text-white hover:underline transition-colors duration-200">Modern Spa Treatments Vs Traditional Ubtan</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/narakasura-vadh-in-goa-the-effigy-burning-tradition.html" class="hover:text-white hover:underline transition-colors duration-200">Narakasura Vadh In Goa The Effigy Burning Tradition</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/purifying-the-home-atmosphere-with-dhoop-and-loban.html" class="hover:text-white hover:underline transition-colors duration-200">Purifying The Home Atmosphere With Dhoop And Loban</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/rangoli-designs-specifically-for-naraka-chaturdashi.html" class="hover:text-white hover:underline transition-colors duration-200">Rangoli Designs Specifically For Naraka Chaturdashi</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/roop-chaturdashi-the-festival-of-beauty-and-radiance.html" class="hover:text-white hover:underline transition-colors duration-200">Roop Chaturdashi The Festival Of Beauty And Radiance</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/sesame-oil-vs-mustard-oil-regional-bathing-traditions.html" class="hover:text-white hover:underline transition-colors duration-200">Sesame Oil Vs Mustard Oil Regional Bathing Traditions</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/setting-up-the-puja-thali-for-naraka-chaturdashi.html" class="hover:text-white hover:underline transition-colors duration-200">Setting Up The Puja Thali For Naraka Chaturdashi</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/sustainable-and-cracker-free-celebrations.html" class="hover:text-white hover:underline transition-colors duration-200">Sustainable And Cracker Free Celebrations</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/the-astrological-significance-of-chaturdashi-tithi.html" class="hover:text-white hover:underline transition-colors duration-200">The Astrological Significance Of Chaturdashi Tithi</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/the-glowing-skin-diet-for-roop-chaturdashi.html" class="hover:text-white hover:underline transition-colors duration-200">The Glowing Skin Diet For Roop Chaturdashi</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/the-legend-of-narakasura-krishna-and-satyabhama-s-victory.html" class="hover:text-white hover:underline transition-colors duration-200">The Legend Of Narakasura Krishna And Satyabhama S Victory</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/the-main-entrance-welcoming-positive-energies.html" class="hover:text-white hover:underline transition-colors duration-200">The Main Entrance Welcoming Positive Energies</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/the-midnight-transition-preparing-for-badi-diwali.html" class="hover:text-white hover:underline transition-colors duration-200">The Midnight Transition Preparing For Badi Diwali</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Footer Links</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/privacypolicy,html" class="hover:text-white hover:underline transition-colors duration-200">Privacy Policy</a></li>
+          <li><a href="https://www.happy-new-year.org/sitemap.html" class="hover:text-white hover:underline transition-colors duration-200">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center text-sm text-gray-400">
+      <p class="text-sm text-gray-400">New Year Wishes Celebrations and Traditions</p>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">&copy; 2026 Happy New Year. All rights reserved.</p>
+      
+    </div>
+
+  </div>
+</footer>

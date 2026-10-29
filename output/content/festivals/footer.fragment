@@ -43,6 +43,7 @@
         <ul class="space-y-2">
           <li><a href="https://www.happy-new-year.org/festivals/buddha-purnima/" class="hover:text-white hover:underline transition-colors duration-200">Buddha Purnima</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/chhat-puja/" class="hover:text-white hover:underline transition-colors duration-200">Chhat Puja</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/choti-diwali/" class="hover:text-white hover:underline transition-colors duration-200">Choti Diwali</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/christmas/" class="hover:text-white hover:underline transition-colors duration-200">Christmas</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/diwali/" class="hover:text-white hover:underline transition-colors duration-200">Diwali</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/dusshera/" class="hover:text-white hover:underline transition-colors duration-200">Dusshera</a></li>

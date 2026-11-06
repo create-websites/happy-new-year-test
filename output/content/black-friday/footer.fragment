@@ -41,6 +41,7 @@
       <div>
         <h5 class="text-lg font-semibold text-white mb-4">Folders</h5>
         <ul class="space-y-2">
+          <li><a href="https://www.happy-new-year.org/black-friday/2026/" class="hover:text-white hover:underline transition-colors duration-200">2026</a></li>
           <li><a href="https://www.happy-new-year.org/black-friday/deals/" class="hover:text-white hover:underline transition-colors duration-200">Deals</a></li>
           <li><a href="https://www.happy-new-year.org/black-friday/Sale/" class="hover:text-white hover:underline transition-colors duration-200">Sale</a></li>
         </ul>
@@ -96,11 +97,11 @@
     </div>
 
     <div class="mt-8 text-center text-sm text-gray-400">
-      <p class="text-sm text-gray-400">New Year Wishes Celebrations and Traditions</p>
+      <p class="text-sm text-gray-400">Diwali is on Nov 8, Choti Diwali is on Nov 7</p>
     </div>
 
     <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
-      <p class="text-sm text-gray-400">&copy; 2026 Happy New Year. All rights reserved.</p>
+      <p class="text-sm text-gray-400">&copy; 2026 Wish Happy Diwali. All rights reserved.</p>
       
     </div>
 

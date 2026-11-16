@@ -9,6 +9,7 @@
           <li><a href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes in 100 languages</a></li>
           <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in Indian Languages</a></li>
           <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in European Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/dinner/indian-thanksgiving-meal/" class="hover:text-white hover:underline transition-colors duration-200">Indian Thanks Giving Meal</a></li>
           <li><a href="https://www.happy-new-year.org/wishes/10-popular-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Popular Languages</a></li>
           <li><a href="https://www.happy-new-year.org/cards/" class="hover:text-white hover:underline transition-colors duration-200">Cards</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/easter/" class="hover:text-white hover:underline transition-colors duration-200">Easter Festival</a></li>
@@ -77,11 +78,11 @@
     </div>
 
     <div class="mt-8 text-center text-sm text-gray-400">
-      <p class="text-sm text-gray-400">Chhatth Puja in on Nov 18</p>
+      <p class="text-sm text-gray-400">Thanks Giving Dinner and Celebration</p>
     </div>
 
     <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
-      <p class="text-sm text-gray-400">&copy; 2026 Happy Chhath Puja. All rights reserved.</p>
+      <p class="text-sm text-gray-400">&copy; 2026 Happy New Year. All rights reserved.</p>
       
     </div>
 

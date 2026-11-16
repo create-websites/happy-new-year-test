@@ -9,6 +9,7 @@
           <li><a href="https://www.happy-new-year.org/wishes/new-year-wishes-in-100-langauges.html" class="hover:text-white hover:underline transition-colors duration-200">Wishes in 100 languages</a></li>
           <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in Indian Languages</a></li>
           <li><a href="https://www.happy-new-year.org/wishes/" class="hover:text-white hover:underline transition-colors duration-200">Wishes in European Languages</a></li>
+          <li><a href="https://www.happy-new-year.org/festivals/thanksgiving/dinner/indian-thanksgiving-meal/" class="hover:text-white hover:underline transition-colors duration-200">Indian Thanks Giving Meal</a></li>
           <li><a href="https://www.happy-new-year.org/wishes/10-popular-languages.html" class="hover:text-white hover:underline transition-colors duration-200">Popular Languages</a></li>
           <li><a href="https://www.happy-new-year.org/cards/" class="hover:text-white hover:underline transition-colors duration-200">Cards</a></li>
           <li><a href="https://www.happy-new-year.org/festivals/easter/" class="hover:text-white hover:underline transition-colors duration-200">Easter Festival</a></li>
@@ -77,6 +78,7 @@
           <li><a href="https://www.happy-new-year.org/festivals/" class="hover:text-white hover:underline transition-colors duration-200">Festivals</a></li>
           <li><a href="https://www.happy-new-year.org/food-and-wine-tips/" class="hover:text-white hover:underline transition-colors duration-200">Food And Wine Tips</a></li>
           <li><a href="https://www.happy-new-year.org/gadgets/" class="hover:text-white hover:underline transition-colors duration-200">Gadgets</a></li>
+          <li><a href="https://www.happy-new-year.org/gifts/" class="hover:text-white hover:underline transition-colors duration-200">Gifts</a></li>
           <li><a href="https://www.happy-new-year.org/hindu/" class="hover:text-white hover:underline transition-colors duration-200">Hindu</a></li>
           <li><a href="https://www.happy-new-year.org/hindu-calendar/" class="hover:text-white hover:underline transition-colors duration-200">Hindu Calendar</a></li>
           <li><a href="https://www.happy-new-year.org/hindu-new-year/" class="hover:text-white hover:underline transition-colors duration-200">Hindu New Year</a></li>
@@ -129,11 +131,10 @@
           <li><a href="https://www.happy-new-year.org/hindu-new-year.html" class="hover:text-white hover:underline transition-colors duration-200">Hindu New Year</a></li>
           <li><a href="https://www.happy-new-year.org/horoscope.html" class="hover:text-white hover:underline transition-colors duration-200">Horoscope</a></li>
           <li><a href="https://www.happy-new-year.org/image.html" class="hover:text-white hover:underline transition-colors duration-200">Image</a></li>
-          <li><a href="https://www.happy-new-year.org/index-halloween.htm.bak.html" class="hover:text-white hover:underline transition-colors duration-200">Index Halloween.Htm.Bak</a></li>
+          <li><a href="https://www.happy-new-year.org/index-2.html" class="hover:text-white hover:underline transition-colors duration-200">Index 2</a></li>
+          <li><a href="https://www.happy-new-year.org/index-halloween.ht.bak.html" class="hover:text-white hover:underline transition-colors duration-200">Index Halloween.Ht.Bak</a></li>
           <li><a href="https://www.happy-new-year.org/index-main.html" class="hover:text-white hover:underline transition-colors duration-200">Index Main</a></li>
           <li><a href="https://www.happy-new-year.org/index-oct.html" class="hover:text-white hover:underline transition-colors duration-200">Index Oct</a></li>
-          <li><a href="https://www.happy-new-year.org/index-prashant-seasonal-variation.html" class="hover:text-white hover:underline transition-colors duration-200">Index Prashant Seasonal Variation</a></li>
-          <li><a href="https://www.happy-new-year.org/index-prashant.html" class="hover:text-white hover:underline transition-colors duration-200">Index Prashant</a></li>
           <li><a href="https://www.happy-new-year.org/islamic-new-year.html" class="hover:text-white hover:underline transition-colors duration-200">Islamic New Year</a></li>
           <li><a href="https://www.happy-new-year.org/new-year-and-wishes-around-the-world.html" class="hover:text-white hover:underline transition-colors duration-200">New Year And Wishes Around The World</a></li>
           <li><a href="https://www.happy-new-year.org/new-year-in-different-culture.html" class="hover:text-white hover:underline transition-colors duration-200">New Year In Different Culture</a></li>
@@ -166,11 +167,11 @@
     </div>
 
     <div class="mt-8 text-center text-sm text-gray-400">
-      <p class="text-sm text-gray-400">Chhatth Puja in on Nov 18</p>
+      <p class="text-sm text-gray-400">Thanks Giving Dinner and Celebration</p>
     </div>
 
     <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
-      <p class="text-sm text-gray-400">&copy; 2026 Happy Chhath Puja. All rights reserved.</p>
+      <p class="text-sm text-gray-400">&copy; 2026 Happy New Year. All rights reserved.</p>
       
     </div>
 
